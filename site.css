@@ -52,6 +52,7 @@ ul {
 
 h2 {
 	padding: 10px;
+	cursor: pointer;
 }
 
 h3, h4, h5, h6 {
@@ -99,6 +100,14 @@ math, mi {
 
 article {
 	padding: 20pt 0;
+}
+
+.button {
+	cursor: pointer;
+}
+
+.button:hover {
+	text-decoration: underline;
 }
 
 footer {
