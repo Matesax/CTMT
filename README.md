@@ -47,9 +47,9 @@ We define a dimensionless rhythm phase:
 $\Phi_i = \frac{d_i}{L_K}, \quad L_K = \frac{v_{\text{sync}}}{\gamma}$
 
 Where:
-- d_i: Euclidean distance from origin
-- v_{\text{sync}}: synchronization velocity
-- \gamma: decoherence rate
+- $d_i$: Euclidean distance from origin
+- $v_{\text{sync}}$: synchronization velocity
+- $\gamma$: decoherence rate
 
 Pairwise rhythm similarity:
 
