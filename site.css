@@ -1,4 +1,4 @@
-﻿@font-face {
+@font-face {
 	font-family: 'Quicksand';
 	font-style: normal;
 	font-weight: 400;
@@ -34,7 +34,32 @@ body {
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.006);
 	text-rendering: optimizeLegibility !important;
 	-webkit-font-smoothing: antialiased !important;
-	padding: 0 40pt;
+	padding: 0 40pt 40px 40pt;
+	margin: 0;
+	width: 100vw;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+p {
+	padding: 4px;
+	text-indent: 20px;
+}
+
+ul {
+	margin-bottom: 10px;
+}
+
+h2 {
+	padding: 10px;
+}
+
+h3 {
+	padding: 5px;
+}
+
+code {
+	white-space: pre;
 }
 
 strong {
@@ -54,6 +79,59 @@ nav li > ul {
 	padding-left: 40pt;
 }
 
+nav ul {
+	margin: 0;
+}
+
+nav li {
+	text-indent: 0;
+	padding: 4px;
+	list-style: none;
+}
+
+nav li a, nav li a:visited {
+    text-decoration: none;
+    color: #999;
+    text-shadow: 1px -1px 0px black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
 math, mi {
 	font-size: 16px;
+}
+
+article {
+	padding: 20pt 0;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	padding: 10px 20pt;
+	vertical-align: middle;
+	background: #333;
+	color: #CCC;
+	display: flex;
+	flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a, footer a:visited {
+	background: #333;
+	color: #CCC;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer * {
+	margin: 0 20px;
+	font-weight: 600;
 }
