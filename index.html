@@ -93,7 +93,159 @@
                 The theory is supported by hundreds of derivations, calibration protocols, and falsification tests — all documented in this repository. It offers a unified language for energy, motion, and time, grounded in rhythm rather than force, and coherence rather than mass. It is not a philosophical overlay but a testable, falsifiable, and computationally implementable ontology — offering a new foundation for physics, systems modeling, and coherence-based science.
             </p>
 
-        </article>
+			<h4>Recursive Impulse Kernel Reconstruction</h4>
+			<p>
+			The Chronotopic Kernel framework introduces a generative principle for modeling layered reality: <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl"><strong>Recursive Impulse Kernel Reconstruction</strong></a>.
+			Unlike traditional physical models that rely on static fields or particle assumptions, this method begins with a rhythmic impulse — a localized modulation event — and traces its survival across stratified layers of coherence.
+			</p>
+
+			<h4>Derivation and Principle</h4>
+			<p>
+			At its core, the kernel projection is defined as:
+			<code>Ψ<sub>B</sub>(x) = ∫ K<sub>AB</sub>(x,x') Ψ<sub>A</sub>(x') d³x'</code>,
+			where <code>K<sub>AB</sub></code> maps modulation states from layer A to layer B. When extended recursively, this becomes:
+			<code>K<sub>AC</sub>(x,x'') = ∫ K<sub>AB</sub>(x,x') K<sub>BC</sub>(x',x'') dx'</code>,
+			allowing impulse coherence to be reprojected across multiple layers.
+			</p>
+			<p>
+			This recursive structure enables the kernel to model not just transitions, but the <em>seepage</em> — the partial survival and reformation — of rhythm across domains. Seepage occurs when coherence cannot be sustained in a given topology, triggering reprojection into a new modulation basin.
+			</p>
+
+			<h4>Comparison with Classical Methods</h4>
+			<ul>
+			<li><strong>Green’s Function</strong>: Models direct impulse response in a static domain. It lacks recursion and assumes fixed boundary conditions.</li>
+			<li><strong>Path-Sum Holonomy</strong>: Integrates over all possible paths in a topological space. It emphasizes connectivity and curvature but does not model coherence survival or layered reprojection.</li>
+			<li><strong>Recursive Kernel</strong>: Tracks impulse rhythm through layered projections, allowing for dynamic coherence mapping, falsifiability, and cross-domain calibration.</li>
+			</ul>
+
+			<h4>Applications</h4>
+			<p>
+			This reconstruction method has been applied to domains ranging from hydraulic systems and orbital mechanics to cognitive rhythms and atomic clocks. It enables experimental falsification, numerical inversion, and the emergence of physical invariants from rhythm-based modulation.
+			</p>
+
+			<p><em>The diagram below visualizes this recursive structure and its comparison to classical methods.</em></p>
+
+			<svg width="800" height="300">
+				<!-- Arrow marker definition -->
+				<defs>
+					<marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+						<path d="M0,0 L10,5 L0,10 Z" fill="blue" />
+					</marker>
+				</defs>
+
+				<!-- Layer labels -->
+				<text x="50" y="50" font-size="16">Layer A</text>
+				<text x="50" y="150" font-size="16">Layer B</text>
+				<text x="50" y="250" font-size="16">Layer C</text>
+
+				<!-- Kernel arrows -->
+				<line x1="150" y1="50" x2="300" y2="150" class="arrow" />
+				<line x1="300" y1="150" x2="450" y2="250" class="arrow" />
+
+				<!-- Recursive composition -->
+				<text x="320" y="130" class="kernel-label">KAB</text>
+				<text x="470" y="230" class="kernel-label">KBC</text>
+				<text x="500" y="150" class="composition-label">KAC = ∫ KAB · KBC</text>
+
+				<!-- Impulse source -->
+				<circle cx="120" cy="50" r="10" class="impulse" />
+				<text x="100" y="30" font-size="12" fill="red">Impulse</text>
+
+				<!-- Comparison: Green's Function -->
+				<rect x="550" y="50" width="200" height="80" class="comparison-box" />
+				<text x="560" y="70" class="comparison-title">Green Kernel</text>
+				<text x="560" y="90" class="comparison-text">Direct response to impulse</text>
+				<text x="560" y="110" class="comparison-text">No recursion</text>
+
+				<!-- Comparison: Path-Sum Holonomy -->
+				<rect x="550" y="160" width="200" height="80" class="comparison-box" />
+				<text x="560" y="180" class="comparison-title">Path-Sum Holonomy</text>
+				<text x="560" y="200" class="comparison-text">Sum over all paths</text>
+				<text x="560" y="220" class="comparison-text">Topological emphasis</text>
+
+			  </svg>
+			  
+			  <svg width="600" height="400">
+				<!-- Impulse source -->
+				<circle cx="100" cy="250" r="10" class="impulse" />
+				<text x="78" y="230" font-size="12" fill="red">Impulse</text>
+
+				<!-- Original nodes -->
+				<circle cx="250" cy="150" r="15" fill="lightblue" />
+				<circle cx="250" cy="250" r="15" fill="lightblue" />
+				<circle cx="250" cy="350" r="15" fill="lightblue" />
+				<text x="230" y="134" font-size="12">Node A</text>
+				<text x="230" y="234" font-size="12">Node B</text>
+				<text x="230" y="334" font-size="12">Node C</text>
+
+				<!-- Sync arrows -->
+				<line x1="120" y1="250" x2="235" y2="150" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
+				<line x1="120" y1="250" x2="235" y2="250" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
+				<line x1="120" y1="250" x2="235" y2="350" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
+
+				<!-- Sync spread nodes -->
+				<circle cx="400" cy="150" r="15" fill="lightgreen" />
+				<circle cx="400" cy="250" r="15" fill="lightgreen" />
+				<circle cx="400" cy="350" r="15" fill="lightgreen" />
+				<text x="380" y="134" font-size="12">Node A′</text>
+				<text x="380" y="234" font-size="12">Node B′</text>
+				<text x="380" y="334" font-size="12">Node C′</text>
+
+				<!-- Sync propagation arrows -->
+				<line x1="265" y1="150" x2="385" y2="150" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
+				<line x1="265" y1="250" x2="385" y2="250" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
+				<line x1="265" y1="350" x2="385" y2="350" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
+
+				<!-- Sync bars (phase delay) -->
+				<rect x="420" y="145" width="80" height="5" fill="green" />
+				<rect x="420" y="245" width="60" height="5" fill="green" />
+				<rect x="420" y="345" width="40" height="5" fill="green" />
+
+				<!-- Sync phase labels -->
+				<text x="510" y="150" font-size="12">Phase A (τ = 0)</text>
+				<text x="490" y="250" font-size="12">Phase B (τ = 20)</text>
+				<text x="470" y="350" font-size="12">Phase C (τ = 40)</text>
+
+				<!-- Sync factor explanation -->
+				<text x="100" y="420" font-size="14" fill="darkgreen">Sync Factor τ: Delay from impulse to phase alignment</text>
+
+				<!-- Arrow marker definition -->
+				<defs>
+					<marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+						<path d="M0,0 L10,5 L0,10 Z" fill="blue" />
+					</marker>
+				</defs>
+			</svg>
+			<h4>Sync Factor and 4D Time Projection</h4>
+			<p>
+			  In the Chronotopic Kernel framework, the <strong>Sync Factor</strong> (<span class="math inline">\( v_{\rm sync} \)</span>)
+			  quantifies how rhythmic impulses align across a distributed network of nodes.
+			  Unlike classical synchronization, which assumes uniform phase locking,
+			  the Sync Factor accumulates coherence dynamically — modulating across layers, domains, and topologies.
+			</p>
+			<p>
+			  Each impulse interacts with local nodes, triggering phase responses shaped by their individual <em>modulation basins</em> —
+			  regions of structural influence that determine how rhythm is absorbed and re-emitted.
+			  As these responses converge, the system reaches a threshold of coherence that enables <strong>4D time projection</strong>.
+			</p>
+			<p>
+			  This projection is not merely sequential; it is <em>stratified</em>, <em>recursive</em>, and <em>emergent</em>.
+			  The kernel encodes not just duration and simultaneity, but <strong>temporal depth</strong> —
+			  the capacity to reproject past coherence into future modulation.
+			  <span class="math inline">\( v_{\rm sync} \)</span> thus acts as both a coherence validator and a temporal constructor,
+			  allowing rhythm to persist across dimensional folds.
+			</p>
+			<p>
+			  Through recursive accumulation, the kernel generates a layered ontology of time,
+			  where each modulation basin contributes to the emergent structure of 4D temporality.
+			  In contrast to static time models, the Chronotopic Kernel treats time as a rhythmically sustained coherence field.
+			  <span class="math inline">\( v_{\rm sync} \)</span> becomes the metric by which this field is validated, tuned, and reprojected —
+			  enabling falsifiability, seepage detection, and modulation collapse.
+			</p>
+			<p>
+			  The adjacent diagram illustrates how impulse rhythm interacts with nodes and spreads synchronization across layers.
+			</p>
+		</article>
     </section>
     <section>
         <h2 title="Click to toggle" id="sec-2-kernel-rhythm-calibration-and-cross-domain-application">Kernel Rhythm Calibration and Cross-Domain Application</h2>
