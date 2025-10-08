@@ -103,6 +103,34 @@ math, mi {
 	font-size: 16px;
 }
 
+.arrow {
+  stroke: blue;
+  stroke-width: 2;
+  marker-end: url(#arrow);
+}
+.impulse {
+  fill: red;
+}
+.kernel-label {
+  fill: blue;
+  font-size: 14px;
+}
+.composition-label {
+  fill: darkgreen;
+  font-size: 14px;
+}
+.comparison-box {
+  fill: #f0f0f0;
+  stroke: gray;
+}
+.comparison-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+.comparison-text {
+  font-size: 12px;
+}
+
 article {
 	padding: 20pt 0;
 }
