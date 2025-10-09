@@ -41,6 +41,11 @@ body {
 	box-sizing: border-box;
 }
 
+table {
+	border-collapse: separate;
+	border-spacing: 14px 4px;
+}
+
 p {
 	padding: 4px;
 	text-indent: 20px;
