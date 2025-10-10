@@ -14755,9 +14755,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 window.collapseAll();
                 return;
             }
-            let header = document.querySelectorAll(location.hash)[0];
-            header.closest("section").children[1].style.display = null;
-            header.scrollIntoView({ behavior: 'smooth' });
+			if (location.hash) {
+				let header = document.querySelectorAll(location.hash)[0];
+				header.closest("section").children[1].style.display = null;
+				header.scrollIntoView({ behavior: 'smooth' });
+			}
         };
         window.addEventListener('hashchange', window.hashChangeHandler);
 
