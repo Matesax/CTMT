@@ -2037,10 +2037,10 @@
 				<path d="M950 304 C940 320, 940 330, 940 350" class="arrow" />
 
 				<!-- Feedback arrows -->
-				<path d="M620 588 C500 640, 420 560, 335 480" class="feedback" />
+				<path d="M620 588 C500 640, 336 560, 335 488" class="feedback" />
 				<path d="M335 420 C320 340, 420 240, 540 200" class="feedback" />
-				<path d="M335 260 C360 200, 480 160, 540 160" class="feedback" />
-				<path d="M1030 350 C900 200, 860 180, 640 200" class="feedback" />
+				<path d="M335 250 C360 200, 480 160, 540 160" class="feedback" />
+				<path d="M1030 330 C900 200, 860 200, 640 200" class="feedback" />
 			</svg>
 
 			<div class="legend" aria-hidden="false" role="list">
@@ -2060,8 +2060,115 @@
 
 			<div class="caption-box">
 				<p class="figure-caption"><strong>Figure:</strong> <em>Self-Referential Chronotopic Kernel Map.</em> The central circle denotes the Kernel (coherence phase Φ, kernel K, and action S). Forward computation projects the kernel through the forward operator, basis expansion and linear system into observables. Inversion methods (bottom) recover kernel coefficients under regularization constraints. Regularization, anchoring to measurements, and sequential/state-space estimates provide recursive feedback (dashed orange) that updates priors, kernel geometry, and coherence metrics. This closed loop enforces dimensional and observational consistency while enabling the kernel to self-refine.</p>
-				<p class="svg-note"><strong>Notes for readers:</strong> (1) The diagram is optimized for print and on-screen viewing; colors chosen for high-contrast grayscale reproduction. (2) For an interactive web appendix, each node can expose tooltips with mathematical definitions, data sources, and inversion diagnostics.</p>
 			</div>
+
+  <h5>Kernel Collapse: Linearization Flow</h5>
+
+<svg viewBox="230 20 900 560" style="max-width:1200px" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figTitle figDesc">
+  <title id="figTitle">Kernel Collapse: Linearization Flow</title>
+  <desc id="figDesc">Diagram showing how the self-referential kernel collapses nonlinear space into a linear system via coherence extraction, basis projection, and matrix assembly.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#333"></path>
+    </marker>
+    <marker id="arrow-feedback" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#cc5500"></path>
+    </marker>
+    <style>
+      .node{stroke:#333;stroke-width:1.25;rx:6;ry:6;}
+      .label{font-weight:700;text-anchor:middle;fill:#0c0c0c;font-size:14px;}
+      .sub{font-size:12px;fill:#222;text-anchor:middle;}
+      .arrow{stroke:#333;stroke-width:2;fill:none;marker-end:url(#arrow);stroke-linecap:round;}
+      .feedback{stroke:#cc5500;stroke-width:2.2;stroke-dasharray:7 4;fill:none;marker-end:url(#arrow-feedback);stroke-linecap:round;}
+    </style>
+  </defs>
+
+  <!-- Kernel Impulse -->
+  <circle cx="600" cy="100" r="60" fill="#d9ecff" stroke="#2b2b2b"></circle>
+  <text x="600" y="92" class="label">Kernel Impulse</text>
+  <text x="600" y="112" class="sub">(Φ, K, S)</text>
+
+  <!-- Nonlinear Domain -->
+  <rect x="370" y="220" width="180" height="60" fill="#fffbe0" class="node"></rect>
+  <text x="460" y="250" class="label">Nonlinear Domain</text>
+  <text x="460" y="268" class="sub">Curved / Stratified</text>
+
+  <!-- Dual Arrow: Linear computation within nonlinear manifold -->
+  <path d="M600 160 C570 200, 530 200, 460 220" stroke="#1a66cc" stroke-width="3" stroke-dasharray="6 3" fill="none" marker-end="url(#arrow)">
+    <title>Nonlinear curvature being probed by kernel</title>
+  </path>
+  <path d="M600 160 C565 198, 520 198, 460 218" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <title>Linear operator acting along nonlinear path</title>
+  </path>
+  <text x="460" y="190" font-size="12" text-anchor="middle" fill="#333">
+    Linear map → curved basis
+  </text>
+
+  <!-- Coherence Extraction -->
+  <rect x="650" y="220" width="180" height="60" fill="#e8ffe8" class="node"></rect>
+  <text x="740" y="250" class="label">Coherence Extraction</text>
+  <text x="740" y="268" class="sub">λ<tspan dy="4" font-size="10">coh</tspan>, rhythm</text>
+
+  <!-- Basis Projection -->
+  <rect x="650" y="340" width="180" height="60" fill="#fff6d6" class="node"></rect>
+  <text x="740" y="370" class="label">Basis Projection</text>
+  <text x="740" y="388" class="sub">K ≈ Σ κⱼ bⱼ</text>
+
+  <!-- Matrix Assembly -->
+  <rect x="650" y="460" width="180" height="60" fill="#f2dff5" class="node"></rect>
+  <text x="740" y="490" class="label">Matrix Assembly</text>
+  <text x="740" y="508" class="sub">Aκ + ε</text>
+
+  <!-- Linear System -->
+  <rect x="870" y="460" width="180" height="60" fill="#e6f7ff" class="node"></rect>
+  <text x="960" y="490" class="label">Linear System</text>
+  <text x="960" y="508" class="sub">O = Aκ + ε</text>
+
+  <!-- Inversion Methods -->
+  <rect x="870" y="340" width="180" height="60" fill="#ffe8e8" class="node"></rect>
+  <text x="960" y="370" class="label">Inversion Methods</text>
+  <text x="960" y="388" class="sub">Tikhonov / LASSO</text>
+
+  <!-- Forward arrows -->
+  <path d="M600 160 C640 200, 680 200, 740 220" class="arrow"></path>
+  <path d="M740 280 C740 300, 740 320, 740 340" class="arrow"></path>
+  <path d="M740 400 C740 420, 740 440, 740 460" class="arrow"></path>
+  <path d="M830 490 C850 490, 870 490, 870 490" class="arrow"></path>
+  <path d="M830 370 C850 370, 870 370, 870 370" class="arrow"></path>
+
+  <!-- Feedback loops -->
+  <path d="M960 520 C840 600, 740 570, 740 524" class="feedback"></path>
+  <path d="M960 350 C840 320, 750 290, 780 290" class="feedback"></path>
+</svg>
+
+<div class="legend" aria-hidden="false" role="list">
+  <div class="legend-item" role="listitem">
+    <span class="swatch swatch-forward" aria-hidden="true"></span>
+    <span>Solid black arrows — <strong>forward flow</strong> (kernel → domain → coherence → basis → linear system).</span>
+  </div>
+  <div class="legend-item" role="listitem">
+    <span class="swatch swatch-feedback" aria-hidden="true"></span>
+    <span>Dashed orange arrows — <strong>feedback refinement</strong> (inversion → kernel updates).</span>
+  </div>
+<div class="legend-item" role="listitem">
+  <span class="swatch" style="background:linear-gradient(90deg,#1a66cc 40%,#000 60%);border:1px solid #333;"></span>
+  <span>Blue–black dual arrow — <strong>linear computation within nonlinear manifold</strong> (kernel probing curved space).</span>
+</div>
+  <div class="legend-item" role="listitem">
+    <span class="swatch swatch-node" aria-hidden="true"></span>
+    <span>Colored blocks — semantic regions (kernel, nonlinear space, projection, inversion).</span>
+  </div>
+</div>
+
+<div class="caption-box">
+  <p class="figure-caption"><strong>Figure:</strong> <em>Kernel Collapse and Linearization Flow.</em>  
+  The <strong>Kernel Impulse</strong> initiates modulation across a curved, nonlinear domain. 
+  Through <strong>Coherence Extraction</strong>, rhythmic and phase-aligned structures are identified. 
+  These are mapped into a <strong>Basis Projection</strong>, allowing nonlinear curvature to be expressed within a linear operator form. 
+  <strong>Matrix Assembly</strong> constructs the algebraic representation <em>Aκ + ε</em>, feeding into a measurable <strong>Linear System</strong>. 
+  Inversion and diagnostic feedback (dashed orange) iteratively update the kernel’s geometry and coherence metrics, enabling linear computation of inherently nonlinear spaces.</p>
+</div>
 
 			<p>
 				<strong>Interpretation:</strong> The kernel defines an initial state and produces observables via its forward operator.
@@ -5231,6 +5338,77 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <li><span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span> with \(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\) — cohesion map (monotone)</li>
                 <li><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span> — MHD/coherence multiplier (≈1 in non-MHD solids)</li>
             </ul>
+
+
+  <h4>RMI-Based derivation protocol</h4>
+    <p>
+      In the Chronotopic framework, mass is not a primitive quantity. It emerges from the recursive projection of the kernel impulse across coherence layers. The impulse rhythm defines a coherence length \( \lambda_{\mathrm{coh}} \), which sets the scale at which modulation survives in a given medium. By counting the number of coherence cells within a spatial domain and weighting them by energy retention and packing geometry, we derive a structural mass expression.
+    </p>
+
+    <h5>Step 1: Kernel impulse projection</h5>
+    <p>
+      The kernel impulse \( \Psi(x,t) \) propagates through a medium, sustaining coherence over a characteristic length \( \lambda_{\mathrm{coh}} \). This length is regime-dependent and reflects the microscopic coupling scale (e.g., lattice spacing, Debye length, de Broglie wavelength).
+    </p>
+
+    <h5>Step 2: Coherence cell counting</h5>
+    <p>
+      The number of coherence cells in a volume \( V = \frac{4\pi}{3}R^3 \) is:
+    </p>
+
+    <div class="math display">
+      
+
+\[
+      N_{\text{cells}} = \frac{V}{\lambda_{\mathrm{coh}}^3}
+      \]
+
+
+    </div>
+
+    <h5>Step 3: Mass per cell</h5>
+    <p>
+      Each coherence cell contributes a mean particle mass \( \mu m_p \), adjusted by the packing fraction \( f_{\mathrm{pack}} \) to account for bulk density. The cohesion map \( C(\chi) = \frac{\chi}{1+\chi} \) weights the contribution based on the ratio of retained to dissipated energy.
+    </p>
+
+    <h5>Step 4: MHD and structural modulation</h5>
+    <p>
+      In magnetized or rotating systems, coherence is further modulated by a structural multiplier \( \mathcal{M}(R_m,\alpha) \), which accounts for magnetic Reynolds number and alignment angle. In non-MHD solids, this factor is approximately unity.
+    </p>
+
+    <h4>Final expression</h4>
+    <p>
+      Combining all terms, we obtain the unified structural mass law:
+    </p>
+
+    <figure class="equation" id="eq-13_52">
+      <div class="math display">
+        
+
+\[
+        \boxed{%
+        M \;=\; \frac{4\pi}{3}R^3 \;
+        \frac{\mu m_p}{\lambda_{\mathrm{coh}}^{3}} \;
+        f_{\mathrm{pack}} \;
+        C\!\Big(\frac{E_{\mathrm{coh}}}{E_{\mathrm{dis}}}\Big) \;
+        \mathcal{M}(R_m,\alpha)
+        }
+        \]
+
+
+      </div>
+      <figcaption>Equation (13.52): Unified Structural Mass Law</figcaption>
+    </figure>
+
+    <p><strong>Unit check:</strong></p>
+    <div class="math display">
+      
+
+\[
+      [M] = \mathrm{m^3} \cdot \frac{\mathrm{kg}}{\mathrm{m^3}} \cdot 1 \cdot 1 \cdot 1 = \mathrm{kg}
+      \]
+
+
+    </div>
 
             <h4>Tier Protocol for Selecting \(\lambda_{\mathrm{coh}}\)</h4>
 
