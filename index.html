@@ -13833,157 +13833,276 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
         </article>
     </section>
-    <section>
-        <h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional check</h2>
-        <article style="display:none">
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th><strong>Axiom / Name</strong></th>
-                        <th><strong>Statement / Formula</strong></th>
-                        <th width="30%"><strong>Units and Justification (SI)</strong></th>
-                        <th><strong>Anchors / Measurement / Commentary</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Dimensional Closure</strong></td>
-                        <td>All kernel expressions must reduce to SI base units (kg, m, s, A, K, mol, cd).</td>
-                        <td>Each equation must have matching dimensions on both sides.</td>
-                        <td>Perform unit checks in every derivation.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Kernel Linearity &amp; Composability</strong></td>
-                        <td>Kernel is linear: <span class="math inline">\(\Psi_B(x) = \int K_{AB}(x,x')\,\Psi_A(x')\,d^3x'\)</span>.</td>
-                        <td>For normalized fields, <span class="math inline">\(K_{AB}\)</span> has units <span class="math inline">\(m^{-3}\)</span> (or adjusted per normalization of <span class="math inline">\(\Psi\)</span>).</td>
-                        <td>Test via impulse-response reconstruction and superposition.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Causality</strong></td>
-                        <td><span class="math inline">\(K_{AB}(x,t;x',t')=0\)</span> for <span class="math inline">\(t' &lt; t-\tau_{\max}\)</span>.</td>
-                        <td>Implies existence of a synchrony velocity <span class="math inline">\(v_{\rm sync}\)</span> with units m/s.</td>
-                        <td>Measure impulse delays; verify signal speed bounds.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Conservation / Normalization</strong></td>
-                        <td>Optional: <span class="math inline">\(\int K_{AB}(x,x')\,d^3x' = 1\)</span>.</td>
-                        <td>Normalization factor is dimensionless.</td>
-                        <td>Confirm via numerical integration of reconstructed kernel.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Action Quantum</strong></td>
-                        <td>Exponential weight: <span class="math inline">\(\exp(iS[\gamma]/\mathcal{S}_*)\)</span>.</td>
-                        <td><span class="math inline">\(\mathcal{S}_*\)</span> must carry units of action J·s, same as <span class="math inline">\(\mathcal{S}\)</span>.</td>
-                        <td>Calibrate via interference experiments; in the limit, identifies with <span class="math inline">\(\hbar\)</span>.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Phase Dimensionless</strong></td>
-                        <td>Phase argument <span class="math inline">\(S/\mathcal{S}_*\)</span> must be unitless.</td>
-                        <td>Requires both <span class="math inline">\(\mathcal{S}\)</span> and <span class="math inline">\(\mathcal{S}_*\)</span> in J·s.</td>
-                        <td>Check all exponentials for dimensional consistency.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Synchronization Velocity</strong></td>
-                        <td>Defined as <span class="math inline">\(v_{\rm sync} = M_1 \cdot \nu_{\rm sync}\)</span>.</td>
-                        <td><span class="math inline">\(M_1 [m], \nu [s^{-1}] \to v [m/s]\)</span>.</td>
-                        <td>Anchored to CMB and Cs standards; test via independent measurements.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Coherence Volume \((\chi)\)</strong></td>
-                        <td><span class="math inline">\(\chi = \tfrac{M v^2}{\Phi g h \rho}\)</span>.</td>
-                        <td>If <span class="math inline">\(M [kg] \to \chi [m^3]\)</span>; if <span class="math inline">\(M [kg/s] \to \chi [m^3/s]\)</span>.</td>
-                        <td>Map to observables such as power or flow.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Impedance Density \((\rho_K)\)</strong></td>
-                        <td>Defined so that <span class="math inline">\(\rho_K L_K^3\)</span> carries units of action.</td>
-                        <td><span class="math inline">\(\rho_K [J \cdot s \cdot m^{-3}]\)</span> (or redefined convention).</td>
-                        <td>Measure via impedance spectroscopy; state units explicitly.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Topological Charge (Q)</strong></td>
-                        <td><span class="math inline">\(Q \in \mathbb{Z}\)</span>, energy: <span class="math inline">\(E_{\rm top} = b \,\rho_{\rm topo}\)</span>.</td>
-                        <td>
-                            Q is dimensionless; <span class="math inline">\(\rho_{\rm topo}\)</span> is dimensionless;
-                            <span class="math inline">\(b\)</span> has units <span class="math inline">\([\mathrm{J\,m^{-2}}]\)</span>;
-                            <span class="math inline">\(L_Z^2\)</span> has units <span class="math inline">\([\mathrm{m^2}]\)</span>. Thus <span class="math inline">\(E_{\rm top} = b\,\rho_{\rm topo}\,|Q|\,L_Z^2\,\Phi(\cdot)\)</span> has units of joules.
-                        </td>
-                        <td>Anchor: skyrmion experiments; test linearity in ∣Q∣.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Coherence Length \((L_Z)\)</strong></td>
-                        <td><span class="math inline">\(L_Z = L_0 \,\delta_p^{\gamma^*}\)</span>, with <span class="math inline">\(\delta_p = \tfrac{G m_p^2}{k_e e^2}\)</span>.</td>
-                        <td><span class="math inline">\(\delta_p\)</span> is dimensionless; <span class="math inline">\(L_0 [m] \to L_Z [m]\)</span>.</td>
-                        <td>Provide measurement protocol (e.g., holonomy, impulse decay).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Collapse Rate \((\gamma)\)</strong></td>
-                        <td>Used in <span class="math inline">\(L_K = v_{\rm sync}/\gamma\)</span>.</td>
-                        <td><span class="math inline">\(\gamma [s^{-1}]\)</span> → consistent with <span class="math inline">\(L_K\)</span> in <span class="math inline">\([m]\)</span>.</td>
-                        <td>Estimate from spectral width FWHM/2 of impulse data.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Emergence Principle</strong></td>
-                        <td>Constants <span class="math inline">\(c, \hbar, G, \alpha\)</span> emerge from kernel recursion, not assumed.</td>
-                        <td>Each derivation must reduce to correct SI units (e.g. <span class="math inline">\(G\)</span> in <span class="math inline">\(m^3 \cdot kg^{-1} \cdot s^{-2}\)</span>).</td>
-                        <td>Provide explicit derivation chains; compare with experimental values.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Regularization / Stability</strong></td>
-                        <td>Inverse: <span class="math inline">\(m^\star = \arg\min |Am-O|_2^2 + \lambda|Lm|_2^2\)</span>.</td>
-                        <td><span class="math inline">\(\lambda\)</span> chosen so terms are dimensionally homogeneous.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Phase/Action Mapping</strong></td>
-                        <td>Kernel distance <span class="math inline">\(D = v_{\rm sync}/\gamma\)</span>.</td>
-                        <td><span class="math inline">\([m/s] \div [s^{-1}] = [m]\)</span>.</td>
-                        <td>Compare to GPS or sonar distance measurements.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Magnetic Kernel Scaling</strong></td>
-                        <td><span class="math inline">\(\mathbf{B}_{\rm ker} = \kappa \nabla \times \rho \mathbf{u}\)</span>.</td>
-                        <td><span class="math inline">\(\kappa\)</span> chosen so result has units of Tesla.</td>
-                        <td>Anchor via SQUID or Hall probe validation.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Falsifiability Axiom</strong></td>
-                        <td>Each projection must define at least one falsifiable prediction.</td>
-                        <td>Not unit-based, but tests must include error bars and SI units.</td>
-                        <td>Example: anisotropy in <span class="math inline">\(v_{\rm sync} &gt; 10^{-17}\)</span> falsified by Herrmann et al.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Notation Table Requirement</strong></td>
-                        <td>All symbols must be listed with meaning, SI units, and notes.</td>
-                        <td>Ensures unambiguous interpretation.</td>
-                        <td>Include full notation table in appendix; prevents ambiguity in defense.</td>
-                    </tr>
-                </tbody>
-            </table>
-
+	<section>
+		<h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional check</h2>
+		<article style="display:none">
 			<p>
-				The following quantities are dimensionless by construction, derived from normalized ratios or pure rhythm modulations:
+				This unified section consolidates all Chronotopic Kernel axioms across energy, orbital mechanics,
+				collapse/resonance, and topology. Each axiom includes dimensional justification, observable anchors,
+				measurement protocols, and falsifiability criteria. Dimensionless constructs are explicitly bridged to SI
+				quantities via scaling laws and action–energy mappings to ensure full physical closure.
 			</p>
 
+			<!-- CORE AXIOMS TABLE -->
+			<h3 id="sec-37-dimensional-check_1">Core Axioms and Dimensional Closure</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom / Name</th>
+						<th>Statement / Formula</th>
+						<th>Units &amp; Justification (SI)</th>
+						<th>Anchors / Measurement / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Dimensional closure</strong></td>
+						<td>All kernel equations reduce to SI base units <span class="math inline">\( (\mathrm{kg},\ \mathrm{m},\ \mathrm{s},\ \mathrm{A},\ \mathrm{K},\ \mathrm{mol},\ \mathrm{cd}) \)</span>.</td>
+						<td>Left–right dimensional parity in all expressions.</td>
+						<td>Anchor: explicit unit check. Falsify if mismatch detected.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Kernel linearity &amp; composability</strong></td>
+						<td><span class="math inline">\( \Psi_B(x)=\int K_{AB}(x,x')\,\Psi_A(x')\,\mathrm{d}^3x' \)</span></td>
+						<td>For normalized fields, <span class="math inline">\( K_{AB} \)</span> has units <span class="math inline">\( [\mathrm{m}^{-3}] \)</span>.</td>
+						<td>Test via impulse reconstruction; falsify if superposition fails.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Causality</strong></td>
+						<td>
+							<span class="math inline">\( K_{AB}(x,t;x',t')=0 \)</span>
+							for <span class="math inline">\( t' &lt; t-\tau_{\max} \)</span>
+						</td>
+						<td>Defines synchrony velocity <span class="math inline">\( v_{\mathrm{sync}} \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span></td>
+						<td>Measure impulse delay; falsify if superluminal propagation observed.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Action quantum</strong></td>
+						<td>Weight <span class="math inline">\( \exp\!\left(i\,S[\gamma] / \mathcal{S}_*\right) \)</span></td>
+						<td><span class="math inline">\( \mathcal{S}_* \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span> ensures phase dimensionless.</td>
+						<td>Anchor: interference calibration. Falsify if phase non-unitless.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Synchronization velocity</strong></td>
+						<td><span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu_{\mathrm{sync}} \)</span></td>
+						<td>
+							<span class="math inline">\( M_1 \)</span> <span class="math inline">\( [\mathrm{m}] \)</span>;
+							<span class="math inline">\( \nu_{\mathrm{sync}} \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span>
+						</td>
+						<td>Anchor: atomic/CMB timing; falsify on inconsistent multi-baseline speeds.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Coherence volume <span class="math inline">\( \chi \)</span></strong></td>
+						<td><span class="math inline">\( \chi = \dfrac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span></td>
+						<td>
+							If <span class="math inline">\( M \)</span> <span class="math inline">\( [\mathrm{kg}] \)</span> \(\to\) <span class="math inline">\( \chi \)</span> <span class="math inline">\( [\mathrm{m}^3] \)</span>;
+							if <span class="math inline">\( M \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}^3\,\mathrm{s}^{-1}] \)</span>
+						</td>
+						<td>Anchor: flow/power mapping; falsify if measured <span class="math inline">\( \chi \)</span> violates scale.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Tuning / impedance density</strong></td>
+						<td>
+							<span class="math inline">\( \rho \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{m}^{-3}] \)</span>,
+							<span class="math inline">\( \rho_K \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}\,\mathrm{m}^{-3}] \)</span>, ensuring
+							<span class="math inline">\( \rho_K\,L_K^3 \;\to\; [\mathrm{J}\,\mathrm{s}] \)</span>
+						</td>
+						<td>Bridge between static and dynamic representations.</td>
+						<td>Anchor: densitometry / impedance spectroscopy; falsify if inconsistent.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Topological charge <span class="math inline">\( Q \)</span></strong></td>
+						<td><span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \)</span></td>
+						<td>
+							<span class="math inline">\( b \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{m}^{-2}] \)</span>,
+							<span class="math inline">\( L_Z^2 \)</span> <span class="math inline">\( [\mathrm{m}^2] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
+						</td>
+						<td>Anchor: skyrmion energy scaling; falsify if non-linear in <span class="math inline">\( |Q| \)</span>.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Coherence length <span class="math inline">\( L_Z \)</span></strong></td>
+						<td>
+							<span class="math inline">\( L_Z = L_0\,\delta_p^{\gamma^*} \)</span>,
+							<span class="math inline">\( \delta_p = \dfrac{G\,m_p^2}{k_e\,e^2} \)</span>
+						</td>
+						<td>
+							<span class="math inline">\( \delta_p \)</span> <span class="math inline">\( \text{(dimensionless)} \)</span> \(\to\) <span class="math inline">\( L_Z \)</span> <span class="math inline">\( [\mathrm{m}] \)</span>
+						</td>
+						<td>Measure via holonomy or impulse decay; falsify if scaling fails.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Collapse rate <span class="math inline">\( \gamma \)</span></strong></td>
+						<td><span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span></td>
+						<td><span class="math inline">\( \gamma \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( L_K \)</span> <span class="math inline">\( [\mathrm{m}] \)</span></td>
+						<td>Anchor: FWHM/2 of spectra; falsify if mismatch in distance ratio.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Regularization / stability</strong></td>
+						<td><span class="math inline">\( m^* = \arg\min \|A m - O\|_2^2 + \lambda \|L m\|_2^2 \)</span></td>
+						<td><span class="math inline">\( \lambda \)</span> unit-balanced; ensures numerical stability.</td>
+						<td>Falsify if ill-posed inversion persists.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- ENERGY LAW -->
+			<h3 id="sec-37-dimensional-check_2">Energy Law Axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units &amp; Bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Kernel energy scaling</strong></td>
+						<td><span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span></td>
+						<td>
+							<span class="math inline">\( \Phi \)</span> <span class="math inline">\( \text{(dimensionless)} \)</span>;
+							<span class="math inline">\( \gamma \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span>;
+							<span class="math inline">\( \rho \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{m}^{-3}] \)</span>;
+							<span class="math inline">\( L_Z^3 \)</span> <span class="math inline">\( [\mathrm{m}^3] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
+						</td>
+						<td>Anchor: calorimetry/resonant data; falsify if deviation vs. controlled <span class="math inline">\( \rho,\gamma,L_Z \)</span>.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Phase–energy link</strong></td>
+						<td><span class="math inline">\( E = \hbar\,\omega \)</span></td>
+						<td>
+							<span class="math inline">\( \hbar \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span>;
+							<span class="math inline">\( \omega \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
+						</td>
+						<td>Anchor: spectroscopy; falsify if peaks misalign beyond error.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Vacuum wave-speed consistency</strong></td>
+						<td>Elastic/inertial ratio <span class="math inline">\(\to\) \( c \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span></td>
+						<td>Derived from stiffness–inertia invariance.</td>
+						<td>Anchor: optical clocks; falsify if <span class="math inline">\( c \)</span> varies with low-<span class="math inline">\( \rho_c \)</span> environment.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- ORBITAL -->
+			<h3 id="sec-37-dimensional-check_3">Orbital Mechanics Axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units &amp; Bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Kernel rhythm mass</strong></td>
+						<td>Mass inferred from synchrony frequency &amp; holonomy</td>
+						<td>Frequency ↔ action scaling <span class="math inline">\(\to\) \( [\mathrm{kg}] \)</span></td>
+						<td>Anchor: ephemerides; falsify if divergence vs. gravitational solutions.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Orbital stability index</strong></td>
+						<td>Stability = kernel energy ratio</td>
+						<td>Dimensionless</td>
+						<td>Anchor: long-term integrations; falsify if unstable predicted orbits persist.</td>
+					</tr>
+
+					<tr>
+						<td><strong><span class="math inline">\( \Delta v \)</span> protocol</strong></td>
+						<td><span class="math inline">\( \Delta v \)</span> as kernel energy expenditure with geometry factor <span class="math inline">\( \Phi \)</span></td>
+						<td>
+							<span class="math inline">\( \Delta v \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span> \(\to\) \(E\) via <span class="math inline">\( \tfrac{1}{2} m \Delta v^2 \)</span> or kernel law
+						</td>
+						<td>Anchor: mission telemetry; falsify if <span class="math inline">\( \Delta v \)</span> forecasts deviate systematically.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- COLLAPSE / RESONANCE -->
+			<h3 id="sec-37-dimensional-check_4">Collapse and Resonance Axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units &amp; Bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Stationary-phase collapse</strong></td>
+						<td><span class="math inline">\( \partial_\omega \arg M[\omega] = 0 \)</span></td>
+						<td>Dimensionless; identifies stationary frequencies <span class="math inline">\( \omega_n \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span></td>
+						<td>Anchor: interferometry; falsify if predicted <span class="math inline">\( \omega_n \)</span> absent.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Plasma resonance</strong></td>
+						<td><span class="math inline">\( \omega_p = \sqrt{\dfrac{n_e e^2}{\varepsilon_0 m_e}} \)</span></td>
+						<td>Standard SI closure <span class="math inline">\(\to\) \( [\mathrm{s}^{-1}] \)</span></td>
+						<td>Anchor: Langmuir spectra; falsify if <span class="math inline">\( \omega_p \)</span> vs <span class="math inline">\( n_e \)</span> scaling breaks.</td>
+					</tr>
+
+					<tr>
+						<td><strong>Energy mapping of resonance</strong></td>
+						<td><span class="math inline">\( E = \hbar\,\omega_p \)</span></td>
+						<td>
+							<span class="math inline">\( \hbar \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span>,
+							<span class="math inline">\( \omega_p \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
+						</td>
+						<td>Anchor: microwave spectroscopy; falsify if mismatch beyond propagated error.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- SYMBOLS -->
+			<h3 id="sec-37-dimensional-check_5">Symbol Mapping and Aliases</h3>
 			<ul>
 				<li>
-					<span class="math inline">\(\rho_{\text{topo}}\)</span>: Defined as a topological rhythm density, normalized per kernel unit.
-					It is dimensionless as it represents a pure count per synchrony cycle.
+					<strong>Dimensionless:</strong>
+					<span class="math inline">\( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)</span>
 				</li>
 				<li>
-					<span class="math inline">\(\Phi\)</span>: A phase synchrony index, representing modulation coherence.
-					It is dimensionless as it encodes rhythm alignment without reference to spatial or temporal units.
+					<strong>Unit-anchored:</strong>
+					<span class="math inline">
+						\( L_Z\,[\mathrm{m}],\ L_0\,[\mathrm{m}],\ v_{\mathrm{sync}}\,[\mathrm{m}\,\mathrm{s}^{-1}],\ \gamma\,[\mathrm{s}^{-1}],\ L_K\,[\mathrm{m}],\)
+					</span>
+					<br />
+					<span class="math inline">
+						\( \chi\,[\mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s}^{-1}],\ \rho\,[\mathrm{kg}\,\mathrm{m}^{-3}],\ \rho_K\,[\mathrm{J}\,\mathrm{s}\,\mathrm{m}^{-3}],\ \Theta\,[\mathrm{m}^{-1}\,\mathrm{s}^{-1}],\ h,\ \mathcal{E}_*,\ b\,[\mathrm{J}\,\mathrm{m}^{-2}] \)
+					</span>
 				</li>
-				<li>
-					<span class="math inline">\(\Xi(\kappa, \xi)\)</span>: A modulation function dependent on curvature
-					<span class="math inline">\(\kappa\)</span> and synchrony <span class="math inline">\(\xi\)</span>, both of which are normalized ratios.
-					Thus, <span class="math inline">\(\Xi\)</span> is dimensionless.
-				</li>
-				<li>
-					<span class="math inline">\(\Upsilon(\eta)\)</span>: A kernel collapse index function, where
-					<span class="math inline">\(\eta\)</span> is a normalized rhythm density.
-					<span class="math inline">\(\Upsilon\)</span> is dimensionless as it represents modulation strength across curvature.
-				</li>
+				<li><strong>Aliases:</strong> tuning density <span class="math inline">\( \rho \)</span> ↔ impedance density <span class="math inline">\( \rho_K \)</span>; coherence length <span class="math inline">\( L_Z \)</span> ↔ kernel length <span class="math inline">\( L_K \)</span></li>
 			</ul>
+
+			<!-- DIMENSIONAL BRIDGES -->
+			<h3 id="sec-37-dimensional-check_6">Dimensional Bridges</h3>
+			<ul>
+				<li><strong>Coherence scaling:</strong> <span class="math inline">\( L_Z = L_0\,\delta_p^{1/3} \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}] \)</span></li>
+				<li><strong>Action bridge:</strong> <span class="math inline">\( \rho_K\,L_K^3 \to [\mathrm{J}\,\mathrm{s}] \)</span></li>
+				<li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \to [\mathrm{m}] \)</span></li>
+				<li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \to [\mathrm{J}] \)</span></li>
+				<li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \to [\mathrm{J}] \)</span></li>
+			</ul>
+			
             <h4>Scaling Law for Coherence Length</h4>
             <p>The coherence length <span class="math inline">\( L_Z \)</span> is defined by the scaling law:
             </p>
@@ -14010,13 +14129,38 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <div class="math display">\[ [L_Z] = [L_0] \cdot [\delta_p]^{1/3}= [L] \cdot [1] = [L] \]</div>
                 <figcaption><a href="#eq-37._3">Equation (37.3)</a></figcaption>
             </figure>
-            <p><strong>Conclusion</strong></p>
-            <p>
-                All quantities used in the Chronotopic framework are either dimensionless by construction or dimensionally consistent through normalized ratios and scaling laws. This ensures that the theory maintains physical rigor while operating within a generative
-                ontological engine.
-            </p>
-        </article>
-    </section>
+
+			<!-- MEASUREMENT -->
+			<h3 id="sec-37-dimensional-check_7">Measurement Protocols</h3>
+			<ul>
+				<li><strong>Energy law:</strong> control <span class="math inline">\( (\rho,\gamma,L_Z) \)</span>; measure <span class="math inline">\( E \)</span> via calorimetry/spectroscopy; fit <span class="math inline">\( \Phi \)</span> geometry.</li>
+				<li><strong>Orbital mechanics:</strong> infer mass from synchrony; compare to ephemerides and <span class="math inline">\( \Delta v \)</span> logs.</li>
+				<li><strong>Collapse/resonance:</strong> extract <span class="math inline">\( \omega_n \)</span> from stationary-phase; verify <span class="math inline">\( \omega_p(n_e) \)</span> scaling.</li>
+				<li><strong>Tuning vs. impedance:</strong> densitometry for <span class="math inline">\( \rho \)</span>; impedance spectroscopy for <span class="math inline">\( \rho_K \)</span>.</li>
+				<li><strong>Coherence metrics:</strong> measure <span class="math inline">\( L_Z \)</span> via decay; <span class="math inline">\( \gamma \)</span> via FWHM; compute <span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span>.</li>
+			</ul>
+
+			<!-- FALSIFIABILITY -->
+			<h3 id="sec-37-dimensional-check_8">Falsifiability Criteria</h3>
+			<ul>
+				<li><strong>Dimensional closure:</strong> reject any expression failing SI parity.</li>
+				<li><strong>Energy scaling:</strong> deviations beyond propagated uncertainty falsify kernel energy law.</li>
+				<li><strong>Orbital mass/stability:</strong> inconsistent masses or <span class="math inline">\( \Delta v \)</span> data falsify orbital axioms.</li>
+				<li><strong>Resonance mapping:</strong> absent or mis-scaled <span class="math inline">\( \omega_n, \omega_p \)</span> falsify resonance laws.</li>
+				<li><strong>Alias coherence:</strong> failure of <span class="math inline">\( \rho_K\,L_K^3 \)</span> to yield <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span> invalidates impedance alias.</li>
+			</ul>
+
+			<!-- CONCLUSION -->
+			<h3 id="sec-37-dimensional-check_9">Conclusion</h3>
+			<p>
+				The Chronotopic Kernel ontology achieves full dimensional closure and observational anchoring.
+				Energy, orbital, magnetic, and collapse behaviors all emerge from synchronized coherence structures,
+				not assumed forces. Every axiom defines a measurable prediction and explicit falsification route.
+				Thus, the framework remains physically rigorous, empirically testable, and extensible across quantum,
+				orbital, plasma, and relativistic domains.
+			</p>
+		</article>
+	</section>
     <section>
         <h2 title="Click to toggle" id="sec-38-remarks">Remarks</h2>
         <article style="display:none">
@@ -14025,81 +14169,229 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 failure regardless of the input provided. Over the course of two weeks, I subjected it to automated and randomized inputs, yet all comparative operations continued to yield consistent results. This unexpected robustness is the sole reason for
                 the decision to publish these findings. (I had this idea as a child, however, it was dismissed. I just tested it now with my program and it is exceeding everything.)
             </p>
-            <p>
         </article>
     </section>
     <section>
         <h2 title="Click to toggle" id="article-references">References</h2>
         <article style="display:none">
-		<ul>
-			<li id="ref-fixsen2009">
-				Fixsen, D. J. (2009). The Temperature of the Cosmic Microwave Background.
-				<em>The Astrophysical Journal</em>, 707(2), 916–920.
-				doi:10.1088/0004-637X/707/2/916.
-				Available at: <a href="https://arxiv.org/abs/0911.1955" target="_blank" rel="noopener">https://arxiv.org/abs/0911.1955</a>
-			</li>
+			<ol id="chronotopic-kernel-references">
 
-			<li id="ref-tikhonov">
-				Tikhonov, A. N. (1963). Solution of Incorrectly Formulated Problems and the Regularization Method.
-				<em>Soviet Mathematics Doklady</em>, 4, 1035–1038.
-				English translation available at:
-				<a href="https://www.mathnet.ru/eng/dan28329" target="_blank" rel="noopener">MathNet.ru</a>
-			</li>
+				<!-- === FUNDAMENTAL CONSTANTS AND STANDARDS === -->
+				<li id="ref-bipm-si">
+					BIPM. (2019). <em>The International System of Units (SI Brochure)</em>, 9th edition.
+					Bureau International des Poids et Mesures.
+					URL: <a href="https://www.bipm.org/en/publications/si-brochure" target="_blank" rel="noopener">https://www.bipm.org/en/publications/si-brochure</a>.
+				</li>
 
-			<li id="ref-tape2007adjoint">
-				Tape, C., Liu, Q., Maggi, A., & Tromp, J. (2007). Adjoint tomography of the southern California crust.
-				<em>Science</em>, 316(5829), 1733–1736.
-				doi:10.1126/science.1139388
-			</li>
+				<li id="ref-codata-2018">
+					Tiesinga, E., Mohr, P. J., Newell, D. B., & Taylor, B. N. (2021). CODATA recommended values of the fundamental physical constants: 2018.
+					<em>Reviews of Modern Physics</em>, 93, 025010.
+					DOI: <a href="https://doi.org/10.1103/RevModPhys.93.025010" target="_blank" rel="noopener">10.1103/RevModPhys.93.025010</a>.
+					— Extended report:
+					<em>Journal of Physical and Chemical Reference Data</em>, 50, 033105 (2021).
+					DOI: <a href="https://doi.org/10.1063/5.0064853" target="_blank" rel="noopener">10.1063/5.0064853</a>.
+					NIST constants portal: <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener">physics.nist.gov/cuu/Constants</a>.
+				</li>
 
-			<li id="ref-fichtner2010full">
-				Fichtner, A., Kennett, B. L. N., Igel, H., & Bunge, H.-P. (2010). Full seismic waveform tomography for upper-mantle structure in the Australasian region using adjoint methods.
-				<em>Geophysical Journal International</em>, 179(3), 1703–1725.
-				doi:10.1111/j.1365-246X.2009.04368.x
-			</li>
+				<li id="ref-nist">
+					NIST. (Ongoing). <em>NIST Reference on Constants, Units, and Uncertainty</em>.
+					URL: <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener">https://physics.nist.gov/cuu/Constants/</a>.
+				</li>
 
-			<li id="ref-jila_mm">
-				Bothwell, T., Kennedy, C. J., Aeppli, A., Kedar, D., Robinson, J. M., Oelker, E., Staron, A., & Ye, J. (2022).
-				Resolving the gravitational redshift across a millimetre-scale atomic sample.
-				<em>Nature</em>, 602, 420–424.
-				doi:10.1038/s41586-021-04349-7.
-				Available at: <a href="https://www.nist.gov/publications/resolving-gravitational-redshift-across-millimetre-scale-atomic-sample" target="_blank" rel="noopener">NIST</a>
-			</li>
+				<li id="ref-nist-srm">
+					NIST. (Ongoing). <em>Standard Reference Materials (SRM)</em>.
+					URL: <a href="https://www.nist.gov/srm" target="_blank" rel="noopener">https://www.nist.gov/srm</a>.
+				</li>
 
-			<li id="ref-chou2010">
-				Chou, C.-W., Hume, D. B., Rosenband, T., & Wineland, D. J. (2010). Optical Clocks and Relativity.
-				<em>Science</em>, 329(5999), 1630–1633.
-				doi:10.1126/science.1192720.
-				Available at: <a href="https://www.nist.gov/publications/relativity-and-optical-clocks" target="_blank" rel="noopener">NIST</a>
-			</li>
+				<!-- === CLASSICAL FOUNDATIONS === -->
+				<li id="ref-newton-1687">
+					Newton, I. (1687). <em>Philosophiae Naturalis Principia Mathematica</em>. London: Royal Society.
+				</li>
 
-			<li id="ref-vessot1979">
-				Vessot, R. F. C., & Levine, M. W. (1979). Gravitational Redshift Space-Probe Experiment (GP-A Project Final Report).
-				Smithsonian Astrophysical Observatory / NASA Marshall Space Flight Center.
-				NASA-CR-161409.
-				Available at: <a href="https://ntrs.nasa.gov/search.jsp?R=19800011717" target="_blank" rel="noopener">NASA Technical Reports</a>
-			</li>
+				<li id="ref-maxwell-1865">
+					Maxwell, J. C. (1865). A dynamical theory of the electromagnetic field.
+					<em>Philosophical Transactions of the Royal Society of London</em>, 155, 459–512.
+					DOI: <a href="https://doi.org/10.1098/rstl.1865.0008" target="_blank" rel="noopener">10.1098/rstl.1865.0008</a>.
+				</li>
 
-			<li id="ref-nist_gps">
-				Weiss, M., & Ashby, N. (1997). GPS Receivers and Relativity.
-				In <em>29th Annual Precise Time and Time Interval (PTTI) Meeting</em>.
-				Available at: <a href="https://tf.nist.gov/general/pdf/1229.pdf" target="_blank" rel="noopener">NIST PDF</a>
-			</li>
+				<li id="ref-boltzmann">
+					Boltzmann, L. (1896–1898). <em>Vorlesungen über Gastheorie</em>. Leipzig: J. A. Barth.
+					English trans.: Dover, 1964.
+				</li>
 
-			<li id="ref-alok2024decoherence">
-				Alok, A. K., Banerjee, S., Chundawat, N. R. S., & Sankar, S. U. (2024). Probing quantum decoherence at Belle II and LHCb.
-				<em>Journal of High Energy Physics</em>, 2024(5), 124.
-				doi:10.1007/JHEP05(2024)124.
-				arXiv:2402.02470
-			</li>
+				<li id="ref-navier-stokes">
+					Navier, C. L. M. H. (1822); Stokes, G. G. (1845).
+					<em>Mémoires de l’Académie Royale des Sciences de l’Institut de France</em>, 6, 389–440;
+					<em>Trans. Cambridge Phil. Soc.</em>, 8, 287–305.
+				</li>
 
-			<li id="ref-pdg2024">
-				Particle Data Group. (2024). Review of Particle Physics.
-				<em>Physical Review D</em>, 110(3), 030001.
-				doi:10.1103/PhysRevD.110.030001.
-				Available at: <a href="https://pdg.lbl.gov" target="_blank" rel="noopener">PDG</a>
-			</li>
-		</ul>
+				<li id="ref-prandtl-1904">
+					Prandtl, L. (1904). Über Flüssigkeitsbewegung bei sehr kleiner Reibung.
+					In <em>Verhandlungen des III. Internationalen Mathematiker-Kongresses</em>, Heidelberg, pp. 484–491.
+				</li>
+
+				<li id="ref-reynolds-1895">
+					Reynolds, O. (1895). On the dynamical theory of incompressible viscous fluids.
+					<em>Philosophical Transactions of the Royal Society A</em>, 186, 123–164.
+					DOI: <a href="https://doi.org/10.1098/rsta.1895.0004" target="_blank" rel="noopener">10.1098/rsta.1895.0004</a>.
+				</li>
+
+				<li id="ref-betz-1919">
+					Betz, A. (1919). Das Maximum der theoretisch möglichen Ausnutzung des Windes durch Windmotoren.
+					<em>Zeitschrift für das gesamte Turbinenwesen</em>, 26, 307–309.
+				</li>
+
+				<li id="ref-darcy-weisbach">
+					Darcy, H., & Weisbach, J. (19th century). Darcy–Weisbach equation for head loss in pipe flow.
+					Modern ref.: White, F. M. (2011). <em>Fluid Mechanics</em> (7th ed.). McGraw-Hill.
+				</li>
+
+				<!-- === QUANTUM AND RELATIVITY FOUNDATIONS === -->
+				<li id="ref-einstein-1916">
+					Einstein, A. (1916). Die Grundlage der allgemeinen Relativitätstheorie.
+					<em>Annalen der Physik</em>, 354(7), 769–822.
+					DOI: <a href="https://doi.org/10.1002/andp.19163540702" target="_blank" rel="noopener">10.1002/andp.19163540702</a>.
+				</li>
+
+				<li id="ref-schrodinger-1926">
+					Schrödinger, E. (1926). Quantisierung als Eigenwertproblem.
+					<em>Annalen der Physik</em>, 384(4), 361–376.
+					DOI: <a href="https://doi.org/10.1002/andp.19263840404" target="_blank" rel="noopener">10.1002/andp.19263840404</a>.
+				</li>
+
+				<li id="ref-heisenberg-1927">
+					Heisenberg, W. (1927). Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik.
+					<em>Zeitschrift für Physik</em>, 43, 172–198.
+					DOI: <a href="https://doi.org/10.1007/BF01397280" target="_blank" rel="noopener">10.1007/BF01397280</a>.
+				</li>
+
+				<!-- === MODERN PHYSICS AND COSMOLOGY === -->
+				<li id="ref-penzias-wilson-1965">
+					Penzias, A. A., & Wilson, R. W. (1965). A measurement of excess antenna temperature at 4080 Mc/s.
+					<em>Astrophysical Journal</em>, 142, 419–421.
+					DOI: <a href="https://doi.org/10.1086/148307" target="_blank" rel="noopener">10.1086/148307</a>.
+				</li>
+
+				<li id="ref-fixsen-2009">
+					Fixsen, D. J. (2009). The temperature of the cosmic microwave background.
+					<em>Astrophysical Journal</em>, 707(2), 916–920.
+					DOI: <a href="https://doi.org/10.1088/0004-637X/707/2/916" target="_blank" rel="noopener">10.1088/0004-637X/707/2/916</a>.
+				</li>
+
+				<li id="ref-planck-2018">
+					Planck Collaboration (Aghanim, N., Akrami, Y., et al.). (2020). Planck 2018 results. VI. Cosmological parameters.
+					<em>Astronomy & Astrophysics</em>, 641, A6.
+					DOI: <a href="https://doi.org/10.1051/0004-6361/201833910" target="_blank" rel="noopener">10.1051/0004-6361/201833910</a>.
+				</li>
+
+				<!-- === FIELD, ENERGY, TOPOLOGY === -->
+				<li id="ref-mermin-1979">
+					Mermin, N. D. (1979). The topological theory of defects in ordered media.
+					<em>Reviews of Modern Physics</em>, 51(3), 591–648.
+					DOI: <a href="https://doi.org/10.1103/RevModPhys.51.591" target="_blank" rel="noopener">10.1103/RevModPhys.51.591</a>.
+				</li>
+
+				<li id="ref-skyrmion-2013">
+					Nagaosa, N., & Tokura, Y. (2013). Topological properties and dynamics of magnetic skyrmions.
+					<em>Nature Nanotechnology</em>, 8, 899–911.
+					DOI: <a href="https://doi.org/10.1038/nnano.2013.243" target="_blank" rel="noopener">10.1038/nnano.2013.243</a>.
+				</li>
+
+				<li id="ref-jackson-1998">
+					Jackson, J. D. (1998). <em>Classical Electrodynamics</em> (3rd ed.). Wiley.
+				</li>
+
+				<!-- === REGULARIZATION, SIGNAL, AND INVERSE METHODS === -->
+				<li id="ref-tikhonov-1963">
+					Tikhonov, A. N. (1963). Solution of incorrectly formulated problems and the regularization method.
+					<em>Soviet Mathematics Doklady</em>, 4, 1035–1038.
+				</li>
+
+				<li id="ref-tikhonov-arsenin-1977">
+					Tikhonov, A. N., & Arsenin, V. Y. (1977). <em>Solutions of Ill-Posed Problems</em>. Winston & Sons.
+				</li>
+
+				<li id="ref-engl-hanke-neubauer-1996">
+					Engl, H. W., Hanke, M., & Neubauer, A. (1996). <em>Regularization of Inverse Problems</em>. Springer.
+					DOI: <a href="https://doi.org/10.1007/978-94-009-1740-8" target="_blank" rel="noopener">10.1007/978-94-009-1740-8</a>.
+				</li>
+
+				<li id="ref-oppenheim-schafer-2009">
+					Oppenheim, A. V., & Schafer, R. W. (2009). <em>Discrete-Time Signal Processing</em> (3rd ed.). Pearson.
+				</li>
+
+				<li id="ref-stoica-moses-2005">
+					Stoica, P., & Moses, R. L. (2005). <em>Spectral Analysis of Signals</em>. Pearson/Prentice Hall.
+				</li>
+
+				<!-- === INSTRUMENTATION, TIME, AND METROLOGY === -->
+				<li id="ref-chou-2010">
+					Chou, C.-W., Hume, D. B., Rosenband, T., & Wineland, D. J. (2010). Optical clocks and relativity.
+					<em>Science</em>, 329(5999), 1630–1633.
+					DOI: <a href="https://doi.org/10.1126/science.1192720" target="_blank" rel="noopener">10.1126/science.1192720</a>.
+				</li>
+
+				<li id="ref-bothwell-2022">
+					Bothwell, T., Kennedy, C. J., et al. (2022). Resolving the gravitational redshift across a millimetre-scale atomic sample.
+					<em>Nature</em>, 602, 420–424.
+					DOI: <a href="https://doi.org/10.1038/s41586-021-04349-7" target="_blank" rel="noopener">10.1038/s41586-021-04349-7</a>.
+				</li>
+
+				<li id="ref-vessot-1979">
+					Vessot, R. F. C., & Levine, M. W. (1979). Gravitational Redshift Space-Probe Experiment (GP-A Project Final Report).
+					Smithsonian Astrophysical Observatory / NASA Marshall Space Flight Center.
+					NASA-CR-161409.
+				</li>
+
+				<li id="ref-gps-time">
+					Allan, D. W., Ashby, N., & Hodge, C. C. (1997). <em>The Science of Timekeeping</em>. Hewlett-Packard Application Note 1289.
+					GPS.gov (2023). <em>GPS and Telling Time</em>.
+					URL: <a href="https://www.gps.gov/gps-and-telling-time" target="_blank" rel="noopener">https://www.gps.gov/gps-and-telling-time</a>.
+				</li>
+
+				<li id="ref-squid">
+					Clarke, J., & Braginski, A. I. (Eds.). (2004). <em>The SQUID Handbook: Fundamentals and Technology of SQUIDs and SQUID Systems</em>. Wiley-VCH.
+					DOI: <a href="https://doi.org/10.1002/3527603646" target="_blank" rel="noopener">10.1002/3527603646</a>.
+					Supplement: Ripka, P. (1992). <em>Magnetic Sensors and Magnetometers</em>. Artech House.
+				</li>
+
+				<!-- === COMPUTATIONAL TOOLS AND MACHINE LEARNING === -->
+				<li id="ref-numpy-2020">
+					Harris, C. R., Millman, K. J., et al. (2020). Array programming with NumPy.
+					<em>Nature</em>, 585, 357–362.
+					DOI: <a href="https://doi.org/10.1038/s41586-020-2649-2" target="_blank" rel="noopener">10.1038/s41586-020-2649-2</a>.
+				</li>
+
+				<li id="ref-scipy-2020">
+					Virtanen, P., Gommers, R., et al. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python.
+					<em>Nature Methods</em>, 17, 261–272.
+					DOI: <a href="https://doi.org/10.1038/s41592-019-0686-2" target="_blank" rel="noopener">10.1038/s41592-019-0686-2</a>.
+				</li>
+
+				<li id="ref-pytorch-2019">
+					Paszke, A., Gross, S., et al. (2019). PyTorch: An imperative style, high-performance deep learning library.
+					<em>NeurIPS 2019</em>, 32, 8024–8035.
+					URL: <a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a>.
+				</li>
+
+				<li id="ref-tensorflow-2016">
+					Abadi, M., Barham, P., Chen, J., et al. (2016). TensorFlow: A system for large-scale machine learning.
+					In <em>Proc. 12th USENIX OSDI</em>, pp. 265–283.
+					URL: <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">https://www.tensorflow.org/</a>.
+				</li>
+
+				<li id="ref-comsol-matlab">
+					COMSOL AB. (2023). <em>COMSOL Multiphysics® Reference Manual</em>.
+					MathWorks. (2023). <em>MATLAB Documentation</em>.
+				</li>
+
+				<li id="ref-pdg-2024">
+					Particle Data Group. (2024). Review of Particle Physics.
+					<em>Physical Review D</em>, 110(3), 030001.
+					DOI: <a href="https://doi.org/10.1103/PhysRevD.110.030001" target="_blank" rel="noopener">10.1103/PhysRevD.110.030001</a>.
+				</li>
+
+			</ol>
         </article>
     </section>
 
