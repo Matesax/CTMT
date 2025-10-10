@@ -108,6 +108,27 @@ math, mi {
 	font-size: 16px;
 }
 
+
+/* Legend layout */
+.legend {
+	display:flex;
+	gap:18px;
+	align-items:center;
+	margin-top:12px;
+	flex-wrap:wrap;
+}
+.legend-item {
+	display:flex;
+	gap:8px;
+	align-items:center;
+	color:#222;
+	font-size:0.92rem;
+}
+.swatch { width:16px; height:12px; border-radius:2px; display:inline-block; }
+.swatch-forward { background:#333; }
+.swatch-feedback { background:#cc5500; }
+.swatch-node { background:#d9ecff; border:1px solid #999; }
+
 .arrow {
   stroke: blue;
   stroke-width: 2;
