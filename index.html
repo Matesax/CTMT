@@ -1918,6 +1918,158 @@
                 </li>
             </ol>
 
+			<h4>Self-Referential Forward Map of the Chronotopic Kernel</h4>
+			
+			<p>
+                Radial diagram showing Kernel at center, forward operator and basis expansion, linear system and inversion,
+                regularization and observable anchoring, and time-dependent extensions. Forward flow uses solid black arrows.
+                Recursive feedback uses dashed orange arrows returning to the kernel.
+            </p>
+			
+			<svg viewBox="230 20 900 620" style="max-width:1200px" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figTitle figDesc">
+				<defs>
+					<!-- arrowheads -->
+					<marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+						<path d="M0,0 L10,5 L0,10 Z" fill="#333" />
+					</marker>
+					<marker id="arrow-feedback" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+						<path d="M0,0 L12,6 L0,12 Z" fill="#cc5500" />
+					</marker>
+
+					<style type="text/css">
+						.node {
+							stroke: #333;
+							stroke-width: 1.25;
+							rx: 6;
+							ry: 6;
+						}
+
+						.label {
+							font-weight: 700;
+							text-anchor: middle;
+							fill: #0c0c0c;
+							font-size: 14px;
+						}
+
+						.sub {
+							font-size: 12px;
+							fill: #222;
+							text-anchor: middle;
+						}
+
+						.arrow {
+							stroke: #333;
+							stroke-width: 2;
+							fill: none;
+							marker-end: url(#arrow);
+							stroke-linecap: round;
+							stroke-linejoin: round;
+						}
+
+						.feedback {
+							stroke: #cc5500;
+							stroke-width: 2.2;
+							stroke-dasharray: 7 4;
+							fill: none;
+							marker-end: url(#arrow-feedback);
+							stroke-linecap: round;
+							stroke-linejoin: round;
+						}
+					</style>
+				</defs>
+
+				<!-- Central kernel -->
+				<g id="kernel" aria-label="Kernel Definition">
+					<circle cx="600" cy="350" r="62" fill="#d9ecff" stroke="#2b2b2b" />
+					<title>Kernel Definition: (K, Φ, S)</title>
+					<text x="600" y="342" class="label">Kernel</text>
+					<text x="600" y="362" class="sub">(K, Φ, S)</text>
+				</g>
+
+				<!-- Forward Operator -->
+				<rect x="510" y="120" width="180" height="64" fill="#e8ffe8" class="node" />
+				<text x="600" y="150" class="label">Forward Operator</text>
+				<text x="600" y="168" class="sub">Fₖ[K] → {Oₖ}</text>
+
+				<!-- Sliding Window -->
+				<rect x="510" y="40" width="180" height="64" fill="#e6f7ff" class="node" />
+				<text x="600" y="70" class="label">Sliding Window</text>
+				<text x="600" y="88" class="sub">Stationary Inversion</text>
+
+				<!-- Basis Expansion -->
+				<rect x="770" y="240" width="190" height="64" fill="#fff6d6" class="node" />
+				<text x="865" y="270" class="label">Basis Expansion</text>
+				<text x="865" y="288" class="sub">K ≈ Σ κⱼ bⱼ</text>
+
+				<!-- Linear System -->
+				<rect x="770" y="420" width="190" height="64" fill="#f2dff5" class="node" />
+				<text x="865" y="450" class="label">Linear System</text>
+				<text x="865" y="468" class="sub">O = Aκ + ε</text>
+
+				<!-- Anchoring -->
+				<rect x="240" y="240" width="190" height="64" fill="#fffbe0" class="node" />
+				<text x="335" y="270" class="label">Anchoring</text>
+				<text x="335" y="288" class="sub">Falsifiability / Measurement</text>
+
+				<!-- Regularization -->
+				<rect x="240" y="420" width="190" height="64" fill="#f6f6f6" class="node" />
+				<text x="335" y="450" class="label">Regularization</text>
+				<text x="335" y="468" class="sub">λ Selection / Diagnostics</text>
+
+				<!-- Inversion -->
+				<rect x="520" y="520" width="200" height="68" fill="#ffe8e8" class="node" />
+				<text x="620" y="558" class="label">Inversion Methods</text>
+				<text x="620" y="576" class="sub">Tikhonov / LASSO / Nonlinear</text>
+
+				<!-- State-Space -->
+				<rect x="940" y="320" width="180" height="64" fill="#e6f7ff" class="node" />
+				<text x="1030" y="350" class="label">State-Space</text>
+				<text x="1030" y="368" class="sub">Sequential Estimation</text>
+
+				<!-- Forward arrows -->
+				<path d="M600 288 C600 260, 600 220, 600 184" class="arrow" />
+				<path d="M640 330 C720 300, 760 300, 770 280" class="arrow" />
+				<path d="M640 370 C720 400, 760 420, 770 440" class="arrow" />
+				<path d="M560 330 C480 320, 400 300, 335 300" class="arrow" />
+				<path d="M560 390 C480 420, 400 430, 335 430" class="arrow" />
+				<path d="M620 410 C620 450, 620 490, 620 520" class="arrow" />
+				<path d="M950 484 C900 500, 800 540, 720 560" class="arrow" />
+				<path d="M950 304 C940 320, 940 330, 940 350" class="arrow" />
+
+				<!-- Feedback arrows -->
+				<path d="M620 588 C500 640, 420 560, 335 480" class="feedback" />
+				<path d="M335 420 C320 340, 420 240, 540 200" class="feedback" />
+				<path d="M335 260 C360 200, 480 160, 540 160" class="feedback" />
+				<path d="M1030 350 C900 200, 860 180, 640 200" class="feedback" />
+			</svg>
+
+			<div class="legend" aria-hidden="false" role="list">
+				<div class="legend-item" role="listitem">
+					<span class="swatch swatch-forward" aria-hidden="true"></span>
+					<span>Solid black arrows — <strong>forward computation flow</strong> (kernel → observables → linearization).</span>
+				</div>
+				<div class="legend-item" role="listitem">
+					<span class="swatch swatch-feedback" aria-hidden="true"></span>
+					<span>Dashed orange arrows — <strong>recursive feedback</strong> (inversion, diagnostics, anchoring → kernel).</span>
+				</div>
+				<div class="legend-item" role="listitem">
+					<span class="swatch swatch-node" aria-hidden="true"></span>
+					<span>Colored boxes — functional blocks with semantic grouping (forward, inversion, anchoring, time).</span>
+				</div>
+			</div>
+
+			<div class="caption-box">
+				<p class="figure-caption"><strong>Figure:</strong> <em>Self-Referential Chronotopic Kernel Map.</em> The central circle denotes the Kernel (coherence phase Φ, kernel K, and action S). Forward computation projects the kernel through the forward operator, basis expansion and linear system into observables. Inversion methods (bottom) recover kernel coefficients under regularization constraints. Regularization, anchoring to measurements, and sequential/state-space estimates provide recursive feedback (dashed orange) that updates priors, kernel geometry, and coherence metrics. This closed loop enforces dimensional and observational consistency while enabling the kernel to self-refine.</p>
+				<p class="svg-note"><strong>Notes for readers:</strong> (1) The diagram is optimized for print and on-screen viewing; colors chosen for high-contrast grayscale reproduction. (2) For an interactive web appendix, each node can expose tooltips with mathematical definitions, data sources, and inversion diagnostics.</p>
+			</div>
+
+			<p>
+				<strong>Interpretation:</strong> The kernel defines an initial state and produces observables via its forward operator.
+				Inversion methods recover the kernel coefficients (κ) and feed corrections into the regularization and anchoring layers.
+				Through these closed feedback loops, the system refines its own definition — a self-referential dynamic that maintains
+				dimensional coherence and empirical validity.
+			</p>
+			
             <h4>Hyperparameter and Model Selection</h4>
             <p>
                 Choose <span class="math inline">\(\lambda\)</span> (and <span class="math inline">\(\alpha\)</span> for sparsity) via:
