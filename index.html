@@ -11127,8 +11127,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
       </marker>
     </defs>
   </svg>
-  <figcaption>Figure (24.A) — Recursive kernel loop:
-    action → synchrony → impedance → action.</figcaption>
+<figcaption>
+  Recursive kernel loop: 
+  <span class="math inline">\(\text{action} \rightarrow \text{synchrony} \rightarrow \text{impedance} \rightarrow \text{action}\)</span>.
+</figcaption>
 </figure>
 
 <h4>Thermodynamic Anchor</h4>
@@ -11233,17 +11235,34 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 <h4>Dimensional &amp; Thermodynamic Closure</h4>
 <table>
-  <thead><tr><th>Quantity</th><th>Definition</th><th>Units</th></tr></thead>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Definition</th>
+      <th>Units</th>
+    </tr>
+  </thead>
   <tbody>
-    <tr><td><span class="math inline">\(E_K\)</span></td>
-        <td><span class="math inline">\(\mathcal{S}_*\Theta\)</span></td><td>J ✓</td></tr>
-    <tr><td><span class="math inline">\(L_K\)</span></td>
-        <td><span class="math inline">\((\mathcal{S}_*/\rho\Theta)^{1/2}\)</span></td><td>m ✓</td></tr>
-    <tr><td><span class="math inline">\(Z_K\)</span></td>
-        <td><span class="math inline">\(\rho L_K\)</span></td><td>Ω·m⁻² ✓</td></tr>
-    <tr><td><span class="math inline">\(G_{\rm struct}\)</span></td>
-        <td><span class="math inline">\((4\pi)^{-1}(\mathcal{S}_*/\rho\Theta^3)^{1/2}\)</span></td>
-        <td>m³·kg⁻¹·s⁻² ✓</td></tr>
+    <tr>
+      <td><span class="math inline">\(E_K\)</span></td>
+      <td><span class="math inline">\(\mathcal{S}_* \Theta\)</span></td>
+      <td><span class="math inline">\(\mathrm{J}\)</span> ✓</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(L_K\)</span></td>
+      <td><span class="math inline">\(\left( \frac{\mathcal{S}_*}{\rho \Theta} \right)^{1/2}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span> ✓</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(Z_K\)</span></td>
+      <td><span class="math inline">\(\rho L_K\)</span></td>
+      <td><span class="math inline">\(\Omega \cdot \mathrm{m}^{-2}\)</span> ✓</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(G_{\rm struct}\)</span></td>
+      <td><span class="math inline">\(\frac{1}{4\pi} \left( \frac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}^3 \cdot \mathrm{kg}^{-1} \cdot \mathrm{s}^{-2}\)</span> ✓</td>
+    </tr>
   </tbody>
 </table>
 
@@ -11275,7 +11294,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 <h3 id="sec-24-primary-emergence-of-constants_1">Emergence-wave</h3>
 
-<svg height="220" viewBox="0 0 700 220"
+<svg height="200" viewBox="280 0 400 200"
      xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="10"
@@ -11294,7 +11313,9 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
   <g id="primaryWave">
     <circle cx="350" cy="110" r="40" fill="#dde8ff" stroke="#0044cc" stroke-width="2"/>
     <text x="350" y="115" text-anchor="middle" font-weight="bold">Primary</text>
-    <text x="350" y="135" text-anchor="middle" font-size="12">(S*, Θ, ρ)</text>
+<text x="350" y="135" text-anchor="middle" font-size="12">
+  (S<tspan baseline-shift="sub" font-size="8">*</tspan>, Θ, ρ)
+</text>
   </g>
 
   <path d="M390,110 Q460,60 560,110" fill="none"
@@ -11305,7 +11326,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
   <g id="secondaryWave">
     <circle cx="600" cy="110" r="40" fill="#fff1dd" stroke="#cc6600" stroke-width="2"/>
     <text x="600" y="115" text-anchor="middle" font-weight="bold">Secondary</text>
-    <text x="600" y="135" text-anchor="middle" font-size="10">(ε₀, μ₀, k_B, G…)</text>
+<text x="600" y="135" text-anchor="middle" font-size="10">
+  (<tspan>ε</tspan><tspan baseline-shift="sub" font-size="7">0</tspan>, 
+   <tspan>μ</tspan><tspan baseline-shift="sub" font-size="7">0</tspan>, 
+   <tspan>k</tspan><tspan baseline-shift="sub" font-size="7">B</tspan>, G…)
+</text>
   </g>
 
   <!-- Back-coupling -->
@@ -11322,7 +11347,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 <h3 id="sec-24-primary-emergence-of-constants_2">Secondary Emergence of Constants</h3>
 
 <p>
-  Once the primary constants <span class="math inline">(\mathcal S_*,\Theta,\rho)</span>
+  Once the primary constants <span class="math inline">\(\mathcal S_*,\Theta,\rho\)</span>
   are known, the kernel regenerates the secondary physical constants through
   dimensional recursion.  No additional parameters are introduced.
 </p>
@@ -14392,6 +14417,27 @@ feedback <a href="#sec-24-primary-emergence-of-constants_1">Emergence-wave</a>.
 						<td><span class="math inline">\( \lambda \)</span> unit-balanced; ensures numerical stability.</td>
 						<td>Falsify if ill-posed inversion persists.</td>
 					</tr>
+<tr>
+  <td><strong>Recursive coherence correction</strong></td>
+  <td>
+    <span class="math inline">\( \rho' = \rho(1 + \eta_\rho) \rightarrow \)</span>
+    <span class="math inline">\( T_c' = \chi_T T_c \rightarrow \)</span>
+    <span class="math inline">\( E' = E(1 - \alpha) \)</span>
+  </td>
+  <td>
+    <span class="math inline">\( \eta_\rho,\, \chi_T,\, \alpha \)</span> dimensionless
+    <span class="math inline">\(\rightarrow\)</span>
+    preserves 
+    <span class="math inline">\([\,\mathrm{J}],\ [\,\mathrm{K}],\ [\,\mathrm{kg \cdot m^{-3}}]\)</span>;
+    ensures higher-order feedback corrections without breaking unit closure.
+  </td>
+  <td>
+    Anchor: radiative equilibrium tests 
+    <span class="math inline">\((\text{e.g., stellar plasma})\)</span>;
+    falsify if energy correction fails to reduce overshoot in constants
+    <span class="math inline">\((< 1\% \text{ threshold})\)</span>.
+  </td>
+</tr>
 				</tbody>
 			</table>
 
@@ -14435,6 +14481,25 @@ feedback <a href="#sec-24-primary-emergence-of-constants_1">Emergence-wave</a>.
 						<td>Derived from stiffness–inertia invariance.</td>
 						<td>Anchor: optical clocks; falsify if <span class="math inline">\( c \)</span> varies with low-<span class="math inline">\( \rho_c \)</span> environment.</td>
 					</tr>
+
+<tr>
+  <td><strong>Coherence feedback energy</strong></td>
+  <td>
+    <span class="math inline">
+      \( E_{\text{corr}} = E(1 - \alpha) = \Phi\,\gamma\,\rho\,L_Z^3 (1 - \alpha) \)
+    </span>
+  </td>
+  <td>
+    <span class="math inline">\( \alpha \)</span> dimensionless;
+    units preserved 
+    <span class="math inline">\(\Rightarrow [\,\mathrm{J}\,]\)</span>
+  </td>
+  <td>
+    Anchor: compare corrected vs. uncorrected kernel constants;
+    falsify if feedback fails to converge toward
+    <span class="math inline">\(\text{CODATA}\)</span> within uncertainty.
+  </td>
+</tr>
 				</tbody>
 			</table>
 
@@ -14514,24 +14579,34 @@ feedback <a href="#sec-24-primary-emergence-of-constants_1">Emergence-wave</a>.
 			</table>
 
 			<!-- SYMBOLS -->
-			<h3 id="sec-37-dimensional-check_5">Symbol Mapping and Aliases</h3>
-			<ul>
-				<li>
-					<strong>Dimensionless:</strong>
-					<span class="math inline">\( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)</span>
-				</li>
-				<li>
-					<strong>Unit-anchored:</strong>
-					<span class="math inline">
-						\( L_Z\,[\mathrm{m}],\ L_0\,[\mathrm{m}],\ v_{\mathrm{sync}}\,[\mathrm{m}\,\mathrm{s}^{-1}],\ \gamma\,[\mathrm{s}^{-1}],\ L_K\,[\mathrm{m}],\)
-					</span>
-					<br />
-					<span class="math inline">
-						\( \chi\,[\mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s}^{-1}],\ \rho\,[\mathrm{kg}\,\mathrm{m}^{-3}],\ \rho_K\,[\mathrm{J}\,\mathrm{s}\,\mathrm{m}^{-3}],\ \Theta\,[\mathrm{m}^{-1}\,\mathrm{s}^{-1}],\ h,\ \mathcal{E}_*,\ b\,[\mathrm{J}\,\mathrm{m}^{-2}] \)
-					</span>
-				</li>
-				<li><strong>Aliases:</strong> tuning density <span class="math inline">\( \rho \)</span> ↔ impedance density <span class="math inline">\( \rho_K \)</span>; coherence length <span class="math inline">\( L_Z \)</span> ↔ kernel length <span class="math inline">\( L_K \)</span></li>
-			</ul>
+<h3 id="sec-37-dimensional-check_5">Symbol Mapping and Aliases</h3>
+<ul>
+  <li>
+    <strong>Dimensionless:</strong>
+    <span class="math inline">
+      \( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)
+    </span>
+  </li>
+  <li>
+    <strong>Unit-anchored:</strong>
+    <span class="math inline">
+      \( L_Z\,[\mathrm{m}],\ L_0\,[\mathrm{m}],\ v_{\mathrm{sync}}\,[\mathrm{m\,s^{-1}}],\ \gamma\,[\mathrm{s^{-1}}],\ L_K\,[\mathrm{m}], \)
+    </span>
+    <br />
+    <span class="math inline">
+      \( \chi\,[\mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s^{-1}}],\ \rho\,[\mathrm{kg\,m^{-3}}],\ \rho_K\,[\mathrm{J\,s\,m^{-3}}],\ \Theta\,[\mathrm{m^{-1}\,s^{-1}}],\ h,\ \mathcal{E}_*,\ b\,[\mathrm{J\,m^{-2}}], \)
+    </span>
+    <br />
+    <span class="math inline">
+      \( \chi_T,\ \eta_\rho,\ \alpha\,[1] \) &nbsp; (feedback / correction coefficients)
+    </span>
+  </li>
+  <li>
+    <strong>Aliases:</strong>
+    tuning density <span class="math inline">\( \rho \)</span> ↔ impedance density <span class="math inline">\( \rho_K \)</span>;
+    coherence length <span class="math inline">\( L_Z \)</span> ↔ kernel length <span class="math inline">\( L_K \)</span>
+  </li>
+</ul>
 
 			<!-- DIMENSIONAL BRIDGES -->
 			<h3 id="sec-37-dimensional-check_6">Dimensional Bridges</h3>
@@ -14541,6 +14616,10 @@ feedback <a href="#sec-24-primary-emergence-of-constants_1">Emergence-wave</a>.
 				<li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \to [\mathrm{m}] \)</span></li>
 				<li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \to [\mathrm{J}] \)</span></li>
 				<li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \to [\mathrm{J}] \)</span></li>
+<li><strong>Thermal feedback bridge:</strong> 
+<span class="math inline">\( E' = E(1 - \alpha) \)</span>,
+<span class="math inline">\( T_c' = \chi_T T_c \)</span> 
+→ dimensional preservation [J], [K]</li>
 			</ul>
 			
             <h4>Scaling Law for Coherence Length</h4>
