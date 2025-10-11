@@ -1978,69 +1978,109 @@
 					</style>
 				</defs>
 
-				<!-- Central kernel -->
-				<g id="kernel" aria-label="Kernel Definition">
-					<circle cx="600" cy="350" r="62" fill="#d9ecff" stroke="#2b2b2b" />
-					<title>Kernel Definition: (K, Φ, S)</title>
-					<text x="600" y="342" class="label">Kernel</text>
-					<text x="600" y="362" class="sub">(K, Φ, S)</text>
-				</g>
+<!-- Central kernel -->
+<g id="kernel" aria-label="Kernel Definition">
+  <circle cx="600" cy="350" r="62" fill="#d9ecff" stroke="#2b2b2b" />
+  <title>Kernel: Core modulation structure (K, Φ, S)</title>
+  <text x="600" y="342" class="label">Kernel</text>
+  <text x="600" y="362" class="sub">(K, Φ, S)</text>
+</g>
 
-				<!-- Forward Operator -->
-				<rect x="510" y="120" width="180" height="64" fill="#e8ffe8" class="node" />
-				<text x="600" y="150" class="label">Forward Operator</text>
-				<text x="600" y="168" class="sub">Fₖ[K] → {Oₖ}</text>
+<!-- Forward Operator -->
+<rect x="510" y="120" width="180" height="64" fill="#e8ffe8" class="node">
+  <title>Forward Operator: Projects kernel into observable space</title>
+</rect>
+<text x="600" y="150" class="label">Forward Operator</text>
+<text x="600" y="168" class="sub">Fₖ[K] → {Oₖ}</text>
 
-				<!-- Sliding Window -->
-				<rect x="510" y="40" width="180" height="64" fill="#e6f7ff" class="node" />
-				<text x="600" y="70" class="label">Sliding Window</text>
-				<text x="600" y="88" class="sub">Stationary Inversion</text>
+<!-- Sliding Window -->
+<rect x="510" y="40" width="180" height="64" fill="#e6f7ff" class="node">
+  <title>Sliding Window: Stationary inversion for temporal coherence</title>
+</rect>
+<text x="600" y="70" class="label">Sliding Window</text>
+<text x="600" y="88" class="sub">Stationary Inversion</text>
 
-				<!-- Basis Expansion -->
-				<rect x="770" y="240" width="190" height="64" fill="#fff6d6" class="node" />
-				<text x="865" y="270" class="label">Basis Expansion</text>
-				<text x="865" y="288" class="sub">K ≈ Σ κⱼ bⱼ</text>
+<!-- Basis Expansion -->
+<rect x="770" y="240" width="190" height="64" fill="#fff6d6" class="node">
+  <title>Basis Expansion: Decomposes kernel into basis functions</title>
+</rect>
+<text x="865" y="270" class="label">Basis Expansion</text>
+<text x="865" y="288" class="sub">K ≈ Σ κⱼ bⱼ</text>
 
-				<!-- Linear System -->
-				<rect x="770" y="420" width="190" height="64" fill="#f2dff5" class="node" />
-				<text x="865" y="450" class="label">Linear System</text>
-				<text x="865" y="468" class="sub">O = Aκ + ε</text>
+<!-- Linear System -->
+<rect x="770" y="420" width="190" height="64" fill="#f2dff5" class="node">
+  <title>Linear System: Maps observables into linear form O = Aκ + ε</title>
+</rect>
+<text x="865" y="450" class="label">Linear System</text>
+<text x="865" y="468" class="sub">O = Aκ + ε</text>
 
-				<!-- Anchoring -->
-				<rect x="240" y="240" width="190" height="64" fill="#fffbe0" class="node" />
-				<text x="335" y="270" class="label">Anchoring</text>
-				<text x="335" y="288" class="sub">Falsifiability / Measurement</text>
+<!-- Anchoring -->
+<rect x="240" y="240" width="190" height="64" fill="#fffbe0" class="node">
+  <title>Anchoring: Links kernel output to falsifiable measurements</title>
+</rect>
+<text x="335" y="270" class="label">Anchoring</text>
+<text x="335" y="288" class="sub">Falsifiability / Measurement</text>
 
-				<!-- Regularization -->
-				<rect x="240" y="420" width="190" height="64" fill="#f6f6f6" class="node" />
-				<text x="335" y="450" class="label">Regularization</text>
-				<text x="335" y="468" class="sub">λ Selection / Diagnostics</text>
+<!-- Regularization -->
+<rect x="240" y="420" width="190" height="64" fill="#f6f6f6" class="node">
+  <title>Regularization: Applies diagnostic constraints to kernel observables</title>
+</rect>
+<text x="335" y="450" class="label">Regularization</text>
+<text x="335" y="468" class="sub">λ Selection / Diagnostics</text>
 
-				<!-- Inversion -->
-				<rect x="520" y="520" width="200" height="68" fill="#ffe8e8" class="node" />
-				<text x="620" y="558" class="label">Inversion Methods</text>
-				<text x="620" y="576" class="sub">Tikhonov / LASSO / Nonlinear</text>
+<!-- Inversion -->
+<rect x="520" y="520" width="200" height="68" fill="#ffe8e8" class="node">
+  <title>Inversion Methods: Recovers kernel coefficients under constraints</title>
+</rect>
+<text x="620" y="558" class="label">Inversion Methods</text>
+<text x="620" y="576" class="sub">Tikhonov / LASSO / Nonlinear</text>
 
-				<!-- State-Space -->
-				<rect x="940" y="320" width="180" height="64" fill="#e6f7ff" class="node" />
-				<text x="1030" y="350" class="label">State-Space</text>
-				<text x="1030" y="368" class="sub">Sequential Estimation</text>
+<!-- State-Space -->
+<rect x="940" y="320" width="180" height="64" fill="#e6f7ff" class="node">
+  <title>State-Space: Sequential estimation and dynamic refinement</title>
+</rect>
+<text x="1030" y="350" class="label">State-Space</text>
+<text x="1030" y="368" class="sub">Sequential Estimation</text>
 
-				<!-- Forward arrows -->
-				<path d="M600 288 C600 260, 600 220, 600 184" class="arrow" />
-				<path d="M640 330 C720 300, 760 300, 770 280" class="arrow" />
-				<path d="M640 370 C720 400, 760 420, 770 440" class="arrow" />
-				<path d="M560 330 C480 320, 400 300, 335 300" class="arrow" />
-				<path d="M560 390 C480 420, 400 430, 335 430" class="arrow" />
-				<path d="M620 410 C620 450, 620 490, 620 520" class="arrow" />
-				<path d="M950 484 C900 500, 800 540, 720 560" class="arrow" />
-				<path d="M950 304 C940 320, 940 330, 940 350" class="arrow" />
+<!-- Forward arrows -->
+<path d="M600 288 C600 260, 600 220, 600 184" class="arrow" pointer-events="stroke">
+  <title>Kernel → Forward Operator: Projects kernel into observable space</title>
+</path>
+<path d="M640 330 C720 300, 760 300, 770 280" class="arrow" pointer-events="stroke">
+  <title>Kernel → Basis Expansion: Decomposes kernel into basis functions</title>
+</path>
+<path d="M640 370 C720 400, 760 420, 770 440" class="arrow" pointer-events="stroke">
+  <title>Kernel → Linear System: Maps observables into linear form</title>
+</path>
+<path d="M560 330 C480 320, 400 300, 335 300" class="arrow" pointer-events="stroke">
+  <title>Kernel → Anchoring: Links kernel output to measurements</title>
+</path>
+<path d="M560 390 C480 420, 400 430, 335 430" class="arrow" pointer-events="stroke">
+  <title>Kernel → Regularization: Applies diagnostic constraints</title>
+</path>
+<path d="M620 410 C620 450, 620 490, 620 520" class="arrow" pointer-events="stroke">
+  <title>Kernel → Inversion: Recovers kernel coefficients</title>
+</path>
+<path d="M950 484 C900 500, 800 540, 720 560" class="arrow" pointer-events="stroke">
+  <title>State-Space → Inversion: Sequential feedback into inversion pipeline</title>
+</path>
+<path d="M950 304 C940 320, 940 330, 940 350" class="arrow" pointer-events="stroke">
+  <title>Sliding Window → State-Space: Stationary inversion feeds dynamic estimation</title>
+</path>
 
-				<!-- Feedback arrows -->
-				<path d="M620 588 C500 640, 336 560, 335 488" class="feedback" />
-				<path d="M335 420 C320 340, 420 240, 540 200" class="feedback" />
-				<path d="M335 250 C360 200, 480 160, 540 160" class="feedback" />
-				<path d="M1030 330 C900 200, 860 200, 640 200" class="feedback" />
+<!-- Feedback arrows -->
+<path d="M620 588 C500 640, 336 560, 335 488" class="feedback" pointer-events="stroke">
+  <title>Inversion → Regularization: Inversion diagnostics refine regularization</title>
+</path>
+<path d="M335 420 C320 340, 420 240, 540 200" class="feedback" pointer-events="stroke">
+  <title>Regularization → Anchoring → Forward Operator: Diagnostic feedback refines projection logic</title>
+</path>
+<path d="M335 250 C360 200, 480 160, 540 160" class="feedback" pointer-events="stroke">
+  <title>Anchoring → Forward Operator: Measurement feedback updates kernel projection</title>
+</path>
+<path d="M1030 330 C900 200, 860 200, 640 200" class="feedback" pointer-events="stroke">
+  <title>State-Space → Forward Operator: Sequential feedback updates kernel projection logic</title>
+</path>
 			</svg>
 
 			<div class="legend" aria-hidden="false" role="list">
@@ -2065,7 +2105,6 @@
   <h5>Kernel Collapse: Linearization Flow</h5>
 
 <svg viewBox="230 20 900 560" style="max-width:1200px" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figTitle figDesc">
-  <title id="figTitle">Kernel Collapse: Linearization Flow</title>
   <desc id="figDesc">Diagram showing how the self-referential kernel collapses nonlinear space into a linear system via coherence extraction, basis projection, and matrix assembly.</desc>
 
   <defs>
@@ -2084,62 +2123,90 @@
     </style>
   </defs>
 
-  <!-- Kernel Impulse -->
-  <circle cx="600" cy="100" r="60" fill="#d9ecff" stroke="#2b2b2b"></circle>
-  <text x="600" y="92" class="label">Kernel Impulse</text>
-  <text x="600" y="112" class="sub">(Φ, K, S)</text>
+<!-- Kernel Impulse -->
+<circle cx="600" cy="100" r="60" fill="#d9ecff" stroke="#2b2b2b">
+  <title>Kernel Impulse: Initial modulation structure (Φ, K, S)</title>
+</circle>
+<text x="600" y="92" class="label">Kernel Impulse</text>
+<text x="600" y="112" class="sub">(Φ, K, S)</text>
 
-  <!-- Nonlinear Domain -->
-  <rect x="370" y="220" width="180" height="60" fill="#fffbe0" class="node"></rect>
-  <text x="460" y="250" class="label">Nonlinear Domain</text>
-  <text x="460" y="268" class="sub">Curved / Stratified</text>
+<!-- Nonlinear Domain -->
+<rect x="370" y="220" width="180" height="60" fill="#fffbe0" class="node">
+  <title>Nonlinear Domain: Curved or stratified space where kernel modulation unfolds</title>
+</rect>
+<text x="460" y="250" class="label">Nonlinear Domain</text>
+<text x="460" y="268" class="sub">Curved / Stratified</text>
 
-  <!-- Dual Arrow: Linear computation within nonlinear manifold -->
-  <path d="M600 160 C570 200, 530 200, 460 220" stroke="#1a66cc" stroke-width="3" stroke-dasharray="6 3" fill="none" marker-end="url(#arrow)">
-    <title>Nonlinear curvature being probed by kernel</title>
-  </path>
-  <path d="M600 160 C565 198, 520 198, 460 218" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrow)">
-    <title>Linear operator acting along nonlinear path</title>
-  </path>
-  <text x="460" y="190" font-size="12" text-anchor="middle" fill="#333">
-    Linear map → curved basis
-  </text>
+<!-- Dual Arrow: Linear computation within nonlinear manifold -->
+<path d="M600 160 C570 200, 530 200, 460 220" stroke="#1a66cc" stroke-width="3" stroke-dasharray="6 3" fill="none" marker-end="url(#arrow)" pointer-events="stroke">
+  <title>Nonlinear curvature being probed by kernel</title>
+</path>
+<path d="M600 160 C565 198, 520 198, 460 218" stroke="#000" stroke-width="2" fill="none" marker-end="url(#arrow)" pointer-events="stroke">
+  <title>Linear operator acting along nonlinear path</title>
+</path>
+<text x="460" y="190" font-size="12" text-anchor="middle" fill="#333">
+  Linear map → curved basis
+</text>
 
-  <!-- Coherence Extraction -->
-  <rect x="650" y="220" width="180" height="60" fill="#e8ffe8" class="node"></rect>
-  <text x="740" y="250" class="label">Coherence Extraction</text>
-  <text x="740" y="268" class="sub">λ<tspan dy="4" font-size="10">coh</tspan>, rhythm</text>
+<!-- Coherence Extraction -->
+<rect x="650" y="220" width="180" height="60" fill="#e8ffe8" class="node">
+  <title>Coherence Extraction: Identifies rhythmic and phase-aligned structures (λcoh, rhythm)</title>
+</rect>
+<text x="740" y="250" class="label">Coherence Extraction</text>
+<text x="740" y="268" class="sub">λ<tspan dy="4" font-size="10">coh</tspan>, rhythm</text>
 
-  <!-- Basis Projection -->
-  <rect x="650" y="340" width="180" height="60" fill="#fff6d6" class="node"></rect>
-  <text x="740" y="370" class="label">Basis Projection</text>
-  <text x="740" y="388" class="sub">K ≈ Σ κⱼ bⱼ</text>
+<!-- Basis Projection -->
+<rect x="650" y="340" width="180" height="60" fill="#fff6d6" class="node">
+  <title>Basis Projection: Expands kernel into basis functions for linearization</title>
+</rect>
+<text x="740" y="370" class="label">Basis Projection</text>
+<text x="740" y="388" class="sub">K ≈ Σ κⱼ bⱼ</text>
 
-  <!-- Matrix Assembly -->
-  <rect x="650" y="460" width="180" height="60" fill="#f2dff5" class="node"></rect>
-  <text x="740" y="490" class="label">Matrix Assembly</text>
-  <text x="740" y="508" class="sub">Aκ + ε</text>
+<!-- Matrix Assembly -->
+<rect x="650" y="460" width="180" height="60" fill="#f2dff5" class="node">
+  <title>Matrix Assembly: Constructs algebraic form Aκ + ε from projected basis</title>
+</rect>
+<text x="740" y="490" class="label">Matrix Assembly</text>
+<text x="740" y="508" class="sub">Aκ + ε</text>
 
-  <!-- Linear System -->
-  <rect x="870" y="460" width="180" height="60" fill="#e6f7ff" class="node"></rect>
-  <text x="960" y="490" class="label">Linear System</text>
-  <text x="960" y="508" class="sub">O = Aκ + ε</text>
+<!-- Linear System -->
+<rect x="870" y="460" width="180" height="60" fill="#e6f7ff" class="node">
+  <title>Linear System: Final observable form O = Aκ + ε</title>
+</rect>
+<text x="960" y="490" class="label">Linear System</text>
+<text x="960" y="508" class="sub">O = Aκ + ε</text>
 
-  <!-- Inversion Methods -->
-  <rect x="870" y="340" width="180" height="60" fill="#ffe8e8" class="node"></rect>
-  <text x="960" y="370" class="label">Inversion Methods</text>
-  <text x="960" y="388" class="sub">Tikhonov / LASSO</text>
+<!-- Inversion Methods -->
+<rect x="870" y="340" width="180" height="60" fill="#ffe8e8" class="node">
+  <title>Inversion Methods: Recovers kernel coefficients using Tikhonov, LASSO, or nonlinear techniques</title>
+</rect>
+<text x="960" y="370" class="label">Inversion Methods</text>
+<text x="960" y="388" class="sub">Tikhonov / LASSO</text>
 
-  <!-- Forward arrows -->
-  <path d="M600 160 C640 200, 680 200, 740 220" class="arrow"></path>
-  <path d="M740 280 C740 300, 740 320, 740 340" class="arrow"></path>
-  <path d="M740 400 C740 420, 740 440, 740 460" class="arrow"></path>
-  <path d="M830 490 C850 490, 870 490, 870 490" class="arrow"></path>
-  <path d="M830 370 C850 370, 870 370, 870 370" class="arrow"></path>
+<!-- Forward arrows -->
+<path d="M600 160 C640 200, 680 200, 740 220" class="arrow" pointer-events="stroke">
+  <title>Kernel → Coherence Extraction: Modulation enters coherence analysis phase</title>
+</path>
+<path d="M740 280 C740 300, 740 320, 740 340" class="arrow" pointer-events="stroke">
+  <title>Coherence → Basis Projection: Phase-aligned structures mapped into basis functions</title>
+</path>
+<path d="M740 400 C740 420, 740 440, 740 460" class="arrow" pointer-events="stroke">
+  <title>Basis → Matrix Assembly: Basis functions assembled into algebraic matrix form</title>
+</path>
+<path d="M830 490 C850 490, 870 490, 870 490" class="arrow" pointer-events="stroke">
+  <title>Matrix → Linear System: Final observable system constructed</title>
+</path>
+<path d="M830 370 C850 370, 870 370, 870 370" class="arrow" pointer-events="stroke">
+  <title>Basis → Inversion Methods: Basis coefficients passed to inversion pipeline</title>
+</path>
 
-  <!-- Feedback loops -->
-  <path d="M960 520 C840 600, 740 570, 740 524" class="feedback"></path>
-  <path d="M960 350 C840 320, 750 290, 780 290" class="feedback"></path>
+<!-- Feedback loops -->
+<path d="M960 520 C840 600, 740 570, 740 524" class="feedback" pointer-events="stroke">
+  <title>Linear System → Matrix Assembly: Feedback loop for coherence refinement</title>
+</path>
+<path d="M960 350 C840 320, 750 290, 780 290" class="feedback" pointer-events="stroke">
+  <title>Inversion → Coherence Extraction: Diagnostic feedback updates coherence metrics</title>
+</path>
 </svg>
 
 <div class="legend" aria-hidden="false" role="list">
