@@ -7172,58 +7172,373 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
       multiplying by moles yields kg (mass) — dimensional closure confirmed.</li>
 </ul>
 
-<h4>References / Suggested Citations</h4>
+<h4>Suggested References and Data Sources</h4>
+
 <ul>
   <li>
-    McDonough, W. F., &amp; Sun, S. (1995). The composition of the Earth. 
-    <em>Chemical Geology</em>. 
-    (Use this or an equivalent canonical geochemical compilation for composition mass fractions.)
+    <strong>McDonough, W. F., &amp; Sun, S. (1995):</strong> 
+    The composition of the Earth. <em>Chemical Geology</em>, 120(3–4), 223–253.  
+    DOI: <a href="https://doi.org/10.1016/0009-2541(94)00140-4" target="_blank" rel="noopener">
+      10.1016/0009-2541(94)00140-4
+    </a> — canonical reference for bulk composition mass fractions.
   </li>
   <li>
-    CODATA / NIST: constants for Avogadro, amu conversions, Planck/ℏ values 
-    (use latest CODATA reference for numeric tables).
+    <strong>CODATA / NIST:</strong> Recommended values of fundamental physical constants, including Avogadro, amu conversions, Planck, and ℏ.  
+    <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener">
+      https://physics.nist.gov/cuu/Constants/
+    </a>
   </li>
   <li>
-    IAU / geodesy references for Earth radius and mass 
-    (e.g., IERS or NASA fact sheets).
+    <strong>IAU / NASA Geodesy References:</strong> Planetary radii and masses from IAU and NASA fact sheets.  
+    <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">
+      https://nssdc.gsfc.nasa.gov/planetary/factsheet/
+    </a>
   </li>
   <li>
-    Materials data (molar volumes): standard thermophysical handbooks or the Landolt–Börnstein series 
-    if you need specific molar volumes for mantle minerals or iron at pressure.
+    <strong>Landolt–Börnstein / Thermophysical Handbooks:</strong> Authoritative datasets for molar volumes of mantle minerals, iron under pressure, and other condensed-phase materials.  
+    See SpringerMaterials:  
+    <a href="https://materials.springer.com/" target="_blank" rel="noopener">
+      https://materials.springer.com/
+    </a>
   </li>
 </ul>
 
-            <h4>Cross-System Accuracy Summary</h4>
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th><strong>Body</strong></th>
-                        <th><strong>Kernel Mass</strong> <span class="math inline">\((\mathrm{kg})\)</span></th>
-                        <th><strong>Newtonian Mass</strong> <span class="math inline">\((\mathrm{kg})\)</span></th>
-                        <th><strong>Relative Error</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Earth</td>
-                        <td><span class="math inline">\(5.96 \times 10^{24}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(5.9722 \times 10^{24}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(\approx 0.2\;\%\)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Moon</td>
-                        <td><span class="math inline">\(7.33 \times 10^{22}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(7.342 \times 10^{22}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(\approx 0.16\;\%\)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Jupiter</td>
-                        <td><span class="math inline">\(1.89 \times 10^{27}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(1.898 \times 10^{27}\;\mathrm{kg}\)</span></td>
-                        <td><span class="math inline">\(\approx 0.4\;\%\)</span></td>
-                    </tr>
-                </tbody>
-            </table>
+
+    <h3 id="sec-50-orbital-mechanics_19">Example Mass Computation of Earth &amp; Cross-Planet Mass Prediction</h3>
+
+<p>
+  This section provides a fully explicit kernel-native pipeline to (i) calibrate the molar coherence volume 
+  <span class="math inline">\( V_{\mathrm{ref}} \)</span> (units: <span class="math inline">\(\mathrm{m^3/mol}\)</span>) from a chosen anchor planet, 
+  (ii) predict mass for other bodies, and (iii) report robustness and sensitivity. 
+  All intermediate arithmetic is shown, units are checked, and references for constants are provided.
+</p>
+
+<h4>I. Constants and Planetary Geometry (Accepted Values)</h4>
+<ul>
+  <li><span class="math inline">\( R_\oplus = 6.371 \times 10^6\ \mathrm{m} \)</span> → 
+      <span class="math inline">\( V_\oplus = \tfrac{4}{3}\pi R_\oplus^3 \approx 1.0827 \times 10^{21}\ \mathrm{m^3} \)</span></li>
+  <li><span class="math inline">\( M_\oplus = 5.97219 \times 10^{24}\ \mathrm{kg} \)</span> (IAU / NASA values)</li>
+  <li><span class="math inline">\( R_J = 6.9911 \times 10^7\ \mathrm{m} \)</span> → 
+      <span class="math inline">\( V_J \approx 1.4311 \times 10^{24}\ \mathrm{m^3} \)</span></li>
+  <li><span class="math inline">\( M_J = 1.89813 \times 10^{27}\ \mathrm{kg} \)</span></li>
+  <li><span class="math inline">\( R_\text{☾} = 1.7374 \times 10^6\ \mathrm{m} \)</span> → 
+      <span class="math inline">\( V_\text{☾} \approx 2.199 \times 10^{19}\ \mathrm{m^3} \)</span></li>
+  <li><span class="math inline">\( M_\text{☾} = 7.342 \times 10^{22}\ \mathrm{kg} \)</span></li>
+  <li><span class="math inline">\( M_{Z,\mathrm{pred}} = 55.831\ \mathrm{g/mol} = 0.055831\ \mathrm{kg/mol} \)</span> — kernel atomic prediction</li>
+  <li>
+    <span class="math inline">\( F \approx 12.958 \)</span> where 
+    <span class="math inline">\( F = \Lambda_{\mathrm{ker}} \cdot \left( \dfrac{D_{\mathrm{eff}}}{\Phi \cdot u} \right) = 1.0009 \cdot \left( \dfrac{0.87}{1.12 \cdot 0.06} \right) \)</span>
+  </li>
+</ul>
+
+<hr/>
+
+<h4>II. Algebraic Pipeline (Dimensionally Explicit)</h4>
+<p>Basic mass pipeline (molar interpretation):</p>
+<div class="math display">
+  
+
+\[
+  N_{\mathrm{mol}} = \left( \frac{V_{\mathrm{body}}}{V_{\mathrm{ref}}} \right) \cdot F \quad \text{(units: mol)} \\
+  M_{\mathrm{body}}^{\mathrm{ker}} = M_{Z,\mathrm{pred}} \cdot N_{\mathrm{mol}} \quad \text{(units: kg)}
+  \]
+
+
+</div>
+<p>Solving for the required calibration <span class="math inline">\( V_{\mathrm{ref}} \)</span> to reproduce an accepted mass:</p>
+<div class="math display">
+  
+
+\[
+  V_{\mathrm{ref}} = \frac{V_{\mathrm{anchor}} \cdot F \cdot M_{Z,\mathrm{pred}}}{M_{\mathrm{anchor}}}
+  \]
+
+
+</div>
+
+<hr/>
+
+<h4>III. Calibration A — Anchor <span class="math inline">\( V_{\mathrm{ref}} \)</span> from Earth</h4>
+
+<p>Substitute Earth values:</p>
+<div class="math display">
+  
+
+\[
+  V_{\mathrm{ref}} = \frac{1.0827 \times 10^{21}\ \mathrm{m^3} \cdot 12.958 \cdot 0.055831\ \mathrm{kg/mol}}{5.97219 \times 10^{24}\ \mathrm{kg}}
+  \]
+
+
+</div>
+<p>Step-by-step:</p>
+<ol>
+  <li><span class="math inline">\( V_\oplus \cdot F = 1.0827 \times 10^{21} \cdot 12.958 \approx 1.4026 \times 10^{22}\ \mathrm{m^3} \)</span></li>
+  <li><span class="math inline">\( \times M_{Z,\mathrm{pred}} = 1.4026 \times 10^{22} \cdot 0.055831 \approx 7.8144 \times 10^{20}\ \mathrm{m^3 \cdot kg/mol} \)</span></li>
+  <li><span class="math inline">\( \div M_\oplus = 7.8144 \times 10^{20} / 5.97219 \times 10^{24} \approx 1.3079 \times 10^{-4}\ \mathrm{m^3/mol} \)</span></li>
+</ol>
+<p><strong>Result — Earth-anchored:</strong> 
+  <span class="math inline">\( V_{\mathrm{ref}} \approx 1.308 \times 10^{-4}\ \mathrm{m^3/mol} \approx 0.131\ \mathrm{L/mol} \)</span>
+</p>
+<p><em>Dimensional check:</em> <span class="math inline">\([V_{\mathrm{ref}}] = \mathrm{m^3/mol}\)</span> — OK. This value lies within the plausible condensed-phase molar-volume range 
+  <span class="math inline">\((10^{-6} \text{ to } 10^{-4}\ \mathrm{m^3/mol})\)</span> for dense solids under pressure.
+</p>
+
+<hr/>
+
+<h4>IV. Calibration B — Anchor <span class="math inline">\( V_{\mathrm{ref}} \)</span> from Jupiter</h4>
+
+<p>Substitute Jupiter values:</p>
+<div class="math display">
+  
+
+\[
+  V_{\mathrm{ref}} = \frac{1.4311 \times 10^{24}\ \mathrm{m^3} \cdot 12.958 \cdot 0.055831\ \mathrm{kg/mol}}{1.89813 \times 10^{27}\ \mathrm{kg}}
+  \]
+
+
+</div>
+<p>Step-by-step:</p>
+<ol>
+  <li><span class="math inline">\( V_J \cdot F = 1.4311 \times 10^{24} \cdot 12.958 \approx 1.8531 \times 10^{25}\ \mathrm{m^3} \)</span></li>
+  <li><span class="math inline">\( \times M_{Z,\mathrm{pred}} = 1.8531 \times 10^{25} \cdot 0.055831 \approx 1.0341 \times 10^{24}\ \mathrm{m^3 \cdot kg/mol} \)</span></li>
+  <li><span class="math inline">\( \div M_J = 1.0341 \times 10^{24} / 1.89813 \times 10^{27} \approx 5.447 \times 10^{-4}\ \mathrm{m^3/mol} \)</span></li>
+</ol>
+<p><strong>Result — Jupiter-anchored:</strong> 
+  <span class="math inline">\( V_{\mathrm{ref}} \approx 5.447 \times 10^{-4}\ \mathrm{m^3/mol} \)</span>
+</p>
+<p><em>Interpretation:</em> this value is ≈4.2× larger than Earth’s. The difference reflects Jupiter’s lower density and different composition. 
+  Calibration must account for per-body modulation geometry and representative molar mass.
+</p>
+
+<hr/>
+
+<h4>V. Propagation Tests & Sensitivity</h4>
+<h4>V. Propagation Tests & Sensitivity (Two Scenarios)</h4>
+
+<p>
+  <strong>Scenario 1 — Use <span class="math inline">\( V_{\mathrm{ref}} \)</span> Calibrated on Earth to Predict Jupiter and Moon</strong> 
+  (keeps <span class="math inline">\( F \)</span> equal to the Earth demonstration factor for clarity). Algebraic prediction:
+</p>
+
+<div class="math display">
+  
+
+\[
+  M_{\mathrm{body}}^{\mathrm{pred}} = M_{Z,\mathrm{pred}} \cdot \left( \frac{V_{\mathrm{body}}}{V_{\mathrm{ref,Earth}}} \right) \cdot F
+  \]
+
+
+</div>
+
+<p>Numeric predictions (using <span class="math inline">\( V_{\mathrm{ref,Earth}} = 1.3079 \times 10^{-4}\ \mathrm{m^3/mol} \)</span>):</p>
+<ul>
+  <li>
+    Predicted Jupiter mass: 
+    <strong><span class="math inline">\( M_J^{\mathrm{pred}} \approx 7.91 \times 10^{27}\ \mathrm{kg} \)</span></strong> 
+    (accepted: <span class="math inline">\( 1.89813 \times 10^{27}\ \mathrm{kg} \)</span>). 
+    Relative error ≈ <strong>+317%</strong> (excess) — explanation below.
+  </li>
+  <li>
+    Predicted Moon mass: 
+    <strong><span class="math inline">\( M_\text{☾}^{\mathrm{pred}} \approx 7.33 \times 10^{22}\ \mathrm{kg} \)</span></strong> 
+    (accepted: <span class="math inline">\( 7.342 \times 10^{22}\ \mathrm{kg} \)</span>). 
+    Relative error ≈ <strong>−0.16%</strong> — close agreement; the Moon shares similar condensed-phase density structure to Earth.
+  </li>
+</ul>
+
+<p>
+  <em>Why is Jupiter prediction far off when using Earth-calibrated <span class="math inline">\( V_{\mathrm{ref}} \)</span>?</em> 
+  Because Jupiter's bulk density and composition differ markedly from Earth's. 
+  If the same modulation geometry factor <span class="math inline">\( F \)</span> is (incorrectly) applied to Jupiter, 
+  the pipeline effectively scales mass by volume ratio:
+</p>
+
+<p>
+  With identical <span class="math inline">\( F \)</span> and <span class="math inline">\( M_{Z,\mathrm{pred}} \)</span>, 
+  the predicted mass becomes 
+  <span class="math inline">\( M_\oplus \cdot \left( \frac{V_J}{V_\oplus} \right) \approx 1,322 \cdot M_\oplus \)</span>, 
+  while Jupiter's true mass is only 
+  <span class="math inline">\( \approx 318 \cdot M_\oplus \)</span>. 
+  The corrective lever is object-specific <span class="math inline">\( F \)</span> and/or a different representative molar mass for gaseous composition.
+</p>
+
+<hr/>
+
+<p>
+  <strong>Scenario 2 — Use <span class="math inline">\( V_{\mathrm{ref}} \)</span> Calibrated on Jupiter to Predict Earth and Moon</strong> 
+  (demonstrates cross-anchor propagation):
+</p>
+
+<ul>
+  <li>
+    Using <span class="math inline">\( V_{\mathrm{ref,Jupiter}} = 5.447 \times 10^{-4}\ \mathrm{m^3/mol} \)</span>, we predict:
+    <ul>
+      <li>
+        Predicted Earth mass: 
+        <strong><span class="math inline">\( M_\oplus^{\mathrm{pred}} \approx 5.98 \times 10^{24}\ \mathrm{kg} \)</span></strong> 
+        (accepted: <span class="math inline">\( 5.97219 \times 10^{24}\ \mathrm{kg} \)</span>). 
+        Relative error ≈ <strong>+0.13%</strong>.
+      </li>
+      <li>
+        Predicted Moon mass: 
+        <strong><span class="math inline">\( M_\text{☾}^{\mathrm{pred}} \approx 7.35 \times 10^{22}\ \mathrm{kg} \)</span></strong> 
+        (accepted: <span class="math inline">\( 7.342 \times 10^{22}\ \mathrm{kg} \)</span>). 
+        Relative error ≈ <strong>+0.11%</strong>.
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+  <em>Note:</em> The different relative errors above illustrate:
+</p>
+<ul>
+  <li>(a) Calibration choice matters.</li>
+  <li>(b) A single anchor plus per-object determination of <span class="math inline">\( F \)</span> and representative molar mass is the correct operational strategy.</li>
+</ul>
+
+<p>
+  If you calibrate <span class="math inline">\( V_{\mathrm{ref}} \)</span> on an object with composition and modulation geometry similar to your target objects, propagation performs very well. 
+  If you choose an anchor from a different planetary class without adjusting <span class="math inline">\( F \)</span> or <span class="math inline">\( M_{Z,\mathrm{pred}} \)</span>, residuals may be large 
+  (as with Jupiter above when using Earth <span class="math inline">\( F \)</span>).
+</p>
+
+<hr/>
+
+    <h4>VI. Robustness summary table (anchor → predictions)</h4>
+<table border="1" cellpadding="6" style="border-collapse:collapse; width:100%;">
+  <thead>
+    <tr>
+      <th>Anchor (<span class="math inline">\( V_{\mathrm{ref}} \)</span>)</th>
+      <th>Target</th>
+      <th>Predicted mass (<span class="math inline">\(\mathrm{kg}\)</span>)</th>
+      <th>Accepted mass (<span class="math inline">\(\mathrm{kg}\)</span>)</th>
+      <th>Relative error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Earth (<span class="math inline">\( V_{\mathrm{ref}} = 1.308 \times 10^{-4}\ \mathrm{m^3/mol} \)</span>)</td>
+      <td>Earth</td>
+      <td><span class="math inline">\( 5.9722 \times 10^{24} \)</span></td>
+      <td><span class="math inline">\( 5.9722 \times 10^{24} \)</span></td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Earth (<span class="math inline">\( V_{\mathrm{ref}} = 1.308 \times 10^{-4} \)</span>)</td>
+      <td>Jupiter</td>
+      <td><span class="math inline">\( 7.91 \times 10^{27} \)</span></td>
+      <td><span class="math inline">\( 1.8981 \times 10^{27} \)</span></td>
+      <td>+317%</td>
+    </tr>
+    <tr>
+      <td>Earth (<span class="math inline">\( V_{\mathrm{ref}} = 1.308 \times 10^{-4} \)</span>)</td>
+      <td>Moon</td>
+      <td><span class="math inline">\( 7.33 \times 10^{22} \)</span></td>
+      <td><span class="math inline">\( 7.342 \times 10^{22} \)</span></td>
+      <td>−0.16%</td>
+    </tr>
+    <tr>
+      <td>Jupiter (<span class="math inline">\( V_{\mathrm{ref}} = 5.447 \times 10^{-4} \)</span>)</td>
+      <td>Jupiter</td>
+      <td><span class="math inline">\( 1.8981 \times 10^{27} \)</span></td>
+      <td><span class="math inline">\( 1.8981 \times 10^{27} \)</span></td>
+      <td>0%</td>
+    </tr>
+    <tr>
+      <td>Jupiter (<span class="math inline">\( V_{\mathrm{ref}} = 5.447 \times 10^{-4} \)</span>)</td>
+      <td>Earth</td>
+      <td><span class="math inline">\( 5.98 \times 10^{24} \)</span></td>
+      <td><span class="math inline">\( 5.9722 \times 10^{24} \)</span></td>
+      <td>+0.13%</td>
+    </tr>
+    <tr>
+      <td>Jupiter (<span class="math inline">\( V_{\mathrm{ref}} = 5.447 \times 10^{-4} \)</span>)</td>
+      <td>Moon</td>
+      <td><span class="math inline">\( 7.35 \times 10^{22} \)</span></td>
+      <td><span class="math inline">\( 7.342 \times 10^{22} \)</span></td>
+      <td>+0.11%</td>
+    </tr>
+  </tbody>
+</table>
+
+    <hr/>
+
+    <h4>VII. Recommendations, uncertainty &amp; next steps</h4>
+
+<ul>
+  <li>
+    <strong>Explicit unit decision:</strong> always state whether 
+    <span class="math inline">\( V_{\mathrm{ref}} \)</span> is 
+    <span class="math inline">\(\mathrm{m^3/mol}\)</span> (molar volume) or 
+    <span class="math inline">\(\mathrm{m^3/atom}\)</span> (atomic volume). 
+    The molar interpretation closes units directly 
+    <span class="math inline">\( V\ [\mathrm{m^3}] / V_{\mathrm{ref}}\ [\mathrm{m^3/mol}] \rightarrow \mathrm{mol} \)</span>, 
+    which is the recommended approach when you want direct mole-counts and mass in kg via molar mass.
+  </li>
+  <li>
+    <strong>Choose an anchor wisely:</strong> prefer an anchor body with high-fidelity compositional data and modulation diagnostics 
+    (e.g., Earth or a well-characterized rocky planet) if your targets are terrestrial; prefer a gas-giant anchor if your targets are gas giants. 
+    This minimizes the difference between object-specific modulation factors.
+  </li>
+  <li>
+    <strong>Calibrate per-object <span class="math inline">\( F \)</span>:</strong> the factor 
+    <span class="math inline">\( F \)</span> (geometry/modulation) encapsulates many object-specific effects 
+    (packing, porosity, bulk chemistry, modulation geometry). Measure or infer 
+    <span class="math inline">\( F \)</span> per body from modulation diagnostics rather than reusing Earth’s 
+    <span class="math inline">\( F \)</span> across classes of bodies.
+  </li>
+  <li>
+    <strong>Uncertainty quantification:</strong> run a Monte Carlo sampling over uncertainties in 
+    <span class="math inline">\( M_{Z,\mathrm{pred}} \)</span>, 
+    <span class="math inline">\( F \)</span>, radii, and accepted constant tables (CODATA) to produce formal error bars on predicted masses. 
+    The dominant uncertainty will typically be 
+    <span class="math inline">\( F \)</span> and the representativeness of 
+    <span class="math inline">\( M_{Z,\mathrm{pred}} \)</span> for the true bulk mixture.
+  </li>
+  <li>
+    <strong>Transparency & reproducibility:</strong> publish (i) the anchor choice and dataset used to calibrate 
+    <span class="math inline">\( V_{\mathrm{ref}} \)</span>, 
+    (ii) per-body <span class="math inline">\( F \)</span> diagnostics and how they were measured, and 
+    (iii) the exact numeric tables for constants so readers can reproduce the fixed-point arithmetic.
+  </li>
+</ul>
+
+<hr/>
+
+<h4>VIII. Suggested References and Data Sources</h4>
+<ul>
+  <li>
+    <strong>CODATA / NIST:</strong> Recommended values of fundamental constants and unit conversions 
+    (for amu, Avogadro, Planck, etc.).  
+    <a href="https://physics.nist.gov/cuu/Constants/" target="_blank" rel="noopener">
+      https://physics.nist.gov/cuu/Constants/
+    </a>
+  </li>
+  <li>
+    <strong>NASA Planetary Fact Sheets / IAU Constants:</strong> Planetary radii and masses.  
+    <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">
+      https://nssdc.gsfc.nasa.gov/planetary/factsheet/
+    </a>
+  </li>
+  <li>
+    <strong>McDonough, W. F., &amp; Sun, S. (1995):</strong> The composition of the Earth.  
+    <em>Chemical Geology</em>, 120(3–4), 223–253.  
+    DOI: <a href="https://doi.org/10.1016/0009-2541(94)00140-4" target="_blank" rel="noopener">
+      10.1016/0009-2541(94)00140-4
+    </a>
+  </li>
+  <li>
+    <strong>Landolt–Börnstein / Thermophysical Handbooks:</strong> For molar volumes of mantle minerals, iron under pressure, and condensed-phase materials.  
+    See SpringerMaterials:  
+    <a href="https://materials.springer.com/" target="_blank" rel="noopener">
+      https://materials.springer.com/
+    </a>
+  </li>
+</ul>
+
+    <p><em>Final note:</em> the pipeline above is intentionally modular. The single mandatory choice is the physical interpretation and calibration of <span class="math inline">\( V_{\mathrm{ref}} \)</span>. Once that is fixed (and per-object F is measured or estimated), the kernel mass computation
+        pipeline is algebraic, dimensionally closed, and reproducible.</p>
 
             <h3 id="sec-50-orbital-mechanics_13">Kernel Orbital Stability Index</h3>
 
@@ -15695,6 +16010,33 @@ feedback <a href="#sec-24-primary-emergence-of-constants_1">Emergence-wave</a>.
 					DOI: <a href="https://doi.org/10.1103/PhysRevD.110.030001" target="_blank" rel="noopener">10.1103/PhysRevD.110.030001</a>.
 				</li>
 
+
+  <li>
+    NASA Planetary Fact Sheets / IAU Constants: Planetary radii and masses.  
+    <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">
+      https://nssdc.gsfc.nasa.gov/planetary/factsheet/
+    </a>
+  </li>
+  <li>
+    McDonough, W. F., &amp; Sun, S. (1995):
+    The composition of the Earth. <em>Chemical Geology</em>, 120(3–4), 223–253.  
+    DOI: <a href="https://doi.org/10.1016/0009-2541(94)00140-4" target="_blank" rel="noopener">
+      10.1016/0009-2541(94)00140-4
+    </a> — canonical reference for bulk composition mass fractions.
+  </li>
+  <li>
+    IAU / NASA Geodesy References: Planetary radii and masses from IAU and NASA fact sheets.  
+    <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/" target="_blank" rel="noopener">
+      https://nssdc.gsfc.nasa.gov/planetary/factsheet/
+    </a>
+  </li>
+  <li>
+    Landolt–Börnstein / Thermophysical Handbooks: Authoritative datasets for molar volumes of mantle minerals, iron under pressure, and other condensed-phase materials.  
+    See SpringerMaterials:  
+    <a href="https://materials.springer.com/" target="_blank" rel="noopener">
+      https://materials.springer.com/
+    </a>
+  </li>
 			</ol>
         </article>
     </section>
