@@ -7312,6 +7312,42 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 <hr/>
 
+<h4>Sensitivity Analysis (Representative)</h4>
+
+<p>
+  Because <span class="math inline">\( V_{\mathrm{ref}} \propto F \cdot M_Z^{\mathrm{pred}} \)</span>, 
+  fractional relative changes add:
+  <span class="math inline">\( \Delta V / V \approx \Delta F / F + \Delta M_Z / M_Z \)</span>.
+</p>
+
+<table>
+  <caption><strong>Representative <span class="math inline">\( V_{\mathrm{ref}} \)</span> Sensitivity Table (Earth)</strong></caption>
+  <thead>
+    <tr>
+      <th><span class="math inline">\( \Delta F \)</span> (%)</th>
+      <th><span class="math inline">\( \Delta M_Z \)</span> (%)</th>
+      <th><span class="math inline">\( \Delta V / V \)</span> (%)</th>
+      <th><span class="math inline">\( V_{\mathrm{ref}} \)</span> (<span class="math inline">\(\mathrm{m^3/mol}\)</span>)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>  0</td><td>  0</td><td>  0.00</td><td><span class="math inline">\( 1.31 \times 10^{-4} \)</span></td></tr>
+    <tr><td> +5</td><td>  0</td><td> +5.00</td><td><span class="math inline">\( 1.38 \times 10^{-4} \)</span></td></tr>
+    <tr><td> -5</td><td>  0</td><td> -5.00</td><td><span class="math inline">\( 1.25 \times 10^{-4} \)</span></td></tr>
+    <tr><td>  0</td><td> +5</td><td> +5.00</td><td><span class="math inline">\( 1.38 \times 10^{-4} \)</span></td></tr>
+    <tr><td>  0</td><td> -5</td><td> -5.00</td><td><span class="math inline">\( 1.25 \times 10^{-4} \)</span></td></tr>
+    <tr><td>+10</td><td>+10</td><td>+20.00</td><td><span class="math inline">\( 1.57 \times 10^{-4} \)</span></td></tr>
+  </tbody>
+</table>
+
+<p>
+  <strong>Note:</strong> A combined ±5% uncertainty in <span class="math inline">\( F \)</span> and 
+  <span class="math inline">\( M_Z^{\mathrm{pred}} \)</span> produces approximately ±10% uncertainty in predicted mass. 
+  Use multiple anchors or laboratory molar-volume measurements to reduce this uncertainty.
+</p>
+
+<hr />
+
 <h4>V. Propagation Tests & Sensitivity</h4>
 <h4>V. Propagation Tests & Sensitivity (Two Scenarios)</h4>
 
@@ -7406,7 +7442,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 <hr/>
 
     <h4>VI. Robustness summary table (anchor → predictions)</h4>
-<table border="1" cellpadding="6" style="border-collapse:collapse; width:100%;">
+<table>
   <thead>
     <tr>
       <th>Anchor (<span class="math inline">\( V_{\mathrm{ref}} \)</span>)</th>
