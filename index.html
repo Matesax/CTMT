@@ -686,54 +686,105 @@
     <section>
         <h2 title="Click to toggle" id="sec-39-practical_demonst_of_coh_law">Practical Demonstrations of the Kernel Coherence Law</h2>
         <article style="display:none">
+<p>
+  The kernel coherence volume <span class="math inline">\(\chi\)</span> arises naturally from the self-referential impulse formulation of the Chronotopic Kernel:
+</p>
+
+<div class="math display">
+  
+\[
+  K(x,x') = \int_{\Omega_\omega} \mathcal{M}[\omega, \gamma, \Theta, Q, \varphi, T] \cdot e^{i\Phi(x,x';\omega)}\, d\omega
+  \]
+
+</div>
+
+<p>
+  In the limit where phase-aligned impulses dominate the integral, the kernel’s effective coherence volume
+  can be approximated by the ratio of stored inertial energy to a coherence-weighted restoring term:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \chi \sim \frac{\int |M(\omega)|^2\, d\omega}{\int |\nabla \Phi|^2\, d\omega}
+  \;\; \Rightarrow \;\;
+  \chi \propto \frac{E_{\text{inertial}}}{E_{\text{geometric}}}
+  \]
+
+
+</div>
+
+<p>
+  This emergent ratio justifies the practical engineering expression for <span class="math inline">\(\chi\)</span> as a scalar coherence volume:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \chi = \frac{M v^2}{\Phi g h \rho}
+  \]
+
+
+</div>
+
+<p>
+  where:
+</p>
+<ul>
+  <li><span class="math inline">\(M\)</span> — mass or mass flow rate [kg] or [kg/s]</li>
+  <li><span class="math inline">\(v\)</span> — characteristic velocity [m/s]</li>
+  <li><span class="math inline">\(\Phi\)</span> — dimensionless geometry factor derived from the phase field <span class="math inline">\(\Phi(x,x';\omega)\)</span>; it encodes topology, alignment, and attenuation effects. The two are related but contextually distinct.</li>
+  <li><span class="math inline">\(g\)</span> — gravitational acceleration [m/s²]</li>
+  <li><span class="math inline">\(h\)</span> — reference length (height, head, or coherence span) [m]</li>
+  <li><span class="math inline">\(\rho\)</span> — ambient medium density [kg/m³]</li>
+</ul>
+
+<h4>Dimensional Closure</h4>
+
+<div class="math display">
+  
+
+\[
+  \frac{[\mathrm{kg}] \cdot [\mathrm{m/s}]^2}{1 \cdot [\mathrm{m/s^2}] \cdot [\mathrm{m}] \cdot [\mathrm{kg/m^3}]} 
+  = \mathrm{m^3}
+  \]
+
+
+</div>
+
+<p>
+  Thus, <span class="math inline">\(\chi\)</span> has units of volume. In contexts where <span class="math inline">\(M\)</span> is a mass flow rate and <span class="math inline">\(v\)</span> a flow speed, 
+  <span class="math inline">\(\chi\)</span> becomes a volumetric flow proxy with units <span class="math inline">\(\mathrm{m^3/s}\)</span>.
+</p>
+
+<h4>Interpretation</h4>
+
+<p>
+  The coherence volume <span class="math inline">\(\chi\)</span> acts as a kernel-native predictor of system throughput, energy demand, or modulation capacity. 
+  It is not a fitted parameter — it is a derived invariant that can be calibrated once and reused across domains.
+</p>
+
+<p>
+  For example, using a small laboratory water column with 
+  <span class="math inline">\( M = 0.02\ \mathrm{kg},\ v = 1.5\ \mathrm{m/s},\ h = 0.1\ \mathrm{m},\ \rho = 1000\ \mathrm{kg/m^3},\ \Phi = 1,\ g = 9.81\ \mathrm{m/s^2} \)</span>,
+  we obtain <span class="math inline">\( \chi \approx 4.6\times10^{-5}\ \mathrm{m^3} \)</span>, or about 46 mL — matching the observed coherent oscillation volume.
+</p>
+
+<p>
+  Within the <a href="#sec-13-universal-kernel-energy-law">energy-law framework</a>, <span class="math inline">\(\chi\)</span> functions as a geometric scalar linking
+  inertial power <span class="math inline">\( P = \rho v^3 \Phi^{-1} \)</span> to the energy density <span class="math inline">\( E = \rho \Theta^4 L_K^2 \)</span>,
+  ensuring dimensional closure between dynamic and coherent regimes.
+</p>
+
+<h4>Abstract</h4>
 
             <p>
                 We present three reproducible, calibrated demonstrations showing how the kernel coherence quantity
                 <span class="math inline">\( \chi \)</span> (having units of volume) can be used as a single, cross-domain predictor after a one-time calibration to observed data.
                 Each demonstration: (i) states assumptions, (ii) performs a dimensional check, (iii) shows calibration, (iv) predicts one or two operating points,
                 and (v) gives caveats and estimated uncertainties. The aim is to illustrate the kernel's <em>practical</em> value in everyday engineering tasks.
-            </p>
-
-            <p>We use the kernel coherence volume</p>
-
-            <div class="math display">
-
-
-                \[
-                \chi \;=\; \frac{M v^{2}}{\Phi g h \rho}
-                \]
-
-
-            </div>
-
-            <p>with</p>
-
-            <ul>
-                <li><span class="math inline">\(M\)</span> — mass or mass rate depending on context (see examples) [kg] or [kg/s]</li>
-                <li><span class="math inline">\(v\)</span> — characteristic velocity [m/s]</li>
-                <li><span class="math inline">\(\Phi\)</span> — dimensionless shape/geometry factor</li>
-                <li><span class="math inline">\(g\)</span> — gravitational acceleration (<span class="math inline">\(\approx 9.81\ \mathrm{m/s^2}\)</span>)</li>
-                <li><span class="math inline">\(h\)</span> — characteristic length (height, head, reference length) [m]</li>
-                <li><span class="math inline">\(\rho\)</span> — density of the ambient medium [kg/m<sup>3</sup>]</li>
-            </ul>
-
-            <p>Dimensional analysis:</p>
-
-            <div class="math display">
-
-
-                \[
-                \frac{[M][v]^2}{[\Phi][g][h][\rho]}
-                = \frac{\mathrm{kg}\cdot \mathrm{m}^2/\mathrm{s}^2}{1\cdot (\mathrm{m/s^2})\cdot \mathrm{m}\cdot (\mathrm{kg/m^3})}
-                = \mathrm{m}^3
-                \]
-
-
-            </div>
-
-            <p>
-                so <span class="math inline">\( \chi \)</span> has units of volume. In contexts where <span class="math inline">\(M\)</span> is a mass flow (kg/s) and <span class="math inline">\(v\)</span> a flow speed,
-                <span class="math inline">\( \chi \)</span> carries units <span class="math inline">\(\mathrm{m^3/s}\)</span> (a volumetric flow proxy).
             </p>
 
             <h3 id="sec-39-practical_demonst_of_coh_law_1">Example A — Automotive fuel consumption (road car)</h3>
@@ -2236,6 +2287,70 @@
   <strong>Matrix Assembly</strong> constructs the algebraic representation <em>Aκ + ε</em>, feeding into a measurable <strong>Linear System</strong>. 
   Inversion and diagnostic feedback (dashed orange) iteratively update the kernel’s geometry and coherence metrics, enabling linear computation of inherently nonlinear spaces.</p>
 </div>
+
+<h5>Regularization Placement Comparison</h5>
+
+<svg viewBox="10 0 600 230" style="max-width:800px" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="figTitle figDesc">
+  <title id="figTitle">Regularization Placement Comparison</title>
+  <desc id="figDesc">Diagram comparing standard inversion pipelines with kernel-native coherence selection using Tikhonov/LASSO.</desc>
+
+  <style>
+    .block { fill: #f0f0f0; stroke: #333; stroke-width: 1.5; rx: 6; ry: 6; }
+    .label { font-size: 14px; font-weight: bold; text-anchor: middle; fill: #000; }
+    .arrow { stroke: #333; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .highlight { fill: #d6f5ff; stroke: #0077cc; stroke-width: 2; }
+    .caption { font-size: 13px; fill: #444; font-style: italic; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#333" />
+    </marker>
+  </defs>
+
+  <!-- Standard Pipeline -->
+  <text x="100" y="20" class="caption">Standard Inversion Pipeline</text>
+  <rect x="40" y="40" width="120" height="40" class="block" />
+  <text x="100" y="65" class="label">Forward Model</text>
+
+  <rect x="180" y="40" width="120" height="40" class="block" />
+  <text x="240" y="65" class="label">Inversion</text>
+
+  <rect x="320" y="40" width="120" height="40" class="block" />
+  <text x="380" y="65" class="label">Regularization</text>
+
+  <rect x="460" y="40" width="120" height="40" class="block" />
+  <text x="520" y="65" class="label">Output</text>
+
+  <path d="M160 60 H180" class="arrow" />
+  <path d="M300 60 H320" class="arrow" />
+  <path d="M440 60 H460" class="arrow" />
+
+  <!-- Kernel-Native Pipeline -->
+  <text x="100" y="140" class="caption">Kernel-Native Pipeline</text>
+  <rect x="40" y="160" width="120" height="40" class="block" />
+  <text x="100" y="185" class="label">Forward Model</text>
+
+  <rect x="180" y="160" width="120" height="40" class="highlight">
+  <title>Coherence Selector</title>
+  </rect>
+  <text x="240" y="185" class="label">Coh. Selector</text>
+
+  <rect x="320" y="160" width="120" height="40" class="block" />
+  <text x="380" y="185" class="label">Inversion</text>
+
+  <rect x="460" y="160" width="120" height="40" class="block" />
+  <text x="520" y="185" class="label">Output</text>
+
+  <path d="M160 180 H180" class="arrow" />
+  <path d="M300 180 H320" class="arrow" />
+  <path d="M440 180 H460" class="arrow" />
+
+  <!-- Caption -->
+  <text x="90" y="220" class="caption">
+    Tikhonov/LASSO used as mid-pipeline coherence filter, not post-inversion stabilizer.
+  </text>
+</svg>
 
 			<p>
 				<strong>Interpretation:</strong> The kernel defines an initial state and produces observables via its forward operator.
