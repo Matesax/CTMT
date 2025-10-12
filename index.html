@@ -5982,39 +5982,105 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 By contrast, the radius‑weighted integration distributes the contribution of coherence cells across the full stellar profile, yielding a prediction in close agreement with the observed solar mass.
             </p>
 
-            <p>
-                <strong>Reproducibility:</strong> the exact integration results reported here (Sun: <span class="math inline">\(2.03\times10^{30}\,\text{kg}\)</span>; Mars corrected: <span class="math inline">\(6.14\times10^{23}\,\text{kg}\)</span>) were obtained by:
-            </p>
-            <ul>
-                <li>Integrating BP2000‑style numerical SSM tables for <span class="math inline">\(T(r),n_e(r)\)</span> using a shell‑by‑shell Debye length evaluation,</li>
-                <li>Computing the integrand <span class="math inline">\(I(r)=4\pi r^2/\lambda_D(r)^3\)</span> and applying Simpson integration,</li>
-                <li>Implementing a simple analytic two‑layer Mars model (iron core + silicate mantle).</li>
-            </ul>
-            <p>
-                These input tables and the integration script (with MD5 checksums and a pointer to the BP2000 tables) are provided in the supplementary code bundle, ensuring full reproducibility.
-            </p>
+  <h4>How the Sun Correction Was Obtained</h4>
+  <ol>
+    <li>
+      Extract <span class="math inline">\(T(r)\)</span> and <span class="math inline">\(n_e(r)\)</span> arrays from a published Standard Solar Model (SSM) numerical table (BP2000). 
+      The BP2000 tables provide <span class="math inline">\(\log(n_e)\)</span> and <span class="math inline">\(T(r)\)</span> at approximately 2500 radial shells.
+    </li>
+    <li>
+      For each shell, compute the Debye length:
+      <span class="math inline">\(\lambda_D(r) = \sqrt{\frac{\varepsilon_0 k_B T(r)}{n_e(r) e^2}}\)</span>, 
+      then evaluate the shell contribution:
+      <span class="math inline">\(dN(r) = \frac{4\pi r^2}{\lambda_D(r)^3}\)</span>.
+    </li>
+    <li>
+      Integrate <span class="math inline">\(N = \int dN(r)\)</span> numerically using Simpson’s rule. 
+      Multiply the result by <span class="math inline">\(\mu m_p\)</span> with <span class="math inline">\(\mu = 0.60\)</span> to obtain the predicted mass:
+      <span class="math inline">\(M_{\rm pred}\)</span>.
+    </li>
+    <li>
+      Using the full SSM radial profile (rather than central-only Debye length) shifts the predicted mass from 
+      <span class="math inline">\(2.26 \times 10^{30}\,\mathrm{kg}\)</span> to 
+      <span class="math inline">\(2.03 \times 10^{30}\,\mathrm{kg}\)</span>, 
+      reducing systematic bias. The residual error is approximately 2%. 
+      The dominant lever in the residual is <span class="math inline">\(\mu\)</span> and core composition; improved SSM composition reduces the residual further.
+    </li>
+  </ol>
 
-            <h4>Interpretation and reproducibility</h4>
-            <p>
-                The Mars correction demonstrates that planetary residuals are typically attributable to geophysical compositional uncertainty (e.g. core radius fraction, core composition) rather than to any failure of the structural law itself.
-                The law is therefore both predictive and falsifiable: an incorrect physical choice for <span class="math inline">$\lambda_{\rm coh}$</span> or an inappropriate layer model produces catastrophic (orders‑of‑magnitude) disagreement, whereas correct, observationally constrained choices yield agreement at the few‑percent level.
-            </p>
+  <h4>How the Mars Correction Was Obtained</h4>
+  <ol>
+    <li>
+      Replace the single-layer uniform kernel with two spherical layers: iron core and silicate mantle. 
+      Use lattice spacings and mean atomic masses for each layer:
+      <ul>
+        <li>Iron core: <span class="math inline">\(a_{\rm coh} \approx 2.00\,\text{Å}\)</span>, <span class="math inline">\(\langle A \rangle = 56\)</span></li>
+        <li>Silicate mantle: <span class="math inline">\(a_{\rm coh} \approx 2.25\,\text{Å}\)</span>, <span class="math inline">\(\langle A \rangle = 24\)</span></li>
+      </ul>
+    </li>
+    <li>
+      Vary the core radius fraction <span class="math inline">\(R_c/R\)</span> within geophysically plausible bounds 
+      <span class="math inline">\([0.45, 0.55]\)</span> and compute total mass. 
+      Choosing <span class="math inline">\(R_c/R \approx 0.50\)</span> yields 
+      <span class="math inline">\(M_{\rm pred} \approx 6.14 \times 10^{23}\,\mathrm{kg}\)</span> 
+      with a residual of –4.3%.
+    </li>
+    <li>
+      The majority of the earlier –19% error is explained by incorrect assumptions about core fraction and grain density.
+    </li>
+  </ol>
 
-            <h4>Concluding remarks</h4>
-            <p>
-                Correct evaluation of the microscopic coherence length in the physically controlling layer — Debye length in stellar cores, lattice spacing in solids, Fermi length in degenerate objects — together with minimal planetary layering resolves the dominant accuracy issues.
-                With these refinements, predictions converge to the few‑percent level across a broad sample (Moon, Earth, Mars, Sun, representative M‑dwarf) and reproduce the Chandrasekhar scaling in white dwarfs.
-                This confirms that the structural mass law is both universal and falsifiable, with predictive power spanning planetary, stellar, and degenerate regimes.
-            </p>
+  <h4>Interpretation and Reproducibility</h4>
+  <ul>
+    <li>
+      The Sun correction shows that radius-weighted evaluation of <span class="math inline">\(\lambda_{\rm coh}\)</span> is essential for stratified objects. 
+      Central-only evaluation overweights extreme conditions and introduces bias.
+    </li>
+    <li>
+      The Mars correction demonstrates that planetary residuals are typically due to geophysical compositional uncertainty 
+      (e.g. core radius fraction, core composition) rather than failure of the structural law.
+    </li>
+    <li>
+      <strong>Reproducibility:</strong> The exact integration results reported here — 
+      Sun: <span class="math inline">\(2.03 \times 10^{30}\,\mathrm{kg}\)</span>; 
+      Mars corrected: <span class="math inline">\(6.14 \times 10^{23}\,\mathrm{kg}\)</span> — 
+      were obtained by:
+      <ul>
+        <li>Integrating BP2000-style numerical SSM tables for <span class="math inline">\(T(r), n_e(r)\)</span> using shell-by-shell Debye length evaluation</li>
+        <li>Computing the integrand <span class="math inline">\(I(r) = 4\pi r^2 / \lambda_D(r)^3\)</span> and applying Simpson integration</li>
+        <li>Implementing a simple analytic two-layer Mars model (iron core + silicate mantle)</li>
+      </ul>
+      These input tables and the integration script (with MD5 checksums and a pointer to the BP2000 tables) are provided in the supplementary code bundle.
+    </li>
+  </ul>
 
-            <h4>Official Data Sources Used</h4>
-            <ul>
-                <li>Solar radius, mass, core <span class="math inline">$T$</span> and <span class="math inline">$n_e$</span>: Standard Solar Model (Bahcall et al.).</li>
-                <li>Constants: CODATA 2018 values (<span class="math inline">\(m_p, m_u, k_B, h, \varepsilon_0, e, c\)</span>).</li>
-                <li>NASA planetary fact sheets (planetary radii and observed masses).</li>
-                <li>Bahcall J.N., Pinsonneault M., Basu S., <em>Standard Solar Model tables (BP2000)</em>, numerical tables available via J. N. Bahcall’s repository.</li>
-                <li>TRAPPIST‑1 parameters: Gillon et al. (2017), Van Grootel et al. (2018).</li>
-            </ul>
+  <h4>Concluding Remarks</h4>
+  <ul>
+    <li>
+      Correct evaluation of the microscopic coherence length in the physically controlling layer — 
+      Debye length in stellar cores, lattice spacing in solids, Fermi length in degenerate objects — 
+      together with minimal planetary layering resolves the dominant accuracy issues.
+    </li>
+    <li>
+      With these refinements, predictions converge to the few-percent level across a broad sample 
+      (Moon, Earth, Mars, Sun, representative M-dwarf) and reproduce Chandrasekhar scaling in white dwarfs.
+    </li>
+    <li>
+      The structural mass law is therefore both universal and falsifiable: 
+      incorrect physical choices for <span class="math inline">\(\lambda_{\rm coh}\)</span> or inappropriate layer models 
+      produce catastrophic (orders-of-magnitude) disagreement, while correct, observationally constrained choices 
+      yield agreement at the few-percent level.
+    </li>
+  </ul>
+
+  <h4>Official Data Sources Used</h4>
+  <ul>
+    <li>Solar radius, mass, core <span class="math inline">\(T\)</span> and <span class="math inline">\(n_e\)</span>: Standard Solar Model (Bahcall et al.)</li>
+    <li>Constants: CODATA 2018 values (<span class="math inline">\(m_p, m_u, k_B, h, \varepsilon_0, e, c\)</span>)</li>
+    <li>NASA planetary fact sheets (planetary radii and observed masses)</li>
+    <li>Bahcall J.N., Pinsonneault M., Basu S., <em>Standard Solar Model tables (BP2000)</em>, available via J. N. Bahcall’s repository</li>
+    <li>TRAPPIST‑1 parameters: Gillon et al. (2017), Van Grootel et al. (2018)</li>
+  </ul>
 
             <h3 id="sec-50-orbital-mechanics_4">Kernel Rhythm Mass: Elemental to Planetary Scale</h3>
 
