@@ -73,6 +73,12 @@ h3, h4, h5, h6 {
 	padding: 5px;
 }
 
+.secnum {
+	display: inline-block;
+	width: 2em;
+	text-align: right;
+}
+
 strong {
 	font-weight: 600;
 }
