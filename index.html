@@ -1386,44 +1386,80 @@
                 space, the distortion introduced by synchronization drift across reference frames, and the filtering effects imposed by observational bias in spacetime measurements. This transformation preserves the causal structure of the original kernel while
                 enabling compatibility with empirical systems governed by relativistic or time-dependent dynamics.
             </div>
-            <p>
-                The kernel is not symbolic — it is measurable, reconstructable, and generative. The theory produces its own physical quantities without relying on 4D spacetime, making it a predictive ontology rather than a metaphysical. Like with speed of light constant,
-                where the kernel predicts an emergent synchronization (maximal causal) speed
-                <figure class="equation" id="eq-3_11">
-                    <div class="math display">
-                        \begin{equation} v_{\rm sync}= M_1\,\nu_{\rm sync}, \end{equation}
-                    </div>
-                    <figcaption><a href="#eq-3_11">Equation (3.11)</a></figcaption>
-                </figure>
-                where:
-            </p>
-            <ul>
-                <li class="math inline">$M_1$ is the first spatial moment (mean hop) measured from the kernel impulse response in vacuum-like conditions (units:~m), with normalization $\int K_{AB}\,\mathrm{d}^{3}x=1$ so the moment is well-defined</li>
-                <li class="math inline">$\nu_{\rm sync}$ is the dominant low- $k$ synchronization frequency (units:~Hz) extracted from the kernel’s dispersion relation $\omega(k)$ in the $k\to 0$ limit</li>
-            </ul>
-            <p>
-                Our goals here are: (i) present realistic error budgets for two independent anchors, (ii) propagate uncertainties to <span class="math inline"><span class="math inline">\( \delta v_{\rm sync} \)</span></span>, (iii) describe the moving-frame (Doppler)
-                check that removes observer/device dependence, and (iv) state the kernel scaling law that explains anchor dependence of <span class="math inline">$M_1$</span> while preserving universality of <span class="math inline">$v_{\rm sync}$</span>.
-            <p>
-                <strong>Anchors used</strong>
-            </p>
-            <p>
-                fixsen2009: D.~J.~Fixsen, "The Temperature of the Cosmic Microwave Background," Astrophysical Journal, vol.~707, no.~2, pp.~916-920, 2009. doi:10.1088/0004-637X/707/2/916<br>
-                <a href="https://beta.spectralcalc.com/docs/current/bbfrequency">spectralcalc_planckpeak: The Planck Blackbody Formula in Units of Frequency, SpectralCalc documentation (accessed 10 Sep 2025)</a>
-            </p>
 
-            <p>We evaluate two independent, non-optical anchors:</p>
+			<p>
+				The kernel is not symbolic — it is measurable, reconstructable, and generative. The theory produces its own physical quantities without relying on 4D spacetime, making it a predictive ontology rather than a metaphysical. For example, the kernel reproduces the spectral peak of blackbody radiation — a cornerstone of quantum thermodynamics — directly from its recursive impulse dynamics, without invoking any external quantization postulate. As shown in <a href="#sec-23-planck-kernel-from-blackbody-data_1">sec. Planck Spectral Law and Wien Displacement</a>, the stationary condition applied to the kernel’s spectral form yields the dimensionless peak
+				<span class="math inline">\( x \approx 2.821439 \)</span>, matching the empirical value used in Planck’s law within 0.1%. This confirms that the Wien displacement law is not an empirical fit but a structural consequence of kernel phase closure.
+			</p>
 
-            <p><strong>Macro anchor (CMB peak)</strong></p>
-            <p>From Planck’s law in frequency form, the peak occurs at <span class="math inline">\(x\approx 2.821439\)</span>, so</p>
-            <figure class="equation" id="eq-3_12">
-                <div class="math display">
+			<p>
+				Similarly, the kernel predicts an emergent synchronization (maximal causal) speed:
+				<figure class="equation" id="eq-3_11">
+					<div class="math display">
+						\begin{equation} v_{\rm sync}= M_1\,\nu_{\rm sync}, \end{equation}
+					</div>
+					<figcaption><a href="#eq-3_11">Equation (3.11)</a></figcaption>
+				</figure>
+				where:
+			</p>
+			<ul>
+				<li class="math inline">$M_1$ is the first spatial moment (mean hop) measured from the kernel impulse response in vacuum-like conditions (units:~m), with normalization $\int K_{AB}\,\mathrm{d}^{3}x=1$ so the moment is well-defined</li>
+				<li class="math inline">$\nu_{\rm sync}$ is the dominant low- $k$ synchronization frequency (units:~Hz) extracted from the kernel’s dispersion relation $\omega(k)$ in the $k\to 0$ limit</li>
+			</ul>
 
-                    \[\nu_{\rm peak}= \frac{x\,k_B\,T_{\rm CMB}}{h}.\]
+			<p>
+				Our goals here are: (i) present realistic error budgets for two independent anchors, (ii) propagate uncertainties to <span class="math inline">\( \delta v_{\rm sync} \)</span>, (iii) describe the moving-frame (Doppler) check that removes observer/device dependence, and (iv) state the kernel scaling law that explains anchor dependence of <span class="math inline">$M_1$</span> while preserving universality of <span class="math inline">$v_{\rm sync}$</span>.
+			</p>
 
-                </div>
-                <figcaption><a href="#eq-3_12">Equation (3.12)</a></figcaption>
-            </figure>
+			<p><strong>Anchors used</strong></p>
+			<p>
+				fixsen2009: D.~J.~Fixsen, "The Temperature of the Cosmic Microwave Background," Astrophysical Journal, vol.~707, no.~2, pp.~916–920, 2009. doi:10.1088/0004-637X/707/2/916<br>
+				<a href="https://beta.spectralcalc.com/docs/current/bbfrequency">spectralcalc_planckpeak: The Planck Blackbody Formula in Units of Frequency, SpectralCalc documentation (accessed 10 Sep 2025)</a>
+			</p>
+
+			<p>We evaluate two independent, non-optical anchors:</p>
+
+			<p><strong>Macro anchor (CMB peak)</strong></p>
+
+			<p>
+				The standard macro anchor for the cosmic microwave background (CMB) peak uses Planck’s law in frequency form, with the dimensionless peak value
+				<span class="math inline">\( x \approx 2.821439 \)</span> derived from the stationary condition. This yields:
+			</p>
+
+			<figure class="equation" id="eq-3_12">
+				<div class="math display">
+
+
+					\[
+					\nu_{\rm peak} = \frac{x\,k_B\,T_{\rm CMB}}{h}
+					\]
+
+
+				</div>
+				<figcaption><a href="#eq-3_12">Equation (3.12)</a> — Standard peak frequency from Planck’s law.</figcaption>
+			</figure>
+
+			<p>
+				In contrast, the kernel framework derives the same peak structurally, using recursive impulse dynamics and phase quantization. The spectral density is generated from kernel observables, and the stationary condition yields the same transcendental peak value. The kernel-based Wien displacement law is:
+			</p>
+
+			<figure class="equation" id="eq-3_12b">
+				<div class="math display">
+
+
+					\[
+					\lambda_{\rm peak} T = \frac{c \mathcal{S}_*}{2.821\, k_B}
+					\approx 2.898 \times 10^{-3}\ {\rm m \cdot K}
+					\]
+
+
+				</div>
+				<figcaption><a href="#eq-3_12b">Equation (3.12b)</a> — Kernel-derived Wien displacement law.</figcaption>
+			</figure>
+
+			<aside style="font-style: italic; font-size: 10px">
+				This confirms that the kernel does not merely replicate known physics — it generates it from first principles. The peak is not fitted, but rendered by recursive coherence geometry.
+			</aside>
 
             <p>Using <span class="math inline">\(T_{\rm CMB}= 2.72548 \pm 0.00057\ \mathrm{K}\)</span> <a href="#ref-fixsen2009">[fixsen2009]</a> gives</p>
             <figure class="equation" id="eq-3_13">
@@ -12388,6 +12424,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <h4>6. Interpretation</h4>
             <p>
                 In the Chronotopic Kernel picture:
+            </p>
                 <ul>
                     <li>The phase quantization \( \Delta S = 2\pi \mathcal{S}_* \) generates discrete energy transfer.</li>
                     <li>The thermal distribution arises from recursive coherence among impulse layers.</li>
@@ -12396,9 +12433,127 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                         without any separate quantization postulate.
                     </li>
                 </ul>
+            <p>
                 Thus, the full radiative thermodynamics — including Planck’s and Wien’s constants —
                 originates directly from kernel phase closure and equilibrium recursion.
             </p>
+
+			<svg viewBox="260 20 360 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+				<style>
+					.node {
+						stroke: #333;
+						stroke-width: 1.5;
+						rx: 6;
+						ry: 6;
+					}
+
+					.arrow {
+						stroke: #555;
+						stroke-width: 1.5;
+						fill: none;
+						marker-end: url(#arrowhead);
+					}
+
+					.feedback {
+						stroke: #cc5500;
+						stroke-width: 1.8;
+						stroke-dasharray: 6 4;
+						fill: none;
+						marker-end: url(#arrowhead);
+					}
+
+					.kernel {
+						fill: #e6f7ff;
+					}
+
+					.thermo {
+						fill: #fff1e0;
+					}
+
+					.closure {
+						fill: #f5f5f5;
+					}
+
+					.axislabel {
+						font: italic 12px sans-serif;
+						fill: #666;
+					}
+				</style>
+
+				<defs>
+					<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+						<polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+					</marker>
+				</defs>
+
+				<!-- Step 1 -->
+				<rect x="400" y="40" width="200" height="60" class="node kernel" />
+				<foreignObject x="400" y="52" width="200" height="48">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Phase Quantization</b><br />
+						<span class="math">\( \Delta S = 2\pi \mathcal{S}_* \)</span>
+					</div>
+				</foreignObject>
+
+				<!-- Step 2 -->
+				<rect x="400" y="130" width="200" height="60" class="node kernel" />
+				<foreignObject x="400" y="138" width="200" height="52">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Energy per Mode</b><br />
+						<span class="math">\( \langle E_\nu \rangle = \frac{\mathcal{S}_* \nu}{e^{\mathcal{S}_* \nu / k_B T} - 1} \)</span>
+					</div>
+				</foreignObject>
+
+				<!-- Step 3 -->
+				<rect x="400" y="220" width="200" height="60" class="node thermo" />
+				<foreignObject x="400" y="226" width="200" height="54">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Spectral Density</b><br />
+						<span class="math">\( u(\nu, T) = \frac{8\pi \mathcal{S}_* \nu^3}{c^3} \cdot \frac{1}{e^{\mathcal{S}_* \nu / k_B T} - 1} \)</span>
+					</div>
+				</foreignObject>
+
+				<!-- Step 4 -->
+				<rect x="400" y="310" width="200" height="60" class="node thermo" />
+				<foreignObject x="400" y="316" width="200" height="52">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Stationary Condition</b><br />
+						<span class="math">\( \frac{d}{d\nu} \left( \frac{\nu^3}{e^{\mathcal{S}_* \nu / k_B T} - 1} \right) = 0 \)</span>
+					</div>
+				</foreignObject>
+
+				<!-- Step 5 -->
+				<rect x="400" y="400" width="200" height="60" class="node thermo" />
+				<foreignObject x="400" y="408" width="200" height="50">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Dimensionless Peak</b><br />
+						<span class="math">\( x = \frac{\mathcal{S}_* \nu}{k_B T} \approx 2.821439 \)</span>
+					</div>
+				</foreignObject>
+
+				<!-- Step 6 -->
+				<rect x="400" y="490" width="200" height="70" class="node closure" />
+				<foreignObject x="400" y="494" width="200" height="70">
+					<div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+						<b>Wien Displacement</b><br />
+						<div class="math">\( \lambda_{\rm peak} T = \frac{c \mathcal{S}_*}{2.821\, k_B} \)</div>
+						<div class="math">\( \approx 2.898 \times 10^{-3}\,{\rm m \cdot K} \)</div>
+					</div>
+				</foreignObject>
+
+				<!-- Arrows -->
+				<path d="M500 100 L500 130" class="arrow" />
+				<path d="M500 190 L500 220" class="arrow" />
+				<path d="M500 280 L500 310" class="arrow" />
+				<path d="M500 370 L500 400" class="arrow" />
+				<path d="M500 460 L500 490" class="arrow" />
+
+				<!-- Feedback loop -->
+				<path d="M400 525 C300 530, 300 80, 400 70" class="feedback" />
+
+				<!-- Axis label -->
+				<text x="300" y="580" class="axislabel">→ increasing structural emergence (recursive depth)</text>
+			</svg>
         </article>
     </section>
     <section>
@@ -12796,13 +12951,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 						}
 
 						.label {
-							font: bold 14px sans-serif;
+							font-weight: 600;
+							font-size: 14px;
 							text-anchor: middle;
 							fill: #111;
 						}
 
 						.formula {
-							font: 13px serif;
+							font-size: 13px;
 							text-anchor: middle;
 							fill: #222;
 						}
@@ -12835,7 +12991,8 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 						}
 
 						.axislabel {
-							font: italic 12px sans-serif;
+							font-style: italic;
+							font-size: 12px;
 							fill: #666;
 						}
 					</style>
@@ -12849,7 +13006,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 					<!-- Nodes -->
 					<rect x="400" y="40" width="200" height="60" class="node kernel" />
 					<text x="500" y="65" class="label">Kernel Impulse</text>
-					<text x="500" y="85" class="formula">ε₀ = S<tspan baseline-shift="sub" font-size="7">*</tspan> · Θ</text>
+					<text x="500" y="85" class="formula">ε₀ = S<tspan baseline-shift="sub" font-size="10">*</tspan> · Θ</text>
 
 					<rect x="400" y="130" width="200" height="60" class="node kernel" />
 					<text x="500" y="155" class="label">Effective Mass</text>
@@ -12857,7 +13014,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 					<rect x="400" y="220" width="200" height="60" class="node kernel" />
 					<text x="500" y="245" class="label">Coherence Radius</text>
-					<text x="500" y="265" class="formula">Lₖ = √(S<tspan baseline-shift="sub" font-size="7">*</tspan> / ρΘ)</text>
+					<text x="500" y="265" class="formula">Lₖ = √(S<tspan baseline-shift="sub" font-size="10">*</tspan> / ρΘ)</text>
 
 					<rect x="400" y="310" width="200" height="60" class="node kernel" />
 					<text x="500" y="335" class="label">Kernel Energy Density</text>
