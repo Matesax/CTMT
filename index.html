@@ -99,13 +99,14 @@
             </p>
 
             <h4>Derivation and Principle</h4>
-            <p>
-                At its core, the kernel projection is defined as:
-                <code>Ψ<sub>B</sub>(x) = ∫ K<sub>AB</sub>(x,x') Ψ<sub>A</sub>(x') d³x'</code>,
-                where <code>K<sub>AB</sub></code> maps modulation states from layer A to layer B. When extended recursively, this becomes:
-                <code>K<sub>AC</sub>(x,x'') = ∫ K<sub>AB</sub>(x,x') K<sub>BC</sub>(x',x'') dx'</code>,
-                allowing impulse coherence to be reprojected across multiple layers.
-            </p>
+			<p>
+				At its core, the kernel projection is defined as:
+				<span class="math inline">\(\Psi_{B}(x) = \int K_{AB}(x,x') \, \Psi_{A}(x') \, d^{3}x'\)</span>,
+				where <span class="math inline">\(K_{AB}\)</span> maps modulation states from layer A to layer B.
+				When extended recursively, this becomes:
+				<span class="math inline">\(K_{AC}(x,x'') = \int K_{AB}(x,x') \, K_{BC}(x',x'') \, dx'\)</span>,
+				allowing impulse coherence to be reprojected across multiple layers.
+			</p>
             <p>
                 This recursive structure enables the kernel to model not just transitions, but the <em>seepage</em> — the partial survival and reformation — of rhythm across domains. Seepage occurs when coherence cannot be sustained in a given topology, triggering reprojection into a new modulation basin.
             </p>
@@ -216,42 +217,56 @@
                 </defs>
             </svg>
             <h4>Sync Factor and 4D Time Projection</h4>
-            <p>
-                In the Chronotopic Kernel framework, the <strong>Sync Factor</strong> (<span class="math inline">\( v_{\rm sync} \)</span>)
-                quantifies how rhythmic impulses align across a distributed network of nodes.
-                Unlike classical synchronization, which assumes uniform phase locking,
-                the Sync Factor accumulates coherence dynamically — modulating across layers, domains, and topologies.
-            </p>
-            <p>
-                Each impulse interacts with local nodes, triggering phase responses shaped by their individual <em>modulation basins</em> —
-                regions of structural influence that determine how rhythm is absorbed and re-emitted.
-                As these responses converge, the system reaches a threshold of coherence that enables <strong>4D time projection</strong>.
-            </p>
-            <p>
-                This projection is not merely sequential; it is <em>stratified</em>, <em>recursive</em>, and <em>emergent</em>.
-                The kernel encodes not just duration and simultaneity, but <strong>temporal depth</strong> —
-                the capacity to reproject past coherence into future modulation.
-                <span class="math inline">\( v_{\rm sync} \)</span> thus acts as both a coherence validator and a temporal constructor,
-                allowing rhythm to persist across dimensional folds.
-            </p>
-            <p>
-                Through recursive accumulation, the kernel generates a layered ontology of time,
-                where each modulation basin contributes to the emergent structure of 4D temporality.
-                In contrast to static time models, the Chronotopic Kernel treats time as a rhythmically sustained coherence field.
-                <span class="math inline">\( v_{\rm sync} \)</span> becomes the metric by which this field is validated, tuned, and reprojected —
-                enabling falsifiability, seepage detection, and modulation collapse.
-            </p>
-            <p>
-                The adjacent diagram illustrates how impulse rhythm interacts with nodes and spreads synchronization across layers.
-            </p>
-            <h4>Layered Coherence and Forward Projection</h4>
-            <p>
-                In classical physics, inversion is often framed as a recovery problem — reconstructing hidden states from surface observables. But in the Chronotopic Kernel framework, inversion is not a reversal of time or causality; it is a <em>rhythmic reprojection</em> across coherence layers. The kernel does not require pristine source data. Instead, it projects <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2">forward from impulse rhythm</a>, generating expected modulation patterns and validating them recursively.
-                This is where the <strong>Sync Factor</strong> becomes essential. As impulses interact with nodes, they accumulate phase alignment — not just locally, but across modulation strata. The Sync Factor quantifies this alignment, enabling the kernel to project coherence into <strong>4D time</strong>: a layered temporal structure where rhythm is not merely sequential, but stratified and emergent. Even distorted observables — shaped by prior seepage, collapse, or tuning — carry enough rhythm memory to allow forward projection.
-            </p>
-            <p>
-                Thus, the kernel framework offers a vast computational ease: it does not chase lost data, but builds coherence from what survives. It treats distortion as a signature, not a flaw. And it allows the observer to compute planetary systems, orbital drift, or thermal fields not by inversion alone, but by <em>forward rhythm propagation</em> — a generative act rooted in modulation geometry.
-            </p>
+			<p>
+				In the Chronotopic Kernel framework, the <strong>Sync Factor</strong> 
+				(<span class="math inline">\( v_{\rm sync} \)</span>) quantifies how rhythmic impulses align across a distributed network of nodes. 
+				Unlike classical synchronization, which assumes uniform phase locking, 
+				<span class="math inline">\( v_{\rm sync} \)</span> accumulates coherence dynamically — modulating across layers, domains, and topologies.
+			</p>
+			<p>
+				Each impulse interacts with local nodes, triggering phase responses shaped by their individual 
+				<em>modulation basins</em> — regions of structural influence that determine how rhythm is absorbed and re‑emitted. 
+				As these responses converge, the system reaches a threshold of coherence that enables <strong>4D time projection</strong>.
+			</p>
+			<p>
+				Here <span class="math inline">\( v_{\rm sync} \)</span> serves two roles: 
+				it is a <em>coherence validator</em>, confirming that impulses remain rhythmically aligned, 
+				and a <em>temporal constructor</em>, enabling the reprojection of past coherence into future modulation. 
+				This projection is not sequential but <em>stratified</em>, <em>recursive</em>, and <em>emergent</em>, 
+				encoding not just duration and simultaneity but <strong>temporal depth</strong>.
+			</p>
+			<p>
+				Through recursive accumulation, the kernel generates a layered ontology of time in which each modulation basin 
+				contributes to emergent 4D temporality. In contrast to static time models, the Chronotopic Kernel treats time 
+				as a rhythmically sustained coherence field. 
+				<span class="math inline">\( v_{\rm sync} \)</span> becomes the metric by which this field is validated, tuned, and reprojected — 
+				enabling falsifiability, seepage detection, and modulation collapse.
+			</p>
+			<p>
+				The adjacent diagram illustrates how impulse rhythm interacts with nodes and spreads synchronization across layers.
+			</p>
+
+			<h4>Layered Coherence and Forward Projection</h4>
+			<p>
+				In classical physics, inversion is framed as a recovery problem — reconstructing hidden states from surface observables. 
+				In the Chronotopic Kernel framework, inversion is instead a <em>rhythmic reprojection</em> across coherence layers. 
+				The kernel does not require pristine source data: it projects 
+				<a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2">forward from impulse rhythm</a>, 
+				generating expected modulation patterns and validating them recursively.
+			</p>
+			<p>
+				The <strong>Sync Factor</strong> quantifies accumulated phase alignment across modulation strata, 
+				enabling the kernel to project coherence into <strong>4D time</strong>: 
+				a layered temporal structure where rhythm is stratified and emergent. 
+				Even distorted observables — shaped by prior seepage, collapse, or tuning — 
+				retain sufficient rhythm memory for forward projection.
+			</p>
+			<p>
+				Thus, the kernel framework offers computational economy: it does not chase lost data, 
+				but builds coherence from what survives. Distortion is treated as a signature, not a flaw. 
+				This allows planetary systems, orbital drift, or thermal fields to be computed not by inversion alone, 
+				but by <em>forward rhythm propagation</em> — a generative act rooted in modulation geometry.
+			</p>
         </article>
     </section>
     <section>
