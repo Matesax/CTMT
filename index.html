@@ -12164,6 +12164,382 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The orbital mechanics specialization of the energy–kernel law expresses gravitational energy flow as a spectral convolution,
                 structurally unified with all other physical domains. See <a href="#sec-50-orbital-mechanics">sec. Orbital Mechanics</a> for full derivation.
             </p>
+
+  <h3 id="sec-141-structural-energy-kernel_9">Kernel Fixed Points & Structural Operators</h3>
+
+  <p>
+    This subsection formalizes the fixed-point structure and operator framework implied by the
+    <a href="#sec-141-structural-energy-kernel">general energy–kernel law</a>.
+    Whereas previous sections specialized the kernel to physical domains (nuclear, thermal, orbital, etc.),
+    here we focus on the mathematical and structural consequences of recursive kernel application.
+    These include:
+  </p>
+
+  <ul>
+    <li>Existence and uniqueness of fixed points under contraction</li>
+    <li>Recursive kernel operators and self-consistent energy propagation</li>
+    <li>Green kernels and spectral damping</li>
+    <li>Path-sum kernels and quantized action</li>
+    <li>Magnetostatic fields from drift–curl recursion</li>
+    <li>Synchrony laws and relativistic invariance</li>
+    <li>Modulation-based lensing and coherence curvature</li>
+    <li>Operator boundedness and inversion stability</li>
+    <li>Experimental validation protocols and identifiability</li>
+  </ul>
+
+  <h4>Recursive Kernel Operator</h4>
+
+  <p>
+    The general energy–kernel law defines the local power density:
+  </p>
+
+  <figure class="equation" id="eq-144_1">
+    <div class="math display">
+    
+
+\[
+      p(\mathbf{x},t)
+      = \int_{\Omega_\epsilon}\!\int_V\!\int_{\epsilon}
+      \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)
+      \,\mathcal{S}_\ast(\mathbf{x}',t';\epsilon)
+      \,d^3x'\,dt'\,d\epsilon.
+    \]
+
+
+    </div>
+    <figcaption><a href="#eq-144_1">Equation (144.1)</a> — General energy–kernel law.</figcaption>
+  </figure>
+
+  <p>
+    Recursive substitution of the source–kernel convolution defines an operator:
+  </p>
+
+  <figure class="equation" id="eq-144_2">
+    <div class="math display">
+    
+
+\[
+      K_{n+1}(\mathbf{x},t)
+      = \int
+        \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)
+        \,f[K_n(\mathbf{x}',t';\epsilon)]
+        \,d^3x'\,dt'\,d\epsilon,
+    \]
+
+
+    </div>
+    <figcaption><a href="#eq-144_2">Equation (144.2)</a> — Recursive kernel operator.</figcaption>
+  </figure>
+
+  <p>
+    The fixed point satisfies \(K^\star=\mathcal{R}[K^\star]\),
+    where \(\mathcal{R}\) denotes the integral operator above.
+    Under contraction (\(\|\mathcal{R}K_1-\mathcal{R}K_2\|\le\kappa\|K_1-K_2\|\), \(\kappa<1\)),
+    a unique solution exists.
+  </p>
+
+  <h4>Fixed-Point Classification</h4>
+
+  <table>
+    <thead>
+      <tr><th>Fixed-Point Type</th><th>Operator Form</th><th>Physical Interpretation</th><th>Experimental Anchor</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Spectral Green</strong></td>
+        <td><span class="math inline">\(K^\star=\mathcal{R}_{\rm lin}[K]\)</span></td>
+        <td>Solution of Helmholtz / wave equation</td>
+        <td>Radiative or acoustic decay constants</td>
+      </tr>
+      <tr>
+        <td><strong>Path-Sum</strong></td>
+        <td><span class="math inline">\(K^\star=\sum_\gamma\!\mathcal{A}[\gamma]e^{iS[\gamma]/\mathcal{S}_\ast}\)</span></td>
+        <td>Quantum propagator, topological interference</td>
+        <td>Spectral quantization, interference fringes</td>
+      </tr>
+      <tr>
+        <td><strong>Magnetostatic</strong></td>
+        <td><span class="math inline">\(K^\star=\nabla^{-2}(\mu_0J)\)</span></td>
+        <td>Vector potential equilibrium (Biot–Savart)</td>
+        <td><span class="math inline">\(B\)</span>-field mapping, current tomography</td>
+      </tr>
+      <tr>
+        <td><strong>Synchrony / Relativistic</strong></td>
+        <td><span class="math inline">\(K^\star=\mathcal{L}[v_{\rm sync},\Phi]\)</span></td>
+        <td>Proper-time and phase invariance</td>
+        <td>GPS, redshift, atomic clock drift</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Spectral Green Fixed Points</h4>
+  <p>
+    When recursion involves exponential damping and linear phase accrual, the equilibrium kernel is a spectral Green function:
+  </p>
+
+  <figure class="equation" id="eq-144_3">
+    <div class="math display">
+    \[
+      K^\star(x,x')=\int\!\hat{w}(\omega)\,
+      e^{-\gamma|x-x'|}\,e^{i\omega|x-x'|}\,d\omega,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_3">Equation (144.3)</a> — Spectral Green fixed point.</figcaption>
+  </figure>
+
+  <h4>Path-Sum and Quantized Action</h4>
+  <figure class="equation" id="eq-144_4">
+    <div class="math display">
+    \[
+      K_{\rm path}(x,x')
+      = \sum_{\gamma:x\to x'}\!
+        \mathcal{A}[\gamma]\,
+        \exp\!\left(\frac{i}{\mathcal{S}_\ast}S[\gamma]\right).
+    \]
+    </div>
+    <figcaption><a href="#eq-144_4">Equation (144.4)</a> — Path-sum kernel and action quantization.</figcaption>
+  </figure>
+
+  <p>
+    This fixed point underlies quantum and topological interference phenomena; 
+    discretization of \(S[\gamma]/\mathcal{S}_\ast\) yields observable spectral lines.
+  </p>
+
+  <h4>Magnetostatic Fixed Points</h4>
+
+  <figure class="equation" id="eq-144_5">
+    <div class="math display">
+    \[
+      A_{\rm eff}(x)
+      = \int\frac{\mu_0}{4\pi}\frac{J(x')}{|x-x'|}\,d^3x',
+    \]
+    </div>
+    <figcaption><a href="#eq-144_5">Equation (144.5)</a> — Effective vector potential.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_6">
+    <div class="math display">
+    \[
+      B(x)=\nabla\times A_{\rm eff}(x),
+    \]
+    </div>
+    <figcaption><a href="#eq-144_6">Equation (144.6)</a> — Field recovery by curl.</figcaption>
+  </figure>
+
+  <p>
+    These arise from the kernel recursion under Coulomb gauge and solenoidal-current constraint \(\nabla\!\cdot\!J=0\).
+  </p>
+
+  <h4>Synchrony and Relativistic Fixed Points</h4>
+
+  <figure class="equation" id="eq-144_7">
+    <div class="math display">
+    \[
+      v_{\rm sync}=m_{\rm sync}\,\nu,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_7">Equation (144.7)</a> — Synchrony speed scaling.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_8">
+    <div class="math display">
+    \[
+      \Delta_{\rm sync}
+      =\!\int_\gamma\!\!\left[
+        -\frac{v^2}{2c^2}
+        +\frac{\Phi}{c^2}
+        +\Lambda(\rho_c,C_{\rm med},\Theta)\,\dot\phi
+      \right]\!d\ell,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_8">Equation (144.8)</a> — Relativistic synchrony offset.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_9">
+    <div class="math display">
+    \[
+      \frac{d\tau}{dt}
+      \approx1+\frac{\Phi}{c^2}-\frac{v^2}{2c^2},
+    \]
+    </div>
+    <figcaption><a href="#eq-144_9">Equation (144.9)</a> — Proper-time expansion in weak fields.</figcaption>
+  </figure>
+
+  <h4>Modulation-Based Lensing</h4>
+
+  <figure class="equation" id="eq-144_10">
+    <div class="math display">
+    \[
+      \theta_{\rm mod}
+      =\!\int_\gamma\!\nabla_\perp
+        \!\left(\frac{\partial\Phi}{\partial\omega}\right)\!d\ell,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_10">Equation (144.10)</a> — Lensing from synchrony-phase gradient.</figcaption>
+  </figure>
+
+  <p>
+    This reframes gravitational lensing as a synchrony gradient in group-delay space.
+  </p>
+
+  <h4>Structural Quantization and Loop Closure</h4>
+
+  <figure class="equation" id="eq-144_11">
+    <div class="math display">
+    \[
+      \oint_\gamma\frac{\partial\Phi}{\partial\omega}\,d\omega
+      =2\pi n\,\mathcal{S}_\ast,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_11">Equation (144.11)</a> — Phase-closure quantization.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_12">
+    <div class="math display">
+    \[
+      \mathcal{S}_\ast=\frac{E}{\nu}
+      =\frac{1}{2\pi}\oint_\gamma\Phi\,d\omega,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_12">Equation (144.12)</a> — Action-quantum extraction.</figcaption>
+  </figure>
+
+  <p>
+    This provides a non-circular extraction of Planck’s constant from purely spectral measurements.
+  </p>
+
+  <h4>Identifiability and Structural Estimation</h4>
+
+  <figure class="equation" id="eq-144_13">
+    <div class="math display">
+    \[
+      \hat v_{\rm sync}
+      =\frac{\sum_i w_i\,\nu^{(i)}m_{\rm sync}^{(i)}}
+             {\sum_i w_i},
+      \qquad
+      w_i\propto(\delta v_i)^{-2},
+    \]
+    </div>
+    <figcaption><a href="#eq-144_13">Equation (144.13)</a> — Structural estimator for synchrony speed.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_14">
+    <div class="math display">
+    \[
+      \frac{\delta v}{v}
+      =\sqrt{
+        \left(\frac{\delta m_{\rm sync}}{m_{\rm sync}}\right)^2
+        +\left(\frac{\delta\nu}{\nu}\right)^2}.
+    \]
+    </div>
+    <figcaption><a href="#eq-144_14">Equation (144.14)</a> — Relative uncertainty propagation.</figcaption>
+  </figure>
+
+  <h4>Operator Boundedness and Stability</h4>
+
+  <figure class="equation" id="eq-144_15">
+    <div class="math display">
+    \[
+      \|\mathcal{R}K\|_{\mathcal{X}}\le C_M\,C_\Phi,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_15">Equation (144.15)</a> — Global operator bound.</figcaption>
+  </figure>
+
+  <p>
+    From Hölder and Parseval inequalities:
+  </p>
+
+  <figure class="equation" id="eq-144_16">
+    <div class="math display">
+    \[
+      \|\mathcal{R}K\|_2^2
+      =\!\int|\mathcal{T}\!\cdot\!K|^2
+      \le\|\mathcal{T}\|_2^2\,\|K\|_2^2,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_16">Equation (144.16)</a> — Variational bound via Parseval.</figcaption>
+  </figure>
+
+  <p>
+    Contraction and unique convergence follow for \(\|\mathcal{T}\|_2&lt;1\).
+  </p>
+
+  <h4>Regularized Inversion and Stability</h4>
+
+  <figure class="equation" id="eq-144_17">
+    <div class="math display">
+    \[
+      (P^\top P+\lambda L^\top L)\,\mathbf b^\star
+      =P^\top\mathbf y,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_17">Equation (144.17)</a> — Tikhonov regularization for flux recovery.</figcaption>
+  </figure>
+
+  <figure class="equation" id="eq-144_18">
+    <div class="math display">
+    \[
+      \|\mathbf b^\star-\mathbf b_{\rm true}\|_2
+      \le C_1\sigma_{\rm noise}\kappa(P)
+      +C_2\lambda\|L\mathbf b_{\rm true}\|_2,
+    \]
+    </div>
+    <figcaption><a href="#eq-144_18">Equation (144.18)</a> — Stability bound under perturbation.</figcaption>
+  </figure>
+
+  <h4>Computation and Validation Protocols</h4>
+  <ul>
+    <li><strong>Fixed-point convergence:</strong> Iterate \(K_{n+1}=\mathcal{R}[K_n]\) until \(\|K_{n+1}-K_n\|&lt;\varepsilon\); record contraction ratio.</li>
+    <li><strong>Spectral verification:</strong> Compare \(K^\star(\omega)\) with measured Green spectra; extract damping rate \(\gamma_{\rm obs}\).</li>
+    <li><strong>Action quantization:</strong> Measure \(\oint_\gamma\Phi\,d\omega\) and confirm integer multiples of \(\mathcal{S}_\ast\).</li>
+    <li><strong>Magnetostatic consistency:</strong> Compute \(\nabla\!\cdot\!B\) for reconstructed \(A_{\rm eff}\); verify &lt; numerical tolerance.</li>
+    <li><strong>Relativistic synchrony check:</strong> Cross-compare <a href="#eq-144_9">Eq. (144.9)</a> with satellite or clock-transport timing.</li>
+  </ul>
+
+  <!-- REGIME BRIDGES -->
+  <h4>Regime Bridges and Scaling</h4>
+
+  <figure class="equation" id="eq-144_19">
+    <div class="math display">
+    \[
+      \mathcal{S}_\ast\Theta=\rho L_Z^3c^2,
+      \quad
+      E_{\mathrm{top}}=\Delta\mathcal{S}_\ast\rho_{\mathrm{mod}}L_Z^2.
+    \]
+    </div>
+    <figcaption><a href="#eq-144_19">Equation (144.19)</a> — Structural bridge between kernel energy and topological regime.</figcaption>
+  </figure>
+
+  <p>
+    These equalities ensure dimensional continuity from atomic (quantum) to planetary (orbital) scales,
+    fixing the kernel constants \(\mathcal{S}_\ast,\rho,\Theta\) through measurable coherence lengths \(L_Z\).
+  </p>
+
+  <h4>Summary and Structural Closure</h4>
+
+  <p>
+    The kernel fixed points are not isolated solutions but recursive equilibria of the energy–kernel law.
+    Each class corresponds to a distinct invariance:
+  </p>
+
+  <ul>
+    <li><strong>Spectral Green kernels</strong> — linear damping + phase propagation</li>
+    <li><strong>Path-sum kernels</strong> — quantized action and topological recursion</li>
+    <li><strong>Magnetostatic fields</strong> — drift–curl equilibrium</li>
+    <li><strong>Synchrony laws</strong> — dual-unit and relativistic invariance</li>
+    <li><strong>Modulation lensing</strong> — coherence curvature and group-delay gradient</li>
+    <li><strong>Quantization closure</strong> — loop phase and action extraction</li>
+    <li><strong>Identifiability</strong> — estimation from impulse measurements</li>
+    <li><strong>Operator stability</strong> — bounded recursion and regularized inversion</li>
+    <li><strong>Burn-factor stability:</strong> energy recursion equilibrium</li>
+    <li><strong>Regime bridges:</strong> atomic ↔ orbital continuity</li>
+  </ul>
+
+  <p>
+    These fixed points constitute the structural invariants of kernel-based physics:
+    the self-consistent attractors through which all energy propagation laws converge.
+  </p>
         </article>
     </section>
 
@@ -20119,16 +20495,6 @@ zscore = (median - Xi_crit) / std
 			</p>
 		</article>
 	</section>
-    <section>
-        <h2 title="Click to toggle" id="sec-38-remarks">Remarks</h2>
-        <article style="display:none">
-            <p>
-                <strong>Note:</strong> The discovery outlined herein was not the result of a deliberate research initiative. As a software developer, my initial objective was not to uncover any novel behavior. However, one particular program consistently resisted
-                failure regardless of the input provided. Over the course of two weeks, I subjected it to automated and randomized inputs, yet all comparative operations continued to yield consistent results. This unexpected robustness is the sole reason for
-                the decision to publish these findings. (I had this idea as a child, however, it was dismissed. I just tested it now with my program and it is exceeding everything.)
-            </p>
-        </article>
-    </section>
     <section>
         <h2 title="Click to toggle" id="article-references">References</h2>
         <article style="display:none">
