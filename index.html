@@ -10414,7 +10414,6 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     where <span class="math inline">\(\eta_{\mathrm{conv}}\)</span> is determined from thermodynamic cycle models.
   </p>
 
-
   <h4>Uncertainty Structure</h4>
   <p>
     Each input quantity in Equation (141.1) carries uncertainty:
@@ -10489,7 +10488,166 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     The specific form of <span class="math inline">\(\mathcal{S}\)</span> and <span class="math inline">\(\mathcal{T}\)</span> depends on the physics of the source and medium.
   </p>
 
-<h3 id="sec-141-structural-energy-kernel_1">Nuclear systems specialisation</h3>
+  <h4>Normalization and Conservation</h4>
+  <p>
+    Energy conservation requires that, for a closed system without leakage,
+    <span class="math inline">
+      \(\displaystyle
+      \int_V \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)\,d^3x = 1,
+      \)
+    </span>
+    ensuring that all energy released by the source term
+    <span class="math inline">\(\mathcal{S}\)</span> is deposited within the domain.
+  </p>
+
+  <h4>Microscopic–Macroscopic Bridge</h4>
+  <p>
+    In practice the source term can be computed from measurable microscopic quantities:
+  </p>
+  <div class="math display">
+    \[
+    \mathcal{S}(\mathbf{x},t;\epsilon)
+    = \sum_i n_i(\mathbf{x},t)\,
+      \Sigma_{r,i}(\epsilon)\,
+      \Phi(\mathbf{x},t,\epsilon)\,
+      E_{r,i}(\epsilon),
+    \]
+  </div>
+  <p>
+    where <span class="math inline">\(n_i\)</span> is isotope density, <span class="math inline">\(\Sigma_{r,i}\)</span> the macroscopic reaction cross section,
+    <span class="math inline">\(\Phi\)</span> the particle flux, and <span class="math inline">\(E_{r,i}\)</span> the energy per reaction.
+  </p>
+
+  <h4>Kinetic Closure</h4>
+  <p>
+    The temporal evolution of the source follows
+    <span class="math inline">
+      \(\partial_t \mathcal{S} + \nabla\!\cdot\!(\mathcal{S}\mathbf{v}) = \dot{\mathcal{S}}_{\mathrm{ext}}\),
+    </span>
+    allowing transient simulations of ignition, quenching, and pulsed operation.
+  </p>
+
+  <h4>Dimensionless Structural Form</h4>
+  <div class="math display">
+    \[
+    \Pi_E(\mathbf{x},t)
+    = \int_{\Omega_\epsilon}
+      \mathcal{T}^\ast(\mathbf{x},t;\mathbf{x}',t';\epsilon)
+      \,\mathcal{S}^\ast(\mathbf{x}',t';\epsilon)
+      \,d^3x'\,dt'\,d\epsilon,
+    \]
+  </div>
+  <p>
+    where starred quantities are normalized by reference scales
+    <span class="math inline">\(P_0, L_0, T_0\)</span>, enabling nondimensional analysis and scaling between laboratory and planetary regimes.
+  </p>
+
+  <h4>Verification Hierarchy</h4>
+  <ul>
+    <li><strong>Bench scale:</strong> controlled calorimetry or reactor foil tests</li>
+    <li><strong>Simulation scale:</strong> transport Monte Carlo validation</li>
+    <li><strong>System scale:</strong> integrated thermal–mechanical correlation</li>
+  </ul>
+
+<h4>Structural Derivation of <span class="math inline">\(E = mc^2\)</span></h4>
+
+<p>
+  The general energy–kernel law expresses local power density as a convolution of source and transport terms:
+</p>
+
+<figure class="equation" id="eq-141_34">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \int_{\Omega_\epsilon} \int_V \int_{\epsilon}
+  \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)
+  \cdot \mathcal{S}(\mathbf{x}',t';\epsilon)
+  \,d^3x'\,dt'\,d\epsilon
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_34">Equation (141.34)</a> — General energy–kernel law.</figcaption>
+</figure>
+
+<p>
+  To recover the rest-mass energy relation <span class="math inline">\(E = mc^2\)</span>, we consider a static, localized system
+  with no spatial or temporal propagation. The transport kernel reduces to a delta function:
+</p>
+
+<figure class="equation" id="eq-141_35">
+  <div class="math display">
+  
+
+\[
+  \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)
+  = \delta(\mathbf{x} - \mathbf{x}') \cdot \delta(t - t') \cdot \delta(\epsilon - \epsilon_0)
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_35">Equation (141.35)</a> — Localized, instantaneous transport kernel.</figcaption>
+</figure>
+
+<p>
+  The source term is a monochromatic rest-energy release:
+</p>
+
+<figure class="equation" id="eq-141_36">
+  <div class="math display">
+  
+
+\[
+  \mathcal{S}(\mathbf{x},t;\epsilon)
+  = n(\mathbf{x},t) \cdot \delta(\epsilon - \epsilon_0) \cdot mc^2
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_36">Equation (141.36)</a> — Rest-mass energy source term.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(n(\mathbf{x},t)\)</span> — particle number density [m\(^{-3}\)]</li>
+  <li><span class="math inline">\(mc^2\)</span> — rest energy per particle [J]</li>
+  <li><span class="math inline">\(\epsilon_0\)</span> — rest energy band [eV]</li>
+</ul>
+
+<p>
+  Substituting into the general law, the integrals collapse:
+</p>
+
+<figure class="equation" id="eq-141_37">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \int \delta(\mathbf{x} - \mathbf{x}') \delta(t - t') \delta(\epsilon - \epsilon_0)
+  \cdot n(\mathbf{x}',t') \cdot \delta(\epsilon - \epsilon_0) \cdot mc^2
+  \,d^3x'\,dt'\,d\epsilon
+  = n(\mathbf{x},t) \cdot mc^2
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_37">Equation (141.37)</a> — Local power density from rest mass.</figcaption>
+</figure>
+
+<p>
+  Integrating over the domain yields the total energy:
+  <span class="math inline">\(E = \int_V p(\mathbf{x},t)\,d^3x = mc^2\)</span>,
+  where <span class="math inline">\(m = \int_V n(\mathbf{x},t)\,d^3x\)</span> is the total rest mass.
+</p>
+
+<p>
+  Thus, the iconic relation <span class="math inline">\(E = mc^2\)</span> emerges as a special case of the general energy–kernel law,
+  in the limit of localized, monochromatic, non-propagating rest-energy sources.
+</p>
+
+<h3 id="sec-141-structural-energy-kernel_1">Nuclear Systems Specialisation</h3>
 
   <p>
     The Chronotopic Kernel framework expresses power generation as a convolution between
@@ -10527,6 +10685,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     The total thermal power follows from integrating over the reactor volume:
     <span class="math inline">\(P_{\mathrm{th}}(t) = \int_V p(\mathbf{x},t)\,d^3x\)</span>.
   </p>
+  <p>
+	  Energy conservation requires that, for a closed reactor system,
+	  <span class="math inline">\(\displaystyle \int_V \eta_{\mathrm{geo}}\,\eta_{\mathrm{dep}}\,d^3x = 1\)</span>,
+	  ensuring that all reaction energy is either deposited locally or accounted for via leakage and escape terms.
+	</p>
 
   <h4>Reaction Source Layer (Kinetics)</h4>
   <p>
@@ -10557,11 +10720,36 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <li><span class="math inline">\(E_{f,i}\)</span> — energy released per fission [J]</li>
   </ul>
 
+<p>
+  The reaction source term connects microscopic nuclear data to macroscopic power output:
+  <span class="math inline">\(\mathcal{S}_{\mathrm{react}} = \sum_i n_i \Sigma_{f,i} \Phi_n E_{f,i}\)</span>,
+  where each factor is either measured or computed from evaluated nuclear libraries.
+</p>
+
   <p>
     Dimensional closure:
     <span class="math inline">\(n_i \cdot \Sigma_{f,i} \cdot \Phi_n \cdot E_{f,i}\)</span> yields
     [J·s\(^{-1}\)·m\(^{-3}\)·eV\(^{-1}\)], matching <span class="math inline">\(\mathcal{S}_{\mathrm{react}}\)</span>.
   </p>
+
+<div class="math display">
+
+
+\[
+\Pi_E^{\mathrm{nuc}}(\mathbf{x},t)
+= \eta_{\mathrm{geo}}^\ast\,\eta_{\mathrm{dep}}^\ast
+\int_{V^\ast} \int_{\epsilon^\ast}
+n^\ast\,\sigma_r^\ast\,\Phi^\ast\,E_r^\ast
+\,d\epsilon^\ast\,d^3x^\ast
+\]
+
+
+</div>
+<p>
+Starred quantities are normalized by reference scales
+<span class="math inline">\(n_0, \sigma_0, \Phi_0, E_0\)</span>,
+enabling reactor scaling and cross-platform comparison.
+</p>
 
   <h4>Medium Transfer (Transport + Thermalization)</h4>
   <p>
@@ -10691,6 +10879,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
   <p>
     Validation must include both central predictions and uncertainty bands. Discrepancies must be traced to input errors, model assumptions, or transport approximations.
   </p>
+  
+  <p>
+	  In high-energy regimes or small-scale reactors, quantum coherence effects may influence neutron transport.
+	  The nuclear kernel can be extended to include quantum corrections via phase-dependent flux terms or stochastic resonance models.
+	</p>
 
   <h4>Closure</h4>
   <p>
@@ -10708,119 +10901,209 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     The result is a predictive, testable, and academically defensible framework for energy modeling in nuclear and high-energy systems. It is suitable for lab-scale validation, mission-scale deployment, and regulatory-grade simulation.
   </p>
 
-  <h3 id="sec-141-structural-energy-kernel_2">Quantum systems secialization</h3>
+<h3 id="sec-141-structural-energy-kernel_2">Quantum Systems Specialization</h3>
 
-  <p>
-    Quantum systems exhibit energy transport governed by wavefunction evolution, coherence, and nonlocal interactions.
-    Unlike classical particle transport, quantum energy propagation is encoded in the system's Hamiltonian and state vector.
-    This specialization adapts the general energy–kernel law to quantum domains such as superconductors, quantum dots,
-    ultracold gases, and entangled systems.
-  </p>
+<p>
+  Quantum systems exhibit energy transport governed by wavefunction evolution, coherence, and nonlocal interactions.
+  Unlike classical particle transport, quantum energy propagation is encoded in the system's Hamiltonian and state vector.
+  This specialization adapts the general energy–kernel law to quantum domains such as superconductors, quantum dots,
+  ultracold gases, and entangled systems.
+</p>
 
-  <h4>Quantum Energy Density</h4>
-  <p>
-    The instantaneous quantum energy density is computed from the expectation value of the interaction Hamiltonian:
-  </p>
+<h4>Quantum Energy Density</h4>
+<p>
+  The instantaneous quantum energy density is obtained from the expectation value of the local interaction Hamiltonian:
+</p>
 
-  <figure class="equation" id="eq-141_8">
-    <div class="math display">
-      
+<figure class="equation" id="eq-141_8">
+  <div class="math display">
+  \[
+  p(\mathbf{x},t)
+  = \langle \Psi(t) | \hat{H}_{\mathrm{int}}(\mathbf{x}) | \Psi(t) \rangle
+  = \Psi^*(\mathbf{x},t)\, \hat{H}_{\mathrm{int}}\, \Psi(\mathbf{x},t)
+  \]
+  </div>
+  <figcaption><a href="#eq-141_8">Equation (141.8)</a> — Quantum energy density from Hamiltonian expectation.</figcaption>
+</figure>
 
+<ul>
+  <li><span class="math inline">\(\Psi(\mathbf{x},t)\)</span> — quantum state (wavefunction) [unitless, normalized]</li>
+  <li><span class="math inline">\(\hat{H}_{\mathrm{int}}(\mathbf{x})\)</span> — interaction Hamiltonian [J]</li>
+  <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — energy density [J·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Quantum Transport Kernel</h4>
+<p>
+  The quantum transport kernel arises from the system's propagator or Green's function, defining how energy amplitudes
+  propagate nonlocally through spacetime:
+</p>
+
+<figure class="equation" id="eq-141_9">
+  <div class="math display">
+  \[
+  \mathcal{T}_{\mathrm{quantum}}(\mathbf{x},t;\mathbf{x}',t')
+  = G(\mathbf{x},t;\mathbf{x}',t')
+  = \langle \mathbf{x},t | \hat{U}(t,t') | \mathbf{x}',t' \rangle,
+  \quad
+  \hat{U}(t,t') = e^{-i\hat{H}(t-t')/\hbar}.
+  \]
+  </div>
+  <figcaption><a href="#eq-141_9">Equation (141.9)</a> — Quantum transport kernel via propagator.</figcaption>
+</figure>
+
+<p>
+  Energy conservation requires normalization:
+  <span class="math inline">
+  \(\displaystyle \int_V |\mathcal{T}_{\mathrm{quantum}}|^2\,d^3x = 1\),
+  </span>
+  ensuring total probability and energy consistency.
+</p>
+
+<h4>Coherence and Nonlocality</h4>
+<p>
+  Quantum energy transport includes nonlocal effects such as entanglement, superposition, and tunneling.
+  The kernel may span spatially separated regions with correlated energy exchange.
+  Coherence length <span class="math inline">\(L_c\)</span> replaces classical diffusion length,
+  and decoherence acts as a dissipative modifier to <span class="math inline">\(\mathcal{T}_{\mathrm{quantum}}\)</span>.
+</p>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The energy density <span class="math inline">\(p(\mathbf{x},t)\)</span> has units [J·m\(^{-3}\)].
+  Since <span class="math inline">\(\Psi^*\Psi\)</span> has units [m\(^{-3}\)] when normalized over a volume,
+  the expression <span class="math inline">\(\Psi^* \hat{H} \Psi\)</span> yields [J·m\(^{-3}\)] — dimensionally exact.
+</p>
+
+<h4>Quantum Uncertainty and Ensemble Propagation</h4>
+<p>
+  Quantum systems carry intrinsic energy uncertainty governed by Hamiltonian variance:
+</p>
+
+<figure class="equation" id="eq-141_10">
+  <div class="math display">
+  \[
+  \delta p^2 = \langle \hat{H}^2 \rangle - \langle \hat{H} \rangle^2.
+  \]
+  </div>
+  <figcaption><a href="#eq-141_10">Equation (141.10)</a> — Quantum energy uncertainty from Hamiltonian variance.</figcaption>
+</figure>
+
+<p>
+  This irreducible variance defines a lower bound on ensemble predictability. For open quantum systems,
+  Lindblad evolution replaces unitary propagation:
+</p>
+
+<div class="math display">
 \[
-      p(\mathbf{x},t)
-      = \langle \Psi(t) | \hat{H}_{\mathrm{int}}(\mathbf{x}) | \Psi(t) \rangle
-      = \Psi^*(\mathbf{x},t)\, \hat{H}_{\mathrm{int}}\, \Psi(\mathbf{x},t)
-      \]
+\frac{d\hat{\rho}}{dt}
+= -\frac{i}{\hbar}[\hat{H},\hat{\rho}]
++ \sum_k \left(
+  \hat{L}_k \hat{\rho} \hat{L}_k^\dagger
+  - \frac{1}{2}\{\hat{L}_k^\dagger \hat{L}_k,\hat{\rho}\}
+\right),
+\]
+</div>
 
+<p>
+  where <span class="math inline">\(\hat{L}_k\)</span> are Lindblad operators encoding decoherence and energy loss channels.
+  The quantum energy density can then be written as:
+  <span class="math inline">\(p(\mathbf{x},t) = \mathrm{Tr}[\hat{\rho}(t)\,\hat{H}_{\mathrm{int}}(\mathbf{x})]\)</span>.
+</p>
 
-    </div>
-    <figcaption><a href="#eq-141_8">Equation (141.8)</a> — Quantum energy density from Hamiltonian expectation.</figcaption>
-  </figure>
+<h4>Applications</h4>
+<ul>
+  <li>Quantum computing heat maps and decoherence modeling</li>
+  <li>Superconducting qubit dissipation and gate thermalization</li>
+  <li>Quantum thermodynamic cycles and entropy flow</li>
+  <li>Ultracold atom traps and Bose–Einstein condensates</li>
+</ul>
 
-  <ul>
-    <li><span class="math inline">\(\Psi(\mathbf{x},t)\)</span> — quantum state (wavefunction) [unitless, normalized]</li>
-    <li><span class="math inline">\(\hat{H}_{\mathrm{int}}(\mathbf{x})\)</span> — interaction Hamiltonian [J]</li>
-    <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — energy density [J·m\(^{-3}\)]</li>
-  </ul>
+<p>
+  The quantum specialization of the energy–kernel law provides a unified, operator-based
+  formulation of energy flow in non-classical systems, ensuring conservation, uncertainty consistency,
+  and full dimensional closure.
+</p>
 
-  <h4>Quantum Transport Kernel</h4>
-  <p>
-    The quantum transport kernel arises from the system's propagator or Green's function:
-  </p>
+<h3 id="sec-141-structural-energy-kernel_2b">Quantum–Classical Transition</h3>
 
-  <figure class="equation" id="eq-141_9">
-    <div class="math display">
-      
+<p>
+  The transition from quantum to classical energy transport arises as a continuous limit of the
+  quantum transport kernel <span class="math inline">\(\mathcal{T}_{\mathrm{quantum}}\)</span>
+  under decoherence and coarse-graining. The governing quantity is the
+  <em>coherence length</em> <span class="math inline">\(L_c\)</span> and its associated
+  <em>phase decay rate</em> <span class="math inline">\(\Gamma_\phi\)</span>.
+</p>
 
-\[
-      \mathcal{T}_{\mathrm{quantum}}(\mathbf{x},t;\mathbf{x}',t')
-      = G(\mathbf{x},t;\mathbf{x}',t')
-      = \langle \mathbf{x},t | \hat{U}(t,t') | \mathbf{x}',t' \rangle
-      \]
+<h4>Limiting Kernel Relation</h4>
 
+<figure class="equation" id="eq-141_14">
+  <div class="math display">
+  \[
+  \lim_{\Gamma_\phi \to \infty}
+  \mathcal{T}_{\mathrm{quantum}}(\mathbf{x},t;\mathbf{x}',t')
+  =
+  \mathcal{T}_{\mathrm{thermal}}(\mathbf{x},t;\mathbf{x}',t'),
+  \quad
+  \text{for }
+  L_c \ll |\mathbf{x} - \mathbf{x}'|.
+  \]
+  </div>
+  <figcaption><a href="#eq-141_14">Equation (141.14)</a> — Kernel convergence under decoherence limit.</figcaption>
+</figure>
 
-    </div>
-    <figcaption><a href="#eq-141_9">Equation (141.9)</a> — Quantum transport kernel via propagator.</figcaption>
-  </figure>
+<p>
+  In this limit, phase coherence between spatially separated points is lost, and
+  energy propagation becomes diffusive rather than oscillatory.
+  The exponential kernel of heat transport emerges as the statistical average of
+  quantum propagators over random phases:
+</p>
 
-  <ul>
-    <li><span class="math inline">\(\hat{U}(t,t') = e^{-i\hat{H}(t-t')/\hbar}\)</span> — unitary time evolution operator</li>
-    <li><span class="math inline">\(G(\mathbf{x},t;\mathbf{x}',t')\)</span> — quantum propagator [unitless]</li>
-  </ul>
+<figure class="equation" id="eq-141_15">
+  <div class="math display">
+  \[
+  \mathcal{T}_{\mathrm{thermal}}(\mathbf{x},t;\mathbf{x}',t')
+  = \left\langle
+  \mathcal{T}_{\mathrm{quantum}}(\mathbf{x},t;\mathbf{x}',t')
+  \right\rangle_{\mathrm{phase}}
+  \approx
+  \frac{1}{(4\pi \alpha (t-t'))^{3/2}}
+  e^{-|\mathbf{x}-\mathbf{x}'|^2 / 4\alpha(t-t')}.
+  \]
+  </div>
+  <figcaption><a href="#eq-141_15">Equation (141.15)</a> — Ensemble-averaged propagator producing the diffusive kernel.</figcaption>
+</figure>
 
-  <h4>Coherence and Nonlocality</h4>
-  <p>
-    Quantum energy transport includes nonlocal effects such as entanglement and tunneling. The kernel may span
-    spatially separated regions with correlated energy exchange. Coherence length <span class="math inline">\(L_c\)</span>
-    replaces classical diffusion length, and decoherence acts as a dissipative kernel modifier.
-  </p>
+<h4>Energy Closure Across Regimes</h4>
 
-  <h4>Dimensional Closure</h4>
-  <p>
-    The energy density <span class="math inline">\(p(\mathbf{x},t)\)</span> has units [J·m\(^{-3}\)].
-    The Hamiltonian <span class="math inline">\(\hat{H}_{\mathrm{int}}\)</span> has units [J], and the wavefunction
-    product <span class="math inline">\(\Psi^* \Psi\)</span> has units [m\(^{-3}\)] when normalized over volume.
-    Thus:
-    <span class="math inline">\(\Psi^* \hat{H} \Psi \rightarrow [J·m^{-3}]\)</span> — dimensionally consistent.
-  </p>
+<p>
+  The expectation value of the Hamiltonian transitions smoothly into the classical
+  energy density when ensemble averaging removes phase correlations:
+  <span class="math inline">\(\langle \Psi^* \hat{H} \Psi \rangle \rightarrow \rho c_p T\)</span>.
+  This provides the structural equivalence between microscopic coherence energy
+  and macroscopic thermal energy content.
+</p>
 
-  <h4>Uncertainty and Quantum Observables</h4>
-  <p>
-    Quantum systems carry intrinsic uncertainty governed by operator variance:
-  </p>
+<h4>Physical Interpretation</h4>
 
-  <figure class="equation" id="eq-141_10">
-    <div class="math display">
-      
+<ul>
+  <li>
+    <strong>Quantum regime:</strong> Reversible, unitary propagation of coherent amplitudes.
+  </li>
+  <li>
+    <strong>Intermediate regime:</strong> Partial coherence; ballistic-to-diffusive crossover governed by <span class="math inline">\(L_c\)</span>.
+  </li>
+  <li>
+    <strong>Classical regime:</strong> Fully decohered, diffusive transport; entropy production dominates.
+  </li>
+</ul>
 
-\[
-      \delta p^2 = \langle \hat{H}^2 \rangle - \langle \hat{H} \rangle^2
-      \]
+<p>
+  This continuous mapping establishes the <strong>kernel unification principle</strong> —
+  the same structural law governs all energy transport, from coherent quantum dynamics to macroscopic heat flow,
+  with coherence length and decoherence rate as the sole transition parameters.
+</p>
 
-
-    </div>
-    <figcaption><a href="#eq-141_10">Equation (141.10)</a> — Quantum energy uncertainty from Hamiltonian variance.</figcaption>
-  </figure>
-
-  <p>
-    This uncertainty is irreducible and must be included in ensemble predictions. For open quantum systems,
-    Lindblad operators and density matrices replace pure state evolution.
-  </p>
-
-  <h4>Applications</h4>
-  <ul>
-    <li>Quantum computing heat maps and decoherence modeling</li>
-    <li>Superconducting qubit energy dissipation</li>
-    <li>Quantum thermodynamic cycles and entropy flow</li>
-    <li>Ultracold atom traps and Bose–Einstein condensates</li>
-  </ul>
-
-  <p>
-    The quantum specialization of the energy–kernel law enables predictive modeling of energy flow in
-    non-classical regimes, with full structural and dimensional rigor.
-  </p>
-
-  <h3 id="sec-141-structural-energy-kernel_3">Thermal systems specialization</h3>
+  <h3 id="sec-141-structural-energy-kernel_3">Thermal Systems Specialization</h3>
 
   <p>
     Thermal systems propagate energy via conduction, convection, and radiative exchange. Unlike particle or quantum transport,
@@ -10885,6 +11168,27 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <li><span class="math inline">\(\alpha = k / (\rho c_p)\)</span> — thermal diffusivity [m\(^2\)·s\(^{-1}\)]</li>
   </ul>
 
+<p>
+  The thermal kernel <span class="math inline">\(\mathcal{T}_{\mathrm{thermal}}\)</span> is a specific realization of the
+  general transport kernel <span class="math inline">\(\mathcal{T}\)</span>, specialized for diffusive
+  media where propagation speed is effectively infinite relative to microscopic energy deposition.
+  Energy conservation requires:
+  <span class="math inline">\(\displaystyle
+  \int_V \rho c_p \frac{\partial T}{\partial t}\,d^3x =
+  \int_V (p - q_{\mathrm{loss}})\,d^3x
+  \)</span>,
+  ensuring that all local source and loss terms are captured within the same kernel structure.
+</p>
+
+<p>
+  Feedback coupling to thermodynamic irreversibility can be represented by a scalar field
+  <span class="math inline">\(\Sigma(\mathbf{x},t)\)</span> (entropy generation rate),
+  defined as
+  <span class="math inline">\(\Sigma = p/T - \nabla \cdot \mathbf{J}_S\)</span>,
+  where <span class="math inline">\(\mathbf{J}_S\)</span> is the entropy flux.
+  This provides a quantitative link between microscopic kernel sources and macroscopic heat flow.
+</p>
+
   <h4>Dimensional Closure</h4>
   <p>
     The source term <span class="math inline">\(p(\mathbf{x},t)\)</span> has units [W·m\(^{-3}\)].
@@ -10940,6 +11244,694 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     The thermal specialization of the energy–kernel law enables predictive modeling of heat flow in engineered and natural systems,
     with full structural and dimensional rigor.
   </p>
+
+<h3 id="sec-141-structural-energy-kernel_4">Photonic and Radiative Systems Specialization</h3>
+
+<p>
+  Photonic and radiative systems propagate energy via electromagnetic fields, typically in the form of photons.
+  Unlike particle or thermal transport, energy flow is governed by spectral intensity, absorption, scattering,
+  and radiative transfer equations. This specialization adapts the general energy–kernel law to optically thin,
+  thick, and mixed media, including stellar atmospheres, lasers, and radiative cooling systems.
+</p>
+
+<h4>Radiative Power Density</h4>
+<p>
+  The local radiative power density is computed from the spectral intensity and absorption coefficient:
+</p>
+
+<figure class="equation" id="eq-141_16">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \int_0^\infty \int_{4\pi}
+  I_\nu(\mathbf{x},\hat{\Omega},\nu,t)
+  \cdot \kappa_\nu(\mathbf{x},\nu)
+  \,d\hat{\Omega}\,d\nu
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_16">Equation (141.16)</a> — Radiative power density from spectral intensity and absorption.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(I_\nu(\mathbf{x},\hat{\Omega},\nu,t)\)</span> — spectral intensity [W·m\(^{-2}\)·sr\(^{-1}\)·Hz\(^{-1}\)]</li>
+  <li><span class="math inline">\(\kappa_\nu(\mathbf{x},\nu)\)</span> — absorption coefficient [m\(^{-1}\)]</li>
+  <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — radiative power density [W·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Radiative Transport Kernel</h4>
+<p>
+  The transport kernel for photonic systems is governed by the radiative transfer equation:
+</p>
+
+<figure class="equation" id="eq-141_17">
+  <div class="math display">
+  
+
+\[
+  \frac{1}{c} \frac{\partial I_\nu}{\partial t}
+  + \hat{\Omega} \cdot \nabla I_\nu
+  = \kappa_\nu B_\nu - \kappa_\nu I_\nu + \sigma_\nu \int_{4\pi} I_\nu' \Phi(\hat{\Omega}',\hat{\Omega})\,d\hat{\Omega}'
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_17">Equation (141.17)</a> — Radiative transfer equation with absorption and scattering.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(B_\nu\)</span> — Planck function [W·m\(^{-2}\)·sr\(^{-1}\)·Hz\(^{-1}\)]</li>
+  <li><span class="math inline">\(\sigma_\nu\)</span> — scattering coefficient [m\(^{-1}\)]</li>
+  <li><span class="math inline">\(\Phi(\hat{\Omega}',\hat{\Omega})\)</span> — scattering phase function [dimensionless]</li>
+</ul>
+
+<h4>Kernel Normalization and Conservation</h4>
+<p>
+  Energy conservation requires that the integrated radiative kernel satisfies:
+  <span class="math inline">\(\displaystyle \int_V \kappa_\nu\,d^3x = 1\)</span>,
+  ensuring that all radiative energy is either absorbed, scattered, or transmitted within the domain.
+</p>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The integrand <span class="math inline">\(I_\nu \cdot \kappa_\nu\)</span> has units:
+  [W·m\(^{-2}\)·sr\(^{-1}\)·Hz\(^{-1}\)] × [m\(^{-1}\)] × [sr] × [Hz] = [W·m\(^{-3}\)],
+  matching the units of <span class="math inline">\(p(\mathbf{x},t)\)</span>.
+</p>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+  Uncertainties in radiative modeling arise from:
+</p>
+<ul>
+  <li>Material optical properties (\(\kappa_\nu, \sigma_\nu\))</li>
+  <li>Spectral resolution and discretization error</li>
+  <li>Boundary condition variability (e.g., reflectivity, emissivity)</li>
+  <li>Numerical solver convergence and angular quadrature</li>
+</ul>
+
+<figure class="equation" id="eq-141_18">
+  <div class="math display">
+  
+
+\[
+  \delta p(\mathbf{x},t) =
+  \sqrt{
+    \sum_i
+    \left(
+      \frac{\partial p}{\partial q_i}
+      \cdot \delta q_i
+    \right)^2
+  }
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_18">Equation (141.18)</a> — Radiative uncertainty propagation.</figcaption>
+</figure>
+
+<h4>Applications</h4>
+<ul>
+  <li>Stellar atmosphere modeling and radiative equilibrium</li>
+  <li>Laser–plasma interaction and photonic heating</li>
+  <li>Radiative cooling in spacecraft and buildings</li>
+  <li>Infrared imaging and thermal signature analysis</li>
+</ul>
+
+<p>
+  The photonic specialization of the energy–kernel law enables predictive modeling of electromagnetic energy flow
+  in both engineered and astrophysical systems, with full structural, dimensional, and uncertainty rigor.
+</p>
+
+<h3 id="sec-141-structural-energy-kernel_5">Mechanical Dissipation Systems Specialization</h3>
+
+<p>
+  Mechanical systems dissipate energy through friction, plastic deformation, viscoelastic damping, and structural vibration.
+  Unlike quantum or radiative systems, energy transport here is governed by stress–strain interactions and internal frictional losses.
+  This specialization adapts the general energy–kernel law to solid mechanics, tribology, and structural damping domains.
+</p>
+
+<h4>Mechanical Power Density</h4>
+<p>
+  The local mechanical dissipation rate is computed from the stress tensor and strain rate tensor:
+</p>
+
+<figure class="equation" id="eq-141_19">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \sigma_{ij}(\mathbf{x},t) \cdot \dot{\epsilon}_{ij}(\mathbf{x},t)
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_19">Equation (141.19)</a> — Mechanical power density from stress–strain interaction.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(\sigma_{ij}\)</span> — stress tensor [Pa = N·m\(^{-2}\)]</li>
+  <li><span class="math inline">\(\dot{\epsilon}_{ij}\)</span> — strain rate tensor [s\(^{-1}\)]</li>
+  <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — mechanical power density [W·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Mechanical Transport Kernel</h4>
+<p>
+  The mechanical transport kernel describes how deformation propagates through a medium, governed by the momentum balance:
+</p>
+
+<figure class="equation" id="eq-141_20">
+  <div class="math display">
+  
+
+\[
+  \rho \frac{\partial^2 u_i}{\partial t^2}
+  = \nabla_j \sigma_{ij} + f_i
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_20">Equation (141.20)</a> — Mechanical transport via momentum conservation.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(u_i\)</span> — displacement field [m]</li>
+  <li><span class="math inline">\(f_i\)</span> — body force density [N·m\(^{-3}\)]</li>
+</ul>
+
+<p>
+  Dissipative effects are introduced via constitutive models (e.g., Kelvin–Voigt, Maxwell, Prandtl–Reuss) that relate
+  <span class="math inline">\(\sigma_{ij}\)</span> and <span class="math inline">\(\dot{\epsilon}_{ij}\)</span> through internal friction and viscosity.
+</p>
+
+<h4>Kernel Normalization and Conservation</h4>
+<p>
+  Energy conservation requires that the mechanical kernel satisfies:
+  <span class="math inline">\(\displaystyle \int_V p(\mathbf{x},t)\,d^3x = W_{\mathrm{input}} - W_{\mathrm{loss}}\)</span>,
+  where <span class="math inline">\(W_{\mathrm{loss}}\)</span> includes heat generation, acoustic emission, and irreversible deformation.
+</p>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The product <span class="math inline">\(\sigma_{ij} \cdot \dot{\epsilon}_{ij}\)</span> yields:
+  [N·m\(^{-2}\)] × [s\(^{-1}\)] = [W·m\(^{-3}\)], matching the units of <span class="math inline">\(p(\mathbf{x},t)\)</span>.
+</p>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+  Uncertainties in mechanical dissipation modeling arise from:
+</p>
+<ul>
+  <li>Material property variability (e.g., modulus, yield strength, damping coefficient)</li>
+  <li>Boundary condition uncertainty (e.g., contact friction, load distribution)</li>
+  <li>Measurement error in strain gauges and accelerometers</li>
+  <li>Numerical discretization and mesh resolution</li>
+</ul>
+
+<figure class="equation" id="eq-141_21">
+  <div class="math display">
+  
+
+\[
+  \delta p(\mathbf{x},t) =
+  \sqrt{
+    \sum_i
+    \left(
+      \frac{\partial p}{\partial q_i}
+      \cdot \delta q_i
+    \right)^2
+  }
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_21">Equation (141.21)</a> — Mechanical uncertainty propagation.</figcaption>
+</figure>
+
+<h4>Applications</h4>
+<ul>
+  <li>Brake system heating and frictional wear</li>
+  <li>Seismic energy dissipation in buildings and fault zones</li>
+  <li>Vibration damping in aerospace and automotive structures</li>
+  <li>Plastic deformation and fatigue in metals and polymers</li>
+</ul>
+
+<p>
+  The mechanical specialization of the energy–kernel law enables predictive modeling of dissipative energy flow
+  in structural, geophysical, and engineered systems, with full dimensional and uncertainty rigor.
+</p>
+
+<h3 id="sec-141-structural-energy-kernel_6">Biological Energy Systems Specialization</h3>
+
+<p>
+  Biological systems generate and transport energy through structured biochemical networks, primarily via metabolic reactions,
+  ion gradients, and molecular motors. Unlike mechanical or thermal systems, biological energy flow is governed by enzymatic
+  kinetics, compartmentalization, and thermodynamically coupled pathways. This specialization adapts the general energy–kernel
+  law to cellular, tissue, and organismal scales.
+</p>
+
+<h4>Biochemical Power Density</h4>
+<p>
+  The local biochemical power density is computed from the sum of reaction rates and their associated Gibbs free energy changes:
+</p>
+
+<figure class="equation" id="eq-141_22">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \sum_j v_j(\mathbf{x},t) \cdot \Delta G_j(\mathbf{x},t)
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_22">Equation (141.22)</a> — Biochemical power density from metabolic flux and free energy.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(v_j(\mathbf{x},t)\)</span> — reaction rate of pathway \(j\) [mol·m\(^{-3}\)·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(\Delta G_j(\mathbf{x},t)\)</span> — Gibbs free energy change [J·mol\(^{-1}\)]</li>
+  <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — biochemical power density [W·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Biological Transport Kernel</h4>
+<p>
+  The biological transport kernel accounts for diffusion, active transport, and compartmental exchange:
+</p>
+
+<figure class="equation" id="eq-141_23">
+  <div class="math display">
+  
+
+\[
+  \mathcal{T}_{\mathrm{bio}}(\mathbf{x},t;\mathbf{x}',t')
+  = D_{ij} \nabla^2 C_j
+  + \mathbf{v}_{\mathrm{active}} \cdot \nabla C_j
+  + \sum_k \gamma_k \delta(\mathbf{x} - \mathbf{x}_k)
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_23">Equation (141.23)</a> — Biological transport kernel with diffusion, active transport, and compartmentalization.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(D_{ij}\)</span> — diffusion tensor [m\(^2\)·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(\mathbf{v}_{\mathrm{active}}\)</span> — active transport velocity [m·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(\gamma_k\)</span> — exchange rate with compartment \(k\) [s\(^{-1}\)]</li>
+</ul>
+
+<h4>Kernel Normalization and Conservation</h4>
+<p>
+  Energy conservation in biological systems requires that:
+  <span class="math inline">\(\displaystyle \int_V p(\mathbf{x},t)\,d^3x = P_{\mathrm{met}} - P_{\mathrm{loss}}\)</span>,
+  where <span class="math inline">\(P_{\mathrm{met}}\)</span> is metabolic input and
+  <span class="math inline">\(P_{\mathrm{loss}}\)</span> includes heat dissipation, entropy production, and excreted energy.
+</p>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The product <span class="math inline">\(v_j \cdot \Delta G_j\)</span> yields:
+  [mol·m\(^{-3}\)·s\(^{-1}\)] × [J·mol\(^{-1}\)] = [W·m\(^{-3}\)],
+  matching the units of <span class="math inline">\(p(\mathbf{x},t)\)</span>.
+</p>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+  Uncertainties in biological energy modeling arise from:
+</p>
+<ul>
+  <li>Variability in enzyme kinetics and metabolic fluxes</li>
+  <li>Measurement error in calorimetry and metabolomics</li>
+  <li>Compartmental geometry and transport heterogeneity</li>
+  <li>Stochastic fluctuations in gene expression and signaling</li>
+</ul>
+
+<figure class="equation" id="eq-141_24">
+  <div class="math display">
+  
+
+\[
+  \delta p(\mathbf{x},t) =
+  \sqrt{
+    \sum_i
+    \left(
+      \frac{\partial p}{\partial q_i}
+      \cdot \delta q_i
+    \right)^2
+  }
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_24">Equation (141.24)</a> — Biological uncertainty propagation.</figcaption>
+</figure>
+
+<h4>Applications</h4>
+<ul>
+  <li>ATP production and mitochondrial energetics</li>
+  <li>Brain metabolism and neural energy budgets</li>
+  <li>Thermogenesis and metabolic heat flow in tissues</li>
+  <li>Bioenergetic modeling of microbial and ecological systems</li>
+</ul>
+
+<p>
+  The biological specialization of the energy–kernel law enables predictive modeling of structured energy flow
+  in living systems, with full biochemical, thermodynamic, and dimensional consistency.
+</p>
+
+<h3 id="sec-141-structural-energy-kernel_7">Chemical Combustion Systems Specialization</h3>
+
+<p>
+  Chemical combustion systems generate energy through exothermic reactions between fuel and oxidizer, typically in gaseous or multiphase environments.
+  Unlike nuclear or biological systems, combustion involves rapid reaction kinetics, turbulent mixing, and radiative heat loss.
+  This specialization adapts the general energy–kernel law to flames, engines, and reactive flows.
+</p>
+
+<h4>Combustion Power Density</h4>
+<p>
+  The local combustion power density is computed from the reaction rate and enthalpy of reaction:
+</p>
+
+<figure class="equation" id="eq-141_25">
+  <div class="math display">
+  
+
+\[
+  p(\mathbf{x},t)
+  = \dot{\omega}(\mathbf{x},t) \cdot \Delta H_{\mathrm{rxn}}(\mathbf{x},t)
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_25">Equation (141.25)</a> — Combustion power density from reaction rate and enthalpy.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(\dot{\omega}(\mathbf{x},t)\)</span> — reaction rate [mol·m\(^{-3}\)·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(\Delta H_{\mathrm{rxn}}(\mathbf{x},t)\)</span> — enthalpy change per mole [J·mol\(^{-1}\)]</li>
+  <li><span class="math inline">\(p(\mathbf{x},t)\)</span> — combustion power density [W·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Combustion Transport Kernel</h4>
+<p>
+  The transport kernel includes species diffusion, convective mixing, and thermal feedback:
+</p>
+
+<figure class="equation" id="eq-141_26">
+  <div class="math display">
+  
+
+\[
+  \frac{\partial Y_i}{\partial t}
+  + \mathbf{v} \cdot \nabla Y_i
+  = \nabla \cdot (D_i \nabla Y_i)
+  + \dot{\omega}_i
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_26">Equation (141.26)</a> — Species transport with reaction source.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(Y_i\)</span> — mass fraction of species \(i\) [dimensionless]</li>
+  <li><span class="math inline">\(\mathbf{v}\)</span> — flow velocity [m·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(D_i\)</span> — species diffusivity [m\(^2\)·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(\dot{\omega}_i\)</span> — production rate of species \(i\) [kg·m\(^{-3}\)·s\(^{-1}\)]</li>
+</ul>
+
+<h4>Kernel Normalization and Conservation</h4>
+<p>
+  Energy conservation requires:
+  <span class="math inline">\(\displaystyle \int_V p(\mathbf{x},t)\,d^3x = Q_{\mathrm{fuel}} - Q_{\mathrm{loss}}\)</span>,
+  where <span class="math inline">\(Q_{\mathrm{fuel}}\)</span> is the total chemical energy input and
+  <span class="math inline">\(Q_{\mathrm{loss}}\)</span> includes radiative, convective, and incomplete combustion losses.
+</p>
+
+<h4>Microscopic–Macroscopic Bridge</h4>
+<p>
+  The reaction rate <span class="math inline">\(\dot{\omega}\)</span> is computed from Arrhenius kinetics:
+</p>
+
+<figure class="equation" id="eq-141_27">
+  <div class="math display">
+  
+
+\[
+  \dot{\omega}
+  = A \cdot e^{-E_a / RT} \cdot [A]^m \cdot [B]^n
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_27">Equation (141.27)</a> — Arrhenius reaction rate law.</figcaption>
+</figure>
+
+<ul>
+  <li><span class="math inline">\(A\)</span> — pre-exponential factor [mol\(^{1-m-n}\)·m\(^{3(m+n)-3}\)·s\(^{-1}\)]</li>
+  <li><span class="math inline">\(E_a\)</span> — activation energy [J·mol\(^{-1}\)]</li>
+  <li><span class="math inline">\(R\)</span> — universal gas constant [J·mol\(^{-1}\)·K\(^{-1}\)]</li>
+  <li><span class="math inline">\([A], [B]\)</span> — reactant concentrations [mol·m\(^{-3}\)]</li>
+</ul>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The product <span class="math inline">\(\dot{\omega} \cdot \Delta H_{\mathrm{rxn}}\)</span> yields:
+  [mol·m\(^{-3}\)·s\(^{-1}\)] × [J·mol\(^{-1}\)] = [W·m\(^{-3}\)],
+  matching the units of <span class="math inline">\(p(\mathbf{x},t)\)</span>.
+</p>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+  Uncertainties in combustion modeling arise from:
+</p>
+<ul>
+  <li>Reaction rate constants and activation energies</li>
+  <li>Turbulence–chemistry interaction models</li>
+  <li>Boundary condition variability (e.g., inlet temperature, pressure)</li>
+  <li>Radiative loss modeling and emissivity estimates</li>
+</ul>
+
+<figure class="equation" id="eq-141_28">
+  <div class="math display">
+  
+
+\[
+  \delta p(\mathbf{x},t) =
+  \sqrt{
+    \sum_i
+    \left(
+      \frac{\partial p}{\partial q_i}
+      \cdot \delta q_i
+    \right)^2
+  }
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_28">Equation (141.28)</a> — Combustion uncertainty propagation.</figcaption>
+</figure>
+
+<h4>Applications</h4>
+<ul>
+  <li>Internal combustion engines and gas turbines</li>
+  <li>Rocket propulsion and scramjets</li>
+  <li>Industrial burners and flame diagnostics</li>
+  <li>Wildfire modeling and atmospheric chemistry</li>
+</ul>
+
+<p>
+  The chemical combustion specialization of the energy–kernel law enables predictive modeling of reactive energy flow
+  in engineered and natural systems, with full kinetic, thermodynamic, and dimensional rigor.
+</p>
+
+<h3 id="sec-141-structural-energy-kernel_8">Orbital Mechanics Specialization</h3>
+
+<p>
+  Orbital systems propagate energy through gravitational interaction, synchronized motion, and dissipative coupling. (<a href="#sec-50-orbital-mechanics">It is directly compatible form of specific Orbital Mechanics law.</a>)
+  This specialization expresses orbital energy and acceleration as a convolution between spectral energy sources and geometric transport kernels,
+  directly instantiating the general energy–kernel law.
+</p>
+
+<h4>Structural Kernel Formulation</h4>
+<p>
+  The instantaneous orbital power density is expressed as:
+</p>
+
+<figure class="equation" id="eq-141_29">
+  <div class="math display">
+  
+
+\[
+  p(r,t)
+  = \int_{\Omega_\epsilon} \int_V \int_{\epsilon}
+  \mathcal{T}_{\rm orb}(r,t;r',t';\epsilon)
+  \cdot \mathcal{S}_{\rm orb}(r',t';\epsilon)
+  \,d^3r'\,dt'\,d\epsilon
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_29">Equation (141.29)</a> — Orbital energy–kernel law in radial coordinates.</figcaption>
+</figure>
+
+<h4>Orbital Source Term</h4>
+<p>
+  The source term is computed from effective spectral energy and synchronization scaling:
+</p>
+
+<figure class="equation" id="eq-141_30">
+  <div class="math display">
+  
+
+\[
+  \mathcal{S}_{\rm orb}(r,t;\epsilon)
+  = \sum_{\ell,m}
+  E^{\rm eff}_{\ell m}(r,t;\epsilon)
+  \cdot \frac{\hbar \gamma T_{\rm sync}}{V_{\rm coh}}
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_30">Equation (141.30)</a> — Orbital source from spectral energy and coherence scaling.</figcaption>
+</figure>
+
+<p>
+  The prefactor <span class="math inline">\(\hbar \gamma T_{\rm sync}/V_{\rm coh}\)</span>
+  converts mode-resolved energy into volumetric power,
+  linking quantum coherence (via <span class="math inline">\(\hbar\)</span>)
+  with macroscopic synchronization (via <span class="math inline">\(T_{\rm sync}\)</span>).
+  This establishes a direct scaling bridge between quantized angular momentum and classical orbital rotation.
+</p>
+
+<h4>Orbital Transport Kernel</h4>
+<p>
+  The transport kernel encodes geometric propagation and radial weighting:
+</p>
+
+<figure class="equation" id="eq-141_31">
+  <div class="math display">
+  
+
+\[
+  \mathcal{T}_{\rm orb}(r,t;r',t';\epsilon)
+  = \frac{\ell(\ell+1)\,T(\ell,r')\,w(r')}{R(t)}
+  \cdot \delta(r - r')\,\delta(t - t')
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_31">Equation (141.31)</a> — Orbital transport kernel from spherical harmonics and geometry.</figcaption>
+</figure>
+
+<p>
+  In the general case, the orbital kernel includes gravitational retardation and curvature effects:
+  <span class="math inline">\(\mathcal{T}_{\rm orb}(r,t;r',t';\epsilon)
+  = \frac{G\,m(r')}{|\mathbf{r}-\mathbf{r}'|}
+  \Theta(t-t') \exp[-\Gamma_\phi (t-t')]\)</span>,
+  where <span class="math inline">\(\Theta\)</span> enforces causal propagation.
+  The simplified form in Equation (141.31) corresponds to the synchronous, quasi-static limit
+  used in stationkeeping and circular orbit analysis.
+</p>
+
+<h4>Orbital Energy Output</h4>
+<p>
+  The total orbital energy is obtained by integrating the kernel output:
+</p>
+
+<figure class="equation" id="eq-141_32">
+  <div class="math display">
+  
+
+\[
+  E_{\rm orb}(t)
+  = \int_V p(r,t)\,d^3r
+  = \Phi(t) \cdot (\hbar \gamma T_{\rm sync}) \cdot \frac{V}{V_{\rm coh}}
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_32">Equation (141.32)</a> — Orbital energy from kernel-integrated power density.</figcaption>
+</figure>
+
+<h4>Dimensional Closure</h4>
+<p>
+  The source term has units [J·s\(^{-1}\)·m\(^{-3}\)·eV\(^{-1}\)], the kernel is dimensionless, and the integration domain
+  contributes [m\(^3\)·s·eV], yielding [J·s\(^{-1}\)] × [s] = [J], matching <span class="math inline">\(E_{\rm orb}\)</span>.
+</p>
+
+<p>
+  In the Newtonian limit, integrating over one orbital period yields
+  <span class="math inline">\(E_{\rm orb} = -\tfrac{G M m}{2R}\)</span>,
+  recovered directly from Equation (141.32) when
+  <span class="math inline">\(\Phi(t) = \rho_{\Phi}\,G M m / (2\hbar \gamma)\)</span>.
+  This demonstrates dimensional and energetic equivalence with classical orbital mechanics.
+</p>
+
+<h4>Normalization and Conservation</h4>
+<p>
+  Kernel normalization ensures:
+  <span class="math inline">\(\displaystyle \int_V \mathcal{T}_{\rm orb}(r,t;r',t';\epsilon)\,d^3r = 1\)</span>,
+  conserving energy across the orbital domain.
+</p>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+  Uncertainties arise from:
+</p>
+<ul>
+  <li>Spectral mode resolution and truncation</li>
+  <li>Mass distribution and gravitational harmonics</li>
+  <li>Synchronization period and relativistic corrections</li>
+  <li>Measurement error in radius and coherence volume</li>
+</ul>
+
+<figure class="equation" id="eq-141_33">
+  <div class="math display">
+  
+
+\[
+  \delta E_{\rm orb}(t) =
+  \sqrt{
+    \sum_i
+    \left(
+      \frac{\partial E_{\rm orb}}{\partial q_i}
+      \cdot \delta q_i
+    \right)^2
+  }
+  \]
+
+
+  </div>
+  <figcaption><a href="#eq-141_33">Equation (141.33)</a> — Orbital energy uncertainty propagation.</figcaption>
+</figure>
+
+<h4>Quantum–Orbital Transition</h4>
+<p>
+  The orbital kernel represents the large-scale, synchronized limit of the general energy–kernel law.
+  It corresponds to the regime where the coherence length <span class="math inline">\(L_c\)</span>
+  greatly exceeds the local curvature scale, such that gravitational phase locking
+  replaces microscopic quantum coherence as the dominant organizing principle.
+</p>
+
+<h4>Applications</h4>
+<ul>
+  <li>Satellite dynamics and stationkeeping</li>
+  <li>Planetary system modeling and resonance analysis</li>
+  <li>Relativistic orbital corrections and gravitational wave coupling</li>
+  <li>Coherence-based orbital stability and energy budgeting</li>
+</ul>
+
+<p>
+  The orbital mechanics specialization of the energy–kernel law expresses gravitational energy flow as a spectral convolution,
+  structurally unified with all other physical domains. See <a href="#sec-50-orbital-mechanics">sec. Orbital Mechanics</a> for full derivation.
+</p>
 	</article>
 </section>
 
