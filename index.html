@@ -19723,9 +19723,7 @@ zscore = (median - Xi_crit) / std
         </article>
     </section>
     <section>
-        <h2 title="Click to toggle" id="sec-34-falsifiability-and-conditional-predictions">
-            Falsifiability and conditional predictions
-        </h2>
+        <h2 title="Click to toggle" id="sec-34-falsifiability-and-conditional-predictions">Falsifiability & Conditional Predictions</h2>
         <article style="display:none">
             <p>
                 The chronotopic (kernel) ontology is explicitly falsifiable. Critically, statements about observable X–Y asymmetry are
@@ -19832,7 +19830,7 @@ zscore = (median - Xi_crit) / std
         </article>
     </section>
 	<section>
-		<h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional check</h2>
+		<h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional Check</h2>
 		<article style="display:none">
 
 			<p>
@@ -19947,6 +19945,105 @@ zscore = (median - Xi_crit) / std
 
 			<p><em>Coherence volume</em>: <span class="math inline">\( \chi \)</span> may represent static confinement (<span class="math inline">\( \mathrm{m}^3 \)</span>) or dynamic flow volume (<span class="math inline">\( \mathrm{m}^3\,\mathrm{s}^{-1} \)</span>), depending on context.</p>
 			<p><em>Recursive coherence correction</em>: SI ensures higher-order feedback corrections without breaking unit closure. Exemplar anchor is stellar plasma.</p>
+
+			<p>
+				The following entries from the dimensional table are structurally valid but require non-obvious derivational paths.
+				Each guidance note outlines the minimal steps needed to trace the formula back to kernel structure or physical recursion.
+			</p>
+
+			<ul>
+
+			  <li><strong>Kernel linearity and composability</strong> — <span class="math inline">\( \Psi_B(x) = \int K_{AB}(x,x')\,\Psi_A(x')\,d^3x' \)</span>
+				<ul>
+				  <li>Start from convolution structure of energy–kernel law</li>
+				  <li>Assume normalized input field <span class="math inline">\( \Psi_A \)</span> with unitless amplitude</li>
+				  <li>Kernel must carry inverse volume units: <span class="math inline">\( \mathrm{m}^{-3} \)</span></li>
+				  <li>Superposition principle holds if kernel is linear and bounded</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Action quantum</strong> — <span class="math inline">\( \mathcal{S}_\ast = \frac{E}{\nu} \)</span>
+				<ul>
+				  <li>Begin with path-sum kernel: <span class="math inline">\( K = \sum_\gamma \mathcal{A}[\gamma]\,e^{iS[\gamma]/\mathcal{S}_\ast} \)</span></li>
+				  <li>Phase closure requires dimensionless exponent: <span class="math inline">\( S/\mathcal{S}_\ast \in \mathbb{R} \)</span></li>
+				  <li>Loop integration yields: <span class="math inline">\( \oint_\gamma \Phi\,d\omega = 2\pi n\,\mathcal{S}_\ast \)</span></li>
+				  <li>Solving gives: <span class="math inline">\( \mathcal{S}_\ast = \frac{1}{2\pi} \oint_\gamma \Phi\,d\omega \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Synchronization velocity</strong> — <span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu_{\mathrm{sync}} \)</span>
+				<ul>
+				  <li>Start from low-frequency dispersion: <span class="math inline">\( \omega(k) \approx v_{\mathrm{sync}}\,k \)</span></li>
+				  <li>Impulse response yields spatial moment: <span class="math inline">\( M_1 = \langle x \rangle \)</span></li>
+				  <li>Kernel selects dominant frequency <span class="math inline">\( \nu_{\mathrm{sync}} \)</span> via spectral window</li>
+				  <li>Product gives group velocity: <span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Coherence volume</strong> — <span class="math inline">\( \chi = \frac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span>
+				<ul>
+				  <li>Start from energy density: <span class="math inline">\( E/V = \rho v^2 \)</span></li>
+				  <li>Include gravitational and Planck-scale impedance: <span class="math inline">\( \Phi\,g\,h \)</span></li>
+				  <li>Invert to isolate volume: <span class="math inline">\( \chi = \frac{E}{\Phi\,g\,h\,\rho} \)</span></li>
+				  <li>Substitute <span class="math inline">\( E = M v^2 \)</span> to complete</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Tuning and impedance density</strong> — <span class="math inline">\( \rho_K \in \mathrm{J\,s\,m^{-3}},\quad \rho_K\,L_K^3 \Rightarrow \mathrm{J\,s} \)</span>
+				<ul>
+				  <li>Define impedance density as energy–time per unit volume</li>
+				  <li>Collapse length <span class="math inline">\( L_K \)</span> from synchrony decay: <span class="math inline">\( L_K = v_{\mathrm{sync}}/\gamma \)</span></li>
+				  <li>Volume integration yields total action: <span class="math inline">\( \rho_K\,L_K^3 = \mathcal{S}_\ast \)</span></li>
+				  <li>Links static impedance to dynamic coherence</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Topological energy</strong> — <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \)</span>
+				<ul>
+				  <li>Start from surface energy density: <span class="math inline">\( b\,L_Z^2 \)</span></li>
+				  <li>Include topological charge density: <span class="math inline">\( \rho_{\mathrm{topo}}\,|Q| \)</span></li>
+				  <li>Modulate by synchrony potential: <span class="math inline">\( \Phi \)</span></li>
+				  <li>Combine to yield total energy</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Coherence length</strong> — <span class="math inline">\( L_Z = L_0\,\delta_p^{\gamma^\ast} \)</span>
+				<ul>
+				  <li>Define proton–electron impedance ratio: <span class="math inline">\( \delta_p = \frac{G m_p^2}{k_e e^2} \)</span></li>
+				  <li>Exponent <span class="math inline">\( \gamma^\ast \)</span> from kernel synchrony scaling</li>
+				  <li>Base length <span class="math inline">\( L_0 \)</span> from reference coherence</li>
+				  <li>Combine to yield scale-dependent coherence length</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Collapse rate</strong> — <span class="math inline">\( L_K = \frac{v_{\mathrm{sync}}}{\gamma} \)</span>
+				<ul>
+				  <li>Start from exponential decay kernel: <span class="math inline">\( e^{-\gamma |x - x'|} \)</span></li>
+				  <li>Define decay length: <span class="math inline">\( L_K = 1/\gamma \)</span></li>
+				  <li>Include synchrony propagation: <span class="math inline">\( v_{\mathrm{sync}} \)</span></li>
+				  <li>Combine to yield: <span class="math inline">\( L_K = v_{\mathrm{sync}}/\gamma \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Regularization and stability</strong> — <span class="math inline">\( m^\ast = \arg\min \|A m - O\|_2^2 + \lambda \|L m\|_2^2 \)</span>
+				<ul>
+				  <li>Start from inverse problem: recover <span class="math inline">\( m \)</span> from observations <span class="math inline">\( O \)</span> via operator <span class="math inline">\( A \)</span></li>
+				  <li>Add smoothness penalty via Laplacian or gradient operator <span class="math inline">\( L \)</span></li>
+				  <li>Regularization parameter <span class="math inline">\( \lambda \)</span> balances fidelity and smoothness</li>
+				  <li>Minimization yields stable solution under noise and ill-posedness</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Recursive coherence correction</strong> — <span class="math inline">\( \rho' = \rho(1 + \eta_\rho),\ T_c' = \chi_T T_c,\ E' = E(1 - \alpha) \)</span>
+				<ul>
+				  <li>Start from kernel feedback: energy overshoot or instability in recursive update</li>
+				  <li>Introduce dimensionless correction factors: <span class="math inline">\( \eta_\rho,\, \chi_T,\, \alpha \)</span></li>
+				  <li>Apply multiplicative adjustments to density, temperature, and energy</li>
+				  <li>Ensure convergence and bounded deviation from equilibrium</li>
+				</ul>
+			  </li>
+
+			</ul>
 
 			<!-- ENERGY LAW -->
 			<h3 id="sec-37-dimensional-check_2">Energy law axioms</h3>
@@ -20392,8 +20489,27 @@ zscore = (median - Xi_crit) / std
 						<td>Fit slope within error</td>
 						<td>Incorrect scaling with <span class="math inline">\( n_e \)</span></td>
 					</tr>
+					<tr>
+						<td>Synchrony (timing)</td>
+						<td><span class="math inline">\( \nu, M_1 \)</span> from impulse response</td>
+						<td><span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu \)</span></td>
+						<td><span class="math inline">\( \leq 1\% \)</span> vs. multi-baseline timing</td>
+						<td>Inconsistent speed across frequency bands</td>
+					</tr>
 				</tbody>
 			</table>
+
+			<p>
+				The quantity <span class="math inline">\( \Phi \)</span> appearing in the energy kernel law and measurement protocols represents the <em>synchrony potential</em>—a scalar field encoding local phase alignment and coherence curvature. Its structural origin is derived in <a href="#sec-141-structural-energy-kernel_9">sec. Synchrony and Relativistic Fixed Points</a>, where the kernel phase accumulation along a path <span class="math inline">\( \gamma \)</span> yields a synchrony offset of the form 
+				<span class="math inline">\( \Delta_{\rm sync} = \int_\gamma \left[-\frac{v^2}{2c^2} + \frac{\Phi}{c^2} + \Lambda\,\dot{\phi} \right]\,d\ell \)</span>. 
+				In this expression, <span class="math inline">\( \Phi \)</span> emerges as the gravitational or modulation-induced potential governing proper-time deviation. It is not an empirical constant but a kernel-derived observable, measurable via timing drift, coherence decay, or energy output scaling.
+			</p>
+
+			<p>
+				The spectral kernel <span class="math inline">\( G(k,\omega) \)</span> referenced in magnetism protocols is the <em>Green kernel</em> of the recursive transport operator, introduced in <a href="#sec-141-structural-energy-kernel_9">sec. Spectral Green Fixed Points</a>. It arises from the fixed-point solution of the kernel recursion under exponential damping and linear phase accrual, yielding 
+				<span class="math inline">\( K^\star(x,x') = \int \hat{w}(\omega)\,e^{-\gamma|x - x'|}\,e^{i\omega|x - x'|}\,d\omega \)</span>. 
+				In Fourier space, this transforms to <span class="math inline">\( G(k,\omega) \)</span>, encoding the system’s response to spectral excitation. It governs magnetic field propagation and impedance behavior, and enables extraction of effective permeability <span class="math inline">\( \mu_{\mathrm{eff}} \)</span> from spatial–spectral measurements.
+			</p>
 
 			<!-- UNIT PARITY AUDIT -->
 			<h3 id="sec-37-dimensional-check_u1">Unit parity audit</h3>
@@ -20434,6 +20550,51 @@ zscore = (median - Xi_crit) / std
 				</tbody>
 			</table>
 
+			<ul>
+
+			  <li><strong>Magnetism kernel</strong> — <span class="math inline">\( [\mathbf{B}] = \mathrm{T} \)</span> vs. <span class="math inline">\( (\rho_\Phi/\rho_S)[u]/[r^2] \)</span>
+				<ul>
+				  <li>Start from Biot–Savart form: <span class="math inline">\( \mathbf{B}(x) = \frac{\mu_0}{4\pi} \int J(x') \times \frac{x - x'}{|x - x'|^3} \,d^3x' \)</span></li>
+				  <li>Identify <span class="math inline">\( J = \rho_S\,u \)</span> and <span class="math inline">\( \Phi \sim \mu_0 \)</span> as synchrony potential</li>
+				  <li>Combine to yield: <span class="math inline">\( \mathbf{B} \sim (\rho_\Phi/\rho_S)\,u/r^2 \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Energy kernel</strong> — <span class="math inline">\( [E] = \mathrm{J} \)</span> vs. <span class="math inline">\( [\Phi][\gamma][\rho][L_Z^3] \)</span>
+				<ul>
+				  <li>Start from kernel power density: <span class="math inline">\( p(x) = \Phi\,\gamma\,\rho \)</span></li>
+				  <li>Integrate over coherence volume: <span class="math inline">\( V = L_Z^3 \)</span></li>
+				  <li>Yield total energy: <span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Distance bridge</strong> — <span class="math inline">\( D = v_{\mathrm{sync}}/\gamma \)</span>
+				<ul>
+				  <li>Start from exponential decay kernel: <span class="math inline">\( e^{-\gamma |x - x'|} \)</span></li>
+				  <li>Decay length: <span class="math inline">\( L_K = 1/\gamma \)</span></li>
+				  <li>Synchrony propagation: <span class="math inline">\( v_{\mathrm{sync}} \)</span></li>
+				  <li>Combine: <span class="math inline">\( D = v_{\mathrm{sync}}/\gamma \)</span></li>
+				</ul>
+			  </li>
+
+			  <li><strong>Variance–energy link</strong> — <span class="math inline">\( \mathrm{Var}(E) = \hbar^2\,\mathrm{Var}(\omega) \)</span>
+				<ul>
+				  <li>Start from spectroscopic energy: <span class="math inline">\( E = \hbar\,\omega \)</span></li>
+				  <li>Apply variance propagation: <span class="math inline">\( \mathrm{Var}(E) = \hbar^2\,\mathrm{Var}(\omega) \)</span></li>
+				  <li>Confirms energy spread scales with frequency uncertainty</li>
+				</ul>
+			  </li>
+
+			  <li><strong>Decoherence scaling</strong> — <span class="math inline">\( \gamma_\phi \sim v_{\mathrm{sync}}/L_Z \)</span>
+				<ul>
+				  <li>Start from synchrony propagation: <span class="math inline">\( v_{\mathrm{sync}} \)</span></li>
+				  <li>Coherence length: <span class="math inline">\( L_Z \)</span></li>
+				  <li>Inverse scaling yields decoherence rate: <span class="math inline">\( \gamma_\phi \sim v_{\mathrm{sync}}/L_Z \)</span></li>
+				</ul>
+			  </li>
+
+			</ul>
+
 			<!-- UNCERTAINTY / DECOHERENCE BRIDGE -->
 			<h3 id="sec-37-dimensional-check_q1">Uncertainty and decoherence bridge</h3>
 			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
@@ -20460,6 +20621,14 @@ zscore = (median - Xi_crit) / std
 					</tr>
 				</tbody>
 			</table>
+
+			<p>
+				The variance–energy link <span class="math inline">\( \mathrm{Var}(E) = \hbar^2\,\mathrm{Var}(\omega) \)</span> arises directly from the spectroscopic energy relation <span class="math inline">\( E = \hbar\,\omega \)</span>. Applying standard variance propagation to this linear transformation yields <span class="math inline">\( \mathrm{Var}(E) = \hbar^2\,\mathrm{Var}(\omega) \)</span>, confirming that energy spread scales quadratically with frequency uncertainty. This relation is foundational in linewidth analysis, spectral coherence, and quantum uncertainty propagation. It is falsifiable via direct comparison of measured energy distributions and spectral bandwidths.
+			</p>
+
+			<p>
+				The decoherence scaling law <span class="math inline">\( \gamma_\phi \sim v_{\mathrm{sync}} / L_Z \)</span> reflects the inverse relationship between synchrony propagation and coherence length. It originates from the kernel’s exponential decay structure, where the synchrony velocity <span class="math inline">\( v_{\mathrm{sync}} \)</span> governs phase transport and <span class="math inline">\( L_Z \)</span> defines the spatial extent of coherence. The ratio yields a decay rate <span class="math inline">\( \gamma_\phi \)</span> with units <span class="math inline">\( \mathrm{s^{-1}} \)</span>, consistent with observed decoherence in interferometric and spectroscopic systems. This scaling is testable by measuring coherence loss across varying <span class="math inline">\( L_Z \)</span> domains.
+			</p>
 
 			<!-- FALSIFIABILITY -->
 			<h3 id="sec-37-dimensional-check_8">Falsifiability criteria</h3>
