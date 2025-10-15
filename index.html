@@ -17417,21 +17417,128 @@ zscore = (median - Xi_crit) / std
 
             </div>
 
-            <p>
-                If we choose units so that <span class="math inline">\( [\rho_\Phi]/[\rho_S]=\mathrm{T\cdot m/A} \)</span> and <span class="math inline">\( [u] = \mathrm{A/m} \)</span> (interpreting <span class="math inline">\(\mathbf{u}\)</span> as kernel-normalized current per unit length), then:
-            </p>
+			<p>
+				If we choose units so that <span class="math inline">\( [\rho_\Phi]/[\rho_S]=\mathrm{T\cdot m/A} \)</span> and <span class="math inline">\( [u] = \mathrm{A/m} \)</span> (kernel‑normalized current per unit length), then:
+			</p>
 
-            <div class="math display">
+			<div class="math display">
 
-                \[
-                [\mathbf{B}] = \frac{\mathrm{T\cdot m/A}\cdot \mathrm{A/m}}{\mathrm{m^2}} = \mathrm{T}
-                \]
 
-            </div>
 
-            <p>
-                This confirms that the structural magnetism law yields the correct SI units for magnetic field strength without introducing arbitrary constants.
-            </p>
+				\[
+				[\mathbf{B}] = \frac{\mathrm{T\cdot m/A}\cdot \mathrm{A/m}}{\mathrm{m^2}} = \mathrm{T}
+				\]
+
+
+
+			</div>
+
+			<p>
+				This confirms that the structural magnetism law yields the correct SI units for magnetic field strength without introducing arbitrary constants.
+				<span class="math inline">G\to 1</span> and <span class="math inline">\(\rho_\Phi/\rho_S \to \mu_0\)</span> in the static vacuum limit, recovering the classical Biot–Savart law.
+			</p>
+
+			<h4>Verification Table: Source Choices and Dimensional Closure</h4>
+
+			<p>
+				The following table summarizes how different interpretations of the kernel velocity/source field
+				<span class="math inline">\(\mathbf{u}\)</span> map into consistent magnetic field units,
+				demonstrating dimensional closure across regimes:
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Choice of <span class="math inline">\(\mathbf{u}\)</span></th>
+						<th>Definition of <span class="math inline">\(\rho_S\)</span></th>
+						<th>Kernel Limit <span class="math inline">\(G\)</span></th>
+						<th>Ratio <span class="math inline">\(\rho_\Phi/\rho_S\)</span></th>
+						<th>Recovered Law</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Current per unit length<br><span class="math inline">\([u]=\mathrm{A/m}\)</span></td>
+						<td>Dimensionless scaling<br>so that <span class="math inline">\(\mathbf{S}=\rho_S \mathbf{u}\)</span> has [A·m⁻²]</td>
+						<td><span class="math inline">\(G \to 1\)</span> (vacuum, static)</td>
+						<td><span class="math inline">\(\mu_0\)</span></td>
+						<td>Classical Biot–Savart<br><span class="math inline">\(\mathbf{B}=\mu_0 I/(2\pi r)\)</span></td>
+					</tr>
+					<tr>
+						<td>Mechanical velocity<br><span class="math inline">\([u]=\mathrm{m/s}\)</span></td>
+						<td><span class="math inline">\(\rho_S = q n\)</span> with [A·s·m⁻³], so <span class="math inline">\(\mathbf{S}=q n \mathbf{u}\)</span> has [A·m⁻²]</td>
+						<td><span class="math inline">\(G \to 1\)</span></td>
+						<td><span class="math inline">\(\mu_0\)</span></td>
+						<td>Charge‑flux form of Biot–Savart<br>(microscopic current density)</td>
+					</tr>
+					<tr>
+						<td>Dispersive/anisotropic medium</td>
+						<td>As above, with medium‑specific <span class="math inline">\(\rho_S\)</span></td>
+						<td><span class="math inline">\(G(k,\omega)\)</span> encodes dispersion</td>
+						<td><span class="math inline">\(\mu_{\mathrm{eff}}(x,x';k,\omega)\)</span></td>
+						<td>Nonlocal, anisotropic Biot–Savart<br>(effective permeability)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				This table shows that regardless of whether <span class="math inline">\(\mathbf{u}\)</span> is interpreted as
+				a normalized current, a mechanical velocity, or a medium‑modified drift, the structural magnetism law
+				remains dimensionally closed and reduces to the correct Tesla‑scale field.
+			</p>
+
+			<h4>Normalization Form of the Magnetism Law</h4>
+
+			<p>
+				To emphasize structural universality, the chronotopic magnetism law can be expressed in a
+				dimensionless normalization form. Define reference scales:
+			</p>
+
+			<ul>
+				<li><span class="math inline">\(B_0\)</span> — reference magnetic field (e.g. measured at a calibration point)</li>
+				<li><span class="math inline">\(u_0\)</span> — reference velocity or current-per-length scale</li>
+				<li><span class="math inline">\(r_0\)</span> — reference length scale</li>
+			</ul>
+
+			<p>
+				Introduce normalized variables:
+				<span class="math inline">\(\tilde{\mathbf{B}} = \mathbf{B}/B_0\)</span>,
+				<span class="math inline">\(\tilde{\mathbf{u}} = \mathbf{u}/u_0\)</span>,
+				<span class="math inline">\(\tilde{r} = r/r_0\)</span>.
+			</p>
+
+			<div class="math display">
+
+
+				\[
+				\tilde{\mathbf{B}}(x)
+				= \frac{1}{4\pi} \int \tilde{G}(x,x')
+				\left[ \tilde{\mathbf{u}}(x') \times \frac{x-x'}{|\tilde{r}|^3} \right] d^3\tilde{x}',
+				\]
+
+
+			</div>
+
+			<p>
+				where <span class="math inline">\(\tilde{G}(x,x') = G(x,x')/G_0\)</span> is the normalized kernel.
+				All dimensional factors are absorbed into the ratio
+				<span class="math inline">\(B_0 = (\rho_\Phi/\rho_S)(u_0/r_0^2) G_0\)</span>.
+				Thus the normalized law is purely geometric and structural.
+			</p>
+
+			<h5>Benefits of Normalization</h5>
+			<ul>
+				<li><strong>Universality:</strong> The same form applies in vacuum, media, and relativistic regimes.</li>
+				<li><strong>Comparability:</strong> Different experiments can be compared by plotting normalized fields <span class="math inline">\(\tilde{B}\)</span> vs. normalized geometry.</li>
+				<li><strong>Error detection:</strong> Any unit inconsistency shows up as a mismatch in the scaling factor <span class="math inline">\(B_0\)</span>.</li>
+				<li><strong>Experimental scaling:</strong> Once <span class="math inline">\(B_0\)</span> is measured, all other predictions follow without free constants.</li>
+			</ul>
+
+			<p>
+				This normalization form makes explicit that magnetism in the kernel framework is not tied to SI units but is a
+				dimensionless structural law, with physical units re‑introduced only through the reference scales
+				<span class="math inline">\(B_0, u_0, r_0\)</span>.
+			</p>
 
             <h4>Dual Interpretation of Magnetism</h4>
 
@@ -17451,6 +17558,14 @@ zscore = (median - Xi_crit) / std
             </p>
 
             <h4>Required Properties of <span class="math inline">\(G\)</span> for Structural Closure</h4>
+
+			<p>
+				Define an effective permeability 
+				<span class="math inline">\(\mu_{\mathrm{eff}}(x,x';k,\omega) \equiv (\rho_\Phi/\rho_S)\,G(x,x';k,\omega)\)</span>. 
+				In homogeneous vacuum, <span class="math inline">\(\mu_{\mathrm{eff}}=\mu_0\)</span> and the law reduces to Biot–Savart. 
+				In dispersive or anisotropic media, <span class="math inline">\(\mu_{\mathrm{eff}}\)</span> captures nonlocal permeability while preserving 
+				<span class="math inline">\(\nabla\cdot\mathbf{B}=0\)</span> and reproducing Ampère’s law in the slowly varying limit.
+			</p>
 
             <p>
                 The kernel function <span class="math inline">\( G(x, x') \)</span> used in the chronotopic magnetism law is a structural Green function that encodes modulation propagation between spatial points, including dispersion, attenuation, and coherence geometry. While it is not the gravitational constant <span class="math inline">\( G \)</span>, it is structurally linked to it. The scalar gravitational constant <span class="math inline">\( G \)</span> — as derived in the <a href="#sec-24-primary-emergence-of-constants">geometric-collapse form</a> — represents the rate of modulation failure across coherence layers. In contrast, <span class="math inline">\( G(x, x') \)</span> describes modulation response and propagation. Both emerge from the same kernel recursion and coherence rhythm: one encodes collapse, the other encodes transmission. Thus, the magnetism kernel and gravitational constant are structurally unified — siblings within the same ontological framework.
@@ -17495,6 +17610,12 @@ zscore = (median - Xi_crit) / std
                 In relativistic regimes, the velocity field <span class="math inline">\(\mathbf{u}\)</span> approaches the synchronization limit <span class="math inline">\(v_{\text{sync}}\)</span>. The kernel formulation remains valid provided that Lorentz contraction and time dilation are absorbed into the structural densities <span class="math inline">\(\rho_S\)</span> and <span class="math inline">\(\rho_\Phi\)</span>, which are frame-dependent but measurable. The field <span class="math inline">\(\mathbf{B}\)</span> transforms covariantly under observer boosts when the kernel tensor <span class="math inline">\(K_{ij}\)</span> is properly symmetrized.
             </p>
 
+			<p>
+				Near‑field singularities from the <span class="math inline">|x-x'|^{-3}</span> kernel are handled by finite source size or principal‑value integration, ensuring the integral remains well‑posed. 
+				For smooth, localized sources and isotropic <span class="math inline">G</span>, the integrand is divergence‑free so that <span class="math inline">\(\nabla\cdot\mathbf{B}=0\)</span> holds identically. 
+				In homogeneous media, <span class="math inline">\(\nabla\times\mathbf{B}\approx \mu_{\mathrm{eff}}\,\mathbf{S}\)</span>, recovering Ampère’s law.
+			</p>
+
             <p>
                 <em>The divergence-free property <span class="math inline">\(\nabla \cdot \mathbf{B} = 0\)</span> follows from the cross-product structure when <span class="math inline">\(G\)</span> is isotropic. Anisotropic or dispersive <span class="math inline">\(G\)</span> requires explicit symmetry checks to ensure conservation laws are preserved.</em>
             </p>
@@ -17520,6 +17641,7 @@ zscore = (median - Xi_crit) / std
                 <span class="math inline">\(\rho_S\)</span> and <span class="math inline">\(\rho_\Phi\)</span>, and the regime-appropriate response kernel <span class="math inline">\(G\)</span> is selected, the chronotopic magnetism law
                 <span class="math inline">\(\mathbf{B}=\tfrac{1}{4\pi}\!\int G[\mathbf{u}\times r/|r|^3]d^3x'\)</span> yields numerically correct Tesla-scale fields from measured inputs
                 without introducing ad hoc calibration constants. Unit closure is explicit: <span class="math inline">\(\rho_S\)</span> and <span class="math inline">\(\rho_\Phi\)</span> carry the conversion factors that map kernel-native velocities into SI current and permeability units, hence <span class="math inline">\(\mu_0\)</span> emerges as the structural ratio <span class="math inline">\(\rho_\Phi/\rho_S\)</span>.
+				Thus, magnetism in the kernel framework is not an isolated force law but a structural specialization of the same energy–kernel principle that governs mechanics, orbital dynamics, quantum transport, and thermal diffusion. The emergence of <span class="math inline">\(\mu_0\)</span> as a density ratio confirms that all constants of electromagnetism are kernel observables, not primitives.
             </p>
 
             <h3 id="sec-28-chronotopic-magnetism-law_2">Antimatter in magnetic fields: kernel explanation & capture mechanics</h3>
