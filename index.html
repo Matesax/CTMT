@@ -19455,391 +19455,595 @@ zscore = (median - Xi_crit) / std
             </p>
         </article>
     </section>
-    <section>
-        <h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional check</h2>
-        <article style="display:none">
-            <p>
-                This unified section consolidates all Chronotopic Kernel axioms across energy, orbital mechanics,
-                collapse/resonance, and topology. Each axiom includes dimensional justification, observable anchors,
-                measurement protocols, and falsifiability criteria. Dimensionless constructs are explicitly bridged to SI
-                quantities via scaling laws and action–energy mappings to ensure full physical closure.
-            </p>
+	<section>
+		<h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional check</h2>
+		<article style="display:none">
 
-            <!-- CORE AXIOMS TABLE -->
-            <h3 id="sec-37-dimensional-check_1">Core Axioms and Dimensional Closure</h3>
-            <table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
-                <thead>
-                    <tr>
-                        <th>Axiom / Name</th>
-                        <th>Statement / Formula</th>
-                        <th>Units &amp; Justification (SI)</th>
-                        <th>Anchors / Measurement / Falsifiability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Dimensional closure</strong></td>
-                        <td>All kernel equations reduce to SI base units <span class="math inline">\( (\mathrm{kg},\ \mathrm{m},\ \mathrm{s},\ \mathrm{A},\ \mathrm{K},\ \mathrm{mol},\ \mathrm{cd}) \)</span>.</td>
-                        <td>Left–right dimensional parity in all expressions.</td>
-                        <td>Anchor: explicit unit check. Falsify if mismatch detected.</td>
-                    </tr>
+			<p>
+				This unified section consolidates all Chronotopic Kernel axioms across energy, orbital mechanics,
+				collapse/resonance, magnetism, and topology. Each axiom includes dimensional justification, observable anchors,
+				measurement protocols, and falsifiability criteria. Dimensionless constructs are explicitly bridged to SI
+				quantities via scaling laws and action–energy mappings to ensure full physical closure.
+			</p>
 
-                    <tr>
-                        <td><strong>Kernel linearity &amp; composability</strong></td>
-                        <td><span class="math inline">\( \Psi_B(x)=\int K_{AB}(x,x')\,\Psi_A(x')\,\mathrm{d}^3x' \)</span></td>
-                        <td>For normalized fields, <span class="math inline">\( K_{AB} \)</span> has units <span class="math inline">\( [\mathrm{m}^{-3}] \)</span>.</td>
-                        <td>Test via impulse reconstruction; falsify if superposition fails.</td>
-                    </tr>
+			<!-- CORE AXIOMS TABLE -->
+			<h3 id="sec-37-dimensional-check_1">Core axioms and dimensional closure</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom / Name</th>
+						<th>Statement / Formula</th>
+						<th>Units and justification (SI)</th>
+						<th>Anchors / Measurement / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Dimensional closure</strong></td>
+						<td>All kernel equations reduce to SI base units <span class="math inline">\( \mathrm{kg},\ \mathrm{m},\ \mathrm{s},\ \mathrm{A},\ \mathrm{K},\ \mathrm{mol},\ \mathrm{cd} \)</span>.</td>
+						<td>Left–right dimensional parity in all expressions.</td>
+						<td>Anchor: explicit unit check. Falsify if mismatch detected.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Causality</strong></td>
-                        <td>
-                            <span class="math inline">\( K_{AB}(x,t;x',t')=0 \)</span>
-                            for <span class="math inline">\( t' &lt; t-\tau_{\max} \)</span>
-                        </td>
-                        <td>Defines synchrony velocity <span class="math inline">\( v_{\mathrm{sync}} \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span></td>
-                        <td>Measure impulse delay; falsify if superluminal propagation observed.</td>
-                    </tr>
+					<tr>
+						<td><strong>Kernel linearity and composability</strong></td>
+						<td><span class="math inline">\( \Psi_B(x)=\int K_{AB}(x,x')\,\Psi_A(x')\,\mathrm{d}^3x' \)</span></td>
+						<td>For normalized fields, <span class="math inline">\( K_{AB} \)</span> has units <span class="math inline">\( \mathrm{m}^{-3} \)</span>.</td>
+						<td>Test via impulse reconstruction; falsify if superposition fails.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Action quantum</strong></td>
-                        <td>Weight <span class="math inline">\( \exp\!\left(i\,S[\gamma] / \mathcal{S}_*\right) \)</span></td>
-                        <td><span class="math inline">\( \mathcal{S}_* \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span> ensures phase dimensionless.</td>
-                        <td>Anchor: interference calibration. Falsify if phase non-unitless.</td>
-                    </tr>
+					<tr>
+						<td><strong>Causality</strong></td>
+						<td><span class="math inline">\( K_{AB}(x,t;x',t')=0 \)</span> for <span class="math inline">\( t' < t-\tau_{\max} \)</span></td>
+						<td>Defines synchronization velocity <span class="math inline">\( v_{\mathrm{sync}} \)</span> <span class="math inline">\( \mathrm{m\,s^{-1}} \)</span>.</td>
+						<td>Measure impulse delay; falsify if superluminal propagation observed.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Synchronization velocity</strong></td>
-                        <td><span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu_{\mathrm{sync}} \)</span></td>
-                        <td>
-                            <span class="math inline">\( M_1 \)</span> <span class="math inline">\( [\mathrm{m}] \)</span>;
-                            <span class="math inline">\( \nu_{\mathrm{sync}} \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span>
-                        </td>
-                        <td>Anchor: atomic/CMB timing; falsify on inconsistent multi-baseline speeds.</td>
-                    </tr>
+					<tr>
+						<td><strong>Action quantum</strong></td>
+						<td>Weight <span class="math inline">\( \exp\!\big(i\,S[\gamma] / \mathcal{S}_* \big) \)</span></td>
+						<td><span class="math inline">\( \mathcal{S}_* \)</span> <span class="math inline">\( \mathrm{J\,s} \)</span> ensures phase dimensionless.</td>
+						<td>Anchor: interference calibration. Falsify if phase non–unitless.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Coherence volume <span class="math inline">\( \chi \)</span></strong></td>
-                        <td><span class="math inline">\( \chi = \dfrac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span></td>
-                        <td>
-                            If <span class="math inline">\( M \)</span> <span class="math inline">\( [\mathrm{kg}] \)</span> \(\to\) <span class="math inline">\( \chi \)</span> <span class="math inline">\( [\mathrm{m}^3] \)</span>;
-                            if <span class="math inline">\( M \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}^3\,\mathrm{s}^{-1}] \)</span>
-                        </td>
-                        <td>Anchor: flow/power mapping; falsify if measured <span class="math inline">\( \chi \)</span> violates scale.</td>
-                    </tr>
+					<tr>
+						<td><strong>Synchronization velocity</strong></td>
+						<td><span class="math inline">\( v_{\mathrm{sync}} = M_1\,\nu_{\mathrm{sync}} \)</span></td>
+						<td><span class="math inline">\( M_1 \)</span> <span class="math inline">\( \mathrm{m} \)</span>, <span class="math inline">\( \nu_{\mathrm{sync}} \)</span> <span class="math inline">\( \mathrm{s}^{-1} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{m\,s^{-1}} \)</span>.</td>
+						<td>Anchor: atomic and CMB timing; falsify on inconsistent multi‑baseline speeds.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Tuning / impedance density</strong></td>
-                        <td>
-                            <span class="math inline">\( \rho \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{m}^{-3}] \)</span>,
-                            <span class="math inline">\( \rho_K \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}\,\mathrm{m}^{-3}] \)</span>, ensuring
-                            <span class="math inline">\( \rho_K\,L_K^3 \;\to\; [\mathrm{J}\,\mathrm{s}] \)</span>
-                        </td>
-                        <td>Bridge between static and dynamic representations.</td>
-                        <td>Anchor: densitometry / impedance spectroscopy; falsify if inconsistent.</td>
-                    </tr>
+					<tr>
+						<td><strong>Coherence volume \( \chi \)</strong></td>
+						<td><span class="math inline">\( \chi = \dfrac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span></td>
+						<td>If <span class="math inline">\( M \)</span> <span class="math inline">\( \mathrm{kg} \)</span> \(\Rightarrow\) <span class="math inline">\( \chi \)</span> <span class="math inline">\( \mathrm{m}^3 \)</span>; if <span class="math inline">\( M \)</span> <span class="math inline">\( \mathrm{kg\,s^{-1}} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{m}^3\,\mathrm{s^{-1}} \)</span>.</td>
+						<td>Anchor: flow/power mapping; falsify if measured <span class="math inline">\( \chi \)</span> violates scale.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Topological charge <span class="math inline">\( Q \)</span></strong></td>
-                        <td><span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \)</span></td>
-                        <td>
-                            <span class="math inline">\( b \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{m}^{-2}] \)</span>,
-                            <span class="math inline">\( L_Z^2 \)</span> <span class="math inline">\( [\mathrm{m}^2] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
-                        </td>
-                        <td>Anchor: skyrmion energy scaling; falsify if non-linear in <span class="math inline">\( |Q| \)</span>.</td>
-                    </tr>
+					<tr>
+						<td><strong>Tuning and impedance density</strong></td>
+						<td><span class="math inline">\( \rho \)</span> <span class="math inline">\( \mathrm{kg\,m^{-3}} \)</span>, <span class="math inline">\( \rho_K \)</span> <span class="math inline">\( \mathrm{J\,s\,m^{-3}} \)</span>, ensuring <span class="math inline">\( \rho_K\,L_K^3 \Rightarrow \mathrm{J\,s} \)</span>.</td>
+						<td>Bridge between static and dynamic representations.</td>
+						<td>Anchor: densitometry / impedance spectroscopy; falsify if inconsistent.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Coherence length <span class="math inline">\( L_Z \)</span></strong></td>
-                        <td>
-                            <span class="math inline">\( L_Z = L_0\,\delta_p^{\gamma^*} \)</span>,
-                            <span class="math inline">\( \delta_p = \dfrac{G\,m_p^2}{k_e\,e^2} \)</span>
-                        </td>
-                        <td>
-                            <span class="math inline">\( \delta_p \)</span> <span class="math inline">\( \text{(dimensionless)} \)</span> \(\to\) <span class="math inline">\( L_Z \)</span> <span class="math inline">\( [\mathrm{m}] \)</span>
-                        </td>
-                        <td>Measure via holonomy or impulse decay; falsify if scaling fails.</td>
-                    </tr>
+					<tr>
+						<td><strong>Topological charge \( Q \)</strong></td>
+						<td><span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \)</span></td>
+						<td><span class="math inline">\( b \)</span> <span class="math inline">\( \mathrm{J\,m^{-2}} \)</span>, <span class="math inline">\( L_Z^2 \)</span> <span class="math inline">\( \mathrm{m}^2 \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{J} \)</span>.</td>
+						<td>Anchor: skyrmion energy scaling; falsify if non‑linear in <span class="math inline">\( |Q| \)</span>.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Collapse rate <span class="math inline">\( \gamma \)</span></strong></td>
-                        <td><span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span></td>
-                        <td><span class="math inline">\( \gamma \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( L_K \)</span> <span class="math inline">\( [\mathrm{m}] \)</span></td>
-                        <td>Anchor: FWHM/2 of spectra; falsify if mismatch in distance ratio.</td>
-                    </tr>
+					<tr>
+						<td><strong>Coherence length \( L_Z \)</strong></td>
+						<td><span class="math inline">\( L_Z = L_0\,\delta_p^{\gamma^*} \)</span>, <span class="math inline">\( \delta_p = \dfrac{G\,m_p^2}{k_e\,e^2} \)</span></td>
+						<td><span class="math inline">\( \delta_p \)</span> dimensionless \(\Rightarrow\) <span class="math inline">\( L_Z \)</span> <span class="math inline">\( \mathrm{m} \)</span>.</td>
+						<td>Anchor: holonomy or impulse decay; falsify if scaling fails.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Regularization / stability</strong></td>
-                        <td><span class="math inline">\( m^* = \arg\min \|A m - O\|_2^2 + \lambda \|L m\|_2^2 \)</span></td>
-                        <td><span class="math inline">\( \lambda \)</span> unit-balanced; ensures numerical stability.</td>
-                        <td>Falsify if ill-posed inversion persists.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Recursive coherence correction</strong></td>
-                        <td>
-                            <span class="math inline">\( \rho' = \rho(1 + \eta_\rho) \rightarrow \)</span>
-                            <span class="math inline">\( T_c' = \chi_T T_c \rightarrow \)</span>
-                            <span class="math inline">\( E' = E(1 - \alpha) \)</span>
-                        </td>
-                        <td>
-                            <span class="math inline">\( \eta_\rho,\, \chi_T,\, \alpha \)</span> dimensionless
-                            <span class="math inline">\(\rightarrow\)</span>
-                            preserves
-                            <span class="math inline">\([\,\mathrm{J}],\ [\,\mathrm{K}],\ [\,\mathrm{kg \cdot m^{-3}}]\)</span>;
-                            ensures higher-order feedback corrections without breaking unit closure.
-                        </td>
-                        <td>
-                            Anchor: radiative equilibrium tests
-                            <span class="math inline">\((\text{e.g., stellar plasma})\)</span>;
-                            falsify if energy correction fails to reduce overshoot in constants
-                            <span class="math inline">\((< 1\% \text{ threshold})\)</span>.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+					<tr>
+						<td><strong>Collapse rate \( \gamma \)</strong></td>
+						<td><span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span></td>
+						<td><span class="math inline">\( \gamma \)</span> <span class="math inline">\( \mathrm{s^{-1}} \)</span> \(\Rightarrow\) <span class="math inline">\( L_K \)</span> <span class="math inline">\( \mathrm{m} \)</span>.</td>
+						<td>Anchor: FWHM/2 of spectra; falsify if mismatch in distance ratio.</td>
+					</tr>
 
-            <!-- ENERGY LAW -->
-            <h3 id="sec-37-dimensional-check_2">Energy Law Axioms</h3>
-            <table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
-                <thead>
-                    <tr>
-                        <th>Axiom</th>
-                        <th>Statement / Formula</th>
-                        <th>Units &amp; Bridge</th>
-                        <th>Anchors / Falsifiability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Kernel energy scaling</strong></td>
-                        <td><span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span></td>
-                        <td>
-                            <span class="math inline">\( \Phi \)</span> <span class="math inline">\( \text{(dimensionless)} \)</span>;
-                            <span class="math inline">\( \gamma \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span>;
-                            <span class="math inline">\( \rho \)</span> <span class="math inline">\( [\mathrm{kg}\,\mathrm{m}^{-3}] \)</span>;
-                            <span class="math inline">\( L_Z^3 \)</span> <span class="math inline">\( [\mathrm{m}^3] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
-                        </td>
-                        <td>Anchor: calorimetry/resonant data; falsify if deviation vs. controlled <span class="math inline">\( \rho,\gamma,L_Z \)</span>.</td>
-                    </tr>
+					<tr>
+						<td><strong>Regularization and stability</strong></td>
+						<td><span class="math inline">\( m^* = \arg\min \|A m - O\|_2^2 + \lambda \|L m\|_2^2 \)</span></td>
+						<td><span class="math inline">\( \lambda \)</span> unit‑balanced; ensures numerical stability.</td>
+						<td>Falsify if ill‑posed inversion persists.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Phase–energy link</strong></td>
-                        <td><span class="math inline">\( E = \hbar\,\omega \)</span></td>
-                        <td>
-                            <span class="math inline">\( \hbar \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span>;
-                            <span class="math inline">\( \omega \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
-                        </td>
-                        <td>Anchor: spectroscopy; falsify if peaks misalign beyond error.</td>
-                    </tr>
+					<tr>
+						<td><strong>Recursive coherence correction</strong></td>
+						<td><span class="math inline">\( \rho' = \rho(1 + \eta_\rho),\ T_c' = \chi_T T_c,\ E' = E(1 - \alpha) \)</span></td>
+						<td><span class="math inline">\( \eta_\rho,\, \chi_T,\, \alpha \)</span> dimensionless \(\Rightarrow\) preserves <span class="math inline">\( \mathrm{J},\ \mathrm{K},\ \mathrm{kg\,m^{-3}} \)</span>.</td>
+						<td>Anchor: radiative equilibrium tests; falsify if energy correction fails to reduce overshoot <span class="math inline">\( <1\% \)</span>.</td>
+					</tr>
+				</tbody>
+			</table>
 
-                    <tr>
-                        <td><strong>Vacuum wave-speed consistency</strong></td>
-                        <td>Elastic/inertial ratio <span class="math inline">\(\to\) \( c \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span></td>
-                        <td>Derived from stiffness–inertia invariance.</td>
-                        <td>Anchor: optical clocks; falsify if <span class="math inline">\( c \)</span> varies with low-<span class="math inline">\( \rho_c \)</span> environment.</td>
-                    </tr>
+			<p><em>Recursive coherence correction</em>: SI ensures higher-order feedback corrections without breaking unit closure. Exemplar anchor is stellar plasma.</p>
 
-                    <tr>
-                        <td><strong>Coherence feedback energy</strong></td>
-                        <td>
-                            <span class="math inline">
-                                \( E_{\text{corr}} = E(1 - \alpha) = \Phi\,\gamma\,\rho\,L_Z^3 (1 - \alpha) \)
-                            </span>
-                        </td>
-                        <td>
-                            <span class="math inline">\( \alpha \)</span> dimensionless;
-                            units preserved
-                            <span class="math inline">\(\Rightarrow [\,\mathrm{J}\,]\)</span>
-                        </td>
-                        <td>
-                            Anchor: compare corrected vs. uncorrected kernel constants;
-                            falsify if feedback fails to converge toward
-                            <span class="math inline">\(\text{CODATA}\)</span> within uncertainty.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+			<!-- ENERGY LAW -->
+			<h3 id="sec-37-dimensional-check_2">Energy law axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Kernel energy scaling</strong></td>
+						<td><span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span></td>
+						<td><span class="math inline">\( \Phi \)</span> dimensionless; <span class="math inline">\( \gamma \)</span> <span class="math inline">\( \mathrm{s^{-1}} \)</span>; <span class="math inline">\( \rho \)</span> <span class="math inline">\( \mathrm{kg\,m^{-3}} \)</span>; <span class="math inline">\( L_Z^3 \)</span> <span class="math inline">\( \mathrm{m^3} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{J} \)</span>.</td>
+						<td>Anchor: calorimetry/resonant data; falsify if deviation vs. controlled <span class="math inline">\( \rho,\gamma,L_Z \)</span>.</td>
+					</tr>
 
-            <!-- ORBITAL -->
-            <h3 id="sec-37-dimensional-check_3">Orbital Mechanics Axioms</h3>
-            <table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
-                <thead>
-                    <tr>
-                        <th>Axiom</th>
-                        <th>Statement / Formula</th>
-                        <th>Units &amp; Bridge</th>
-                        <th>Anchors / Falsifiability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Kernel rhythm mass</strong></td>
-                        <td>Mass inferred from synchrony frequency &amp; holonomy</td>
-                        <td>Frequency ↔ action scaling <span class="math inline">\(\to\) \( [\mathrm{kg}] \)</span></td>
-                        <td>Anchor: ephemerides; falsify if divergence vs. gravitational solutions.</td>
-                    </tr>
+					<tr>
+						<td><strong>Phase–energy link</strong></td>
+						<td><span class="math inline">\( E = \hbar\,\omega \)</span></td>
+						<td><span class="math inline">\( \hbar \)</span> <span class="math inline">\( \mathrm{J\,s} \)</span>; <span class="math inline">\( \omega \)</span> <span class="math inline">\( \mathrm{s^{-1}} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{J} \)</span>.</td>
+						<td>Anchor: spectroscopy; falsify if peaks misalign beyond error.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Orbital stability index</strong></td>
-                        <td>Stability = kernel energy ratio</td>
-                        <td>Dimensionless</td>
-                        <td>Anchor: long-term integrations; falsify if unstable predicted orbits persist.</td>
-                    </tr>
+					<tr>
+						<td><strong>Vacuum wave‑speed consistency</strong></td>
+						<td>Elastic/inertial ratio \(\Rightarrow\) <span class="math inline">\( c \)</span> <span class="math inline">\( \mathrm{m\,s^{-1}} \)</span></td>
+						<td>Derived from stiffness–inertia invariance.</td>
+						<td>Anchor: optical clocks; falsify if <span class="math inline">\( c \)</span> varies with low <span class="math inline">\( \rho_c \)</span> environment.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong><span class="math inline">\( \Delta v \)</span> protocol</strong></td>
-                        <td><span class="math inline">\( \Delta v \)</span> as kernel energy expenditure with geometry factor <span class="math inline">\( \Phi \)</span></td>
-                        <td>
-                            <span class="math inline">\( \Delta v \)</span> <span class="math inline">\( [\mathrm{m}\,\mathrm{s}^{-1}] \)</span> \(\to\) \(E\) via <span class="math inline">\( \tfrac{1}{2} m \Delta v^2 \)</span> or kernel law
-                        </td>
-                        <td>Anchor: mission telemetry; falsify if <span class="math inline">\( \Delta v \)</span> forecasts deviate systematically.</td>
-                    </tr>
-                </tbody>
-            </table>
+					<tr>
+						<td><strong>Coherence feedback energy</strong></td>
+						<td><span class="math inline">\( E_{\text{corr}} = E(1 - \alpha) = \Phi\,\gamma\,\rho\,L_Z^3 (1 - \alpha) \)</span></td>
+						<td><span class="math inline">\( \alpha \)</span> dimensionless; units preserved \(\Rightarrow\) <span class="math inline">\( \mathrm{J} \)</span>.</td>
+						<td>Anchor: compare corrected vs. uncorrected kernel constants; falsify if feedback fails to converge toward CODATA within uncertainty.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <!-- COLLAPSE / RESONANCE -->
-            <h3 id="sec-37-dimensional-check_4">Collapse and Resonance Axioms</h3>
-            <table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
-                <thead>
-                    <tr>
-                        <th>Axiom</th>
-                        <th>Statement / Formula</th>
-                        <th>Units &amp; Bridge</th>
-                        <th>Anchors / Falsifiability</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Stationary-phase collapse</strong></td>
-                        <td><span class="math inline">\( \partial_\omega \arg M[\omega] = 0 \)</span></td>
-                        <td>Dimensionless; identifies stationary frequencies <span class="math inline">\( \omega_n \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span></td>
-                        <td>Anchor: interferometry; falsify if predicted <span class="math inline">\( \omega_n \)</span> absent.</td>
-                    </tr>
+			<h3 id="sec-37-dimensional-check_e1">Energy law cross‑checks</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Check</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Spectroscopic energy</strong></td>
+						<td><span class="math inline">\( E=\hbar\,\omega \)</span></td>
+						<td><span class="math inline">\( \mathrm{J\,s} \times \mathrm{s^{-1}} \Rightarrow \mathrm{J} \)</span>.</td>
+						<td>Anchor: line positions; falsify on mismatch beyond uncertainty.</td>
+					</tr>
+					<tr>
+						<td><strong>Calorimetric scaling</strong></td>
+						<td><span class="math inline">\( E=\Phi\,\gamma\,\rho\,L_Z^3 \)</span></td>
+						<td><span class="math inline">\( \mathrm{s^{-1}} \times \mathrm{kg\,m^{-3}} \times \mathrm{m^3} \Rightarrow \mathrm{J} \)</span>.</td>
+						<td>Anchor: controlled <span class="math inline">\( \rho,\gamma,L_Z \)</span> sweep; falsify if linearity breaks.</td>
+					</tr>
+					<tr>
+						<td><strong>Transport power</strong></td>
+						<td><span class="math inline">\( P=\dfrac{dE}{dt}=\Phi\,\rho\,L_Z^3\,\dfrac{d\gamma}{dt} \)</span></td>
+						<td><span class="math inline">\( \mathrm{J\,s^{-1}} \)</span>.</td>
+						<td>Anchor: time‑resolved heating; falsify if power slope inconsistent.</td>
+					</tr>
+					<tr>
+						<td><strong>Thermal bridge</strong></td>
+						<td><span class="math inline">\( E' = E(1-\alpha),\quad T_c'=\chi_T T_c \)</span></td>
+						<td><span class="math inline">\( \alpha,\chi_T \)</span> dimensionless; preserves <span class="math inline">\( \mathrm{J},\ \mathrm{K} \)</span>.</td>
+						<td>Anchor: feedback convergence; falsify if corrections increase error.</td>
+					</tr>
+				</tbody>
+			</table>
 
-                    <tr>
-                        <td><strong>Plasma resonance</strong></td>
-                        <td><span class="math inline">\( \omega_p = \sqrt{\dfrac{n_e e^2}{\varepsilon_0 m_e}} \)</span></td>
-                        <td>Standard SI closure <span class="math inline">\(\to\) \( [\mathrm{s}^{-1}] \)</span></td>
-                        <td>Anchor: Langmuir spectra; falsify if <span class="math inline">\( \omega_p \)</span> vs <span class="math inline">\( n_e \)</span> scaling breaks.</td>
-                    </tr>
+			<!-- ORBITAL -->
+			<h3 id="sec-37-dimensional-check_3">Orbital mechanics axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Kernel rhythm mass</strong></td>
+						<td>Mass inferred from synchrony frequency and holonomy</td>
+						<td>Frequency–action scaling \(\Rightarrow\) <span class="math inline">\( \mathrm{kg} \)</span>.</td>
+						<td>Anchor: ephemerides; falsify if divergence vs. gravitational solutions.</td>
+					</tr>
 
-                    <tr>
-                        <td><strong>Energy mapping of resonance</strong></td>
-                        <td><span class="math inline">\( E = \hbar\,\omega_p \)</span></td>
-                        <td>
-                            <span class="math inline">\( \hbar \)</span> <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span>,
-                            <span class="math inline">\( \omega_p \)</span> <span class="math inline">\( [\mathrm{s}^{-1}] \)</span> \(\to\) <span class="math inline">\( [\mathrm{J}] \)</span>
-                        </td>
-                        <td>Anchor: microwave spectroscopy; falsify if mismatch beyond propagated error.</td>
-                    </tr>
-                </tbody>
-            </table>
+					<tr>
+						<td><strong>Orbital stability index</strong></td>
+						<td>Stability equals kernel energy ratio</td>
+						<td>Dimensionless.</td>
+						<td>Anchor: long‑term integrations; falsify if unstable predicted orbits persist.</td>
+					</tr>
 
-            <!-- SYMBOLS -->
-            <h3 id="sec-37-dimensional-check_5">Symbol Mapping and Aliases</h3>
-            <ul>
-                <li>
-                    <strong>Dimensionless:</strong>
-                    <span class="math inline">
-                        \( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)
-                    </span>
-                </li>
-                <li>
-                    <strong>Unit-anchored:</strong>
-                    <span class="math inline">
-                        \( L_Z\,[\mathrm{m}],\ L_0\,[\mathrm{m}],\ v_{\mathrm{sync}}\,[\mathrm{m\,s^{-1}}],\ \gamma\,[\mathrm{s^{-1}}],\ L_K\,[\mathrm{m}], \)
-                    </span>
-                    <br />
-                    <span class="math inline">
-                        \( \chi\,[\mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s^{-1}}],\ \rho\,[\mathrm{kg\,m^{-3}}],\ \rho_K\,[\mathrm{J\,s\,m^{-3}}],\ \Theta\,[\mathrm{m^{-1}\,s^{-1}}],\ h,\ \mathcal{E}_*,\ b\,[\mathrm{J\,m^{-2}}], \)
-                    </span>
-                    <br />
-                    <span class="math inline">
-                        \( \chi_T,\ \eta_\rho,\ \alpha\,[1] \) &nbsp; (feedback / correction coefficients)
-                    </span>
-                </li>
-                <li>
-                    <strong>Aliases:</strong>
-                    tuning density <span class="math inline">\( \rho \)</span> ↔ impedance density <span class="math inline">\( \rho_K \)</span>;
-                    coherence length <span class="math inline">\( L_Z \)</span> ↔ kernel length <span class="math inline">\( L_K \)</span>
-                </li>
-            </ul>
+					<tr>
+						<td><strong>Delta‑v protocol</strong></td>
+						<td><span class="math inline">\( \Delta v \)</span> as kernel energy expenditure with geometry factor <span class="math inline">\( \Phi \)</span></td>
+						<td><span class="math inline">\( \Delta v \)</span> <span class="math inline">\( \mathrm{m\,s^{-1}} \)</span> \(\Rightarrow\) <span class="math inline">\( E=\tfrac{1}{2} m \Delta v^2 \)</span> or kernel law.</td>
+						<td>Anchor: mission telemetry; falsify if <span class="math inline">\( \Delta v \)</span> forecasts deviate systematically.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <!-- DIMENSIONAL BRIDGES -->
-            <h3 id="sec-37-dimensional-check_6">Dimensional Bridges</h3>
-            <ul>
-                <li><strong>Coherence scaling:</strong> <span class="math inline">\( L_Z = L_0\,\delta_p^{1/3} \)</span> \(\to\) <span class="math inline">\( [\mathrm{m}] \)</span></li>
-                <li><strong>Action bridge:</strong> <span class="math inline">\( \rho_K\,L_K^3 \to [\mathrm{J}\,\mathrm{s}] \)</span></li>
-                <li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \to [\mathrm{m}] \)</span></li>
-                <li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \to [\mathrm{J}] \)</span></li>
-                <li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \to [\mathrm{J}] \)</span></li>
-                <li>
-                    <strong>Thermal feedback bridge:</strong>
-                    <span class="math inline">\( E' = E(1 - \alpha) \)</span>,
-                    <span class="math inline">\( T_c' = \chi_T T_c \)</span>
-                    → dimensional preservation [J], [K]
-                </li>
-            </ul>
+			<!-- COLLAPSE / RESONANCE -->
+			<h3 id="sec-37-dimensional-check_4">Collapse and resonance axioms</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Stationary‑phase collapse</strong></td>
+						<td><span class="math inline">\( \partial_\omega \arg M[\omega] = 0 \)</span></td>
+						<td>Dimensionless; identifies stationary frequencies <span class="math inline">\( \omega_n \)</span> <span class="math inline">\( \mathrm{s^{-1}} \)</span>.</td>
+						<td>Anchor: interferometry; falsify if predicted <span class="math inline">\( \omega_n \)</span> absent.</td>
+					</tr>
 
-            <h4>Scaling Law for Coherence Length</h4>
-            <p>
-                The coherence length <span class="math inline">\( L_Z \)</span> is defined by the scaling law:
-            </p>
-            <figure class="equation" id="eq-37_1">
-                <div class="math display">\[ L_Z = L_0 \, \delta_p^{1/3}\]</div>
-                <figcaption><a href="#eq-37_1">Equation (37.1)</a></figcaption>
-            </figure>
-            <p>where:</p>
-            <span class="math inline">\( L_0 \)</span>: A reference length scale (e.g., kernel threshold length), with units of length [L].
-            <span class="math inline"><span class="math inline">\( \delta_p \)</span></span>: A dimensionless energy ratio, defined as:
-            <figure class="equation" id="eq-37_2">
-                <div class="math display">\[ \delta_p = \frac{E_{\text{grav}}}{E_{\text{Coul}}}\]</div>
-                <figcaption><a href="#eq-37_2">Equation (37.2)</a></figcaption>
-            </figure>
+					<tr>
+						<td><strong>Plasma resonance</strong></td>
+						<td><span class="math inline">\( \omega_p = \sqrt{ \dfrac{n_e e^2}{\varepsilon_0 m_e} } \)</span></td>
+						<td>Standard SI closure \(\Rightarrow\) <span class="math inline">\( \mathrm{s^{-1}} \)</span>.</td>
+						<td>Anchor: Langmuir spectra; falsify if <span class="math inline">\( \omega_p \)</span> vs <span class="math inline">\( n_e \)</span> scaling breaks.</td>
+					</tr>
 
-            <p>
-                where both <span class="math inline">\( E_{\text{grav}} \)</span> and <span class="math inline">\( E_{\text{Coul}} \)</span> are energies with units [ML<span class="math inline">\(^2\)</span>/T<span class="math inline">\(^2\)</span>],
-                and thus cancel out, making <span class="math inline">\( \delta_p \)</span> dimensionless.
-            </p>
-            <p>
-                Therefore, the scaling law preserves dimensional consistency:
-            </p>
-            <figure class="equation" id="eq-37_3">
-                <div class="math display">\[ [L_Z] = [L_0] \cdot [\delta_p]^{1/3}= [L] \cdot [1] = [L] \]</div>
-                <figcaption><a href="#eq-37_3">Equation (37.3)</a></figcaption>
-            </figure>
+					<tr>
+						<td><strong>Energy mapping of resonance</strong></td>
+						<td><span class="math inline">\( E = \hbar\,\omega_p \)</span></td>
+						<td><span class="math inline">\( \mathrm{J\,s} \times \mathrm{s^{-1}} \Rightarrow \mathrm{J} \)</span>.</td>
+						<td>Anchor: microwave spectroscopy; falsify if mismatch beyond propagated error.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <!-- MEASUREMENT -->
-            <h3 id="sec-37-dimensional-check_7">Measurement Protocols</h3>
-            <ul>
-                <li><strong>Energy law:</strong> control <span class="math inline">\( (\rho,\gamma,L_Z) \)</span>; measure <span class="math inline">\( E \)</span> via calorimetry/spectroscopy; fit <span class="math inline">\( \Phi \)</span> geometry.</li>
-                <li><strong>Orbital mechanics:</strong> infer mass from synchrony; compare to ephemerides and <span class="math inline">\( \Delta v \)</span> logs.</li>
-                <li><strong>Collapse/resonance:</strong> extract <span class="math inline">\( \omega_n \)</span> from stationary-phase; verify <span class="math inline">\( \omega_p(n_e) \)</span> scaling.</li>
-                <li><strong>Tuning vs. impedance:</strong> densitometry for <span class="math inline">\( \rho \)</span>; impedance spectroscopy for <span class="math inline">\( \rho_K \)</span>.</li>
-                <li><strong>Coherence metrics:</strong> measure <span class="math inline">\( L_Z \)</span> via decay; <span class="math inline">\( \gamma \)</span> via FWHM; compute <span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span>.</li>
-            </ul>
+			<!-- MAGNETISM -->
+			<h3 id="sec-37-dimensional-check_m1">Magnetism axioms: effective permeability and Maxwell closure</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Effective permeability</strong></td>
+						<td><span class="math inline">\( \mu_{\mathrm{eff}}(x,x';k,\omega) \equiv (\rho_\Phi/\rho_S)\,G(x,x';k,\omega) \)</span></td>
+						<td><span class="math inline">\( \mathrm{T\,m/A} \)</span> (reduces to <span class="math inline">\( \mu_0 \)</span> for <span class="math inline">\( G\to 1 \)</span>).</td>
+						<td>Anchor: B–H loop and dispersion curves; falsify if <span class="math inline">\( \mu_{\mathrm{eff}} \)</span> fails to reproduce frequency response.</td>
+					</tr>
+					<tr>
+						<td><strong>Maxwell compatibility</strong></td>
+						<td><span class="math inline">\( \nabla\cdot\mathbf{B}=0 \)</span> for isotropic <span class="math inline">\( G \)</span>; <span class="math inline">\( \nabla\times\mathbf{B}\approx \mu_{\mathrm{eff}}\,\mathbf{S} + O(\nabla G) \)</span>.</td>
+						<td>Solenoidality is structural via cross product; curl closure holds for slowly varying <span class="math inline">\( G \)</span>.</td>
+						<td>Anchor: magnetostatic field mapping; falsify if <span class="math inline">\( \nabla\cdot\mathbf{B}\neq 0 \)</span> away from sources, or curl law fails in homogeneous segments.</td>
+					</tr>
+					<tr>
+						<td><strong>Regularization</strong></td>
+						<td>Principal value or finite source radius removes <span class="math inline">\( |x-x'|^{-3} \)</span> singularity.</td>
+						<td>Unit‑neutral; preserves Biot–Savart geometry.</td>
+						<td>Anchor: near‑field scans; falsify if regularization changes far‑field scaling.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <!-- FALSIFIABILITY -->
-            <h3 id="sec-37-dimensional-check_8">Falsifiability Criteria</h3>
-            <ul>
-                <li><strong>Dimensional closure:</strong> reject any expression failing SI parity.</li>
-                <li><strong>Energy scaling:</strong> deviations beyond propagated uncertainty falsify kernel energy law.</li>
-                <li><strong>Orbital mass/stability:</strong> inconsistent masses or <span class="math inline">\( \Delta v \)</span> data falsify orbital axioms.</li>
-                <li><strong>Resonance mapping:</strong> absent or mis-scaled <span class="math inline">\( \omega_n, \omega_p \)</span> falsify resonance laws.</li>
-                <li><strong>Alias coherence:</strong> failure of <span class="math inline">\( \rho_K\,L_K^3 \)</span> to yield <span class="math inline">\( [\mathrm{J}\,\mathrm{s}] \)</span> invalidates impedance alias.</li>
-            </ul>
+			<h4>Verification table: magnetism regimes</h4>
+			<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Regime</th>
+						<th>Kernel limit</th>
+						<th><span class="math inline">\( \mu_{\mathrm{eff}} \)</span></th>
+						<th>Recovered law</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Vacuum, static</td>
+						<td><span class="math inline">\( G \to 1 \)</span></td>
+						<td><span class="math inline">\( \mu_0 \)</span></td>
+						<td>Biot–Savart: <span class="math inline">\( \mathbf{B}=\mu_0\int \mathbf{J}\times \dfrac{r}{4\pi|r|^3} \mathrm{d}^3x' \)</span>.</td>
+					</tr>
+					<tr>
+						<td>Linear medium</td>
+						<td><span class="math inline">\( G \approx G_0 \)</span> (constant)</td>
+						<td><span class="math inline">\( \mu_{\mathrm{eff}}=\mu_0 G_0 \)</span></td>
+						<td>Local Ampère with <span class="math inline">\( \mu_{\mathrm{eff}} \)</span>.</td>
+					</tr>
+					<tr>
+						<td>Dispersive or anisotropic</td>
+						<td><span class="math inline">\( G(k,\omega) \)</span></td>
+						<td><span class="math inline">\( \mu_{\mathrm{eff}}(k,\omega) \)</span></td>
+						<td>Nonlocal magnetism; curl law with convolution.</td>
+					</tr>
+					<tr>
+						<td>Relativistic beam</td>
+						<td>Frame‑dependent <span class="math inline">\( G \)</span>; <span class="math inline">\( u\to v_{\text{sync}} \)</span></td>
+						<td><span class="math inline">\( \mu_{\mathrm{eff}}(\gamma) \)</span></td>
+						<td>Rigidity <span class="math inline">\( B\rho \)</span> recovered from kernel integral.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <!-- CONCLUSION -->
-            <h3 id="sec-37-dimensional-check_9">Conclusion</h3>
-            <p>
-                The Chronotopic Kernel ontology achieves full dimensional closure and observational anchoring.
-                Energy, orbital, magnetic, and collapse behaviors all emerge from synchronized coherence structures,
-                not assumed forces. Every axiom defines a measurable prediction and explicit falsification route.
-                Thus, the framework remains physically rigorous, empirically testable, and extensible across quantum,
-                orbital, plasma, and relativistic domains.
-            </p>
-        </article>
-    </section>
+			<!-- SYMBOLS -->
+			<h3 id="sec-37-dimensional-check_5">Symbol mapping and aliases</h3>
+			<ul>
+				<li>
+					<strong>Dimensionless:</strong>
+					<span class="math inline">\( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)</span>
+				</li>
+				<li>
+					<strong>Unit‑anchored:</strong>
+					<span class="math inline">\( L_Z\ \mathrm{m},\ L_0\ \mathrm{m},\ v_{\mathrm{sync}}\ \mathrm{m\,s^{-1}},\ \gamma\ \mathrm{s^{-1}},\ L_K\ \mathrm{m}, \)</span>
+					<br />
+					<span class="math inline">\( \chi\ \mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s^{-1}},\ \rho\ \mathrm{kg\,m^{-3}},\ \rho_K\ \mathrm{J\,s\,m^{-3}},\ \Theta\ \mathrm{m^{-1}\,s^{-1}},\ h,\ \mathcal{E}_*,\ b\ \mathrm{J\,m^{-2}}, \)</span>
+					<br />
+					<span class="math inline">\( \chi_T,\ \eta_\rho,\ \alpha \) (feedback / correction coefficients)</span>
+				</li>
+				<li>
+					<strong>Aliases:</strong>
+					tuning density <span class="math inline">\( \rho \)</span> \(\Leftrightarrow\) impedance density <span class="math inline">\( \rho_K \)</span>;
+					coherence length <span class="math inline">\( L_Z \)</span> \(\Leftrightarrow\) kernel length <span class="math inline">\( L_K \)</span>.
+				</li>
+			</ul>
+
+			<!-- DIMENSIONAL BRIDGES -->
+			<h3 id="sec-37-dimensional-check_6">Dimensional bridges</h3>
+			<p>
+				Each bridge expresses a kernel construct in SI‑anchored form, ensuring that dimensionless ratios
+				map consistently into measurable observables without introducing free constants.
+			</p>
+			<ul>
+				<li><strong>Coherence scaling:</strong> <span class="math inline">\( L_Z = L_0\,\delta_p^{1/3} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{m} \)</span></li>
+				<li><strong>Action bridge:</strong> <span class="math inline">\( \rho_K\,L_K^3 \Rightarrow \mathrm{J\,s} \)</span></li>
+				<li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \Rightarrow \mathrm{m} \)</span></li>
+				<li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \Rightarrow \mathrm{J} \)</span></li>
+				<li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \Rightarrow \mathrm{J} \)</span></li>
+				<li>
+					<strong>Thermal feedback bridge:</strong>
+					<span class="math inline">\( E' = E(1 - \alpha),\ T_c' = \chi_T T_c \)</span> \(\Rightarrow\) dimensional preservation <span class="math inline">\( \mathrm{J},\ \mathrm{K} \)</span>
+				</li>
+			</ul>
+
+			<h4>Scaling law for coherence length</h4>
+			<p>The coherence length <span class="math inline">\( L_Z \)</span> is defined by the scaling law:</p>
+			<figure class="equation" id="eq-37_1">
+				<div class="math display">\( L_Z = L_0 \, \delta_p^{1/3} \)</div>
+				<figcaption><a href="#eq-37_1">Equation (37.1)</a></figcaption>
+			</figure>
+			<p>where:</p>
+			<span class="math inline">\( L_0 \)</span>: a reference length scale (e.g., kernel threshold length), with units of length <span class="math inline">\( \mathrm{m} \)</span>.<br />
+			<span class="math inline">\( \delta_p \)</span>: a dimensionless energy ratio, defined as:
+			<figure class="equation" id="eq-37_2">
+				<div class="math display">\( \delta_p = \dfrac{E_{\text{grav}}}{E_{\text{Coul}}} \)</div>
+				<figcaption><a href="#eq-37_2">Equation (37.2)</a></figcaption>
+			</figure>
+
+			<p>
+				Both <span class="math inline">\( E_{\text{grav}} \)</span> and <span class="math inline">\( E_{\text{Coul}} \)</span> carry <span class="math inline">\( \mathrm{kg\,m^2\,s^{-2}} \)</span>,
+				and cancel out, making <span class="math inline">\( \delta_p \)</span> dimensionless. Because <span class="math inline">\( \delta_p \)</span> is dimensionless,
+				fractional exponents such as <span class="math inline">\( \delta_p^{1/3} \)</span> are structurally valid and cannot introduce hidden units.
+			</p>
+			<p>Therefore, the scaling law preserves dimensional consistency:</p>
+			<figure class="equation" id="eq-37_3">
+				<div class="math display">\( [L_Z] = [L_0] \cdot [\delta_p]^{1/3}= \mathrm{m} \cdot 1 = \mathrm{m} \)</div>
+				<figcaption><a href="#eq-37_3">Equation (37.3)</a></figcaption>
+			</figure>
+
+			<h4>Additional scaling bridges</h4>
+			<p>
+				Beyond the core bridges, the following mappings ensure closure across magnetism, orbital mechanics, and relativistic regimes:
+			</p>
+			<ul>
+				<li><strong>Magnetism bridge:</strong> <span class="math inline">\( [\mathbf{B}] = (\rho_\Phi/\rho_S)[u]/[r^2] \Rightarrow \mathrm{T} \)</span></li>
+				<li><strong>Orbital bridge:</strong> <span class="math inline">\( E = \tfrac{1}{2} m \Delta v^2 \Rightarrow \mathrm{J} \)</span></li>
+				<li><strong>Relativistic bridge:</strong> <span class="math inline">\( E = \gamma m c^2 \Rightarrow \mathrm{J} \)</span></li>
+			</ul>
+
+			<h4>Extended alias mapping</h4>
+			<p>
+				To unify constants and observables across domains, the following aliases complement those already listed:
+			</p>
+			<ul>
+				<li><span class="math inline">\( \rho_\Phi/\rho_S \Leftrightarrow \mu_0 \)</span> (vacuum permeability)</li>
+				<li>Synchrony frequency ↔ inertial mass (orbital closure)</li>
+				<li><span class="math inline">\( \mathcal{S}_* \Leftrightarrow h \)</span> (action quantum ↔ Planck constant)</li>
+			</ul>
+
+			<!-- NORMALIZATION BRIDGES -->
+			<h3 id="sec-37-dimensional-check_r1">Relativistic normalization bridges</h3>
+			<p>
+				Define reference scales <span class="math inline">\( B_0, u_0, r_0, E_0 \)</span> and normalized variables
+				<span class="math inline">\( \tilde{\mathbf{B}}=\mathbf{B}/B_0 \)</span>, <span class="math inline">\( \tilde{\mathbf{u}}=\mathbf{u}/u_0 \)</span>,
+				<span class="math inline">\( \tilde{r}=r/r_0 \)</span>, <span class="math inline">\( \tilde{E}=E/E_0 \)</span>.
+				Let <span class="math inline">\( B_0=(\rho_\Phi/\rho_S)\,(u_0/r_0^2)\,G_0 \)</span> and <span class="math inline">\( E_0=\Phi\,\gamma_0\,\rho\,L_{Z,0}^3 \)</span>.
+			</p>
+
+			<div class="math display">
+				\( \tilde{\mathbf{B}}(x) = \dfrac{1}{4\pi} \int \tilde{G}(x,x')
+				\left[ \tilde{\mathbf{u}}(x') \times \dfrac{x-x'}{|\tilde{r}|^3} \right] \mathrm{d}^3\tilde{x}',
+				\quad
+				\tilde{E} = \dfrac{\gamma}{\gamma_0}\left(\dfrac{L_Z}{L_{Z,0}}\right)^3. \)
+			</div>
+
+			<p>
+				Lorentz contraction and time dilation enter through frame‑dependent <span class="math inline">\( \gamma \)</span> and <span class="math inline">\( L_Z \)</span>,
+				while the normalized forms remain dimensionless and directly comparable across frames.
+			</p>
+
+			<!-- MEASUREMENT -->
+			<h3 id="sec-37-dimensional-check_7">Measurement protocols</h3>
+			<ul>
+				<li><strong>Energy law:</strong> control <span class="math inline">\( \rho,\gamma,L_Z \)</span>; measure <span class="math inline">\( E \)</span> via calorimetry/spectroscopy; fit <span class="math inline">\( \Phi \)</span> geometry.</li>
+				<li><strong>Orbital mechanics:</strong> infer mass from synchrony; compare to ephemerides and <span class="math inline">\( \Delta v \)</span> logs.</li>
+				<li><strong>Collapse/resonance:</strong> extract <span class="math inline">\( \omega_n \)</span> from stationary‑phase; verify <span class="math inline">\( \omega_p(n_e) \)</span> scaling.</li>
+				<li><strong>Tuning vs. impedance:</strong> densitometry for <span class="math inline">\( \rho \)</span>; impedance spectroscopy for <span class="math inline">\( \rho_K \)</span>.</li>
+				<li><strong>Coherence metrics:</strong> measure <span class="math inline">\( L_Z \)</span> via decay; <span class="math inline">\( \gamma \)</span> via FWHM; compute <span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span>.</li>
+				<li><strong>Magnetism:</strong> map <span class="math inline">\( \mathbf{B}(x) \)</span> vs. source <span class="math inline">\( \mathbf{S}(x) \)</span>; fit <span class="math inline">\( \mu_{\mathrm{eff}} \)</span> from <span class="math inline">\( G(k,\omega) \)</span> and verify Maxwell closure.</li>
+			</ul>
+			<p>
+				Each protocol relies only on directly measurable observables and kernel ratios; no hidden calibration constants are introduced.
+			</p>
+
+			<!-- BENCHMARK MATRIX -->
+			<h3 id="sec-37-dimensional-check_b1">Cross‑domain benchmark matrix</h3>
+			<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Domain</th>
+						<th>Measured inputs</th>
+						<th>Kernel prediction</th>
+						<th>Acceptance band</th>
+						<th>Fail condition</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Magnetism (coil)</td>
+						<td><span class="math inline">\( I,a,r \)</span>; <span class="math inline">\( G\to 1 \)</span></td>
+						<td><span class="math inline">\( B=\mu_0 I/(2\pi r) \)</span> via integral</td>
+						<td><span class="math inline">\( \leq 1\% \)</span> vs. analytic</td>
+						<td>Systematic bias beyond sampling error</td>
+					</tr>
+					<tr>
+						<td>Energy (calorimetry)</td>
+						<td><span class="math inline">\( \rho,\gamma,L_Z \)</span></td>
+						<td><span class="math inline">\( E=\Phi\,\gamma\,\rho\,L_Z^3 \)</span></td>
+						<td>Linear fit <span class="math inline">\( R^2 \ge 0.99 \)</span></td>
+						<td>Nonlinear residuals vs. controlled sweep</td>
+					</tr>
+					<tr>
+						<td>Orbital (delta‑v)</td>
+						<td>Telemetry <span class="math inline">\( \Delta v \)</span>, trajectory</td>
+						<td>Energy expenditure matches kernel law</td>
+						<td><span class="math inline">\( \leq 2\% \)</span> mission budget</td>
+						<td>Persistent deviation across maneuvers</td>
+					</tr>
+					<tr>
+						<td>Resonance (plasma)</td>
+						<td><span class="math inline">\( n_e \)</span> sweep</td>
+						<td><span class="math inline">\( \omega_p=\sqrt{n_e e^2/(\varepsilon_0 m_e)} \)</span></td>
+						<td>Fit slope within error</td>
+						<td>Incorrect scaling with <span class="math inline">\( n_e \)</span></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- UNIT PARITY AUDIT -->
+			<h3 id="sec-37-dimensional-check_u1">Unit parity audit</h3>
+			<table border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Law</th>
+						<th>Left‑hand side</th>
+						<th>Right‑hand side</th>
+						<th>Parity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Magnetism kernel</td>
+						<td><span class="math inline">\( [\mathbf{B}] = \mathrm{T} \)</span></td>
+						<td><span class="math inline">\( (\rho_\Phi/\rho_S)[u]/[r^2] \Rightarrow \mathrm{T} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Energy kernel</td>
+						<td><span class="math inline">\( [E] = \mathrm{J} \)</span></td>
+						<td><span class="math inline">\( [\Phi][\gamma][\rho][L_Z^3] \Rightarrow \mathrm{J} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Spectroscopic energy</td>
+						<td><span class="math inline">\( [E] = \mathrm{J} \)</span></td>
+						<td><span class="math inline">\( [\hbar][\omega] \Rightarrow \mathrm{J} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Distance bridge</td>
+						<td><span class="math inline">\( [D] = \mathrm{m} \)</span></td>
+						<td><span class="math inline">\( [v_{\mathrm{sync}}]/[\gamma] \Rightarrow \mathrm{m} \)</span></td>
+						<td>Closed</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- UNCERTAINTY / DECOHERENCE BRIDGE -->
+			<h3 id="sec-37-dimensional-check_q1">Uncertainty and decoherence bridge</h3>
+			<table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
+				<thead>
+					<tr>
+						<th>Axiom</th>
+						<th>Statement / Formula</th>
+						<th>Units and bridge</th>
+						<th>Anchors / Falsifiability</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Variance–energy link</strong></td>
+						<td><span class="math inline">\( \mathrm{Var}(E)=\hbar^2\,\mathrm{Var}(\omega) \)</span></td>
+						<td><span class="math inline">\( \mathrm{J^2\,s^2} \times \mathrm{s^{-2}} \Rightarrow \mathrm{J^2} \)</span>.</td>
+						<td>Anchor: linewidth vs. energy spread; falsify if scaling breaks.</td>
+					</tr>
+					<tr>
+						<td><strong>Decoherence scaling</strong></td>
+						<td><span class="math inline">\( \gamma_\phi \sim v_{\mathrm{sync}}/L_Z \)</span></td>
+						<td><span class="math inline">\( \mathrm{s^{-1}} \)</span> from <span class="math inline">\( \mathrm{m\,s^{-1}}/\mathrm{m} \)</span>.</td>
+						<td>Anchor: coherence decay; falsify if inverse <span class="math inline">\( L_Z \)</span> trend absent.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!-- FALSIFIABILITY -->
+			<h3 id="sec-37-dimensional-check_8">Falsifiability criteria</h3>
+			<ul>
+				<li><strong>Dimensional closure:</strong> reject any expression failing SI parity.</li>
+				<li><strong>Energy scaling:</strong> deviations beyond propagated uncertainty falsify kernel energy law.</li>
+				<li><strong>Orbital mass/stability:</strong> inconsistent masses or <span class="math inline">\( \Delta v \)</span> data falsify orbital axioms.</li>
+				<li><strong>Resonance mapping:</strong> absent or mis‑scaled <span class="math inline">\( \omega_n, \omega_p \)</span> falsify resonance laws.</li>
+				<li><strong>Magnetism closure:</strong> non‑solenoidal <span class="math inline">\( \nabla\cdot\mathbf{B} \)</span> away from sources, or failure of curl law in homogeneous segments, falsifies the kernel magnetism law.</li>
+				<li><strong>Alias coherence:</strong> failure of <span class="math inline">\( \rho_K\,L_K^3 \)</span> to yield <span class="math inline">\( \mathrm{J\,s} \)</span> invalidates impedance alias.</li>
+			</ul>
+			<p>
+				These criteria differ by domain but share a uniform principle: any violation of dimensional closure or scaling parity
+				directly falsifies the kernel law.
+			</p>
+
+			<!-- CONCLUSION -->
+			<h3 id="sec-37-dimensional-check_9">Conclusion</h3>
+			<p>
+				The Chronotopic Kernel ontology achieves full dimensional closure and observational anchoring.
+				Energy, orbital, magnetic, and collapse behaviors all emerge from synchronized coherence structures,
+				not assumed forces. Every axiom defines a measurable prediction and explicit falsification route.
+				Thus, the framework remains physically rigorous, empirically testable, and extensible across quantum,
+				orbital, plasma, relativistic, and magnetic domains, with all constants emerging as kernel observables
+				rather than primitives.
+			</p>
+		</article>
+	</section>
     <section>
         <h2 title="Click to toggle" id="sec-38-remarks">Remarks</h2>
         <article style="display:none">
