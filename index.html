@@ -1141,45 +1141,153 @@
 
         </article>
     </section>
-    <section>
-        <h2 title="Click to toggle" id="sec-40-modulation-compatibility-index">Modulation Compatibility Index</h2>
-        <article style="display:none">
-            <p>We define the modulation compatibility index <span class="math inline">\(\mu\)</span> as:</p>
 
-            <div class="math display">
+<section>
+  <h2 title="Click to toggle" id="sec-40-modulation-compatibility-index">Modulation Compatibility Index</h2>
+  <article style="display:none">
 
+    <p>
+      The <strong>modulation compatibility index</strong> <span class="math inline">\(\mu\)</span> quantifies whether a kernel projection remains phase-locked
+      within a local collapse or synchrony field. It expresses the ratio of <em>phase momentum flux</em> to <em>curvature-modulated action</em>,
+      thereby acting as a dimensionless coherence invariant.
+    </p>
 
-                \[
-                \mu = \frac{|\vec{K}| \cdot \Omega}{\Theta \cdot h}
-                \]
+    <p>
+      Starting from the recursive path-sum kernel:
+    </p>
 
+    <div class="math display">
+    \[
+      K_{\rm path}(x,x') = 
+      \sum_{\gamma:x\to x'} 
+      \mathcal{A}[\gamma] 
+      \exp\!\left(\frac{i}{\mathcal{S}_\ast} S[\gamma]\right),
+    \]
+    </div>
 
-            </div>
+    <p>
+      where <span class="math inline">\(\mathcal{S}_\ast = E/\nu\)</span> is the synchrony action quantum,
+      the <em>kernel momentum vector</em> is the normalized phase gradient:
+      <span class="math inline">\(\vec{K} = \nabla S / \mathcal{S}_\ast\)</span>.
+      The modulation compatibility index follows as:
+    </p>
 
-            <p>where:</p>
-            <ul>
-                <li><span class="math inline">\(\vec{K}\)</span> is the kernel momentum vector</li>
-                <li><span class="math inline">\(\Omega\)</span> is the local collapse pacing frequency</li>
-                <li><span class="math inline">\(\Theta\)</span> is the topological curvature factor</li>
-                <li><span class="math inline">\(h\)</span> is Planck's constant (serving as the fundamental collapse unit)</li>
-            </ul>
+    <div class="math display">
+    \[
+      \mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast},
+    \]
+    </div>
 
-            <p>Coherence lock occurs when:</p>
+    <p>
+      where:
+    </p>
+    <ul>
+      <li><span class="math inline">\(\vec{K}\)</span> — kernel momentum vector (<span class="math inline">\(\mathrm{kg\,m\,s^{-1}}\)</span>)</li>
+      <li><span class="math inline">\(\Omega\)</span> — collapse pacing or modulation frequency (<span class="math inline">\(\mathrm{s^{-1}}\)</span>)</li>
+      <li><span class="math inline">\(\Theta\)</span> — curvature factor (dimensionless; linked to group-phase velocity ratio \(v_g/v_p\))</li>
+      <li><span class="math inline">\(\mathcal{S}_\ast\)</span> — kernel action quantum (<span class="math inline">\(\mathrm{J\,s}\)</span>)</li>
+    </ul>
 
-            <div class="math display">
-                \[
-                \mu \leq \tau
-                \]
-            </div>
+    <p>
+      Dimensional check:
+      <span class="math inline">\([\mu] = (\mathrm{kg\,m\,s^{-1}} \cdot \mathrm{s^{-1}}) / (\mathrm{J\,s}) = 1\)</span>.
+      Thus, <span class="math inline">\(\mu\)</span> is dimensionless.
+      Coherence lock requires:
+    </p>
 
-            <p>where <span class="math inline">\(\tau\)</span> is the coherence threshold specific to the local dimensional topology.</p>
+    <div class="math display">
+    \[
+      |\mu - \tau| \le \delta\tau,
+    \]
+    </div>
 
-            <p>
-                This formula predicts whether a kernel projection will render stably within a given modulation field, offering a universal rhythm-based validator across physical, biological, and logical domains.
-            </p>
+    <p>
+      where <span class="math inline">\(\tau\)</span> is the coherence threshold of the medium or geometry,
+      and <span class="math inline">\(\delta\tau\)</span> is the admissible lock bandwidth.
+      This ensures stable kernel embedding without phase drift or decoherence.
+    </p>
 
-        </article>
-    </section>
+    <h4>Derived Quantities</h4>
+
+    <p>
+      The <strong>modulation impedance</strong> is defined as:
+    </p>
+
+    <div class="math display">
+    \[
+      Z_\mu = \frac{\Theta}{\mu},
+    \]
+    </div>
+
+    <p>
+      which measures the inverse compatibility stiffness of the medium.
+      Lower <span class="math inline">\(Z_\mu\)</span> implies higher phase-lock efficiency and tighter synchrony coupling.
+    </p>
+
+    <p>
+      Uncertainty propagation follows:
+    </p>
+
+    <div class="math display">
+    \[
+      \frac{\delta\mu}{\mu}
+      = \sqrt{
+          \left(\frac{\delta|\vec{K}|}{|\vec{K}|}\right)^2 +
+          \left(\frac{\delta\Omega}{\Omega}\right)^2 +
+          \left(\frac{\delta\Theta}{\Theta}\right)^2 +
+          \left(\frac{\delta\mathcal{S}_\ast}{\mathcal{S}_\ast}\right)^2
+        }.
+    \]
+    </div>
+
+    <h4>Physical Role and Cross-Domain Usage</h4>
+
+    <p>
+      The index <span class="math inline">\(\mu\)</span> serves as a universal validator of kernel–modulation coherence.
+      It spans physical, biological, and logical systems wherever recursive propagation interacts with pacing or synchrony fields.
+      In orbital mechanics, it anchors the <a href="#sec-50-orbital-mechanics_13">orbital stability index</a> <span class="math inline">\(\mu^\ast\)</span>, showing that orbital resonance and eccentricity corrections are modulation-driven phenomena.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Measured Inputs</th>
+          <th>Kernel Relation</th>
+          <th>Lock Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Orbital mechanics</td>
+          <td><span class="math inline">\(v,\,a,\,n,\,\Phi\)</span></td>
+          <td><span class="math inline">\(\mu^\ast = \mu(1+\lambda R)\)</span></td>
+          <td><span class="math inline">\(|\mu^\ast - \tau_{\rm orb}| \le \delta\tau_{\rm orb}\)</span></td>
+        </tr>
+        <tr>
+          <td>Biological rhythms</td>
+          <td><span class="math inline">\(\Omega,\,\Theta,\,|\vec{K}|\)</span></td>
+          <td><span class="math inline">\(\mu\)</span> predicts entrainment and synchrony</td>
+          <td><span class="math inline">\(|\mu - \tau_{\rm bio}| \le \delta\tau_{\rm bio}\)</span></td>
+        </tr>
+        <tr>
+          <td>Computational systems</td>
+          <td>Clock rate, recursion depth, curvature metric</td>
+          <td><span class="math inline">\(\mu\)</span> predicts signal stability</td>
+          <td><span class="math inline">\(|\mu - \tau_{\rm logic}| \le \delta\tau_{\rm logic}\)</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The modulation compatibility index thus provides a <strong>cross-domain coherence measure</strong> linking synchrony,
+      curvature, and energy quantization. Its invariance under dimensional transformation makes it a bridge between
+      quantum, thermal, and orbital regimes.
+    </p>
+
+  </article>
+</section>
+
     <section>
         <h2 title="Click to toggle" id="sec-41-replacing-trigonometry">Replacing Trigonometry with Kernel Collapse Geometry</h2>
         <article style="display:none">
@@ -8245,6 +8353,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 (<span class="math inline">\(0 \leq \lambda \leq 1\)</span>).
             </p>
 
+			<p>
+				Geometrically, <span class="math inline">\(\mu^\ast\)</span> can be interpreted as a projection of the kernel momentum vector
+				<span class="math inline">\(\vec{K}\)</span> into the orbital modulation field. This reflects how the phase momentum of the orbiting body
+				aligns with the curvature and pacing structure of the host collapse field. The index thus encodes not only dynamical compatibility,
+				but also geometric coherence between kernel propagation and orbital topology.
+			</p>
+
             <p>
                 The orbital stability index is directly interpretable as a kernel energy ratio.
                 When expressed in the form
@@ -8353,8 +8468,15 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p>
                 where <span class="math inline">\(n_{\mathrm{pert}}\)</span> is the perturber’s mean motion and <span class="math inline">\(p\!:\!q\)</span> denotes the nearest resonance.
-                The coupling constant <span class="math inline">\(\lambda\)</span> is set via measured transfer–function magnitude <span class="math inline">\(\langle |H_{pq}|\rangle\)</span> or band–averaged cross–spectral coherence <span class="math inline">\(\bar{C}\)</span>, both bounded in <span class="math inline">\([0,1]\)</span>.
             </p>
+
+			<p>
+				Beyond its algebraic form, the resonance proximity factor <span class="math inline">\(R\)</span> can also be interpreted
+				as a local gradient in synchrony phase space. It quantifies how sharply the orbital rhythm diverges from a resonant baseline,
+				effectively acting as a curvature measure in the modulation landscape. This links <span class="math inline">\(R\)</span> to the same
+				topological framework that governs coherence thresholds and modulation lock.
+				The coupling constant <span class="math inline">\(\lambda\)</span> is set via measured transfer–function magnitude <span class="math inline">\(\langle |H_{pq}|\rangle\)</span> or band–averaged cross–spectral coherence <span class="math inline">\(\bar{C}\)</span>, both bounded in <span class="math inline">\([0,1]\)</span>.
+			</p>
 
             <h4>Interpretation</h4>
 
