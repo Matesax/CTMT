@@ -1291,7 +1291,7 @@
                 <li>
                     Apply kernel formulas, e.g.
                     <span class="math inline">\(D = v_{\text{sync}} / \gamma\)</span>,
-                    <span class="math inline">\(E = S^\ast \cdot \Theta\)</span>
+                    <span class="math inline">\(E = \mathcal{S}_\ast \cdot \Theta\)</span>
                 </li>
                 <li>
                     Adjust for local tuning density
@@ -1844,7 +1844,7 @@
                 </li>
                 <li>
                     <strong>Topological Kernel:</strong> Holonomy along closed loops,
-                    <span class="math inline">\(\phi = \frac{1}{S^\ast} \oint T\)</span>
+                    <span class="math inline">\(\phi = \frac{1}{\mathcal{S}_\ast} \oint T\)</span>
                 </li>
                 <li><strong>Collapse Kernel:</strong> Mass-phase drift and destructive return</li>
             </ul>
@@ -2778,7 +2778,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 
                 <li>
                     <span class="math inline">\(\Theta\)</span>: Fit kernel occupancy
-                    <span class="math inline">\(n(\omega) \approx (e^{S^\ast\omega/\Theta} - 1)^{-1}\)</span>.
+                    <span class="math inline">\(n(\omega) \approx (e^{\mathcal{S}_\ast\omega/\Theta} - 1)^{-1}\)</span>.
                 </li>
 
                 <li>
@@ -2805,7 +2805,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
                     <div class="math display">
                         \[
                         \alpha = \frac{\gamma}{v_{\text{sync}} \Theta}\cdot
-                        \frac{1}{\mathcal{G}(E_{\text{mode}} / S^\ast \Theta)}
+                        \frac{1}{\mathcal{G}(E_{\text{mode}} / \mathcal{S}_\ast \Theta)}
                         \]
                     </div>
                     where <span class="math inline">\(\mathcal{G}\)</span> is derived from KMS statistics or calibration sweeps.
@@ -2916,7 +2916,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 
             <p>
                 The Recursive Modulation Impulse is feasible as an operational generative principle provided each collapse is tied to explicit measurement constraints and inversion/regularization protocols. The approach yields a small set of primitives
-                <span class="math inline">\( S^\ast, \Theta, \gamma, M_1, \ldots \)</span> that are experimentally measurable; constants derived therefrom are results of measurement‑and‑inversion, not circular.
+                <span class="math inline">\( \mathcal{S}_\ast, \Theta, \gamma, M_1, \ldots \)</span> that are experimentally measurable; constants derived therefrom are results of measurement‑and‑inversion, not circular.
             </p>
 
             <ul>
@@ -4013,7 +4013,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
         </h2>
         <article style="display:none">
             <p>
-                Let <span class="math inline">\(S^\ast = \hbar\)</span> be the quantum of action and
+                Let <span class="math inline">\(\mathcal{S}_\ast = \hbar\)</span> be the quantum of action and
                 <span class="math inline">\(\rho\)</span> the impedance density derived from thermal collapse,
                 with SI units <span class="math inline">\(\mathrm{kg\,m^{-1}\,s^{-1}}\)</span>.
                 These define the base kernel coherence length:
@@ -4024,7 +4024,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    L_0 = \left( \frac{S^\ast}{\rho}\right)^{1/3}.
+                    L_0 = \left( \frac{\mathcal{S}_\ast}{\rho}\right)^{1/3}.
                     \]
 
 
@@ -4034,7 +4034,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p>
                 Numerically, with
-                <span class="math inline">\(S^\ast = 1.054571817 \times 10^{-34}\ \mathrm{J\,s}\)</span> and
+                <span class="math inline">\(\mathcal{S}_\ast = 1.054571817 \times 10^{-34}\ \mathrm{J\,s}\)</span> and
                 <span class="math inline">\(\rho = 1.36 \times 10^{-26}\ \mathrm{kg\,m^{-1}\,s^{-1}}\)</span>:
             </p>
 
@@ -4067,9 +4067,9 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    \alpha = \frac{S^\ast}{\rho \cdot L_0 \cdot L_X^{2}}
+                    \alpha = \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot L_X^{2}}
                     \quad \Rightarrow \quad
-                    L_X = \left( \frac{S^\ast}{\rho \cdot L_0 \cdot \alpha}\right)^{1/2}.
+                    L_X = \left( \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot \alpha}\right)^{1/2}.
                     \]
 
 
@@ -4126,7 +4126,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    L_Y = \left( \frac{S^\ast}{\rho \cdot L_0 \cdot \gamma}\right)^{1/2}.
+                    L_Y = \left( \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot \gamma}\right)^{1/2}.
                     \]
 
 
@@ -4771,7 +4771,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <p>
-                We adopt the kernel base length <span class="math inline">\(L_0=(S^\ast/\rho)^{1/3}\)</span> and the intrinsic length scale
+                We adopt the kernel base length <span class="math inline">\(L_0=(\mathcal{S}_\ast/\rho)^{1/3}\)</span> and the intrinsic length scale
                 <span class="math inline">\(\Theta=L_0\)</span>. The adimensional propagation coordinate is:
             </p>
 
@@ -4996,7 +4996,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h5>Consistency with kernel energy law</h5>
             <ul>
-                <li><strong>Anchor separation:</strong> <span class="math inline">\(L_Z\)</span> is the dimensional anchor; synchrony and geometry enter via dimensionless factors (e.g., <span class="math inline">\(\Phi\)</span>, <span class="math inline">\(\Delta S^\ast\)</span>).</li>
+                <li><strong>Anchor separation:</strong> <span class="math inline">\(L_Z\)</span> is the dimensional anchor; synchrony and geometry enter via dimensionless factors (e.g., <span class="math inline">\(\Phi\)</span>, <span class="math inline">\(\Delta \mathcal{S}_\ast\)</span>).</li>
                 <li><strong>Energy linkage:</strong> Increased rupture reach at low \(\rho_c\) coincides with the kernel stiffness result for vacuum wave speed, where elastic‑to‑inertial ratio yields invariant propagation, reinforcing coherence‑dependent rendering.</li>
             </ul>
 
@@ -8249,7 +8249,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The orbital stability index is directly interpretable as a kernel energy ratio.
                 When expressed in the form
                 <a href="#eq-13_117">Eq. (13.117)</a>, stability corresponds to the balance between synchrony action increments
-                (<span class="math inline">\(\Delta S^\ast\)</span>) and modulation density.
+                (<span class="math inline">\(\Delta \mathcal{S}_\ast\)</span>) and modulation density.
                 This shows that orbital stability is not an empirical rule but a corollary of the
                 <a href="#sec-13-universal-kernel-energy-law">universal kernel energy law</a>.
             </p>
@@ -9910,7 +9910,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    E = \Delta S^\ast \cdot \rho_{\mathrm{mod}}\cdot L_Z^{2}
+                    E = \Delta \mathcal{S}_\ast \cdot \rho_{\mathrm{mod}}\cdot L_Z^{2}
                     \]
 
 
@@ -9936,7 +9936,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span class="math inline">\(\Delta S^\ast\)</span></td>
+                        <td><span class="math inline">\(\Delta \mathcal{S}_\ast\)</span></td>
                         <td>Phase shift per modulation cycle</td>
                         <td><span class="math inline">\(\text{dimensionless}\)</span></td>
                         <td><span class="math inline">\(2\pi\)</span> (full rotation)</td>
@@ -9997,7 +9997,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                         <th><span class="math inline">\(v = \frac{\Delta x}{\delta\tau}\;(\mathrm{m/s})\)</span></th>
                         <th><span class="math inline">\(L_Z\;(\mathrm{m})\)</span></th>
                         <th><span class="math inline">\(\rho_{\mathrm{mod}}\;(\mathrm{J/m^2})\)</span></th>
-                        <th><span class="math inline">\(E = \Delta S^\ast \cdot \rho_{\mathrm{mod}} \cdot L_Z^2\;(\mathrm{J})\)</span></th>
+                        <th><span class="math inline">\(E = \Delta \mathcal{S}_\ast \cdot \rho_{\mathrm{mod}} \cdot L_Z^2\;(\mathrm{J})\)</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -10120,7 +10120,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    E = \Delta S^\ast \cdot \rho_{\mathrm{mod}} \cdot L_Z^{2}
+                    E = \Delta \mathcal{S}_\ast \cdot \rho_{\mathrm{mod}} \cdot L_Z^{2}
                     \]
 
 
@@ -10130,7 +10130,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h4>Inputs</h4>
             <ul>
-                <li><span class="math inline">\(\Delta S^\ast\)</span> — Phase shift per modulation cycle (e.g. \(2\pi\) for full rotation)</li>
+                <li><span class="math inline">\(\Delta \mathcal{S}_\ast\)</span> — Phase shift per modulation cycle (e.g. \(2\pi\) for full rotation)</li>
                 <li><span class="math inline">\(\rho_{\mathrm{mod}}\)</span> — Modulation energy density (J/m\(^2\)), derived from field strength or stiffness</li>
                 <li><span class="math inline">\(L_Z\)</span> — Coherence length (m), such as nozzle radius, beam width, or orbital shell thickness</li>
             </ul>
@@ -10159,7 +10159,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    E_{\text{launch}}= b \cdot \rho_{\text{topo}} \cdot L_Z^{2} \cdot \Phi \cdot \Delta S^\ast \cdot C_{\text{med}} \cdot f_{\text{burn}} \cdot \kappa(\Phi)
+                    E_{\text{launch}}= b \cdot \rho_{\text{topo}} \cdot L_Z^{2} \cdot \Phi \cdot \Delta \mathcal{S}_\ast \cdot C_{\text{med}} \cdot f_{\text{burn}} \cdot \kappa(\Phi)
                     \]
 
 
@@ -10173,7 +10173,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <li><span class="math inline">\(\rho_{\text{topo}}\)</span> — Topological normalization (dimensionless)</li>
                 <li><span class="math inline">\(L_Z\)</span> — Engine coherence length (m)</li>
                 <li><span class="math inline">\(\Phi\)</span> — Collapse geometry factor (e.g. \(2\pi\) for escape)</li>
-                <li><span class="math inline">\(\Delta S^\ast\)</span> — Synchrony action increment</li>
+                <li><span class="math inline">\(\Delta \mathcal{S}_\ast\)</span> — Synchrony action increment</li>
                 <li><span class="math inline">\(C_{\text{med}}\)</span> — Medium impedance (≈0.85 at sea level)</li>
                 <li><span class="math inline">\(f_{\text{burn}}\)</span> — Burn coherence efficiency (≈0.95 for chemical fuel)</li>
                 <li><span class="math inline">\(\kappa(\Phi)\)</span> — Curvature correction factor (≈1.1 for Earth escape)</li>
@@ -10285,7 +10285,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <h4>Interpretation</h4>
             <p>
                 The general kernel energy law provides a unified framework that spans microscopic (skyrmion activation), mesoscopic (magnetic engines), and macroscopic (orbital escape) regimes.
-                Each formulation factors out a dimensional anchor (<span class="math inline">\(L_Z\)</span>, coherence length or geometric scale) and leaves behind a dimensionless synchrony or topology factor (<span class="math inline">\(\Phi, \Delta S^\ast, f(\Phi)\)</span>).
+                Each formulation factors out a dimensional anchor (<span class="math inline">\(L_Z\)</span>, coherence length or geometric scale) and leaves behind a dimensionless synchrony or topology factor (<span class="math inline">\(\Phi, \Delta \mathcal{S}_\ast, f(\Phi)\)</span>).
                 This separation ensures that the law is both structurally universal and experimentally falsifiable.
             </p>
 
@@ -10300,7 +10300,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Dimensional closure is guaranteed in every case:
             </p>
             <ul>
-                <li><span class="math inline">\(\Delta S^\ast\)</span> — dimensionless (phase increment)</li>
+                <li><span class="math inline">\(\Delta \mathcal{S}_\ast\)</span> — dimensionless (phase increment)</li>
                 <li><span class="math inline">\(\rho_{\mathrm{mod}}\)</span> — J/m\(^2\)</li>
                 <li><span class="math inline">\(L_Z^2\)</span> — m\(^2\)</li>
             </ul>
@@ -10529,7 +10529,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 \Pi_E(\mathbf{x},t)
                 = \int_{\Omega_\epsilon}
                 \mathcal{T}^\ast(\mathbf{x},t;\mathbf{x}',t';\epsilon)
-                \,\mathcal{S}^\ast(\mathbf{x}',t';\epsilon)
+                \,\mathcal{S}_\ast(\mathbf{x}',t';\epsilon)
                 \,d^3x'\,dt'\,d\epsilon,
                 \]
             </div>
@@ -12751,7 +12751,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                     \[
                     A(x) = \sum_{\gamma} w[\gamma] \cdot e^{i \varphi[\gamma]},
                     \quad
-                    \varphi[\gamma] = \frac{1}{S^\ast}\int_{\gamma} T
+                    \varphi[\gamma] = \frac{1}{\mathcal{S}_\ast}\int_{\gamma} T
                     \]
 
 
@@ -12765,7 +12765,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <p>
-                Upon calibration <span class="math inline">\(S^\ast \rightarrow \hbar\)</span>, the kernel collapses to:
+                Upon calibration <span class="math inline">\(\mathcal{S}_\ast \rightarrow \hbar\)</span>, the kernel collapses to:
             </p>
 
             <figure class="equation" id="eq-17_3">
@@ -16350,7 +16350,7 @@ zscore = (median - Xi_crit) / std
 
                     \[
                     \alpha_2 = \frac{e^{2}}{4\pi \varepsilon_0 \hbar c}, \quad
-                    \hbar = \frac{S^\ast}{2\pi}, \quad c = \Theta
+                    \hbar = \frac{\mathcal{S}_\ast}{2\pi}, \quad c = \Theta
                     \]
 
 
@@ -16470,7 +16470,7 @@ zscore = (median - Xi_crit) / std
 
 
                     \[
-                    S^\ast = 6.626 \times 10^{-34}\,\text{J·s}, \quad
+                    \mathcal{S}_\ast = 6.626 \times 10^{-34}\,\text{J·s}, \quad
                     \Theta = 2.9979 \times 10^{8}\,\text{s}^{-1}, \quad
                     \rho = 1.36 \times 10^{-26}\,\text{W·s}^{4}/\text{m}^{6}
                     \]
@@ -16489,11 +16489,11 @@ zscore = (median - Xi_crit) / std
 
 
                     \[
-                    \alpha_{\text{kernel}} = \frac{S^\ast \cdot c_K}{E_K \cdot L_K}
+                    \alpha_{\text{kernel}} = \frac{\mathcal{S}_\ast \cdot c_K}{E_K \cdot L_K}
                     \quad \text{with}\quad
-                    E_K = S^\ast \cdot \Theta,\;
+                    E_K = \mathcal{S}_\ast \cdot \Theta,\;
                     c_K = \Theta,\;
-                    L_K = \left(\frac{S^\ast}{\rho \cdot \Theta}\right)^{1/2}
+                    L_K = \left(\frac{\mathcal{S}_\ast}{\rho \cdot \Theta}\right)^{1/2}
                     \]
 
 
@@ -16528,7 +16528,7 @@ zscore = (median - Xi_crit) / std
 
 
                     \[
-                    x = \frac{E_{\text{mode}}}{S^\ast \cdot \Theta}
+                    x = \frac{E_{\text{mode}}}{\mathcal{S}_\ast \cdot \Theta}
                     \]
 
 
@@ -16560,7 +16560,7 @@ zscore = (median - Xi_crit) / std
                     \[
                     \boxed{\alpha_{\text{kernel}} =
                     \frac{\gamma}{v_{\text{sync}} \cdot \Theta \cdot
-                    G\!\left(\tfrac{E_{\text{mode}}}{S^\ast \cdot \Theta}\right)}}
+                    G\!\left(\tfrac{E_{\text{mode}}}{\mathcal{S}_\ast \cdot \Theta}\right)}}
                     \]
 
 
@@ -16625,8 +16625,8 @@ zscore = (median - Xi_crit) / std
 
 
                     \[
-                    I_K = \frac{S^\ast}{L_K^{2}\cdot \Theta}, \quad
-                    e = I_K \cdot \tau_K = \frac{S^\ast}{L_K^{2}\cdot \Theta}
+                    I_K = \frac{\mathcal{S}_\ast}{L_K^{2}\cdot \Theta}, \quad
+                    e = I_K \cdot \tau_K = \frac{\mathcal{S}_\ast}{L_K^{2}\cdot \Theta}
                     \]
 
 
@@ -16652,7 +16652,7 @@ zscore = (median - Xi_crit) / std
             <h4>Robustness Summary</h4>
             <ul>
                 <li>\(\alpha_{\text{kernel}}\): stable within ±0.5% across all inputs</li>
-                <li>\(e\): invariant under \(S^\ast\) and \(\Theta\); linearly sensitive to \(\rho\) (±1% change in \(\rho\) yields ±1% change in \(e\))</li>
+                <li>\(e\): invariant under \(\mathcal{S}_\ast\) and \(\Theta\); linearly sensitive to \(\rho\) (±1% change in \(\rho\) yields ±1% change in \(e\))</li>
             </ul>
 
             <p>
@@ -19188,7 +19188,7 @@ zscore = (median - Xi_crit) / std
                     </figure>
                 </li>
                 <li><span class="math inline">\(\gamma_a\)</span>: dimensionless alignment coupling</li>
-                <li><span class="math inline">\(E_K = S^\ast \Theta\)</span>: kernel energy scale</li>
+                <li><span class="math inline">\(E_K = \mathcal{S}_\ast \Theta\)</span>: kernel energy scale</li>
                 <li><span class="math inline">\(V_K = L_K^{3}\)</span>: coherence volume</li>
                 <li><span class="math inline">\(k_B\)</span>: Boltzmann’s constant</li>
                 <li><span class="math inline">\(T_{\text{eff}}\)</span>: effective kernel temperature</li>
@@ -19203,7 +19203,7 @@ zscore = (median - Xi_crit) / std
                     \[
                     \mathbf{B}_{\text{lab}} = \mu_0\, M
                     = \mu_0\, \mu_B\, g(\Phi)\, n\,
-                    \tanh\!\left( \frac{\gamma_a\, S^\ast \Theta}{n\, L_K^{3}\, k_B\, T_{\text{eff}}} \right),
+                    \tanh\!\left( \frac{\gamma_a\, \mathcal{S}_\ast \Theta}{n\, L_K^{3}\, k_B\, T_{\text{eff}}} \right),
                     \]
 
 
@@ -19227,7 +19227,7 @@ zscore = (median - Xi_crit) / std
                 Select materials with known electron density <span class="math inline">\(n\)</span> and measured saturation magnetization
                 <span class="math inline">\(M_s\)</span>. Estimate <span class="math inline">\(g(\Phi)\)</span> from crystal structure
                 or treat as a fit parameter. Fix global kernel constants:
-                <span class="math inline">\(L_K\)</span>, <span class="math inline">\(S^\ast\)</span>,
+                <span class="math inline">\(L_K\)</span>, <span class="math inline">\(\mathcal{S}_\ast\)</span>,
                 <span class="math inline">\(\Theta\)</span>, <span class="math inline">\(T_{\text{eff}}\)</span>,
                 <span class="math inline">\(c_K\)</span>.
                 Fit <span class="math inline">\(\gamma_a\)</span> and <span class="math inline">\(g(\Phi)\)</span>
