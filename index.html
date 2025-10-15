@@ -71,7 +71,7 @@
             <ul>
                 <li><span class="math inline">Synchronization velocity \( v_{\rm sync} \)</span> from the first moment</li>
                 <li><span class="math inline">Tuning entropy \( \Theta \)</span> from the second moment</li>
-                <li><span class="math inline">Action quantum \( \mathcal{S}_* \)</span> from the kernel’s phase</li>
+                <li><span class="math inline">Action quantum \( \mathcal{S}_\ast \)</span> from the kernel’s phase</li>
             </ul>
 
             <p>
@@ -1466,7 +1466,7 @@
 
 
                     \[
-                    \lambda_{\rm peak} T = \frac{c \mathcal{S}_*}{2.821\, k_B}
+                    \lambda_{\rm peak} T = \frac{c \mathcal{S}_\ast}{2.821\, k_B}
                     \approx 2.898 \times 10^{-3}\ {\rm m \cdot K}
                     \]
 
@@ -1585,13 +1585,13 @@
 
             <p>
                 Using the kernel spectral relation
-                <span class="math inline">\( \lambda_{\text{peak}} T = \frac{c \, \mathcal{S}_*}{2.821 \, k_B} \)</span>,
+                <span class="math inline">\( \lambda_{\text{peak}} T = \frac{c \, \mathcal{S}_\ast}{2.821 \, k_B} \)</span>,
                 we isolate <span class="math inline">\( c \)</span> as a derived quantity:
             </p>
 
             <span class="math display">
                 \[
-                c = \frac{2.821 \, k_B \, \lambda_{\text{peak}} \, T}{\mathcal{S}_*}
+                c = \frac{2.821 \, k_B \, \lambda_{\text{peak}} \, T}{\mathcal{S}_\ast}
                 \]
             </span>
 
@@ -1600,7 +1600,7 @@
                 <span class="math inline">\( \lambda_{\text{peak}} \)</span>,
                 <span class="math inline">\( T \)</span>,
                 <span class="math inline">\( k_B \)</span>, and
-                <span class="math inline">\( \mathcal{S}_* \)</span>.
+                <span class="math inline">\( \mathcal{S}_\ast \)</span>.
                 It requires no circular calibration and serves as a third independent anchor alongside the meso and cosmic anchors.
             </p>
 
@@ -1614,7 +1614,7 @@
                 <li><span class="math inline">\( \lambda_{\text{peak}} = 1.063 \times 10^{-3} \, \mathrm{m} \)</span></li>
                 <li><span class="math inline">\( T = 2.725 \, \mathrm{K} \)</span></li>
                 <li><span class="math inline">\( k_B = 1.380649 \times 10^{-23} \, \mathrm{J/K} \)</span></li>
-                <li><span class="math inline">\( \mathcal{S}_* = 6.62607015 \times 10^{-34} \, \mathrm{J \cdot s} \)</span></li>
+                <li><span class="math inline">\( \mathcal{S}_\ast = 6.62607015 \times 10^{-34} \, \mathrm{J \cdot s} \)</span></li>
             </ul>
 
             <p>
@@ -14106,7 +14106,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
         <article style="display:none">
 
             <p>
-                In the Chronotopic Kernel framework, the <strong>action quantum</strong> <span class="math inline">\(\mathcal{S}_*\)</span> emerges from recursive impulse propagation across modulation paths.
+                In the Chronotopic Kernel framework, the <strong>action quantum</strong> <span class="math inline">\(\mathcal{S}_\ast\)</span> emerges from recursive impulse propagation across modulation paths.
                 Each impulse initiates a phase-modulated traversal through the kernel’s layered structure, accumulating action along coherent paths.
                 The kernel path-sum formulation requires phase closure for constructive interference:
             </p>
@@ -14116,7 +14116,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    K_{\rm path}(x,x') \sim \sum_{\gamma} \mathcal{A}[\gamma] \exp\left(\frac{i}{\mathcal{S}_*} S[\gamma]\right)
+                    K_{\rm path}(x,x') \sim \sum_{\gamma} \mathcal{A}[\gamma] \exp\left(\frac{i}{\mathcal{S}_\ast} S[\gamma]\right)
                     \]
 
 
@@ -14133,9 +14133,9 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    \Delta \phi = \frac{\Delta S}{\mathcal{S}_*} = 2\pi n
+                    \Delta \phi = \frac{\Delta S}{\mathcal{S}_\ast} = 2\pi n
                     \quad \Rightarrow \quad
-                    \Delta S = 2\pi \mathcal{S}_*
+                    \Delta S = 2\pi \mathcal{S}_\ast
                     \]
 
 
@@ -14177,7 +14177,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h4>Kernel-Derived Action Quantum</h4>
             <p>
-                Applying the kernel closure condition <span class="math inline">\(\Delta S = 2\pi \mathcal{S}_*\)</span>, we solve for:
+                Applying the kernel closure condition <span class="math inline">\(\Delta S = 2\pi \mathcal{S}_\ast\)</span>, we solve for:
             </p>
 
             <figure class="equation" id="eq-23_4">
@@ -14185,7 +14185,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    \mathcal{S}_* = \frac{S_{\rm meas}}{2\pi} \approx 1.06 \times 10^{-34}\ \mathrm{J \cdot s}
+                    \mathcal{S}_\ast = \frac{S_{\rm meas}}{2\pi} \approx 1.06 \times 10^{-34}\ \mathrm{J \cdot s}
                     \]
 
 
@@ -14203,7 +14203,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    \mathcal{S}_* \equiv \hbar
+                    \mathcal{S}_\ast \equiv \hbar
                     \]
 
 
@@ -14223,7 +14223,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <span class="math inline">\(\hbar_{\rm CODATA} = 1.054571817 \times 10^{-34}\ \mathrm{J \cdot s}\)</span>,
                 published by the Committee on Data for Science and Technology.
                 Our kernel-derived value is:
-                <span class="math inline">\(\mathcal{S}_* \approx 1.06 \times 10^{-34}\ \mathrm{J \cdot s}\)</span>,
+                <span class="math inline">\(\mathcal{S}_\ast \approx 1.06 \times 10^{-34}\ \mathrm{J \cdot s}\)</span>,
                 yielding a relative error of less than <span class="math inline">\(0.5\%\)</span>.
 
                 You can verify the official value at the
@@ -14235,7 +14235,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <h4>Interpretation</h4>
 
             <p>
-                In the Chronotopic Kernel framework, <span class="math inline">\(\mathcal{S}_*\)</span> governs the scale at which phase coherence closes across recursive impulse paths.
+                In the Chronotopic Kernel framework, <span class="math inline">\(\mathcal{S}_\ast\)</span> governs the scale at which phase coherence closes across recursive impulse paths.
                 By measuring the action per cycle from blackbody radiation and applying the kernel closure condition,
                 we extract <span class="math inline">\(\hbar\)</span> as a structural consequence of phase quantization.
                 This confirms that Planck’s constant is not an arbitrary input, but an emergent property of the kernel’s path-sum geometry.
@@ -14244,7 +14244,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <h3 id="sec-23-planck-kernel-from-blackbody-data_1">Planck Spectral Law and Wien Displacement</h3>
 
             <p>
-                Once the action quantum <span class="math inline">\( \mathcal{S}_* \)</span> is established from blackbody phase closure,
+                Once the action quantum <span class="math inline">\( \mathcal{S}_\ast \)</span> is established from blackbody phase closure,
                 the kernel’s recursive momentum–energy geometry naturally generates the Planck spectral law.
                 Each coherence layer emits quantized energy pulses whose spectral density follows from the kernel’s
                 phase-space occupancy under thermal excitation.
@@ -14266,11 +14266,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Each mode carries the mean energy
                 <span class="math inline">
                     \[
-                    \langle E_\nu \rangle = \frac{\mathcal{S}_* \, \nu}{e^{\mathcal{S}_* \nu / k_B T} - 1},
+                    \langle E_\nu \rangle = \frac{\mathcal{S}_\ast \, \nu}{e^{\mathcal{S}_\ast \nu / k_B T} - 1},
                     \]
                 </span>
                 obtained by counting the number of coherent impulse states consistent with the kernel phase constraint
-                <span class="math inline">\( \Delta S = 2\pi \mathcal{S}_* \)</span>.
+                <span class="math inline">\( \Delta S = 2\pi \mathcal{S}_\ast \)</span>.
                 This replaces the historical "quantum hypothesis" with the kernel’s intrinsic phase quantization.
             </p>
 
@@ -14282,8 +14282,8 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <figure class="equation" id="eq-23b_1">
                 <div class="math display">
                     \[
-                    u(\nu, T) = \frac{8\pi \mathcal{S}_* \nu^3}{c^3} \cdot
-                    \frac{1}{e^{\mathcal{S}_* \nu / k_B T} - 1}.
+                    u(\nu, T) = \frac{8\pi \mathcal{S}_\ast \nu^3}{c^3} \cdot
+                    \frac{1}{e^{\mathcal{S}_\ast \nu / k_B T} - 1}.
                     \]
                 </div>
                 <figcaption><a href="#eq-23b_1">Equation (23b.1)</a> — Kernel spectral energy density.</figcaption>
@@ -14291,7 +14291,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p>
                 This is formally identical to Planck’s original distribution,
-                but here <span class="math inline">\( \mathcal{S}_* \)</span> is not postulated — it is the self-emergent kernel action quantum derived earlier.
+                but here <span class="math inline">\( \mathcal{S}_\ast \)</span> is not postulated — it is the self-emergent kernel action quantum derived earlier.
             </p>
 
             <h4>4. Stationary Condition and Wien’s Law</h4>
@@ -14299,11 +14299,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The peak wavelength or frequency of the spectrum follows from the stationary condition:
                 <span class="math inline">
                     \[
-                    \frac{d}{d\nu}\!\left(\frac{\nu^3}{e^{\mathcal{S}_* \nu / k_B T} - 1}\right) = 0.
+                    \frac{d}{d\nu}\!\left(\frac{\nu^3}{e^{\mathcal{S}_\ast \nu / k_B T} - 1}\right) = 0.
                     \]
                 </span>
                 Introducing the dimensionless variable
-                <span class="math inline">\( x = \frac{\mathcal{S}_* \nu}{k_B T} \)</span>,
+                <span class="math inline">\( x = \frac{\mathcal{S}_\ast \nu}{k_B T} \)</span>,
                 this becomes
                 <span class="math inline">
                     \[
@@ -14322,9 +14322,9 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <figure class="equation" id="eq-23b_2">
                 <div class="math display">
                     \[
-                    \nu_{\rm peak} = \frac{2.821\, k_B T}{\mathcal{S}_*},
+                    \nu_{\rm peak} = \frac{2.821\, k_B T}{\mathcal{S}_\ast},
                     \quad\text{or}\quad
-                    \lambda_{\rm peak} T = \frac{c \mathcal{S}_*}{2.821\, k_B}
+                    \lambda_{\rm peak} T = \frac{c \mathcal{S}_\ast}{2.821\, k_B}
                     \approx 2.898 \times 10^{-3}\ {\rm m \cdot K}.
                     \]
                 </div>
@@ -14343,7 +14343,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 In the Chronotopic Kernel picture:
             </p>
             <ul>
-                <li>The phase quantization <span class="math inline">\( \Delta S = 2\pi \mathcal{S}_* \)</span> generates discrete energy transfer.</li>
+                <li>The phase quantization <span class="math inline">\( \Delta S = 2\pi \mathcal{S}_\ast \)</span> generates discrete energy transfer.</li>
                 <li>The thermal distribution arises from recursive coherence among impulse layers.</li>
                 <li>
                     The spectral shape and Wien scaling emerge from stationary coherence conditions,
@@ -14409,7 +14409,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="52" width="200" height="48">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Phase Quantization</b><br />
-                        <span class="math">\( \Delta S = 2\pi \mathcal{S}_* \)</span>
+                        <span class="math">\( \Delta S = 2\pi \mathcal{S}_\ast \)</span>
                     </div>
                 </foreignObject>
 
@@ -14418,7 +14418,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="138" width="200" height="52">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Energy per Mode</b><br />
-                        <span class="math">\( \langle E_\nu \rangle = \frac{\mathcal{S}_* \nu}{e^{\mathcal{S}_* \nu / k_B T} - 1} \)</span>
+                        <span class="math">\( \langle E_\nu \rangle = \frac{\mathcal{S}_\ast \nu}{e^{\mathcal{S}_\ast \nu / k_B T} - 1} \)</span>
                     </div>
                 </foreignObject>
 
@@ -14427,7 +14427,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="226" width="200" height="54">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Spectral Density</b><br />
-                        <span class="math">\( u(\nu, T) = \frac{8\pi \mathcal{S}_* \nu^3}{c^3} \cdot \frac{1}{e^{\mathcal{S}_* \nu / k_B T} - 1} \)</span>
+                        <span class="math">\( u(\nu, T) = \frac{8\pi \mathcal{S}_\ast \nu^3}{c^3} \cdot \frac{1}{e^{\mathcal{S}_\ast \nu / k_B T} - 1} \)</span>
                     </div>
                 </foreignObject>
 
@@ -14436,7 +14436,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="316" width="200" height="52">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Stationary Condition</b><br />
-                        <span class="math">\( \frac{d}{d\nu} \left( \frac{\nu^3}{e^{\mathcal{S}_* \nu / k_B T} - 1} \right) = 0 \)</span>
+                        <span class="math">\( \frac{d}{d\nu} \left( \frac{\nu^3}{e^{\mathcal{S}_\ast \nu / k_B T} - 1} \right) = 0 \)</span>
                     </div>
                 </foreignObject>
 
@@ -14445,7 +14445,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="408" width="200" height="50">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Dimensionless Peak</b><br />
-                        <span class="math">\( x = \frac{\mathcal{S}_* \nu}{k_B T} \approx 2.821439 \)</span>
+                        <span class="math">\( x = \frac{\mathcal{S}_\ast \nu}{k_B T} \approx 2.821439 \)</span>
                     </div>
                 </foreignObject>
 
@@ -14454,7 +14454,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <foreignObject x="400" y="494" width="200" height="70">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Wien Displacement</b><br />
-                        <div class="math">\( \lambda_{\rm peak} T = \frac{c \mathcal{S}_*}{2.821\, k_B} \)</div>
+                        <div class="math">\( \lambda_{\rm peak} T = \frac{c \mathcal{S}_\ast}{2.821\, k_B} \)</div>
                         <div class="math">\( \approx 2.898 \times 10^{-3}\,{\rm m \cdot K} \)</div>
                     </div>
                 </foreignObject>
@@ -14493,13 +14493,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <span class="math display">
 
                 \[
-                \tau_{\rm coh} \sim \frac{\mathcal{S}_*}{\rho \Theta^2},
+                \tau_{\rm coh} \sim \frac{\mathcal{S}_\ast}{\rho \Theta^2},
                 \]
 
             </span>
 
             <p>
-                where <span class="math inline">\( \mathcal{S}_* \)</span> is the kernel action quantum, <span class="math inline">\( \rho \)</span> is impulse density, and <span class="math inline">\( \Theta \)</span> is the synchrony frequency. However, this expression is dimensionally inconsistent, yielding units of <span class="math inline">\( \mathrm{kg \cdot m^{-1} \cdot s^{-3}} \)</span>. To obtain a physically meaningful coherence time, we adopt the standard collisional form:
+                where <span class="math inline">\( \mathcal{S}_\ast \)</span> is the kernel action quantum, <span class="math inline">\( \rho \)</span> is impulse density, and <span class="math inline">\( \Theta \)</span> is the synchrony frequency. However, this expression is dimensionally inconsistent, yielding units of <span class="math inline">\( \mathrm{kg \cdot m^{-1} \cdot s^{-3}} \)</span>. To obtain a physically meaningful coherence time, we adopt the standard collisional form:
             </p>
 
             <figure class="equation" id="eq-23c_1">
@@ -14572,7 +14572,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                     \[
-                    \tau_{\rm coh} \sim \frac{\mathcal{S}_* L_K^2}{\rho \Theta^2},
+                    \tau_{\rm coh} \sim \frac{\mathcal{S}_\ast L_K^2}{\rho \Theta^2},
                     \]
 
 
@@ -14652,7 +14652,7 @@ print("Required σ_eff to match τ_obs:", sigma_req, "m^2")
 
             <p>
                 The kernel framework offers a structural reinterpretation: coherence loss is not stochastic but recursive, governed by impulse geometry and phase quantization. By embedding the coherence radius <span class="math inline">\( L_K \)</span> and kernel observables into the survival time expression,
-                <span class="math inline">\( \tau_{\rm coh} \sim \frac{\mathcal{S}_* L_K^2}{\rho \Theta^2} \)</span>,
+                <span class="math inline">\( \tau_{\rm coh} \sim \frac{\mathcal{S}_\ast L_K^2}{\rho \Theta^2} \)</span>,
                 we obtain a predictive model that aligns with experimental data and reveals the generative logic behind radiative decoherence.
             </p>
 
@@ -15151,7 +15151,7 @@ zscore = (median - Xi_crit) / std
                 The Chronotopic Kernel produces the measurable constants of nature in two cascading
                 waves of emergence.  The first—<em>primary emergence</em>—arises directly from the
                 self-referential triad of
-                <span class="math inline">\(\mathcal{S}_*\)</span> (action quantum),
+                <span class="math inline">\(\mathcal{S}_\ast\)</span> (action quantum),
                 <span class="math inline">\(\Theta\)</span> (synchrony frequency),
                 and <span class="math inline">\(\rho\)</span> (impedance density).
             </p>
@@ -15289,7 +15289,7 @@ zscore = (median - Xi_crit) / std
             </ol>
 
             <p>
-                Since <span class="math inline">\( L_K = \left( \frac{\mathcal{S}_*}{\rho \Theta} \right)^{1/2} \)</span>,
+                Since <span class="math inline">\( L_K = \left( \frac{\mathcal{S}_\ast}{\rho \Theta} \right)^{1/2} \)</span>,
                 we substitute and solve iteratively.
                 <strong>Because \( \rho \) depends on \( L_K \) and \( L_K \) in turn depends on \( \rho \), the equality forms a fixed-point problem. Solving iteratively ensures the kernel achieves self-consistent coherence geometry without introducing empirical scaling factors.</strong>
             </p>
@@ -15297,7 +15297,7 @@ zscore = (median - Xi_crit) / std
             <figure class="equation" id="eq-24_1">
                 <div class="math display">
                     \begin{align}
-                    \mathcal{S}_* &= 6.626 \times 10^{-34}\ \mathrm{J \cdot s}, \quad
+                    \mathcal{S}_\ast &= 6.626 \times 10^{-34}\ \mathrm{J \cdot s}, \quad
                     \Theta &= 2.9979 \times 10^8\ \mathrm{s^{-1}}, \quad
                     T_c &= 3000\ \mathrm{K}
                     \end{align}
@@ -15320,7 +15320,7 @@ zscore = (median - Xi_crit) / std
             <figure class="equation" id="eq-24_1">
                 <div class="math display">
                     \begin{align}
-                    \mathcal{S}_* &= 6.626\times10^{-34}\ \mathrm{J \cdot s}, \quad
+                    \mathcal{S}_\ast &= 6.626\times10^{-34}\ \mathrm{J \cdot s}, \quad
                     \Theta &= 2.9979\times10^{8}\ \mathrm{s^{-1}}, \quad
                     \rho &= 1.36\times10^{-26}\ \mathrm{W \cdot s^{4} / m^{6}}.
                     \end{align}
@@ -15339,7 +15339,7 @@ zscore = (median - Xi_crit) / std
             <p>
                 Here we presents a second, fully kernel-native route to primary emergence of physical constants.
                 Instead of anchoring to radiative closure, we begin from the thermodynamic identity
-                <span class="math inline">\(\mathcal{S}_* \Theta = k_B T_c\)</span>,
+                <span class="math inline">\(\mathcal{S}_\ast \Theta = k_B T_c\)</span>,
                 which links the kernel’s mechanical energy per synchrony cycle to the thermal scale (already well described in <a href="#sec-23-planck-kernel-from-blackbody-data_1">sec. Planck Spectral Law and Wien Displacement</a>).
                 All quantities are expressed using SI exact 2019-redefined constants
                 (<span class="math inline">\(h\)</span>, <span class="math inline">\(k_B\)</span>, <span class="math inline">\(c\)</span>),
@@ -15349,13 +15349,13 @@ zscore = (median - Xi_crit) / std
 
             <h5>Step 1: Fix Kernel Action Quantum and Temperature</h5>
             <ul>
-                <li><span class="math inline">\(\mathcal{S}_* = h = 6.62607015 \times 10^{-34}\ \mathrm{J \cdot s}\)</span></li>
+                <li><span class="math inline">\(\mathcal{S}_\ast = h = 6.62607015 \times 10^{-34}\ \mathrm{J \cdot s}\)</span></li>
                 <li><span class="math inline">\(T_c = 3000\ \mathrm{K}\)</span></li>
             </ul>
 
             <h5>Step 2: Compute Synchrony Frequency</h5>
             <p>
-                Using <span class="math inline">\(\Theta = \frac{k_B T_c}{\mathcal{S}_*}\)</span>:
+                Using <span class="math inline">\(\Theta = \frac{k_B T_c}{\mathcal{S}_\ast}\)</span>:
             </p>
             <div class="math display">
 
@@ -15370,7 +15370,7 @@ zscore = (median - Xi_crit) / std
 
             <h5>Step 3: Compute Kernel Energy per Cycle</h5>
             <p>
-                The per-cycle energy <span class="math inline">\(\varepsilon_0 = \mathcal{S}_* \Theta\)</span>
+                The per-cycle energy <span class="math inline">\(\varepsilon_0 = \mathcal{S}_\ast \Theta\)</span>
                 represents the average mechanical energy associated with one kernel synchrony cycle:
             </p>
             <div class="math display">
@@ -15391,9 +15391,9 @@ zscore = (median - Xi_crit) / std
 
 
                 \[
-                a T_c^4 = \rho \Theta^4 L_K^2 = \rho \Theta^4 \cdot \frac{\mathcal{S}_*}{\rho \Theta}
-                = \mathcal{S}_* \Theta^3 \Rightarrow
-                \rho = \left( \frac{a T_c^4}{\mathcal{S}_* \Theta^3} \right)^{1/2}
+                a T_c^4 = \rho \Theta^4 L_K^2 = \rho \Theta^4 \cdot \frac{\mathcal{S}_\ast}{\rho \Theta}
+                = \mathcal{S}_\ast \Theta^3 \Rightarrow
+                \rho = \left( \frac{a T_c^4}{\mathcal{S}_\ast \Theta^3} \right)^{1/2}
                 \]
 
 
@@ -15410,7 +15410,7 @@ zscore = (median - Xi_crit) / std
             <h5>Step 6: Compute Kernel Length</h5>
             <div class="math display">
                 \[
-                L_K = \left( \frac{\mathcal{S}_*}{\rho \Theta} \right)^{1/2}
+                L_K = \left( \frac{\mathcal{S}_\ast}{\rho \Theta} \right)^{1/2}
                 \approx \left( \frac{6.626 \times 10^{-34}}{1.36 \times 10^{-26} \cdot 6.2494 \times 10^{13}} \right)^{1/2}
                 \approx 2.78 \times 10^{-7}\ \mathrm{m}
                 \]
@@ -15427,7 +15427,7 @@ zscore = (median - Xi_crit) / std
 
             <h5>Step 8: Dimensional Closure</h5>
             <ul>
-                <li><span class="math inline">\([\mathcal{S}_* \Theta] = [k_B T_c] = \mathrm{J}\)</span></li>
+                <li><span class="math inline">\([\mathcal{S}_\ast \Theta] = [k_B T_c] = \mathrm{J}\)</span></li>
                 <li><span class="math inline">\([a T_c^4] = \mathrm{J/m^3}\)</span></li>
                 <li><span class="math inline">\([\rho] = \mathrm{W \cdot s^4 / m^6}\)</span></li>
                 <li><span class="math inline">\([L_K] = \mathrm{m}\)</span></li>
@@ -15440,8 +15440,8 @@ zscore = (median - Xi_crit) / std
             <p>
                 The thermodynamic and radiative anchors define distinct but reconcilable parameterizations.
                 Kernel recursion depth adjusts the mapping between them.
-                This route assumes <span class="math inline">\(\mathcal{S}_* \Theta = k_B T_c\)</span> as primary.
-                If instead <span class="math inline">\(\mathcal{S}_* = \frac{a T_c^4}{\Theta^3}\)</span> is imposed,
+                This route assumes <span class="math inline">\(\mathcal{S}_\ast \Theta = k_B T_c\)</span> as primary.
+                If instead <span class="math inline">\(\mathcal{S}_\ast = \frac{a T_c^4}{\Theta^3}\)</span> is imposed,
                 the derived <span class="math inline">\(\Theta\)</span> differs by orders of magnitude.
                 Iterative calibration reconciles both.
             </p>
@@ -15468,8 +15468,8 @@ zscore = (median - Xi_crit) / std
                 <div class="math display">
                     \begin{align}
                     \tau_K &= 1/\Theta, &
-                    E_K &= \mathcal{S}_*\Theta, &
-                    L_K &= \!\left(\frac{\mathcal{S}_*}{\rho\Theta}\right)^{1/2},
+                    E_K &= \mathcal{S}_\ast\Theta, &
+                    L_K &= \!\left(\frac{\mathcal{S}_\ast}{\rho\Theta}\right)^{1/2},
                     &
                     Z_K &= \rho L_K.
                     \end{align}
@@ -15502,16 +15502,16 @@ zscore = (median - Xi_crit) / std
                     </tr>
                     <tr>
                         <td>Phase closure</td>
-                        <td><span class="math inline">\(\Delta S = 2\pi \mathcal{S}_*\)</span></td>
+                        <td><span class="math inline">\(\Delta S = 2\pi \mathcal{S}_\ast\)</span></td>
                         <td><span class="math inline">\(\Delta \phi = 2\pi n\)</span></td>
                     </tr>
                     <tr>
-                        <td>Energy balance<br><small><span class="math inline">\([\mathcal{S}_* \Theta] = [E] = \mathrm{kg \cdot m^2/s^2}\)</span></small></td>
-                        <td><span class="math inline">\(\varepsilon_0 = \mathcal{S}_* \Theta = k_B T_c\)</span></td>
+                        <td>Energy balance<br><small><span class="math inline">\([\mathcal{S}_\ast \Theta] = [E] = \mathrm{kg \cdot m^2/s^2}\)</span></small></td>
+                        <td><span class="math inline">\(\varepsilon_0 = \mathcal{S}_\ast \Theta = k_B T_c\)</span></td>
                         <td><span class="math inline">\(E = \frac{GMm}{r}\)</span>, <span class="math inline">\(E = \frac{1}{2}mv^2\)</span></td>
                     </tr>
                     <tr>
-                        <td>Mass emergence<br><small><span class="math inline">\(m_{\rm eff} = \frac{\varepsilon_0}{c^2} = \frac{\mathcal{S}_* \Theta}{c^2}\)</span></small></td>
+                        <td>Mass emergence<br><small><span class="math inline">\(m_{\rm eff} = \frac{\varepsilon_0}{c^2} = \frac{\mathcal{S}_\ast \Theta}{c^2}\)</span></small></td>
                         <td>Effective mass from coherent energy density</td>
                         <td>Mass from gravitational potential and orbital velocity</td>
                     </tr>
@@ -15655,10 +15655,10 @@ zscore = (median - Xi_crit) / std
                     <tr><th>Expression</th><th>Units (SI)</th><th>Meaning</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td><span class="math inline">\(\mathcal{S}_*\)</span></td><td>J·s</td><td>Action quantum</td></tr>
+                    <tr><td><span class="math inline">\(\mathcal{S}_\ast\)</span></td><td>J·s</td><td>Action quantum</td></tr>
                     <tr><td><span class="math inline">\(\Theta\)</span></td><td>s⁻¹</td><td>Synchrony frequency</td></tr>
                     <tr><td><span class="math inline">\(k_B T_c\)</span></td><td>J</td><td>Thermal energy</td></tr>
-                    <tr><td><span class="math inline">\(\varepsilon_0 = \mathcal{S}_* \Theta\)</span></td><td>J</td><td>Energy per coherence cycle</td></tr>
+                    <tr><td><span class="math inline">\(\varepsilon_0 = \mathcal{S}_\ast \Theta\)</span></td><td>J</td><td>Energy per coherence cycle</td></tr>
                     <tr><td><span class="math inline">\(\rho\)</span></td><td>W·s⁴/m⁶ = J·s³/m⁶</td><td>Kernel tuning density</td></tr>
                     <tr><td><span class="math inline">\(L_K\)</span></td><td>m</td><td>Coherence length</td></tr>
                     <tr><td><span class="math inline">\(a T_c^4\)</span></td><td>J/m³</td><td>Radiative energy density</td></tr>
@@ -15671,7 +15671,7 @@ zscore = (median - Xi_crit) / std
             <p>
                 <strong>1. Stationary Conditions as Resonance Anchors:</strong><br>
                 In both systems, a stationary condition defines a peak coherence or stable orbit. In the kernel, the spectral peak occurs when
-                <span class="math inline">\(\frac{d}{d\nu} \left( \frac{\nu^3}{e^{\mathcal{S}_* \nu / k_B T} - 1} \right) = 0\)</span>.
+                <span class="math inline">\(\frac{d}{d\nu} \left( \frac{\nu^3}{e^{\mathcal{S}_\ast \nu / k_B T} - 1} \right) = 0\)</span>.
                 In orbital mechanics, stability arises when
                 <span class="math inline">\(\frac{dE}{dr} = 0\)</span> or
                 <span class="math inline">\(\frac{dL}{dt} = 0\)</span>.
@@ -15687,7 +15687,7 @@ zscore = (median - Xi_crit) / std
 
             <p>
                 <strong>3. Phase Quantization as Closure Mechanism:</strong><br>
-                Kernel phase closure uses <span class="math inline">\(\Delta S = 2\pi \mathcal{S}_*\)</span> to enforce constructive interference.
+                Kernel phase closure uses <span class="math inline">\(\Delta S = 2\pi \mathcal{S}_\ast\)</span> to enforce constructive interference.
                 Orbital mechanics uses angular quantization <span class="math inline">\(\Delta \phi = 2\pi n\)</span> to enforce closed orbits.
                 Both systems rely on phase coherence to define stable configurations.
             </p>
@@ -15697,7 +15697,7 @@ zscore = (median - Xi_crit) / std
                 In orbital mechanics, mass is inferred from orbital behavior via
                 <span class="math inline">\(m = \frac{r v^2}{G}\)</span>.
                 In the kernel, mass-like behavior emerges from
-                <span class="math inline">\(\varepsilon_0 = \mathcal{S}_* \Theta = k_B T_c\)</span>,
+                <span class="math inline">\(\varepsilon_0 = \mathcal{S}_\ast \Theta = k_B T_c\)</span>,
                 along with <span class="math inline">\(\rho\)</span> and <span class="math inline">\(L_K\)</span>.
                 This suggests mass is not fundamental, but a result of stable coherence.
             </p>
@@ -15718,14 +15718,14 @@ zscore = (median - Xi_crit) / std
             <ol>
                 <li>
                     <strong>Energy-footprint form:</strong>
-                    <span class="math inline">\(G_E = \dfrac{\mathcal{S}_*\Theta^2}{\rho}\)</span>,
+                    <span class="math inline">\(G_E = \dfrac{\mathcal{S}_\ast\Theta^2}{\rho}\)</span>,
                     representing the energetic cost of sustaining global coherence.
                 </li>
                 <li>
                     <strong>Geometric-collapse form:</strong>
                     <span class="math inline">
                         \(G_{\rm struct}
-                        = \dfrac{1}{4\pi}\!\left(\dfrac{\mathcal{S}_*}{\rho\Theta^3}\right)^{1/2}\)
+                        = \dfrac{1}{4\pi}\!\left(\dfrac{\mathcal{S}_\ast}{\rho\Theta^3}\right)^{1/2}\)
                     </span>,
                     representing the spatial collapse rate of coherence layers.
                 </li>
@@ -15765,7 +15765,7 @@ zscore = (median - Xi_crit) / std
 
                 <span class="math inline">
                     \(
-                    G_{\text{struct}} = \frac{1}{4\pi} \left( \frac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}
+                    G_{\text{struct}} = \frac{1}{4\pi} \left( \frac{\mathcal{S}_\ast}{\rho \Theta^3} \right)^{1/2}
                     \)
                 </span>
 
@@ -15781,7 +15781,7 @@ zscore = (median - Xi_crit) / std
             <ul>
                 <li>
                     <strong>Kernel Action Quantum:</strong>
-                    <span class="math inline">\(\mathcal{S}_*\)</span> is defined as a rendered action unit with dimensions
+                    <span class="math inline">\(\mathcal{S}_\ast\)</span> is defined as a rendered action unit with dimensions
                     <span class="math inline">\(\mathrm{kg \cdot m^2 / s}\)</span>, consistent with Planck’s constant
                     <span class="math inline">\(h\)</span>.
                 </li>
@@ -15805,12 +15805,12 @@ zscore = (median - Xi_crit) / std
             <ul>
                 <li>
                     <strong>Geometric-collapse form:</strong>
-                    <span class="math inline">\(G_{\rm struct} = \dfrac{1}{4\pi} \left( \dfrac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}\)</span>
+                    <span class="math inline">\(G_{\rm struct} = \dfrac{1}{4\pi} \left( \dfrac{\mathcal{S}_\ast}{\rho \Theta^3} \right)^{1/2}\)</span>
                     resolves via square root of action-per-volume-per-frequency-cube.
                 </li>
                 <li>
                     <strong>Energy-footprint form:</strong>
-                    <span class="math inline">\(G_E = \dfrac{\mathcal{S}_* \Theta^2}{\rho}\)</span>
+                    <span class="math inline">\(G_E = \dfrac{\mathcal{S}_\ast \Theta^2}{\rho}\)</span>
                     resolves via energy-per-volume-per-frequency-squared.
                 </li>
             </ul>
@@ -15826,24 +15826,24 @@ zscore = (median - Xi_crit) / std
                 <li><strong>Radius:</strong> <span class="math inline">\(R = 13.7\,\mathrm{km} = 1.37 \times 10^4\,\mathrm{m}\)</span></li>
                 <li><strong>Density:</strong> <span class="math inline">\(\rho \approx 3.5 \times 10^{17}\,\mathrm{kg/m^3}\)</span></li>
                 <li><strong>Surface Temperature:</strong> <span class="math inline">\(\Theta \approx 10^6\,\mathrm{K}\)</span></li>
-                <li><strong>Kernel Action Quantum:</strong> <span class="math inline">\(\mathcal{S}_* = h = 6.626 \times 10^{-34}\,\mathrm{J \cdot s}\)</span></li>
+                <li><strong>Kernel Action Quantum:</strong> <span class="math inline">\(\mathcal{S}_\ast = h = 6.626 \times 10^{-34}\,\mathrm{J \cdot s}\)</span></li>
             </ul>
 
             <p>
                 Applying the geometric-collapse form:
-                <span class="math inline">\(G_{\rm struct} = \dfrac{1}{4\pi} \left( \dfrac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}\)</span>
+                <span class="math inline">\(G_{\rm struct} = \dfrac{1}{4\pi} \left( \dfrac{\mathcal{S}_\ast}{\rho \Theta^3} \right)^{1/2}\)</span>
             </p>
 
             <div class="math display">
                 \[
-                \frac{\mathcal{S}_*}{\rho \Theta^3}
+                \frac{\mathcal{S}_\ast}{\rho \Theta^3}
                 = \frac{6.626 \times 10^{-34}}{3.5 \times 10^{17} \cdot (10^6)^3}
                 = \frac{6.626 \times 10^{-34}}{3.5 \times 10^{35}}
                 \approx 1.893 \times 10^{-69}
                 \]
 
                 \[
-                \left( \frac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}
+                \left( \frac{\mathcal{S}_\ast}{\rho \Theta^3} \right)^{1/2}
                 \approx \sqrt{1.893 \times 10^{-69}} \approx 1.376 \times 10^{-34}
                 \]
 
@@ -15879,7 +15879,7 @@ zscore = (median - Xi_crit) / std
             <ul>
                 <li>CODATA 2018: <a href="https://physics.nist.gov/cuu/Constants/">NIST Fundamental Physical Constants</a></li>
                 <li>PSR J0740+6620 parameters: <a href="https://en.wikipedia.org/wiki/PSR_J0740%2B6620">Wikipedia</a>, NICER 2021–2024 observational data</li>
-                <li>Kernel action quantum: <span class="math inline">\( \mathcal{S}_* = h = 6.626 \times 10^{-34}\,\mathrm{J \cdot s} \)</span></li>
+                <li>Kernel action quantum: <span class="math inline">\( \mathcal{S}_\ast = h = 6.626 \times 10^{-34}\,\mathrm{J \cdot s} \)</span></li>
             </ul>
 
             <aside style="font-style: italic; font-size: 10px">
@@ -15902,12 +15902,12 @@ zscore = (median - Xi_crit) / std
                 <tbody>
                     <tr>
                         <td><span class="math inline">\(E_K\)</span></td>
-                        <td><span class="math inline">\(\mathcal{S}_* \Theta\)</span></td>
+                        <td><span class="math inline">\(\mathcal{S}_\ast \Theta\)</span></td>
                         <td><span class="math inline">\(\mathrm{J}\)</span> ✓</td>
                     </tr>
                     <tr>
                         <td><span class="math inline">\(L_K\)</span></td>
-                        <td><span class="math inline">\(\left( \frac{\mathcal{S}_*}{\rho \Theta} \right)^{1/2}\)</span></td>
+                        <td><span class="math inline">\(\left( \frac{\mathcal{S}_\ast}{\rho \Theta} \right)^{1/2}\)</span></td>
                         <td><span class="math inline">\(\mathrm{m}\)</span> ✓</td>
                     </tr>
                     <tr>
@@ -15917,7 +15917,7 @@ zscore = (median - Xi_crit) / std
                     </tr>
                     <tr>
                         <td><span class="math inline">\(G_{\rm struct}\)</span></td>
-                        <td><span class="math inline">\(\frac{1}{4\pi} \left( \frac{\mathcal{S}_*}{\rho \Theta^3} \right)^{1/2}\)</span></td>
+                        <td><span class="math inline">\(\frac{1}{4\pi} \left( \frac{\mathcal{S}_\ast}{\rho \Theta^3} \right)^{1/2}\)</span></td>
                         <td><span class="math inline">\(\mathrm{m}^3 \cdot \mathrm{kg}^{-1} \cdot \mathrm{s}^{-2}\)</span> ✓</td>
                     </tr>
                 </tbody>
@@ -16161,7 +16161,7 @@ zscore = (median - Xi_crit) / std
 
             <p>
                 To refine kernel-derived constants without altering the base triad
-                <span class="math inline">\((\mathcal{S}_*, \Theta, \rho)\)</span>,
+                <span class="math inline">\((\mathcal{S}_\ast, \Theta, \rho)\)</span>,
                 three correction mechanisms are applied:
             </p>
 
@@ -16198,7 +16198,7 @@ zscore = (median - Xi_crit) / std
                     \begin{align*}
                     k_{B,\text{corr}} &= \frac{E_K^{(2)} \cdot n_K}{T_c'}
                     \approx 1.38 \times 10^{-23}\,\text{J/K} \\
-                    G_{\text{corr}} &= \frac{\mathcal{S}_* \cdot \Theta^2}{\rho'}
+                    G_{\text{corr}} &= \frac{\mathcal{S}_\ast \cdot \Theta^2}{\rho'}
                     \approx 6.68 \times 10^{-11}\,\text{m}^3/\text{kg}/\text{s}^2
                     \end{align*}
                 </div>
@@ -19506,8 +19506,8 @@ zscore = (median - Xi_crit) / std
 
 					<tr>
 						<td><strong>Action quantum</strong></td>
-						<td>Weight <span class="math inline">\( \exp\!\big(i\,S[\gamma] / \mathcal{S}_* \big) \)</span></td>
-						<td><span class="math inline">\( \mathcal{S}_* \)</span> <span class="math inline">\( \mathrm{J\,s} \)</span> ensures phase dimensionless.</td>
+						<td>Weight <span class="math inline">\( \exp\!\big(i\,S[\gamma] / \mathcal{S}_\ast \big) \)</span></td>
+						<td><span class="math inline">\( \mathcal{S}_\ast \)</span> <span class="math inline">\( \mathrm{J\,s} \)</span> ensures phase dimensionless.</td>
 						<td>Anchor: interference calibration. Falsify if phase non–unitless.</td>
 					</tr>
 
@@ -19670,7 +19670,7 @@ zscore = (median - Xi_crit) / std
 							The effective orbital mass is inferred from the system’s synchrony (mean motion)
 							and holonomic phase closure, linking frequency and action as:
 							<span class="math inline">
-								\( m_{\mathrm{orb}} = \dfrac{\mathcal{S}_*\,\nu_{\mathrm{sync}}}{c^2} \)
+								\( m_{\mathrm{orb}} = \dfrac{\mathcal{S}_\ast\,\nu_{\mathrm{sync}}}{c^2} \)
 							</span>,
 							or equivalently from kernel scaling
 							<span class="math inline">
@@ -19859,7 +19859,7 @@ zscore = (median - Xi_crit) / std
 				<li>
 					<strong>Aliases:</strong>
 					<span class="math inline">\( \Phi \Leftrightarrow \)</span> geometric/topological modulation factor;
-					<span class="math inline">\( m_{\mathrm{orb}} \Leftrightarrow \mathcal{S}_* \nu_{\mathrm{sync}} / c^2 \)</span> (orbital mass from synchrony);
+					<span class="math inline">\( m_{\mathrm{orb}} \Leftrightarrow \mathcal{S}_\ast \nu_{\mathrm{sync}} / c^2 \)</span> (orbital mass from synchrony);
 					tuning density <span class="math inline">\( \rho \)</span> \(\Leftrightarrow\) impedance density <span class="math inline">\( \rho_K \)</span>;
 					coherence length <span class="math inline">\( L_Z \)</span> \(\Leftrightarrow\) kernel length <span class="math inline">\( L_K \)</span>.
 				</li>
@@ -19937,7 +19937,7 @@ zscore = (median - Xi_crit) / std
 			<ul>
 				<li><span class="math inline">\( \rho_\Phi/\rho_S \Leftrightarrow \mu_0 \)</span> (vacuum permeability)</li>
 				<li>Synchrony frequency ↔ inertial mass (orbital closure)</li>
-				<li><span class="math inline">\( \mathcal{S}_* \Leftrightarrow h \)</span> (action quantum ↔ Planck constant)</li>
+				<li><span class="math inline">\( \mathcal{S}_\ast \Leftrightarrow h \)</span> (action quantum ↔ Planck constant)</li>
 			</ul>
 
 			<!-- NORMALIZATION BRIDGES -->
