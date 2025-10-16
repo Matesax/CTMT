@@ -5954,122 +5954,245 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h3 id="sec-50-orbital-mechanics_1">Strong Field Modulation Law</h3>
 
-            <figure class="equation" id="eq-13_19">
-                <div class="math display">
+			<p>
+				Begin from the kernel energy density principle that relates energy to collapse rhythm, coherence tessellation, and holonomy:
+			</p>
+			<figure class="equation" id="eq-13_19">
+				<div class="math display">
 
 
-                    \[
-                    E_{\mathrm{kernel}} = \Phi_{\varphi}\;(\hbar \gamma_{\mathrm{eff}})\;N_{\mathrm{cells}}^{\mathrm{inst}}\;\mathcal{G}_{\mathrm{coh}}
-                    \]
+					\[
+					E_{\mathrm{kernel}} = \Phi_{\varphi}\;(\hbar \gamma_{\mathrm{eff}})\;N_{\mathrm{cells}}^{\mathrm{inst}}\;\mathcal{G}_{\mathrm{coh}},
+					\quad
+					N_{\mathrm{cells}}^{\mathrm{inst}}=\frac{V}{V_{\mathrm{coh}}},\quad
+					V_{\mathrm{coh}}=\lambda_{\mathrm{coh}}^{3}.
+					\]
 
 
-                </div>
-                <figcaption><a href="#eq-13_19">Equation (13.19)</a></figcaption>
-            </figure>
+				</div>
+				<figcaption><a href="#eq-13_19">Equation (13.19)</a></figcaption>
+			</figure>
 
-            <p>
-                The kernel energy is expressed in general form with:
-            </p>
-            <ul>
-                <li><span class="math inline">\(\Phi_{\varphi}\)</span> — holonomy factor (dimensionless)</li>
-                <li><span class="math inline">\(\gamma_{\mathrm{eff}}\)</span> — effective collapse rhythm (s⁻¹)</li>
-                <li><span class="math inline">\(N_{\mathrm{cells}}^{\mathrm{inst}} = V / V_{\mathrm{coh}}\)</span> — coherence cell count (dimensionless)</li>
-                <li><span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span> — cross-shell coherence gain (dimensionless)</li>
-            </ul>
-
-            <figure class="equation" id="eq-13_20">
-                <div class="math display">
+			<p>
+				In the strong‑field limit, coherence cells shrink and phase transport saturates. The asymptotic modulation anchors are:
+			</p>
+			<figure class="equation" id="eq-13_20">
+				<div class="math display">
 
 
-                    \[
-                    \gamma_{\mathrm{eff}} \to \infty,\quad \lambda_{\mathrm{coh}} \to 0,\quad
-                    N_{\mathrm{cells}}^{\mathrm{inst}} \to \infty,\quad
-                    \mathcal{G}_{\mathrm{coh}} \to 1,\quad
-                    \Phi_{\varphi} \to 2\pi
-                    \]
+					\[
+					\gamma_{\mathrm{eff}}\to\infty,\quad
+					\lambda_{\mathrm{coh}}\to 0,\quad
+					N_{\mathrm{cells}}^{\mathrm{inst}}\to \frac{V}{\lambda_{\mathrm{coh}}^{3}}\to\infty,\quad
+					\mathcal{G}_{\mathrm{coh}}\to 1,\quad
+					\Phi_{\varphi}\to 2\pi.
+					\]
 
 
-                </div>
-                <figcaption><a href="#eq-13_20">Equation (13.20)</a></figcaption>
-            </figure>
+				</div>
+				<figcaption><a href="#eq-13_20">Equation (13.20)</a></figcaption>
+			</figure>
 
-            <p>
-                In strong-field limits, the kernel law reduces to:
-            </p>
-
-            <figure class="equation" id="eq-13_21">
-                <div class="math display">
-
-
-                    \[
-                    E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi \, (\hbar \gamma_{\mathrm{eff}})\, \frac{V}{\lambda_{\mathrm{coh}}^{3}}
-                    \]
+			<p>
+				Substituting these limits yields the strong‑field kernel energy:
+			</p>
+			<figure class="equation" id="eq-13_21">
+				<div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-13_21">Equation (13.21)</a></figcaption>
-            </figure>
-
-            <p>
-                Using <span class="math inline">\(\gamma_{\mathrm{eff}} \sim v_{\mathrm{sync}} / \lambda_{\mathrm{coh}}\)</span>, we obtain:
-            </p>
-
-            <figure class="equation" id="eq-13_22">
-                <div class="math display">
+					\[
+					E_{\mathrm{kernel}}^{\mathrm{strong}}
+					\sim 2\pi \, (\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}.
+					\]
 
 
-                    \[
-                    \boxed{E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}}
-                    \]
+				</div>
+				<figcaption><a href="#eq-13_21">Equation (13.21)</a></figcaption>
+			</figure>
+
+			<p>
+				The synchrony bridge closes the form by linking effective collapse rhythm to transport velocity over the coherence length:
+			</p>
+			<figure class="equation" id="eq-13_22">
+				<div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-13_22">Equation (13.22)</a></figcaption>
-            </figure>
-
-            <h4>Dimensional Analysis</h4>
-            <p>
-                <span class="math inline">\(\hbar\)</span> has units J·s,
-                <span class="math inline">\(v_{\mathrm{sync}}\)</span> has units m/s,
-                <span class="math inline">\(V\)</span> has units m³,
-                <span class="math inline">\(\lambda_{\mathrm{coh}}^{-4}\)</span> has units m⁻⁴.
-            </p>
-
-            <figure class="equation" id="eq-13_23">
-                <div class="math display">
+					\[
+					\gamma_{\mathrm{eff}} \sim \frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}}
+					\quad\Rightarrow\quad
+					\boxed{E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}}.
+					\]
 
 
-                    \[
-                    [\hbar v_{\mathrm{sync}} V / \lambda_{\mathrm{coh}}^{4}] = (\text{J·s})(m/s)(m^{3})(m^{-4}) = \text{J}
-                    \]
+				</div>
+				<figcaption><a href="#eq-13_22">Equation (13.22)</a></figcaption>
+			</figure>
+
+			<h4>Dimensional closure</h4>
+
+			<p>
+				<strong>Units check:</strong>
 
 
-                </div>
-                <figcaption><a href="#eq-13_23">Equation (13.23)</a></figcaption>
-            </figure>
+				\[
+				[\hbar v_{\mathrm{sync}} V / \lambda_{\mathrm{coh}}^{4}]
+				= (\mathrm{J\cdot s})(\mathrm{m/s})(\mathrm{m^{3}})(\mathrm{m^{-4}}) = \mathrm{J}.
+				\]
 
-            <p>
-                Thus, the strong-field kernel law is dimensionally valid.
-            </p>
 
-            <h4>Clarifying Assumptions</h4>
-            <ul>
-                <li><strong>Stationarity</strong>: coherence properties are approximately constant over a window <span class="math inline">\(\Delta t\)</span> much shorter than dynamical evolution timescales.</li>
-                <li><strong>Isotropy</strong>: coherence cells are treated as isotropic volumes with characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>.</li>
-                <li><strong>Shell geometry</strong>: <span class="math inline">\(V\)</span> is taken as a bounded shell volume or effective coherence region; boundary choice influences scaling but not the <span class="math inline">\(\lambda_{\mathrm{coh}}^{-4}\)</span> dependence.</li>
-                <li><strong>Synchrony velocity</strong>: <span class="math inline">\(v_{\mathrm{sync}}\)</span> is bounded by the characteristic medium velocity (e.g. Alfvén speed in plasma, <span class="math inline">\(c\)</span> for photons).</li>
-            </ul>
+			</p>
+			<p>
+				<strong>Interpretation:</strong> energy scales with synchrony‑mediated phase transport across an increasingly fine coherence tessellation; the <span class="math inline">\(\lambda_{\mathrm{coh}}^{-4}\)</span> dependence reflects density of cells times rhythm‑length coupling.
+			</p>
 
-            <h4>Validation Pathways</h4>
-            <p>
-                The strong-field kernel law can be tested with current astrophysical datasets:
-            </p>
-            <ul>
-                <li><strong>Neutron stars</strong>: NICER (NASA) and XMM-Newton constrain surface compactness, allowing estimation of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from X-ray burst spectra.</li>
-                <li><strong>Black holes</strong>: Event Horizon Telescope (EHT) provides coherence-scale imaging, enabling inference of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> near horizon structures.</li>
-                <li><strong>Solar plasma</strong>: Parker Solar Probe and Solar Orbiter yield direct <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> and <span class="math inline">\(v_{\mathrm{sync}}\)</span> from Alfvénic turbulence.</li>
-                <li><strong>Orbital systems</strong>: JPL Solar System Dynamics datasets constrain <span class="math inline">\(V\)</span> and synchrony parameters for weak-field benchmarks (e.g. Earth–Sun binding energy).</li>
-            </ul>
+			<h4>Clarifying assumptions</h4>
+			<ul>
+				<li><strong>Stationarity window:</strong> parameters are locally constant over <span class="math inline">\(\Delta t\)</span> shorter than dynamical evolution, enabling asymptotic evaluation.</li>
+				<li><strong>Isotropic coherence cells:</strong> characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> defines cubic coherence volume <span class="math inline">\(\lambda_{\mathrm{coh}}^{3}\)</span>; anisotropy can be included as an effective geometric factor absorbed into <span class="math inline">\(\Phi_{\varphi}\)</span> or <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span>.</li>
+				<li><strong>Synchrony velocity bounds:</strong> <span class="math inline">\(v_{\mathrm{sync}}\leq v_{\max}\)</span>, with <span class="math inline">\(v_{\max}\)</span> given by the medium’s invariant speed (e.g., Alfvén speed for magnetized plasma, <span class="math inline">\(c\)</span> for photon‑dominated transport).</li>
+				<li><strong>Holonomy saturation:</strong> strong curvature/phase winding drives <span class="math inline">\(\Phi_{\varphi}\to 2\pi\)</span>, i.e., closed holonomy cycles per coherence cell.</li>
+			</ul>
+
+			<h4>Measurement protocols</h4>
+			<ul>
+				<li><strong>Coherence length:</strong> infer <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from spectral coherence, interferometric visibility, or turbulence correlation scales; near horizons, use feature scales (ring/spot) as coherence proxies.</li>
+				<li><strong>Synchrony velocity:</strong> estimate <span class="math inline">\(v_{\mathrm{sync}}\)</span> from phase transport rates (cross‑correlation lag/lead across baselines), or from characteristic propagation speeds (Alfvénic, acoustic, radiative).</li>
+				<li><strong>Effective volume:</strong> define <span class="math inline">\(V\)</span> as the bounded region with coherent phase structure (shells, annuli, magnetospheric lobes), using imaging or model geometries; propagate geometric uncertainty.</li>
+				<li><strong>Holonomy/coherence gain:</strong> compute <span class="math inline">\(\Phi_{\varphi}\)</span> via phase winding integrals over loops; measure <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span> from cross‑shell alignment metrics (e.g., coherence gain factors from matched filtering).</li>
+			</ul>
+
+			<h4>Falsifiability protocol</h4>
+			<ul>
+				<li>
+					<strong>Model prediction:</strong>
+
+
+					\[
+					E_{\mathrm{kernel}}^{\mathrm{model}} = \Phi_{\varphi}\,(\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}\,\mathcal{G}_{\mathrm{coh}}
+					\quad\text{or}\quad
+					2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}
+					\;\text{(strong limit)}.
+					\]
+
+
+				</li>
+				<li><strong>Observed comparator:</strong> use gravitational binding estimates, radiative budgets, or dynamical energy in the same region; denote <span class="math inline">\(E^{\mathrm{obs}}\)</span>.</li>
+				<li>
+					<strong>Error propagation:</strong> treat inputs as independent to first order:
+
+
+					\[
+					\sigma_{E}^{2}
+					= \left(\frac{\partial E}{\partial v_{\mathrm{sync}}}\sigma_{v}\right)^{2}
+					+ \left(\frac{\partial E}{\partial V}\sigma_{V}\right)^{2}
+					+ \left(\frac{\partial E}{\partial \lambda_{\mathrm{coh}}}\sigma_{\lambda}\right)^{2}
+					+ \cdots,
+					\]
+
+
+					with
+
+
+					\[
+					\frac{\partial E}{\partial v_{\mathrm{sync}}} = 2\pi\hbar\,\frac{V}{\lambda_{\mathrm{coh}}^{4}},\quad
+					\frac{\partial E}{\partial V} = 2\pi\hbar\,\frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}^{4}},\quad
+					\frac{\partial E}{\partial \lambda_{\mathrm{coh}}} = -8\pi\hbar\,v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{5}}.
+					\]
+
+
+				</li>
+				<li>
+					<strong>Decision rule:</strong> accept if
+
+
+					\[
+					|E^{\mathrm{obs}} - E^{\mathrm{model}}| \le k\,\sigma_{E}
+					\quad\text{and}\quad
+					\epsilon \equiv \frac{|E^{\mathrm{obs}} - E^{\mathrm{model}}|}{\max(E^{\mathrm{obs}},E^{\mathrm{model}})} \le \epsilon_{\max},
+					\]
+
+
+					with <span class="math inline">\(k\approx 2\)</span> (95% CI) and <span class="math inline">\(\epsilon_{\max}\in[0.05,\,0.20]\)</span> depending on regime.
+				</li>
+				<li><strong>Fail conditions:</strong> systematic excess beyond tolerance across parameter sweeps; non‑physical requirements (<span class="math inline">\(v_{\mathrm{sync}}>v_{\max}\)</span>, <span class="math inline">\(\lambda_{\mathrm{coh}} \le 0\)</span>); dimensional mismatch; or disagreement with the weak‑field bridge (energy derived from orbital law in §50 within same region).</li>
+			</ul>
+
+			<h4>Benchmarks (sanity‑checked)</h4>
+			<ul>
+				<li>
+					<strong>Magnetized solar plasma (strong turbulence):</strong>
+					<span class="math inline">
+
+						\[
+						\lambda_{\mathrm{coh}} \sim 10^{5}\,\mathrm{m},\quad
+						V \sim 10^{18}\,\mathrm{m^{3}},\quad
+						v_{\mathrm{sync}} \sim 10^{6}\,\mathrm{m/s}
+						\Rightarrow
+						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,10^{6}\,\frac{10^{18}}{10^{20}}
+						\approx 6.6\times 10^{-6}\,\mathrm{J},
+						\]
+
+					</span>
+					matching local coherent packet energies rather than bulk coronal budgets.
+				</li>
+				<li>
+					<strong>Neutron‑star magnetosphere (near‑surface):</strong>
+					<span class="math inline">
+
+						\[
+						\lambda_{\mathrm{coh}} \sim 10^{-2}\,\mathrm{m},\quad
+						V \sim 10^{9}\,\mathrm{m^{3}},\quad
+						v_{\mathrm{sync}} \sim c
+						\Rightarrow
+						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{9}}{10^{-8}}
+						\approx 2.1\times 10^{34}\,\mathrm{J},
+						\]
+
+					</span>
+					consistent with coherent energy in magnetospheric emission regions, below total gravitational binding.
+				</li>
+				<li>
+					<strong>Stellar‑mass black‑hole inner flow (coherent ring):</strong>
+					<span class="math inline">
+
+						\[
+						\lambda_{\mathrm{coh}} \sim 10^{3}\,\mathrm{m},\quad
+						V \sim 10^{10}\,\mathrm{m^{3}},\quad
+						v_{\mathrm{sync}} \sim c
+						\Rightarrow
+						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{10}}{10^{12}}
+						\approx 6.6\times 10^{-16}\,\mathrm{J},
+						\]
+
+					</span>
+					per minimal coherence cell ensemble; macroscopic energies require summing over active coherent domains.
+				</li>
+			</ul>
+			<p>
+				Note: benchmarks must match the <em>coherent</em> volume actually participating in strong‑field modulation. Using astronomical bulk volumes will overpredict; use imaging‑ or spectrum‑derived coherence regions for valid comparisons.
+			</p>
+
+			<h4>Validation Pathways</h4>
+			<p>
+				The strong-field kernel law can be tested with current astrophysical datasets:
+			</p>
+			<ul>
+				<li><strong>Neutron stars</strong>: NICER (NASA) and XMM-Newton constrain surface compactness, allowing estimation of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from X-ray burst spectra.</li>
+				<li><strong>Black holes</strong>: Event Horizon Telescope (EHT) provides coherence-scale imaging, enabling inference of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> near horizon structures.</li>
+				<li><strong>Solar plasma</strong>: Parker Solar Probe and Solar Orbiter yield direct <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> and <span class="math inline">\(v_{\mathrm{sync}}\)</span> from Alfvénic turbulence.</li>
+				<li><strong>Orbital systems</strong>: JPL Solar System Dynamics datasets constrain <span class="math inline">\(V\)</span> and synchrony parameters for weak-field benchmarks (e.g. Earth–Sun binding energy).</li>
+			</ul>
+
+			<h4>Bridge to weak‑field and orbital regimes</h4>
+			<ul>
+				<li><strong>Weak‑field limit:</strong> as <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> grows and <span class="math inline">\(\gamma_{\mathrm{eff}}\)</span> decreases, the law reduces toward energy densities governed by orbital curvature and dissipation (cf. §50, Eq. 13.6).</li>
+				<li><strong>Consistency check:</strong> energy integrated over coherent shells should not exceed gravitational binding estimates; discrepancies indicate misestimated <span class="math inline">\(V\)</span> or <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, or violation of <span class="math inline">\(v_{\mathrm{sync}}\le v_{\max}\)</span>.</li>
+			</ul>
+
+			<h4>Conclusion</h4>
+			<p>
+				The strong‑field modulation law is derived from kernel energy principles, closes dimensionally, and is falsifiable through measurable coherence scales, synchrony transport, and holonomy. Correct benchmarking requires matching coherent volumes, not bulk astrophysical sizes. With those safeguards, the law provides a rigorous, testable bridge across strong‑ and weak‑field regimes.
+			</p>
 
             <h4>Benchmark Accuracy</h4>
             <figure class="equation" id="eq-13_24">
@@ -6148,7 +6271,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 </tbody>
             </table>
 
-            <h4>Conclusion</h4>
+            <h4>Final Conclusion</h4>
             <p>
                 The strong-field kernel law provides a falsifiable, dimensionally consistent framework across weak-field
                 (Earth–Sun), strong-field (neutron star), and extreme-field (black hole) regimes.
@@ -6189,49 +6312,46 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <ul>
-                <li><span class="math inline">\(R\)</span> — observable radius</li>
-                <li><span class="math inline">\(\mu m_p\)</span> — mean particle mass (for solids replace by <span class="math inline">\(m_u\langle A\rangle\)</span>)</li>
-                <li><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> — coherence length (regime-dependent microscopic coupling scale)</li>
-                <li><span class="math inline">\(f_{\mathrm{pack}}\)</span> — packing fraction (bulk/grain density; \(\lesssim 1\); for plasmas \(\approx 1\))</li>
-                <li><span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span> with \(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\) — cohesion map (monotone)</li>
-                <li><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span> — MHD/coherence multiplier (≈1 in non-MHD solids)</li>
-            </ul>
+				<li><span class="math inline">\(R\)</span> — observable radius</li>
+				<li><span class="math inline">\(\mu m_p\)</span> — mean particle mass (for solids replace by <span class="math inline">\(m_u\langle A\rangle\)</span>)</li>
+				<li><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> — coherence length (regime-dependent microscopic coupling scale)</li>
+				<li><span class="math inline">\(f_{\mathrm{pack}}\)</span> — packing fraction (bulk/grain density; <span class="math inline">\(\lesssim 1\)</span>; for plasmas <span class="math inline">\(\approx 1\)</span>)</li>
+				<li><span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span> with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span> — cohesion map (monotone)</li>
+				<li><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span> — MHD/coherence multiplier (≈1 in non-MHD solids)</li>
+			</ul>
 
+			<h4>RMI-Based derivation protocol</h4>
+			<p>
+				In the Chronotopic framework, mass is not a primitive quantity. It emerges from the recursive projection of the kernel impulse across coherence layers. The impulse rhythm defines a coherence length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, which sets the scale at which modulation survives in a given medium. By counting the number of coherence cells within a spatial domain and weighting them by energy retention and packing geometry, we derive a structural mass expression.
+			</p>
 
-            <h4>RMI-Based derivation protocol</h4>
-            <p>
-                In the Chronotopic framework, mass is not a primitive quantity. It emerges from the recursive projection of the kernel impulse across coherence layers. The impulse rhythm defines a coherence length \( \lambda_{\mathrm{coh}} \), which sets the scale at which modulation survives in a given medium. By counting the number of coherence cells within a spatial domain and weighting them by energy retention and packing geometry, we derive a structural mass expression.
-            </p>
+			<h5>Step 1: Kernel impulse projection</h5>
+			<p>
+				The kernel impulse <span class="math inline">\(\Psi(x,t)\)</span> propagates through a medium, sustaining coherence over a characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>. This length is regime-dependent and reflects the microscopic coupling scale (e.g., lattice spacing, Debye length, de Broglie wavelength).
+			</p>
 
-            <h5>Step 1: Kernel impulse projection</h5>
-            <p>
-                The kernel impulse \( \Psi(x,t) \) propagates through a medium, sustaining coherence over a characteristic length \( \lambda_{\mathrm{coh}} \). This length is regime-dependent and reflects the microscopic coupling scale (e.g., lattice spacing, Debye length, de Broglie wavelength).
-            </p>
+			<h5>Step 2: Coherence cell counting</h5>
+			<p>
+				The number of coherence cells in a volume <span class="math inline">\(V = \tfrac{4\pi}{3}R^3\)</span> is:
+			</p>
 
-            <h5>Step 2: Coherence cell counting</h5>
-            <p>
-                The number of coherence cells in a volume \( V = \frac{4\pi}{3}R^3 \) is:
-            </p>
+			<div class="math display">
 
-            <div class="math display">
+				\[
+				N_{\text{cells}} = \frac{V}{\lambda_{\mathrm{coh}}^3}
+				\]
 
+			</div>
 
-                \[
-                N_{\text{cells}} = \frac{V}{\lambda_{\mathrm{coh}}^3}
-                \]
+			<h5>Step 3: Mass per cell</h5>
+			<p>
+				Each coherence cell contributes a mean particle mass <span class="math inline">\(\mu m_p\)</span>, adjusted by the packing fraction <span class="math inline">\(f_{\mathrm{pack}}\)</span> to account for bulk density. The cohesion map <span class="math inline">\(C(\chi) = \tfrac{\chi}{1+\chi}\)</span> weights the contribution based on the ratio of retained to dissipated energy.
+			</p>
 
-
-            </div>
-
-            <h5>Step 3: Mass per cell</h5>
-            <p>
-                Each coherence cell contributes a mean particle mass \( \mu m_p \), adjusted by the packing fraction \( f_{\mathrm{pack}} \) to account for bulk density. The cohesion map \( C(\chi) = \frac{\chi}{1+\chi} \) weights the contribution based on the ratio of retained to dissipated energy.
-            </p>
-
-            <h5>Step 4: MHD and structural modulation</h5>
-            <p>
-                In magnetized or rotating systems, coherence is further modulated by a structural multiplier \( \mathcal{M}(R_m,\alpha) \), which accounts for magnetic Reynolds number and alignment angle. In non-MHD solids, this factor is approximately unity.
-            </p>
+			<h5>Step 4: MHD and structural modulation</h5>
+			<p>
+				In magnetized or rotating systems, coherence is further modulated by a structural multiplier <span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span>, which accounts for magnetic Reynolds number and alignment angle. In non-MHD solids, this factor is approximately unity.
+			</p>
 
             <h4>Final expression</h4>
             <p>
@@ -6256,19 +6376,78 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 </div>
                 <figcaption>Equation (13.52): Unified Structural Mass Law</figcaption>
             </figure>
+            <p>
+                An expressive form:
+            </p>
+			<span class="math display">
+				\[
+				\boxed{%
+				M \;=\; N_{\text{cells}} \;\times\; (\mu m_p) \;\times\; f_{\mathrm{pack}} \;\times\; C(\chi) \;\times\; \mathcal{M}(R_m,\alpha)
+				}
+				\]
+
+				\[
+				N_{\text{cells}} \;=\; \frac{4\pi R^3}{3\,\lambda_{\mathrm{coh}}^{3}}
+				\]
+			</span>
 
             <p><strong>Unit check:</strong></p>
             <div class="math display">
-
 
                 \[
                 [M] = \mathrm{m^3} \cdot \frac{\mathrm{kg}}{\mathrm{m^3}} \cdot 1 \cdot 1 \cdot 1 = \mathrm{kg}
                 \]
 
-
             </div>
 
-            <h4>Tier Protocol for Selecting \(\lambda_{\mathrm{coh}}\)</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Meaning</th>
+						<th>Units</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(R\)</span></td>
+						<td>Observable radius</td>
+						<td>m</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mu m_p\)</span></td>
+						<td>Mean particle mass (for solids use <span class="math inline">\(m_u\langle A\rangle\)</span>)</td>
+						<td>kg</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span></td>
+						<td>Coherence length (microscopic coupling scale)</td>
+						<td>m</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(f_{\mathrm{pack}}\)</span></td>
+						<td>Packing fraction (bulk/grain density factor)</td>
+						<td>dimensionless</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(C(\chi)\)</span></td>
+						<td>Cohesion map, <span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span>, with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span></td>
+						<td>dimensionless</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span></td>
+						<td>MHD/coherence multiplier (≈1 in non‑MHD solids)</td>
+						<td>dimensionless</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(N_{\text{cells}}\)</span></td>
+						<td>Number of coherence cells in volume</td>
+						<td>dimensionless</td>
+					</tr>
+				</tbody>
+			</table>
+
+            <h4>Tier Protocol for Selecting <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span></h4>
 
             <table>
                 <thead>
