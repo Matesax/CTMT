@@ -3989,204 +3989,253 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
         </h2>
         <article style="display:none">
 
-            <p>
-                Acceleration in the kernel framework is not a primitive spacetime derivative. It emerges as a structural response
-                of synchrony and collapse rhythms to curvature and density. This section derives the acceleration law directly
-                from the standard kernel forms and connects it to the Orbital Mechanics law (§50) and quantum measurement protocols.
-                Nothing is assumed; each step closes dimensionally and is anchored to observables.
-            </p>
+			<p>
+				Acceleration in the kernel framework is not a primitive spacetime derivative
+				but an emergent structural response of synchrony and collapse rhythms to phase
+				curvature, density, and shape-factor modulation.
+				Below we derive acceleration both from (A) curvature-driven deformation of the kernel group velocity
+				and (B) collapse/density modulation — two complementary regimes of the same kernel physics.
+			</p>
 
-            <h4>Structural derivation from kernel energy and synchrony</h4>
-            <p>
-                Begin with the kernel energy density law:
-                <span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>,
-                where <span class="math inline">\( \Phi \)</span> is dimensionless geometric–coupling,
-                <span class="math inline">\( \gamma \)</span> collapse rhythm [s\(^{-1}\)],
-                <span class="math inline">\( \rho \)</span> tuning density [kg/m\(^3\)] or [m\(^{-1}\)] by regime,
-                and <span class="math inline">\( L_Z \)</span> coherence length [m].
-                Synchrony velocity is
-                <span class="math inline">\( v_{\text{sync}} = M_1\,\Theta \)</span> with mean hop length
-                <span class="math inline">\( M_1 \)</span> [m] and synchrony frequency
-                <span class="math inline">\( \Theta \)</span> [s\(^{-1}\)].
-            </p>
+			<h4>Primary kernel statement (start point)</h4>
+			<p>
+				The self-referential kernel integral that generates propagation and modulation is:
+				<span class="math inline">\( K(x,x') = \int_{\Omega_\omega} M[\omega,\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)}\,d\omega \)</span>.
+			</p>
+			<p>
+				Here <span class="math inline">\(M[\cdot]\)</span> carries amplitude, damping, and local spectral weights;
+				<span class="math inline">\(\Phi(x,x';\omega)\)</span> is the kernel phase (encoding spatial curvature, shape, and synchrony);
+				and the phase gradient defines a local propagation vector
+				<span class="math inline">\(\vec{k}(x,\omega) = \nabla_x \Phi(x,x';\omega)\)</span>.
+			</p>
 
-            <figure class="equation" id="eq-9_1">
-                <div class="math display">
+			<h4>Group / synchrony velocity as kernel observable</h4>
+			<p>
+				The local synchrony (group) velocity follows from the dispersion encoded by the kernel phase:
+				<span class="math inline">\( v_{\mathrm{sync}}(x,\omega) = \frac{\partial \omega}{\partial k} \approx M_1(x)\,\Theta(x) \)</span>,
+				where <span class="math inline">\(M_1\)</span> is the mean hop length <span class="math inline">\(\mathrm{m}\)</span> from the spatial envelope of the kernel trace and
+				<span class="math inline">\(\Theta\)</span> the dominant synchrony frequency <span class="math inline">\(\mathrm{s^{-1}}\)</span>.
+				This makes velocity a directly measurable kernel quantity.
+			</p>
 
-
-                    \[
-                    a_{\text{kernel}}
-                    = \frac{d v_{\text{sync}}}{dS}
-                    = \frac{d(M_1\,\Theta)}{dS}
-                    = M_1\,\frac{d\Theta}{dS} + \Theta\,\frac{dM_1}{dS}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-9_1">Equation (9.1)</a></figcaption>
-            </figure>
-
-            <p>
-                The curvature shape factor <span class="math inline">\( S \)</span> is dimensionless, so derivatives with respect to
-                <span class="math inline">\( S \)</span> preserve units. Alternatively, using the collapse form:
-            </p>
-
-            <figure class="equation" id="eq-9_2">
-                <div class="math display">
+			<h4>(A) Curvature-driven (shape-factor) acceleration — differential form</h4>
+			<figure class="equation" id="eq-9_1">
+				<div class="math display">
 
 
-                    \[
-                    a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho}
-                    \quad \text{with} \quad
-                    [a_{\text{kernel}}] = \frac{\mathrm{s^{-1}}}{\mathrm{m^{-1}}} = \mathrm{m\,s^{-2}}.
-                    \]
+					\[
+					a_{\mathrm{kernel}}(x)
+					= \frac{d v_{\mathrm{sync}}}{dS}
+					= M_1\,\frac{d\Theta}{dS} + \Theta\,\frac{dM_1}{dS}
+					\]
 
 
-                </div>
-                <figcaption><a href="#eq-9_2">Equation (9.2)</a></figcaption>
-            </figure>
+				</div>
+				<figcaption><a href="#eq-9_1">Equation (9.1)</a> — curvature-driven kernel acceleration.</figcaption>
+			</figure>
 
-            <p>
-                Thus, both synchrony‑curvature and density‑collapse routes recover SI acceleration.
-                No free parameters are introduced; all symbols are kernel observables or dimensionless factors.
-            </p>
+			<p>
+				The curvature coordinate <span class="math inline">\(S\)</span> is defined from the phase field;
+				a convenient, dimensionless proxy is
+				<span class="math inline">\( S(x) = |\nabla_x^2\Phi| / |\nabla_x\Phi| \)</span>,
+				measuring local curvature per unit phase gradient.
+				The shape factor <span class="math inline">\(\Phi\)</span> (synchrony potential / geometric coupling)
+				enters through dependencies <span class="math inline">\(\Theta=\Theta(S,\Phi,\ldots)\)</span>
+				and <span class="math inline">\(M_1=M_1(S,\Phi,\ldots)\)</span>.
+			</p>
 
-            <h4>Bridge to Orbital Mechanics</h4>
-            <p>
-                The Orbital Mechanics law defines gravitational acceleration structurally by curvature, dissipation, and synchrony drift:
-            </p>
-
-            <figure class="equation" id="eq-9_3">
-                <div class="math display">
-
-
-                    \[
-                    \boxed{
-                    a_{\rm grav}(r,t) = \frac{c^{2}\,\Phi(r,t)}{R(t)} + \frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)} + \frac{\partial u(r,t)}{\partial t}
-                    }
-                    \]
+			<h4>Small-perturbation expansion (secondary derivation)</h4>
+			<p>
+				Expanding around a background state <span class="math inline">\(S_0,\Phi_0\)</span>:
+			</p>
+			<div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-9_3">Equation (9.3)</a></figcaption>
-            </figure>
-
-            <p>
-                Identify the synchrony drift with the kernel synchrony velocity:
-                <span class="math inline">\( u(r,t) \equiv v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>.
-                Then the drift term becomes
-                <span class="math inline">\( \partial_t u = \partial_t(M_1 \Theta) \)</span>, while the curvature term
-                <span class="math inline">\( c^2 \Phi / R \)</span> and dissipation term
-                <span class="math inline">\( \mathcal{E}_{\rm diss}/R \)</span> act as modulation sources for
-                <span class="math inline">\( \Theta(S) \)</span> and <span class="math inline">\( \gamma(\rho) \)</span>.
-                Taking a variation along the curvature coordinate yields:
-            </p>
-
-            <figure class="equation" id="eq-9_4">
-                <div class="math display">
+				\[
+				\frac{d\Theta}{dS}
+				= \frac{\partial\Theta}{\partial\Phi}\frac{d\Phi}{dS}
+				+ \frac{\partial\Theta}{\partial S}, \qquad
+				\frac{dM_1}{dS}
+				= \frac{\partial M_1}{\partial\Phi}\frac{d\Phi}{dS}
+				+ \frac{\partial M_1}{\partial S}.
+				\]
 
 
-                    \[
-                    a_{\text{kernel}}
-                    = \frac{d(M_1 \Theta)}{dS}
-                    \approx \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{c^2 \Phi}{R} \right)
-                    + \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\mathcal{E}_{\rm diss}}{R} \right)
-                    + \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\partial u}{\partial t} \right).
-                    \]
+			</div>
+			<p>
+				Substituting into <a href="#eq-9_1">Eq. 9.1</a> shows explicitly how
+				the shape factor <span class="math inline">\(\Phi\)</span> (orbital bridge) drives acceleration via
+				its spatial gradient <span class="math inline">\(d\Phi/dS\)</span>.
+			</p>
+
+			<h4>Linear-regime close form (useful for orbital scaling)</h4>
+			<figure class="equation" id="eq-9_6">
+				<div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-9_4">Equation (9.4)</a></figcaption>
-            </figure>
-
-            <p>
-                Since <span class="math inline">\( S \)</span> is dimensionless, multiplying by the local geometric scale
-                <span class="math inline">\( R/c^2 \)</span> ensures each contribution inherits acceleration units.
-                This shows the kernel acceleration is the curvature‑directional deformation of the orbital law,
-                proving structural equivalence and dimensional closure across the two sections.
-            </p>
-
-            <h4>Quantum connection and collapse measurement</h4>
-            <p>
-                In the quantum regime, acceleration is inferred from collapse linewidths and density gradients:
-                measure <span class="math inline">\( \gamma \)</span> via spectral FWHM and
-                <span class="math inline">\( \rho \)</span> via spectroscopic or spatial density, then compute:
-            </p>
-
-            <figure class="equation" id="eq-9_5">
-                <div class="math display">
+					\[
+					a_{\mathrm{kernel}}
+					\approx
+					M_1 \!\left(\frac{\partial\Theta}{\partial\Phi}\right)\!\frac{d\Phi}{dS}
+					+ \Theta \!\left(\frac{\partial M_1}{\partial\Phi}\right)\!\frac{d\Phi}{dS}
+					\]
 
 
-                    \[
-                    a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho},
-                    \qquad
-                    E = \hbar\,\omega, \quad
-                    E_{\text{kernel}} = \Phi\,\gamma\,\rho\,L_Z^3.
-                    \]
+				</div>
+				<figcaption><a href="#eq-9_6">Equation (9.6)</a> — linearized shape-factor contribution (orbital bridge form).</figcaption>
+			</figure>
+
+			<p>
+				This makes explicit the mapping <span class="math inline">\(\Phi \mapsto a\)</span> used in
+				<a href="#sec-50-orbital-mechanics">the Orbital Mechanics law</a>:
+				curvature and shape-factor gradients act as sources of acceleration
+				weighted by kernel sensitivity coefficients.
+			</p>
+
+			<h4>(B) Collapse/density representation — discrete or strong-damping regime</h4>
+			<figure class="equation" id="eq-9_2">
+				<div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-9_5">Equation (9.5)</a></figcaption>
-            </figure>
+					\[
+					a_{\mathrm{kernel}} = \frac{\Delta\gamma}{\Delta\rho}
+					\]
 
-            <p>
-                The energy identities calibrate <span class="math inline">\( \Phi \)</span> and confirm that the same
-                <span class="math inline">\( \gamma,\rho,L_Z \)</span> tuple governs both spectral and dynamical observables.
-                This enforces cross‑domain consistency with the Energy Law axioms.
-            </p>
 
-            <h4>Measurement protocols</h4>
-            <ul>
-                <li>
-                    <strong>Orbital regime:</strong> Compute <span class="math inline">\( \Phi(r,t) \)</span> from spherical harmonics and energy‑weighted curvature (see §50, Eq. 13.7).
-                    Measure <span class="math inline">\( R(t) \)</span>, dissipation <span class="math inline">\( \mathcal{E}_{\rm diss}(r,t) \)</span>,
-                    and drift <span class="math inline">\( u(r,t)=M_1\Theta \)</span>. Compare
-                    <span class="math inline">\( a_{\rm grav} \)</span> to <span class="math inline">\( a_{\text{kernel}} = d(M_1\Theta)/dS \)</span> along the same path.
-                </li>
-                <li>
-                    <strong>Quantum/collapse regime:</strong> Sweep <span class="math inline">\( \rho \)</span> and record linewidth‑derived
-                    <span class="math inline">\( \gamma \)</span>; compute <span class="math inline">\( a_{\text{kernel}}=\Delta\gamma/\Delta\rho \)</span>.
-                    Cross‑validate with energy mapping <span class="math inline">\( E=\hbar\omega \)</span> and kernel energy
-                    <span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span>.
-                </li>
-                <li>
-                    <strong>Collapse‑curvature media:</strong> In lattice or layered media, modulate curvature
-                    <span class="math inline">\( S \)</span> and measure <span class="math inline">\( \Theta(S) \)</span>, <span class="math inline">\( M_1(S) \)</span>;
-                    evaluate <span class="math inline">\( a_{\text{kernel}}=M_1\,d\Theta/dS+\Theta\,dM_1/dS \)</span>.
-                </li>
-            </ul>
+				</div>
+				<figcaption><a href="#eq-9_2">Equation (9.2)</a> — collapse/density acceleration form.</figcaption>
+			</figure>
 
-            <h4>Dimensional closure</h4>
-            <ul>
-                <li><span class="math inline">\( [v_{\text{sync}}] = [M_1][\Theta] = \mathrm{m}\,\mathrm{s^{-1}} \Rightarrow \mathrm{m\,s^{-1}} \)</span></li>
-                <li><span class="math inline">\( [a_{\text{kernel}}] = [\Delta\gamma]/[\Delta\rho] = \mathrm{s^{-1}}/\mathrm{m^{-1}} = \mathrm{m\,s^{-2}} \)</span></li>
-                <li><span class="math inline">\( [c^{2}\Phi/R] = \mathrm{(m^2\,s^{-2})}\cdot 1 / \mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
-                <li><span class="math inline">\( [\mathcal{E}_{\rm diss}/R] = \mathrm{(J\,kg^{-1})}/\mathrm{m} = \mathrm{(m^2\,s^{-2})}/\mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
-                <li><span class="math inline">\( [\partial_t u] = \mathrm{m\,s^{-2}} \)</span></li>
-                <li>All routes reduce to SI acceleration; no hidden units or constants remain.</li>
-            </ul>
+			<ul>
+				<li>If <span class="math inline">\(\rho\)</span> is coherence per length (<span class="math inline">\(\mathrm{m^{-1}}\)</span>), then <span class="math inline">\(\Delta\gamma/\Delta\rho\)</span> has units <span class="math inline">\(\mathrm{m\,s^{-2}}\)</span>.</li>
+				<li>If <span class="math inline">\(\rho\)</span> is a mass/tuning density (<span class="math inline">\(\mathrm{kg\,m^{-3}}\)</span>), apply the appropriate mass-to-length conversion.</li>
+				<li>Operationally, <span class="math inline">\(\Delta\gamma\)</span> and <span class="math inline">\(\Delta\rho\)</span> are increments across neighboring layers or modulation states.</li>
+			</ul>
+			<h4>Observable mapping (measurement anchors)</h4>
+			<ul>
+				<li><span class="math inline">\(M_1\)</span> ↔ spatial envelope width / hop length (<span class="math inline">\(\mathrm{m}\)</span>)</li>
+				<li><span class="math inline">\(\Theta\)</span> ↔ dominant modulation frequency (<span class="math inline">\(\mathrm{s^{-1}}\)</span>)</li>
+				<li><span class="math inline">\(\gamma\)</span> ↔ collapse decay rate (<span class="math inline">\(\mathrm{s^{-1}}\)</span>)</li>
+				<li><span class="math inline">\(\rho\)</span> ↔ coherence density (<span class="math inline">\(\mathrm{m^{-1}}\)</span> or <span class="math inline">\(\mathrm{kg\,m^{-3}}\)</span>)</li>
+				<li><span class="math inline">\(\Phi\)</span> ↔ synchrony potential or curvature-coupling factor</li>
+			</ul>
 
-            <h4>Falsifiability criteria</h4>
-            <ul>
-                <li>
-                    <strong>Cross‑route consistency:</strong> If <span class="math inline">\( a_{\text{kernel}} \)</span> from
-                    <span class="math inline">\( d(M_1\Theta)/dS \)</span> disagrees systematically with
-                    <span class="math inline">\( \Delta\gamma/\Delta\rho \)</span> beyond propagated uncertainty, the axiom fails.
-                </li>
-                <li>
-                    <strong>Orbital closure:</strong> If curvature/dissipation/drift measurements (Eq. 13.6) cannot reproduce
-                    <span class="math inline">\( a_{\rm grav} \)</span> within acceptance bands, the bridge to §50 is falsified.
-                </li>
-                <li>
-                    <strong>Dimensional parity:</strong> Any failure to yield <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span>
-                    invalidates the formulation.
-                </li>
-                <li>
-                    <strong>Energy linkage:</strong> If energy mappings <span class="math inline">\( E=\hbar\omega \)</span> and
-                    <span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span> cannot be jointly satisfied with the measured
-                    <span class="math inline">\( \gamma,\rho,L_Z \)</span>, the kernel acceleration law is rejected.
-                </li>
-            </ul>
+			<h4>Dimensional check</h4>
+			<p>
+				Both forms return SI acceleration:
+				<span class="math inline">\([M_1]=\mathrm{m},\,[\Theta]=\mathrm{s^{-1}},\,[S]=1 \Rightarrow [a_{\mathrm{kernel}}]=\mathrm{m\,s^{-2}}\)</span>;
+				for the collapse form <span class="math inline">\([\Delta\gamma/\Delta\rho]=\mathrm{m\,s^{-2}}\)</span>.
+			</p>
+
+			<h4>Uncertainty propagation</h4>
+			<p><strong>Curvature form (Eq. <a href="#eq-9_1">9.1</a>):</strong></p>
+			<div class="math display">
+
+
+				\[
+				\sigma_{a}^2
+				= \left(M_1\frac{d\Theta}{dS}\right)^2\sigma_S^2
+				+ \left(\Theta\frac{dM_1}{dS}\right)^2\sigma_S^2
+				+ 2\,\mathrm{Cov}\!\left(M_1\frac{d\Theta}{dS},
+				\Theta\frac{dM_1}{dS}\right)
+				\]
+
+
+			</div>
+
+			<p><strong>Collapse form (Eq. <a href="#eq-9_2">9.2</a>):</strong></p>
+			<div class="math display">
+
+
+				\[
+				\sigma_a^2
+				= \left(\frac{1}{\Delta\rho}\right)^2\sigma_{\Delta\gamma}^2
+				+ \left(\frac{\Delta\gamma}{\Delta\rho^2}\right)^2\sigma_{\Delta\rho}^2
+				- 2\frac{\Delta\gamma}{\Delta\rho^3}\,
+				\mathrm{Cov}(\Delta\gamma,\Delta\rho)
+				\]
+
+
+			</div>
+
+			<h4>Bridge to Orbital Mechanics (explicit link to shape factor)</h4>
+			<figure class="equation" id="eq-9_4">
+				<div class="math display">
+
+
+					\[
+					a_{\mathrm{kernel}}
+					\approx
+					\frac{R}{c^2}\frac{d}{dS}\!\left(\frac{c^2\Phi}{R}\right)
+					+ \frac{R}{c^2}\frac{d}{dS}\!\left(\frac{\mathcal{E}_{\rm diss}}{R}\right)
+					+ \frac{R}{c^2}\frac{d}{dS}\!\left(\frac{\partial u}{\partial t}\right)
+					\]
+
+
+				</div>
+				<figcaption><a href="#eq-9_4">Equation (9.4)</a> — curvature-derivative representation of orbital sources.</figcaption>
+			</figure>
+
+			<p>
+				Multiplying each orbital source term by <span class="math inline">\(R/c^2\)</span> restores acceleration units
+				and reveals how curvature, dissipation, and synchrony drift
+				act as kernel acceleration sources.
+				The linearized <a href="#eq-9_6">Eq. 9.6</a> provides the explicit <span class="math inline">\(\Phi \!\to\! a\)</span> sensitivity used in orbital telemetry.
+			</p>
+
+			<h4>Quantum (collapse) connection</h4>
+			<figure class="equation" id="eq-9_5">
+				<div class="math display">
+
+
+					\[
+					a_{\mathrm{kernel}} = \frac{\Delta\gamma}{\Delta\rho},\qquad
+					E=\hbar\omega,\qquad
+					E_{\mathrm{kernel}}=\Phi\,\gamma\,\rho\,L_Z^3
+					\]
+
+
+				</div>
+				<figcaption><a href="#eq-9_5">Equation (9.5)</a> — quantum collapse linkage and energy identity.</figcaption>
+			</figure>
+
+			<h4>Measurement protocols (checklist)</h4>
+			<ol>
+				<li>Extract <span class="math inline">\(\Phi(x,\omega)\)</span> from timing or phase of kernel trace.</li>
+				<li>Compute curvature coordinate <span class="math inline">\(S\)</span> via smoothed numerical differentiation.</li>
+				<li>Estimate <span class="math inline">\(M_1,\Theta\)</span> (envelope width and spectral peak).</li>
+				<li>Estimate <span class="math inline">\(\gamma,\rho\)</span> from decay fits and density maps.</li>
+				<li>Compute <span class="math inline">\(a_{\mathrm{kernel}}\)</span> using <a href="#eq-9_1">Eq. 9.1</a> or <a href="#eq-9_2">Eq. 9.2</a> as appropriate.</li>
+				<li>Cross-validate the two forms and check orbital fit to telemetry.</li>
+			</ol>
+
+			<h4>Falsifiability criteria</h4>
+			<ul>
+				<li>
+					Consistency between <a href="#eq-9_1">Eq. 9.1</a> /
+					<a href="#eq-9_6">Eq. 9.6</a> and
+					<a href="#eq-9_2">Eq. 9.2</a> within propagated uncertainty.
+				</li>
+				<li>
+					Orbital closure: <a href="#eq-9_4">Eq. 9.4</a> must reproduce
+					measured accelerations from curvature data.
+				</li>
+				<li>Dimensional parity: output units must be <span class="math inline">\(\mathrm{m\,s^{-2}}\)</span>.</li>
+				<li>
+					Energy linkage: <span class="math inline">\(E=\hbar\omega\)</span> and
+					<span class="math inline">\(E_{\mathrm{kernel}}=\Phi\gamma\rho L_Z^3\)</span>
+					consistent within uncertainties (<a href="#eq-9_5">Eq. 9.5</a>).
+				</li>
+			</ul>
+
+			<h4>Remarks</h4>
+			<p>
+				The curvature/shape-factor expansion and the collapse/density ratio are
+				not competing formulations but complementary limits of the same kernel physics.
+				Both descend directly from the core kernel integral by linearization or
+				finite-increment analysis, remain dimensionally closed, and are falsifiable
+				across orbital and quantum regimes.
+			</p>
 
             <h4>Benchmark comparison</h4>
             <p>
@@ -4326,56 +4375,95 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             Coherence‑Based Thermal Acceleration Model
         </h2>
         <article style="display:none">
-            <p>
-                Thermal acceleration in the kernel framework is not a primitive force but a modulation‑driven reprojection
-                of energy density across coherence length. Begin with the kernel energy density law:
-                <span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>.
-                In a thermal regime, the relevant observable is the local thermal energy density
-                <span class="math inline">\( E(x) \)</span> [J/m\(^3\)].
-            </p>
-            <p>
-                Define the coherence length as
-                <span class="math inline">\( L_K(x) = v_{\rm sync}(x)/\gamma(x) \)</span>,
-                where <span class="math inline">\( v_{\rm sync} \)</span> is the synchrony velocity [m/s] and
-                <span class="math inline">\( \gamma \)</span> the decoherence rate [s\(^{-1}\)].
-                The effective energy per coherence length is then
-                <span class="math inline">\( E/L_K \)</span>.
-                Its time derivative defines the thermal acceleration:
-            </p>
-
-            <figure class="equation" id="eq-10_1">
-                <div class="math display">
+			<p>
+				Thermal acceleration in the kernel framework is not a primitive force but a modulation‑driven reprojection of energy density across coherence length. Begin with the general kernel energy law:
+			</p>
+			<span class="math display">
 
 
-                    \[
-                    a_T(x) = \frac{d}{dt}\!\left(\frac{E(x)}{L_K(x)}\right),
-                    \qquad
-                    L_K(x) = \frac{v_{\rm sync}(x)}{\gamma(x)}.
-                    \]
+				\[
+				E = \Phi\,\gamma\,\rho\,L_Z^3
+				\]
 
 
-                </div>
-                <figcaption><a href="#eq-10_1">Equation (10.1)</a></figcaption>
-            </figure>
-
-            <h4>Dimensional Closure</h4>
-            <p>
-                Check units:
-            </p>
-            <figure class="equation" id="eq-10_2">
-                <div class="math display">
+			</span>
+			<p>
+				This expression defines total energy over a modulation volume. However, in acceleration regimes — where local field gradients dominate — the relevant observable is the **energy density**:
+			</p>
+			<span class="math display">
 
 
-                    \[
-                    \frac{d}{dt}\!\left(\frac{E}{L_K}\right)
-                    \sim \frac{\mathrm{J/m^{3}}}{\mathrm{m}} \cdot \mathrm{s^{-1}}
-                    = \mathrm{J \cdot m^{-3} \cdot s^{-1}}.
-                    \]
+				\[
+				u(x) = \frac{E}{L_Z^3} = \Phi(x)\,\gamma(x)\,\rho(x)
+				\quad \text{[J/m}^3\text{]}
+				\]
 
 
-                </div>
-                <figcaption><a href="#eq-10_2">Equation (10.2)</a></figcaption>
-            </figure>
+			</span>
+			<p>
+				This is a regime-specific projection of the kernel law, required to describe local acceleration phenomena. It preserves dimensional closure and enables direct coupling to coherence dynamics.
+			</p>
+
+			<h4>Coherence Length and Modulation Scale</h4>
+			<p>
+				Define the coherence length as:
+			</p>
+			<span class="math display">
+
+				\[
+				L_K(x) = \frac{v_{\mathrm{sync}}(x)}{\gamma(x)}
+				\]
+
+			</span>
+			<p>
+				where:
+			</p>
+			<ul>
+				<li><span class="math inline">\(v_{\mathrm{sync}}(x)\)</span> — synchrony velocity [m/s]</li>
+				<li><span class="math inline">\(\gamma(x)\)</span> — decoherence rate [s\(^{-1}\)]</li>
+			</ul>
+			<p>
+				This length is not geometric — it is a modulation scale derived from synchrony collapse. It defines the effective domain over which energy density is projected.
+			</p>
+
+			<h4>Thermal Acceleration Definition</h4>
+			<p>
+				The effective energy per coherence length is:
+			</p>
+			<span class="math display">
+
+				\[
+				\frac{u(x)}{L_K(x)} = \frac{\Phi(x)\,\gamma(x)\,\rho(x)}{v_{\mathrm{sync}}(x)/\gamma(x)} = \Phi(x)\,\gamma^2(x)\,\rho(x)/v_{\mathrm{sync}}(x)
+				\]
+
+			</span>
+			<p>
+				Its time derivative defines the thermal acceleration:
+			</p>
+			<figure class="equation" id="eq-10_1">
+				<div class="math display">
+
+					\[
+					a_T(x) = \frac{d}{dt} \left( \frac{u(x)}{L_K(x)} \right)
+					\]
+
+				</div>
+				<figcaption><a href="#eq-10_1">Equation (10.1)</a></figcaption>
+			</figure>
+			<p>
+				This acceleration is not a force per mass — it is a modulation gradient of energy density across synchrony collapse. It governs thermal drift, rupture propagation, and coherence recoil.
+			</p>
+
+			<h4>Dimensional Closure</h4>
+			<p>
+				All terms reduce to acceleration <span class="math inline">\([\mathrm{m/s^2}]\)</span>:
+			</p>
+			<ol>
+				<li><span class="math inline">\([u] = \mathrm{J/m^3} = \mathrm{kg/(m \cdot s^2)}\)</span></li>
+				<li><span class="math inline">\([L_K] = \mathrm{m}\)</span></li>
+				<li><span class="math inline">\([u/L_K] = \mathrm{kg/s^2}\)</span></li>
+				<li><span class="math inline">\([a_T] = \mathrm{m/s^2}\)</span> via time derivative</li>
+			</ul>
             <p>
                 Thus <span class="math inline">\( a_T \)</span> is dimensionally consistent as a rate of energy reprojection per unit volume.
             </p>
