@@ -4375,336 +4375,325 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             Coherence‑Based Thermal Acceleration Model
         </h2>
         <article style="display:none">
-			<p>
-				Thermal acceleration in the kernel framework is not a primitive force but a modulation‑driven reprojection of energy density across coherence length. Begin with the general kernel energy law:
-			</p>
-			<span class="math display">
+  <p>
+    This section extends the <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">modulation-derived acceleration law</a>
+    to thermal regimes, where synchrony deformation couples to temperature-driven
+    decoherence.  No new postulates are introduced:
+    <em>thermal acceleration</em> is a constrained form of the same kernel equation,
+    evaluated under thermally modulated collapse.
+  </p>
 
+  <h4>Thermal projection of the kernel acceleration law</h4>
+<p>
+  Starting from the general kernel acceleration definition
+  (<a href="#eq-9_1">Eq. 9.1</a>),
+  <span class="math inline">\(a_{\mathrm{kernel}} = M_1\,\tfrac{d\Theta}{dS} + \Theta\,\tfrac{dM_1}{dS}\)</span>,
+  we identify the temperature-driven coherence modulation
+  through the dependence of synchrony frequency <span class="math inline">\(\Theta\)</span> and hop length <span class="math inline">\(M_1\)</span>
+  on local temperature <span class="math inline">\(T\)</span>:
+</p>
 
-				\[
-				E = \Phi\,\gamma\,\rho\,L_Z^3
-				\]
+<figure class="equation" id="eq-10_1">
+  <div class="math display">
 
+\[
+    a_T
+    = M_1\,\frac{\partial\Theta}{\partial T}\frac{dT}{dS}
+    + \Theta\,\frac{\partial M_1}{\partial T}\frac{dT}{dS}.
+    \]
 
-			</span>
-			<p>
-				This expression defines total energy over a modulation volume. However, in acceleration regimes — where local field gradients dominate — the relevant observable is the **energy density**:
-			</p>
-			<span class="math display">
+  </div>
+  <figcaption><a href="#eq-10_1">Equation (10.1)</a> — thermal projection of the curvature form.</figcaption>
+</figure>
 
+<p>
+  Here <span class="math inline">\(dT/dS\)</span> maps the curvature or density gradient into an effective
+  thermal field. The structure is identical to <a href="#eq-9_1">Equation (9.1)</a>; only the driving variable
+  is changed from geometric curvature to thermal modulation.
+</p>
 
-				\[
-				u(x) = \frac{E}{L_Z^3} = \Phi(x)\,\gamma(x)\,\rho(x)
-				\quad \text{[J/m}^3\text{]}
-				\]
+<h4>Energy-density substitution</h4>
+<p>
+  Substituting the kernel energy law
+  <span class="math inline">\(E = \Phi\,\gamma\,\rho\,L_Z^3\)</span>
+  (<a href="#eq-9_5">Eq. 9.5</a>)
+  and introducing the local energy density
+  <span class="math inline">\(u = E/L_Z^3 = \Phi\,\gamma\,\rho\)</span>,
+  one obtains a directly measurable form:
+</p>
 
+<figure class="equation" id="eq-10_2">
+  <div class="math display">
 
-			</span>
-			<p>
-				This is a regime-specific projection of the kernel law, required to describe local acceleration phenomena. It preserves dimensional closure and enables direct coupling to coherence dynamics.
-			</p>
+\[
+    a_T
+    = \frac{1}{v_{\mathrm{sync}}}
+      \frac{d}{dt}\!\big[\Phi(T)\,\gamma^2(T)\,\rho(T)\big],
+    \qquad
+    v_{\mathrm{sync}} = M_1\,\Theta.
+    \]
 
-			<h4>Coherence Length and Modulation Scale</h4>
-			<p>
-				Define the coherence length as:
-			</p>
-			<span class="math display">
+  </div>
+  <figcaption><a href="#eq-10_2">Equation (10.2)</a> — kernel–thermal acceleration law.</figcaption>
+</figure>
 
-				\[
-				L_K(x) = \frac{v_{\mathrm{sync}}(x)}{\gamma(x)}
-				\]
+<p>
+  <a href="#eq-10_2">Equation (10.2)</a> is a <em>thermal specialization</em> of the generic acceleration:
+  it preserves dimensional closure
+  and becomes identical to the curvature form when <span class="math inline">\(T(S)\)</span>
+  is replaced by curvature <span class="math inline">\(S\)</span> or density <span class="math inline">\(\rho\)</span>.
+</p>
 
-			</span>
-			<p>
-				where:
-			</p>
-			<ul>
-				<li><span class="math inline">\(v_{\mathrm{sync}}(x)\)</span> — synchrony velocity [m/s]</li>
-				<li><span class="math inline">\(\gamma(x)\)</span> — decoherence rate [s\(^{-1}\)]</li>
-			</ul>
-			<p>
-				This length is not geometric — it is a modulation scale derived from synchrony collapse. It defines the effective domain over which energy density is projected.
-			</p>
+<h4>Linearized thermal response</h4>
+<p>
+  For small thermal excursions about a reference temperature <span class="math inline">\(T_0\)</span>,
+  expand to first order:
+</p>
 
-			<h4>Thermal Acceleration Definition</h4>
-			<p>
-				The effective energy per coherence length is:
-			</p>
-			<span class="math display">
+<figure class="equation" id="eq-10_3">
+  <div class="math display">
 
-				\[
-				\frac{u(x)}{L_K(x)} = \frac{\Phi(x)\,\gamma(x)\,\rho(x)}{v_{\mathrm{sync}}(x)/\gamma(x)} = \Phi(x)\,\gamma^2(x)\,\rho(x)/v_{\mathrm{sync}}(x)
-				\]
+\[
+    a_T \approx
+    \frac{1}{v_{\mathrm{sync},0}}
+    \left[
+      (\Phi'\gamma_0^2\rho_0
+      +2\Phi_0\gamma_0\gamma'\rho_0
+      +\Phi_0\gamma_0^2\rho')\,\dot{T}
+    \right],
+    \]
 
-			</span>
-			<p>
-				Its time derivative defines the thermal acceleration:
-			</p>
-			<figure class="equation" id="eq-10_1">
-				<div class="math display">
+  </div>
+  <figcaption><a href="#eq-10_3">Equation (10.3)</a> — linearized thermal-response form.</figcaption>
+</figure>
 
-					\[
-					a_T(x) = \frac{d}{dt} \left( \frac{u(x)}{L_K(x)} \right)
-					\]
+<p>
+  Primes denote temperature derivatives (e.g. <span class="math inline">\(\gamma' = \partial\gamma/\partial T\)</span>),
+  and overdots time derivatives.
+  This form makes explicit how local heating (<span class="math inline">\(\dot{T}>0\)</span>)
+  modulates acceleration through changes in coherence density and decay rate.
+</p>
 
-				</div>
-				<figcaption><a href="#eq-10_1">Equation (10.1)</a></figcaption>
-			</figure>
-			<p>
-				This acceleration is not a force per mass — it is a modulation gradient of energy density across synchrony collapse. It governs thermal drift, rupture propagation, and coherence recoil.
-			</p>
+<h4>Dimensional and regime closure</h4>
+<p>
+  Using <span class="math inline">\([v_{\mathrm{sync}}]=\mathrm{m\,s^{-1}}\)</span>,
+  <span class="math inline">\([\gamma]=\mathrm{s^{-1}}\)</span>,
+  <span class="math inline">\([\rho]=\mathrm{m^{-1}}\)</span>,
+  and dimensionless <span class="math inline">\(\Phi\)</span>,
+  the product <span class="math inline">\(\Phi\gamma^2\rho/v_{\mathrm{sync}}\)</span>
+  gives <span class="math inline">\(\mathrm{m\,s^{-2}}\)</span>,
+  ensuring that <span class="math inline">\(a_T\)</span> shares the same SI dimension
+  as <span class="math inline">\(a_{\mathrm{kernel}}\)</span> in <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">modulation-derived acceleration law</a>.
+</p>
 
-			<h4>Dimensional Closure</h4>
-			<p>
-				All terms reduce to acceleration <span class="math inline">\([\mathrm{m/s^2}]\)</span>:
-			</p>
-			<ol>
-				<li><span class="math inline">\([u] = \mathrm{J/m^3} = \mathrm{kg/(m \cdot s^2)}\)</span></li>
-				<li><span class="math inline">\([L_K] = \mathrm{m}\)</span></li>
-				<li><span class="math inline">\([u/L_K] = \mathrm{kg/s^2}\)</span></li>
-				<li><span class="math inline">\([a_T] = \mathrm{m/s^2}\)</span> via time derivative</li>
-			</ul>
-            <p>
-                Thus <span class="math inline">\( a_T \)</span> is dimensionally consistent as a rate of energy reprojection per unit volume.
-            </p>
+<h4>Uncertainty propagation</h4>
+<p>
+  For <a href="#eq-10_2">Equation (10.2)</a>,
+</p>
 
-            <h4>Perturbation Analysis</h4>
-            <p>
-                For baseline values
-                <span class="math inline">\( E_0 = 1200\,\mathrm{J/m^{3}}, \;\gamma_0 = 0.05\,\mathrm{s^{-1}}, \; v_{\rm sync,0} = 2.5\,\mathrm{m/s} \)</span>,
-                we obtain:
-            </p>
-            <figure class="equation" id="eq-10_3">
-                <div class="math display">
+<figure class="equation" id="eq-10_4">
+  <div class="math display">
 
+\[
+    \sigma_{a_T}^2
+    =\left(\frac{\partial a_T}{\partial\Phi}\sigma_\Phi\right)^2
+    +\left(\frac{\partial a_T}{\partial\gamma}\sigma_\gamma\right)^2
+    +\left(\frac{\partial a_T}{\partial\rho}\sigma_\rho\right)^2
+    +\left(\frac{\partial a_T}{\partial v_{\mathrm{sync}}}\sigma_v\right)^2
+    +2\,\mathrm{Cov}\!\left(\gamma,\rho\right)
+      \left(\frac{\partial a_T}{\partial\gamma}\right)
+      \left(\frac{\partial a_T}{\partial\rho}\right).
+    \]
 
-                    \[
-                    L_{K,0} = \frac{2.5}{0.05} = 50\,\mathrm{m}, \qquad
-                    a_{T,0} = \frac{d}{dt}\!\left(\frac{1200}{50}\right) = 24.0\,\mathrm{J\,m^{-3}\,s^{-1}}.
-                    \]
+  </div>
+  <figcaption><a href="#eq-10_4">Equation (10.4)</a> — full uncertainty propagation with covariance.</figcaption>
+</figure>
 
+<p>
+  In thermal experiments, correlations between <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\rho\)</span>
+  dominate the covariance term and must be retained.
+</p>
 
-                </div>
-                <figcaption><a href="#eq-10_3">Equation (10.3)</a></figcaption>
-            </figure>
+<h4>Bridge to the orbital and collapse regimes</h4>
+<p>
+  The thermal model (<a href="#eq-10_2">Equation (10.2)</a>) reduces to the curvature form (<a href="#eq-9_1">Equation (9.1)</a>)
+  when <span class="math inline">\(T\)</span> is replaced by geometric curvature <span class="math inline">\(S\)</span>,
+  and to the collapse-density ratio (<a href="#eq-9_2">Equation (9.2)</a>)
+  when <span class="math inline">\(dT/dS\)</span> is replaced by <span class="math inline">\(\Delta\gamma/\Delta\rho\)</span>.
+  Hence all three are projections of a single invariant:
+</p>
 
-            <p>
-                Sensitivity coefficients (finite differences) yield:
-            </p>
-            <figure class="equation" id="eq-10_4">
-                <div class="math display">
+<figure class="equation" id="eq-10_5">
+  <div class="math display">
+    
+\[
+    a_{\mathrm{kernel}}^{(\Xi)}
+    = \frac{d}{d\Xi}(M_1\Theta)
+    \quad\text{with}\quad
+    \Xi \in \{S,\;T,\;\rho\}.
+    \]
 
+  </div>
+  <figcaption><a href="#eq-10_5">Equation (10.5)</a> — unified kernel-acceleration invariant.</figcaption>
+</figure>
 
-                    \[
-                    S_E = 1.00, \quad S_\gamma = 1.00, \quad S_v = -0.667,
-                    \]
+<p>
+  This structural unity ensures dimensional and physical coherence
+  across curvature, thermal, and quantum-collapse domains.
+</p>
 
+<h4>Falsifiability and closure</h4>
+<ul>
+  <li>Measured <span class="math inline">\(a_T\)</span> must match Eq. (10.2) within propagated uncertainty.</li>
+  <li>Cross-domain check: <span class="math inline">\(a_T(T)\)</span> and <span class="math inline">\(a_{\mathrm{kernel}}(S)\)</span>
+      must coincide along isothermal–curvature bridges.</li>
+  <li>Dimensional failure (<span class="math inline">\(\neq\mathrm{m\,s^{-2}}\)</span>) ⇒ model invalid.</li>
+</ul>
 
-                </div>
-                <figcaption><a href="#eq-10_4">Equation (10.4)</a></figcaption>
-            </figure>
-            <p>
-                showing linear dependence on <span class="math inline">\( E \)</span> and <span class="math inline">\( \gamma \)</span>,
-                and stabilizing inverse dependence on <span class="math inline">\( v_{\rm sync} \)</span>.
-            </p>
+<p>
+  The thermal acceleration model is thus not a new mechanism but
+  the <em>thermal face</em> of the same kernel dynamics derived in § 9,
+  with all constants, closures, and falsifiability criteria inherited
+  from the unified kernel-acceleration invariant (<a href="#eq-10_5">Equation (10.5)</a>).
+</p>
 
-            <h4>Failure Modes and Safeguards</h4>
-            <ul>
-                <li><span class="math inline">\( v_{\rm sync} \to 0 \)</span>: coherence collapse (<span class="math inline">\( L_K \to 0 \)</span>) → singularity flagged.</li>
-                <li><span class="math inline">\( \gamma \to 0 \)</span>: inertial freeze (<span class="math inline">\( L_K \to \infty \)</span>) → model returns <span class="math inline">\( a_T \to 0 \)</span>.</li>
-                <li><span class="math inline">\( E &lt; 0 \)</span>: non‑physical → cell excluded.</li>
-            </ul>
-            <p>
-                Collapse handler redistributes energy:
-            </p>
-            <figure class="equation" id="eq-10_5">
-                <div class="math display">
+<h4>Failure Modes and Collapse Handling</h4>
+<p>
+  The thermal acceleration model inherits its singularity logic from the kernel collapse geometry. Specific failure modes are flagged as follows:
+</p>
+<ul>
+  <li><span class="math inline">\(v_{\rm sync} \to 0\)</span>: coherence collapse (<span class="math inline">\(L_K \to 0\)</span>) → singularity flagged.</li>
+  <li><span class="math inline">\(\gamma \to 0\)</span>: inertial freeze-out (<span class="math inline">\(L_K \to \infty\)</span>) → model returns <span class="math inline">\(a_T \to 0\)</span>.</li>
+  <li><span class="math inline">\(E < 0\)</span>: non-physical → cell excluded from computation.</li>
+</ul>
 
+<p>
+  In collapse scenarios, energy redistribution is handled via:
+</p>
 
-                    \[
-                    E_{\rm radiated} = \eta_{\rm collapse}\,E_{\rm cell}, \qquad \eta_{\rm collapse} = 0.5.
-                    \]
+<figure class="equation" id="eq-10_6">
+  <div class="math display"> 
 
+\[
+    E_{\rm radiated} = \eta_{\rm collapse}\,E_{\rm cell}, \qquad \eta_{\rm collapse} = 0.5.
+    \]
 
-                </div>
-                <figcaption><a href="#eq-10_5">Equation (10.5)</a></figcaption>
-            </figure>
+  </div>
+  <figcaption><a href="#eq-10_6">Equation (10.6)</a> — collapse redistribution logic.</figcaption>
+</figure>
 
-            <h4>Falsifiability Protocol</h4>
-            <p>
-                The model is falsifiable if measured observables cannot reproduce <span class="math inline">\( a_T \)</span>
-                within propagated uncertainty. Protocol:
-            </p>
-            <ul>
-                <li>
-                    <strong>Observables:</strong> measure <span class="math inline">\( E(x) \)</span> via calorimetry or spectroscopy,
-                    <span class="math inline">\( v_{\rm sync}(x) \)</span> via correlation time/length,
-                    and <span class="math inline">\( \gamma(x) \)</span> via linewidth or decoherence rate.
-                </li>
-                <li>
-                    <strong>Model computation:</strong>
-                    <span class="math inline">\( L_K = v_{\rm sync}/\gamma \)</span>,
-                    <span class="math inline">\( a_T = d(E/L_K)/dt \)</span>.
-                </li>
-                <li>
-                    <strong>Error propagation:</strong>
+<h4>Falsifiability Protocol</h4>
+<p>
+  The model is falsifiable if measured observables cannot reproduce <span class="math inline">\(a_T\)</span> within propagated uncertainty. Protocol:
+</p>
+<ul>
+  <li><strong>Observables:</strong> measure <span class="math inline">\(E(x)\)</span> via calorimetry or spectroscopy, <span class="math inline">\(v_{\rm sync}(x)\)</span> via correlation time/length, and <span class="math inline">\(\gamma(x)\)</span> via linewidth or decoherence rate.</li>
+  <li><strong>Model computation:</strong> <span class="math inline">\(L_K = v_{\rm sync}/\gamma\)</span>, <span class="math inline">\(a_T = d(E/L_K)/dt\)</span>.</li>
+  <li><strong>Error propagation:</strong>
+    <div class="math display">   
 
+\[
+      \sigma_{a_T}^2 =
+      \left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
+      \left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
+      \left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2.
+      \]
 
-                    \[
-                    \sigma_{a_T}^2 =
-                    \left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
-                    \left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
-                    \left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2.
-                    \]
+    </div>
+  </li>
+  <li><strong>Acceptance band:</strong> accept if <span class="math inline">\(|a_T^{\rm obs} - a_T^{\rm model}| \leq k\,\sigma_{a_T}\)</span> with <span class="math inline">\(k \approx 2\)</span> (95% confidence).</li>
+  <li><strong>Fail conditions:</strong> systematic deviation, non-physical parameter values, or dimensional mismatch (<span class="math inline">\(\neq \mathrm{J\,m^{-3}\,s^{-1}}\)</span>).</li>
+</ul>
 
+<h4>Monte Carlo Validation</h4>
+<p>
+  For <span class="math inline">\(N = 2000\)</span> samples with:
+</p>
+<ul>
+  <li><span class="math inline">\(E \sim \mathcal{N}(1200, 60)\)</span></li>
+  <li><span class="math inline">\(\gamma \sim \mathcal{N}(0.05, 0.005)\)</span></li>
+  <li><span class="math inline">\(v_{\rm sync} \sim \mathcal{N}(2.5, 0.25)\)</span></li>
+</ul>
 
-                </li>
-                <li>
-                    <strong>Acceptance band:</strong> accept if
-                    <span class="math inline">\( |a_T^{\rm obs} - a_T^{\rm model}| \leq k\,\sigma_{a_T} \)</span>
-                    with <span class="math inline">\( k \approx 2 \)</span> (95% confidence).
-                </li>
-                <li>
-                    <strong>Fail conditions:</strong>
-                    systematic deviation beyond tolerance, non‑physical parameter values,
-                    or dimensional mismatch (units ≠ J·m\(^{-3}\)·s\(^{-1}\)).
-                </li>
-            </ul>
+<p>
+  The resulting distribution of <span class="math inline">\(a_T\)</span> is unimodal and statistically stable:
+</p>
+<ul>
+  <li><strong>Median:</strong> <span class="math inline">\(a_T^{\rm med} = 23.9\,\mathrm{J\,m^{-3}\,s^{-1}}\)</span></li>
+  <li><strong>90% Confidence Interval:</strong> <span class="math inline">\(a_T \in [18.6,\,30.7]\,\mathrm{J\,m^{-3}\,s^{-1}}\)</span></li>
+  <li><strong>Variance:</strong> <span class="math inline">\(\sigma^2_{a_T} \approx 9.1\,(\mathrm{J\,m^{-3}\,s^{-1}})^2\)</span></li>
+  <li><strong>Skewness:</strong> <span class="math inline">\(\approx 0.02\)</span> (negligible)</li>
+  <li><strong>Kurtosis:</strong> <span class="math inline">\(\approx 3.1\)</span> (near-Gaussian)</li>
+</ul>
 
-            <h5>Monte Carlo Validation</h5>
-            <p>
-                For <span class="math inline">\( N=2000 \)</span> samples with
-                <span class="math inline">\( E \sim \mathcal{N}(1200,60) \)</span>,
-                <span class="math inline">\( \gamma \sim \mathcal{N}(0.05,0.005) \)</span>,
-                <span class="math inline">\( v_{\rm sync} \sim \mathcal{N}(2.5,0.25) \)</span>,
-                the distribution of <span class="math inline">\( a_T \)</span> is unimodal and stable:
-            </p>
-            <ul>
-                <li><strong>Median:</strong> <span class="math inline">\( a_T^{\rm med} = 23.9\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span></li>
-                <li>
-                    <strong>90% Confidence Interval:</strong>
-                    <span class="math inline">\( a_T \in [18.6,\,30.7]\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span>
-                </li>
-                <li>
-                    <strong>Variance:</strong>
-                    <span class="math inline">\( \sigma^2_{a_T} \approx 9.1 \,(\mathrm{J\,m^{-3}\,s^{-1}})^2 \)</span>
-                </li>
-                <li>
-                    <strong>Skewness:</strong>
-                    <span class="math inline">\( \approx 0.02 \)</span> (negligible, confirming symmetry)
-                </li>
-                <li>
-                    <strong>Kurtosis:</strong>
-                    <span class="math inline">\( \approx 3.1 \)</span> (close to Gaussian)
-                </li>
-            </ul>
+<h5>Validation Criteria</h5>
+<ul>
+  <li><strong>Systematic deviation:</strong> If <span class="math inline">\(a_T^{\rm obs}\)</span> lies persistently outside the 90% band, the model is rejected.</li>
+  <li><strong>Collapse inconsistency:</strong> If coherence collapse or freeze-out does not yield predicted limits, the model fails.</li>
+  <li><strong>Dimensional parity:</strong> If measured acceleration does not reduce to <span class="math inline">\(\mathrm{J\,m^{-3}\,s^{-1}}\)</span>, formulation is invalid.</li>
+  <li><strong>Cross-domain mismatch:</strong> If thermal acceleration disagrees with kernel energy transport laws beyond uncertainty, the kernel bridge is falsified.</li>
+</ul>
 
-            <h5>Validation and falsifiability</h5>
-            <p>
-                The Monte Carlo ensemble confirms that the model is statistically stable under perturbations of
-                <span class="math inline">\( E, \gamma, v_{\rm sync} \)</span>. Falsification criteria are:
-            </p>
-            <ul>
-                <li>
-                    <strong>Systematic deviation:</strong> If observed thermal acceleration
-                    <span class="math inline">\( a_T^{\rm obs} \)</span> lies persistently outside the 90% confidence band
-                    <span class="math inline">\( [18.6,\,30.7] \)</span>, the model is rejected.
-                </li>
-                <li>
-                    <strong>Collapse inconsistency:</strong> If coherence collapse
-                    (<span class="math inline">\( v_{\rm sync}\to 0 \)</span>) or freeze‑out
-                    (<span class="math inline">\( \gamma\to 0 \)</span>) does not yield the predicted limiting behaviors
-                    (<span class="math inline">\( a_T \to \infty \)</span> flagged, or
-                    <span class="math inline">\( a_T \to 0 \)</span>), the model fails.
-                </li>
-                <li>
-                    <strong>Dimensional parity:</strong> If measured acceleration does not reduce to
-                    <span class="math inline">\( \mathrm{J\,m^{-3}\,s^{-1}} \)</span>, the formulation is invalid.
-                </li>
-                <li>
-                    <strong>Cross‑domain mismatch:</strong> If thermal acceleration derived here disagrees with
-                    kernel‑energy transport laws (<span class="math inline">\( E = \Phi \gamma \rho L_Z^3 \)</span>) beyond
-                    propagated uncertainty, the bridge to the kernel ontology is falsified.
-                </li>
-            </ul>
+<h5>Validation Sources</h5>
+<p>
+	<a href="https://drive.google.com/file/d/1rjpUcwFrkyPXRQyr7ZCJ-xOkbWx-90V9/view?usp=sharing" target="_blank">Validation Data Repository</a>
+</p>
+<ul>
+	<li>Synthetic perturbation data: <code>thermal_acceleration_robustness.csv</code></li>
+	<li>Monte Carlo ensembles: <code>thermal_acceleration_perturbations.csv</code>, <code>thermal_acceleration_edge_case.csv</code></li>
+	<li>Sensitivity summary: <code>sensitivity_summary.txt</code></li>
+	<li>Collapse detection: flagged via runtime logic, no false positives</li>
+</ul>
 
-            <h5>Validation Sources</h5>
-            <p>
-                <a href="https://drive.google.com/file/d/1rjpUcwFrkyPXRQyr7ZCJ-xOkbWx-90V9/view?usp=sharing" target="_blank">Validation Data Repository</a>
-            </p>
-            <ul>
-                <li>Synthetic perturbation data: <code>thermal_acceleration_robustness.csv</code></li>
-                <li>Monte Carlo ensembles: <code>thermal_acceleration_perturbations.csv</code>, <code>thermal_acceleration_edge_case.csv</code></li>
-                <li>Sensitivity summary: <code>sensitivity_summary.txt</code></li>
-                <li>Collapse detection: flagged via runtime logic, no false positives</li>
-            </ul>
+<h5>Operational Safeguards</h5>
+<p>
+  To prevent singularities and ensure physical realism, the following constraints are enforced:
+</p>
 
-            <h5>Conclusion</h5>
+<figure class="equation" id="eq-10_7">
+  <div class="math display">
 
-            <p>
-                The coherence‑based thermal acceleration model provides a structurally consistent way to quantify thermal energy redistribution under decoherence.
-                It highlights linear sensitivities to energy density and decoherence rate, a stabilizing inverse dependence on synchrony velocity,
-                and robust handling of collapse or freeze‑out limits. Monte Carlo analysis confirms stability under stochastic perturbations,
-                making this framework suitable for application in heterogeneous or non‑Euclidean media.
-            </p>
+\[
+    L_K \ge L_{K,\min}, \quad
+    L_{K,\min} = \max(\epsilon_\ell \Delta x, a_{\rm micro}),
+    \]
 
-            <h5>Operational Safeguards</h5>
-            <p>We enforce the following constraints:</p>
+  </div>
+  <figcaption><a href="#eq-10_7">Equation (10.7)</a> — minimum coherence length constraint.</figcaption>
+</figure>
 
-            <figure class="equation" id="eq-10_7">
-                <div class="math display">
+<p>
+  with <span class="math inline">\(\epsilon_\ell \sim 10^{-3}\)</span>, and <span class="math inline">\(a_{\rm micro}\)</span> based on physical microstructure (e.g., Debye length).
+</p>
 
+<p>
+  Temporal smoothing is applied to stabilize acceleration estimates:
+</p>
 
-                    \[
-                    L_K \ge L_{K,\min}, \quad
-                    L_{K,\min} = \max(\epsilon_\ell \Delta x, a_{\rm micro}),
-                    \]
+<figure class="equation" id="eq-10_8">
+  <div class="math display">
 
+\[
+    \frac{d}{dt}\left( \frac{E}{L_K}\right)
+    \;\to\;
+    \frac{1}{\tau_s}\left[
+    \left(\frac{E}{L_K}\right)(t) -
+    \left(\frac{E}{L_K}\right)(t - \tau_s)
+    \right],
+    \]
 
-                </div>
-                <figcaption><a href="#eq-10_7">Equation (10.7)</a></figcaption>
-            </figure>
+  </div>
+  <figcaption><a href="#eq-10_8">Equation (10.8)</a> — temporal smoothing over stationarity window.</figcaption>
+</figure>
 
-            <p>
-                with <span class="math inline">\(\epsilon_\ell \sim 10^{-3}\)</span>, and
-                <span class="math inline">\(a_{\rm micro}\)</span> based on physical microstructure (e.g., Debye length).
-            </p>
+<p>
+  with <span class="math inline">\(\tau_s\)</span> set to 10% of the stationarity window <span class="math inline">\(\Delta t\)</span>.
+</p>
 
-            <p>Temporal smoothing is applied as:</p>
-
-            <figure class="equation" id="eq-10_8">
-                <div class="math display">
-
-
-                    \[
-                    \frac{d}{dt}\left( \frac{E}{L_K}\right)
-                    \;\to\;
-                    \frac{1}{\tau_s}\left[
-                    \left(\frac{E}{L_K}\right)(t) -
-                    \left(\frac{E}{L_K}\right)(t - \tau_s)
-                    \right],
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-10_8">Equation (10.8)</a></figcaption>
-            </figure>
-
-            <p>
-                with <span class="math inline">\(\tau_s\)</span> set to 10% of the stationarity window
-                <span class="math inline">\(\Delta t\)</span>.
-            </p>
-
-            <h4>Final Conclusion</h4>
-            <p>
-                The coherence‑based thermal acceleration model is structurally derived from kernel energy principles,
-                dimensionally closed, and falsifiable under explicit measurement protocols. It quantifies the rate of
-                thermal energy reprojection per coherence length, with linear sensitivities to energy density and
-                decoherence rate, and stabilizing inverse dependence on synchrony velocity. Monte Carlo validation
-                confirms robustness and Gaussian‑like stability under stochastic perturbations. This framework
-                provides a fast, modulation‑driven alternative to PDE‑based diffusion, suitable for heterogeneous
-                or non‑Euclidean media, and directly testable against calorimetric and spectroscopic data.
-            </p>
+<h4>Final Conclusion</h4>
+<p>
+  The coherence-based thermal acceleration model is structurally derived from kernel energy principles, dimensionally closed, and falsifiable under explicit measurement protocols. It quantifies the rate of thermal energy reprojection per coherence length, with linear sensitivities to energy density and decoherence rate, and stabilizing inverse dependence on synchrony velocity. Monte Carlo validation confirms robustness and Gaussian-like stability under stochastic perturbations. This framework provides a fast, modulation-driven alternative to PDE-based diffusion, suitable for heterogeneous or non-Euclidean media, and directly testable against calorimetric and spectroscopic data.
+</p>
         </article>
     </section>
     <section>
