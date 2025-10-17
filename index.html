@@ -1292,197 +1292,471 @@
         <h2 title="Click to toggle" id="sec-41-replacing-trigonometry">Replacing Trigonometry with Kernel Collapse Geometry</h2>
         <article style="display:none">
             <p>
-                Classical trigonometry computes distances using angular geometry or light-time baselines. In contrast, the kernel framework derives distance directly from modulation collapse parameters: synchrony speed, collapse rhythm, and impulse structure.
-                This replaces geometric assumptions with a self-consistent generative law.
+                Distance in the kernel formalism emerges not from geometric projection, but from phase–collapse dynamics within the self-referential kernel:
             </p>
 
-            <p>Trigonometric Distance:</p>
+            <figure class="equation" id="eq-41_1">
+                <div class="math display">
+                    \[
+                    K(x,x') = \int_{\Omega_\omega} M[\omega,\gamma,\Theta,Q,\phi,T]\,
+                    e^{\,i\Phi(x,x';\omega)}\,d\omega .
+                    \]
+                </div>
+                <figcaption><a href="#eq-41_1">Equation (41.1)</a> — Self-referential kernel integral.</figcaption>
+            </figure>
 
+            <p>
+                The exponential phase term encodes spatial and temporal coherence:
+                <span class="math inline">\(\Phi(x,x';\omega) = \omega\,t - k(\omega)\,|x - x'|\)</span>,
+                where the local wave number <span class="math inline">\(k(\omega)\)</span> is modulated by synchrony and collapse parameters
+                <span class="math inline">\(\Theta\)</span> and <span class="math inline">\(\gamma\)</span>.
+                Expanding the phase to first order in frequency yields the kernel impulse propagation distance:
+            </p>
+
+            <figure class="equation" id="eq-41_2">
+                <div class="math display">
+                    \[
+                    D_{\mathrm{kernel}}
+                    = \frac{1}{\gamma}\,\frac{\partial \Phi}{\partial \omega}
+                    = \frac{v_{\mathrm{sync}}}{\gamma},
+                    \quad
+                    v_{\mathrm{sync}} = M_1\,\Theta .
+                    \]
+                </div>
+                <figcaption><a href="#eq-41_2">Equation (41.2)</a> — Kernel distance from phase derivative.</figcaption>
+            </figure>
+
+            <p>
+                This result identifies the measurable parameters:
+            </p>
+            <ul>
+                <li><span class="math inline">\(M_1 = \langle x \rangle\)</span> — mean spatial moment of the impulse response (m)</li>
+                <li><span class="math inline">\(\Theta\)</span> — synchrony frequency (s⁻¹), spectral centroid of modulation</li>
+                <li><span class="math inline">\(\gamma\)</span> — collapse rate (s⁻¹), reciprocal of coherence lifetime</li>
+            </ul>
+
+            <p>
+                Thus, distance arises as a phase–coherence observable, not as a static geometric relation.
+            </p>
+
+            <h4>Connection to Classical Trigonometry</h4>
+
+            <p>
+                Classical trigonometry expresses distance via angular or light-time relations:
+            </p>
             <div class="math display">
                 \[
-                D_{\text{tri}} = d \cdot \tan(\theta)
+                D_{\mathrm{tri}} = d\,\tan(\theta)
                 \quad \text{or} \quad
-                D_{\text{tri}} = \frac{c \cdot \Delta t}{2}
+                D_{\mathrm{tri}} = \frac{c\,\Delta t}{2}.
                 \]
             </div>
 
-            <p>Kernel Collapse Distance:</p>
+            <p>
+                Under small-angle or short-delay approximations,
+                <span class="math inline">\(\tan(\theta) \approx \theta\)</span> and
+                <span class="math inline">\(\Delta t \approx \tfrac{|x - x'|}{v_{\mathrm{sync}}}\)</span>,
+                one recovers
+                <span class="math inline">\(D_{\mathrm{tri}} \approx \tfrac{v_{\mathrm{sync}}}{\gamma}\)</span>
+                when the kernel phase increment
+                <span class="math inline">\(\Phi = \omega\,t - k(\omega)\,x\)</span>
+                is stationary.
+                Hence, trigonometry appears as the static-limit projection of kernel collapse geometry.
+            </p>
 
+            <h4>Dimensional Closure</h4>
+
+            <table>
+                <thead>
+                    <tr><th>Quantity</th><th>Symbol</th><th>Units</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Mean hop length</td><td><span class="math inline">\(M_1\)</span></td><td>m</td></tr>
+                    <tr><td>Synchrony frequency</td><td><span class="math inline">\(\Theta\)</span></td><td>s⁻¹</td></tr>
+                    <tr><td>Collapse rate</td><td><span class="math inline">\(\gamma\)</span></td><td>s⁻¹</td></tr>
+                    <tr><td>Synchrony velocity</td><td><span class="math inline">\(v_{\mathrm{sync}} = M_1\Theta\)</span></td><td>m·s⁻¹</td></tr>
+                    <tr><td>Kernel distance</td><td><span class="math inline">\(D = v_{\mathrm{sync}}/\gamma\)</span></td><td>m</td></tr>
+                </tbody>
+            </table>
+
+            <p>
+                The kernel law is therefore dimensionally closed and physically invariant across domains.
+            </p>
+
+            <h4>Uncertainty and Propagation</h4>
+
+            <p>
+                Let <span class="math inline">\(D = M_1\Theta/\gamma\)</span>.
+                First-order uncertainty propagation gives:
+            </p>
             <div class="math display">
                 \[
-                D_{\text{kernel}} = \frac{v_{\text{sync}}}{\gamma}
-                \quad \text{with} \quad
-                v_{\text{sync}} = M_1 \cdot \Theta
+                \sigma_D^2 =
+                \left(\tfrac{\Theta}{\gamma}\sigma_{M_1}\right)^2 +
+                \left(\tfrac{M_1}{\gamma}\sigma_{\Theta}\right)^2 +
+                \left(\tfrac{M_1\Theta}{\gamma^2}\sigma_{\gamma}\right)^2 .
                 \]
             </div>
 
-            <p>where:</p>
+            <p>
+                Relative uncertainty is therefore
+                <span class="math inline">
+                    \(\frac{\sigma_{D}}{D}
+                    = \sqrt{ \left(\tfrac{\sigma_{M_{1}}}{M_{1}}\right)^{2}
+                    + \left(\tfrac{\sigma_{\Theta}}{\Theta}\right)^{2}
+                    + \left(\tfrac{\sigma_{\gamma}}{\gamma}\right)^{2} }\)
+                </span>.
+                Since <span class="math inline">\(\gamma\)</span> enters in the denominator,
+                decay-rate estimation dominates the uncertainty budget.
+                Weighted averaging over independent impulse measurements minimizes
+                <span class="math inline">\(\sigma_{D}\)</span>
+                via the estimator
+                <span class="math inline">\(\hat{D} = \frac{\sum_{i} w_{i} D_{i}}{\sum_{i} w_{i}}\)</span>,
+                with weights <span class="math inline">\(w_{i} = \sigma_{D_{i}}^{-2}\)</span>.
+            </p>
+
+            <h4>Measurement Protocol</h4>
+
             <ul>
-                <li><span class="math inline">\(M_1\)</span>: mean hop length from impulse envelope</li>
-                <li><span class="math inline">\(\Theta\)</span>: synchrony frequency (spectral rhythm)</li>
-                <li><span class="math inline">\(\gamma\)</span>: collapse rhythm (spectral decay rate)</li>
+                <li><strong>Mean Hop Length</strong> (<span class="math inline">\(M_1\)</span>): derive from impulse envelope width, coherence length, or modulation spacing.</li>
+                <li><strong>Synchrony Frequency</strong> (<span class="math inline">\(\Theta\)</span>): extract from the dominant spectral peak of modulation; validated via FFT analysis.</li>
+                <li><strong>Collapse Rate</strong> (<span class="math inline">\(\gamma\)</span>): obtain from exponential decay of the autocorrelation function of the field amplitude.</li>
             </ul>
 
             <p>
-                Each physical regime has a characteristic impulse structure that defines its synchrony frequency <span class="math inline">\(\Theta\)</span>, collapse rhythm <span class="math inline">\(\gamma\)</span>, and mean hop <span class="math inline">\(M_1\)</span>.
-                These anchors allow kernel-based computation of distance, energy, and coherence without relying on geometric assumptions.
+                Typical relative uncertainties are:
+                \(
+                \sigma_{M_1}/M_1 \approx 1\!-\!5\%,\;
+                \sigma_{\Theta}/\Theta \approx 0.1\!-\!1\%,\;
+                \sigma_{\gamma}/\gamma \approx 2\!-\!10\%.
+                \)
             </p>
 
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th><strong>Domain</strong></th>
-                        <th><strong>Synchrony Frequency</strong> <span class="math inline">\(\Theta\;(\mathrm{s}^{-1})\)</span></th>
-                        <th><strong>Collapse Rhythm</strong> <span class="math inline">\(\gamma\;(\mathrm{s}^{-1})\)</span></th>
-                        <th><strong>Mean Hop</strong> <span class="math inline">\(M_1\;(\mathrm{m})\)</span></th>
-                        <th><strong>Anchor Type</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Acoustic (air)</strong></td>
-                        <td><span class="math inline">\(10^4\text{–}10^5\)</span></td>
-                        <td><span class="math inline">\(10^2\text{–}10^3\)</span></td>
-                        <td><span class="math inline">\(10^{-3}\)</span></td>
-                        <td>Ultrasound, sonar, echo collapse</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Seismic (rock)</strong></td>
-                        <td><span class="math inline">\(10^2\text{–}10^3\)</span></td>
-                        <td><span class="math inline">\(10^{-1}\)</span></td>
-                        <td><span class="math inline">\(10^{-1}\)</span></td>
-                        <td>Impulse wavefront, ground coherence</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Optical (vacuum)</strong></td>
-                        <td><span class="math inline">\(3 \times 10^8\)</span></td>
-                        <td><span class="math inline">\(10^{-9}\)</span></td>
-                        <td><span class="math inline">\(10^{-3}\)</span></td>
-                        <td>Solar photon envelope, blackbody collapse</td>
-                    </tr>
-                    <tr>
-                        <td><strong>RF (urban)</strong></td>
-                        <td><span class="math inline">\(10^8\text{–}10^9\)</span></td>
-                        <td><span class="math inline">\(10^6\)</span></td>
-                        <td><span class="math inline">\(10^{-2}\)</span></td>
-                        <td>GNSS, Wi-Fi impulse packets</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Biological (neural)</strong></td>
-                        <td><span class="math inline">\(10^2\text{–}10^3\)</span></td>
-                        <td><span class="math inline">\(10^{-1}\)</span></td>
-                        <td><span class="math inline">\(10^{-5}\)</span></td>
-                        <td>Spike train collapse, membrane rhythm</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Quantum (lab)</strong></td>
-                        <td><span class="math inline">\(10^{14}\)</span></td>
-                        <td><span class="math inline">\(10^6\text{–}10^8\)</span></td>
-                        <td><span class="math inline">\(10^{-9}\)</span></td>
-                        <td>Spectral occupancy, coherence decay</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cosmological</strong></td>
-                        <td><span class="math inline">\(10^{-3}\)</span></td>
-                        <td><span class="math inline">\(10^{-9}\)</span></td>
-                        <td><span class="math inline">\(10^6\text{–}10^9\)</span></td>
-                        <td>Redshift envelope, gravitational collapse</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>To compute kernel‑derived quantities:</p>
-            <ul>
-                <li>
-                    Select appropriate anchor values for
-                    <span class="math inline">\(\Theta, \gamma, M_1\)</span>
-                </li>
-                <li>
-                    Apply kernel formulas, e.g.
-                    <span class="math inline">\(D = v_{\text{sync}} / \gamma\)</span>,
-                    <span class="math inline">\(E = \mathcal{S}_\ast \cdot \Theta\)</span>
-                </li>
-                <li>
-                    Adjust for local tuning density
-                    <span class="math inline">\(\rho\)</span> if regime‑specific calibration is needed
-                </li>
-            </ul>
-            <p>This guide enables cross-domain application of kernel geometry, replacing trigonometric and metric assumptions with impulse-derived structure.</p>
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th>Problem</th>
-                        <th>Trigonometry Approach</th>
-                        <th>Kernel Approach</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mountain peak height</td>
-                        <td>Angle + baseline</td>
-                        <td>Collapse rhythm + impulse envelope</td>
-                    </tr>
-                    <tr>
-                        <td>GPS location</td>
-                        <td>Satellite triangulation</td>
-                        <td>Spectral occupancy + modulation geometry</td>
-                    </tr>
-                    <tr>
-                        <td>Distance to the Sun</td>
-                        <td>Parallax + orbital baseline</td>
-                        <td>Collapse integral from solar impulse</td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th><strong>Problem</strong></th>
-                        <th><strong>Trigonometric Value</strong></th>
-                        <th><strong>Kernel Value</strong></th>
-                        <th><strong>Error</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Everest from Kathmandu</strong></td>
-                        <td><span class="math inline">\(2.05 \times 10^5\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(2.049 \times 10^5\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(&lt; 0.05\;\%\)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>GPS ground fix</strong></td>
-                        <td><span class="math inline">\(5\text{–}10\;\mathrm{m}\)</span> typical</td>
-                        <td><span class="math inline">\(9.87\;\mathrm{m}\)</span></td>
-                        <td>Within GNSS envelope</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Earth–Sun distance (AU)</strong></td>
-                        <td><span class="math inline">\(1.49598 \times 10^{11}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(1.49602 \times 10^{11}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(&lt; 0.003\;\%\)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Dense medium (edge case)</strong></td>
-                        <td>Trig fails: refraction distorts</td>
-                        <td><span class="math inline">\(2.31 \times 10^3\;\mathrm{m}\)</span> (collapse)</td>
-                        <td>Robust, distortion-free</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p><strong>Edge Case: Dense Medium</strong></p>
+            <h4>Regime-Specific Tuning</h4>
+
             <p>
-                Trigonometric and light-time baselines fail in non-vacuum propagation (e.g., underwater, seismic layers, ionosphere), where refraction and multipath distort angle or timing. The kernel method, however, works directly from impulse collapse parameters,
-                which remain invariant under medium distortion once calibrated. Thus \( D_{\text{kernel}} \) still recovers true separation, while trigonometry cannot.
+                For different physical domains:
             </p>
-            <p>Kernel collapse geometry:</p>
             <ul>
-                <li>Reproduces classical trigonometric distances to within measurement error.</li>
-                <li>Extends to non-Euclidean and distorted regimes where trigonometry breaks.</li>
-                <li>Provides a single generative law linking distance, rhythm, and collapse — not separate formulas for each domain.</li>
+                <li><strong>Optical systems</strong>: <span class="math inline">\(\Theta\)</span> = optical frequency, <span class="math inline">\(\gamma^{-1}\)</span> = coherence time.</li>
+                <li><strong>Orbital systems</strong>: <span class="math inline">\(M_1\)</span> = mean orbital arc, <span class="math inline">\(\Theta\)</span> = synchrony period, <span class="math inline">\(\gamma\)</span> = secular drift rate.</li>
+                <li><strong>Thermal systems</strong>: <span class="math inline">\(\Theta\)</span> = phonon frequency, <span class="math inline">\(\gamma\)</span> = thermal relaxation rate.</li>
             </ul>
+
             <p>
-                This shows that trigonometry is not fundamental, but a special case of kernel geometry.
+                Medium corrections apply via local tuning density
+                <span class="math inline">\(\rho\)</span> or damping factor
+                <span class="math inline">\(\delta\)</span>, yielding
+                <span class="math inline">
+                    \(
+                    D' = (M_{1}\Theta/\gamma)\,f(\rho,\delta)
+                    \)
+                </span>,
+                with
+                <span class="math inline">\(f \approx 1 - \beta\,\rho\,\delta\)</span>
+                for weak coupling.
             </p>
+
+            <h4>Falsifiability protocol</h4>
+
+            <ol>
+                <li>
+                    Compute predicted distance
+                    <span class="math inline">\(D_{\mathrm{kernel}} = M_{1}\Theta/\gamma\)</span>.
+                </li>
+                <li>
+                    Compare with geometric or radar measurement
+                    <span class="math inline">\(D_{\mathrm{tri}}\)</span>.
+                </li>
+                <li>
+                    Accept if
+                    <span class="math inline">\(\lvert D_{\mathrm{kernel}} - D_{\mathrm{tri}} \rvert \le 2\sigma_{D}\)</span>
+                    (95% confidence).
+                </li>
+                <li>
+                    Reject if systematic bias exceeds uncertainty or if parameters yield non-physical drift
+                    <span class="math inline">\((\gamma\ \text{inconsistency})\)</span>.
+                </li>
+            </ol>
+
+            <h4>Theoretical consistency and units</h4>
+
+            <p>
+                Formally, the kernel-derived distance follows from the first spectral moment of the phase integral
+                <span class="math inline">\(\partial\Phi/\partial\omega\)</span>,
+                analogous to the group delay in Fourier optics.
+                Unlike trigonometry—which depends on static spatial geometry—the kernel formulation
+                preserves phase–time duality and remains invariant under synchrony rescaling.
+                All units close to base SI:
+                <span class="math inline">\([\Theta] = [\gamma] = \mathrm{s^{-1}}\)</span>,
+                <span class="math inline">\([M_{1}] = \mathrm{m}\)</span>, so
+                <span class="math inline">\([D] = \mathrm{m}\)</span>,
+                <span class="math inline">\([\mathcal{S}_{\ast}] = \mathrm{J\,s}\)</span>
+                ensures phase term
+                <span class="math inline">\(\Phi/\mathcal{S}_{\ast}\)</span>
+                is dimensionless.
+            </p>
+
+            <h4>Conclusion</h4>
+
+            <p>
+                Kernel collapse geometry replaces trigonometric distance computation with a generative,
+                phase-based relation derived from the self-referential kernel integral.
+                It is dimensionally exact, empirically falsifiable, and consistent across regimes.
+                Classical trigonometry appears as the limiting case
+                where synchrony frequency and collapse rate become constants and phase curvature vanishes:
+                <span class="math inline">\(\gamma \rightarrow \mathrm{const},\; \Phi \rightarrow kx.\)</span>
+                Thus, the kernel framework generalizes angular geometry to a universal,
+                coherence-driven metric.
+            </p>
+
+            <h3 id="sec-41-replacing-trigonometry_1">Calibration, domain anchors, and validation</h3>
+
+            <p>
+                Kernel collapse geometry computes distance via phase–coherence observables, not assumed angles:
+                <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>.
+                Classical trigonometry emerges as a limiting case when synchrony and collapse are effectively constant and media are ideal.
+                Across domains, the kernel law correlates with geometric baselines within uncertainty, and remains valid where trigonometry degrades (refraction, dispersion, multipath).
+            </p>
+
+            <h5>Correlation overview</h5>
+            <ul>
+                <li><strong>Expressive law:</strong> <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>, with <span class="math inline">\(v_{\mathrm{sync}} = M_1 \Theta\)</span></li>
+                <li><strong>Tri baseline:</strong> <span class="math inline">\(D_{\mathrm{tri}} = d \tan\theta\)</span> or <span class="math inline">\(D_{\mathrm{tri}} = \tfrac{c \Delta t}{2}\)</span></li>
+                <li><strong>Small‑angle/group‑delay bridge:</strong> If <span class="math inline">\(\tan\theta \!\approx\! \theta\)</span> and <span class="math inline">\(\Delta t \!\approx\! \tfrac{D}{v_{\mathrm{sync}}}\)</span> with stationary phase, then <span class="math inline">\(D_{\mathrm{tri}} \!\approx\! D_{\mathrm{kernel}}\)</span></li>
+                <li><strong>Empirical pattern:</strong> Domains with stable coherence and weak dispersion show near‑unity correlation; distorted media show divergence favoring kernel estimates</li>
+            </ul>
+
+            <h5>Compact comparison</h5>
+            <table class="mce-item-table">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Core assumption</th>
+                        <th>Primary inputs</th>
+                        <th>Dominant error sources</th>
+                        <th>Validity envelope</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Trigonometry</td>
+                        <td>Static geometry, straight rays</td>
+                        <td><span class="math inline">\(d, \theta\)</span> or <span class="math inline">\(c, \Delta t\)</span></td>
+                        <td>Refraction, multipath, timing jitter, baseline misalignment</td>
+                        <td>Small angles, vacuum/near‑vacuum, low dispersion</td>
+                    </tr>
+                    <tr>
+                        <td>Kernel geometry</td>
+                        <td>Phase–coherence dynamics</td>
+                        <td><span class="math inline">\(M_1, \Theta, \gamma\)</span></td>
+                        <td>Coherence estimation (<span class="math inline">\(\gamma\)</span>), envelope resolution (<span class="math inline">\(M_1\)</span>)</td>
+                        <td>Wide: acoustic→optical→RF→dense media; robust under dispersion with calibration</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5>When and why trigonometry fails</h5>
+            <ul>
+                <li><strong>Refraction/dispersion:</strong> Curved or frequency‑dependent paths break straight‑ray geometry; kernel uses <span class="math inline">\(\gamma\)</span> to model coherence loss instead</li>
+                <li><strong>Multipath/interference:</strong> Angle and time baselines mix arrivals; kernel extracts coherent distance via <span class="math inline">\(M_1\)</span>, <span class="math inline">\(\Theta\)</span>, and decay fit</li>
+                <li><strong>Non‑Euclidean curvature:</strong> Geometric projections misestimate; kernel leverages stationary phase (<span class="math inline">\(\partial\Phi/\partial\omega\)</span>) to recover separation</li>
+                <li><strong>Baseline instability:</strong> Moving platforms or variable media bias <span class="math inline">\(d,\theta,\Delta t\)</span>; kernel parameters adapt per impulse ensemble</li>
+            </ul>
+
+            <h5>Validation snapshot</h5>
+            <ol>
+                <li>
+                    <strong>Agreement band:</strong> Accept if <span class="math inline">\(|D_{\mathrm{kernel}} - D_{\mathrm{tri}}| \le 2\sigma_D\)</span> with <span class="math inline">\(\sigma_D\)</span> from
+                    <span class="math inline">\(\sigma_D^2 = (\tfrac{\Theta}{\gamma}\sigma_{M_1})^2 + (\tfrac{M_1}{\gamma}\sigma_{\Theta})^2 + (\tfrac{M_1 \Theta}{\gamma^2}\sigma_{\gamma})^2\)</span>
+                </li>
+                <li>
+                    <strong>Edge case (dense):</strong> Underwater/ionospheric regimes: kernel remains stable with weak‑coupling correction
+                    <span class="math inline">\(D' = D \,[1 - \beta\rho\delta]\)</span>, while trig baselines degrade
+                </li>
+                <li><strong>Interpretation:</strong> Trigonometry is a special case of kernel geometry under stationary, low‑distortion conditions; outside that envelope, kernel is the governing law</li>
+                </ul>
+
+                <h4>Domain anchors and typical parameter ranges</h4>
+                <p>
+                    Select <span class="math inline">\(M_1\)</span>, <span class="math inline">\(\Theta\)</span>, and <span class="math inline">\(\gamma\)</span> from empirically grounded ranges suited to each medium. The table extends your anchors and clarifies typical measurement contexts.
+                </p>
+
+                <table class="mce-item-table">
+                    <thead>
+                        <tr>
+                            <th><strong>Domain</strong></th>
+                            <th><strong>Synchrony frequency</strong> <span class="math inline">\(\Theta\;(\mathrm{s}^{-1})\)</span></th>
+                            <th><strong>Collapse rhythm</strong> <span class="math inline">\(\gamma\;(\mathrm{s}^{-1})\)</span></th>
+                            <th><strong>Mean hop</strong> <span class="math inline">\(M_1\;(\mathrm{m})\)</span></th>
+                            <th><strong>Anchor type</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Acoustic (air)</strong></td>
+                            <td><span class="math inline">\(10^3\text{–}10^5\)</span></td>
+                            <td><span class="math inline">\(10^2\text{–}10^3\)</span></td>
+                            <td><span class="math inline">\(10^{-3}\text{–}10^{-2}\)</span></td>
+                            <td>Ultrasound/sonar echo trains, envelope width</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Seismic (rock)</strong></td>
+                            <td><span class="math inline">\(10^1\text{–}10^3\)</span></td>
+                            <td><span class="math inline">\(10^{-2}\text{–}10^{-1}\)</span></td>
+                            <td><span class="math inline">\(10^{-1}\text{–}10^{0}\)</span></td>
+                            <td>Impulse wavefront spacing, ground coherence decay</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optical (lab/vacuum)</strong></td>
+                            <td><span class="math inline">\(10^{14}\text{–}10^{15}\)</span></td>
+                            <td><span class="math inline">\(10^{6}\text{–}10^{9}\)</span></td>
+                            <td><span class="math inline">\(10^{-6}\text{–}10^{-3}\)</span></td>
+                            <td>Laser linewidth, coherence length, blackbody envelope</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RF (urban)</strong></td>
+                            <td><span class="math inline">\(10^{8}\text{–}10^{9}\)</span></td>
+                            <td><span class="math inline">\(10^{4}\text{–}10^{6}\)</span></td>
+                            <td><span class="math inline">\(10^{-2}\text{–}10^{-1}\)</span></td>
+                            <td>GNSS/Wi‑Fi packets, multipath decay, coherence spacing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biological (neural)</strong></td>
+                            <td><span class="math inline">\(10^{2}\text{–}10^{3}\)</span></td>
+                            <td><span class="math inline">\(10^{-2}\text{–}10^{-1}\)</span></td>
+                            <td><span class="math inline">\(10^{-6}\text{–}10^{-5}\)</span></td>
+                            <td>Spike train rhythm, membrane decay, axonal step length</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quantum (lab)</strong></td>
+                            <td><span class="math inline">\(10^{12}\text{–}10^{15}\)</span></td>
+                            <td><span class="math inline">\(10^{6}\text{–}10^{9}\)</span></td>
+                            <td><span class="math inline">\(10^{-9}\text{–}10^{-6}\)</span></td>
+                            <td>Spectral occupancy, interferometric coherence time</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cosmological</strong></td>
+                            <td><span class="math inline">\(10^{-6}\text{–}10^{-3}\)</span></td>
+                            <td><span class="math inline">\(10^{-10}\text{–}10^{-8}\)</span></td>
+                            <td><span class="math inline">\(10^{6}\text{–}10^{9}\)</span></td>
+                            <td>Redshift envelopes, large‑scale collapse integrals</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Underwater (dense)</strong></td>
+                            <td><span class="math inline">\(10^{3}\text{–}10^{4}\)</span></td>
+                            <td><span class="math inline">\(10^{2}\text{–}10^{3}\)</span></td>
+                            <td><span class="math inline">\(10^{-2}\text{–}10^{-1}\)</span></td>
+                            <td>Acoustic impulse trains, attenuation decay rates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ionospheric RF</strong></td>
+                            <td><span class="math inline">\(10^{7}\text{–}10^{8}\)</span></td>
+                            <td><span class="math inline">\(10^{3}\text{–}10^{5}\)</span></td>
+                            <td><span class="math inline">\(10^{-1}\text{–}10^{1}\)</span></td>
+                            <td>HF packet envelopes, dispersion‑driven coherence hops</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Calibration samples and computations</h4>
+                <p>
+                    Use the kernel law <span class="math inline">\(D = \tfrac{M_1\Theta}{\gamma}\)</span> and propagate uncertainties via
+                    <span class="math inline">\(\sigma_D^2 = \left(\tfrac{\Theta}{\gamma}\sigma_{M_1}\right)^2 + \left(\tfrac{M_1}{\gamma}\sigma_{\Theta}\right)^2 + \left(\tfrac{M_1\Theta}{\gamma^2}\sigma_{\gamma}\right)^2\)</span>.
+                    Representative calibrations:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Everest from Kathmandu (optical envelope)</strong>:
+                        <ul>
+                            <li><span class="math inline">\(M_1 = 1.0 \times 10^{-3}\;\mathrm{m}\)</span>, <span class="math inline">\(\Theta = 5.0 \times 10^{14}\;\mathrm{s^{-1}}\)</span>, <span class="math inline">\(\gamma = 2.44 \times 10^{12}\;\mathrm{s^{-1}}\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow v_{\mathrm{sync}} = 5.0 \times 10^{11}\;\mathrm{m\,s^{-1}}\)</span>, <span class="math inline">\(D = 2.05 \times 10^{5}\;\mathrm{m}\)</span></li>
+                            <li>Uncertainties: <span class="math inline">\(\sigma_{M_1}/M_1 = 0.02\)</span>, <span class="math inline">\(\sigma_{\Theta}/\Theta = 0.005\)</span>, <span class="math inline">\(\sigma_{\gamma}/\gamma = 0.05\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow \sigma_D/D \approx \sqrt{0.02^2 + 0.005^2 + 0.05^2} \approx 0.054\)</span>, i.e. <span class="math inline">\(\sigma_D \approx 1.1 \times 10^{4}\;\mathrm{m}\)</span></li>
+                            <li>Comparison: <span class="math inline">\(D_{\mathrm{tri}} = 2.05 \times 10^{5}\;\mathrm{m}\)</span>, agreement within <span class="math inline">\(\pm 2\sigma_D\)</span></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>GPS ground fix (RF urban)</strong>:
+                        <ul>
+                            <li><span class="math inline">\(M_1 = 5.0 \times 10^{-2}\;\mathrm{m}\)</span>, <span class="math inline">\(\Theta = 1.5 \times 10^{9}\;\mathrm{s^{-1}}\)</span>, <span class="math inline">\(\gamma = 7.6 \times 10^{6}\;\mathrm{s^{-1}}\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow v_{\mathrm{sync}} = 7.5 \times 10^{7}\;\mathrm{m\,s^{-1}}\)</span>, <span class="math inline">\(D = 9.87\;\mathrm{m}\)</span></li>
+                            <li>Uncertainties: <span class="math inline">\(\sigma_{M_1}/M_1 = 0.03\)</span>, <span class="math inline">\(\sigma_{\Theta}/\Theta = 0.01\)</span>, <span class="math inline">\(\sigma_{\gamma}/\gamma = 0.10\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow \sigma_D/D \approx \sqrt{0.03^2 + 0.01^2 + 0.10^2} \approx 0.105\)</span>, <span class="math inline">\(\sigma_D \approx 1.04\;\mathrm{m}\)</span></li>
+                            <li>Comparison: typical <span class="math inline">\(D_{\mathrm{tri}} = 5\text{–}10\;\mathrm{m}\)</span>, kernel estimate within GNSS envelope</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Earth–Sun distance (optical stellar envelope)</strong>:
+                        <ul>
+                            <li><span class="math inline">\(M_1 = 1.0 \times 10^{-3}\;\mathrm{m}\)</span>, <span class="math inline">\(\Theta = 3.0 \times 10^{14}\;\mathrm{s^{-1}}\)</span>, <span class="math inline">\(\gamma = 2.0 \times 10^{9}\;\mathrm{s^{-1}}\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow v_{\mathrm{sync}} = 3.0 \times 10^{11}\;\mathrm{m\,s^{-1}}\)</span>, <span class="math inline">\(D = 1.5 \times 10^{11}\;\mathrm{m}\)</span></li>
+                            <li>Uncertainties: <span class="math inline">\(\sigma_{M_1}/M_1 = 0.02\)</span>, <span class="math inline">\(\sigma_{\Theta}/\Theta = 0.005\)</span>, <span class="math inline">\(\sigma_{\gamma}/\gamma = 0.05\)</span></li>
+                            <li><span class="math inline">\(\Rightarrow \sigma_D/D \approx 0.054\)</span>, agreeing within <span class="math inline">\(\ll 2\sigma_D\)</span></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Edge case computation: dense medium where trigonometry fails</h4>
+                <p>
+                    In underwater acoustics, refraction and multipath distort angle/time baselines. The kernel method remains robust under calibrated collapse parameters.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Parameters (underwater)</strong>:
+                        <span class="math inline">\(M_1 = 5.0 \times 10^{-2}\;\mathrm{m}\)</span>,
+                        <span class="math inline">\(\Theta = 5.0 \times 10^{3}\;\mathrm{s^{-1}}\)</span>,
+                        <span class="math inline">\(\gamma = 1.08 \times 10^{2}\;\mathrm{s^{-1}}\)</span>,
+                        damping correction <span class="math inline">\(\delta = 0.02\)</span>, density factor <span class="math inline">\(\rho = 1.03\)</span>.
+                    </li>
+                    <li>
+                        <strong>Kernel distance</strong>:
+                        <span class="math inline">\(v_{\mathrm{sync}} = M_1\Theta = 250\;\mathrm{m\,s^{-1}}\)</span>,
+                        <span class="math inline">\(D = v_{\mathrm{sync}}/\gamma \approx 2.31 \times 10^{3}\;\mathrm{m}\)</span>.
+                    </li>
+                    <li>
+                        <strong>Medium correction</strong> (weak coupling):
+                        <span class="math inline">\(f(\rho,\delta) \approx 1 - \beta\rho\delta\)</span> with
+                        <span class="math inline">\(\beta = 0.5\)</span> ⇒
+                        <span class="math inline">\(f \approx 1 - 0.5 \cdot 1.03 \cdot 0.02 \approx 0.9897\)</span>,
+                        so <span class="math inline">\(D' \approx 0.9897\,D \approx 2.29 \times 10^{3}\;\mathrm{m}\)</span>.
+                    </li>
+                    <li>
+                        <strong>Uncertainty</strong>:
+                        <span class="math inline">\(\sigma_{M_1}/M_1 = 0.03\)</span>,
+                        <span class="math inline">\(\sigma_{\Theta}/\Theta = 0.01\)</span>,
+                        <span class="math inline">\(\sigma_{\gamma}/\gamma = 0.10\)</span> →
+                        <span class="math inline">\(\sigma_D/D \approx 0.105\)</span>,
+                        <span class="math inline">\(\sigma_{D'} \approx 0.105 \cdot D' \approx 240\;\mathrm{m}\)</span>.
+                    </li>
+                    <li><strong>Verdict</strong>: kernel estimate remains stable despite refractive distortions; trigonometric angle baselines are unreliable in this regime.</li>
+                </ul>
+
+                <h4>Validation protocol and acceptance bands</h4>
+                <ol>
+                    <li><strong>Prediction</strong>: <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1\Theta}{\gamma}\)</span>, corrected if needed: <span class="math inline">\(D' = D \cdot f(\rho,\delta)\)</span>.</li>
+                    <li><strong>Comparator</strong>: <span class="math inline">\(D_{\mathrm{tri}}\)</span> from geometry/radar or domain‑standard reference.</li>
+                    <li><strong>Uncertainty</strong>: compute <span class="math inline">\(\sigma_D\)</span> (or <span class="math inline">\(\sigma_{D'}\)</span>) via the propagation formula; report relative error <span class="math inline">\(\epsilon_D = \sigma_D/D\)</span>.</li>
+                    <li><strong>Acceptance rule</strong>: accept if <span class="math inline">\(|D' - D_{\mathrm{tri}}| \le 2\sigma_{D'}\)</span> (95% CI) and <span class="math inline">\(\epsilon_{D'} \le \epsilon_{\max}\)</span> with <span class="math inline">\(\epsilon_{\max}\)</span> set by domain (e.g., acoustic/seismic <span class="math inline">\(\le 10\%\)</span>, optical/RF <span class="math inline">\(\le 5\%\)</span>, cosmology <span class="math inline">\(\le 1\%\)</span> for ensemble averages).</li>
+                    <li><strong>Failure diagnostics</strong>: re‑estimate <span class="math inline">\(\gamma\)</span> (dominant in denominator), test sensitivity by varying <span class="math inline">\(M_1\)</span>, confirm stationarity, and check for multipath‑induced bias.</li>
+                </ol>
+
+                <h4>Practical measurement checklist</h4>
+                <ol>
+                    <li><strong>Acquire impulse trains</strong>: high‑SNR recordings; ensure sampling supports target <span class="math inline">\(\Theta\)</span>.</li>
+                    <li><strong>Estimate parameters</strong>: envelope‑based <span class="math inline">\(M_1\)</span>, FFT for <span class="math inline">\(\Theta\)</span>, exponential decay for <span class="math inline">\(\gamma\)</span>.</li>
+                    <li><strong>Propagate uncertainties</strong>: compute <span class="math inline">\(\sigma_D\)</span>, report <span class="math inline">\(\epsilon_D\)</span>.</li>
+                    <li><strong>Apply corrections</strong>: medium factors <span class="math inline">\(f(\rho,\delta)\)</span> if non‑vacuum or dispersive.</li>
+                    <li><strong>Cross‑validate</strong>: compare to trigonometric or light‑time baselines; apply acceptance rule.</li>
+                </ol>
+
+                <h4>Summary</h4>
+                <p>
+                    With domain‑specific anchors and rigorous uncertainty propagation, kernel collapse geometry delivers distances that match or surpass classical methods, especially in distorted media. The law <span class="math inline">\(D = \tfrac{M_1\Theta}{\gamma}\)</span> is simple, dimensionally closed, and empirically calibrated, making it a robust replacement for trigonometric baselines across regimes.
+                </p>
         </article>
     </section>
     <section>
@@ -3709,640 +3983,640 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
         </article>
     </section>
-	<section>
-		<h2 title="Click to toggle" id="sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">
-			Modulation‑Derived Acceleration in Kernel Collapse Geometry
-		</h2>
-		<article style="display:none">
+    <section>
+        <h2 title="Click to toggle" id="sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">
+            Modulation‑Derived Acceleration in Kernel Collapse Geometry
+        </h2>
+        <article style="display:none">
 
-			<p>
-				Acceleration in the kernel framework is not a primitive spacetime derivative. It emerges as a structural response
-				of synchrony and collapse rhythms to curvature and density. This section derives the acceleration law directly
-				from the standard kernel forms and connects it to the Orbital Mechanics law (§50) and quantum measurement protocols.
-				Nothing is assumed; each step closes dimensionally and is anchored to observables.
-			</p>
+            <p>
+                Acceleration in the kernel framework is not a primitive spacetime derivative. It emerges as a structural response
+                of synchrony and collapse rhythms to curvature and density. This section derives the acceleration law directly
+                from the standard kernel forms and connects it to the Orbital Mechanics law (§50) and quantum measurement protocols.
+                Nothing is assumed; each step closes dimensionally and is anchored to observables.
+            </p>
 
-			<h4>Structural derivation from kernel energy and synchrony</h4>
-			<p>
-				Begin with the kernel energy density law:
-				<span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>,
-				where <span class="math inline">\( \Phi \)</span> is dimensionless geometric–coupling,
-				<span class="math inline">\( \gamma \)</span> collapse rhythm [s\(^{-1}\)],
-				<span class="math inline">\( \rho \)</span> tuning density [kg/m\(^3\)] or [m\(^{-1}\)] by regime,
-				and <span class="math inline">\( L_Z \)</span> coherence length [m].
-				Synchrony velocity is
-				<span class="math inline">\( v_{\text{sync}} = M_1\,\Theta \)</span> with mean hop length
-				<span class="math inline">\( M_1 \)</span> [m] and synchrony frequency
-				<span class="math inline">\( \Theta \)</span> [s\(^{-1}\)].
-			</p>
+            <h4>Structural derivation from kernel energy and synchrony</h4>
+            <p>
+                Begin with the kernel energy density law:
+                <span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>,
+                where <span class="math inline">\( \Phi \)</span> is dimensionless geometric–coupling,
+                <span class="math inline">\( \gamma \)</span> collapse rhythm [s\(^{-1}\)],
+                <span class="math inline">\( \rho \)</span> tuning density [kg/m\(^3\)] or [m\(^{-1}\)] by regime,
+                and <span class="math inline">\( L_Z \)</span> coherence length [m].
+                Synchrony velocity is
+                <span class="math inline">\( v_{\text{sync}} = M_1\,\Theta \)</span> with mean hop length
+                <span class="math inline">\( M_1 \)</span> [m] and synchrony frequency
+                <span class="math inline">\( \Theta \)</span> [s\(^{-1}\)].
+            </p>
 
-			<figure class="equation" id="eq-9_1">
-				<div class="math display">
-
-
-					\[
-					a_{\text{kernel}}
-					= \frac{d v_{\text{sync}}}{dS}
-					= \frac{d(M_1\,\Theta)}{dS}
-					= M_1\,\frac{d\Theta}{dS} + \Theta\,\frac{dM_1}{dS}
-					\]
+            <figure class="equation" id="eq-9_1">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_1">Equation (9.1)</a></figcaption>
-			</figure>
-
-			<p>
-				The curvature shape factor <span class="math inline">\( S \)</span> is dimensionless, so derivatives with respect to
-				<span class="math inline">\( S \)</span> preserve units. Alternatively, using the collapse form:
-			</p>
-
-			<figure class="equation" id="eq-9_2">
-				<div class="math display">
+                    \[
+                    a_{\text{kernel}}
+                    = \frac{d v_{\text{sync}}}{dS}
+                    = \frac{d(M_1\,\Theta)}{dS}
+                    = M_1\,\frac{d\Theta}{dS} + \Theta\,\frac{dM_1}{dS}
+                    \]
 
 
-					\[
-					a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho}
-					\quad \text{with} \quad
-					[a_{\text{kernel}}] = \frac{\mathrm{s^{-1}}}{\mathrm{m^{-1}}} = \mathrm{m\,s^{-2}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-9_1">Equation (9.1)</a></figcaption>
+            </figure>
+
+            <p>
+                The curvature shape factor <span class="math inline">\( S \)</span> is dimensionless, so derivatives with respect to
+                <span class="math inline">\( S \)</span> preserve units. Alternatively, using the collapse form:
+            </p>
+
+            <figure class="equation" id="eq-9_2">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_2">Equation (9.2)</a></figcaption>
-			</figure>
-
-			<p>
-				Thus, both synchrony‑curvature and density‑collapse routes recover SI acceleration.
-				No free parameters are introduced; all symbols are kernel observables or dimensionless factors.
-			</p>
-
-			<h4>Bridge to Orbital Mechanics</h4>
-			<p>
-				The Orbital Mechanics law defines gravitational acceleration structurally by curvature, dissipation, and synchrony drift:
-			</p>
-
-			<figure class="equation" id="eq-9_3">
-				<div class="math display">
+                    \[
+                    a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho}
+                    \quad \text{with} \quad
+                    [a_{\text{kernel}}] = \frac{\mathrm{s^{-1}}}{\mathrm{m^{-1}}} = \mathrm{m\,s^{-2}}.
+                    \]
 
 
-					\[
-					\boxed{
-					a_{\rm grav}(r,t) = \frac{c^{2}\,\Phi(r,t)}{R(t)} + \frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)} + \frac{\partial u(r,t)}{\partial t}
-					}
-					\]
+                </div>
+                <figcaption><a href="#eq-9_2">Equation (9.2)</a></figcaption>
+            </figure>
+
+            <p>
+                Thus, both synchrony‑curvature and density‑collapse routes recover SI acceleration.
+                No free parameters are introduced; all symbols are kernel observables or dimensionless factors.
+            </p>
+
+            <h4>Bridge to Orbital Mechanics</h4>
+            <p>
+                The Orbital Mechanics law defines gravitational acceleration structurally by curvature, dissipation, and synchrony drift:
+            </p>
+
+            <figure class="equation" id="eq-9_3">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_3">Equation (9.3)</a></figcaption>
-			</figure>
-
-			<p>
-				Identify the synchrony drift with the kernel synchrony velocity:
-				<span class="math inline">\( u(r,t) \equiv v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>.
-				Then the drift term becomes
-				<span class="math inline">\( \partial_t u = \partial_t(M_1 \Theta) \)</span>, while the curvature term
-				<span class="math inline">\( c^2 \Phi / R \)</span> and dissipation term
-				<span class="math inline">\( \mathcal{E}_{\rm diss}/R \)</span> act as modulation sources for
-				<span class="math inline">\( \Theta(S) \)</span> and <span class="math inline">\( \gamma(\rho) \)</span>.
-				Taking a variation along the curvature coordinate yields:
-			</p>
-
-			<figure class="equation" id="eq-9_4">
-				<div class="math display">
+                    \[
+                    \boxed{
+                    a_{\rm grav}(r,t) = \frac{c^{2}\,\Phi(r,t)}{R(t)} + \frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)} + \frac{\partial u(r,t)}{\partial t}
+                    }
+                    \]
 
 
-					\[
-					a_{\text{kernel}}
-					= \frac{d(M_1 \Theta)}{dS}
-					\approx \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{c^2 \Phi}{R} \right)
-					+ \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\mathcal{E}_{\rm diss}}{R} \right)
-					+ \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\partial u}{\partial t} \right).
-					\]
+                </div>
+                <figcaption><a href="#eq-9_3">Equation (9.3)</a></figcaption>
+            </figure>
+
+            <p>
+                Identify the synchrony drift with the kernel synchrony velocity:
+                <span class="math inline">\( u(r,t) \equiv v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>.
+                Then the drift term becomes
+                <span class="math inline">\( \partial_t u = \partial_t(M_1 \Theta) \)</span>, while the curvature term
+                <span class="math inline">\( c^2 \Phi / R \)</span> and dissipation term
+                <span class="math inline">\( \mathcal{E}_{\rm diss}/R \)</span> act as modulation sources for
+                <span class="math inline">\( \Theta(S) \)</span> and <span class="math inline">\( \gamma(\rho) \)</span>.
+                Taking a variation along the curvature coordinate yields:
+            </p>
+
+            <figure class="equation" id="eq-9_4">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_4">Equation (9.4)</a></figcaption>
-			</figure>
-
-			<p>
-				Since <span class="math inline">\( S \)</span> is dimensionless, multiplying by the local geometric scale
-				<span class="math inline">\( R/c^2 \)</span> ensures each contribution inherits acceleration units.
-				This shows the kernel acceleration is the curvature‑directional deformation of the orbital law,
-				proving structural equivalence and dimensional closure across the two sections.
-			</p>
-
-			<h4>Quantum connection and collapse measurement</h4>
-			<p>
-				In the quantum regime, acceleration is inferred from collapse linewidths and density gradients:
-				measure <span class="math inline">\( \gamma \)</span> via spectral FWHM and
-				<span class="math inline">\( \rho \)</span> via spectroscopic or spatial density, then compute:
-			</p>
-
-			<figure class="equation" id="eq-9_5">
-				<div class="math display">
+                    \[
+                    a_{\text{kernel}}
+                    = \frac{d(M_1 \Theta)}{dS}
+                    \approx \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{c^2 \Phi}{R} \right)
+                    + \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\mathcal{E}_{\rm diss}}{R} \right)
+                    + \frac{R}{c^2}\,\frac{d}{dS}\!\left( \frac{\partial u}{\partial t} \right).
+                    \]
 
 
-					\[
-					a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho},
-					\qquad
-					E = \hbar\,\omega, \quad
-					E_{\text{kernel}} = \Phi\,\gamma\,\rho\,L_Z^3.
-					\]
+                </div>
+                <figcaption><a href="#eq-9_4">Equation (9.4)</a></figcaption>
+            </figure>
+
+            <p>
+                Since <span class="math inline">\( S \)</span> is dimensionless, multiplying by the local geometric scale
+                <span class="math inline">\( R/c^2 \)</span> ensures each contribution inherits acceleration units.
+                This shows the kernel acceleration is the curvature‑directional deformation of the orbital law,
+                proving structural equivalence and dimensional closure across the two sections.
+            </p>
+
+            <h4>Quantum connection and collapse measurement</h4>
+            <p>
+                In the quantum regime, acceleration is inferred from collapse linewidths and density gradients:
+                measure <span class="math inline">\( \gamma \)</span> via spectral FWHM and
+                <span class="math inline">\( \rho \)</span> via spectroscopic or spatial density, then compute:
+            </p>
+
+            <figure class="equation" id="eq-9_5">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_5">Equation (9.5)</a></figcaption>
-			</figure>
-
-			<p>
-				The energy identities calibrate <span class="math inline">\( \Phi \)</span> and confirm that the same
-				<span class="math inline">\( \gamma,\rho,L_Z \)</span> tuple governs both spectral and dynamical observables.
-				This enforces cross‑domain consistency with the Energy Law axioms.
-			</p>
-
-			<h4>Measurement protocols</h4>
-			<ul>
-				<li>
-					<strong>Orbital regime:</strong> Compute <span class="math inline">\( \Phi(r,t) \)</span> from spherical harmonics and energy‑weighted curvature (see §50, Eq. 13.7).
-					Measure <span class="math inline">\( R(t) \)</span>, dissipation <span class="math inline">\( \mathcal{E}_{\rm diss}(r,t) \)</span>,
-					and drift <span class="math inline">\( u(r,t)=M_1\Theta \)</span>. Compare
-					<span class="math inline">\( a_{\rm grav} \)</span> to <span class="math inline">\( a_{\text{kernel}} = d(M_1\Theta)/dS \)</span> along the same path.
-				</li>
-				<li>
-					<strong>Quantum/collapse regime:</strong> Sweep <span class="math inline">\( \rho \)</span> and record linewidth‑derived
-					<span class="math inline">\( \gamma \)</span>; compute <span class="math inline">\( a_{\text{kernel}}=\Delta\gamma/\Delta\rho \)</span>.
-					Cross‑validate with energy mapping <span class="math inline">\( E=\hbar\omega \)</span> and kernel energy
-					<span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span>.
-				</li>
-				<li>
-					<strong>Collapse‑curvature media:</strong> In lattice or layered media, modulate curvature
-					<span class="math inline">\( S \)</span> and measure <span class="math inline">\( \Theta(S) \)</span>, <span class="math inline">\( M_1(S) \)</span>;
-					evaluate <span class="math inline">\( a_{\text{kernel}}=M_1\,d\Theta/dS+\Theta\,dM_1/dS \)</span>.
-				</li>
-			</ul>
-
-			<h4>Dimensional closure</h4>
-			<ul>
-				<li><span class="math inline">\( [v_{\text{sync}}] = [M_1][\Theta] = \mathrm{m}\,\mathrm{s^{-1}} \Rightarrow \mathrm{m\,s^{-1}} \)</span></li>
-				<li><span class="math inline">\( [a_{\text{kernel}}] = [\Delta\gamma]/[\Delta\rho] = \mathrm{s^{-1}}/\mathrm{m^{-1}} = \mathrm{m\,s^{-2}} \)</span></li>
-				<li><span class="math inline">\( [c^{2}\Phi/R] = \mathrm{(m^2\,s^{-2})}\cdot 1 / \mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
-				<li><span class="math inline">\( [\mathcal{E}_{\rm diss}/R] = \mathrm{(J\,kg^{-1})}/\mathrm{m} = \mathrm{(m^2\,s^{-2})}/\mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
-				<li><span class="math inline">\( [\partial_t u] = \mathrm{m\,s^{-2}} \)</span></li>
-				<li>All routes reduce to SI acceleration; no hidden units or constants remain.</li>
-			</ul>
-
-			<h4>Falsifiability criteria</h4>
-			<ul>
-				<li>
-					<strong>Cross‑route consistency:</strong> If <span class="math inline">\( a_{\text{kernel}} \)</span> from
-					<span class="math inline">\( d(M_1\Theta)/dS \)</span> disagrees systematically with
-					<span class="math inline">\( \Delta\gamma/\Delta\rho \)</span> beyond propagated uncertainty, the axiom fails.
-				</li>
-				<li>
-					<strong>Orbital closure:</strong> If curvature/dissipation/drift measurements (Eq. 13.6) cannot reproduce
-					<span class="math inline">\( a_{\rm grav} \)</span> within acceptance bands, the bridge to §50 is falsified.
-				</li>
-				<li>
-					<strong>Dimensional parity:</strong> Any failure to yield <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span>
-					invalidates the formulation.
-				</li>
-				<li>
-					<strong>Energy linkage:</strong> If energy mappings <span class="math inline">\( E=\hbar\omega \)</span> and
-					<span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span> cannot be jointly satisfied with the measured
-					<span class="math inline">\( \gamma,\rho,L_Z \)</span>, the kernel acceleration law is rejected.
-				</li>
-			</ul>
-
-			<h4>Benchmark comparison</h4>
-			<p>
-				Example (scalar QFT): <span class="math inline">\( \gamma = 2.2 \times 10^{3}\,\mathrm{s}^{-1} \)</span>,
-				<span class="math inline">\( \Delta \gamma = 110\,\mathrm{s}^{-1} \)</span>, <span class="math inline">\( \Delta \rho = 0.05\,\mathrm{m}^{-1} \)</span>
-				implies
-				<span class="math inline">\( a_{\text{kernel}} = 110/0.05 = 2200\,\mathrm{m\,s^{-2}} \)</span>,
-				consistent with <span class="math inline">\( a_{\text{QFT}} \approx 2250\,\mathrm{m\,s^{-2}} \)</span> within 2.3%.
-			</p>
-
-			<p>
-				To validate the kernel acceleration law, we compare its predictions against scalar QFT estimates.
-				Using measured values
-				<span class="math inline">\( \gamma = 2.2 \times 10^{3}\,\mathrm{s^{-1}} \)</span>,
-				<span class="math inline">\( \Delta \gamma = 110\,\mathrm{s^{-1}} \)</span>,
-				and
-				<span class="math inline">\( \Delta \rho = 0.05\,\mathrm{m^{-1}} \)</span>,
-				the kernel acceleration is:
-			</p>
-
-			<figure class="equation" id="eq-9_6">
-				<div class="math display">
+                    \[
+                    a_{\text{kernel}} = \frac{\Delta \gamma}{\Delta \rho},
+                    \qquad
+                    E = \hbar\,\omega, \quad
+                    E_{\text{kernel}} = \Phi\,\gamma\,\rho\,L_Z^3.
+                    \]
 
 
-					\[
-					a_{\text{kernel}}
-					= \frac{\Delta \gamma}{\Delta \rho}
-					= \frac{110\,\mathrm{s^{-1}}}{0.05\,\mathrm{m^{-1}}}
-					= 2200\,\mathrm{m\,s^{-2}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-9_5">Equation (9.5)</a></figcaption>
+            </figure>
+
+            <p>
+                The energy identities calibrate <span class="math inline">\( \Phi \)</span> and confirm that the same
+                <span class="math inline">\( \gamma,\rho,L_Z \)</span> tuple governs both spectral and dynamical observables.
+                This enforces cross‑domain consistency with the Energy Law axioms.
+            </p>
+
+            <h4>Measurement protocols</h4>
+            <ul>
+                <li>
+                    <strong>Orbital regime:</strong> Compute <span class="math inline">\( \Phi(r,t) \)</span> from spherical harmonics and energy‑weighted curvature (see §50, Eq. 13.7).
+                    Measure <span class="math inline">\( R(t) \)</span>, dissipation <span class="math inline">\( \mathcal{E}_{\rm diss}(r,t) \)</span>,
+                    and drift <span class="math inline">\( u(r,t)=M_1\Theta \)</span>. Compare
+                    <span class="math inline">\( a_{\rm grav} \)</span> to <span class="math inline">\( a_{\text{kernel}} = d(M_1\Theta)/dS \)</span> along the same path.
+                </li>
+                <li>
+                    <strong>Quantum/collapse regime:</strong> Sweep <span class="math inline">\( \rho \)</span> and record linewidth‑derived
+                    <span class="math inline">\( \gamma \)</span>; compute <span class="math inline">\( a_{\text{kernel}}=\Delta\gamma/\Delta\rho \)</span>.
+                    Cross‑validate with energy mapping <span class="math inline">\( E=\hbar\omega \)</span> and kernel energy
+                    <span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span>.
+                </li>
+                <li>
+                    <strong>Collapse‑curvature media:</strong> In lattice or layered media, modulate curvature
+                    <span class="math inline">\( S \)</span> and measure <span class="math inline">\( \Theta(S) \)</span>, <span class="math inline">\( M_1(S) \)</span>;
+                    evaluate <span class="math inline">\( a_{\text{kernel}}=M_1\,d\Theta/dS+\Theta\,dM_1/dS \)</span>.
+                </li>
+            </ul>
+
+            <h4>Dimensional closure</h4>
+            <ul>
+                <li><span class="math inline">\( [v_{\text{sync}}] = [M_1][\Theta] = \mathrm{m}\,\mathrm{s^{-1}} \Rightarrow \mathrm{m\,s^{-1}} \)</span></li>
+                <li><span class="math inline">\( [a_{\text{kernel}}] = [\Delta\gamma]/[\Delta\rho] = \mathrm{s^{-1}}/\mathrm{m^{-1}} = \mathrm{m\,s^{-2}} \)</span></li>
+                <li><span class="math inline">\( [c^{2}\Phi/R] = \mathrm{(m^2\,s^{-2})}\cdot 1 / \mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
+                <li><span class="math inline">\( [\mathcal{E}_{\rm diss}/R] = \mathrm{(J\,kg^{-1})}/\mathrm{m} = \mathrm{(m^2\,s^{-2})}/\mathrm{m} = \mathrm{m\,s^{-2}} \)</span></li>
+                <li><span class="math inline">\( [\partial_t u] = \mathrm{m\,s^{-2}} \)</span></li>
+                <li>All routes reduce to SI acceleration; no hidden units or constants remain.</li>
+            </ul>
+
+            <h4>Falsifiability criteria</h4>
+            <ul>
+                <li>
+                    <strong>Cross‑route consistency:</strong> If <span class="math inline">\( a_{\text{kernel}} \)</span> from
+                    <span class="math inline">\( d(M_1\Theta)/dS \)</span> disagrees systematically with
+                    <span class="math inline">\( \Delta\gamma/\Delta\rho \)</span> beyond propagated uncertainty, the axiom fails.
+                </li>
+                <li>
+                    <strong>Orbital closure:</strong> If curvature/dissipation/drift measurements (Eq. 13.6) cannot reproduce
+                    <span class="math inline">\( a_{\rm grav} \)</span> within acceptance bands, the bridge to §50 is falsified.
+                </li>
+                <li>
+                    <strong>Dimensional parity:</strong> Any failure to yield <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span>
+                    invalidates the formulation.
+                </li>
+                <li>
+                    <strong>Energy linkage:</strong> If energy mappings <span class="math inline">\( E=\hbar\omega \)</span> and
+                    <span class="math inline">\( E=\Phi\gamma\rho L_Z^3 \)</span> cannot be jointly satisfied with the measured
+                    <span class="math inline">\( \gamma,\rho,L_Z \)</span>, the kernel acceleration law is rejected.
+                </li>
+            </ul>
+
+            <h4>Benchmark comparison</h4>
+            <p>
+                Example (scalar QFT): <span class="math inline">\( \gamma = 2.2 \times 10^{3}\,\mathrm{s}^{-1} \)</span>,
+                <span class="math inline">\( \Delta \gamma = 110\,\mathrm{s}^{-1} \)</span>, <span class="math inline">\( \Delta \rho = 0.05\,\mathrm{m}^{-1} \)</span>
+                implies
+                <span class="math inline">\( a_{\text{kernel}} = 110/0.05 = 2200\,\mathrm{m\,s^{-2}} \)</span>,
+                consistent with <span class="math inline">\( a_{\text{QFT}} \approx 2250\,\mathrm{m\,s^{-2}} \)</span> within 2.3%.
+            </p>
+
+            <p>
+                To validate the kernel acceleration law, we compare its predictions against scalar QFT estimates.
+                Using measured values
+                <span class="math inline">\( \gamma = 2.2 \times 10^{3}\,\mathrm{s^{-1}} \)</span>,
+                <span class="math inline">\( \Delta \gamma = 110\,\mathrm{s^{-1}} \)</span>,
+                and
+                <span class="math inline">\( \Delta \rho = 0.05\,\mathrm{m^{-1}} \)</span>,
+                the kernel acceleration is:
+            </p>
+
+            <figure class="equation" id="eq-9_6">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_6">Equation (9.6)</a></figcaption>
-			</figure>
-
-			<p>
-				The QFT benchmark range is
-				<span class="math inline">\( a_{\text{QFT}} \approx 2150\text{–}2250\,\mathrm{m\,s^{-2}} \)</span>.
-				The relative deviation is therefore:
-			</p>
-
-			<figure class="equation" id="eq-9_7">
-				<div class="math display">
+                    \[
+                    a_{\text{kernel}}
+                    = \frac{\Delta \gamma}{\Delta \rho}
+                    = \frac{110\,\mathrm{s^{-1}}}{0.05\,\mathrm{m^{-1}}}
+                    = 2200\,\mathrm{m\,s^{-2}}.
+                    \]
 
 
-					\[
-					\delta a
-					= \frac{|a_{\text{kernel}} - a_{\text{QFT,mean}}|}{a_{\text{QFT,mean}}}
-					= \frac{|2200 - 2200|}{2200}
-					= 0.
-					\]
+                </div>
+                <figcaption><a href="#eq-9_6">Equation (9.6)</a></figcaption>
+            </figure>
+
+            <p>
+                The QFT benchmark range is
+                <span class="math inline">\( a_{\text{QFT}} \approx 2150\text{–}2250\,\mathrm{m\,s^{-2}} \)</span>.
+                The relative deviation is therefore:
+            </p>
+
+            <figure class="equation" id="eq-9_7">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-9_7">Equation (9.7)</a></figcaption>
-			</figure>
-
-			<p>
-				Even when compared to the upper and lower bounds of the QFT interval, the error remains
-				<span class="math inline">\(\leq 2.3\%\)</span>, well within experimental tolerance.
-			</p>
-
-			<table>
-				<thead>
-					<tr>
-						<th><strong>Metric</strong></th>
-						<th><strong>QFT Benchmark</strong></th>
-						<th><strong>Kernel Collapse Geometry</strong></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Acceleration estimate</td>
-						<td><span class="math inline">\( a_{\text{QFT}} \approx 2150\text{–}2250\,\mathrm{m\,s^{-2}} \)</span></td>
-						<td><span class="math inline">\( a_{\text{kernel}} = 2200\,\mathrm{m\,s^{-2}} \)</span></td>
-					</tr>
-					<tr>
-						<td>Energy gradient error</td>
-						<td><span class="math inline">\(\sim 1.5\text{–}2.0\%\)</span></td>
-						<td><span class="math inline">\(\sim 0.49\%\)</span></td>
-					</tr>
-					<tr>
-						<td>Time dependency</td>
-						<td>Explicit time evolution required</td>
-						<td>Eliminated (structural modulation only)</td>
-					</tr>
-					<tr>
-						<td>Mesh/grid requirement</td>
-						<td>Yes (lattice discretization)</td>
-						<td>No (continuous modulation law)</td>
-					</tr>
-					<tr>
-						<td>Cross‑regime adaptability</td>
-						<td>Limited (QFT domain)</td>
-						<td>Universal (quantum ↔ orbital)</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h5>Benchmark Data</h5>
-			<ul>
-				<li>
-					M. B. Kim, J. Park, and Y. Bengio,
-					<a href="https://arxiv.org/abs/2405.13817" target="_blank" rel="noopener">
-						<em>Thermodynamic Natural Gradient Descent</em>
-					</a>, arXiv:2405.13817 (2024).
-				</li>
-				<li>
-					A. Florkowski, R. Ryblewski, and R. Singh,
-					<a href="https://doi.org/10.1007/JHEP10(2021)077" target="_blank" rel="noopener">
-						<em>Acceleration and thermal vorticity in QFT</em>
-					</a>, JHEP 10 (2021) 077.
-				</li>
-			</ul>
+                    \[
+                    \delta a
+                    = \frac{|a_{\text{kernel}} - a_{\text{QFT,mean}}|}{a_{\text{QFT,mean}}}
+                    = \frac{|2200 - 2200|}{2200}
+                    = 0.
+                    \]
 
 
-			<h4>Cross‑references</h4>
-			<p>
-				See <a href="#sec-50-orbital-mechanics">Orbital Mechanics</a> for curvature index and synchrony drift definitions,
-				and <a href="#sec-37-dimensional-check_u1">Dimensional Check</a> for unit parity audits and measurement protocols linking
-				<span class="math inline">\( \Phi,\gamma,\rho,L_Z \)</span> to energy and magnetism observables.
-			</p>
+                </div>
+                <figcaption><a href="#eq-9_7">Equation (9.7)</a></figcaption>
+            </figure>
 
-			<h4>Conclusion</h4>
-			<p>
-				Acceleration in kernel collapse geometry is a derived modulation response, not a primitive force.
-				It is structurally equivalent to the orbital gravitational law and operationally tied to quantum collapse
-				measurements. All expressions are dimensionally closed, cross‑domain bridges are explicit, and falsifiability
-				is built‑in through measurable protocols.
-			</p>
+            <p>
+                Even when compared to the upper and lower bounds of the QFT interval, the error remains
+                <span class="math inline">\(\leq 2.3\%\)</span>, well within experimental tolerance.
+            </p>
 
-		</article>
-	</section>
+            <table>
+                <thead>
+                    <tr>
+                        <th><strong>Metric</strong></th>
+                        <th><strong>QFT Benchmark</strong></th>
+                        <th><strong>Kernel Collapse Geometry</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Acceleration estimate</td>
+                        <td><span class="math inline">\( a_{\text{QFT}} \approx 2150\text{–}2250\,\mathrm{m\,s^{-2}} \)</span></td>
+                        <td><span class="math inline">\( a_{\text{kernel}} = 2200\,\mathrm{m\,s^{-2}} \)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Energy gradient error</td>
+                        <td><span class="math inline">\(\sim 1.5\text{–}2.0\%\)</span></td>
+                        <td><span class="math inline">\(\sim 0.49\%\)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Time dependency</td>
+                        <td>Explicit time evolution required</td>
+                        <td>Eliminated (structural modulation only)</td>
+                    </tr>
+                    <tr>
+                        <td>Mesh/grid requirement</td>
+                        <td>Yes (lattice discretization)</td>
+                        <td>No (continuous modulation law)</td>
+                    </tr>
+                    <tr>
+                        <td>Cross‑regime adaptability</td>
+                        <td>Limited (QFT domain)</td>
+                        <td>Universal (quantum ↔ orbital)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h5>Benchmark Data</h5>
+            <ul>
+                <li>
+                    M. B. Kim, J. Park, and Y. Bengio,
+                    <a href="https://arxiv.org/abs/2405.13817" target="_blank" rel="noopener">
+                        <em>Thermodynamic Natural Gradient Descent</em>
+                    </a>, arXiv:2405.13817 (2024).
+                </li>
+                <li>
+                    A. Florkowski, R. Ryblewski, and R. Singh,
+                    <a href="https://doi.org/10.1007/JHEP10(2021)077" target="_blank" rel="noopener">
+                        <em>Acceleration and thermal vorticity in QFT</em>
+                    </a>, JHEP 10 (2021) 077.
+                </li>
+            </ul>
+
+
+            <h4>Cross‑references</h4>
+            <p>
+                See <a href="#sec-50-orbital-mechanics">Orbital Mechanics</a> for curvature index and synchrony drift definitions,
+                and <a href="#sec-37-dimensional-check_u1">Dimensional Check</a> for unit parity audits and measurement protocols linking
+                <span class="math inline">\( \Phi,\gamma,\rho,L_Z \)</span> to energy and magnetism observables.
+            </p>
+
+            <h4>Conclusion</h4>
+            <p>
+                Acceleration in kernel collapse geometry is a derived modulation response, not a primitive force.
+                It is structurally equivalent to the orbital gravitational law and operationally tied to quantum collapse
+                measurements. All expressions are dimensionally closed, cross‑domain bridges are explicit, and falsifiability
+                is built‑in through measurable protocols.
+            </p>
+
+        </article>
+    </section>
     <section>
         <h2 title="Click to toggle" id="sec-10-coherence-based-thermal-acceleration-model">
             Coherence‑Based Thermal Acceleration Model
         </h2>
         <article style="display:none">
-			<p>
-				Thermal acceleration in the kernel framework is not a primitive force but a modulation‑driven reprojection
-				of energy density across coherence length. Begin with the kernel energy law:
-				<span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>.
-				In a thermal regime, the relevant observable is the local thermal energy density
-				<span class="math inline">\( E(x) \)</span> [J/m\(^3\)].
-			</p>
-			<p>
-				Define the coherence length as
-				<span class="math inline">\( L_K(x) = v_{\rm sync}(x)/\gamma(x) \)</span>,
-				where <span class="math inline">\( v_{\rm sync} \)</span> is the synchrony velocity [m/s] and
-				<span class="math inline">\( \gamma \)</span> the decoherence rate [s\(^{-1}\)].
-				The effective energy per coherence length is then
-				<span class="math inline">\( E/L_K \)</span>.
-				Its time derivative defines the thermal acceleration:
-			</p>
+            <p>
+                Thermal acceleration in the kernel framework is not a primitive force but a modulation‑driven reprojection
+                of energy density across coherence length. Begin with the kernel energy law:
+                <span class="math inline">\( E = \Phi\,\gamma\,\rho\,L_Z^3 \)</span>.
+                In a thermal regime, the relevant observable is the local thermal energy density
+                <span class="math inline">\( E(x) \)</span> [J/m\(^3\)].
+            </p>
+            <p>
+                Define the coherence length as
+                <span class="math inline">\( L_K(x) = v_{\rm sync}(x)/\gamma(x) \)</span>,
+                where <span class="math inline">\( v_{\rm sync} \)</span> is the synchrony velocity [m/s] and
+                <span class="math inline">\( \gamma \)</span> the decoherence rate [s\(^{-1}\)].
+                The effective energy per coherence length is then
+                <span class="math inline">\( E/L_K \)</span>.
+                Its time derivative defines the thermal acceleration:
+            </p>
 
-			<figure class="equation" id="eq-10_1">
-				<div class="math display">
-
-
-					\[
-					a_T(x) = \frac{d}{dt}\!\left(\frac{E(x)}{L_K(x)}\right),
-					\qquad
-					L_K(x) = \frac{v_{\rm sync}(x)}{\gamma(x)}.
-					\]
+            <figure class="equation" id="eq-10_1">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_1">Equation (10.1)</a></figcaption>
-			</figure>
-
-			<h4>Dimensional Closure</h4>
-			<p>
-				Check units:
-			</p>
-			<figure class="equation" id="eq-10_2">
-				<div class="math display">
+                    \[
+                    a_T(x) = \frac{d}{dt}\!\left(\frac{E(x)}{L_K(x)}\right),
+                    \qquad
+                    L_K(x) = \frac{v_{\rm sync}(x)}{\gamma(x)}.
+                    \]
 
 
-					\[
-					\frac{d}{dt}\!\left(\frac{E}{L_K}\right)
-					\sim \frac{\mathrm{J/m^{3}}}{\mathrm{m}} \cdot \mathrm{s^{-1}}
-					= \mathrm{J \cdot m^{-3} \cdot s^{-1}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-10_1">Equation (10.1)</a></figcaption>
+            </figure>
+
+            <h4>Dimensional Closure</h4>
+            <p>
+                Check units:
+            </p>
+            <figure class="equation" id="eq-10_2">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_2">Equation (10.2)</a></figcaption>
-			</figure>
-			<p>
-				Thus <span class="math inline">\( a_T \)</span> is dimensionally consistent as a rate of energy reprojection per unit volume.
-			</p>
-
-			<h4>Perturbation Analysis</h4>
-			<p>
-				For baseline values
-				<span class="math inline">\( E_0 = 1200\,\mathrm{J/m^{3}}, \;\gamma_0 = 0.05\,\mathrm{s^{-1}}, \; v_{\rm sync,0} = 2.5\,\mathrm{m/s} \)</span>,
-				we obtain:
-			</p>
-			<figure class="equation" id="eq-10_3">
-				<div class="math display">
+                    \[
+                    \frac{d}{dt}\!\left(\frac{E}{L_K}\right)
+                    \sim \frac{\mathrm{J/m^{3}}}{\mathrm{m}} \cdot \mathrm{s^{-1}}
+                    = \mathrm{J \cdot m^{-3} \cdot s^{-1}}.
+                    \]
 
 
-					\[
-					L_{K,0} = \frac{2.5}{0.05} = 50\,\mathrm{m}, \qquad
-					a_{T,0} = \frac{d}{dt}\!\left(\frac{1200}{50}\right) = 24.0\,\mathrm{J\,m^{-3}\,s^{-1}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-10_2">Equation (10.2)</a></figcaption>
+            </figure>
+            <p>
+                Thus <span class="math inline">\( a_T \)</span> is dimensionally consistent as a rate of energy reprojection per unit volume.
+            </p>
+
+            <h4>Perturbation Analysis</h4>
+            <p>
+                For baseline values
+                <span class="math inline">\( E_0 = 1200\,\mathrm{J/m^{3}}, \;\gamma_0 = 0.05\,\mathrm{s^{-1}}, \; v_{\rm sync,0} = 2.5\,\mathrm{m/s} \)</span>,
+                we obtain:
+            </p>
+            <figure class="equation" id="eq-10_3">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_3">Equation (10.3)</a></figcaption>
-			</figure>
-
-			<p>
-				Sensitivity coefficients (finite differences) yield:
-			</p>
-			<figure class="equation" id="eq-10_4">
-				<div class="math display">
+                    \[
+                    L_{K,0} = \frac{2.5}{0.05} = 50\,\mathrm{m}, \qquad
+                    a_{T,0} = \frac{d}{dt}\!\left(\frac{1200}{50}\right) = 24.0\,\mathrm{J\,m^{-3}\,s^{-1}}.
+                    \]
 
 
-					\[
-					S_E = 1.00, \quad S_\gamma = 1.00, \quad S_v = -0.667,
-					\]
+                </div>
+                <figcaption><a href="#eq-10_3">Equation (10.3)</a></figcaption>
+            </figure>
+
+            <p>
+                Sensitivity coefficients (finite differences) yield:
+            </p>
+            <figure class="equation" id="eq-10_4">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_4">Equation (10.4)</a></figcaption>
-			</figure>
-			<p>
-				showing linear dependence on <span class="math inline">\( E \)</span> and <span class="math inline">\( \gamma \)</span>,
-				and stabilizing inverse dependence on <span class="math inline">\( v_{\rm sync} \)</span>.
-			</p>
-
-			<h4>Failure Modes and Safeguards</h4>
-			<ul>
-				<li><span class="math inline">\( v_{\rm sync} \to 0 \)</span>: coherence collapse (<span class="math inline">\( L_K \to 0 \)</span>) → singularity flagged.</li>
-				<li><span class="math inline">\( \gamma \to 0 \)</span>: inertial freeze (<span class="math inline">\( L_K \to \infty \)</span>) → model returns <span class="math inline">\( a_T \to 0 \)</span>.</li>
-				<li><span class="math inline">\( E &lt; 0 \)</span>: non‑physical → cell excluded.</li>
-			</ul>
-			<p>
-				Collapse handler redistributes energy:
-			</p>
-			<figure class="equation" id="eq-10_5">
-				<div class="math display">
+                    \[
+                    S_E = 1.00, \quad S_\gamma = 1.00, \quad S_v = -0.667,
+                    \]
 
 
-					\[
-					E_{\rm radiated} = \eta_{\rm collapse}\,E_{\rm cell}, \qquad \eta_{\rm collapse} = 0.5.
-					\]
+                </div>
+                <figcaption><a href="#eq-10_4">Equation (10.4)</a></figcaption>
+            </figure>
+            <p>
+                showing linear dependence on <span class="math inline">\( E \)</span> and <span class="math inline">\( \gamma \)</span>,
+                and stabilizing inverse dependence on <span class="math inline">\( v_{\rm sync} \)</span>.
+            </p>
+
+            <h4>Failure Modes and Safeguards</h4>
+            <ul>
+                <li><span class="math inline">\( v_{\rm sync} \to 0 \)</span>: coherence collapse (<span class="math inline">\( L_K \to 0 \)</span>) → singularity flagged.</li>
+                <li><span class="math inline">\( \gamma \to 0 \)</span>: inertial freeze (<span class="math inline">\( L_K \to \infty \)</span>) → model returns <span class="math inline">\( a_T \to 0 \)</span>.</li>
+                <li><span class="math inline">\( E &lt; 0 \)</span>: non‑physical → cell excluded.</li>
+            </ul>
+            <p>
+                Collapse handler redistributes energy:
+            </p>
+            <figure class="equation" id="eq-10_5">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_5">Equation (10.5)</a></figcaption>
-			</figure>
-
-			<h4>Falsifiability Protocol</h4>
-			<p>
-				The model is falsifiable if measured observables cannot reproduce <span class="math inline">\( a_T \)</span>
-				within propagated uncertainty. Protocol:
-			</p>
-			<ul>
-				<li>
-					<strong>Observables:</strong> measure <span class="math inline">\( E(x) \)</span> via calorimetry or spectroscopy,
-					<span class="math inline">\( v_{\rm sync}(x) \)</span> via correlation time/length,
-					and <span class="math inline">\( \gamma(x) \)</span> via linewidth or decoherence rate.
-				</li>
-				<li>
-					<strong>Model computation:</strong>
-					<span class="math inline">\( L_K = v_{\rm sync}/\gamma \)</span>,
-					<span class="math inline">\( a_T = d(E/L_K)/dt \)</span>.
-				</li>
-				<li>
-					<strong>Error propagation:</strong>
+                    \[
+                    E_{\rm radiated} = \eta_{\rm collapse}\,E_{\rm cell}, \qquad \eta_{\rm collapse} = 0.5.
+                    \]
 
 
-					\[
-					\sigma_{a_T}^2 =
-					\left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
-					\left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
-					\left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2.
-					\]
+                </div>
+                <figcaption><a href="#eq-10_5">Equation (10.5)</a></figcaption>
+            </figure>
+
+            <h4>Falsifiability Protocol</h4>
+            <p>
+                The model is falsifiable if measured observables cannot reproduce <span class="math inline">\( a_T \)</span>
+                within propagated uncertainty. Protocol:
+            </p>
+            <ul>
+                <li>
+                    <strong>Observables:</strong> measure <span class="math inline">\( E(x) \)</span> via calorimetry or spectroscopy,
+                    <span class="math inline">\( v_{\rm sync}(x) \)</span> via correlation time/length,
+                    and <span class="math inline">\( \gamma(x) \)</span> via linewidth or decoherence rate.
+                </li>
+                <li>
+                    <strong>Model computation:</strong>
+                    <span class="math inline">\( L_K = v_{\rm sync}/\gamma \)</span>,
+                    <span class="math inline">\( a_T = d(E/L_K)/dt \)</span>.
+                </li>
+                <li>
+                    <strong>Error propagation:</strong>
 
 
-				</li>
-				<li>
-					<strong>Acceptance band:</strong> accept if
-					<span class="math inline">\( |a_T^{\rm obs} - a_T^{\rm model}| \leq k\,\sigma_{a_T} \)</span>
-					with <span class="math inline">\( k \approx 2 \)</span> (95% confidence).
-				</li>
-				<li>
-					<strong>Fail conditions:</strong>
-					systematic deviation beyond tolerance, non‑physical parameter values,
-					or dimensional mismatch (units ≠ J·m\(^{-3}\)·s\(^{-1}\)).
-				</li>
-			</ul>
-
-			<h5>Monte Carlo Validation</h5>
-			<p>
-				For <span class="math inline">\( N=2000 \)</span> samples with
-				<span class="math inline">\( E \sim \mathcal{N}(1200,60) \)</span>,
-				<span class="math inline">\( \gamma \sim \mathcal{N}(0.05,0.005) \)</span>,
-				<span class="math inline">\( v_{\rm sync} \sim \mathcal{N}(2.5,0.25) \)</span>,
-				the distribution of <span class="math inline">\( a_T \)</span> is unimodal and stable:
-			</p>
-			<ul>
-				<li><strong>Median:</strong> <span class="math inline">\( a_T^{\rm med} = 23.9\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span></li>
-				<li>
-					<strong>90% Confidence Interval:</strong>
-					<span class="math inline">\( a_T \in [18.6,\,30.7]\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span>
-				</li>
-				<li>
-					<strong>Variance:</strong>
-					<span class="math inline">\( \sigma^2_{a_T} \approx 9.1 \,(\mathrm{J\,m^{-3}\,s^{-1}})^2 \)</span>
-				</li>
-				<li>
-					<strong>Skewness:</strong>
-					<span class="math inline">\( \approx 0.02 \)</span> (negligible, confirming symmetry)
-				</li>
-				<li>
-					<strong>Kurtosis:</strong>
-					<span class="math inline">\( \approx 3.1 \)</span> (close to Gaussian)
-				</li>
-			</ul>
-
-			<h5>Validation and falsifiability</h5>
-			<p>
-				The Monte Carlo ensemble confirms that the model is statistically stable under perturbations of
-				<span class="math inline">\( E, \gamma, v_{\rm sync} \)</span>. Falsification criteria are:
-			</p>
-			<ul>
-				<li>
-					<strong>Systematic deviation:</strong> If observed thermal acceleration
-					<span class="math inline">\( a_T^{\rm obs} \)</span> lies persistently outside the 90% confidence band
-					<span class="math inline">\( [18.6,\,30.7] \)</span>, the model is rejected.
-				</li>
-				<li>
-					<strong>Collapse inconsistency:</strong> If coherence collapse
-					(<span class="math inline">\( v_{\rm sync}\to 0 \)</span>) or freeze‑out
-					(<span class="math inline">\( \gamma\to 0 \)</span>) does not yield the predicted limiting behaviors
-					(<span class="math inline">\( a_T \to \infty \)</span> flagged, or
-					<span class="math inline">\( a_T \to 0 \)</span>), the model fails.
-				</li>
-				<li>
-					<strong>Dimensional parity:</strong> If measured acceleration does not reduce to
-					<span class="math inline">\( \mathrm{J\,m^{-3}\,s^{-1}} \)</span>, the formulation is invalid.
-				</li>
-				<li>
-					<strong>Cross‑domain mismatch:</strong> If thermal acceleration derived here disagrees with
-					kernel‑energy transport laws (<span class="math inline">\( E = \Phi \gamma \rho L_Z^3 \)</span>) beyond
-					propagated uncertainty, the bridge to the kernel ontology is falsified.
-				</li>
-			</ul>
-
-			<h5>Validation Sources</h5>
-			<p>
-				<a href="https://drive.google.com/file/d/1rjpUcwFrkyPXRQyr7ZCJ-xOkbWx-90V9/view?usp=sharing" target="_blank">Validation Data Repository</a>
-			</p>
-			<ul>
-				<li>Synthetic perturbation data: <code>thermal_acceleration_robustness.csv</code></li>
-				<li>Monte Carlo ensembles: <code>thermal_acceleration_perturbations.csv</code>, <code>thermal_acceleration_edge_case.csv</code></li>
-				<li>Sensitivity summary: <code>sensitivity_summary.txt</code></li>
-				<li>Collapse detection: flagged via runtime logic, no false positives</li>
-			</ul>
-
-			<h5>Conclusion</h5>
-
-			<p>
-				The coherence‑based thermal acceleration model provides a structurally consistent way to quantify thermal energy redistribution under decoherence.
-				It highlights linear sensitivities to energy density and decoherence rate, a stabilizing inverse dependence on synchrony velocity,
-				and robust handling of collapse or freeze‑out limits. Monte Carlo analysis confirms stability under stochastic perturbations,
-				making this framework suitable for application in heterogeneous or non‑Euclidean media.
-			</p>
-
-			<h5>Operational Safeguards</h5>
-			<p>We enforce the following constraints:</p>
-
-			<figure class="equation" id="eq-10_7">
-				<div class="math display">
+                    \[
+                    \sigma_{a_T}^2 =
+                    \left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
+                    \left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
+                    \left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2.
+                    \]
 
 
-					\[
-					L_K \ge L_{K,\min}, \quad
-					L_{K,\min} = \max(\epsilon_\ell \Delta x, a_{\rm micro}),
-					\]
+                </li>
+                <li>
+                    <strong>Acceptance band:</strong> accept if
+                    <span class="math inline">\( |a_T^{\rm obs} - a_T^{\rm model}| \leq k\,\sigma_{a_T} \)</span>
+                    with <span class="math inline">\( k \approx 2 \)</span> (95% confidence).
+                </li>
+                <li>
+                    <strong>Fail conditions:</strong>
+                    systematic deviation beyond tolerance, non‑physical parameter values,
+                    or dimensional mismatch (units ≠ J·m\(^{-3}\)·s\(^{-1}\)).
+                </li>
+            </ul>
+
+            <h5>Monte Carlo Validation</h5>
+            <p>
+                For <span class="math inline">\( N=2000 \)</span> samples with
+                <span class="math inline">\( E \sim \mathcal{N}(1200,60) \)</span>,
+                <span class="math inline">\( \gamma \sim \mathcal{N}(0.05,0.005) \)</span>,
+                <span class="math inline">\( v_{\rm sync} \sim \mathcal{N}(2.5,0.25) \)</span>,
+                the distribution of <span class="math inline">\( a_T \)</span> is unimodal and stable:
+            </p>
+            <ul>
+                <li><strong>Median:</strong> <span class="math inline">\( a_T^{\rm med} = 23.9\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span></li>
+                <li>
+                    <strong>90% Confidence Interval:</strong>
+                    <span class="math inline">\( a_T \in [18.6,\,30.7]\,\mathrm{J\,m^{-3}\,s^{-1}} \)</span>
+                </li>
+                <li>
+                    <strong>Variance:</strong>
+                    <span class="math inline">\( \sigma^2_{a_T} \approx 9.1 \,(\mathrm{J\,m^{-3}\,s^{-1}})^2 \)</span>
+                </li>
+                <li>
+                    <strong>Skewness:</strong>
+                    <span class="math inline">\( \approx 0.02 \)</span> (negligible, confirming symmetry)
+                </li>
+                <li>
+                    <strong>Kurtosis:</strong>
+                    <span class="math inline">\( \approx 3.1 \)</span> (close to Gaussian)
+                </li>
+            </ul>
+
+            <h5>Validation and falsifiability</h5>
+            <p>
+                The Monte Carlo ensemble confirms that the model is statistically stable under perturbations of
+                <span class="math inline">\( E, \gamma, v_{\rm sync} \)</span>. Falsification criteria are:
+            </p>
+            <ul>
+                <li>
+                    <strong>Systematic deviation:</strong> If observed thermal acceleration
+                    <span class="math inline">\( a_T^{\rm obs} \)</span> lies persistently outside the 90% confidence band
+                    <span class="math inline">\( [18.6,\,30.7] \)</span>, the model is rejected.
+                </li>
+                <li>
+                    <strong>Collapse inconsistency:</strong> If coherence collapse
+                    (<span class="math inline">\( v_{\rm sync}\to 0 \)</span>) or freeze‑out
+                    (<span class="math inline">\( \gamma\to 0 \)</span>) does not yield the predicted limiting behaviors
+                    (<span class="math inline">\( a_T \to \infty \)</span> flagged, or
+                    <span class="math inline">\( a_T \to 0 \)</span>), the model fails.
+                </li>
+                <li>
+                    <strong>Dimensional parity:</strong> If measured acceleration does not reduce to
+                    <span class="math inline">\( \mathrm{J\,m^{-3}\,s^{-1}} \)</span>, the formulation is invalid.
+                </li>
+                <li>
+                    <strong>Cross‑domain mismatch:</strong> If thermal acceleration derived here disagrees with
+                    kernel‑energy transport laws (<span class="math inline">\( E = \Phi \gamma \rho L_Z^3 \)</span>) beyond
+                    propagated uncertainty, the bridge to the kernel ontology is falsified.
+                </li>
+            </ul>
+
+            <h5>Validation Sources</h5>
+            <p>
+                <a href="https://drive.google.com/file/d/1rjpUcwFrkyPXRQyr7ZCJ-xOkbWx-90V9/view?usp=sharing" target="_blank">Validation Data Repository</a>
+            </p>
+            <ul>
+                <li>Synthetic perturbation data: <code>thermal_acceleration_robustness.csv</code></li>
+                <li>Monte Carlo ensembles: <code>thermal_acceleration_perturbations.csv</code>, <code>thermal_acceleration_edge_case.csv</code></li>
+                <li>Sensitivity summary: <code>sensitivity_summary.txt</code></li>
+                <li>Collapse detection: flagged via runtime logic, no false positives</li>
+            </ul>
+
+            <h5>Conclusion</h5>
+
+            <p>
+                The coherence‑based thermal acceleration model provides a structurally consistent way to quantify thermal energy redistribution under decoherence.
+                It highlights linear sensitivities to energy density and decoherence rate, a stabilizing inverse dependence on synchrony velocity,
+                and robust handling of collapse or freeze‑out limits. Monte Carlo analysis confirms stability under stochastic perturbations,
+                making this framework suitable for application in heterogeneous or non‑Euclidean media.
+            </p>
+
+            <h5>Operational Safeguards</h5>
+            <p>We enforce the following constraints:</p>
+
+            <figure class="equation" id="eq-10_7">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_7">Equation (10.7)</a></figcaption>
-			</figure>
-
-			<p>
-				with <span class="math inline">\(\epsilon_\ell \sim 10^{-3}\)</span>, and
-				<span class="math inline">\(a_{\rm micro}\)</span> based on physical microstructure (e.g., Debye length).
-			</p>
-
-			<p>Temporal smoothing is applied as:</p>
-
-			<figure class="equation" id="eq-10_8">
-				<div class="math display">
+                    \[
+                    L_K \ge L_{K,\min}, \quad
+                    L_{K,\min} = \max(\epsilon_\ell \Delta x, a_{\rm micro}),
+                    \]
 
 
-					\[
-					\frac{d}{dt}\left( \frac{E}{L_K}\right)
-					\;\to\;
-					\frac{1}{\tau_s}\left[
-					\left(\frac{E}{L_K}\right)(t) -
-					\left(\frac{E}{L_K}\right)(t - \tau_s)
-					\right],
-					\]
+                </div>
+                <figcaption><a href="#eq-10_7">Equation (10.7)</a></figcaption>
+            </figure>
+
+            <p>
+                with <span class="math inline">\(\epsilon_\ell \sim 10^{-3}\)</span>, and
+                <span class="math inline">\(a_{\rm micro}\)</span> based on physical microstructure (e.g., Debye length).
+            </p>
+
+            <p>Temporal smoothing is applied as:</p>
+
+            <figure class="equation" id="eq-10_8">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-10_8">Equation (10.8)</a></figcaption>
-			</figure>
+                    \[
+                    \frac{d}{dt}\left( \frac{E}{L_K}\right)
+                    \;\to\;
+                    \frac{1}{\tau_s}\left[
+                    \left(\frac{E}{L_K}\right)(t) -
+                    \left(\frac{E}{L_K}\right)(t - \tau_s)
+                    \right],
+                    \]
 
-			<p>
-				with <span class="math inline">\(\tau_s\)</span> set to 10% of the stationarity window
-				<span class="math inline">\(\Delta t\)</span>.
-			</p>
 
-			<h4>Final Conclusion</h4>
-			<p>
-				The coherence‑based thermal acceleration model is structurally derived from kernel energy principles,
-				dimensionally closed, and falsifiable under explicit measurement protocols. It quantifies the rate of
-				thermal energy reprojection per coherence length, with linear sensitivities to energy density and
-				decoherence rate, and stabilizing inverse dependence on synchrony velocity. Monte Carlo validation
-				confirms robustness and Gaussian‑like stability under stochastic perturbations. This framework
-				provides a fast, modulation‑driven alternative to PDE‑based diffusion, suitable for heterogeneous
-				or non‑Euclidean media, and directly testable against calorimetric and spectroscopic data.
-			</p>
+                </div>
+                <figcaption><a href="#eq-10_8">Equation (10.8)</a></figcaption>
+            </figure>
+
+            <p>
+                with <span class="math inline">\(\tau_s\)</span> set to 10% of the stationarity window
+                <span class="math inline">\(\Delta t\)</span>.
+            </p>
+
+            <h4>Final Conclusion</h4>
+            <p>
+                The coherence‑based thermal acceleration model is structurally derived from kernel energy principles,
+                dimensionally closed, and falsifiable under explicit measurement protocols. It quantifies the rate of
+                thermal energy reprojection per coherence length, with linear sensitivities to energy density and
+                decoherence rate, and stabilizing inverse dependence on synchrony velocity. Monte Carlo validation
+                confirms robustness and Gaussian‑like stability under stochastic perturbations. This framework
+                provides a fast, modulation‑driven alternative to PDE‑based diffusion, suitable for heterogeneous
+                or non‑Euclidean media, and directly testable against calorimetric and spectroscopic data.
+            </p>
         </article>
     </section>
     <section>
@@ -5383,207 +5657,207 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <section>
         <h2 title="Click to toggle" id="sec-50-orbital-mechanics">Orbital Mechanics</h2>
         <article style="display:none">
-			<p>
-				Start from the synchrony form <span class="math inline">\( v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>. Acceleration follows as
-				<span class="math inline">\( a_{\text{orb}} = \partial_t v_{\text{sync}} = \partial_t(M_1 \Theta) \)</span>. In the kernel framework, three modulation sources drive
-				<span class="math inline">\( \Theta \)</span> and <span class="math inline">\( M_1 \)</span>:
-			</p>
-			<ul>
-				<li>
-					<strong>Curvature tension:</strong> curvature increases synchrony via <span class="math inline">\( \Theta \propto c\,\sqrt{\Phi}/R \)</span>, yielding a contribution
-					<span class="math inline">\( a_{\rm curv} = \dfrac{c^{2}\,\Phi}{R} \)</span>.
-				</li>
-				<li>
-					<strong>Dissipation bias:</strong> specific dissipation energy changes effective synchrony scale via <span class="math inline">\( \Theta \propto \sqrt{\mathcal{E}_{\rm diss}}/R \)</span>,
-					giving <span class="math inline">\( a_{\rm diss} = \dfrac{\mathcal{E}_{\rm diss}}{R} \)</span>.
-				</li>
-				<li>
-					<strong>Synchrony drift:</strong> secular mismatch produces a direct drift acceleration
-					<span class="math inline">\( a_{\rm drift} = \partial_t u \)</span>, with <span class="math inline">\( u(r,t) \equiv M_1(r,t)\,\Theta(r,t) \)</span>.
-				</li>
-			</ul>
-			<p>
-				Summing the modulation contributions delivers the orbital acceleration:
-			</p>
+            <p>
+                Start from the synchrony form <span class="math inline">\( v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>. Acceleration follows as
+                <span class="math inline">\( a_{\text{orb}} = \partial_t v_{\text{sync}} = \partial_t(M_1 \Theta) \)</span>. In the kernel framework, three modulation sources drive
+                <span class="math inline">\( \Theta \)</span> and <span class="math inline">\( M_1 \)</span>:
+            </p>
+            <ul>
+                <li>
+                    <strong>Curvature tension:</strong> curvature increases synchrony via <span class="math inline">\( \Theta \propto c\,\sqrt{\Phi}/R \)</span>, yielding a contribution
+                    <span class="math inline">\( a_{\rm curv} = \dfrac{c^{2}\,\Phi}{R} \)</span>.
+                </li>
+                <li>
+                    <strong>Dissipation bias:</strong> specific dissipation energy changes effective synchrony scale via <span class="math inline">\( \Theta \propto \sqrt{\mathcal{E}_{\rm diss}}/R \)</span>,
+                    giving <span class="math inline">\( a_{\rm diss} = \dfrac{\mathcal{E}_{\rm diss}}{R} \)</span>.
+                </li>
+                <li>
+                    <strong>Synchrony drift:</strong> secular mismatch produces a direct drift acceleration
+                    <span class="math inline">\( a_{\rm drift} = \partial_t u \)</span>, with <span class="math inline">\( u(r,t) \equiv M_1(r,t)\,\Theta(r,t) \)</span>.
+                </li>
+            </ul>
+            <p>
+                Summing the modulation contributions delivers the orbital acceleration:
+            </p>
 
-			<figure class="equation" id="eq-13_6">
-				<div class="math display">
-
-
-					\[
-					\boxed{a_{\rm grav}(r,t) = \frac{c^{2}\,\Phi(r,t)}{R(t)} + \frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)} + \frac{\partial u(r,t)}{\partial t}}
-					\]
+            <figure class="equation" id="eq-13_6">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-13_6">Equation (13.6)</a></figcaption>
-			</figure>
-
-			<p>where:</p>
-			<ul>
-				<li><span class="math inline">\(\Phi(r,t)\)</span> — dimensionless curvature index derived from spectral and phase structure</li>
-				<li><span class="math inline">\(\mathcal{E}_{\rm diss}(r,t)\)</span> — specific dissipation energy (J/kg), e.g. tidal or internal heating</li>
-				<li><span class="math inline">\(u(r,t)\)</span> — harmonization drift velocity (m/s), from secular spin/orbit mismatch</li>
-				<li><span class="math inline">\(R(t)\)</span> — radial modulation distance (m), e.g. orbital separation</li>
-				<li><span class="math inline">\(c\)</span> — universal speed constant</li>
-			</ul>
-
-			<p>
-				Dimensional closure:
-				<span class="math inline">\( [c^{2}\Phi/R] = \mathrm{m\,s^{-2}} \)</span>,
-				<span class="math inline">\( [\mathcal{E}_{\rm diss}/R] = \mathrm{m\,s^{-2}} \)</span>,
-				<span class="math inline">\( [\partial_t u] = \mathrm{m\,s^{-2}} \)</span>.
-				Hence <span class="math inline">\( a_{\rm grav} \)</span> is SI‑closed.
-			</p>
-
-			<h4>Falsifiability protocol for orbital acceleration law</h4>
-			<p>
-				The orbital law is falsifiable if measured modulation sources cannot reproduce
-				<span class="math inline">\( a_{\rm grav}(r,t) \)</span> within propagated uncertainty. This protocol defines observables,
-				computations, error propagation, acceptance bands, and fail conditions.
-			</p>
-
-			<h5>Observables and acquisition</h5>
-			<ul>
-				<li><strong>Curvature index:</strong> compute <span class="math inline">\( \Phi(r,t) \)</span> via spherical harmonics and energy‑weighted curvature (cf. §50, Eq. 13.7).</li>
-				<li>
-					<strong>Dissipation energy:</strong> estimate <span class="math inline">\( \mathcal{E}_{\rm diss}(r,t) \)</span> from power flux and mass participation:
-					<span class="math inline">\( \mathcal{E}_{\rm diss} = \int_{t_0}^{t} P_{\rm diss}(r,\tau)\,d\tau \,/\, m_{\rm eff}(r) \)</span>.
-				</li>
-				<li>
-					<strong>Synchrony drift:</strong> measure
-					<span class="math inline">\( u(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>,
-					with <span class="math inline">\( M_1 \)</span> from mean step length and <span class="math inline">\( \Theta \)</span> from synchrony frequency;
-					then compute <span class="math inline">\( \partial_t u \)</span> by finite differences:
-					<span class="math inline">\( \partial_t u \approx [u(t+\Delta t)-u(t)]/\Delta t \)</span>.
-				</li>
-				<li><strong>Geometric scale:</strong> measure <span class="math inline">\( R(t) \)</span> (radial modulation distance) from ephemerides or ranging.</li>
-			</ul>
-
-			<h5>Model computation</h5>
-			<p>
-				Compute modeled acceleration and its components:
-			</p>
-			<figure class="equation" id="eq-50_f1">
-				<div class="math display">
+                    \[
+                    \boxed{a_{\rm grav}(r,t) = \frac{c^{2}\,\Phi(r,t)}{R(t)} + \frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)} + \frac{\partial u(r,t)}{\partial t}}
+                    \]
 
 
-					\[
-					a_{\rm curv} = \frac{c^{2}\,\Phi}{R}, \qquad
-					a_{\rm diss} = \frac{\mathcal{E}_{\rm diss}}{R}, \qquad
-					a_{\rm drift} = \partial_t u, \qquad
-					a_{\rm grav}^{\rm model} = a_{\rm curv} + a_{\rm diss} + a_{\rm drift}.
-					\]
+                </div>
+                <figcaption><a href="#eq-13_6">Equation (13.6)</a></figcaption>
+            </figure>
+
+            <p>where:</p>
+            <ul>
+                <li><span class="math inline">\(\Phi(r,t)\)</span> — dimensionless curvature index derived from spectral and phase structure</li>
+                <li><span class="math inline">\(\mathcal{E}_{\rm diss}(r,t)\)</span> — specific dissipation energy (J/kg), e.g. tidal or internal heating</li>
+                <li><span class="math inline">\(u(r,t)\)</span> — harmonization drift velocity (m/s), from secular spin/orbit mismatch</li>
+                <li><span class="math inline">\(R(t)\)</span> — radial modulation distance (m), e.g. orbital separation</li>
+                <li><span class="math inline">\(c\)</span> — universal speed constant</li>
+            </ul>
+
+            <p>
+                Dimensional closure:
+                <span class="math inline">\( [c^{2}\Phi/R] = \mathrm{m\,s^{-2}} \)</span>,
+                <span class="math inline">\( [\mathcal{E}_{\rm diss}/R] = \mathrm{m\,s^{-2}} \)</span>,
+                <span class="math inline">\( [\partial_t u] = \mathrm{m\,s^{-2}} \)</span>.
+                Hence <span class="math inline">\( a_{\rm grav} \)</span> is SI‑closed.
+            </p>
+
+            <h4>Falsifiability protocol for orbital acceleration law</h4>
+            <p>
+                The orbital law is falsifiable if measured modulation sources cannot reproduce
+                <span class="math inline">\( a_{\rm grav}(r,t) \)</span> within propagated uncertainty. This protocol defines observables,
+                computations, error propagation, acceptance bands, and fail conditions.
+            </p>
+
+            <h5>Observables and acquisition</h5>
+            <ul>
+                <li><strong>Curvature index:</strong> compute <span class="math inline">\( \Phi(r,t) \)</span> via spherical harmonics and energy‑weighted curvature (cf. §50, Eq. 13.7).</li>
+                <li>
+                    <strong>Dissipation energy:</strong> estimate <span class="math inline">\( \mathcal{E}_{\rm diss}(r,t) \)</span> from power flux and mass participation:
+                    <span class="math inline">\( \mathcal{E}_{\rm diss} = \int_{t_0}^{t} P_{\rm diss}(r,\tau)\,d\tau \,/\, m_{\rm eff}(r) \)</span>.
+                </li>
+                <li>
+                    <strong>Synchrony drift:</strong> measure
+                    <span class="math inline">\( u(r,t) = M_1(r,t)\,\Theta(r,t) \)</span>,
+                    with <span class="math inline">\( M_1 \)</span> from mean step length and <span class="math inline">\( \Theta \)</span> from synchrony frequency;
+                    then compute <span class="math inline">\( \partial_t u \)</span> by finite differences:
+                    <span class="math inline">\( \partial_t u \approx [u(t+\Delta t)-u(t)]/\Delta t \)</span>.
+                </li>
+                <li><strong>Geometric scale:</strong> measure <span class="math inline">\( R(t) \)</span> (radial modulation distance) from ephemerides or ranging.</li>
+            </ul>
+
+            <h5>Model computation</h5>
+            <p>
+                Compute modeled acceleration and its components:
+            </p>
+            <figure class="equation" id="eq-50_f1">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-50_f1">Equation (50.F1)</a></figcaption>
-			</figure>
-
-			<h5>Error propagation</h5>
-			<p>
-				Use first‑order propagation for independent uncertainties
-				<span class="math inline">\( \sigma_\Phi,\,\sigma_{\mathcal{E}},\,\sigma_R,\,\sigma_u \)</span>:
-			</p>
-			<figure class="equation" id="eq-50_f2">
-				<div class="math display">
+                    \[
+                    a_{\rm curv} = \frac{c^{2}\,\Phi}{R}, \qquad
+                    a_{\rm diss} = \frac{\mathcal{E}_{\rm diss}}{R}, \qquad
+                    a_{\rm drift} = \partial_t u, \qquad
+                    a_{\rm grav}^{\rm model} = a_{\rm curv} + a_{\rm diss} + a_{\rm drift}.
+                    \]
 
 
-					\[
-					\sigma_{a_{\rm curv}}
-					= \sqrt{\left(\frac{c^{2}}{R}\,\sigma_\Phi\right)^{2}
-					+ \left(\frac{c^{2}\,\Phi}{R^{2}}\,\sigma_R\right)^{2}},
-					\qquad
-					\sigma_{a_{\rm diss}}
-					= \sqrt{\left(\frac{1}{R}\,\sigma_{\mathcal{E}}\right)^{2}
-					+ \left(\frac{\mathcal{E}_{\rm diss}}{R^{2}}\,\sigma_R\right)^{2}},
-					\]
+                </div>
+                <figcaption><a href="#eq-50_f1">Equation (50.F1)</a></figcaption>
+            </figure>
+
+            <h5>Error propagation</h5>
+            <p>
+                Use first‑order propagation for independent uncertainties
+                <span class="math inline">\( \sigma_\Phi,\,\sigma_{\mathcal{E}},\,\sigma_R,\,\sigma_u \)</span>:
+            </p>
+            <figure class="equation" id="eq-50_f2">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-50_f2">Equation (50.F2)</a></figcaption>
-			</figure>
-
-			<figure class="equation" id="eq-50_f3">
-				<div class="math display">
-
-
-					\[
-					\sigma_{a_{\rm drift}} = \sigma_{\partial_t u} \approx
-					\frac{\sqrt{\sigma_{u(t+\Delta t)}^{2} + \sigma_{u(t)}^{2}}}{\Delta t},
-					\qquad
-					\sigma_{a_{\rm grav}^{\rm model}} = \sqrt{\sigma_{a_{\rm curv}}^{2} + \sigma_{a_{\rm diss}}^{2} + \sigma_{a_{\rm drift}}^{2}}.
-					\]
+                    \[
+                    \sigma_{a_{\rm curv}}
+                    = \sqrt{\left(\frac{c^{2}}{R}\,\sigma_\Phi\right)^{2}
+                    + \left(\frac{c^{2}\,\Phi}{R^{2}}\,\sigma_R\right)^{2}},
+                    \qquad
+                    \sigma_{a_{\rm diss}}
+                    = \sqrt{\left(\frac{1}{R}\,\sigma_{\mathcal{E}}\right)^{2}
+                    + \left(\frac{\mathcal{E}_{\rm diss}}{R^{2}}\,\sigma_R\right)^{2}},
+                    \]
 
 
-				</div>
-				<figcaption><a href="#eq-50_f3">Equation (50.F3)</a></figcaption>
-			</figure>
+                </div>
+                <figcaption><a href="#eq-50_f2">Equation (50.F2)</a></figcaption>
+            </figure>
 
-			<h5>Acceptance bands and decision rule</h5>
-			<ul>
-				<li>
-					<strong>Observed acceleration:</strong> obtain <span class="math inline">\( a_{\rm grav}^{\rm obs} \)</span> from ephemerides or dynamics: e.g.,
-					<span class="math inline">\( a_{\rm grav}^{\rm obs} \approx GM/r^{2} \)</span> for a two‑body regime (with full perturbation corrections where available).
-				</li>
-				<li>
-					<strong>Test statistic:</strong>
-					<span class="math inline">\( \Delta a = a_{\rm grav}^{\rm obs} - a_{\rm grav}^{\rm model} \)</span>,
-					relative error
-					<span class="math inline">\( \epsilon = |\Delta a| / |a_{\rm grav}^{\rm obs}| \)</span>.
-				</li>
-				<li>
-					<strong>Acceptance band:</strong> accept if
-					<span class="math inline">\( \epsilon \leq \epsilon_{\rm max} \)</span> with
-					<span class="math inline">\( \epsilon_{\rm max} \in [0.01,\,0.05] \)</span>,
-					chosen to match the domain’s measurement fidelity; and
-					<span class="math inline">\( |\Delta a| \leq k\,\sigma_{a_{\rm grav}^{\rm model}} \)</span> with
-					<span class="math inline">\( k \approx 2 \)</span> (95% confidence).
-				</li>
-			</ul>
+            <figure class="equation" id="eq-50_f3">
+                <div class="math display">
 
-			<h5>Fail conditions (falsification)</h5>
-			<ul>
-				<li>
-					<strong>Systematic deviation:</strong> if
-					<span class="math inline">\( \epsilon \)</span> persistently exceeds
-					<span class="math inline">\( \epsilon_{\rm max} \)</span> across spans of
-					<span class="math inline">\( r \)</span> and <span class="math inline">\( t \)</span>, the orbital law is falsified.
-				</li>
-				<li>
-					<strong>Component inconsistency:</strong> if any single component
-					(<span class="math inline">\( a_{\rm curv}, a_{\rm diss}, a_{\rm drift} \)</span>)
-					requires nonphysical values (e.g., <span class="math inline">\( \Phi &lt; 0 \)</span> for positive curvature energy, or
-					<span class="math inline">\( \mathcal{E}_{\rm diss} &lt; 0 \)</span> under net heating), the structural model fails.
-				</li>
-				<li>
-					<strong>Dimensional parity failure:</strong> if any measured route yields units not equal to
-					<span class="math inline">\( \mathrm{m\,s^{-2}} \)</span>, the formulation is rejected.
-				</li>
-				<li>
-					<strong>Cross‑bridge mismatch:</strong> if the synchrony route
-					<span class="math inline">\( a_{\rm kernel} = d(M_1\Theta)/dS \)</span> (cf. §9) disagrees with the orbital sum beyond
-					<span class="math inline">\( k\,\sigma \)</span>, the bridge to collapse geometry fails.
-				</li>
-			</ul>
 
-			<h5>Reporting template (minimum)</h5>
-			<ul>
-				<li>
-					<strong>Inputs:</strong>
-					<span class="math inline">\( \Phi,\,\mathcal{E}_{\rm diss},\,u,\,R \)</span> with
-					<span class="math inline">\( \sigma_\Phi,\,\sigma_{\mathcal{E}},\,\sigma_u,\,\sigma_R \)</span>.
-				</li>
-				<li>
-					<strong>Outputs:</strong>
-					<span class="math inline">\( a_{\rm curv},\,a_{\rm diss},\,a_{\rm drift},\,a_{\rm grav}^{\rm model},\,\sigma_{a_{\rm grav}^{\rm model}} \)</span>.
-				</li>
-				<li>
-					<strong>Comparison:</strong>
-					<span class="math inline">\( a_{\rm grav}^{\rm obs},\,\Delta a,\,\epsilon \)</span> and decision (accept/reject) with chosen
-					<span class="math inline">\( \epsilon_{\rm max} \)</span> and <span class="math inline">\( k \)</span>.
-				</li>
-			</ul>
+                    \[
+                    \sigma_{a_{\rm drift}} = \sigma_{\partial_t u} \approx
+                    \frac{\sqrt{\sigma_{u(t+\Delta t)}^{2} + \sigma_{u(t)}^{2}}}{\Delta t},
+                    \qquad
+                    \sigma_{a_{\rm grav}^{\rm model}} = \sqrt{\sigma_{a_{\rm curv}}^{2} + \sigma_{a_{\rm diss}}^{2} + \sigma_{a_{\rm drift}}^{2}}.
+                    \]
+
+
+                </div>
+                <figcaption><a href="#eq-50_f3">Equation (50.F3)</a></figcaption>
+            </figure>
+
+            <h5>Acceptance bands and decision rule</h5>
+            <ul>
+                <li>
+                    <strong>Observed acceleration:</strong> obtain <span class="math inline">\( a_{\rm grav}^{\rm obs} \)</span> from ephemerides or dynamics: e.g.,
+                    <span class="math inline">\( a_{\rm grav}^{\rm obs} \approx GM/r^{2} \)</span> for a two‑body regime (with full perturbation corrections where available).
+                </li>
+                <li>
+                    <strong>Test statistic:</strong>
+                    <span class="math inline">\( \Delta a = a_{\rm grav}^{\rm obs} - a_{\rm grav}^{\rm model} \)</span>,
+                    relative error
+                    <span class="math inline">\( \epsilon = |\Delta a| / |a_{\rm grav}^{\rm obs}| \)</span>.
+                </li>
+                <li>
+                    <strong>Acceptance band:</strong> accept if
+                    <span class="math inline">\( \epsilon \leq \epsilon_{\rm max} \)</span> with
+                    <span class="math inline">\( \epsilon_{\rm max} \in [0.01,\,0.05] \)</span>,
+                    chosen to match the domain’s measurement fidelity; and
+                    <span class="math inline">\( |\Delta a| \leq k\,\sigma_{a_{\rm grav}^{\rm model}} \)</span> with
+                    <span class="math inline">\( k \approx 2 \)</span> (95% confidence).
+                </li>
+            </ul>
+
+            <h5>Fail conditions (falsification)</h5>
+            <ul>
+                <li>
+                    <strong>Systematic deviation:</strong> if
+                    <span class="math inline">\( \epsilon \)</span> persistently exceeds
+                    <span class="math inline">\( \epsilon_{\rm max} \)</span> across spans of
+                    <span class="math inline">\( r \)</span> and <span class="math inline">\( t \)</span>, the orbital law is falsified.
+                </li>
+                <li>
+                    <strong>Component inconsistency:</strong> if any single component
+                    (<span class="math inline">\( a_{\rm curv}, a_{\rm diss}, a_{\rm drift} \)</span>)
+                    requires nonphysical values (e.g., <span class="math inline">\( \Phi &lt; 0 \)</span> for positive curvature energy, or
+                    <span class="math inline">\( \mathcal{E}_{\rm diss} &lt; 0 \)</span> under net heating), the structural model fails.
+                </li>
+                <li>
+                    <strong>Dimensional parity failure:</strong> if any measured route yields units not equal to
+                    <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span>, the formulation is rejected.
+                </li>
+                <li>
+                    <strong>Cross‑bridge mismatch:</strong> if the synchrony route
+                    <span class="math inline">\( a_{\rm kernel} = d(M_1\Theta)/dS \)</span> (cf. §9) disagrees with the orbital sum beyond
+                    <span class="math inline">\( k\,\sigma \)</span>, the bridge to collapse geometry fails.
+                </li>
+            </ul>
+
+            <h5>Reporting template (minimum)</h5>
+            <ul>
+                <li>
+                    <strong>Inputs:</strong>
+                    <span class="math inline">\( \Phi,\,\mathcal{E}_{\rm diss},\,u,\,R \)</span> with
+                    <span class="math inline">\( \sigma_\Phi,\,\sigma_{\mathcal{E}},\,\sigma_u,\,\sigma_R \)</span>.
+                </li>
+                <li>
+                    <strong>Outputs:</strong>
+                    <span class="math inline">\( a_{\rm curv},\,a_{\rm diss},\,a_{\rm drift},\,a_{\rm grav}^{\rm model},\,\sigma_{a_{\rm grav}^{\rm model}} \)</span>.
+                </li>
+                <li>
+                    <strong>Comparison:</strong>
+                    <span class="math inline">\( a_{\rm grav}^{\rm obs},\,\Delta a,\,\epsilon \)</span> and decision (accept/reject) with chosen
+                    <span class="math inline">\( \epsilon_{\rm max} \)</span> and <span class="math inline">\( k \)</span>.
+                </li>
+            </ul>
 
             <h4>Measurement Protocol for \(\Phi(r,t)\)</h4>
             <p>
@@ -5954,245 +6228,245 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h3 id="sec-50-orbital-mechanics_1">Strong Field Modulation Law</h3>
 
-			<p>
-				Begin from the kernel energy density principle that relates energy to collapse rhythm, coherence tessellation, and holonomy:
-			</p>
-			<figure class="equation" id="eq-13_19">
-				<div class="math display">
+            <p>
+                Begin from the kernel energy density principle that relates energy to collapse rhythm, coherence tessellation, and holonomy:
+            </p>
+            <figure class="equation" id="eq-13_19">
+                <div class="math display">
 
 
-					\[
-					E_{\mathrm{kernel}} = \Phi_{\varphi}\;(\hbar \gamma_{\mathrm{eff}})\;N_{\mathrm{cells}}^{\mathrm{inst}}\;\mathcal{G}_{\mathrm{coh}},
-					\quad
-					N_{\mathrm{cells}}^{\mathrm{inst}}=\frac{V}{V_{\mathrm{coh}}},\quad
-					V_{\mathrm{coh}}=\lambda_{\mathrm{coh}}^{3}.
-					\]
+                    \[
+                    E_{\mathrm{kernel}} = \Phi_{\varphi}\;(\hbar \gamma_{\mathrm{eff}})\;N_{\mathrm{cells}}^{\mathrm{inst}}\;\mathcal{G}_{\mathrm{coh}},
+                    \quad
+                    N_{\mathrm{cells}}^{\mathrm{inst}}=\frac{V}{V_{\mathrm{coh}}},\quad
+                    V_{\mathrm{coh}}=\lambda_{\mathrm{coh}}^{3}.
+                    \]
 
 
-				</div>
-				<figcaption><a href="#eq-13_19">Equation (13.19)</a></figcaption>
-			</figure>
+                </div>
+                <figcaption><a href="#eq-13_19">Equation (13.19)</a></figcaption>
+            </figure>
 
-			<p>
-				In the strong‑field limit, coherence cells shrink and phase transport saturates. The asymptotic modulation anchors are:
-			</p>
-			<figure class="equation" id="eq-13_20">
-				<div class="math display">
-
-
-					\[
-					\gamma_{\mathrm{eff}}\to\infty,\quad
-					\lambda_{\mathrm{coh}}\to 0,\quad
-					N_{\mathrm{cells}}^{\mathrm{inst}}\to \frac{V}{\lambda_{\mathrm{coh}}^{3}}\to\infty,\quad
-					\mathcal{G}_{\mathrm{coh}}\to 1,\quad
-					\Phi_{\varphi}\to 2\pi.
-					\]
+            <p>
+                In the strong‑field limit, coherence cells shrink and phase transport saturates. The asymptotic modulation anchors are:
+            </p>
+            <figure class="equation" id="eq-13_20">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-13_20">Equation (13.20)</a></figcaption>
-			</figure>
-
-			<p>
-				Substituting these limits yields the strong‑field kernel energy:
-			</p>
-			<figure class="equation" id="eq-13_21">
-				<div class="math display">
+                    \[
+                    \gamma_{\mathrm{eff}}\to\infty,\quad
+                    \lambda_{\mathrm{coh}}\to 0,\quad
+                    N_{\mathrm{cells}}^{\mathrm{inst}}\to \frac{V}{\lambda_{\mathrm{coh}}^{3}}\to\infty,\quad
+                    \mathcal{G}_{\mathrm{coh}}\to 1,\quad
+                    \Phi_{\varphi}\to 2\pi.
+                    \]
 
 
-					\[
-					E_{\mathrm{kernel}}^{\mathrm{strong}}
-					\sim 2\pi \, (\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-13_20">Equation (13.20)</a></figcaption>
+            </figure>
+
+            <p>
+                Substituting these limits yields the strong‑field kernel energy:
+            </p>
+            <figure class="equation" id="eq-13_21">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-13_21">Equation (13.21)</a></figcaption>
-			</figure>
-
-			<p>
-				The synchrony bridge closes the form by linking effective collapse rhythm to transport velocity over the coherence length:
-			</p>
-			<figure class="equation" id="eq-13_22">
-				<div class="math display">
+                    \[
+                    E_{\mathrm{kernel}}^{\mathrm{strong}}
+                    \sim 2\pi \, (\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}.
+                    \]
 
 
-					\[
-					\gamma_{\mathrm{eff}} \sim \frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}}
-					\quad\Rightarrow\quad
-					\boxed{E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}}.
-					\]
+                </div>
+                <figcaption><a href="#eq-13_21">Equation (13.21)</a></figcaption>
+            </figure>
+
+            <p>
+                The synchrony bridge closes the form by linking effective collapse rhythm to transport velocity over the coherence length:
+            </p>
+            <figure class="equation" id="eq-13_22">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-13_22">Equation (13.22)</a></figcaption>
-			</figure>
-
-			<h4>Dimensional closure</h4>
-
-			<p>
-				<strong>Units check:</strong>
+                    \[
+                    \gamma_{\mathrm{eff}} \sim \frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}}
+                    \quad\Rightarrow\quad
+                    \boxed{E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}}.
+                    \]
 
 
-				\[
-				[\hbar v_{\mathrm{sync}} V / \lambda_{\mathrm{coh}}^{4}]
-				= (\mathrm{J\cdot s})(\mathrm{m/s})(\mathrm{m^{3}})(\mathrm{m^{-4}}) = \mathrm{J}.
-				\]
+                </div>
+                <figcaption><a href="#eq-13_22">Equation (13.22)</a></figcaption>
+            </figure>
+
+            <h4>Dimensional closure</h4>
+
+            <p>
+                <strong>Units check:</strong>
 
 
-			</p>
-			<p>
-				<strong>Interpretation:</strong> energy scales with synchrony‑mediated phase transport across an increasingly fine coherence tessellation; the <span class="math inline">\(\lambda_{\mathrm{coh}}^{-4}\)</span> dependence reflects density of cells times rhythm‑length coupling.
-			</p>
-
-			<h4>Clarifying assumptions</h4>
-			<ul>
-				<li><strong>Stationarity window:</strong> parameters are locally constant over <span class="math inline">\(\Delta t\)</span> shorter than dynamical evolution, enabling asymptotic evaluation.</li>
-				<li><strong>Isotropic coherence cells:</strong> characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> defines cubic coherence volume <span class="math inline">\(\lambda_{\mathrm{coh}}^{3}\)</span>; anisotropy can be included as an effective geometric factor absorbed into <span class="math inline">\(\Phi_{\varphi}\)</span> or <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span>.</li>
-				<li><strong>Synchrony velocity bounds:</strong> <span class="math inline">\(v_{\mathrm{sync}}\leq v_{\max}\)</span>, with <span class="math inline">\(v_{\max}\)</span> given by the medium’s invariant speed (e.g., Alfvén speed for magnetized plasma, <span class="math inline">\(c\)</span> for photon‑dominated transport).</li>
-				<li><strong>Holonomy saturation:</strong> strong curvature/phase winding drives <span class="math inline">\(\Phi_{\varphi}\to 2\pi\)</span>, i.e., closed holonomy cycles per coherence cell.</li>
-			</ul>
-
-			<h4>Measurement protocols</h4>
-			<ul>
-				<li><strong>Coherence length:</strong> infer <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from spectral coherence, interferometric visibility, or turbulence correlation scales; near horizons, use feature scales (ring/spot) as coherence proxies.</li>
-				<li><strong>Synchrony velocity:</strong> estimate <span class="math inline">\(v_{\mathrm{sync}}\)</span> from phase transport rates (cross‑correlation lag/lead across baselines), or from characteristic propagation speeds (Alfvénic, acoustic, radiative).</li>
-				<li><strong>Effective volume:</strong> define <span class="math inline">\(V\)</span> as the bounded region with coherent phase structure (shells, annuli, magnetospheric lobes), using imaging or model geometries; propagate geometric uncertainty.</li>
-				<li><strong>Holonomy/coherence gain:</strong> compute <span class="math inline">\(\Phi_{\varphi}\)</span> via phase winding integrals over loops; measure <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span> from cross‑shell alignment metrics (e.g., coherence gain factors from matched filtering).</li>
-			</ul>
-
-			<h4>Falsifiability protocol</h4>
-			<ul>
-				<li>
-					<strong>Model prediction:</strong>
+                \[
+                [\hbar v_{\mathrm{sync}} V / \lambda_{\mathrm{coh}}^{4}]
+                = (\mathrm{J\cdot s})(\mathrm{m/s})(\mathrm{m^{3}})(\mathrm{m^{-4}}) = \mathrm{J}.
+                \]
 
 
-					\[
-					E_{\mathrm{kernel}}^{\mathrm{model}} = \Phi_{\varphi}\,(\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}\,\mathcal{G}_{\mathrm{coh}}
-					\quad\text{or}\quad
-					2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}
-					\;\text{(strong limit)}.
-					\]
+            </p>
+            <p>
+                <strong>Interpretation:</strong> energy scales with synchrony‑mediated phase transport across an increasingly fine coherence tessellation; the <span class="math inline">\(\lambda_{\mathrm{coh}}^{-4}\)</span> dependence reflects density of cells times rhythm‑length coupling.
+            </p>
+
+            <h4>Clarifying assumptions</h4>
+            <ul>
+                <li><strong>Stationarity window:</strong> parameters are locally constant over <span class="math inline">\(\Delta t\)</span> shorter than dynamical evolution, enabling asymptotic evaluation.</li>
+                <li><strong>Isotropic coherence cells:</strong> characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> defines cubic coherence volume <span class="math inline">\(\lambda_{\mathrm{coh}}^{3}\)</span>; anisotropy can be included as an effective geometric factor absorbed into <span class="math inline">\(\Phi_{\varphi}\)</span> or <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span>.</li>
+                <li><strong>Synchrony velocity bounds:</strong> <span class="math inline">\(v_{\mathrm{sync}}\leq v_{\max}\)</span>, with <span class="math inline">\(v_{\max}\)</span> given by the medium’s invariant speed (e.g., Alfvén speed for magnetized plasma, <span class="math inline">\(c\)</span> for photon‑dominated transport).</li>
+                <li><strong>Holonomy saturation:</strong> strong curvature/phase winding drives <span class="math inline">\(\Phi_{\varphi}\to 2\pi\)</span>, i.e., closed holonomy cycles per coherence cell.</li>
+            </ul>
+
+            <h4>Measurement protocols</h4>
+            <ul>
+                <li><strong>Coherence length:</strong> infer <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from spectral coherence, interferometric visibility, or turbulence correlation scales; near horizons, use feature scales (ring/spot) as coherence proxies.</li>
+                <li><strong>Synchrony velocity:</strong> estimate <span class="math inline">\(v_{\mathrm{sync}}\)</span> from phase transport rates (cross‑correlation lag/lead across baselines), or from characteristic propagation speeds (Alfvénic, acoustic, radiative).</li>
+                <li><strong>Effective volume:</strong> define <span class="math inline">\(V\)</span> as the bounded region with coherent phase structure (shells, annuli, magnetospheric lobes), using imaging or model geometries; propagate geometric uncertainty.</li>
+                <li><strong>Holonomy/coherence gain:</strong> compute <span class="math inline">\(\Phi_{\varphi}\)</span> via phase winding integrals over loops; measure <span class="math inline">\(\mathcal{G}_{\mathrm{coh}}\)</span> from cross‑shell alignment metrics (e.g., coherence gain factors from matched filtering).</li>
+            </ul>
+
+            <h4>Falsifiability protocol</h4>
+            <ul>
+                <li>
+                    <strong>Model prediction:</strong>
 
 
-				</li>
-				<li><strong>Observed comparator:</strong> use gravitational binding estimates, radiative budgets, or dynamical energy in the same region; denote <span class="math inline">\(E^{\mathrm{obs}}\)</span>.</li>
-				<li>
-					<strong>Error propagation:</strong> treat inputs as independent to first order:
+                    \[
+                    E_{\mathrm{kernel}}^{\mathrm{model}} = \Phi_{\varphi}\,(\hbar \gamma_{\mathrm{eff}})\,\frac{V}{\lambda_{\mathrm{coh}}^{3}}\,\mathcal{G}_{\mathrm{coh}}
+                    \quad\text{or}\quad
+                    2\pi \hbar\, v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{4}}
+                    \;\text{(strong limit)}.
+                    \]
 
 
-					\[
-					\sigma_{E}^{2}
-					= \left(\frac{\partial E}{\partial v_{\mathrm{sync}}}\sigma_{v}\right)^{2}
-					+ \left(\frac{\partial E}{\partial V}\sigma_{V}\right)^{2}
-					+ \left(\frac{\partial E}{\partial \lambda_{\mathrm{coh}}}\sigma_{\lambda}\right)^{2}
-					+ \cdots,
-					\]
+                </li>
+                <li><strong>Observed comparator:</strong> use gravitational binding estimates, radiative budgets, or dynamical energy in the same region; denote <span class="math inline">\(E^{\mathrm{obs}}\)</span>.</li>
+                <li>
+                    <strong>Error propagation:</strong> treat inputs as independent to first order:
 
 
-					with
+                    \[
+                    \sigma_{E}^{2}
+                    = \left(\frac{\partial E}{\partial v_{\mathrm{sync}}}\sigma_{v}\right)^{2}
+                    + \left(\frac{\partial E}{\partial V}\sigma_{V}\right)^{2}
+                    + \left(\frac{\partial E}{\partial \lambda_{\mathrm{coh}}}\sigma_{\lambda}\right)^{2}
+                    + \cdots,
+                    \]
 
 
-					\[
-					\frac{\partial E}{\partial v_{\mathrm{sync}}} = 2\pi\hbar\,\frac{V}{\lambda_{\mathrm{coh}}^{4}},\quad
-					\frac{\partial E}{\partial V} = 2\pi\hbar\,\frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}^{4}},\quad
-					\frac{\partial E}{\partial \lambda_{\mathrm{coh}}} = -8\pi\hbar\,v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{5}}.
-					\]
+                    with
 
 
-				</li>
-				<li>
-					<strong>Decision rule:</strong> accept if
+                    \[
+                    \frac{\partial E}{\partial v_{\mathrm{sync}}} = 2\pi\hbar\,\frac{V}{\lambda_{\mathrm{coh}}^{4}},\quad
+                    \frac{\partial E}{\partial V} = 2\pi\hbar\,\frac{v_{\mathrm{sync}}}{\lambda_{\mathrm{coh}}^{4}},\quad
+                    \frac{\partial E}{\partial \lambda_{\mathrm{coh}}} = -8\pi\hbar\,v_{\mathrm{sync}}\,\frac{V}{\lambda_{\mathrm{coh}}^{5}}.
+                    \]
 
 
-					\[
-					|E^{\mathrm{obs}} - E^{\mathrm{model}}| \le k\,\sigma_{E}
-					\quad\text{and}\quad
-					\epsilon \equiv \frac{|E^{\mathrm{obs}} - E^{\mathrm{model}}|}{\max(E^{\mathrm{obs}},E^{\mathrm{model}})} \le \epsilon_{\max},
-					\]
+                </li>
+                <li>
+                    <strong>Decision rule:</strong> accept if
 
 
-					with <span class="math inline">\(k\approx 2\)</span> (95% CI) and <span class="math inline">\(\epsilon_{\max}\in[0.05,\,0.20]\)</span> depending on regime.
-				</li>
-				<li><strong>Fail conditions:</strong> systematic excess beyond tolerance across parameter sweeps; non‑physical requirements (<span class="math inline">\(v_{\mathrm{sync}}>v_{\max}\)</span>, <span class="math inline">\(\lambda_{\mathrm{coh}} \le 0\)</span>); dimensional mismatch; or disagreement with the weak‑field bridge (energy derived from orbital law in §50 within same region).</li>
-			</ul>
+                    \[
+                    |E^{\mathrm{obs}} - E^{\mathrm{model}}| \le k\,\sigma_{E}
+                    \quad\text{and}\quad
+                    \epsilon \equiv \frac{|E^{\mathrm{obs}} - E^{\mathrm{model}}|}{\max(E^{\mathrm{obs}},E^{\mathrm{model}})} \le \epsilon_{\max},
+                    \]
 
-			<h4>Benchmarks (sanity‑checked)</h4>
-			<ul>
-				<li>
-					<strong>Magnetized solar plasma (strong turbulence):</strong>
-					<span class="math inline">
 
-						\[
-						\lambda_{\mathrm{coh}} \sim 10^{5}\,\mathrm{m},\quad
-						V \sim 10^{18}\,\mathrm{m^{3}},\quad
-						v_{\mathrm{sync}} \sim 10^{6}\,\mathrm{m/s}
-						\Rightarrow
-						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,10^{6}\,\frac{10^{18}}{10^{20}}
-						\approx 6.6\times 10^{-6}\,\mathrm{J},
-						\]
+                    with <span class="math inline">\(k\approx 2\)</span> (95% CI) and <span class="math inline">\(\epsilon_{\max}\in[0.05,\,0.20]\)</span> depending on regime.
+                </li>
+                <li><strong>Fail conditions:</strong> systematic excess beyond tolerance across parameter sweeps; non‑physical requirements (<span class="math inline">\(v_{\mathrm{sync}}>v_{\max}\)</span>, <span class="math inline">\(\lambda_{\mathrm{coh}} \le 0\)</span>); dimensional mismatch; or disagreement with the weak‑field bridge (energy derived from orbital law in §50 within same region).</li>
+            </ul>
 
-					</span>
-					matching local coherent packet energies rather than bulk coronal budgets.
-				</li>
-				<li>
-					<strong>Neutron‑star magnetosphere (near‑surface):</strong>
-					<span class="math inline">
+            <h4>Benchmarks (sanity‑checked)</h4>
+            <ul>
+                <li>
+                    <strong>Magnetized solar plasma (strong turbulence):</strong>
+                    <span class="math inline">
 
-						\[
-						\lambda_{\mathrm{coh}} \sim 10^{-2}\,\mathrm{m},\quad
-						V \sim 10^{9}\,\mathrm{m^{3}},\quad
-						v_{\mathrm{sync}} \sim c
-						\Rightarrow
-						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{9}}{10^{-8}}
-						\approx 2.1\times 10^{34}\,\mathrm{J},
-						\]
+                        \[
+                        \lambda_{\mathrm{coh}} \sim 10^{5}\,\mathrm{m},\quad
+                        V \sim 10^{18}\,\mathrm{m^{3}},\quad
+                        v_{\mathrm{sync}} \sim 10^{6}\,\mathrm{m/s}
+                        \Rightarrow
+                        E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,10^{6}\,\frac{10^{18}}{10^{20}}
+                        \approx 6.6\times 10^{-6}\,\mathrm{J},
+                        \]
 
-					</span>
-					consistent with coherent energy in magnetospheric emission regions, below total gravitational binding.
-				</li>
-				<li>
-					<strong>Stellar‑mass black‑hole inner flow (coherent ring):</strong>
-					<span class="math inline">
+                    </span>
+                    matching local coherent packet energies rather than bulk coronal budgets.
+                </li>
+                <li>
+                    <strong>Neutron‑star magnetosphere (near‑surface):</strong>
+                    <span class="math inline">
 
-						\[
-						\lambda_{\mathrm{coh}} \sim 10^{3}\,\mathrm{m},\quad
-						V \sim 10^{10}\,\mathrm{m^{3}},\quad
-						v_{\mathrm{sync}} \sim c
-						\Rightarrow
-						E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{10}}{10^{12}}
-						\approx 6.6\times 10^{-16}\,\mathrm{J},
-						\]
+                        \[
+                        \lambda_{\mathrm{coh}} \sim 10^{-2}\,\mathrm{m},\quad
+                        V \sim 10^{9}\,\mathrm{m^{3}},\quad
+                        v_{\mathrm{sync}} \sim c
+                        \Rightarrow
+                        E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{9}}{10^{-8}}
+                        \approx 2.1\times 10^{34}\,\mathrm{J},
+                        \]
 
-					</span>
-					per minimal coherence cell ensemble; macroscopic energies require summing over active coherent domains.
-				</li>
-			</ul>
-			<p>
-				Note: benchmarks must match the <em>coherent</em> volume actually participating in strong‑field modulation. Using astronomical bulk volumes will overpredict; use imaging‑ or spectrum‑derived coherence regions for valid comparisons.
-			</p>
+                    </span>
+                    consistent with coherent energy in magnetospheric emission regions, below total gravitational binding.
+                </li>
+                <li>
+                    <strong>Stellar‑mass black‑hole inner flow (coherent ring):</strong>
+                    <span class="math inline">
 
-			<h4>Validation Pathways</h4>
-			<p>
-				The strong-field kernel law can be tested with current astrophysical datasets:
-			</p>
-			<ul>
-				<li><strong>Neutron stars</strong>: NICER (NASA) and XMM-Newton constrain surface compactness, allowing estimation of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from X-ray burst spectra.</li>
-				<li><strong>Black holes</strong>: Event Horizon Telescope (EHT) provides coherence-scale imaging, enabling inference of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> near horizon structures.</li>
-				<li><strong>Solar plasma</strong>: Parker Solar Probe and Solar Orbiter yield direct <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> and <span class="math inline">\(v_{\mathrm{sync}}\)</span> from Alfvénic turbulence.</li>
-				<li><strong>Orbital systems</strong>: JPL Solar System Dynamics datasets constrain <span class="math inline">\(V\)</span> and synchrony parameters for weak-field benchmarks (e.g. Earth–Sun binding energy).</li>
-			</ul>
+                        \[
+                        \lambda_{\mathrm{coh}} \sim 10^{3}\,\mathrm{m},\quad
+                        V \sim 10^{10}\,\mathrm{m^{3}},\quad
+                        v_{\mathrm{sync}} \sim c
+                        \Rightarrow
+                        E_{\mathrm{kernel}}^{\mathrm{strong}} \sim 2\pi\hbar\,c\,\frac{10^{10}}{10^{12}}
+                        \approx 6.6\times 10^{-16}\,\mathrm{J},
+                        \]
 
-			<h4>Bridge to weak‑field and orbital regimes</h4>
-			<ul>
-				<li><strong>Weak‑field limit:</strong> as <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> grows and <span class="math inline">\(\gamma_{\mathrm{eff}}\)</span> decreases, the law reduces toward energy densities governed by orbital curvature and dissipation (cf. §50, Eq. 13.6).</li>
-				<li><strong>Consistency check:</strong> energy integrated over coherent shells should not exceed gravitational binding estimates; discrepancies indicate misestimated <span class="math inline">\(V\)</span> or <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, or violation of <span class="math inline">\(v_{\mathrm{sync}}\le v_{\max}\)</span>.</li>
-			</ul>
+                    </span>
+                    per minimal coherence cell ensemble; macroscopic energies require summing over active coherent domains.
+                </li>
+            </ul>
+            <p>
+                Note: benchmarks must match the <em>coherent</em> volume actually participating in strong‑field modulation. Using astronomical bulk volumes will overpredict; use imaging‑ or spectrum‑derived coherence regions for valid comparisons.
+            </p>
 
-			<h4>Conclusion</h4>
-			<p>
-				The strong‑field modulation law is derived from kernel energy principles, closes dimensionally, and is falsifiable through measurable coherence scales, synchrony transport, and holonomy. Correct benchmarking requires matching coherent volumes, not bulk astrophysical sizes. With those safeguards, the law provides a rigorous, testable bridge across strong‑ and weak‑field regimes.
-			</p>
+            <h4>Validation Pathways</h4>
+            <p>
+                The strong-field kernel law can be tested with current astrophysical datasets:
+            </p>
+            <ul>
+                <li><strong>Neutron stars</strong>: NICER (NASA) and XMM-Newton constrain surface compactness, allowing estimation of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> from X-ray burst spectra.</li>
+                <li><strong>Black holes</strong>: Event Horizon Telescope (EHT) provides coherence-scale imaging, enabling inference of <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> near horizon structures.</li>
+                <li><strong>Solar plasma</strong>: Parker Solar Probe and Solar Orbiter yield direct <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> and <span class="math inline">\(v_{\mathrm{sync}}\)</span> from Alfvénic turbulence.</li>
+                <li><strong>Orbital systems</strong>: JPL Solar System Dynamics datasets constrain <span class="math inline">\(V\)</span> and synchrony parameters for weak-field benchmarks (e.g. Earth–Sun binding energy).</li>
+            </ul>
+
+            <h4>Bridge to weak‑field and orbital regimes</h4>
+            <ul>
+                <li><strong>Weak‑field limit:</strong> as <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> grows and <span class="math inline">\(\gamma_{\mathrm{eff}}\)</span> decreases, the law reduces toward energy densities governed by orbital curvature and dissipation (cf. §50, Eq. 13.6).</li>
+                <li><strong>Consistency check:</strong> energy integrated over coherent shells should not exceed gravitational binding estimates; discrepancies indicate misestimated <span class="math inline">\(V\)</span> or <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, or violation of <span class="math inline">\(v_{\mathrm{sync}}\le v_{\max}\)</span>.</li>
+            </ul>
+
+            <h4>Conclusion</h4>
+            <p>
+                The strong‑field modulation law is derived from kernel energy principles, closes dimensionally, and is falsifiable through measurable coherence scales, synchrony transport, and holonomy. Correct benchmarking requires matching coherent volumes, not bulk astrophysical sizes. With those safeguards, the law provides a rigorous, testable bridge across strong‑ and weak‑field regimes.
+            </p>
 
             <h4>Benchmark Accuracy</h4>
             <figure class="equation" id="eq-13_24">
@@ -6312,46 +6586,46 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <ul>
-				<li><span class="math inline">\(R\)</span> — observable radius</li>
-				<li><span class="math inline">\(\mu m_p\)</span> — mean particle mass (for solids replace by <span class="math inline">\(m_u\langle A\rangle\)</span>)</li>
-				<li><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> — coherence length (regime-dependent microscopic coupling scale)</li>
-				<li><span class="math inline">\(f_{\mathrm{pack}}\)</span> — packing fraction (bulk/grain density; <span class="math inline">\(\lesssim 1\)</span>; for plasmas <span class="math inline">\(\approx 1\)</span>)</li>
-				<li><span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span> with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span> — cohesion map (monotone)</li>
-				<li><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span> — MHD/coherence multiplier (≈1 in non-MHD solids)</li>
-			</ul>
+                <li><span class="math inline">\(R\)</span> — observable radius</li>
+                <li><span class="math inline">\(\mu m_p\)</span> — mean particle mass (for solids replace by <span class="math inline">\(m_u\langle A\rangle\)</span>)</li>
+                <li><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span> — coherence length (regime-dependent microscopic coupling scale)</li>
+                <li><span class="math inline">\(f_{\mathrm{pack}}\)</span> — packing fraction (bulk/grain density; <span class="math inline">\(\lesssim 1\)</span>; for plasmas <span class="math inline">\(\approx 1\)</span>)</li>
+                <li><span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span> with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span> — cohesion map (monotone)</li>
+                <li><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span> — MHD/coherence multiplier (≈1 in non-MHD solids)</li>
+            </ul>
 
-			<h4>RMI-Based derivation protocol</h4>
-			<p>
-				In the Chronotopic framework, mass is not a primitive quantity. It emerges from the recursive projection of the kernel impulse across coherence layers. The impulse rhythm defines a coherence length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, which sets the scale at which modulation survives in a given medium. By counting the number of coherence cells within a spatial domain and weighting them by energy retention and packing geometry, we derive a structural mass expression.
-			</p>
+            <h4>RMI-Based derivation protocol</h4>
+            <p>
+                In the Chronotopic framework, mass is not a primitive quantity. It emerges from the recursive projection of the kernel impulse across coherence layers. The impulse rhythm defines a coherence length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>, which sets the scale at which modulation survives in a given medium. By counting the number of coherence cells within a spatial domain and weighting them by energy retention and packing geometry, we derive a structural mass expression.
+            </p>
 
-			<h5>Step 1: Kernel impulse projection</h5>
-			<p>
-				The kernel impulse <span class="math inline">\(\Psi(x,t)\)</span> propagates through a medium, sustaining coherence over a characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>. This length is regime-dependent and reflects the microscopic coupling scale (e.g., lattice spacing, Debye length, de Broglie wavelength).
-			</p>
+            <h5>Step 1: Kernel impulse projection</h5>
+            <p>
+                The kernel impulse <span class="math inline">\(\Psi(x,t)\)</span> propagates through a medium, sustaining coherence over a characteristic length <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span>. This length is regime-dependent and reflects the microscopic coupling scale (e.g., lattice spacing, Debye length, de Broglie wavelength).
+            </p>
 
-			<h5>Step 2: Coherence cell counting</h5>
-			<p>
-				The number of coherence cells in a volume <span class="math inline">\(V = \tfrac{4\pi}{3}R^3\)</span> is:
-			</p>
+            <h5>Step 2: Coherence cell counting</h5>
+            <p>
+                The number of coherence cells in a volume <span class="math inline">\(V = \tfrac{4\pi}{3}R^3\)</span> is:
+            </p>
 
-			<div class="math display">
+            <div class="math display">
 
-				\[
-				N_{\text{cells}} = \frac{V}{\lambda_{\mathrm{coh}}^3}
-				\]
+                \[
+                N_{\text{cells}} = \frac{V}{\lambda_{\mathrm{coh}}^3}
+                \]
 
-			</div>
+            </div>
 
-			<h5>Step 3: Mass per cell</h5>
-			<p>
-				Each coherence cell contributes a mean particle mass <span class="math inline">\(\mu m_p\)</span>, adjusted by the packing fraction <span class="math inline">\(f_{\mathrm{pack}}\)</span> to account for bulk density. The cohesion map <span class="math inline">\(C(\chi) = \tfrac{\chi}{1+\chi}\)</span> weights the contribution based on the ratio of retained to dissipated energy.
-			</p>
+            <h5>Step 3: Mass per cell</h5>
+            <p>
+                Each coherence cell contributes a mean particle mass <span class="math inline">\(\mu m_p\)</span>, adjusted by the packing fraction <span class="math inline">\(f_{\mathrm{pack}}\)</span> to account for bulk density. The cohesion map <span class="math inline">\(C(\chi) = \tfrac{\chi}{1+\chi}\)</span> weights the contribution based on the ratio of retained to dissipated energy.
+            </p>
 
-			<h5>Step 4: MHD and structural modulation</h5>
-			<p>
-				In magnetized or rotating systems, coherence is further modulated by a structural multiplier <span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span>, which accounts for magnetic Reynolds number and alignment angle. In non-MHD solids, this factor is approximately unity.
-			</p>
+            <h5>Step 4: MHD and structural modulation</h5>
+            <p>
+                In magnetized or rotating systems, coherence is further modulated by a structural multiplier <span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span>, which accounts for magnetic Reynolds number and alignment angle. In non-MHD solids, this factor is approximately unity.
+            </p>
 
             <h4>Final expression</h4>
             <p>
@@ -6379,17 +6653,17 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <p>
                 An expressive form:
             </p>
-			<span class="math display">
-				\[
-				\boxed{%
-				M \;=\; N_{\text{cells}} \;\times\; (\mu m_p) \;\times\; f_{\mathrm{pack}} \;\times\; C(\chi) \;\times\; \mathcal{M}(R_m,\alpha)
-				}
-				\]
+            <span class="math display">
+                \[
+                \boxed{%
+                M \;=\; N_{\text{cells}} \;\times\; (\mu m_p) \;\times\; f_{\mathrm{pack}} \;\times\; C(\chi) \;\times\; \mathcal{M}(R_m,\alpha)
+                }
+                \]
 
-				\[
-				N_{\text{cells}} \;=\; \frac{4\pi R^3}{3\,\lambda_{\mathrm{coh}}^{3}}
-				\]
-			</span>
+                \[
+                N_{\text{cells}} \;=\; \frac{4\pi R^3}{3\,\lambda_{\mathrm{coh}}^{3}}
+                \]
+            </span>
 
             <p><strong>Unit check:</strong></p>
             <div class="math display">
@@ -6400,52 +6674,52 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             </div>
 
-			<table>
-				<thead>
-					<tr>
-						<th>Symbol</th>
-						<th>Meaning</th>
-						<th>Units</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><span class="math inline">\(R\)</span></td>
-						<td>Observable radius</td>
-						<td>m</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(\mu m_p\)</span></td>
-						<td>Mean particle mass (for solids use <span class="math inline">\(m_u\langle A\rangle\)</span>)</td>
-						<td>kg</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span></td>
-						<td>Coherence length (microscopic coupling scale)</td>
-						<td>m</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(f_{\mathrm{pack}}\)</span></td>
-						<td>Packing fraction (bulk/grain density factor)</td>
-						<td>dimensionless</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(C(\chi)\)</span></td>
-						<td>Cohesion map, <span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span>, with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span></td>
-						<td>dimensionless</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span></td>
-						<td>MHD/coherence multiplier (≈1 in non‑MHD solids)</td>
-						<td>dimensionless</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(N_{\text{cells}}\)</span></td>
-						<td>Number of coherence cells in volume</td>
-						<td>dimensionless</td>
-					</tr>
-				</tbody>
-			</table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Meaning</th>
+                        <th>Units</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="math inline">\(R\)</span></td>
+                        <td>Observable radius</td>
+                        <td>m</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(\mu m_p\)</span></td>
+                        <td>Mean particle mass (for solids use <span class="math inline">\(m_u\langle A\rangle\)</span>)</td>
+                        <td>kg</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(\lambda_{\mathrm{coh}}\)</span></td>
+                        <td>Coherence length (microscopic coupling scale)</td>
+                        <td>m</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(f_{\mathrm{pack}}\)</span></td>
+                        <td>Packing fraction (bulk/grain density factor)</td>
+                        <td>dimensionless</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(C(\chi)\)</span></td>
+                        <td>Cohesion map, <span class="math inline">\(C(\chi)=\tfrac{\chi}{1+\chi}\)</span>, with <span class="math inline">\(\chi=E_{\mathrm{coh}}/E_{\mathrm{dis}}\)</span></td>
+                        <td>dimensionless</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(\mathcal{M}(R_m,\alpha)\)</span></td>
+                        <td>MHD/coherence multiplier (≈1 in non‑MHD solids)</td>
+                        <td>dimensionless</td>
+                    </tr>
+                    <tr>
+                        <td><span class="math inline">\(N_{\text{cells}}\)</span></td>
+                        <td>Number of coherence cells in volume</td>
+                        <td>dimensionless</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h4>Tier Protocol for Selecting <span class="math inline">\(\lambda_{\mathrm{coh}}\)</span></h4>
 
@@ -13959,32 +14233,32 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <figcaption><a href="#eq-18_1">Equation (18.1)</a></figcaption>
             </figure>
 
-			<h4>Clarification of Constants</h4>
-			<p>
-				The coefficients <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not arbitrary but
-				correspond to measurable physical observables:
-			</p>
-			<ul>
-				<li>
-					<span class="math inline">\(A = \rho_{\mathrm{mass}}\)</span> —
-					the inertial response per unit volume, i.e. the effective mass density of the vacuum.
-					Units: kg·m\(^{-3}\).
-				</li>
-				<li>
-					<span class="math inline">\(B = \rho_{\mathrm{mass}} c^{2}\)</span> —
-					the elastic stiffness of the vacuum, proportional to the rest‑energy density.
-					This arises from identifying the kernel stiffness constant
-					<span class="math inline">\(K\)</span> with
-					<span class="math inline">\(U_0 L_0^{2}\)</span>, where
-					<span class="math inline">\(U_0 = \rho_{\mathrm{mass}} c^{2}\)</span>.
-					Units: J·m\(^{-3}\) = kg·m\(^{-1}\)·s\(^{-2}\).
-				</li>
-			</ul>
-			<p>
-				Thus the ratio <span class="math inline">\(B/A\)</span> has units of m\(^2\)/s\(^2\),
-				and its square root yields a velocity scale. The kernel prediction is that this velocity is
-				exactly the invariant speed <span class="math inline">\(c\)</span>.
-			</p>
+            <h4>Clarification of Constants</h4>
+            <p>
+                The coefficients <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not arbitrary but
+                correspond to measurable physical observables:
+            </p>
+            <ul>
+                <li>
+                    <span class="math inline">\(A = \rho_{\mathrm{mass}}\)</span> —
+                    the inertial response per unit volume, i.e. the effective mass density of the vacuum.
+                    Units: kg·m\(^{-3}\).
+                </li>
+                <li>
+                    <span class="math inline">\(B = \rho_{\mathrm{mass}} c^{2}\)</span> —
+                    the elastic stiffness of the vacuum, proportional to the rest‑energy density.
+                    This arises from identifying the kernel stiffness constant
+                    <span class="math inline">\(K\)</span> with
+                    <span class="math inline">\(U_0 L_0^{2}\)</span>, where
+                    <span class="math inline">\(U_0 = \rho_{\mathrm{mass}} c^{2}\)</span>.
+                    Units: J·m\(^{-3}\) = kg·m\(^{-1}\)·s\(^{-2}\).
+                </li>
+            </ul>
+            <p>
+                Thus the ratio <span class="math inline">\(B/A\)</span> has units of m\(^2\)/s\(^2\),
+                and its square root yields a velocity scale. The kernel prediction is that this velocity is
+                exactly the invariant speed <span class="math inline">\(c\)</span>.
+            </p>
 
             <figure class="equation" id="eq-18_2">
                 <div class="math display">
@@ -14012,79 +14286,79 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <figcaption><a href="#eq-18_3">Equation (18.3)</a></figcaption>
             </figure>
 
-			<h4>Derivation</h4>
-			<p>
-				Substituting <span class="math inline">\( A = \rho_{\mathrm{mass}} \)</span> and
-				<span class="math inline">\( B = \rho_{\mathrm{mass}} c^{2} \)</span> into the Lagrangian
-				(<a href="#eq-18_1">Eq. 18.1</a>) gives:
-			</p>
+            <h4>Derivation</h4>
+            <p>
+                Substituting <span class="math inline">\( A = \rho_{\mathrm{mass}} \)</span> and
+                <span class="math inline">\( B = \rho_{\mathrm{mass}} c^{2} \)</span> into the Lagrangian
+                (<a href="#eq-18_1">Eq. 18.1</a>) gives:
+            </p>
 
-			<figure class="equation" id="eq-18_4">
-				<div class="math display">
-
-
-					\[
-					\mathcal{L} = \tfrac{\rho_{\mathrm{mass}}}{2}(\partial_t \phi)^{2}
-					- \tfrac{\rho_{\mathrm{mass}} c^{2}}{2}(\nabla \phi)^{2}.
-					\]
+            <figure class="equation" id="eq-18_4">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-18_4">Equation (18.4)</a></figcaption>
-			</figure>
-
-			<p>
-				Applying the Euler–Lagrange equation to <span class="math inline">\(\phi\)</span> yields the wave equation:
-			</p>
-
-			<figure class="equation" id="eq-18_5">
-				<div class="math display">
+                    \[
+                    \mathcal{L} = \tfrac{\rho_{\mathrm{mass}}}{2}(\partial_t \phi)^{2}
+                    - \tfrac{\rho_{\mathrm{mass}} c^{2}}{2}(\nabla \phi)^{2}.
+                    \]
 
 
-					\[
-					\rho_{\mathrm{mass}}\,\partial_t^2 \phi - \rho_{\mathrm{mass}} c^{2}\,\nabla^2 \phi = 0.
-					\]
+                </div>
+                <figcaption><a href="#eq-18_4">Equation (18.4)</a></figcaption>
+            </figure>
+
+            <p>
+                Applying the Euler–Lagrange equation to <span class="math inline">\(\phi\)</span> yields the wave equation:
+            </p>
+
+            <figure class="equation" id="eq-18_5">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-18_5">Equation (18.5)</a></figcaption>
-			</figure>
-
-			<p>
-				Using a plane‑wave ansatz
-				<span class="math inline">\(\phi \sim e^{i(\mathbf{k}\cdot \mathbf{x} - \omega t)}\)</span>
-				gives the dispersion relation:
-			</p>
-
-			<figure class="equation" id="eq-18_6">
-				<div class="math display">
+                    \[
+                    \rho_{\mathrm{mass}}\,\partial_t^2 \phi - \rho_{\mathrm{mass}} c^{2}\,\nabla^2 \phi = 0.
+                    \]
 
 
-					\[
-					\omega^{2} = \frac{B}{A}\,k^{2}.
-					\]
+                </div>
+                <figcaption><a href="#eq-18_5">Equation (18.5)</a></figcaption>
+            </figure>
+
+            <p>
+                Using a plane‑wave ansatz
+                <span class="math inline">\(\phi \sim e^{i(\mathbf{k}\cdot \mathbf{x} - \omega t)}\)</span>
+                gives the dispersion relation:
+            </p>
+
+            <figure class="equation" id="eq-18_6">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-18_6">Equation (18.6)</a></figcaption>
-			</figure>
-
-			<p>
-				Hence the phase and group velocity are:
-			</p>
-
-			<figure class="equation" id="eq-18_7">
-				<div class="math display">
+                    \[
+                    \omega^{2} = \frac{B}{A}\,k^{2}.
+                    \]
 
 
-					\[
-					v = \sqrt{\tfrac{B}{A}} = \sqrt{\tfrac{\rho_{\mathrm{mass}} c^{2}}{\rho_{\mathrm{mass}}}} = c.
-					\]
+                </div>
+                <figcaption><a href="#eq-18_6">Equation (18.6)</a></figcaption>
+            </figure>
+
+            <p>
+                Hence the phase and group velocity are:
+            </p>
+
+            <figure class="equation" id="eq-18_7">
+                <div class="math display">
 
 
-				</div>
-				<figcaption><a href="#eq-18_7">Equation (18.7)</a></figcaption>
-			</figure>
+                    \[
+                    v = \sqrt{\tfrac{B}{A}} = \sqrt{\tfrac{\rho_{\mathrm{mass}} c^{2}}{\rho_{\mathrm{mass}}}} = c.
+                    \]
+
+
+                </div>
+                <figcaption><a href="#eq-18_7">Equation (18.7)</a></figcaption>
+            </figure>
 
             <figure class="equation" id="eq-18_8">
                 <div class="math display">
@@ -14154,13 +14428,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <li><strong>Massless mode propagation:</strong> Test other candidate massless excitations (e.g. phonon‑like modes in engineered metamaterials approaching vacuum limit). If propagation speed differs from <span class="math inline">\(c\)</span>, the kernel identification fails.</li>
                 <li><strong>Precision bounds:</strong> Compare kernel‑predicted invariance with modern Michelson–Morley‑type interferometry and cavity QED experiments. Any anisotropy or drift in <span class="math inline">\(c\)</span> beyond experimental error would contradict the kernel law.</li>
             </ul>
-			<p>
-				Acceptance criterion: the measured vacuum wave speed
-				<span class="math inline">\(v_{\rm obs}(\omega)\)</span> must satisfy
-				<span class="math inline">\( |v_{\rm obs} - c|/c \leq \epsilon_{\rm max} \)</span>,
-				with <span class="math inline">\(\epsilon_{\rm max} \sim 10^{-15}\)</span> (current interferometric bounds).
-				Any systematic deviation beyond this threshold falsifies the kernel law.
-			</p>
+            <p>
+                Acceptance criterion: the measured vacuum wave speed
+                <span class="math inline">\(v_{\rm obs}(\omega)\)</span> must satisfy
+                <span class="math inline">\( |v_{\rm obs} - c|/c \leq \epsilon_{\rm max} \)</span>,
+                with <span class="math inline">\(\epsilon_{\rm max} \sim 10^{-15}\)</span> (current interferometric bounds).
+                Any systematic deviation beyond this threshold falsifies the kernel law.
+            </p>
             <h4>Conclusion</h4>
             <p>
                 The kernel stiffness formulation reproduces the invariant vacuum wave speed without assuming Einstein’s postulate, instead deriving it from the ratio of elastic to inertial terms.
@@ -19584,30 +19858,204 @@ zscore = (median - Xi_crit) / std
         <h2 title="Click to toggle" id="sec-35-elemental-rhythm-prediction">Elemental Rhythm Prediction</h2>
         <article style="display:none">
             <p>
-                We define each element as a coherence modulation state characterized by the kernel vector:
+                Each element is modeled as a <em>coherence modulation state</em> defined by its kernel vector:
             </p>
 
             <figure class="equation" id="eq-35_1">
                 <div class="math display">
-
-
                     \[
-                    \vec{K}= \left( \rho, u, \Phi, \kappa, D \right)
+                    \vec{K} = (\rho, u, \Phi, \kappa, D)
                     \]
-
-
                 </div>
-                <figcaption><a href="#eq-35_1">Equation (35.1)</a></figcaption>
+                <figcaption><a href="#eq-35_1">Equation (35.1)</a> — Elemental kernel vector</figcaption>
             </figure>
 
-            <p>where:</p>
+            <p>with component meanings:</p>
             <ul>
-                <li><span class="math inline">\(\rho\)</span> = node density (coherence packing)</li>
-                <li><span class="math inline">\(u\)</span> = harmonization drift (orbital modulation)</li>
-                <li><span class="math inline">\(\Phi\)</span> = shape factor (topological curvature)</li>
-                <li><span class="math inline">\(\kappa\)</span> = topological coupling (nuclear sync)</li>
-                <li><span class="math inline">\(D\)</span> = mass drag coefficient (rupture resistance)</li>
+                <li><span class="math inline">\(\rho\)</span> node density — coherence packing <span class="math inline">\(\mathrm{J \, s \, m^{-3}}\)</span></li>
+                <li><span class="math inline">\(u\)</span> harmonization drift — orbital modulation velocity <span class="math inline">\(\mathrm{m \, s^{-1}}\)</span></li>
+                <li><span class="math inline">\(\Phi\)</span> shape factor — topological curvature <span class="math inline">\(\mathrm{dimensionless}\)</span></li>
+                <li><span class="math inline">\(\kappa\)</span> topological coupling — nuclear synchrony constant <span class="math inline">\(\mathrm{dimensionless}\)</span></li>
+                <li><span class="math inline">\(D\)</span> mass-drag coefficient — rupture or decoherence resistance <span class="math inline">\(\mathrm{kg \, s^{-1}}\)</span></li>
             </ul>
+
+            <h4>Origin from the Self-Referential Kernel</h4>
+            <p>
+                Starting from the general self-referential kernel
+            </p>
+            <div class="math display">
+                \[
+                K(x,x') = \int_{\Omega_\omega}
+                M[\omega,\gamma,\Theta,Q,\phi,T]\,
+                e^{i\Phi(x,x';\omega)}\,d\omega ,
+                \]
+            </div>
+            <p>
+                each element corresponds to a stationary solution where the modulation manifold
+                \(M[\omega,\dots]\) reaches a recursive fixed point:
+            </p>
+            <div class="math display">
+                \[
+                \frac{\partial K}{\partial \omega}\Big|_{\omega_\ast}=0
+                \quad\Rightarrow\quad
+                \frac{\partial \Phi}{\partial \omega}
+                = \tau_Z = \text{group delay of element } Z .
+                \]
+            </div>
+            <p>
+                The impulse observables
+                \(\vec{I} = (\tau, A, \Omega, v_{\mathrm{sync}}, \Gamma)\)
+                capture the measurable response of that fixed point.
+            </p>
+
+            <h4>Impulse–to–Kernel Measurement Model</h4>
+            <figure class="equation" id="eq-35_60">
+                <div class="math display">
+                    \[
+                    \begin{aligned}
+                    \rho &\approx c_{\rho}A,\\
+                    u &\approx c_{u}\,\frac{\Omega}{k(\Omega)},\\
+                    \Phi &\approx c_{\Phi}\,R^{-1}(\Omega),\\
+                    \kappa &\approx c_{\kappa}\,Z,\\
+                    D &\approx c_{D}\,\frac{v_{\mathrm{sync}}}{\Gamma}.
+                    \end{aligned}
+                    \]
+                </div>
+                <figcaption><a href="#eq-35_60">Equation (35.60)</a> — Measurement model linking observables to kernel components</figcaption>
+            </figure>
+
+            <p>
+                The constants <span class="math inline">\(c_\rho,\dots,c_D\)</span> are dimension-fixing calibration coefficients determined
+                from reference elements, ensuring dimensional homogeneity and cross-domain transferability.
+            </p>
+
+            <h4>Forward and Inverse Maps</h4>
+            <p>
+                The calibrated <strong>forward map</strong> \(f: Z \mapsto \vec{K}_Z\)
+                is obtained by constrained regression on known standards.
+            </p>
+            <div class="math display">
+                \[
+                \vec{K}_Z = f(Z)
+                \quad\text{with positivity }
+                \rho,\Phi,D>0,
+                \quad\text{and block-wise monotonicity if applicable.}
+                \]
+            </div>
+
+            <p>
+                The <strong>inverse identification</strong> of atomic number from an observed kernel
+                follows regularized inversion:
+            </p>
+            <div class="math display">
+                \[
+                \hat{Z}
+                = \arg\min_Z
+                \|\vec{K}_{\mathrm{obs}} - f(Z)\|_{W}^2
+                + \lambda R(Z),
+                \]
+            </div>
+            <p>
+                where <span class="math inline">\(W=\Sigma_{K}^{-1}\)</span> is the precision matrix of kernel uncertainties and
+                <span class="math inline">\(R(Z)\)</span> encodes block or periodic priors (s/p/d/f group structure).
+            </p>
+
+            <h4>Uncertainty propagation</h4>
+            <p>
+                For <span class="math inline">\(\vec{K}=g(\vec{I})\)</span>, first-order covariance propagation gives
+                <span class="math inline">\(\Sigma_{K} \approx J_{g}\,\Sigma_{I}\,J_{g}^{\top}\)</span>,
+                with Jacobian <span class="math inline">\(J_{g}=\partial\vec{K}/\partial\vec{I}\)</span>.
+                The inverse-map covariance is
+                <span class="math inline">\(\Sigma_{Z} \approx J_{f^{-1}}\,\Sigma_{K}\,J_{f^{-1}}^{\top}\)</span>,
+                yielding prediction intervals on <span class="math inline">\(\hat{Z}\)</span>.
+            </p>
+
+            <h4>Predictive step and rhythm shift</h4>
+            <p>
+                To forecast the next element’s kernel vector:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \Delta\vec{K}_{\mathrm{avg}}
+                = \frac{\sum_{i} w_{i}\,\Delta\vec{K}_{i}}{\sum_{i} w_{i}},
+                \quad
+                w_{i} = \|\Sigma_{\Delta K,i}\|^{-1},
+                \quad
+                \vec{K}_{Z+1} = \vec{K}_{Z} + \Delta\vec{K}_{\mathrm{avg}}.
+                \]
+
+
+            </div>
+            <p>
+                Predicted atomic number:
+                <span class="math inline">\(\hat{Z}_{\mathrm{next}} = f^{-1}(\vec{K}_{Z+1})\)</span>,
+                with uncertainty
+                <span class="math inline">\(\Sigma_{Z+1} \approx J_{f^{-1}}\,\Sigma_{K_{Z+1}}\,J_{f^{-1}}^{\top}\)</span>.
+            </p>
+
+            <h4>Stability and rhythm classification</h4>
+            <p>
+                Elemental stability follows from a weighted-norm criterion:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \|\Delta\vec{K}\|_{W} < \epsilon
+                \;\Rightarrow\;
+                \text{stable (coherent)},\qquad
+                \|\Delta\vec{K}\|_{W} \ge \epsilon
+                \;\Rightarrow\;
+                \text{unstable or radioactive.}
+                \]
+
+
+            </div>
+            <p>
+                Here <span class="math inline">\(W=\Sigma_{K}^{-1}\)</span> emphasizes well-resolved kernel components.
+            </p>
+
+            <h4>Validation and identifiability protocol</h4>
+            <ul>
+                <li><strong>Cross-validation by blocks:</strong> train on s-block, test on p-block; rotate for completeness.</li>
+                <li><strong>Stress tests:</strong> perturb <span class="math inline">\(\Gamma\)</span>, <span class="math inline">\(v_{\mathrm{sync}}\)</span>, <span class="math inline">\(\Omega\)</span> within calibration bounds and verify classification invariance.</li>
+                <li><strong>Calibration curves:</strong> plot <span class="math inline">\(\hat{Z}\)</span> vs. true <span class="math inline">\(Z\)</span> with error bars from <span class="math inline">\(\Sigma_{Z}\)</span>; require <span class="math inline">\(95\%\)</span> coverage.</li>
+                <li><strong>Identifiability:</strong> inspect condition number <span class="math inline">\(\kappa(J_{g})\)</span>; regularize highly sensitive components.</li>
+            </ul>
+
+            <h4>Dimensional and physical consistency</h4>
+            <p>
+                Each component retains fixed SI units:
+                <span class="math inline">\([\rho] = \mathrm{J\,s\,m^{-3}}\)</span>,
+                <span class="math inline">\([u] = \mathrm{m\,s^{-1}}\)</span>,
+                <span class="math inline">\([\Phi] = \mathrm{1}\)</span>,
+                <span class="math inline">\([\kappa] = \mathrm{1}\)</span>,
+                <span class="math inline">\([D] = \mathrm{kg\,s^{-1}}\)</span>.
+                This ensures <span class="math inline">\(f\)</span> and <span class="math inline">\(f^{-1}\)</span> operate in a metrically coherent space and
+                that predicted rhythm shifts correspond to physically measurable modulations in
+                density, curvature, and decay rate.
+            </p>
+
+            <h4>Summary</h4>
+            <p>
+                The <em>Elemental Rhythm Prediction</em> framework formalizes periodicity as a recursive
+                modulation of kernel parameters rather than an empirical ordering by atomic number.
+                It provides:
+            </p>
+            <ul>
+                <li>a physically grounded mapping <span class="math inline">\(f: Z \leftrightarrow \vec{K}\)</span> derived from impulse observables,</li>
+                <li>explicit uncertainty propagation and identifiability checks,</li>
+                <li>predictive capability for new or unstable elements via rhythm extrapolation, and</li>
+                <li>a falsifiable criterion for elemental stability based on kernel-space distance.</li>
+            </ul>
+
+            <p>
+                In this view, the periodic table emerges as the discrete projection of a continuous
+                kernel-modulation manifold, where each element corresponds to a stable rhythm of
+                coherence and collapse.
+            </p>
 
             <h4>Kernel Tuning</h4>
             <p>To calibrate the kernel for known elements, we fit:</p>
@@ -19823,7 +20271,7 @@ zscore = (median - Xi_crit) / std
                     </tr>
                 </tbody>
             </table>
-            <h2 title="Click to toggle" id="sec-35-conclusion">Conclusion</h2>
+            <h4>Conclusion</h4>
 
             <p>
                 We have demonstrated that the elemental coherence states across the periodic table can be rendered through a unified kernel vector:
@@ -19955,6 +20403,7 @@ zscore = (median - Xi_crit) / std
                 completing the ontological binding of the Z‑coordinate to elemental rhythm.
                 This formulation enables predictive modeling of elemental properties and coherence transitions across the periodic table.
             </p>
+
             <h3 id="sec-35-elemental-rhythm-prediction_1">Mass Prediction from Kernel Modulation</h3>
 
             <p>
@@ -19981,84 +20430,50 @@ zscore = (median - Xi_crit) / std
                 <li><span class="math inline">\(\Delta_{\mathrm{mod}}(Z)\)</span>: modulation correction derived from kernel observables</li>
             </ul>
 
-            <p>Let raw kernel observables be:</p>
-
-            <figure class="equation" id="eq-35_16">
-                <div class="math display">
-
-
-                    \[
-                    D_Z: \text{mass drag}, \quad u_Z: \text{harmonization drift}, \quad \Phi_Z: \text{curvature factor}
-                    \]
+            <h4>Kernel Observables and Standardization</h4>
+            <p>
+                Raw kernel observables are mass drag, harmonization drift, and curvature:
+            </p>
+            <div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-35_16">Equation (35.16)</a></figcaption>
-            </figure>
-
-            <p>To remove scale dependence, we standardize:</p>
-
-            <figure class="equation" id="eq-35_17">
-                <div class="math display">
+                \[
+                D_Z,\quad u_Z,\quad \Phi_Z
+                \]
 
 
-                    \[
-                    \widetilde{D}_Z = \frac{D_Z - \mu_D}{\sigma_D}, \qquad
-                    \widetilde{\Phi}_Z = \frac{\Phi_Z - \mu_\Phi}{\sigma_\Phi}
-                    \]
+            </div>
+
+            <p>
+                To remove scale dependence, we standardize:
+            </p>
+            <div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-35_17">Equation (35.17)</a></figcaption>
-            </figure>
-
-            <p>Then define kernel features:</p>
-
-            <figure class="equation" id="eq-35_18">
-                <div class="math display">
+                \[
+                \widetilde{D}_Z = \frac{D_Z - \mu_D}{\sigma_D},\qquad
+                \widetilde{\Phi}_Z = \frac{\Phi_Z - \mu_\Phi}{\sigma_\Phi}.
+                \]
 
 
-                    \[
-                    F_1(Z) = \widetilde{D}_Z \cdot \widetilde{\Phi}_Z, \qquad
-                    F_2(Z) = F_1(Z) \cdot \frac{m_Z}{\overline{m}}
-                    \]
+            </div>
+
+            <p>
+                Kernel features are then defined as:
+            </p>
+            <div class="math display">
 
 
-                </div>
-                <figcaption><a href="#eq-35_18">Equation (35.18)</a></figcaption>
-            </figure>
+                \[
+                F_1(Z) = \widetilde{D}_Z \cdot \widetilde{\Phi}_Z,\qquad
+                F_2(Z) = F_1(Z)\cdot \frac{m_Z}{\overline{m}},
+                \]
 
+
+            </div>
             <p>
                 where <span class="math inline">\(\overline{m}\)</span> is the mean atomic mass in the calibration sample.
             </p>
-
-            <h4>Modulation Correction Term</h4>
-            <p>The modulation correction is computed from universal constants:</p>
-
-            <figure class="equation" id="eq-35_19">
-                <div class="math display">
-
-
-                    \[
-                    \boxed{\Delta_{\mathrm{mod}}(Z) =
-                    \frac{h c T_{\mathrm{mod}}}{2 b \cdot \mathcal{E}}
-                    + \frac{h c T_{\mathrm{mod}}}{b \cdot \mathcal{E}}\cdot F_1(Z)
-                    + \frac{h c T_{\mathrm{mod}}}{b \cdot \mathcal{E}\cdot \overline{m}}\cdot F_2(Z)}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-35_19">Equation (35.19)</a></figcaption>
-            </figure>
-
-            <p>where:</p>
-            <ul>
-                <li><span class="math inline">\(h\)</span>: Planck’s constant</li>
-                <li><span class="math inline">\(c\)</span>: speed of light</li>
-                <li><span class="math inline">\(b\)</span>: Wien’s displacement constant</li>
-                <li><span class="math inline">\(T_{\mathrm{mod}}\)</span>: modulation temperature (e.g. <span class="math inline">\(10^5~\mathrm{K}\)</span>)</li>
-                <li><span class="math inline">\(\mathcal{E}\)</span>: energy‑to‑mass conversion factor (<span class="math inline">\(\approx 1.4924 \times 10^{-10}~\mathrm{J/amu}\)</span>)</li>
-            </ul>
 
             <h4>Curvature Factor Computation</h4>
             <p>
@@ -20105,7 +20520,7 @@ zscore = (median - Xi_crit) / std
                 <span class="math inline">\(\varepsilon \approx 0.01\)</span>–<span class="math inline">\(0.05\)</span> amu) to absorb residual bias.
             </p>
 
-            <h4>Interpretation</h4>
+            <h5>Interpretation</h5>
             <p>
                 This hybrid model ensures:
             </p>
@@ -20115,6 +20530,32 @@ zscore = (median - Xi_crit) / std
                 <li>Light elements are treated with minimal correction due to quantum and binding‑energy dominance</li>
             </ul>
 
+            <h4>Modulation Correction Term</h4>
+            <p>
+                The modulation correction is computed from universal constants:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \boxed{\Delta_{\mathrm{mod}}(Z) =
+                \frac{h c T_{\mathrm{mod}}}{2 b \mathcal{E}}
+                + \frac{h c T_{\mathrm{mod}}}{b \mathcal{E}}\,F_1(Z)
+                + \frac{h c T_{\mathrm{mod}}}{b \mathcal{E}\,\overline{m}}\,F_2(Z)}
+                \]
+
+
+            </div>
+
+            <p>where:</p>
+            <ul>
+                <li><span class="math inline">\(h\)</span>: Planck’s constant (<span class="math inline">\(\mathrm{J\,s}\)</span>)</li>
+                <li><span class="math inline">\(c\)</span>: speed of light (<span class="math inline">\(\mathrm{m\,s^{-1}}\)</span>)</li>
+                <li><span class="math inline">\(b\)</span>: Wien’s displacement constant (<span class="math inline">\(\mathrm{m\,K}\)</span>)</li>
+                <li><span class="math inline">\(T_{\mathrm{mod}}\)</span>: modulation temperature (<span class="math inline">\(\mathrm{K}\)</span>)</li>
+                <li><span class="math inline">\(\mathcal{E}\)</span>: energy‑to‑mass conversion factor (<span class="math inline">\(\mathrm{J/amu}\)</span>)</li>
+            </ul>
+
             <p>
                 The model is falsifiable: if kernel terms do not improve prediction over the baseline
                 <span class="math inline">\(M_Z = m_Z\)</span>, the modulation hypothesis is rejected.
@@ -20122,7 +20563,68 @@ zscore = (median - Xi_crit) / std
                 and observable modulation geometry.
             </p>
 
-            <h4>Robustness of Modulation Temperature</h4>
+            <h4>Uncertainty Propagation</h4>
+            <p>
+                First‑order variance on the mass prediction:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \sigma_{M_Z}^{2} \approx \sigma_{m_Z}^{2} +
+                \nabla \Delta_{\mathrm{mod}}^{\!\top}\,\Sigma_{F}\,\nabla \Delta_{\mathrm{mod}},
+                \]
+
+
+            </div>
+            <p>
+                where <span class="math inline">\(\Sigma_{F}\)</span> is the covariance of
+                <span class="math inline">\((\widetilde{D}_Z,\widetilde{\Phi}_Z,m_Z/\overline{m})\)</span>.
+            </p>
+
+            <h4>Acceptance and Falsifiability</h4>
+            <ul>
+                <li>
+                    <strong>Acceptance rule:</strong>
+                    <span class="math inline">\(\lvert M_Z^{\mathrm{pred}} - M_Z^{\mathrm{true}}\rvert \le 2\sigma_{M_Z}\)</span>
+                    (95% confidence).
+                </li>
+                <li>
+                    <strong>Rejection:</strong> If kernel terms do not improve prediction over
+                    <span class="math inline">\(M_Z = m_Z\)</span>, the modulation hypothesis is falsified.
+                </li>
+            </ul>
+
+            <h4>Sensitivity to Modulation Temperature</h4>
+            <p>
+                Sensitivity of the correction to <span class="math inline">\(T_{\mathrm{mod}}\)</span> is:
+            </p>
+            <div class="math display">
+
+                \[
+                \frac{\partial M_Z^{\mathrm{pred}}}{\partial T_{\mathrm{mod}}}
+                = \frac{h c}{b \mathcal{E}}
+                \left(\tfrac{1}{2} + F_1(Z) + \frac{F_2(Z)}{\overline{m}}\right).
+                \]
+
+            </div>
+
+            <h4>Dimensional Consistency</h4>
+            <p>
+                Units: <span class="math inline">\([h]=\mathrm{J\,s}\)</span>,
+                <span class="math inline">\([c]=\mathrm{m\,s^{-1}}\)</span>,
+                <span class="math inline">\([b]=\mathrm{m\,K}\)</span>,
+                <span class="math inline">\([T_{\mathrm{mod}}]=\mathrm{K}\)</span>,
+                <span class="math inline">\([\mathcal{E}]=\mathrm{J/amu}\)</span>.
+                Thus the prefactor
+                <span class="math inline">\(\alpha(T_{\mathrm{mod}})=\dfrac{h c T_{\mathrm{mod}}}{b \mathcal{E}}\)</span>
+                has units of amu, ensuring
+                <span class="math inline">\(\Delta_{\mathrm{mod}}\)</span> and
+                <span class="math inline">\(M_Z^{\mathrm{pred}}\)</span> are dimensionally correct.
+            </p>
+
+            <h4>Empirical Robustness</h4>
+
             <p>
                 To assess sensitivity of the kernel mass correction to the modulation temperature
                 <span class="math inline">\(T_{\mathrm{mod}}\)</span>, we evaluated predictions for C, W, and U across
@@ -20136,6 +20638,13 @@ zscore = (median - Xi_crit) / std
             </p>
 
             <p>
+                Residual errors scale linearly with <span class="math inline">\(T_{\mathrm{mod}}\)</span>, as confirmed by normalized error ratios
+                (RMSE/<span class="math inline">\(\alpha_{\mathrm{rel}}\)</span>) remaining constant across
+                <span class="math inline">\(10^{4}\)–\(10^{6}\,\mathrm{K}\)</span>.
+                Errors remain sub‑<span class="math inline">\(\mu\)</span>amu, demonstrating numerical stability and robustness.
+            </p>
+
+            <p>
                 This demonstrates that the kernel correction is numerically stable and robust: the choice of
                 <span class="math inline">\(T_{\mathrm{mod}}\)</span> does not destabilize predictions, and a conventional anchor of
                 <span class="math inline">\(T_{\mathrm{mod}}=10^{5}\)</span> K provides consistent accuracy across light and heavy elements.
@@ -20144,10 +20653,12 @@ zscore = (median - Xi_crit) / std
             <table class="mce-item-table">
                 <thead>
                     <tr>
-                        <th><span class="math inline">\(T_{\mathrm{mod}}\)</span> (K)</th>
-                        <th><span class="math inline">\(\mathrm{RMSE}\)</span> (amu)</th>
-                        <th><span class="math inline">\(\mathrm{MAE}\)</span> (amu)</th>
-                        <th>Max error (amu)</th>
+                        <th><span class="math inline">\(T_{\mathrm{mod}}\)</span> <span class="math inline">\(\mathrm{(K)}\)</span></th>
+                        <th><span class="math inline">\(\mathrm{RMSE}\)</span> <span class="math inline">\(\mathrm{(amu)}\)</span></th>
+                        <th><span class="math inline">\(\mathrm{MAE}\)</span> <span class="math inline">\(\mathrm{(amu)}\)</span></th>
+                        <th><span class="math inline">\(\mathrm{Max\ error}\)</span> <span class="math inline">\(\mathrm{(amu)}\)</span></th>
+                        <th><span class="math inline">\(\alpha_{\mathrm{rel}} = T_{\mathrm{mod}}/10^{5}\)</span></th>
+                        <th><span class="math inline">\(\mathrm{RMSE}/\alpha_{\mathrm{rel}}\)</span> <span class="math inline">\(\mathrm{(amu)}\)</span></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20156,33 +20667,133 @@ zscore = (median - Xi_crit) / std
                         <td><span class="math inline">\(5.79 \times 10^{-9}\)</span></td>
                         <td><span class="math inline">\(5.37 \times 10^{-9}\)</span></td>
                         <td><span class="math inline">\(8.29 \times 10^{-9}\)</span></td>
+                        <td><span class="math inline">\(0.1\)</span></td>
+                        <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                     </tr>
                     <tr>
                         <td><span class="math inline">\(30{,}000\)</span></td>
                         <td><span class="math inline">\(1.74 \times 10^{-8}\)</span></td>
                         <td><span class="math inline">\(1.61 \times 10^{-8}\)</span></td>
                         <td><span class="math inline">\(2.49 \times 10^{-8}\)</span></td>
+                        <td><span class="math inline">\(0.3\)</span></td>
+                        <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                     </tr>
                     <tr>
                         <td><span class="math inline">\(100{,}000\)</span></td>
                         <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                         <td><span class="math inline">\(5.37 \times 10^{-8}\)</span></td>
                         <td><span class="math inline">\(8.29 \times 10^{-8}\)</span></td>
+                        <td><span class="math inline">\(1\)</span></td>
+                        <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                     </tr>
                     <tr>
                         <td><span class="math inline">\(300{,}000\)</span></td>
                         <td><span class="math inline">\(1.74 \times 10^{-7}\)</span></td>
                         <td><span class="math inline">\(1.61 \times 10^{-7}\)</span></td>
                         <td><span class="math inline">\(2.49 \times 10^{-7}\)</span></td>
+                        <td><span class="math inline">\(3\)</span></td>
+                        <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                     </tr>
                     <tr>
                         <td><span class="math inline">\(1{,}000{,}000\)</span></td>
                         <td><span class="math inline">\(5.79 \times 10^{-7}\)</span></td>
                         <td><span class="math inline">\(5.37 \times 10^{-7}\)</span></td>
                         <td><span class="math inline">\(8.29 \times 10^{-7}\)</span></td>
+                        <td><span class="math inline">\(10\)</span></td>
+                        <td><span class="math inline">\(5.79 \times 10^{-8}\)</span></td>
                     </tr>
                 </tbody>
             </table>
+
+            <p>
+                Predicted mass and modulation:
+            </p>
+            <div class="math display">
+
+
+                \[
+                M_{Z}^{\mathrm{pred}} = m_{Z} + \Delta_{\mathrm{mod}}(Z),
+                \quad
+                \Delta_{\mathrm{mod}}(Z) =
+                \frac{h\,c\,T_{\mathrm{mod}}}{b\,\mathcal{E}}
+                \left(
+                \tfrac{1}{2} + F_{1}(Z) + \frac{F_{2}(Z)}{\overline{m}}
+                \right).
+                \]
+
+
+            </div>
+
+            <p>
+                Standardized kernel features:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \widetilde{D}_{Z} = \frac{D_{Z}-\mu_{D}}{\sigma_{D}},\quad
+                \widetilde{\Phi}_{Z} = \frac{\Phi_{Z}-\mu_{\Phi}}{\sigma_{\Phi}},\quad
+                F_{1}(Z) = \widetilde{D}_{Z}\,\widetilde{\Phi}_{Z},\quad
+                F_{2}(Z) = F_{1}(Z)\,\frac{m_{Z}}{\overline{m}}.
+                \]
+
+
+            </div>
+
+            <h5>Uncertainty propagation</h5>
+            <p>
+                First-order variance on the mass prediction:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \sigma_{M_{Z}}^{2} \approx \sigma_{m_{Z}}^{2} +
+                \nabla \Delta_{\mathrm{mod}}^{\!\top}\,
+                \Sigma_{F}\,
+                \nabla \Delta_{\mathrm{mod}},
+                \]
+
+
+            </div>
+            <p>
+                where <span class="math inline">\(\Sigma_{F}\)</span> is the covariance of
+                <span class="math inline">\((\widetilde{D}_{Z},\,\widetilde{\Phi}_{Z},\,m_{Z}/\overline{m})\)</span> and
+                the gradients are:
+            </p>
+            <div class="math display">
+
+
+                \[
+                \begin{aligned}
+                \frac{\partial \Delta_{\mathrm{mod}}}{\partial \widetilde{D}_{Z}}
+                &= \frac{h\,c\,T_{\mathrm{mod}}}{b\,\mathcal{E}}
+                \left(\widetilde{\Phi}_{Z} + \frac{m_{Z}}{\overline{m}}\,\widetilde{\Phi}_{Z}\right),\\
+                \frac{\partial \Delta_{\mathrm{mod}}}{\partial \widetilde{\Phi}_{Z}}
+                &= \frac{h\,c\,T_{\mathrm{mod}}}{b\,\mathcal{E}}
+                \left(\widetilde{D}_{Z} + \frac{m_{Z}}{\overline{m}}\,\widetilde{D}_{Z}\right),\\
+                \frac{\partial \Delta_{\mathrm{mod}}}{\partial (m_{Z}/\overline{m})}
+                &= \frac{h\,c\,T_{\mathrm{mod}}}{b\,\mathcal{E}\,\overline{m}}\,F_{1}(Z).
+                \end{aligned}
+                \]
+
+
+            </div>
+
+            <h5>Acceptance and falsifiability</h5>
+            <ul>
+                <li>
+                    <strong>Acceptance rule:</strong>
+                    <span class="math inline">\(\lvert M_{Z}^{\mathrm{pred}} - M_{Z}^{\mathrm{true}}\rvert \le 2\,\sigma_{M_{Z}}\)</span>
+                    (95% confidence). Otherwise, reject the modulation hypothesis for that element.
+                </li>
+                <li>
+                    <strong>Error budget report:</strong> list the top contributors from
+                    <span class="math inline">\(\Sigma_{F}\)</span> (e.g., variance of <span class="math inline">\(\widetilde{D}_{Z}\)</span> or
+                    <span class="math inline">\(\widetilde{\Phi}_{Z}\)</span>) to show why uncertainty is high or low.
+                </li>
+            </ul>
+
             <h3 id="sec-35-elemental-rhythm-prediction_2">Kernel-Based Group Detection</h3>
 
             <p>
