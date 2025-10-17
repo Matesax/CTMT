@@ -88,3 +88,5 @@ It reproduces known physics, predicts new coherence behaviors, and offers a unif
 If you're a physicist, engineer, biologist, or systems thinker — this kernel may be the missing rhythm in your model.
 
 Welcome to the chronotopic frontier.
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17255377.svg)](https://doi.org/10.5281/zenodo.17255377)
