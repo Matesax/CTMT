@@ -5774,7 +5774,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     Substituting these dependencies yields:
   </p>
 
-  <figure class="equation" id="eq-13_6">
+  <figure class="equation" id="eq-50_6">
     <div class="math display">
       \[
       \boxed{
@@ -5784,7 +5784,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
       +\frac{\partial u(r,t)}{\partial t}}
       \]
     </div>
-    <figcaption><a href="#eq-13_6">Equation (13.6)</a> — orbital projection of the kernel law.</figcaption>
+    <figcaption><a href="#eq-50_6">Equation (50.6)</a> — orbital projection of the kernel law.</figcaption>
   </figure>
 
   <p>
@@ -5848,7 +5848,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     ephemeris-derived values.
   </p>
 
-  <h5>Observables and acquisition</h5>
+  <h4>Observables and acquisition</h4>
   <ul>
     <li><strong>Curvature index:</strong> \(\Phi(r,t)\) from spherical-harmonic curvature analysis.</li>
     <li><strong>Dissipation energy:</strong> \(\mathcal{E}_{\rm diss}\) from integrated power flux per effective mass.</li>
@@ -5856,7 +5856,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <li><strong>Geometric scale:</strong> \(R(t)\) from ephemerides or ranging data.</li>
   </ul>
 
-  <h5>Model computation</h5>
+  <h4>Model computation</h4>
   <figure class="equation" id="eq-50_f1">
     <div class="math display">
       \[
@@ -5869,40 +5869,24 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <figcaption><a href="#eq-50_f1">Equation (50.F1)</a></figcaption>
   </figure>
 
-  <h5>Error propagation and acceptance bands</h5>
-  <p>
-    Use the standard first-order propagation formulas
-    (<a href="#eq-50_f2">Eq. 50.F2</a>–<a href="#eq-50_f3">F3</a>)
-    and acceptance criteria identical to those in <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> & <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a>:
-    deviations beyond two standard uncertainties or
-    dimensional mismatch (\(\neq\mathrm{m\,s^{-2}}\))
-    falsify the orbital projection.
-  </p>
+  <h4>Uncertainty propagation, estimation and validation</h4>
 
   <p>
-    Thus, <a href="#eq-13_6">13.6</a> is not an isolated dynamical law but
-    the <em>orbital manifestation</em> of the unified kernel-acceleration
-    structure established across curvature, thermal, and collapse regimes.
+    The orbital projection (Eq. <a href="#eq-50_6">50.6</a>) is an explicit specialization of the kernel-derived acceleration
+    (Eq. <a href="#eq-50_1">50.1</a>, cf. <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>)
+    and must therefore be validated with the same rigor: propagate measurement uncertainties from the modulation sources
+    \(\Phi,\ \mathcal{E}_{\rm diss},\ R,\ u\) into the modelled acceleration
+    \(a_{\rm grav}^{\rm model}\), account for parameter covariances, and compare to observed acceleration
+    \(a_{\rm grav}^{\rm obs}\) using an explicit decision rule.
   </p>
 
-  <!-- INSERT: Uncertainty, estimation & validation (drop-in for §50 after eq-50_f1) -->
-  <h5 id="sec-50_uncertainty">Uncertainty propagation, estimation and validation</h5>
-
+  <h5>Component variances (first-order)</h5>
   <p>
-    To test Eq. <a href="#eq-13_6">(13.6)</a> one must propagate measurement uncertainties of the three modulation sources
-    into the modeled acceleration <span class="math inline">\(a_{\rm grav}^{\rm model}\)</span>,
-    account for covariances, and apply a clear decision rule when comparing to observed acceleration.
-    Below we summarize both first-order (analytic) and general (matrix / ensemble) procedures, together with practical protocols.
+    For independent uncertainties \(\sigma_\Phi,\ \sigma_{\mathcal{E}},\ \sigma_R,\ \sigma_u\) apply first-order propagation
+    to the component contributions defined in Eq. <a href="#eq-50_f1">50.F1</a>.
   </p>
 
-  <h6>First-order (componentwise) propagation</h6>
-  <p>
-    For independent component uncertainties
-    <span class="math inline">\( \sigma_\Phi,\; \sigma_{\mathcal{E}},\; \sigma_R,\; \sigma_u \)</span>,
-    use the component formulas from Eq. <a href="#eq-50_f2">50.F2</a> and Eq. <a href="#eq-50_f3">50.F3</a>:
-  </p>
-
-  <figure class="equation" id="eq-50_unc_1">
+  <figure class="equation" id="eq-50_u1">
     <div class="math display">
       \[
       \begin{aligned}
@@ -5917,14 +5901,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
       \end{aligned}
       \]
     </div>
-    <figcaption><a href="#eq-50_unc_1">Equation (50.U1)</a> — component variances (first order).</figcaption>
+    <figcaption><a href="#eq-50_u1">Equation (50.U1)</a> — component variances (first-order).</figcaption>
   </figure>
 
   <p>
-    Combine into the model variance (assuming negligible covariance between components as a first approximation):
+    Combine the component variances to give the model variance (independence assumed as a first approximation):
   </p>
 
-  <figure class="equation" id="eq-50_unc_2">
+  <figure class="equation" id="eq-50_u2">
     <div class="math display">
       \[
       \sigma_{a_{\rm grav}^{\rm model}} = \sqrt{
@@ -5932,100 +5916,84 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
       }.
       \]
     </div>
-    <figcaption><a href="#eq-50_unc_2">Equation (50.U2)</a> — combined model uncertainty (independent components).</figcaption>
+    <figcaption><a href="#eq-50_u2">Equation (50.U2)</a> — combined model uncertainty (independent components).</figcaption>
   </figure>
 
-  <h6>Full linear propagation (Jacobian / covariance)</h6>
+  <h5>Full linear propagation (Jacobian and covariance)</h5>
   <p>
-    When component correlations are non-negligible — e.g., \(\Phi\) and \(R\) estimated from the same spherical-harmonic fit,
-    or \(\mathcal{E}_{\rm diss}\) computed from fluxes that also inform \(\Phi\) — use the general linear propagation:
+    When parameter correlations are present (common when \(\Phi\) and \(R\) arise from the same spherical-harmonic fit,
+    or \(\mathcal{E}_{\rm diss}\) is computed from fluxes tied to \(\Phi\)), use the full linear propagation via the parameter
+    covariance matrix \(\Sigma_{\mathbf{x}}\) and Jacobian \(J\).
   </p>
 
-  <figure class="equation" id="eq-50_unc_3">
+  <figure class="equation" id="eq-50_u3">
     <div class="math display">
       \[
-      \Sigma_{\mathbf{x}} =
-      \mathrm{Cov}\!\big( [\Phi,\; \mathcal{E}_{\rm diss},\; R,\; u]^\top \big),
+      \mathbf{x} = \begin{bmatrix}\Phi\\ \mathcal{E}_{\rm diss}\\ R\\ u \end{bmatrix},\qquad
+      \Sigma_{\mathbf{x}} = \mathrm{Cov}(\mathbf{x}),
       \qquad
-      J = \frac{\partial (a_{\rm curv},a_{\rm diss},a_{\rm drift})}{\partial (\Phi,\;\mathcal{E}_{\rm diss},\;R,\;u)}
+      J = \frac{\partial a_{\rm grav}^{\rm model}}{\partial \mathbf{x}}.
     \]
     \[
-      \sigma_{a_{\rm grav}^{\rm model}}^{2} = \mathbf{1}^\top (J\,\Sigma_{\mathbf{x}}\,J^\top)\,\mathbf{1},
+      \sigma_{a_{\rm grav}^{\rm model}}^{2} = J\,\Sigma_{\mathbf{x}}\,J^\top.
     \]
     </div>
-    <figcaption><a href="#eq-50_unc_3">Equation (50.U3)</a> — covariance propagation via Jacobian (full linear form).</figcaption>
+    <figcaption><a href="#eq-50_u3">Equation (50.U3)</a> — covariance propagation via Jacobian (full linear form).</figcaption>
   </figure>
 
   <p>
-    Here \(\mathbf{1}\) sums the component contributions to the scalar model acceleration; equivalently, compute the scalar variance
-    directly from the row of the full Jacobian corresponding to \(a_{\rm grav}^{\rm model}\).
-    This form naturally includes cross-terms and is the recommended default for rigorous analyses.
+    (Operational note: compute \(J\) analytically from Eq. <a href="#eq-50_f1">50.F1</a> where possible; otherwise use finite differences
+    or an adjoint/automatic-differentiation approach for large models.)
   </p>
 
-  <h6>Practical strategies for \(\Sigma_{\mathbf{x}}\) and J</h6>
-  <ul>
-    <li><strong>Estimate \(\Sigma_{\mathbf{x}}\)</strong> from the fitting procedure that produced \(\Phi,\mathcal{E}_{\rm diss},R,u\) (use the posterior covariance if Bayesian, or the Hessian/inverse Fisher for MLE fits).</li>
-    <li><strong>Compute J</strong> analytically from Eq. <a href="#eq-50_f1">50.F1</a> when possible; otherwise compute finite-difference derivatives or use adjoint sensitivity for large models.</li>
-    <li><strong>Use adjoint/continuous sensitivity</strong> for expensive forward models — this yields Jacobian-vector products at machine precision and scaled complexity.</li>
-    <li><strong>When model nonlinearity is large</strong>, prefer Monte-Carlo sampling (draw from the joint \(\Sigma_{\mathbf{x}}\), evaluate \(a_{\rm grav}^{\rm model}\) and use the empirical variance). Use 10\(^3\)–10\(^4\) samples for stable CI estimates.</li>
-  </ul>
-
-  <h6>Decision rule and test statistic</h6>
+  <h5>Residual, z-score and decision rule</h5>
   <p>
-    Define the residual and standardized z-score:
+    Form the residual and standardized test statistic combining observational and model uncertainty:
   </p>
 
-  <figure class="equation" id="eq-50_unc_4">
+  <figure class="equation" id="eq-50_u4">
     <div class="math display">
       \[
       \Delta a = a_{\rm grav}^{\rm obs} - a_{\rm grav}^{\rm model},\qquad
-      z = \frac{\Delta a}{\sqrt{\sigma_{a_{\rm grav}^{\rm obs}}^{2} + \sigma_{a_{\rm grav}^{\rm model}}^{2}}},
+      z = \frac{\Delta a}{\sqrt{\sigma_{a_{\rm grav}^{\rm obs}}^{2} + \sigma_{a_{\rm grav}^{\rm model}}^{2}}}.
       \]
     </div>
-    <figcaption><a href="#eq-50_unc_4">Equation (50.U4)</a> — residual and z-score (combining observation and model uncertainty).</figcaption>
+    <figcaption><a href="#eq-50_u4">Equation (50.U4)</a> — residual and z-score (combining observation and model uncertainty).</figcaption>
   </figure>
 
   <p>
-    Acceptance rules:
+    Acceptance rules (example sensible defaults):
   </p>
   <ul>
-    <li><strong>Accept:</strong> \(|z| \le z_{\alpha/2}\) (e.g. \(|z| \le 1.96\) for 95% two-sided CI) and relative error \(\epsilon \le \epsilon_{\rm max}\) (typical \(\epsilon_{\rm max}\in[0.01,0.05]\) depending on domain).</li>
-    <li><strong>Review / Flag:</strong> \(1.96 < |z| \le 3\): systematic investigation recommended (look for unmodeled physics or underestimated uncertainties).</li>
-    <li><strong>Reject / Falsify:</strong> \(|z|>3\) or persistent \(\epsilon > \epsilon_{\rm max}\) across independent datasets; this indicates the orbital projection (Eq. 13.6) fails to account for observed acceleration within stated uncertainties.</li>
+    <li><strong>Accept:</strong> \(|z| \le 1.96\) (95% two-sided CI) and relative error \(\epsilon = |\Delta a|/|a_{\rm grav}^{\rm obs}| \le \epsilon_{\rm max}\)
+      with \(\epsilon_{\rm max}\in[0.01,0.05]\) chosen per mission/domain.</li>
+    <li><strong>Investigate:</strong> \(1.96 < |z| \le 3\) — check for underestimated uncertainties, systematics, or model deficiencies.</li>
+    <li><strong>Reject (falsify):</strong> \(|z| > 3\) or persistent \(\epsilon>\epsilon_{\rm max}\) across independent datasets.</li>
   </ul>
 
-  <h6>Diagnostics and sensitivity</h6>
-  <p>
-    Report the following for transparency and reproducibility:
-  </p>
+  <h5>Practical recommendations and diagnostics</h5>
   <ul>
-    <li>Full vector \(\mathbf{x}=(\Phi,\mathcal{E}_{\rm diss},R,u)\) with point estimates and covariance \(\Sigma_{\mathbf{x}}\).</li>
-    <li>Jacobian row(s) used in Eq. <a href="#eq-50_unc_3">50.U3</a> and the partial sensitivity coefficients \(\partial a/\partial x_i\).</li>
-    <li>Monte-Carlo histograms of \(a_{\rm grav}^{\rm model}\) (if used) and empirical coverage diagnostics (fraction of observations inside model CI).</li>
-    <li>Local influence metrics: leverage or Cook’s distance on fitted parameters that dominate \(\sigma_{a_{\rm grav}^{\rm model}}\).</li>
+    <li><strong>Retain joint posterior / covariance:</strong> if \(\Phi\), \(R\) etc. come from a joint inversion, propagate the full posterior rather than using marginal error bars.</li>
+    <li><strong>Compute and report J row:</strong> record partial sensitivities \(\partial a/\partial x_i\) so future analysts can attribute uncertainty sources.</li>
+    <li><strong>Monte-Carlo validation:</strong> when nonlinearities are substantial draw \(N\approx 10^3\)–\(10^4\) samples from \(\mathbf{x}\sim\mathcal{N}(\hat{\mathbf{x}},\Sigma_{\mathbf{x}})\), evaluate \(a_{\rm grav}^{\rm model}\) to obtain empirical confidence intervals and check linear-propagation assumptions.</li>
+    <li><strong>Covariance checks:</strong> explicitly test for covariance between \(\Phi\) and \(R\) (and between \(\mathcal{E}_{\rm diss}\) and \(\Phi\)); correlated parameters are common and materially affect \(\sigma_{a_{\rm grav}^{\rm model}}\).</li>
+    <li><strong>Report a “validation card”</strong> with \(\mathbf{x}\), \(\Sigma_{\mathbf{x}}\), \(J\), \(a_{\rm grav}^{\rm model}\), \(\sigma_{a_{\rm grav}^{\rm model}}\), \(a_{\rm grav}^{\rm obs}\), \(\sigma_{a_{\rm grav}^{\rm obs}}\), \(\Delta a\), \(z\) and decision outcome.</li>
   </ul>
 
-  <h6>Recommended measurement and calibration practices</h6>
-  <ul>
-    <li>When deriving \(\Phi\) and \(R\) from the same inversion, extract the joint posterior (not independent marginals) to preserve covariance structure.</li>
-    <li>Use ensemble or Bayesian posterior predictive checks to validate the forward model before performing the falsifiability test.</li>
-    <li>Where possible, perform orthogonal experiments that isolate one source (e.g., dissipation-only runs) to break strong correlations and improve identifiability.</li>
-  </ul>
-
-  <h6>Example workflow (operational)</h6>
+  <h5>Workflow (operational)</h5>
   <ol>
-    <li>Obtain fits / posteriors for \(\Phi,\mathcal{E}_{\rm diss},R,u\) and compute \(\Sigma_{\mathbf{x}}\).</li>
-    <li>Compute \(a_{\rm grav}^{\rm model}\) (Eq. <a href="#eq-50_f1">50.F1</a>) and J (Eq. <a href="#eq-50_unc_3">50.U3</a>).</li>
-    <li>Propagate uncertainties via Eq. <a href="#eq-50_unc_3">50.U3</a> (or Monte-Carlo) to obtain \(\sigma_{a_{\rm grav}^{\rm model}}\).</li>
-    <li>Compute observed acceleration and \(\sigma_{a_{\rm grav}^{\rm obs}}\), then z (Eq. <a href="#eq-50_unc_4">50.U4</a>).</li>
-    <li>Apply acceptance rule; if flagged, run sensitivity analysis and consider augmenting the kernel model (additional modes, nonlocal terms, or unmodeled forcing).</li>
+    <li>Obtain fitted estimates (posteriors) for \(\Phi,\mathcal{E}_{\rm diss},R,u\) and their covariance \(\Sigma_{\mathbf{x}}\).</li>
+    <li>Evaluate \(a_{\rm grav}^{\rm model}\) via Eq. <a href="#eq-50_f1">50.F1</a>.</li>
+    <li>Compute Jacobian \(J\) and propagate uncertainty with Eq. <a href="#eq-50_u3">50.U3</a>, or run a Monte-Carlo forward ensemble.</li>
+    <li>Obtain \(a_{\rm grav}^{\rm obs}\) and its uncertainty from ephemerides/telemetry; compute \(\Delta a\) and \(z\) (Eq. <a href="#eq-50_u4">50.U4</a>).</li>
+    <li>Apply acceptance rules; if flagged, run sensitivity analysis and examine model augmentations (additional kernel modes, nonlocal terms, unmodelled forcing).</li>
   </ol>
 
   <p>
-    When these steps are carried out and documented, the orbital projection in Eq. <a href="#eq-13_6">(13.6)</a>
-    becomes a fully testable, falsifiable element of the kernel ontology with a rigorous uncertainty accounting consistent with <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> and <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a>.
+    When these steps are followed and recorded, Eq. <a href="#eq-50_6">50.6</a> becomes a fully testable,
+    falsifiable specialization of the kernel-acceleration framework (see also
+    <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> and <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a> for the curvature and thermal routes).
   </p>
-
             <h5>Fail conditions (falsification)</h5>
             <ul>
                 <li>
@@ -6074,7 +6042,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The curvature index is computed from field structure using spherical harmonic decomposition and energy-weighted curvature:
             </p>
 
-            <figure class="equation" id="eq-13_7">
+            <figure class="equation" id="eq-50_7">
                 <div class="math display">
 
 
@@ -6085,7 +6053,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_7">Equation (13.7)</a></figcaption>
+                <figcaption><a href="#eq-50_7">Equation (13.7)</a></figcaption>
             </figure>
 
             <p>with:</p>
@@ -6102,7 +6070,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <h4>Benchmark Accuracy</h4>
-            <figure class="equation" id="eq-13_8">
+            <figure class="equation" id="eq-50_8">
                 <div class="math display">
                     \begin{align*}
                     R &= 7.785 \times 10^{11}\, \text{m} \\
@@ -6112,11 +6080,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                     \text{Error} &< 0.5\%
                     \end{align*}
                 </div>
-                <figcaption><a href="#eq-13_8">Equation (13.8)</a></figcaption>
+                <figcaption><a href="#eq-50_8">Equation (13.8)</a></figcaption>
             </figure>
 
             <p><strong>Jupiter–Sun system:</strong></p>
-            <figure class="equation" id="eq-13_9">
+            <figure class="equation" id="eq-50_9">
                 <div class="math display">
                     \begin{align*}
                     R &= 5.91 \times 10^{12}\, \text{m} \quad \text{(Pluto-like orbit)} \\
@@ -6126,7 +6094,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                     \text{Error} &< 0.6\%
                     \end{align*}
                 </div>
-                <figcaption><a href="#eq-13_9">Equation (13.9)</a></figcaption>
+                <figcaption><a href="#eq-50_9">Equation (13.9)</a></figcaption>
             </figure>
 
             <h4>Alternative Method (Phase Laplacian)</h4>
@@ -6134,7 +6102,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 An alternative curvature index <span class="math inline">\(\Phi_{\rm phase}\)</span> may be computed from the Laplacian of the analytic phase field:
             </p>
 
-            <figure class="equation" id="eq-13_10">
+            <figure class="equation" id="eq-50_10">
                 <div class="math display">
 
 
@@ -6145,7 +6113,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_10">Equation (13.10)</a></figcaption>
+                <figcaption><a href="#eq-50_10">Equation (13.10)</a></figcaption>
             </figure>
 
             <p>
@@ -6155,7 +6123,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <h4>Dimensional Closure and Falsifiability</h4>
             <p>Each term has units of acceleration:</p>
 
-            <figure class="equation" id="eq-13_11">
+            <figure class="equation" id="eq-50_11">
                 <div class="math display">
 
 
@@ -6165,7 +6133,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_11">Equation (13.11)</a></figcaption>
+                <figcaption><a href="#eq-50_11">Equation (13.11)</a></figcaption>
             </figure>
 
             <p>
@@ -6173,7 +6141,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The law is falsifiable: if spacecraft field data yield a curvature index <span class="math inline">\(\Phi\)</span> such that the predicted acceleration
             </p>
 
-            <figure class="equation" id="eq-13_12">
+            <figure class="equation" id="eq-50_12">
                 <div class="math display">
 
 
@@ -6183,7 +6151,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_12">Equation (13.12)</a></figcaption>
+                <figcaption><a href="#eq-50_12">Equation (13.12)</a></figcaption>
             </figure>
 
             <p>
@@ -6260,7 +6228,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The Kernel Gravity Law is structurally unified with the Kernel Energy Law:
             </p>
 
-            <figure class="equation" id="eq-13_13">
+            <figure class="equation" id="eq-50_13">
                 <div class="math display">
 
 
@@ -6270,14 +6238,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_13">Equation (13.13)</a></figcaption>
+                <figcaption><a href="#eq-50_13">Equation (13.13)</a></figcaption>
             </figure>
 
             <p>
                 where <span class="math inline">\(E_{\rm orb}\)</span> is the coherence-modulated orbital energy:
             </p>
 
-            <figure class="equation" id="eq-13_14">
+            <figure class="equation" id="eq-50_14">
                 <div class="math display">
 
 
@@ -6287,7 +6255,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_14">Equation (13.14)</a></figcaption>
+                <figcaption><a href="#eq-50_14">Equation (13.14)</a></figcaption>
             </figure>
 
             <p>
@@ -6305,7 +6273,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The short-term kernel energy formula is:
             </p>
 
-            <figure class="equation" id="eq-13_15">
+            <figure class="equation" id="eq-50_15">
                 <div class="math display">
 
 
@@ -6315,7 +6283,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_15">Equation (13.15)</a></figcaption>
+                <figcaption><a href="#eq-50_15">Equation (13.15)</a></figcaption>
             </figure>
 
             <p>
@@ -6347,7 +6315,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <h4>Representative Parameters</h4>
-            <figure class="equation" id="eq-13_16">
+            <figure class="equation" id="eq-50_16">
                 <div class="math display">
 
 
@@ -6362,7 +6330,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_16">Equation (13.16)</a></figcaption>
+                <figcaption><a href="#eq-50_16">Equation (13.16)</a></figcaption>
             </figure>
 
             <ul>
@@ -6381,7 +6349,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Substituting these values into the kernel energy law:
             </p>
 
-            <figure class="equation" id="eq-13_17">
+            <figure class="equation" id="eq-50_17">
                 <div class="math display">
 
 
@@ -6391,7 +6359,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_17">Equation (13.17)</a></figcaption>
+                <figcaption><a href="#eq-50_17">Equation (13.17)</a></figcaption>
             </figure>
 
             <p>
@@ -6399,7 +6367,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Over a 30-minute window (<span class="math inline">\(\Delta t = 1800\ \text{s}\)</span>), the integrated energy is:
             </p>
 
-            <figure class="equation" id="eq-13_18">
+            <figure class="equation" id="eq-50_18">
                 <div class="math display">
 
 
@@ -6409,7 +6377,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_18">Equation (13.18)</a></figcaption>
+                <figcaption><a href="#eq-50_18">Equation (13.18)</a></figcaption>
             </figure>
 
             <h4>Dimensional Check</h4>
@@ -6441,7 +6409,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <p>
                 Begin from the kernel energy density principle that relates energy to collapse rhythm, coherence tessellation, and holonomy:
             </p>
-            <figure class="equation" id="eq-13_19">
+            <figure class="equation" id="eq-50_19">
                 <div class="math display">
 
 
@@ -6454,13 +6422,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_19">Equation (13.19)</a></figcaption>
+                <figcaption><a href="#eq-50_19">Equation (13.19)</a></figcaption>
             </figure>
 
             <p>
                 In the strong‑field limit, coherence cells shrink and phase transport saturates. The asymptotic modulation anchors are:
             </p>
-            <figure class="equation" id="eq-13_20">
+            <figure class="equation" id="eq-50_20">
                 <div class="math display">
 
 
@@ -6474,13 +6442,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_20">Equation (13.20)</a></figcaption>
+                <figcaption><a href="#eq-50_20">Equation (13.20)</a></figcaption>
             </figure>
 
             <p>
                 Substituting these limits yields the strong‑field kernel energy:
             </p>
-            <figure class="equation" id="eq-13_21">
+            <figure class="equation" id="eq-50_21">
                 <div class="math display">
 
 
@@ -6491,13 +6459,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_21">Equation (13.21)</a></figcaption>
+                <figcaption><a href="#eq-50_21">Equation (13.21)</a></figcaption>
             </figure>
 
             <p>
                 The synchrony bridge closes the form by linking effective collapse rhythm to transport velocity over the coherence length:
             </p>
-            <figure class="equation" id="eq-13_22">
+            <figure class="equation" id="eq-50_22">
                 <div class="math display">
 
 
@@ -6509,7 +6477,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_22">Equation (13.22)</a></figcaption>
+                <figcaption><a href="#eq-50_22">Equation (13.22)</a></figcaption>
             </figure>
 
             <h4>Dimensional closure</h4>
@@ -6679,7 +6647,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <h4>Benchmark Accuracy</h4>
-            <figure class="equation" id="eq-13_24">
+            <figure class="equation" id="eq-50_24">
                 <div class="math display">
 
 
@@ -6691,7 +6659,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_24">Equation (13.24)</a></figcaption>
+                <figcaption><a href="#eq-50_24">Equation (13.24)</a></figcaption>
             </figure>
 
             <p>
@@ -6772,7 +6740,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 We propose:
             </p>
 
-            <figure class="equation" id="eq-13_52">
+            <figure class="equation" id="eq-50_52">
                 <div class="math display">
 
 
@@ -6788,7 +6756,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_52">Equation (13.52)</a></figcaption>
+                <figcaption><a href="#eq-50_52">Equation (13.52)</a></figcaption>
             </figure>
 
             <p>
@@ -6842,7 +6810,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Combining all terms, we obtain the unified structural mass law:
             </p>
 
-            <figure class="equation" id="eq-13_52">
+            <figure class="equation" id="eq-50_52">
                 <div class="math display">
 
 
@@ -6964,7 +6932,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Candidate microscopic lengths (use measured <span class="math inline">\(T,n_e\)</span>):
             </p>
 
-            <figure class="equation" id="eq-13_53">
+            <figure class="equation" id="eq-50_53">
                 <div class="math display">
 
 
@@ -6977,10 +6945,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_53">Equation (13.53)</a></figcaption>
+                <figcaption><a href="#eq-50_53">Equation (13.53)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_54">
+            <figure class="equation" id="eq-50_54">
                 <div class="math display">
 
 
@@ -6990,7 +6958,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_54">Equation (13.54)</a></figcaption>
+                <figcaption><a href="#eq-50_54">Equation (13.54)</a></figcaption>
             </figure>
 
             <aside class="kernel-insight">
@@ -7007,7 +6975,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 For a fully degenerate electron gas the relevant microscopic length is the electron Fermi wavelength:
             </p>
 
-            <figure class="equation" id="eq-13_55">
+            <figure class="equation" id="eq-50_55">
                 <div class="math display">
 
 
@@ -7017,14 +6985,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_55">Equation (13.55)</a></figcaption>
+                <figcaption><a href="#eq-50_55">Equation (13.55)</a></figcaption>
             </figure>
 
             <p>
                 With electron number density <span class="math inline">\(n_e=\rho/(\mu_e m_p)\)</span>, counting coherence cells gives:
             </p>
 
-            <figure class="equation" id="eq-13_56">
+            <figure class="equation" id="eq-50_56">
                 <div class="math display">
 
 
@@ -7036,14 +7004,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_56">Equation (13.56)</a></figcaption>
+                <figcaption><a href="#eq-50_56">Equation (13.56)</a></figcaption>
             </figure>
 
             <p>
                 The relativistic degenerate pressure is:
             </p>
 
-            <figure class="equation" id="eq-13_57">
+            <figure class="equation" id="eq-50_57">
                 <div class="math display">
 
 
@@ -7053,14 +7021,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_57">Equation (13.57)</a></figcaption>
+                <figcaption><a href="#eq-50_57">Equation (13.57)</a></figcaption>
             </figure>
 
             <p>
                 Hydrostatic balance requires:
             </p>
 
-            <figure class="equation" id="eq-13_58">
+            <figure class="equation" id="eq-50_58">
                 <div class="math display">
 
 
@@ -7073,14 +7041,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_58">Equation (13.58)</a></figcaption>
+                <figcaption><a href="#eq-50_58">Equation (13.58)</a></figcaption>
             </figure>
 
             <p>
                 Eliminating <span class="math inline">\(\rho\)</span> using <span class="math inline">\(M\sim \rho R^{3}\)</span> yields:
             </p>
 
-            <figure class="equation" id="eq-13_59">
+            <figure class="equation" id="eq-50_59">
                 <div class="math display">
 
 
@@ -7091,14 +7059,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_59">Equation (13.59)</a></figcaption>
+                <figcaption><a href="#eq-50_59">Equation (13.59)</a></figcaption>
             </figure>
 
             <p>
                 After algebra, the radius cancels and one obtains the canonical Chandrasekhar mass scaling:
             </p>
 
-            <figure class="equation" id="eq-13_60">
+            <figure class="equation" id="eq-50_60">
                 <div class="math display">
 
 
@@ -7108,14 +7076,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_60">Equation (13.60)</a></figcaption>
+                <figcaption><a href="#eq-50_60">Equation (13.60)</a></figcaption>
             </figure>
 
             <p>
                 Using constants and <span class="math inline">\(\mu_e = 2\)</span> for a typical C/O white dwarf:
             </p>
 
-            <figure class="equation" id="eq-13_61">
+            <figure class="equation" id="eq-50_61">
                 <div class="math display">
 
 
@@ -7125,7 +7093,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_61">Equation (13.61)</a></figcaption>
+                <figcaption><a href="#eq-50_61">Equation (13.61)</a></figcaption>
             </figure>
 
             <p>
@@ -7143,7 +7111,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Substituting constants into the Chandrasekhar scaling:
             </p>
 
-            <figure class="equation" id="eq-13_61">
+            <figure class="equation" id="eq-50_61">
                 <div class="math display">
 
 
@@ -7153,7 +7121,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_61">Equation (13.61)</a></figcaption>
+                <figcaption><a href="#eq-50_61">Equation (13.61)</a></figcaption>
             </figure>
 
             <p>
@@ -7231,7 +7199,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Using a single‑point (central) Debye length to set <span class="math inline">$\lambda_{\rm coh}$</span> biases the stellar prediction because the stellar core is stratified: <span class="math inline">\(T(r)\)</span> and <span class="math inline">\(n_e(r)\)</span> vary strongly with radius. The quantity that enters the counting law is the <em>local</em> number of coherence cells per shell:
             </p>
 
-            <figure class="equation" id="eq-13_62">
+            <figure class="equation" id="eq-50_62">
                 <div class="math display">
 
 
@@ -7241,10 +7209,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_62">Equation (13.62)</a></figcaption>
+                <figcaption><a href="#eq-50_62">Equation (13.62)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_63">
+            <figure class="equation" id="eq-50_63">
                 <div class="math display">
 
 
@@ -7254,10 +7222,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_63">Equation (13.63)</a></figcaption>
+                <figcaption><a href="#eq-50_63">Equation (13.63)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_64">
+            <figure class="equation" id="eq-50_64">
                 <div class="math display">
 
 
@@ -7267,7 +7235,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_64">Equation (13.64)</a></figcaption>
+                <figcaption><a href="#eq-50_64">Equation (13.64)</a></figcaption>
             </figure>
 
             <p>
@@ -7316,7 +7284,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 A layered two‑component model (core + mantle) is the minimal structural refinement and removes the need for ad‑hoc adjustments.
             </p>
 
-            <figure class="equation" id="eq-13_65">
+            <figure class="equation" id="eq-50_65">
                 <div class="math display">
 
 
@@ -7328,7 +7296,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_65">Equation (13.65)</a></figcaption>
+                <figcaption><a href="#eq-50_65">Equation (13.65)</a></figcaption>
             </figure>
 
             <p>
@@ -7559,7 +7527,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 While the bridge between atomic features <span class="math inline">\(F_1(Z), F_2(Z)\)</span> and planetary observables <span class="math inline">\(D, \Phi, u\)</span> is not yet fully quantified, we introduce a placeholder operator:
             </p>
 
-            <figure class="equation" id="eq-13_26">
+            <figure class="equation" id="eq-50_26">
                 <div class="math display">
 
 
@@ -7569,7 +7537,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_26">Equation (13.26)</a></figcaption>
+                <figcaption><a href="#eq-50_26">Equation (13.26)</a></figcaption>
             </figure>
 
             <p>
@@ -7589,7 +7557,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Atomic molar mass is modeled as a baseline nucleon count plus a modulation‑derived correction:
             </p>
 
-            <figure class="equation" id="eq-13_27">
+            <figure class="equation" id="eq-50_27">
                 <div class="math display">
 
 
@@ -7599,7 +7567,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_27">Equation (13.27)</a></figcaption>
+                <figcaption><a href="#eq-50_27">Equation (13.27)</a></figcaption>
             </figure>
 
             <p>
@@ -7615,7 +7583,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Let the raw kernel observables be:
             </p>
 
-            <figure class="equation" id="eq-13_28">
+            <figure class="equation" id="eq-50_28">
                 <div class="math display">
 
 
@@ -7625,14 +7593,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_28">Equation (13.28)</a></figcaption>
+                <figcaption><a href="#eq-50_28">Equation (13.28)</a></figcaption>
             </figure>
 
             <p>
                 Standardize:
             </p>
 
-            <figure class="equation" id="eq-13_29">
+            <figure class="equation" id="eq-50_29">
                 <div class="math display">
 
 
@@ -7644,14 +7612,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_29">Equation (13.29)</a></figcaption>
+                <figcaption><a href="#eq-50_29">Equation (13.29)</a></figcaption>
             </figure>
 
             <p>
                 Define modulation features:
             </p>
 
-            <figure class="equation" id="eq-13_30">
+            <figure class="equation" id="eq-50_30">
                 <div class="math display">
 
 
@@ -7663,14 +7631,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_30">Equation (13.30)</a></figcaption>
+                <figcaption><a href="#eq-50_30">Equation (13.30)</a></figcaption>
             </figure>
 
             <p>
                 Then compute the modulation correction using universal constants:
             </p>
 
-            <figure class="equation" id="eq-13_31">
+            <figure class="equation" id="eq-50_31">
                 <div class="math display">
 
 
@@ -7685,7 +7653,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_31">Equation (13.31)</a></figcaption>
+                <figcaption><a href="#eq-50_31">Equation (13.31)</a></figcaption>
             </figure>
 
             <p>
@@ -7704,7 +7672,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 For light elements (<span class="math inline">\(Z \leq 10\)</span>), curvature estimates are unstable. In this regime we revert to:
             </p>
 
-            <figure class="equation" id="eq-13_32">
+            <figure class="equation" id="eq-50_32">
                 <div class="math display">
 
 
@@ -7714,7 +7682,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_32">Equation (13.32)</a></figcaption>
+                <figcaption><a href="#eq-50_32">Equation (13.32)</a></figcaption>
             </figure>
 
             <p>
@@ -7727,7 +7695,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Planetary mass is computed as a coherence‑weighted sum of kernel‑predicted atomic masses:
             </p>
 
-            <figure class="equation" id="eq-13_33">
+            <figure class="equation" id="eq-50_33">
                 <div class="math display">
 
 
@@ -7737,7 +7705,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_33">Equation (13.33)</a></figcaption>
+                <figcaption><a href="#eq-50_33">Equation (13.33)</a></figcaption>
             </figure>
 
             <ul>
@@ -7755,7 +7723,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 To derive planetary mass directly from observables, we define four candidate structural terms:
             </p>
 
-            <figure class="equation" id="eq-13_34">
+            <figure class="equation" id="eq-50_34">
                 <div class="math display">
 
 
@@ -7770,7 +7738,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_34">Equation (13.34)</a></figcaption>
+                <figcaption><a href="#eq-50_34">Equation (13.34)</a></figcaption>
             </figure>
 
             <h4>Recommended interpretive structure:</h4>
@@ -7802,7 +7770,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The kernel planetary mass is then defined as:
             </p>
 
-            <figure class="equation" id="eq-13_35">
+            <figure class="equation" id="eq-50_35">
                 <div class="math display">
 
 
@@ -7812,7 +7780,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_35">Equation (13.35)</a></figcaption>
+                <figcaption><a href="#eq-50_35">Equation (13.35)</a></figcaption>
             </figure>
 
             <p>
@@ -7832,7 +7800,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 For compositional grounding, we also define the coherence‑weighted atomic sum:
             </p>
 
-            <figure class="equation" id="eq-13_36">
+            <figure class="equation" id="eq-50_36">
                 <div class="math display">
 
 
@@ -7843,7 +7811,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_36">Equation (13.36)</a></figcaption>
+                <figcaption><a href="#eq-50_36">Equation (13.36)</a></figcaption>
             </figure>
 
             <ul>
@@ -7856,7 +7824,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 With standardized kernel features <span class="math inline">\(F_1(Z),F_2(Z)\)</span>, the modulation correction is:
             </p>
 
-            <figure class="equation" id="eq-13_37">
+            <figure class="equation" id="eq-50_37">
                 <div class="math display">
 
 
@@ -7869,7 +7837,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_37">Equation (13.37)</a></figcaption>
+                <figcaption><a href="#eq-50_37">Equation (13.37)</a></figcaption>
             </figure>
 
             <p>
@@ -7914,7 +7882,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Alternatively, planetary mass can be derived directly from structural observables, without recourse to gravitational assumptions:
             </p>
 
-            <figure class="equation" id="eq-13_38">
+            <figure class="equation" id="eq-50_38">
                 <div class="math display">
 
 
@@ -7930,10 +7898,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_38">Equation (13.38)</a></figcaption>
+                <figcaption><a href="#eq-50_38">Equation (13.38)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_39">
+            <figure class="equation" id="eq-50_39">
                 <div class="math display">
 
 
@@ -7948,7 +7916,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_39">Equation (13.39)</a></figcaption>
+                <figcaption><a href="#eq-50_39">Equation (13.39)</a></figcaption>
             </figure>
 
             <p>
@@ -7962,7 +7930,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Drift <span class="math inline">\(u\)</span> is computed from planetary rotation, precession, and obliquity:
             </p>
 
-            <figure class="equation" id="eq-13_40">
+            <figure class="equation" id="eq-50_40">
                 <div class="math display">
 
 
@@ -7976,7 +7944,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_40">Equation (13.40)</a></figcaption>
+                <figcaption><a href="#eq-50_40">Equation (13.40)</a></figcaption>
             </figure>
 
             <p>where:</p>
@@ -8016,7 +7984,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 the kernel formulation derives planetary mass directly from modulation geometry:
             </p>
 
-            <figure class="equation" id="eq-13_41">
+            <figure class="equation" id="eq-50_41">
                 <div class="math display">
 
 
@@ -8030,7 +7998,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_41">Equation (13.41)</a></figcaption>
+                <figcaption><a href="#eq-50_41">Equation (13.41)</a></figcaption>
             </figure>
 
             <p>
@@ -8118,7 +8086,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h4>Mass Formula</h4>
 
-            <figure class="equation" id="eq-13_42">
+            <figure class="equation" id="eq-50_42">
                 <div class="math display">
 
 
@@ -8128,10 +8096,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_42">Equation (13.42)</a></figcaption>
+                <figcaption><a href="#eq-50_42">Equation (13.42)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_43">
+            <figure class="equation" id="eq-50_43">
                 <div class="math display">
 
 
@@ -8144,7 +8112,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_43">Equation (13.43)</a></figcaption>
+                <figcaption><a href="#eq-50_43">Equation (13.43)</a></figcaption>
             </figure>
 
             <h4>Plasma Adjustments</h4>
@@ -8156,7 +8124,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h4>Plasma Coherence Scaling</h4>
 
-            <figure class="equation" id="eq-13_44">
+            <figure class="equation" id="eq-50_44">
                 <div class="math display">
 
 
@@ -8166,7 +8134,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_44">Equation (13.44)</a></figcaption>
+                <figcaption><a href="#eq-50_44">Equation (13.44)</a></figcaption>
             </figure>
 
             <p>where:</p>
@@ -9399,7 +9367,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 We define a modulation compatibility index <span class="math inline">\(\mu^\ast\)</span> as:
             </p>
 
-            <figure class="equation" id="eq-13_66">
+            <figure class="equation" id="eq-50_66">
                 <div class="math display">
 
 
@@ -9409,7 +9377,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_66">Equation (13.66)</a></figcaption>
+                <figcaption><a href="#eq-50_66">Equation (13.66)</a></figcaption>
             </figure>
 
             <p>
@@ -9429,7 +9397,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <p>
                 The orbital stability index is directly interpretable as a kernel energy ratio.
                 When expressed in the form
-                <a href="#eq-13_117">Eq. (13.117)</a>, stability corresponds to the balance between synchrony action increments
+                <a href="#eq-50_117">Eq. (13.117)</a>, stability corresponds to the balance between synchrony action increments
                 (<span class="math inline">\(\Delta \mathcal{S}_\ast\)</span>) and modulation density.
                 This shows that orbital stability is not an empirical rule but a corollary of the
                 <a href="#sec-13-universal-kernel-energy-law">universal kernel energy law</a>.
@@ -9444,7 +9412,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 and <span class="math inline">\(n\)</span> the mean motion:
             </p>
 
-            <figure class="equation" id="eq-13_67">
+            <figure class="equation" id="eq-50_67">
                 <div class="math display">
 
 
@@ -9456,7 +9424,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_67">Equation (13.67)</a></figcaption>
+                <figcaption><a href="#eq-50_67">Equation (13.67)</a></figcaption>
             </figure>
 
             <p>
@@ -9465,7 +9433,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><strong>Dimensional index</strong> (units <span class="math inline">\(\mathrm{s}^{-1}\)</span>):</p>
 
-            <figure class="equation" id="eq-13_68">
+            <figure class="equation" id="eq-50_68">
                 <div class="math display">
 
 
@@ -9477,7 +9445,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_68">Equation (13.68)</a></figcaption>
+                <figcaption><a href="#eq-50_68">Equation (13.68)</a></figcaption>
             </figure>
 
             <p>
@@ -9491,7 +9459,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><strong>Dimensionless index</strong> (normalized by circular synchrony):</p>
 
-            <figure class="equation" id="eq-13_69">
+            <figure class="equation" id="eq-50_69">
                 <div class="math display">
 
 
@@ -9504,7 +9472,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_69">Equation (13.69)</a></figcaption>
+                <figcaption><a href="#eq-50_69">Equation (13.69)</a></figcaption>
             </figure>
 
             <p>
@@ -9519,7 +9487,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Stress from mean–motion resonances with a dominant perturber is captured by the resonance proximity factor:
             </p>
 
-            <figure class="equation" id="eq-13_70">
+            <figure class="equation" id="eq-50_70">
                 <div class="math display">
 
 
@@ -9529,7 +9497,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_70">Equation (13.70)</a></figcaption>
+                <figcaption><a href="#eq-50_70">Equation (13.70)</a></figcaption>
             </figure>
 
             <p>
@@ -9601,7 +9569,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Earth–Sun (Lock)</em></p>
 
-            <figure class="equation" id="eq-13_71">
+            <figure class="equation" id="eq-50_71">
                 <div class="math display">
 
 
@@ -9614,7 +9582,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_71">Equation (13.71)</a></figcaption>
+                <figcaption><a href="#eq-50_71">Equation (13.71)</a></figcaption>
             </figure>
 
             <p>
@@ -9635,7 +9603,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Mars–Sun (Lock)</em></p>
 
-            <figure class="equation" id="eq-13_72">
+            <figure class="equation" id="eq-50_72">
                 <div class="math display">
 
 
@@ -9648,7 +9616,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_72">Equation (13.72)</a></figcaption>
+                <figcaption><a href="#eq-50_72">Equation (13.72)</a></figcaption>
             </figure>
 
             <p>
@@ -9668,7 +9636,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Jupiter Trojan (1:1, Lock)</em></p>
 
-            <figure class="equation" id="eq-13_73">
+            <figure class="equation" id="eq-50_73">
                 <div class="math display">
 
 
@@ -9681,7 +9649,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_73">Equation (13.73)</a></figcaption>
+                <figcaption><a href="#eq-50_73">Equation (13.73)</a></figcaption>
             </figure>
 
             <p>
@@ -9701,7 +9669,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Comet Halley (Near-Lock/Unlock)</em></p>
 
-            <figure class="equation" id="eq-13_74">
+            <figure class="equation" id="eq-50_74">
                 <div class="math display">
 
 
@@ -9715,7 +9683,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_74">Equation (13.74)</a></figcaption>
+                <figcaption><a href="#eq-50_74">Equation (13.74)</a></figcaption>
             </figure>
 
             <p>
@@ -9734,7 +9702,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h4>Collapse rhythm and mean motion</h4>
 
-            <figure class="equation" id="eq-13_75">
+            <figure class="equation" id="eq-50_75">
                 <div class="math display">
 
 
@@ -9746,7 +9714,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_75">Equation (13.75)</a></figcaption>
+                <figcaption><a href="#eq-50_75">Equation (13.75)</a></figcaption>
             </figure>
 
             <p>
@@ -9765,7 +9733,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The kernel delta‑v is:
             </p>
 
-            <figure class="equation" id="eq-13_76">
+            <figure class="equation" id="eq-50_76">
                 <div class="math display">
 
 
@@ -9777,7 +9745,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_76">Equation (13.76)</a></figcaption>
+                <figcaption><a href="#eq-50_76">Equation (13.76)</a></figcaption>
             </figure>
 
             <ul>
@@ -9797,7 +9765,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 The kernel Δv protocol is a direct application of the
                 <a href="#sec-13-universal-kernel-energy-law">kernel energy law</a>.
                 Escape or transfer costs can be written in the corrected kernel form
-                (<a href="#eq-13_119">Eq. 13.119</a>–<a href="#eq-13_121">Eq. 13.121</a>),
+                (<a href="#eq-50_119">Eq. 13.119</a>–<a href="#eq-50_121">Eq. 13.121</a>),
                 where orbital coherence length <span class="math inline">\(L_Z\)</span> and collapse rhythm
                 <span class="math inline">\(\gamma\)</span> set the dimensional scale, while geometry factors
                 <span class="math inline">\(\Phi\)</span> encode trajectory shape.
@@ -9814,7 +9782,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 representative radius <span class="math inline">\(r\approx 1.89\times10^{11}\,\mathrm{m}\)</span>.
             </p>
 
-            <figure class="equation" id="eq-13_77">
+            <figure class="equation" id="eq-50_77">
                 <div class="math display">
 
 
@@ -9826,10 +9794,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_77">Equation (13.77)</a></figcaption>
+                <figcaption><a href="#eq-50_77">Equation (13.77)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_78">
+            <figure class="equation" id="eq-50_78">
                 <div class="math display">
 
 
@@ -9840,14 +9808,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_78">Equation (13.78)</a></figcaption>
+                <figcaption><a href="#eq-50_78">Equation (13.78)</a></figcaption>
             </figure>
 
             <p>
                 With <span class="math inline">\(\beta(1+\lambda R)\approx 0.24\)</span> (bounded efficiency from measured coherence):
             </p>
 
-            <figure class="equation" id="eq-13_79">
+            <figure class="equation" id="eq-50_79">
                 <div class="math display">
 
 
@@ -9857,7 +9825,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_79">Equation (13.79)</a></figcaption>
+                <figcaption><a href="#eq-50_79">Equation (13.79)</a></figcaption>
             </figure>
 
             <p>
@@ -9873,7 +9841,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 representative radius <span class="math inline">\(r\approx 1.289\times10^{11}\,\mathrm{m}\)</span>.
             </p>
 
-            <figure class="equation" id="eq-13_80">
+            <figure class="equation" id="eq-50_80">
                 <div class="math display">
 
 
@@ -9885,10 +9853,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_80">Equation (13.80)</a></figcaption>
+                <figcaption><a href="#eq-50_80">Equation (13.80)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_81">
+            <figure class="equation" id="eq-50_81">
                 <div class="math display">
 
 
@@ -9899,14 +9867,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_81">Equation (13.81)</a></figcaption>
+                <figcaption><a href="#eq-50_81">Equation (13.81)</a></figcaption>
             </figure>
 
             <p>
                 With <span class="math inline">\(\beta(1+\lambda R)\approx 0.16\)</span> (inward transfer efficiency):
             </p>
 
-            <figure class="equation" id="eq-13_82">
+            <figure class="equation" id="eq-50_82">
                 <div class="math display">
 
 
@@ -9916,7 +9884,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_82">Equation (13.82)</a></figcaption>
+                <figcaption><a href="#eq-50_82">Equation (13.82)</a></figcaption>
             </figure>
 
             <p>
@@ -9931,7 +9899,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Using measured orbital periods <span class="math inline">\(P\)</span> and semimajor axes <span class="math inline">\(a\)</span> (from ephemerides), the mean motion is:
             </p>
 
-            <figure class="equation" id="eq-13_83">
+            <figure class="equation" id="eq-50_83">
                 <div class="math display">
 
 
@@ -9941,14 +9909,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_83">Equation (13.83)</a></figcaption>
+                <figcaption><a href="#eq-50_83">Equation (13.83)</a></figcaption>
             </figure>
 
             <p>
                 For two orbits with <span class="math inline">\((P_1,a_1)\)</span> and <span class="math inline">\((P_2,a_2)\)</span>, define:
             </p>
 
-            <figure class="equation" id="eq-13_84">
+            <figure class="equation" id="eq-50_84">
                 <div class="math display">
 
 
@@ -9960,14 +9928,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_84">Equation (13.84)</a></figcaption>
+                <figcaption><a href="#eq-50_84">Equation (13.84)</a></figcaption>
             </figure>
 
             <p>
                 The observable kernel delta-v is then:
             </p>
 
-            <figure class="equation" id="eq-13_85">
+            <figure class="equation" id="eq-50_85">
                 <div class="math display">
 
 
@@ -9979,7 +9947,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_85">Equation (13.85)</a></figcaption>
+                <figcaption><a href="#eq-50_85">Equation (13.85)</a></figcaption>
             </figure>
 
             <ul>
@@ -9999,7 +9967,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Earth <span class="math inline">\(\rightarrow\)</span> Mars</em></p>
 
-            <figure class="equation" id="eq-13_86">
+            <figure class="equation" id="eq-50_86">
                 <div class="math display">
 
 
@@ -10012,10 +9980,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_86">Equation (13.86)</a></figcaption>
+                <figcaption><a href="#eq-50_86">Equation (13.86)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_87">
+            <figure class="equation" id="eq-50_87">
                 <div class="math display">
 
 
@@ -10026,10 +9994,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_87">Equation (13.87)</a></figcaption>
+                <figcaption><a href="#eq-50_87">Equation (13.87)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_88">
+            <figure class="equation" id="eq-50_88">
                 <div class="math display">
 
 
@@ -10039,14 +10007,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_88">Equation (13.88)</a></figcaption>
+                <figcaption><a href="#eq-50_88">Equation (13.88)</a></figcaption>
             </figure>
 
             <p>
                 With <span class="math inline">\(\beta(1+\lambda R)\approx 0.24\)</span>:
             </p>
 
-            <figure class="equation" id="eq-13_89">
+            <figure class="equation" id="eq-50_89">
                 <div class="math display">
 
 
@@ -10056,7 +10024,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_89">Equation (13.89)</a></figcaption>
+                <figcaption><a href="#eq-50_89">Equation (13.89)</a></figcaption>
             </figure>
 
             <p>
@@ -10068,7 +10036,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><em>Earth <span class="math inline">\(\rightarrow\)</span> Venus</em></p>
 
-            <figure class="equation" id="eq-13_90">
+            <figure class="equation" id="eq-50_90">
                 <div class="math display">
 
 
@@ -10081,10 +10049,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_90">Equation (13.90)</a></figcaption>
+                <figcaption><a href="#eq-50_90">Equation (13.90)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_91">
+            <figure class="equation" id="eq-50_91">
                 <div class="math display">
 
 
@@ -10095,10 +10063,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_91">Equation (13.91)</a></figcaption>
+                <figcaption><a href="#eq-50_91">Equation (13.91)</a></figcaption>
             </figure>
 
-            <figure class="equation" id="eq-13_92">
+            <figure class="equation" id="eq-50_92">
                 <div class="math display">
 
 
@@ -10108,14 +10076,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_92">Equation (13.92)</a></figcaption>
+                <figcaption><a href="#eq-50_92">Equation (13.92)</a></figcaption>
             </figure>
 
             <p>
                 With <span class="math inline">\(\beta(1+\lambda R)\approx 0.16\)</span> (inward transfer efficiency):
             </p>
 
-            <figure class="equation" id="eq-13_93">
+            <figure class="equation" id="eq-50_93">
                 <div class="math display">
 
 
@@ -10125,7 +10093,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 
                 </div>
-                <figcaption><a href="#eq-13_93">Equation (13.93)</a></figcaption>
+                <figcaption><a href="#eq-50_93">Equation (13.93)</a></figcaption>
             </figure>
 
             <p>
@@ -23076,9 +23044,10 @@ zscore = (median - Xi_crit) / std
                         if (parts.length > 1) extra = ' —' + parts.slice(1).join('—');
                         cap.textContent = 'Equation (' + num2 + '.' + figIndex + ')' + extra;
 
-                        document.querySelectorAll(`a[href="#${oldId}"]`).forEach(anchor => {
+                        document.querySelectorAll(`a[href="#${oldId}"]:not(.auto)`).forEach(anchor => {
                             anchor.setAttribute("href", '#' + newId);
                             anchor.innerHTML = 'Eq. (' + num2 + '.' + figIndex + ')' + extra;
+							anchor.classList.add("auto");
                         });
                     }
                     fig.id = newId;
