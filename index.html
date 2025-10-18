@@ -1145,139 +1145,277 @@
     <section>
         <h2 title="Click to toggle" id="sec-40-modulation-compatibility-index">Modulation Compatibility Index</h2>
         <article style="display:none">
+    <p>
+      The <strong>modulation compatibility index</strong> <span class="math inline">\(\mu\)</span> quantifies whether a kernel projection remains phase-locked
+      within a local collapse or synchrony field. It expresses the ratio of <em>phase momentum flux</em> to <em>curvature-modulated action</em>,
+      thereby acting as a dimensionless coherence invariant.
+    </p>
 
-            <p>
-                The <strong>modulation compatibility index</strong> <span class="math inline">\(\mu\)</span> quantifies whether a kernel projection remains phase-locked
-                within a local collapse or synchrony field. It expresses the ratio of <em>phase momentum flux</em> to <em>curvature-modulated action</em>,
-                thereby acting as a dimensionless coherence invariant.
-            </p>
+    <h4>Formal Definition</h4>
 
-            <p>
-                Starting from the recursive path-sum kernel:
-            </p>
+    <p>
+      Starting from the recursive path-sum kernel:
+    </p>
 
-            <div class="math display">
-                \[
-                K_{\rm path}(x,x') =
-                \sum_{\gamma:x\to x'}
-                \mathcal{A}[\gamma]
-                \exp\!\left(\frac{i}{\mathcal{S}_\ast} S[\gamma]\right),
-                \]
-            </div>
+    <div class="math display">
+      
+\[
+      K_{\rm path}(x,x') =
+      \sum_{\gamma:x\to x'}
+      \mathcal{A}[\gamma]
+      \exp\!\left(\frac{i}{\mathcal{S}_\ast} S[\gamma]\right),
+      \]
 
-            <p>
-                where <span class="math inline">\(\mathcal{S}_\ast = E/\nu\)</span> is the synchrony action quantum,
-                the <em>kernel momentum vector</em> is the normalized phase gradient:
-                <span class="math inline">\(\vec{K} = \nabla S / \mathcal{S}_\ast\)</span>.
-                The modulation compatibility index follows as:
-            </p>
+    </div>
 
-            <div class="math display">
-                \[
-                \mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast},
-                \]
-            </div>
+    <p>
+      where <span class="math inline">\(\mathcal{S}_\ast = E/\nu\)</span> is the synchrony action quantum,
+      the <em>kernel momentum vector</em> is defined as the normalized phase gradient:
+      <span class="math inline">\(\vec{K} = \nabla S / \mathcal{S}_\ast\)</span>.
+      The modulation compatibility index is then:
+    </p>
 
-            <p>
-                where:
-            </p>
-            <ul>
-                <li><span class="math inline">\(\vec{K}\)</span> — kernel momentum vector (<span class="math inline">\(\mathrm{kg\,m\,s^{-1}}\)</span>)</li>
-                <li><span class="math inline">\(\Omega\)</span> — collapse pacing or modulation frequency (<span class="math inline">\(\mathrm{s^{-1}}\)</span>)</li>
-                <li><span class="math inline">\(\Theta\)</span> — curvature factor (dimensionless; linked to group-phase velocity ratio \(v_g/v_p\))</li>
-                <li><span class="math inline">\(\mathcal{S}_\ast\)</span> — kernel action quantum (<span class="math inline">\(\mathrm{J\,s}\)</span>)</li>
-            </ul>
+    <div class="math display">
 
-            <p>
-                Dimensional check:
-                <span class="math inline">\([\mu] = (\mathrm{kg\,m\,s^{-1}} \cdot \mathrm{s^{-1}}) / (\mathrm{J\,s}) = 1\)</span>.
-                Thus, <span class="math inline">\(\mu\)</span> is dimensionless.
-                Coherence lock requires:
-            </p>
+\[
+      \mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast},
+      \]
 
-            <div class="math display">
-                \[
-                |\mu - \tau| \le \delta\tau,
-                \]
-            </div>
+    </div>
 
-            <p>
-                where <span class="math inline">\(\tau\)</span> is the coherence threshold of the medium or geometry,
-                and <span class="math inline">\(\delta\tau\)</span> is the admissible lock bandwidth.
-                This ensures stable kernel embedding without phase drift or decoherence.
-            </p>
+    <h4>Dimensional Closure</h4>
 
-            <h4>Derived Quantities</h4>
+    <ul>
+      <li><span class="math inline">\(\vec{K}\)</span> — kernel momentum vector [<span class="math inline">\(\mathrm{kg \cdot m \cdot s^{-1}}\)</span>]</li>
+      <li><span class="math inline">\(\Omega\)</span> — modulation frequency [<span class="math inline">\(\mathrm{s^{-1}}\)</span>]</li>
+      <li><span class="math inline">\(\Theta\)</span> — curvature factor [dimensionless]</li>
+      <li><span class="math inline">\(\mathcal{S}_\ast\)</span> — action quantum [<span class="math inline">\(\mathrm{J \cdot s}\)</span>]</li>
+    </ul>
 
-            <p>
-                The <strong>modulation impedance</strong> is defined as:
-            </p>
+    <p>
+      Dimensional check:
+      <span class="math inline">\([\mu] = (\mathrm{kg \cdot m \cdot s^{-1}} \cdot \mathrm{s^{-1}}) / (\mathrm{J \cdot s}) = 1\)</span>.
+      Thus, <span class="math inline">\(\mu\)</span> is dimensionless and suitable for cross-domain coherence validation.
+    </p>
 
-            <div class="math display">
-                \[
-                Z_\mu = \frac{\Theta}{\mu},
-                \]
-            </div>
+    <h4>Uncertainty Propagation</h4>
 
-            <p>
-                which measures the inverse compatibility stiffness of the medium.
-                Lower <span class="math inline">\(Z_\mu\)</span> implies higher phase-lock efficiency and tighter synchrony coupling.
-            </p>
+    <p>
+      Propagate uncertainty from all input observables:
+    </p>
 
-            <p>
-                Uncertainty propagation follows:
-            </p>
+    <div class="math display">
+      
 
-            <div class="math display">
-                \[
-                \frac{\delta\mu}{\mu}
-                = \sqrt{
-                \left(\frac{\delta|\vec{K}|}{|\vec{K}|}\right)^2 +
-                \left(\frac{\delta\Omega}{\Omega}\right)^2 +
-                \left(\frac{\delta\Theta}{\Theta}\right)^2 +
-                \left(\frac{\delta\mathcal{S}_\ast}{\mathcal{S}_\ast}\right)^2
-                }.
-                \]
-            </div>
+\[
+      \frac{\delta\mu}{\mu}
+      = \sqrt{
+      \left(\frac{\delta|\vec{K}|}{|\vec{K}|}\right)^2 +
+      \left(\frac{\delta\Omega}{\Omega}\right)^2 +
+      \left(\frac{\delta\Theta}{\Theta}\right)^2 +
+      \left(\frac{\delta\mathcal{S}_\ast}{\mathcal{S}_\ast}\right)^2
+      }.
+      \]
+
+
+    </div>
+
+    <p>
+      Each uncertainty term must be empirically derived or bounded via calibration. No symbolic term is exempt from traceability.
+    </p>
+
+<h4>Acceptance Band</h4>
+
+<p>
+To validate modulation coherence, the index <span class="math inline">\(\mu\)</span> must fall within a domain-specific acceptance band:
+</p>
+
+<div class="math display">
+  
+
+\[
+  |\mu - \tau| \le \delta\tau,
+  \]
+
+
+</div>
+
+<ul>
+  <li><span class="math inline">\(\tau\)</span> — coherence threshold of the medium (e.g., orbital lock, quantum synchrony, biological entrainment)</li>
+  <li><span class="math inline">\(\delta\tau\)</span> — admissible lock bandwidth, empirically derived from system stability margins</li>
+</ul>
+
+<p>
+Acceptance criteria:
+</p>
+<ul>
+  <li><strong>Accept:</strong> <span class="math inline">\(|\mu - \tau| \le \delta\tau\)</span> — stable phase-lock, no drift</li>
+  <li><strong>Investigate:</strong> <span class="math inline">\(|\mu - \tau| > \delta\tau\)</span> but within uncertainty bounds</li>
+  <li><strong>Reject:</strong> persistent deviation beyond <span class="math inline">\(\delta\tau + \delta\mu\)</span> or incoherent modulation</li>
+</ul>
+
+<h4>Measurement Protocol</h4>
+
+<p>
+Each input to <span class="math inline">\(\mu\)</span> must be empirically measurable and uncertainty-aware:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Physical Meaning</th>
+      <th>Units</th>
+      <th>Measurement Method</th>
+      <th>Typical Uncertainty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\(|\vec{K}|\)</span></td>
+      <td>Kernel momentum magnitude</td>
+      <td><span class="math inline">\(\mathrm{kg \cdot m \cdot s^{-1}}\)</span></td>
+      <td>Derived from phase gradient of action field</td>
+      <td><span class="math inline">\(\pm 5\%\)</span></td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(\Omega\)</span></td>
+      <td>Modulation frequency</td>
+      <td><span class="math inline">\(\mathrm{s^{-1}}\)</span></td>
+      <td>Measured via pacing signal or collapse rate</td>
+      <td><span class="math inline">\(\pm 0.01\,\mathrm{s^{-1}}\)</span></td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(\Theta\)</span></td>
+      <td>Curvature factor</td>
+      <td>Dimensionless</td>
+      <td>Computed from group-phase velocity ratio <span class="math inline">\(v_g/v_p\)</span></td>
+      <td><span class="math inline">\(\pm 0.02\)</span></td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+      <td>Synchrony action quantum</td>
+      <td><span class="math inline">\(\mathrm{J \cdot s}\)</span></td>
+      <td>Calculated from energy-frequency ratio: <span class="math inline">\(E/\nu\)</span></td>
+      <td><span class="math inline">\(\pm 0.5\%\)</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+All terms must be traceable to instrumentation or derived from validated priors. No symbolic input is exempt from dimensional closure or uncertainty propagation.
+</p>
+
+    <h4>Coherence Lock Criterion</h4>
+
+    <p>
+      Stable kernel embedding requires:
+    </p>
+
+    <div class="math display">
+      
+
+\[
+      |\mu - \tau| \le \delta\tau,
+      \]
+
+
+    </div>
+
+    <p>
+      where <span class="math inline">\(\tau\)</span> is the coherence threshold of the medium or geometry,
+      and <span class="math inline">\(\delta\tau\)</span> is the admissible lock bandwidth. This ensures phase-lock without drift or decoherence.
+    </p>
+
+    <h4>Derived Quantity: Modulation Impedance</h4>
+
+    <p>
+      Define the <strong>modulation impedance</strong> as:
+    </p>
+
+    <div class="math display">
+      
+
+\[
+      Z_\mu = \frac{\Theta}{\mu},
+      \]
+
+
+    </div>
+
+    <p>
+      which measures the inverse compatibility stiffness of the medium. Lower <span class="math inline">\(Z_\mu\)</span> implies higher synchrony efficiency.
+    </p>
 
             <h4>Physical Role and Cross-Domain Usage</h4>
 
-            <p>
-                The index <span class="math inline">\(\mu\)</span> serves as a universal validator of kernel–modulation coherence.
-                It spans physical, biological, and logical systems wherever recursive propagation interacts with pacing or synchrony fields.
-                In orbital mechanics, it anchors the <a href="#sec-50-orbital-mechanics_13">orbital stability index</a> <span class="math inline">\(\mu^\ast\)</span>, showing that orbital resonance and eccentricity corrections are modulation-driven phenomena.
-            </p>
+    <p>
+      The index <span class="math inline">\(\mu\)</span> serves as a universal validator of kernel–modulation coherence.
+      It applies to physical, biological, and logical systems wherever recursive propagation interacts with pacing or synchrony fields.
+      In orbital mechanics, it anchors the <a href="#sec-50-orbital-mechanics_13">orbital stability index</a> <span class="math inline">\(\mu^\ast\)</span>,
+      showing that orbital resonance and eccentricity corrections are modulation-driven phenomena.
+    </p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Domain</th>
-                        <th>Measured Inputs</th>
-                        <th>Kernel Relation</th>
-                        <th>Lock Condition</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Orbital mechanics</td>
-                        <td><span class="math inline">\(v,\,a,\,n,\,\Phi\)</span></td>
-                        <td><span class="math inline">\(\mu^\ast = \mu(1+\lambda R)\)</span></td>
-                        <td><span class="math inline">\(|\mu^\ast - \tau_{\rm orb}| \le \delta\tau_{\rm orb}\)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Biological rhythms</td>
-                        <td><span class="math inline">\(\Omega,\,\Theta,\,|\vec{K}|\)</span></td>
-                        <td><span class="math inline">\(\mu\)</span> predicts entrainment and synchrony</td>
-                        <td><span class="math inline">\(|\mu - \tau_{\rm bio}| \le \delta\tau_{\rm bio}\)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Computational systems</td>
-                        <td>Clock rate, recursion depth, curvature metric</td>
-                        <td><span class="math inline">\(\mu\)</span> predicts signal stability</td>
-                        <td><span class="math inline">\(|\mu - \tau_{\rm logic}| \le \delta\tau_{\rm logic}\)</span></td>
-                    </tr>
-                </tbody>
-            </table>
+    <p>
+      In quantum systems, <span class="math inline">\(\mu\)</span> governs decoherence thresholds and synchrony collapse.
+      In biological rhythms, it maps kernel propagation to circadian entrainment.
+      In logic systems, it validates recursive signal embedding under clocked modulation.
+    </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Domain</th>
+      <th>Measured Inputs</th>
+      <th>Kernel Relation</th>
+      <th>Lock Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Orbital Mechanics</td>
+      <td><span class="math inline">\(v\)</span> (orbital velocity), <span class="math inline">\(a\)</span> (semi-major axis), <span class="math inline">\(n\)</span> (mean motion), <span class="math inline">\(\Phi\)</span> (gravitational potential)</td>
+      <td><span class="math inline">\(\mu^\ast = \mu(1 + \lambda R)\)</span>, where <span class="math inline">\(\lambda\)</span> is curvature coupling and <span class="math inline">\(R\)</span> is Ricci scalar</td>
+      <td><span class="math inline">\(|\mu^\ast - \tau_{\rm orb}| \le \delta\tau_{\rm orb}\)</span> — orbital resonance lock</td>
+    </tr>
+    <tr>
+      <td>Biological Rhythms</td>
+      <td><span class="math inline">\(\Omega\)</span> (circadian pacing), <span class="math inline">\(\Theta\)</span> (entrainment curvature), <span class="math inline">\(|\vec{K}|\)</span> (phase momentum)</td>
+      <td><span class="math inline">\(\mu\)</span> predicts entrainment, phase-lock, and rhythm stability</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm bio}| \le \delta\tau_{\rm bio}\)</span> — biological synchrony lock</td>
+    </tr>
+    <tr>
+      <td>Computational Systems</td>
+      <td>Clock rate <span class="math inline">\(\Omega\)</span>, recursion depth <span class="math inline">\(d\)</span>, curvature metric <span class="math inline">\(\Theta\)</span></td>
+      <td><span class="math inline">\(\mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast}\)</span> predicts signal stability and recursion coherence</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm logic}| \le \delta\tau_{\rm logic}\)</span> — logical phase-lock condition</td>
+    </tr>
+    <tr>
+      <td>Quantum Systems</td>
+      <td><span class="math inline">\(\nu\)</span> (transition frequency), <span class="math inline">\(E\)</span> (energy level), <span class="math inline">\(\Theta\)</span> (quantum curvature)</td>
+      <td><span class="math inline">\(\mu = \frac{|\nabla S|\,\nu}{\Theta\,E}\)</span> governs decoherence and synchrony collapse</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm qm}| \le \delta\tau_{\rm qm}\)</span> — coherence bandwidth threshold</td>
+    </tr>
+    <tr>
+      <td>Geomagnetism</td>
+      <td><span class="math inline">\(\Omega\)</span> (pulsation frequency), <span class="math inline">\(\vec{K}\)</span> (field gradient), <span class="math inline">\(\Theta\)</span> (magnetospheric curvature)</td>
+      <td><span class="math inline">\(\mu\)</span> predicts field stability and resonance lock</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm geo}| \le \delta\tau_{\rm geo}\)</span> — magnetospheric synchrony condition</td>
+    </tr>
+    <tr>
+      <td>Seismology</td>
+      <td><span class="math inline">\(\Omega\)</span> (wave frequency), <span class="math inline">\(|\vec{K}|\)</span> (strain momentum), <span class="math inline">\(\Theta\)</span> (crustal curvature)</td>
+      <td><span class="math inline">\(\mu\)</span> predicts wave coherence and fault synchrony</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm seis}| \le \delta\tau_{\rm seis}\)</span> — seismic lock threshold</td>
+    </tr>
+    <tr>
+      <td>Oceanography</td>
+      <td><span class="math inline">\(\Omega\)</span> (tidal frequency), <span class="math inline">\(\Theta\)</span> (basin curvature), <span class="math inline">\(|\vec{K}|\)</span> (tidal momentum)</td>
+      <td><span class="math inline">\(\mu\)</span> validates tide–surge synchrony and basin resonance</td>
+      <td><span class="math inline">\(|\mu - \tau_{\rm ocean}| \le \delta\tau_{\rm ocean}\)</span> — tidal coherence lock</td>
+    </tr>
+  </tbody>
+</table>
 
             <p>
                 The modulation compatibility index thus provides a <strong>cross-domain coherence measure</strong> linking synchrony,
@@ -9335,21 +9473,185 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </ul>
 
             <h3 id="sec-50-orbital-mechanics_13">Kernel Orbital Stability Index</h3>
+  <p>
+	Orbital stability is reframed as a modulation–compatibility problem. A body remains in a stable synchrony–lock when its kernel rhythm is geometrically compatible with the host’s collapse field.
+    The general <a href="#sec-40-modulation-compatibility-index">modulation compatibility index</a> <span class="math inline">\(\mu\)</span> defines phase-lock coherence across domains.
+    In orbital mechanics, this index must be <em>flavored</em> to reflect domain-specific observables such as orbital velocity, semi-major axis, eccentricity, and resonance proximity.
+    The flavored index <span class="math inline">\(\mu^\ast\)</span> retains the structure of the general kernel but projects it into orbital topology.
+  </p>
 
-            <p>
-                Orbital stability is reframed as a modulation–compatibility problem.
-                A body remains in a stable synchrony–lock when its kernel rhythm is geometrically compatible with the host’s collapse field.
-                We define a modulation compatibility index <span class="math inline">\(\mu^\ast\)</span> as:
-            </p>
+	<p>
+		Orbital systems operate under geometric and dynamical constraints—such as Keplerian motion, eccentricity modulation, and resonance basin topology—that introduce observables and coupling terms not present in other domains.
+		While the general modulation compatibility index <span class="math inline">\(\mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast}\)</span> defines phase-lock coherence universally, its direct application to orbital mechanics requires transformation.
+		This is because orbital observables (e.g., <span class="math inline">\(v,\,a,\,e,\,n,\,R\)</span>) encode curvature and pacing through domain-specific geometry. To preserve dimensional closure, uncertainty propagation, and ontological coherence,
+		we define orbital-specific forms—such as <span class="math inline">\(\mu^\ast = \mu''(1 + \lambda R)\)</span>—that project the kernel index into orbital topology while retaining its invariant structure.
+	</p>
+
+  <h4>Dimensional Form</h4>
+  <p>
+    The dimensional orbital index <span class="math inline">\(\mu^\ast_{\rm d}\)</span> is defined as:
+  </p>
+
+  <div class="math display">  
+
+\[
+    \mu'_{\rm d} = \frac{v}{a},\qquad
+    \mu''_{\rm d} = \frac{\mu'_{\rm d}}{1 - e^2},\qquad
+    \mu^\ast_{\rm d} = \mu''_{\rm d}(1 + \lambda R)
+    \]
+
+  </div>
+
+  <p>
+    This form has units of <span class="math inline">\(\mathrm{s^{-1}}\)</span> and is directly comparable to dynamical timescales.
+    It reflects how orbital pacing and curvature interact with eccentricity and resonance stress.
+  </p>
+
+  <h4>Dimensionless Form</h4>
+  <p>
+    The normalized index <span class="math inline">\(\tilde{\mu}^\ast\)</span> is defined as:
+  </p>
+
+  <div class="math display"> 
+
+\[
+    \tilde{\mu}' = \frac{v}{n a},\qquad
+    \tilde{\mu}'' = \frac{\tilde{\mu}'}{1 - e^2},\qquad
+    \tilde{\mu}^\ast = \tilde{\mu}''(1 + \lambda R),\qquad
+    \delta\tilde{\mu}^\ast = \tilde{\mu}^\ast - 1
+    \]
+
+  </div>
+
+  <p>
+    This form is dimensionless and system-independent. For circular Keplerian orbits, <span class="math inline">\(\tilde{\mu}' = 1\)</span>.
+    Deviations quantify synchrony drift and resonance stress.
+  </p>
+
+  <h4>Uncertainty Propagation</h4>
+
+  <p>Dimensional form:</p>
+  <div class="math display">
+
+\[
+    \frac{\delta\mu^\ast_{\rm d}}{\mu^\ast_{\rm d}} =
+    \sqrt{
+      \left(\frac{\delta v}{v}\right)^2 +
+      \left(\frac{\delta a}{a}\right)^2 +
+      \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
+      \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
+    }
+    \]
+
+  </div>
+
+  <p>Dimensionless form:</p>
+  <div class="math display">
+
+\[
+    \frac{\delta\tilde{\mu}^\ast}{\tilde{\mu}^\ast} =
+    \sqrt{
+      \left(\frac{\delta v}{v}\right)^2 +
+      \left(\frac{\delta n}{n}\right)^2 +
+      \left(\frac{\delta a}{a}\right)^2 +
+      \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
+      \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
+    }
+    \]
+
+  </div>
+
+  <h4>Acceptance Band</h4>
+  <p>
+    Orbital coherence requires:
+  </p>
+
+  <div class="math display">
+
+\[
+    |\mu^\ast_{\rm d} - \tau_{\rm orb}| \le \delta\tau_{\rm orb}
+    \quad \text{or} \quad
+    |\tilde{\mu}^\ast - 1| \le \delta\tilde{\mu}
+    \]
+
+  </div>
+
+  <ul>
+    <li><span class="math inline">\(\tau_{\rm orb}\)</span> — orbital coherence threshold</li>
+    <li><span class="math inline">\(\delta\tau_{\rm orb}\)</span> — admissible lock bandwidth</li>
+    <li><span class="math inline">\(\delta\tilde{\mu}\)</span> — deviation from circular synchrony</li>
+  </ul>
+
+  <h4>Measurement Protocol</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>Meaning</th>
+        <th>Units</th>
+        <th>Measurement Method</th>
+        <th>Typical Uncertainty</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="math inline">\(v\)</span></td>
+        <td>Orbital velocity</td>
+        <td><span class="math inline">\(\mathrm{m \cdot s^{-1}}\)</span></td>
+        <td>Doppler tracking, ephemerides</td>
+        <td><span class="math inline">\(\pm 0.1\%\)</span></td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(a\)</span></td>
+        <td>Semi-major axis</td>
+        <td><span class="math inline">\(\mathrm{m}\)</span></td>
+        <td>Astrometric orbit fitting</td>
+        <td><span class="math inline">\(\pm 0.5\%\)</span></td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(e\)</span></td>
+        <td>Eccentricity</td>
+        <td>Unitless</td>
+        <td>Keplerian fit from position/velocity</td>
+        <td><span class="math inline">\(\pm 0.01\)</span></td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(n\)</span></td>
+        <td>Mean motion</td>
+        <td><span class="math inline">\(\mathrm{s^{-1}}\)</span></td>
+        <td>Derived from <span class="math inline">\(a\)</span> and central mass</td>
+        <td><span class="math inline">\(\pm 0.1\%\)</span></td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(R\)</span></td>
+        <td>Resonance proximity</td>
+        <td>Unitless</td>
+        <td>Computed from perturber frequencies</td>
+        <td><span class="math inline">\(\pm 0.01\)</span></td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(\lambda\)</span></td>
+        <td>Coupling constant</td>
+        <td>Unitless</td>
+        <td>Fitted from coherence bandwidth</td>
+        <td><span class="math inline">\([0, 1]\)</span> bounded</td>
+      </tr>
+    </tbody>
+  </table>
+
+<h4>Conclusion</h4>
+
+<p>
+The orbital modulation compatibility index is formally defined by the canonical expression:
+</p>
 
             <figure class="equation" id="eq-50_66">
                 <div class="math display">
 
-
                     \[
                     \mu^\ast \;=\; \mu'' \,\big(1 + \lambda R\big)
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-50_66">Equation (13.66)</a></figcaption>
@@ -9361,6 +9663,18 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 and <span class="math inline">\(\lambda\)</span> is a resonance coupling constant bounded by observable coherence
                 (<span class="math inline">\(0 \leq \lambda \leq 1\)</span>).
             </p>
+
+<p>
+This formula serves as the finalized orbital specialization of the general <a href="#sec-40-modulation-compatibility-index">modulation compatibility index</a>,
+projecting kernel coherence into orbital topology via eccentricity correction and resonance coupling.
+It preserves dimensional closure, supports full uncertainty propagation, and enforces coherence lock conditions through domain-specific acceptance bands.
+</p>
+
+<p>
+The index <span class="math inline">\(\mu^\ast\)</span> enables rigorous validation of orbital stability as a modulation–compatibility phenomenon,
+fully aligned with the <a href="#sec-13-universal-kernel-energy-law">universal kernel energy law</a>.
+All derived forms—dimensional, dimensionless, and normalized—are operational variants of this invariant structure.
+</p>
 
             <p>
                 Geometrically, <span class="math inline">\(\mu^\ast\)</span> can be interpreted as a projection of the kernel momentum vector
@@ -9390,13 +9704,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <figure class="equation" id="eq-50_67">
                 <div class="math display">
 
-
                     \[
                     v(r) = \sqrt{\,GM\!\left(\tfrac{2}{r}- \tfrac{1}{a}\right)},
                     \qquad
                     n = \sqrt{\tfrac{GM}{a^{3}}}.
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-50_67">Equation (13.67)</a></figcaption>
@@ -19556,7 +19868,7 @@ zscore = (median - Xi_crit) / std
         </article>
     </section>
     <section>
-        <h2 title="Click to toggle" id="sec-29-resonance-kernel-tide-model-tuning-filling-and-decadal-accur">Resonance Kernel Tide Model</h2>
+        <h2 title="Click to toggle" id="sec-29-resonance-kernel-tide-model">Resonance Kernel Tide Model</h2>
         <article style="display:none">
             <p>
                 We begin with the recursive kernel projection:
@@ -19844,6 +20156,291 @@ zscore = (median - Xi_crit) / std
                 If variant (5) fails to outperform AO on held-out decades or cannot maintain increasing \( R^2 \) with stable coefficients, the kernel hypothesis is not supported at that site.
             </p>
 
+<h3 id="sec-29-resonance-kernel-tide-model_1">Cross-Domain Usage</h3>
+
+<p>
+	The four tables—<strong>Table A: Harmonic Kernel & Surge Mapping Across Domains</strong>, <strong>Table B: Weather-Modulated Extensions Across Domains</strong>, and their enhanced versions with full empirical scaffolding—form a unified framework for cross-domain application of the tide kernel model.
+	Table A establishes the foundational observables such as <span class="math inline">\( a_c \)</span>, <span class="math inline">\( \omega_c \)</span>, <span class="math inline">\( \chi(\omega) \)</span>, and <span class="math inline">\( U_c(t) \)</span>, mapping them across disciplines including oceanography, seismology, geomagnetism, astrophysics, and quantum mechanics.
+	Table B extends this structure by incorporating dynamic modulation inputs—<span class="math inline">\( \Delta P(t) \)</span>, <span class="math inline">\( W(t) \)</span>, <span class="math inline">\( \tau_{\parallel,\perp}(t) \)</span>, and <span class="math inline">\( S(t) \)</span>—demonstrating how the kernel adapts to environmental forcing in each domain.
+	The enhanced versions of both tables add critical layers: SI units, measurement protocols, typical uncertainties, and ontological roles, ensuring that no symbol is free-floating and every observable is empirically grounded. These tables are not merely descriptive—they are operational. They allow researchers to trace each term to its instrumentation, validate it through uncertainty propagation using formulas such as <span class="math inline">\( \sigma_{\hat{n}}^2(t) = \sum_i \left( \frac{\partial \hat{n}}{\partial x_i} \sigma_{x_i} \right)^2 \)</span>,
+	and interpret its role within the kernel’s modulation–synchrony–decoherence schema. Together, they demonstrate that the model is not confined to tidal prediction—it is a universal engine for projecting structured coherence across physical regimes. Whether applied to crustal deformation, magnetospheric shifts, orbital flux, or quantum phase drift, these tables provide the roadmap for dimensional closure, falsifiability, and ontological clarity.
+</p>
+
+<h4>Harmonic Kernel & Surge Mapping</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Oceanography</th>
+      <th>Seismology</th>
+      <th>Geomagnetism</th>
+      <th>Astrophysics</th>
+      <th>Quantum Mechanics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( a_c \)</span></td>
+      <td>Amplitude of tidal constituent [<span class="math inline">\(\mathrm{m}\)</span>]</td>
+      <td>Waveform amplitude [<span class="math inline">\(\mathrm{nm}\)</span>]</td>
+      <td>Field strength modulation [<span class="math inline">\(\mathrm{nT}\)</span>]</td>
+      <td>Stellar oscillation amplitude [<span class="math inline">\(\mathrm{W/m^2}\)</span>]</td>
+      <td>Probability amplitude [unitless]</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \omega_c \)</span></td>
+      <td>Tidal frequency [<span class="math inline">\(\mathrm{rad/s}\)</span>]</td>
+      <td>Seismic wave frequency [<span class="math inline">\(\mathrm{Hz}\)</span>]</td>
+      <td>Magnetospheric pulsation [<span class="math inline">\(\mathrm{mHz}\)</span>]</td>
+      <td>Orbital frequency [<span class="math inline">\(\mathrm{rad/s}\)</span>]</td>
+      <td>Quantum transition frequency [<span class="math inline">\(\mathrm{Hz}\)</span>]</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \chi(\omega) \)</span></td>
+      <td>Basin transfer function</td>
+      <td>Earth response function</td>
+      <td>Geomagnetic susceptibility</td>
+      <td>Resonance profile</td>
+      <td>Quantum susceptibility</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( U_c(t) \)</span></td>
+      <td>Astronomical tide driver [<span class="math inline">\(\mathrm{m}\)</span>]</td>
+      <td>Gravitational forcing [<span class="math inline">\(\mathrm{N/kg}\)</span>]</td>
+      <td>Solar wind input [<span class="math inline">\(\mathrm{nT}\)</span>]</td>
+      <td>Radiative flux [<span class="math inline">\(\mathrm{W/m^2}\)</span>]</td>
+      <td>External field perturbation</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \eta_{\text{surge}}(t) \)</span></td>
+      <td>Storm surge height [<span class="math inline">\(\mathrm{m}\)</span>]</td>
+      <td>Pressure-induced crustal shift [<span class="math inline">\(\mathrm{mm}\)</span>]</td>
+      <td>Magnetopause compression [<span class="math inline">\(\mathrm{nT}\)</span>]</td>
+      <td>Atmospheric shock [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>Thermal decoherence event</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \hat{n}(t) \)</span></td>
+      <td>Predicted sea level [<span class="math inline">\(\mathrm{m}\)</span>]</td>
+      <td>Modeled displacement [<span class="math inline">\(\mathrm{nm}\)</span>]</td>
+      <td>Field projection [<span class="math inline">\(\mathrm{nT}\)</span>]</td>
+      <td>Flux prediction [<span class="math inline">\(\mathrm{W/m^2}\)</span>]</td>
+      <td>Wavefunction projection</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Weather-Modulated Extensions</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modulation Term</th>
+      <th>Oceanography</th>
+      <th>Seismology</th>
+      <th>Geomagnetism</th>
+      <th>Astrophysics</th>
+      <th>Quantum Mechanics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( \Delta P(t) \)</span></td>
+      <td>Atmospheric pressure anomaly [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>Crustal load forcing [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>Solar wind pressure [<span class="math inline">\(\mathrm{nPa}\)</span>]</td>
+      <td>Stellar envelope pressure [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>External field perturbation</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( W(t) \)</span></td>
+      <td>Wind speed [<span class="math inline">\(\mathrm{m/s}\)</span>]</td>
+      <td>Surface shear [<span class="math inline">\(\mathrm{m/s}\)</span>]</td>
+      <td>Plasma velocity [<span class="math inline">\(\mathrm{km/s}\)</span>]</td>
+      <td>Jet stream velocity [<span class="math inline">\(\mathrm{m/s}\)</span>]</td>
+      <td>Thermal drift velocity</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \tau_{\parallel,\perp}(t) \)</span></td>
+      <td>Wind stress components [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>Shear stress on crust [<span class="math inline">\(\mathrm{Pa}\)</span>]</td>
+      <td>Magnetospheric shear [<span class="math inline">\(\mathrm{nPa}\)</span>]</td>
+      <td>Atmospheric torque [<span class="math inline">\(\mathrm{N\,m}\)</span>]</td>
+      <td>Quantum decoherence gradient</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( S(t) \)</span></td>
+      <td>Seasonal index [unitless]</td>
+      <td>Thermal cycle phase [unitless]</td>
+      <td>Solar cycle phase [unitless]</td>
+      <td>Orbital phase index [unitless]</td>
+      <td>Quantum phase index</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Harmonic Kernel & Surge Mapping Across Domains</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Domain Interpretation</th>
+      <th>Units</th>
+      <th>Measurement Protocol</th>
+      <th>Typical Uncertainty</th>
+      <th>Ontological Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( a_c \)</span></td>
+      <td>Amplitude of harmonic component</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Fitted from tide gauge or field data via harmonic analysis</td>
+      <td><span class="math inline">\(\pm 0.01\,\mathrm{m}\)</span></td>
+      <td>Modulation source</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \omega_c \)</span></td>
+      <td>Angular frequency of constituent</td>
+      <td><span class="math inline">\(\mathrm{rad/s}\)</span></td>
+      <td>Derived from astronomical ephemerides or spectral decomposition</td>
+      <td>Negligible for primary modes</td>
+      <td>Synchrony driver</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \chi(\omega) \)</span></td>
+      <td>Transfer function of system response</td>
+      <td>Dimensionless</td>
+      <td>Computed from basin geometry or system calibration</td>
+      <td><span class="math inline">\(\pm 5\%\)</span> (model-dependent)</td>
+      <td>Curvature projection</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( U_c(t) \)</span></td>
+      <td>Astronomical forcing term</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Calculated from lunar/solar positions with nodal modulation</td>
+      <td><span class="math inline">\(\pm 0.005\,\mathrm{m}\)</span></td>
+      <td>External synchrony input</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \eta_{\text{surge}}(t) \)</span></td>
+      <td>Meteorological surge contribution</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Modeled from pressure and wind stress inputs</td>
+      <td><span class="math inline">\(\pm 0.1\,\mathrm{m}\)</span></td>
+      <td>Decoherence term</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( n_c(t) \)</span></td>
+      <td>Individual tidal component</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Reconstructed from harmonic synthesis</td>
+      <td><span class="math inline">\(\pm 0.01\,\mathrm{m}\)</span></td>
+      <td>Kernel projection</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \hat{n}(t) \)</span></td>
+      <td>Predicted total sea level</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Computed from full kernel model</td>
+      <td>Propagated from all inputs</td>
+      <td>Unified observable</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( n(t) \)</span></td>
+      <td>Observed sea level</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Measured via tide gauge or satellite altimetry</td>
+      <td><span class="math inline">\(\pm 0.01\,\mathrm{m}\)</span></td>
+      <td>Validation reference</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Weather-Modulated Extensions Across Domains</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observable</th>
+      <th>Domain Interpretation</th>
+      <th>Units</th>
+      <th>Measurement Protocol</th>
+      <th>Typical Uncertainty</th>
+      <th>Ontological Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( \Delta P(t) \)</span></td>
+      <td>Atmospheric pressure anomaly</td>
+      <td><span class="math inline">\(\mathrm{Pa}\)</span></td>
+      <td>Measured via barometric sensors; anomalies computed against seasonal baseline</td>
+      <td><span class="math inline">\(\pm 50\,\mathrm{Pa}\)</span></td>
+      <td>Modulation source</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( W(t) \)</span></td>
+      <td>Wind speed</td>
+      <td><span class="math inline">\(\mathrm{m/s}\)</span></td>
+      <td>Measured via anemometers; averaged over surface layer</td>
+      <td><span class="math inline">\(\pm 0.5\,\mathrm{m/s}\)</span></td>
+      <td>Modulation source</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \tau_{\parallel}(t),\ \tau_{\perp}(t) \)</span></td>
+      <td>Wind stress components</td>
+      <td><span class="math inline">\(\mathrm{Pa}\)</span></td>
+      <td>Derived from wind vector and drag coefficient models</td>
+      <td><span class="math inline">\(\pm 10\,\mathrm{Pa}\)</span></td>
+      <td>Decoherence term</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( S(t) \)</span></td>
+      <td>Seasonal index</td>
+      <td>Unitless</td>
+      <td>Computed from climatological phase or harmonic decomposition</td>
+      <td><span class="math inline">\(\pm 0.05\)</span></td>
+      <td>Synchrony driver</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( Q(t) \)</span></td>
+      <td>Quality factor (damping)</td>
+      <td>Unitless</td>
+      <td>Modeled via pressure and wind modulation: <span class="math inline">\(Q_0[1 + \alpha_P \Delta P + \alpha_W W]\)</span></td>
+      <td><span class="math inline">\(\pm 0.1\)</span> (relative)</td>
+      <td>Curvature projection</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \omega_0(t) \)</span></td>
+      <td>Modulated resonance frequency</td>
+      <td><span class="math inline">\(\mathrm{rad/s}\)</span></td>
+      <td>Computed from base frequency and seasonal index: <span class="math inline">\(\omega_{0,0}[1 + \epsilon_S S(t)]\)</span></td>
+      <td><span class="math inline">\(\pm 0.01\,\mathrm{rad/s}\)</span></td>
+      <td>Synchrony driver</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( U_c(t) \)</span></td>
+      <td>Modulated astronomical forcing</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Base ephemeris forcing scaled by pressure/wind: <span class="math inline">\(U_c^{\text{astro}}[1 + \gamma_P \Delta P + \gamma_W W]\)</span></td>
+      <td><span class="math inline">\(\pm 0.005\,\mathrm{m}\)</span></td>
+      <td>External synchrony input</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \eta_{\text{surge}}(t) \)</span></td>
+      <td>Surge height from meteorological forcing</td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Linear combination of pressure and wind stress: <span class="math inline">\(b_0 + b_P \Delta P + b_{\parallel} \tau_{\parallel} + b_{\perp} \tau_{\perp}\)</span></td>
+      <td><span class="math inline">\(\pm 0.1\,\mathrm{m}\)</span></td>
+      <td>Decoherence term</td>
+    </tr>
+  </tbody>
+</table>
         </article>
     </section>
     <section>
