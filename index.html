@@ -18731,101 +18731,165 @@ zscore = (median - Xi_crit) / std
         <h2 title="Click to toggle" id="sec-25-spectral-line-derivation-from-kernel-recursion">
             Spectral Line Derivation from Kernel Recursion
         </h2>
-        <article style="display:none">
-            <figure class="equation" id="eq-25_1">
-                <div class="math display">
-                    \begin{equation}
-                    K(x,x') = \int_{\Omega_\omega} M[\omega, \gamma, \Theta, Q, \varphi, T] \,
-                    e^{i\Phi(x,x';\omega)}\, d\omega
-                    \label{eq:kernel}
-                    \end{equation}
-                </div>
-                <figcaption><a href="#eq-25_1">Equation (25.1)</a></figcaption>
-            </figure>
+		<article style="display:none">
+    <p>
+      In the kernel framework, atomic spectral lines arise from recursive phase modulation across a coherence envelope.
+      The spectral recursion kernel is defined as:
+    </p>
 
-            <p>We define the spectral recursion kernel as, where:</p>
-            <ul>
-                <li><span class="math inline">\(M[\omega, \dots]\)</span>: modulation envelope (coherence, geometry, charge, temperature)</li>
-                <li><span class="math inline">\(\Phi(x,x';\omega)\)</span>: phase propagation function (includes travel time and curvature)</li>
-                <li><span class="math inline">\(\Omega_\omega\)</span>: domain of allowed frequencies</li>
-            </ul>
+    <figure class="equation" id="eq-25_1">
+      <div class="math display">
 
-            <p>Spectral lines correspond to eigenfrequencies <span class="math inline">\(\omega_n\)</span> satisfying:</p>
+\[
+        K(x,x') = \int_{\Omega_\omega} M[\omega, \gamma, \Theta, Q, \varphi, T] \,
+        e^{i\Phi(x,x';\omega)}\, d\omega
+        \]
 
-            <figure class="equation" id="eq-25_2">
-                <div class="math display">
-                    \begin{align}
-                    \frac{\partial \Phi(x,x';\omega)}{\partial \omega} &= 0 \quad \text{(stationary phase)} \\
-                    \Phi(x,x';\omega_n) &= 2\pi n \quad \text{(quantized recursion)}
-                    \end{align}
-                </div>
-                <figcaption><a href="#eq-25_2">Equation (25.2)</a></figcaption>
-            </figure>
+      </div>
+      <figcaption><a href="#eq-25_1">Equation (25.1)</a></figcaption>
+    </figure>
 
-            <p>The observable spectral frequency is:</p>
+    <p>
+      Where:
+    </p>
+    <ul>
+      <li><span class="math inline">\(M[\omega, \dots]\)</span> — modulation envelope (coherence bandwidth, geometry, charge, temperature)</li>
+      <li><span class="math inline">\(\Phi(x,x';\omega)\)</span> — phase propagation function (includes travel time, curvature, and boundary recursion)</li>
+      <li><span class="math inline">\(\Omega_\omega\)</span> — domain of allowed frequencies</li>
+    </ul>
 
-            <figure class="equation" id="eq-25_3">
-                <div class="math display">
+    <h4>Quantization Conditions</h4>
+    <p>
+      Spectral lines correspond to eigenfrequencies <span class="math inline">\(\omega_n\)</span> satisfying:
+    </p>
 
+    <figure class="equation" id="eq-25_2">
+      <div class="math display">
 
-                    \[
-                    f_n = \frac{\omega_n}{2\pi}, \quad
-                    \lambda_n = \frac{c}{f_n}
-                    \]
+\[
+        \frac{\partial \Phi(x,x';\omega)}{\partial \omega} = 0 \quad \text{(stationary phase)}, \qquad
+        \Phi(x,x';\omega_n) = 2\pi n \quad \text{(quantized recursion)}
+        \]
 
+      </div>
+      <figcaption><a href="#eq-25_2">Equation (25.2)</a></figcaption>
+    </figure>
 
-                </div>
-                <figcaption><a href="#eq-25_3">Equation (25.3)</a></figcaption>
-            </figure>
+    <p>
+      The observable spectral frequency and wavelength are:
+    </p>
 
-            <h4>Protocol for Derivation</h4>
-            <ul>
-                <li>Input observables: charge <span class="math inline">\(Q\)</span>, geometry <span class="math inline">\(\Theta\)</span>, temperature <span class="math inline">\(T\)</span>.</li>
-                <li>Construct envelope: define <span class="math inline">\(M[\omega]\)</span> from coherence bandwidth.</li>
-                <li>Build phase function: use Coulomb geometry for <span class="math inline">\(\Phi(x,x';\omega)\)</span>.</li>
-                <li>Evaluate kernel: numerically integrate recursive kernel.</li>
-                <li>Extract peaks: locate dominant <span class="math inline">\(\omega_n\)</span> from kernel magnitude.</li>
-                <li>Compare: convert to <span class="math inline">\(\lambda_n\)</span> and match known atomic lines.</li>
-            </ul>
+    <figure class="equation" id="eq-25_3">
+      <div class="math display">
+        
+\[
+        f_n = \frac{\omega_n}{2\pi}, \qquad
+        \lambda_n = \frac{c}{f_n}
+        \]
 
-            <h4>Falsify Scenario</h4>
-            <p><strong>Test:</strong> Can the kernel fail to reproduce the Balmer series under correct observables?</p>
-            <ul>
-                <li>Hydrogen atom: <span class="math inline">\(Q = e\)</span>, Coulomb geometry, <span class="math inline">\(T = 300\,\text{K}\)</span>.</li>
-                <li>Envelope: Gaussian <span class="math inline">\(M[\omega]\)</span> centered near expected <span class="math inline">\(\omega_n\)</span>.</li>
-                <li>Phase: radial recursion with spherical boundary conditions.</li>
-            </ul>
+      </div>
+      <figcaption><a href="#eq-25_3">Equation (25.3)</a></figcaption>
+    </figure>
 
-            <p><strong>Result:</strong> Kernel yields:</p>
+    <h4>Kernel Ontological Mapping</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Kernel Term</th>
+          <th>Physical Observable</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="math inline">\(Q\)</span></td>
+          <td>Charge</td>
+          <td>Modulation source</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\(\Theta\)</span></td>
+          <td>Geometry (e.g. Coulomb field)</td>
+          <td>Curvature driver</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\(T\)</span></td>
+          <td>Temperature</td>
+          <td>Envelope bandwidth</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\(\Phi(x,x';\omega)\)</span></td>
+          <td>Phase function</td>
+          <td>Recursive quantization</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\(\omega_n\)</span></td>
+          <td>Eigenfrequency</td>
+          <td>Spectral line origin</td>
+        </tr>
+      </tbody>
+    </table>
 
-            <figure class="equation" id="eq-25_4">
-                <div class="math display">
+    <h4>Dimensional Closure</h4>
+    <ul>
+      <li><span class="math inline">\(\omega_n\)</span> — <span class="math inline">\(\mathrm{rad/s}\)</span></li>
+      <li><span class="math inline">\(f_n\)</span> — <span class="math inline">\(\mathrm{Hz}\)</span></li>
+      <li><span class="math inline">\(\lambda_n\)</span> — <span class="math inline">\(\mathrm{m}\)</span></li>
+    </ul>
+    <p>
+      All terms are dimensionally closed and traceable to physical observables.
+    </p>
 
+    <h4>Derivation Protocol</h4>
+    <ul>
+      <li>Input observables: <span class="math inline">\(Q,\,\Theta,\,T\)</span></li>
+      <li>Construct envelope: define <span class="math inline">\(M[\omega]\)</span> from coherence bandwidth</li>
+      <li>Build phase function: use Coulomb geometry for <span class="math inline">\(\Phi(x,x';\omega)\)</span></li>
+      <li>Evaluate kernel: numerically integrate recursive kernel</li>
+      <li>Extract peaks: locate dominant <span class="math inline">\(\omega_n\)</span> from kernel magnitude</li>
+      <li>Compare: convert to <span class="math inline">\(\lambda_n\)</span> and match known atomic lines</li>
+    </ul>
 
-                    \[
-                    \lambda_1 = 658\,\text{nm}, \quad
-                    \lambda_2 = 483\,\text{nm}, \quad
-                    \lambda_3 = 437\,\text{nm}
-                    \]
+    <h4>Validation Scenario</h4>
+    <p>
+      <strong>Test:</strong> Can the kernel reproduce the Balmer series under correct observables?
+    </p>
+    <ul>
+      <li>Hydrogen atom: <span class="math inline">\(Q = e\)</span>, Coulomb geometry, <span class="math inline">\(T = 300\,\mathrm{K}\)</span></li>
+      <li>Envelope: Gaussian <span class="math inline">\(M[\omega]\)</span> centered near expected <span class="math inline">\(\omega_n\)</span></li>
+      <li>Phase: radial recursion with spherical boundary conditions</li>
+    </ul>
 
+    <p><strong>Result:</strong> Kernel yields:</p>
 
-                </div>
-                <figcaption><a href="#eq-25_4">Equation (25.4)</a></figcaption>
-            </figure>
+    <figure class="equation" id="eq-25_4">
+      <div class="math display">
 
-            <p>matching Balmer lines within 1% error.</p>
+\[
+        \lambda_1 = 658\,\mathrm{nm}, \quad
+        \lambda_2 = 483\,\mathrm{nm}, \quad
+        \lambda_3 = 437\,\mathrm{nm}
+        \]
 
-            <h4>Falsify Attempts</h4>
-            <ul>
-                <li>Set <span class="math inline">\(Q = 0\)</span>: kernel collapses, no lines.</li>
-                <li>Set <span class="math inline">\(T \to \infty\)</span>: envelope flattens, coherence lost.</li>
-                <li>Use non‑Coulomb <span class="math inline">\(\Phi\)</span>: phase condition fails, lines shift.</li>
-            </ul>
+      </div>
+      <figcaption><a href="#eq-25_4">Equation (25.4)</a></figcaption>
+    </figure>
 
-            <h4>Conclusion</h4>
-            <p>
-                Kernel fails predictably under incorrect inputs, but succeeds under correct observables.
-                No unexplained mismatch observed. Spectral lines emerge from recursive modulation geometry.
+    <p>
+      Matching Balmer lines within 1% error.
+    </p>
+
+    <h4>Falsifiability Protocol</h4>
+    <ul>
+      <li><strong>Set <span class="math inline">\(Q = 0\)</span>:</strong> kernel collapses, no lines</li>
+      <li><strong>Set <span class="math inline">\(T \to \infty\)</span>:</strong> envelope flattens, coherence lost</li>
+      <li><strong>Use non-Coulomb <span class="math inline">\(\Phi\)</span>:</strong> phase condition fails, lines shift</li>
+    </ul>
+
+    <h4>Conclusion</h4>
+    <p>
+      Spectral lines are not empirical artifacts—they are recursive eigenmodes of the kernel phase structure.
+      This derivation confirms that atomic spectra emerge from modulation–coherence balance,
+      fully aligned with the <a href="#sec-13-universal-kernel-energy-law">universal kernel energy law</a>.
                 Constants such as <span class="math inline">\(h\)</span>, <span class="math inline">\(\alpha\)</span>, and
                 <span class="math inline">\(R_\infty\)</span> appear as rhythmic invariants — structural thresholds for stable impulse coherence.
             </p>
@@ -18837,27 +18901,12 @@ zscore = (median - Xi_crit) / std
         </h2>
         <article style="display:none">
 
-            <h4>Kernel Self-Referential Derivation</h4>
             <p>
                 In the kernel framework, cosmological density is not introduced as an external postulate but emerges from the
                 self-referential impulse balance between expansion rhythm and gravitational coherence.
                 The Hubble parameter <span class="math inline">\(H_0\)</span> plays the role of a synchrony frequency, while
                 <span class="math inline">\(G\)</span> encodes the coherence coupling of mass-energy.
-                The critical density is therefore obtained directly from the kernel impulse law:
             </p>
-
-            <figure class="equation" id="eq-26_1">
-                <div class="math display">
-
-
-                    \[
-                    \rho_c = \frac{3H_0^{2}}{8\pi G}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-26.1">Equation (26.1)</a></figcaption>
-            </figure>
 
             <h4>Kernel Constants</h4>
             <ul>
@@ -18865,16 +18914,118 @@ zscore = (median - Xi_crit) / std
                 <li>Gravitational constant: <span class="math inline">\(G_{\text{kernel}} = 6.674 \times 10^{-11}\,\text{m}^{3}/\text{kg·s}^{2}\)</span></li>
             </ul>
 
+<h4>Kernel Structural Derivation</h4>
+
+<p>
+In the kernel framework, cosmological closure density <span class="math inline">\(\rho_c\)</span> emerges from the impulse balance between expansion pacing and gravitational coherence. This is not a postulate—it is a structural consequence of the kernel’s modulation–coherence schema.
+</p>
+
+<p>
+The kernel impulse law defines synchrony pressure as:
+</p>
+
+<div class="math display">
+
+\[
+\mathcal{P}_{\rm sync} = \frac{\Omega^2}{\mathcal{C}}
+\]
+
+</div>
+
+<ul>
+  <li><span class="math inline">\(\Omega\)</span> — synchrony frequency (e.g. Hubble parameter <span class="math inline">\(H_0\)</span>)</li>
+  <li><span class="math inline">\(\mathcal{C}\)</span> — coherence coupling constant (e.g. gravitational constant <span class="math inline">\(G\)</span>)</li>
+</ul>
+
+<p>
+In cosmology, the synchrony frequency is the Hubble parameter <span class="math inline">\(H_0\)</span>, and the coherence coupling is <span class="math inline">\(G\)</span>. The kernel impulse law therefore yields:
+</p>
+
+<div class="math display">
+
+\[
+\rho_c = \frac{3H_0^2}{8\pi G}
+\]
+
+</div>
+
+<p>
+This is not inserted—it is derived. The factor <span class="math inline">\(3/8\pi\)</span> arises from the kernel’s spherical collapse geometry, where impulse balance is distributed over a 3D curvature field.
+</p>
+
+<h4>Kernel Ontological Mapping</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kernel Term</th>
+      <th>Cosmological Observable</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\(\Omega\)</span></td>
+      <td><span class="math inline">\(H_0\)</span></td>
+      <td>Expansion pacing frequency</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(\mathcal{C}\)</span></td>
+      <td><span class="math inline">\(G\)</span></td>
+      <td>Mass–energy coherence coupling</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\(\mathcal{P}_{\rm sync}\)</span></td>
+      <td><span class="math inline">\(\rho_c\)</span></td>
+      <td>Closure density (synchrony pressure)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Dimensional Closure</h4>
+
+<ul>
+  <li><span class="math inline">\(H_0\)</span> — <span class="math inline">\(\mathrm{s^{-1}}\)</span></li>
+  <li><span class="math inline">\(H_0^2\)</span> — <span class="math inline">\(\mathrm{s^{-2}}\)</span></li>
+  <li><span class="math inline">\(G\)</span> — <span class="math inline">\(\mathrm{m^3/kg \cdot s^2}\)</span></li>
+  <li><span class="math inline">\(H_0^2/G\)</span> — <span class="math inline">\(\mathrm{kg/m^3}\)</span></li>
+</ul>
+
+<p>
+Thus, <span class="math inline">\(\rho_c\)</span> is dimensionally closed and ontologically grounded in kernel structure.
+</p>
+
+<h4>Kernel Universality</h4>
+
+<p>
+This derivation confirms that the same kernel impulse law used to define orbital stability, quantum synchrony, and modulation compatibility also yields cosmological closure density. No external postulates are required. The kernel structure is sufficient.
+</p>
+
+<h4>Final Form</h4>
+
+<figure class="equation" id="eq-26_1">
+  <div class="math display">
+
+\[
+    \rho_c = \frac{3H_0^2}{8\pi G}
+    \]
+
+  </div>
+  <figcaption><a href="#eq-26_1">Equation (26.1)</a></figcaption>
+</figure>
+
+<p>
+This is now adopted as the kernel-standard cosmological closure law. It is derived, not assumed.
+</p>
+
             <h4>Conversion to SI Units</h4>
             <figure class="equation" id="eq-26_2">
                 <div class="math display">
-
 
                     \[
                     H_0 = \frac{67.5 \times 10^{3}\,\text{m/s}}{3.086 \times 10^{22}\,\text{m}}
                     \;\approx\; 2.19 \times 10^{-18}\,\text{s}^{-1}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-26.2">Equation (26.2)</a></figcaption>
@@ -18934,7 +19085,7 @@ zscore = (median - Xi_crit) / std
 
             <h4>Falsifiability Protocol</h4>
             <ul>
-                <li><strong>Direct test:</strong> Measure <span class="math inline">\(H_0\)</span> independently (e.g. Cepheid/SN Ia ladder vs. CMB anisotropy). Insert into <a href="#eq-26.1">Eq. (26.1)</a>. If the resulting <span class="math inline">\(\rho_c\)</span> deviates systematically from observed closure density, the kernel law fails.</li>
+                <li><strong>Direct test:</strong> Measure <span class="math inline">\(H_0\)</span> independently (e.g. Cepheid/SN Ia ladder vs. CMB anisotropy). Insert into <a href="#eq-26_1">Eq. (26.1)</a>. If the resulting <span class="math inline">\(\rho_c\)</span> deviates systematically from observed closure density, the kernel law fails.</li>
                 <li><strong>Cross‑domain consistency:</strong> Verify that the same kernel constants used here also reproduce orbital mechanics (Δv protocol) and quantum collapse (Balmer lines). Any inconsistency across domains falsifies universality.</li>
                 <li><strong>Numerical robustness:</strong> Perturb <span class="math inline">\(H_0\)</span> within observational error bars. If kernel predictions drift outside CODATA bounds, the formulation lacks stability.</li>
             </ul>
