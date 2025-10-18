@@ -5941,10 +5941,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <figcaption><a href="#eq-50_u3">Equation (50.U3)</a> — covariance propagation via Jacobian (full linear form).</figcaption>
   </figure>
 
-  <p>
-    (Operational note: compute \(J\) analytically from Eq. <a href="#eq-50_f1">50.F1</a> where possible; otherwise use finite differences
-    or an adjoint/automatic-differentiation approach for large models.)
-  </p>
+ <h6>Practical strategies for \(\Sigma_{\mathbf{x}}\) and J</h6>
+  <ul>
+    <li><strong>Estimate \(\Sigma_{\mathbf{x}}\)</strong> from the fitting procedure that produced \(\Phi,\mathcal{E}_{\rm diss},R,u\) (use the posterior covariance if Bayesian, or the Hessian/inverse Fisher for MLE fits).</li>
+    <li><strong>Compute J</strong> analytically from Eq. <a href="#eq-50_f1">50.F1</a> when possible; otherwise compute finite-difference derivatives or use adjoint sensitivity for large models.</li>
+    <li><strong>Use adjoint/continuous sensitivity</strong> for expensive forward models — this yields Jacobian-vector products at machine precision and scaled complexity.</li>
+    <li><strong>When model nonlinearity is large</strong>, prefer Monte-Carlo sampling (draw from the joint \(\Sigma_{\mathbf{x}}\), evaluate \(a_{\rm grav}^{\rm model}\) and use the empirical variance). Use 10\(^3\)–10\(^4\) samples for stable CI estimates.</li>
+  </ul>
 
   <h5>Residual, z-score and decision rule</h5>
   <p>
