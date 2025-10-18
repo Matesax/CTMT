@@ -5734,269 +5734,243 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     <section>
         <h2 title="Click to toggle" id="sec-50-orbital-mechanics">Orbital Mechanics</h2>
         <article style="display:none">
-  <p>
-    Orbital acceleration is the macroscopic curvature-projection of the
-    <em>kernel-derived acceleration invariant</em>
-    (<a href="#eq-9_1">Eq. 9.1</a>, <a href="#eq-10_5">Eq. 10.5</a>),
-    evaluated in the gravitational regime.
-    In this limit, the curvature coordinate \(S\) maps to the orbital
-    shape factor \(R^{-1}\), and the synchrony-collapse rhythms
-    (\(\Theta,\gamma,\rho\)) reduce to large-scale orbital modulation
-    fields \((\Phi,\mathcal{E}_{\rm diss},u)\).
-  </p>
+			<p>
+				Orbital acceleration is the macroscopic curvature-projection of the
+				<em>kernel-derived acceleration invariant</em> (
+				<a href="#eq-9_1">Eq. 9.1</a>, <a href="#eq-10_5">Eq. 10.5</a>), evaluated in the gravitational regime. In this limit, the curvature coordinate <span class="math inline">\(S\)</span> maps to the orbital shape factor <span class="math inline">\(R^{-1}\)</span>,
+				and the synchrony-collapse rhythms (
+				<span class="math inline">\(\Theta, \gamma, \rho\)</span>) reduce to large-scale orbital modulation fields (<span class="math inline">\(\Phi, \mathcal{E}_{\rm diss}, u\)</span>).
+			</p>
 
-  <h4>Derivation from the general kernel-acceleration law</h4>
-  <p>
-    Start from the synchrony velocity
-    \(v_{\text{sync}}(r,t)=M_1(r,t)\,\Theta(r,t)\)
-    as defined in <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>.
-    Its curvature-directional derivative gives the kernel acceleration:
-  </p>
+			<h4>Derivation from the general kernel-acceleration law</h4>
+			<p>
+				Start from the synchrony velocity
+				<span class="math inline">\(v_{\text{sync}}(r,t) = M_1(r,t)\,\Theta(r,t)\)</span> as defined in <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>. Its curvature-directional
+				derivative gives the kernel acceleration:
+			</p>
+			<figure class="equation" id="eq-50_1">
+				<div class="math display">
+					\[
+						a_{\mathrm{kernel}}
+						=\frac{d(M_1\Theta)}{dS}
+						=M_1\frac{d\Theta}{dS}
+						+\Theta\frac{dM_1}{dS}.
+					\]
+				</div>
+				<figcaption><a href="#eq-50_1">Equation (50.1)</a> — base form from Modulation‑Derived Acceleration.</figcaption>
+			</figure>
+			<p>
+				In the orbital regime, curvature <span class="math inline">\(S\)</span> is proportional to <span class="math inline">\(R^{-1}\)</span>, and the synchrony parameters are driven by three macroscopic modulation sources: (i) geometric curvature tension,
+				(ii) dissipation bias, and (iii) synchrony drift. Substituting these dependencies yields:
+			</p>
 
-  <figure class="equation" id="eq-50_1">
-    <div class="math display">
-      \[
-      a_{\mathrm{kernel}}
-      =\frac{d(M_1\Theta)}{dS}
-      =M_1\frac{d\Theta}{dS}
-      +\Theta\frac{dM_1}{dS}.
-      \]
-    </div>
-    <figcaption><a href="#eq-50_1">Equation (50.1)</a> — base form from Modulation‑Derived Acceleration.</figcaption>
-  </figure>
 
-  <p>
-    In the orbital regime, curvature \(S\) is proportional to \(R^{-1}\),
-    and the synchrony parameters are driven by three macroscopic modulation sources:
-    (i) geometric curvature tension,
-    (ii) dissipation bias,
-    and (iii) synchrony drift.
-    Substituting these dependencies yields:
-  </p>
+			<figure class="equation" id="eq-50_6">
+				<div class="math display">
+					\[
+						\boxed{
+							a_{\rm grav}(r,t)
+							=\frac{c^{2}\,\Phi(r,t)}{R(t)}
+							+\frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)}
+							+\frac{\partial u(r,t)}{\partial t}}
+					\]
+				</div>
+				<figcaption><a href="#eq-50_6">Equation (50.6)</a> — orbital projection of the kernel law.</figcaption>
+			</figure>
 
-  <figure class="equation" id="eq-50_6">
-    <div class="math display">
-      \[
-      \boxed{
-      a_{\rm grav}(r,t)
-      =\frac{c^{2}\,\Phi(r,t)}{R(t)}
-      +\frac{\mathcal{E}_{\rm diss}(r,t)}{R(t)}
-      +\frac{\partial u(r,t)}{\partial t}}
-      \]
-    </div>
-    <figcaption><a href="#eq-50_6">Equation (50.6)</a> — orbital projection of the kernel law.</figcaption>
-  </figure>
+			<p>
+				This expression is thus a specific realization of the general invariant
+				<span class="math inline">\(a_{\mathrm{kernel}}^{(\Xi)} = \tfrac{d}{d\Xi}(M_1\Theta)\)</span> (
+				<a href="#eq-10_5">Eq. 10.5</a>) with <span class="math inline">\(\Xi \!\to\! R^{-1}\)</span>. The mapping
+				<span class="math inline">\(\Phi \!\leftrightarrow\! S,\;
+				\mathcal{E}_{\rm diss} \!\leftrightarrow\! \rho,\;
+				u \!\leftrightarrow\! v_{\mathrm{sync}}\)</span> guarantees continuity across curvature, thermal, and orbital domains.
+			</p>
 
-  <p>
-    This expression is thus a specific realization of the general invariant
-    \(a_{\mathrm{kernel}}^{(\Xi)}=\tfrac{d}{d\Xi}(M_1\Theta)\)
-    (<a href="#eq-10_5">Eq. 10.5</a>)
-    with \(\Xi \!\to\! R^{-1}\).
-    The mapping
-    \(\Phi\!\leftrightarrow\!S,\;
-      \mathcal{E}_{\rm diss}\!\leftrightarrow\!\rho,\;
-      u\!\leftrightarrow\!v_{\mathrm{sync}}\)
-    guarantees continuity across curvature, thermal, and orbital domains.
-  </p>
+			<h4>Interpretation of modulation sources</h4>
+			<ul>
+				<li>
+					<strong>Curvature tension:</strong> curvature increases synchrony via
+					<span class="math inline">\(\Theta \propto c\sqrt{\Phi}/R\)</span>, contributing <span class="math inline">\(a_{\rm curv} = c^{2}\Phi/R\)</span>.
+				</li>
+				<li>
+					<strong>Dissipation bias:</strong> internal or tidal heating alters synchrony scale through
+					<span class="math inline">\(\Theta \propto \sqrt{\mathcal{E}_{\rm diss}}/R\)</span>, yielding <span class="math inline">\(a_{\rm diss} = \mathcal{E}_{\rm diss}/R\)</span>.
+				</li>
+				<li>
+					<strong>Synchrony drift:</strong> long-term phase mismatch introduces
+					<span class="math inline">\(a_{\rm drift} = \partial_t u\)</span> with <span class="math inline">\(u = M_1\Theta\)</span>.
+				</li>
+			</ul>
 
-  <h4>Interpretation of modulation sources</h4>
-  <ul>
-    <li>
-      <strong>Curvature tension:</strong>
-      curvature increases synchrony via
-      \(\Theta \propto c\sqrt{\Phi}/R\),
-      contributing \(a_{\rm curv}=c^{2}\Phi/R\).
-    </li>
-    <li>
-      <strong>Dissipation bias:</strong>
-      internal or tidal heating alters synchrony scale through
-      \(\Theta \propto \sqrt{\mathcal{E}_{\rm diss}}/R\),
-      yielding \(a_{\rm diss}=\mathcal{E}_{\rm diss}/R\).
-    </li>
-    <li>
-      <strong>Synchrony drift:</strong>
-      long-term phase mismatch introduces
-      \(a_{\rm drift}=\partial_t u\)
-      with \(u=M_1\Theta\).
-    </li>
-  </ul>
+			<p>
+				Their sum reconstructs the observed gravitational acceleration and directly embeds the orbital mechanics law within the unified kernel framework.
+			</p>
 
-  <p>
-    Their sum reconstructs the observed gravitational acceleration and
-    directly embeds the orbital mechanics law within the unified
-    kernel framework.
-  </p>
+			<h4>Dimensional closure</h4>
+			<p>
+				Each contribution independently yields <span class="math inline">\([\mathrm{m\,s^{-2}}]\)</span>:
+				<span class="math inline">\([c^{2}\Phi/R]\)</span>,
+				<span class="math inline">\([\mathcal{E}_{\rm diss}/R]\)</span>,
+				<span class="math inline">\([\partial_t u]\)</span>; therefore the combined
+				<span class="math inline">\(a_{\rm grav}\)</span> is SI-closed and consistent with the curvature and thermal forms (<a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>    & <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a>).
+			</p>
 
-  <h4>Dimensional closure</h4>
-  <p>
-    Each contribution independently yields \([\mathrm{m\,s^{-2}}]\):
-    \([c^{2}\Phi/R]\),
-    \([\mathcal{E}_{\rm diss}/R]\),
-    \([\partial_t u]\);
-    therefore the combined
-    \(a_{\rm grav}\)
-    is SI-closed and consistent with the curvature
-    and thermal forms (<a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> & <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a>).
-  </p>
+			<h4>Falsifiability protocol for the orbital law</h4>
+			<p>
+				The falsifiability and measurement pipeline remain identical in logic to <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>: each modulation source is measurable,
+				its uncertainty propagated, and the modeled acceleration compared against empirical ephemeris-derived values.
+			</p>
 
-  <h4>Falsifiability protocol for the orbital law</h4>
-  <p>
-    The falsifiability and measurement pipeline remain identical in
-    logic to <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>:
-    each modulation source is measurable, its uncertainty propagated,
-    and the modeled acceleration compared against empirical
-    ephemeris-derived values.
-  </p>
+			<h4>Observables and acquisition</h4>
+			<ul>
+				<li><strong>Curvature index:</strong> <span class="math inline">\(\Phi(r,t)\)</span> from spherical-harmonic curvature analysis.</li>
+				<li><strong>Dissipation energy:</strong> <span class="math inline">\(\mathcal{E}_{\rm diss}\)</span> from integrated power flux per effective mass.</li>
+				<li><strong>Synchrony drift:</strong> <span class="math inline">\(u = M_1\Theta\)</span> from modulation timing; <span class="math inline">\(\partial_t u\)</span> by finite differencing.</li>
+				<li><strong>Geometric scale:</strong> <span class="math inline">\(R(t)\)</span> from ephemerides or ranging data.</li>
+			</ul>
 
-  <h4>Observables and acquisition</h4>
-  <ul>
-    <li><strong>Curvature index:</strong> \(\Phi(r,t)\) from spherical-harmonic curvature analysis.</li>
-    <li><strong>Dissipation energy:</strong> \(\mathcal{E}_{\rm diss}\) from integrated power flux per effective mass.</li>
-    <li><strong>Synchrony drift:</strong> \(u=M_1\Theta\) from modulation timing; \(\partial_t u\) by finite differencing.</li>
-    <li><strong>Geometric scale:</strong> \(R(t)\) from ephemerides or ranging data.</li>
-  </ul>
+			<h4>Model computation</h4>
+			<figure class="equation" id="eq-50_f1">
+				<div class="math display">
+					\[
+						a_{\rm curv}=\frac{c^{2}\Phi}{R},\qquad
+						a_{\rm diss}=\frac{\mathcal{E}_{\rm diss}}{R},\qquad
+						a_{\rm drift}=\partial_t u,\qquad
+						a_{\rm grav}^{\rm model}=a_{\rm curv}+a_{\rm diss}+a_{\rm drift}.
+					\]
+				</div>
+				<figcaption><a href="#eq-50_f1">Equation (50.F1)</a></figcaption>
+			</figure>
 
-  <h4>Model computation</h4>
-  <figure class="equation" id="eq-50_f1">
-    <div class="math display">
-      \[
-      a_{\rm curv}=\frac{c^{2}\Phi}{R},\qquad
-      a_{\rm diss}=\frac{\mathcal{E}_{\rm diss}}{R},\qquad
-      a_{\rm drift}=\partial_t u,\qquad
-      a_{\rm grav}^{\rm model}=a_{\rm curv}+a_{\rm diss}+a_{\rm drift}.
-      \]
-    </div>
-    <figcaption><a href="#eq-50_f1">Equation (50.F1)</a></figcaption>
-  </figure>
+			<h4>Uncertainty propagation, estimation and validation</h4>
+			<p>
+				The orbital projection (Eq. <a href="#eq-50_6">50.6</a>) is an explicit specialization of the kernel-derived acceleration (Eq. <a href="#eq-50_1">50.1</a>, cf. <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>)
+				and must therefore be validated with the same rigor: propagate measurement uncertainties from the modulation sources
+				<span class="math inline">\(\Phi,\ \mathcal{E}_{\rm diss},\ R,\ u\)</span> into the modelled acceleration
+				<span class="math inline">\(a_{\rm grav}^{\rm model}\)</span>, account for parameter covariances, and compare to observed acceleration
+				<span class="math inline">\(a_{\rm grav}^{\rm obs}\)</span> using an explicit decision rule.
+			</p>
 
-  <h4>Uncertainty propagation, estimation and validation</h4>
+			<h5>Component variances (first-order)</h5>
+			<p>
+				For independent uncertainties <span class="math inline">\(\sigma_\Phi,\ \sigma_{\mathcal{E}},\ \sigma_R,\ \sigma_u\)</span>, apply first-order propagation to the component contributions defined in Eq. <a href="#eq-50_f1">50.F1</a>.
+			</p>
 
-  <p>
-    The orbital projection (Eq. <a href="#eq-50_6">50.6</a>) is an explicit specialization of the kernel-derived acceleration
-    (Eq. <a href="#eq-50_1">50.1</a>, cf. <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a>)
-    and must therefore be validated with the same rigor: propagate measurement uncertainties from the modulation sources
-    \(\Phi,\ \mathcal{E}_{\rm diss},\ R,\ u\) into the modelled acceleration
-    \(a_{\rm grav}^{\rm model}\), account for parameter covariances, and compare to observed acceleration
-    \(a_{\rm grav}^{\rm obs}\) using an explicit decision rule.
-  </p>
+			<figure class="equation" id="eq-50_u1">
+				<div class="math display">
+					\[
+						\begin{aligned}
+							\sigma_{a_{\rm curv}}^2
+							&= \left(\frac{c^{2}}{R}\,\sigma_\Phi\right)^{2}
+							 + \left(\frac{c^{2}\Phi}{R^{2}}\,\sigma_R\right)^{2},\\[6pt]
+							\sigma_{a_{\rm diss}}^2
+							&= \left(\frac{1}{R}\,\sigma_{\mathcal{E}}\right)^{2}
+							 + \left(\frac{\mathcal{E}_{\rm diss}}{R^{2}}\,\sigma_R\right)^{2},\\[6pt]
+							\sigma_{a_{\rm drift}}^2
+							&\approx \frac{\sigma_{u(t+\Delta t)}^{2} + \sigma_{u(t)}^{2}}{\Delta t^{2}}.
+						\end{aligned}
+					\]
+				</div>
+				<figcaption><a href="#eq-50_u1">Equation (50.U1)</a> — component variances (first-order).</figcaption>
+			</figure>
 
-  <h5>Component variances (first-order)</h5>
-  <p>
-    For independent uncertainties \(\sigma_\Phi,\ \sigma_{\mathcal{E}},\ \sigma_R,\ \sigma_u\) apply first-order propagation
-    to the component contributions defined in Eq. <a href="#eq-50_f1">50.F1</a>.
-  </p>
+			<p>
+				Combine the component variances to give the model variance (independence assumed as a first approximation):
+			</p>
 
-  <figure class="equation" id="eq-50_u1">
-    <div class="math display">
-      \[
-      \begin{aligned}
-      \sigma_{a_{\rm curv}}^2
-        &= \left(\frac{c^{2}}{R}\,\sigma_\Phi\right)^{2}
-         + \left(\frac{c^{2}\Phi}{R^{2}}\,\sigma_R\right)^{2},\\[6pt]
-      \sigma_{a_{\rm diss}}^2
-        &= \left(\frac{1}{R}\,\sigma_{\mathcal{E}}\right)^{2}
-         + \left(\frac{\mathcal{E}_{\rm diss}}{R^{2}}\,\sigma_R\right)^{2},\\[6pt]
-      \sigma_{a_{\rm drift}}^2
-        &\approx \frac{\sigma_{u(t+\Delta t)}^{2} + \sigma_{u(t)}^{2}}{\Delta t^{2}}.
-      \end{aligned}
-      \]
-    </div>
-    <figcaption><a href="#eq-50_u1">Equation (50.U1)</a> — component variances (first-order).</figcaption>
-  </figure>
+			<figure class="equation" id="eq-50_u2">
+				<div class="math display">
+					\[
+						\sigma_{a_{\rm grav}^{\rm model}} = \sqrt{
+							\sigma_{a_{\rm curv}}^{2} + \sigma_{a_{\rm diss}}^{2} + \sigma_{a_{\rm drift}}^{2}
+						}.
+					\]
+				</div>
+				<figcaption><a href="#eq-50_u2">Equation (50.U2)</a> — combined model uncertainty (independent components).</figcaption>
+			</figure>
 
-  <p>
-    Combine the component variances to give the model variance (independence assumed as a first approximation):
-  </p>
+			<h5>Full linear propagation (Jacobian and covariance)</h5>
+			<p>
+				When parameter correlations are present (common when <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(R\)</span> arise from the same spherical-harmonic fit, or <span class="math inline">\(\mathcal{E}_{\rm diss}\)</span> is
+				computed from fluxes tied to <span class="math inline">\(\Phi\)</span>), use the full linear propagation via the parameter covariance matrix <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span> and Jacobian <span class="math inline">\(J\)</span>.
+			</p>
 
-  <figure class="equation" id="eq-50_u2">
-    <div class="math display">
-      \[
-      \sigma_{a_{\rm grav}^{\rm model}} = \sqrt{
-        \sigma_{a_{\rm curv}}^{2} + \sigma_{a_{\rm diss}}^{2} + \sigma_{a_{\rm drift}}^{2}
-      }.
-      \]
-    </div>
-    <figcaption><a href="#eq-50_u2">Equation (50.U2)</a> — combined model uncertainty (independent components).</figcaption>
-  </figure>
+			<figure class="equation" id="eq-50_u3">
+				<div class="math display">
+					\[
+						\mathbf{x} = \begin{bmatrix}\Phi\\ \mathcal{E}_{\rm diss}\\ R\\ u \end{bmatrix},\qquad
+						\Sigma_{\mathbf{x}} = \mathrm{Cov}(\mathbf{x}),
+						\qquad
+						J = \frac{\partial a_{\rm grav}^{\rm model}}{\partial \mathbf{x}}.
+					\]
+					\[
+						\sigma_{a_{\rm grav}^{\rm model}}^{2} = J\,\Sigma_{\mathbf{x}}\,J^\top.
+					\]
+				</div>
+				<figcaption><a href="#eq-50_u3">Equation (50.U3)</a> — covariance propagation via Jacobian (full linear form).</figcaption>
+			</figure>
 
-  <h5>Full linear propagation (Jacobian and covariance)</h5>
-  <p>
-    When parameter correlations are present (common when \(\Phi\) and \(R\) arise from the same spherical-harmonic fit,
-    or \(\mathcal{E}_{\rm diss}\) is computed from fluxes tied to \(\Phi\)), use the full linear propagation via the parameter
-    covariance matrix \(\Sigma_{\mathbf{x}}\) and Jacobian \(J\).
-  </p>
+			<h6>Practical strategies for <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span> and <span class="math inline">\(J\)</span></h6>
+			<ul>
+				<li><strong>Estimate <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span></strong> from the fitting procedure that produced <span class="math inline">\(\Phi, \mathcal{E}_{\rm diss}, R, u\)</span> (use the posterior covariance if Bayesian, or the Hessian/inverse
+					Fisher for MLE fits).</li>
+				<li><strong>Compute <span class="math inline">\(J\)</span></strong> analytically from Eq. <a href="#eq-50_f1">50.F1</a> when possible; otherwise compute finite-difference derivatives or use adjoint sensitivity for large models.</li>
+				<li><strong>Use adjoint/continuous sensitivity</strong> for expensive forward models — this yields Jacobian-vector products at machine precision and scaled complexity.</li>
+				<li><strong>When model nonlinearity is large</strong>, prefer Monte-Carlo sampling (draw from the joint <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span>, evaluate <span class="math inline">\(a_{\rm grav}^{\rm model}\)</span> and use the empirical
+					variance). Use <span class="math inline">\(10^3\)–\(10^4\)</span> samples for stable CI estimates.</li>
+			</ul>
 
-  <figure class="equation" id="eq-50_u3">
-    <div class="math display">
-      \[
-      \mathbf{x} = \begin{bmatrix}\Phi\\ \mathcal{E}_{\rm diss}\\ R\\ u \end{bmatrix},\qquad
-      \Sigma_{\mathbf{x}} = \mathrm{Cov}(\mathbf{x}),
-      \qquad
-      J = \frac{\partial a_{\rm grav}^{\rm model}}{\partial \mathbf{x}}.
-    \]
-    \[
-      \sigma_{a_{\rm grav}^{\rm model}}^{2} = J\,\Sigma_{\mathbf{x}}\,J^\top.
-    \]
-    </div>
-    <figcaption><a href="#eq-50_u3">Equation (50.U3)</a> — covariance propagation via Jacobian (full linear form).</figcaption>
-  </figure>
+			<h5>Residual, z-score and decision rule</h5>
+			<p>
+				Form the residual and standardized test statistic combining observational and model uncertainty:
+			</p>
 
- <h6>Practical strategies for \(\Sigma_{\mathbf{x}}\) and J</h6>
-  <ul>
-    <li><strong>Estimate \(\Sigma_{\mathbf{x}}\)</strong> from the fitting procedure that produced \(\Phi,\mathcal{E}_{\rm diss},R,u\) (use the posterior covariance if Bayesian, or the Hessian/inverse Fisher for MLE fits).</li>
-    <li><strong>Compute J</strong> analytically from Eq. <a href="#eq-50_f1">50.F1</a> when possible; otherwise compute finite-difference derivatives or use adjoint sensitivity for large models.</li>
-    <li><strong>Use adjoint/continuous sensitivity</strong> for expensive forward models — this yields Jacobian-vector products at machine precision and scaled complexity.</li>
-    <li><strong>When model nonlinearity is large</strong>, prefer Monte-Carlo sampling (draw from the joint \(\Sigma_{\mathbf{x}}\), evaluate \(a_{\rm grav}^{\rm model}\) and use the empirical variance). Use 10\(^3\)–10\(^4\) samples for stable CI estimates.</li>
-  </ul>
+			<figure class="equation" id="eq-50_u4">
+				<div class="math display">
+					\[
+					\Delta a = a_{\rm grav}^{\rm obs} - a_{\rm grav}^{\rm model},\qquad
+					z = \frac{\Delta a}{\sqrt{\sigma_{a_{\rm grav}^{\rm obs}}^{2} + \sigma_{a_{\rm grav}^{\rm model}}^{2}}}.
+					\]
+				</div>
+				<figcaption><a href="#eq-50_u4">Equation (50.U4)</a> — residual and z-score (combining observation and model uncertainty).</figcaption>
+			</figure>
 
-  <h5>Residual, z-score and decision rule</h5>
-  <p>
-    Form the residual and standardized test statistic combining observational and model uncertainty:
-  </p>
+			<p>
+				Acceptance rules (example sensible defaults):
+			</p>
+			<ul>
+				<li><strong>Accept:</strong> <span class="math inline">\(|z| \le 1.96\)</span> (95% two-sided CI) and relative error <span class="math inline">\(\epsilon = |\Delta a|/|a_{\rm grav}^{\rm obs}| \le \epsilon_{\rm max}\)</span> with <span class="math inline">\(\epsilon_{\rm max} \in [0.01, 0.05]\)</span>        chosen per mission/domain.</li>
+				<li><strong>Investigate:</strong> <span class="math inline">\(1.96 < |z| \le 3\)</span> — check for underestimated uncertainties, systematics, or model deficiencies.</li>
+				<li><strong>Reject (falsify):</strong> <span class="math inline">\(|z| > 3\)</span> or persistent <span class="math inline">\(\epsilon > \epsilon_{\rm max}\)</span> across independent datasets.</li>
+			</ul>
 
-  <figure class="equation" id="eq-50_u4">
-    <div class="math display">
-      \[
-      \Delta a = a_{\rm grav}^{\rm obs} - a_{\rm grav}^{\rm model},\qquad
-      z = \frac{\Delta a}{\sqrt{\sigma_{a_{\rm grav}^{\rm obs}}^{2} + \sigma_{a_{\rm grav}^{\rm model}}^{2}}}.
-      \]
-    </div>
-    <figcaption><a href="#eq-50_u4">Equation (50.U4)</a> — residual and z-score (combining observation and model uncertainty).</figcaption>
-  </figure>
+			<h5>Practical recommendations and diagnostics</h5>
+			<ul>
+				<li><strong>Retain joint posterior / covariance:</strong> if <span class="math inline">\(\Phi\)</span>, <span class="math inline">\(R\)</span> etc. come from a joint inversion, propagate the full posterior rather than using marginal error bars.</li>
+				<li><strong>Compute and report J row:</strong> record partial sensitivities <span class="math inline">\(\partial a/\partial x_i\)</span> so future analysts can attribute uncertainty sources.</li>
+				<li><strong>Monte-Carlo validation:</strong> when nonlinearities are substantial draw <span class="math inline">\(N \approx 10^3\)–\(10^4\)</span> samples from <span class="math inline">\(\mathbf{x} \sim \mathcal{N}(\hat{\mathbf{x}}, \Sigma_{\mathbf{x}})\)</span>,
+					evaluate <span class="math inline">\(a_{\rm grav}^{\rm model}\)</span> to obtain empirical confidence intervals and check linear-propagation assumptions.</li>
+				<li><strong>Covariance checks:</strong> explicitly test for covariance between <span class="math inline">\(\Phi\)</span> and <span class="math inline">\(R\)</span> (and between <span class="math inline">\(\mathcal{E}_{\rm diss}\)</span> and <span class="math inline">\(\Phi\)</span>);
+					correlated parameters are common and materially affect <span class="math inline">\(\sigma_{a_{\rm grav}^{\rm model}}\)</span>.</li>
+				<li><strong>Report a “validation card”</strong> with <span class="math inline">\(\mathbf{x}\)</span>, <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span>, <span class="math inline">\(J\)</span>, <span class="math inline">\(a_{\rm grav}^{\rm model}\)</span>,
+					<span class="math inline">\(\sigma_{a_{\rm grav}^{\rm model}}\)</span>, <span class="math inline">\(a_{\rm grav}^{\rm obs}\)</span>, <span class="math inline">\(\sigma_{a_{\rm grav}^{\rm obs}}\)</span>, <span class="math inline">\(\Delta a\)</span>,
+					<span class="math inline">\(z\)</span> and decision outcome.</li>
+			</ul>
 
-  <p>
-    Acceptance rules (example sensible defaults):
-  </p>
-  <ul>
-    <li><strong>Accept:</strong> \(|z| \le 1.96\) (95% two-sided CI) and relative error \(\epsilon = |\Delta a|/|a_{\rm grav}^{\rm obs}| \le \epsilon_{\rm max}\)
-      with \(\epsilon_{\rm max}\in[0.01,0.05]\) chosen per mission/domain.</li>
-    <li><strong>Investigate:</strong> \(1.96 < |z| \le 3\) — check for underestimated uncertainties, systematics, or model deficiencies.</li>
-    <li><strong>Reject (falsify):</strong> \(|z| > 3\) or persistent \(\epsilon>\epsilon_{\rm max}\) across independent datasets.</li>
-  </ul>
+			<h5>Workflow (operational)</h5>
+			<ol>
+				<li>Obtain fitted estimates (posteriors) for <span class="math inline">\(\Phi, \mathcal{E}_{\rm diss}, R, u\)</span> and their covariance <span class="math inline">\(\Sigma_{\mathbf{x}}\)</span>.</li>
+				<li>Evaluate <span class="math inline">\(a_{\rm grav}^{\rm model}\)</span> via Eq. <a href="#eq-50_f1">50.F1</a>.</li>
+				<li>Compute Jacobian <span class="math inline">\(J\)</span> and propagate uncertainty with Eq. <a href="#eq-50_u3">50.U3</a>, or run a Monte-Carlo forward ensemble.</li>
+				<li>Obtain <span class="math inline">\(a_{\rm grav}^{\rm obs}\)</span> and its uncertainty from ephemerides/telemetry; compute <span class="math inline">\(\Delta a\)</span> and <span class="math inline">\(z\)</span> (Eq. <a href="#eq-50_u4">50.U4</a>).</li>
+				<li>Apply acceptance rules; if flagged, run sensitivity analysis and examine model augmentations (additional kernel modes, nonlocal terms, unmodelled forcing).</li>
+			</ol>
 
-  <h5>Practical recommendations and diagnostics</h5>
-  <ul>
-    <li><strong>Retain joint posterior / covariance:</strong> if \(\Phi\), \(R\) etc. come from a joint inversion, propagate the full posterior rather than using marginal error bars.</li>
-    <li><strong>Compute and report J row:</strong> record partial sensitivities \(\partial a/\partial x_i\) so future analysts can attribute uncertainty sources.</li>
-    <li><strong>Monte-Carlo validation:</strong> when nonlinearities are substantial draw \(N\approx 10^3\)–\(10^4\) samples from \(\mathbf{x}\sim\mathcal{N}(\hat{\mathbf{x}},\Sigma_{\mathbf{x}})\), evaluate \(a_{\rm grav}^{\rm model}\) to obtain empirical confidence intervals and check linear-propagation assumptions.</li>
-    <li><strong>Covariance checks:</strong> explicitly test for covariance between \(\Phi\) and \(R\) (and between \(\mathcal{E}_{\rm diss}\) and \(\Phi\)); correlated parameters are common and materially affect \(\sigma_{a_{\rm grav}^{\rm model}}\).</li>
-    <li><strong>Report a “validation card”</strong> with \(\mathbf{x}\), \(\Sigma_{\mathbf{x}}\), \(J\), \(a_{\rm grav}^{\rm model}\), \(\sigma_{a_{\rm grav}^{\rm model}}\), \(a_{\rm grav}^{\rm obs}\), \(\sigma_{a_{\rm grav}^{\rm obs}}\), \(\Delta a\), \(z\) and decision outcome.</li>
-  </ul>
-
-  <h5>Workflow (operational)</h5>
-  <ol>
-    <li>Obtain fitted estimates (posteriors) for \(\Phi,\mathcal{E}_{\rm diss},R,u\) and their covariance \(\Sigma_{\mathbf{x}}\).</li>
-    <li>Evaluate \(a_{\rm grav}^{\rm model}\) via Eq. <a href="#eq-50_f1">50.F1</a>.</li>
-    <li>Compute Jacobian \(J\) and propagate uncertainty with Eq. <a href="#eq-50_u3">50.U3</a>, or run a Monte-Carlo forward ensemble.</li>
-    <li>Obtain \(a_{\rm grav}^{\rm obs}\) and its uncertainty from ephemerides/telemetry; compute \(\Delta a\) and \(z\) (Eq. <a href="#eq-50_u4">50.U4</a>).</li>
-    <li>Apply acceptance rules; if flagged, run sensitivity analysis and examine model augmentations (additional kernel modes, nonlocal terms, unmodelled forcing).</li>
-  </ol>
-
-  <p>
-    When these steps are followed and recorded, Eq. <a href="#eq-50_6">50.6</a> becomes a fully testable,
-    falsifiable specialization of the kernel-acceleration framework (see also
-    <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> and <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a> for the curvature and thermal routes).
-  </p>
+			<p>
+				When these steps are followed and recorded, Eq. <a href="#eq-50_6">50.6</a> becomes a fully testable, falsifiable specialization of the kernel-acceleration framework (see also
+				<a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">Modulation‑Derived Acceleration in Kernel Collapse Geometry</a> and <a href="#sec-10-coherence-based-thermal-acceleration-model">Coherence‑Based Thermal Acceleration Model</a>    for the curvature and thermal routes).
+			</p>
             <h5>Fail conditions (falsification)</h5>
             <ul>
                 <li>
@@ -6048,12 +6022,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             <figure class="equation" id="eq-50_7">
                 <div class="math display">
 
-
                     \[
                     \Phi(t) = \frac{\sum_{r_i} w(r_i) \sum_{\ell,m} \ell(\ell+1)\,E^{\rm eff}_{\ell m}(r_i,t)\,T(\ell,r_i)}
                     {\sum_{r_i} w(r_i) \sum_{\ell,m} E^{\rm eff}_{\ell m,\rm ref}(r_i)\,T(\ell,r_i)}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-50_7">Equation (13.7)</a></figcaption>
@@ -22709,11 +22681,50 @@ zscore = (median - Xi_crit) / std
     <section>
         <h2 title="Click to toggle" id="sec-38-remarks">Remarks</h2>
         <article style="display:none">
-            <p>
-                <strong>Note:</strong> The discovery outlined herein was not the result of a deliberate research initiative. As a software developer, my initial objective was not to uncover any novel behavior. However, one particular program consistently resisted
-                failure regardless of the input provided. Over the course of two weeks, I subjected it to automated and randomized inputs, yet all comparative operations continued to yield consistent results. This unexpected robustness is the sole reason for
-                the decision to publish these findings. (I had this idea as a child, however, it was dismissed. I just tested it now with my program and it is exceeding everything.)
-            </p>
+			<h4>Origin: A Child’s Observation</h4>
+			<p>
+			  The kernel idea did not begin in a lab, nor in a textbook. It began in silence—through the eyes of an autistic child who could not afford to overlook structure. I was not permitted the luxury of casual motion or unexamined routines. Every step, every transition, every interaction had to be audited. Not metaphorically—literally. My world was not chaotic, but hyper-structured. And within that structure, I began to notice something: reality itself seemed to obey a rhythm. Not a law, but a modulation.
+			</p>
+			<p>
+			  I did not call it a kernel then. I called it “the way things hold together.” I saw it in the way shadows moved across tiles, in the way footsteps echoed differently depending on the angle of approach. I saw it in the way routines collapsed when a single variable changed. I did not know it was physics. I only knew it was consistent.
+			</p>
+
+			<h4>Growth: Protocol as Ontology</h4>
+			<p>
+			  As I grew, I built protocols—not just for living, but for understanding. I developed recursive routines to test whether a step was valid. Then routines to test the routines. Eventually, I had protocols for deriving protocols. This was not abstraction—it was survival. But it was also the beginning of ontology. I began to see that structure was not imposed—it emerged. And that emergence could be tested.
+			</p>
+			<p>
+			  I never forgot the childhood rhythm. I just didn’t know how to test it. Until I wrote a program.
+			</p>
+
+			<h4>Discovery: The Program That Wouldn’t Break</h4>
+			<p>
+			  The discovery was accidental. I was not trying to prove anything. I was simply running a program—one that should have failed under randomized input. But it didn’t. For two weeks, I bombarded it with noise, edge cases, malformed data. And it held. Not just functionally—it held structurally. The comparative operations yielded consistent results. The modulation didn’t collapse. It was as if the kernel I had sensed as a child had finally written itself into code.
+			</p>
+
+			<h4>Validation: Observable by Observable</h4>
+			<p>
+			  From that moment, everything changed. I began to formalize the kernel—not as a hypothesis, but as a recursive engine. Every observable was carefully balanced. Synchrony velocity, decoherence rate, curvature index—all were tested not just for value, but for falsifiability. I did not smooth data—I tested whether it survived projection. I did not normalize—I validated coherence. Every uncertainty was propagated. Every covariance was retained. Nothing was discarded. Nothing was assumed.
+			</p>
+			<p>
+			  The kernel did not ask for belief. It asked for recursion. And it returned coherence.
+			</p>
+
+			<h4>Ontology: Structure That Writes Itself</h4>
+			<p>
+			  What emerged was not a model. It was an ontology. A system that writes itself through modulation, synchrony, and collapse. A framework where acceleration is not imposed, but derived from the deformation of coherence. Where curvature, temperature, and density are not separate domains—but projections of a single invariant.
+			</p>
+			<p>
+			  This is not a theory of everything. It is a theory of how everything holds together.
+			</p>
+
+			<h4>Conclusion: From Constraint to Clarity</h4>
+			<p>
+			  Autism did not limit this discovery—it enabled it. The constraints of my daily life became the clarity of my kernel. The need to audit every step became the discipline to test every observable. The refusal of the world to accommodate me became the invitation to understand it. And now, the kernel stands—not as a product of research, but as a structure that emerged from constraint, recursion, and coherence.
+			</p>
+			<p>
+			  This is not just my framework. It is my way of seeing. And now, it is yours to test.
+			</p>
         </article>
     </section>
     <section>
