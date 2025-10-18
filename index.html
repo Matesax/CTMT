@@ -19563,11 +19563,9 @@ zscore = (median - Xi_crit) / std
             </p>
             <div class="math display">
 
-
                 \[
                 \Psi_B(x,t) = \int K_{AB}(x,x',t)\,\Psi_A(x',t)\,dx'
                 \]
-
 
             </div>
             <p>
@@ -19575,11 +19573,9 @@ zscore = (median - Xi_crit) / std
             </p>
             <div class="math display">
 
-
                 \[
                 K_{AB}(x,x',t) = \sum_{c \in \mathcal{C}} a_c\,\chi(\omega_c;\omega_0(t),Q(t))\,e^{-i\omega_c t}
                 \]
-
 
             </div>
             <p>
@@ -19588,11 +19584,9 @@ zscore = (median - Xi_crit) / std
             <figure class="equation" id="eq-29_1">
                 <div class="math display">
 
-
                     \[
                     n_c(t) = \Re\left\{ a_c\,\chi(\omega_c;\omega_0(t),Q(t))\,U_c(t)\,e^{-i\omega_c t} \right\}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-29_1">Equation (29.1)</a></figcaption>
@@ -19602,60 +19596,207 @@ zscore = (median - Xi_crit) / std
             </p>
             <div class="math display">
 
-
                 \[
                 \hat{n}(t) = \sum_{c \in \mathcal{C}} n_c(t) + \eta_{\text{surge}}(t)
                 \]
 
-
             </div>
 
             <h4>Unit Consistency</h4>
-            <ul>
-                <li>\( a_c \): amplitude [m]</li>
-                <li>\( \chi(\omega) \): dimensionless transfer function</li>
-                <li>\( U_c(t) \): astronomical forcing [m]</li>
-                <li>\( \omega_c \): angular frequency [rad/s]</li>
-                <li>\( Q(t) \): quality factor [unitless]</li>
-                <li>\( \eta_{\text{surge}}(t) \): surge height [m]</li>
-                <li>\( n_c(t), \hat{n}(t) \): sea level [m]</li>
-            </ul>
+<ul>
+  <li><span class="math inline">\( a_c \)</span>: amplitude [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+  <li><span class="math inline">\( \chi(\omega) \)</span>: dimensionless transfer function</li>
+  <li><span class="math inline">\( U_c(t) \)</span>: astronomical forcing [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+  <li><span class="math inline">\( \omega_c \)</span>: angular frequency [<span class="math inline">\(\mathrm{rad/s}\)</span>]</li>
+  <li><span class="math inline">\( Q(t) \)</span>: quality factor [unitless]</li>
+  <li><span class="math inline">\( \eta_{\text{surge}}(t) \)</span>: surge height [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+  <li><span class="math inline">\( n_c(t),\ \hat{n}(t) \)</span>: sea level [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+</ul>
             <p>
                 All terms combine to yield sea level in meters — unit consistency confirmed.
             </p>
 
-            <h4>Weather Coupling</h4>
-            <figure class="equation" id="eq-29_2">
-                <div class="math display">
-                    \begin{align}
-                    Q(t) &= Q_0 \left[ 1 + \alpha_P\,\Delta P(t) + \alpha_W\,W(t) \right], \\
-                    \omega_0(t) &= \omega_{0,0} \left[ 1 + \epsilon_S\,S(t) \right], \\
-                    U_c(t) &= U_c^{\text{astro}}(t) \left[ 1 + \gamma_P\,\Delta P(t) + \gamma_W\,W(t) \right], \\
-                    \eta_{\text{surge}}(t) &= b_0 + b_P\,\Delta P(t) + b_{\parallel}\,\tau_{\parallel}(t) + b_{\perp}\,\tau_{\perp}(t)
-                    \end{align}
-                </div>
-                <figcaption><a href="#eq-29_2">Equation (29.2)</a></figcaption>
-            </figure>
-            <p>
-                Inputs:
-                <ul>
-                    <li>\( \Delta P(t) \): pressure anomaly [Pa]</li>
-                    <li>\( W(t) \): wind speed [m/s]</li>
-                    <li>\( \tau_{\parallel,\perp}(t) \): wind stress [Pa]</li>
-                    <li>\( S(t) \): seasonal index [unitless]</li>
-                </ul>
-            </p>
+  <h4>Dimensional Closure</h4>
+  <p>
+    The kernel output <span class="math inline">\(K_{AB}(x,x',t)\)</span> must resolve to a displacement field in meters.
+    Each term in the sum:
+  </p>
+  <ul>
+    <li><span class="math inline">\(a_c\)</span>: amplitude coefficient [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+    <li><span class="math inline">\(\chi(\omega_c;\omega_0,Q)\)</span>: dimensionless resonance response</li>
+    <li><span class="math inline">\(e^{-i\omega_c t}\)</span>: unitless phase factor</li>
+    <li><span class="math inline">\(n_c(t)\)</span>: tidal component [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+  </ul>
+  <p>
+    The surge term <span class="math inline">\(\eta_{\text{surge}}(t)\)</span> is a linear combination of pressure and wind inputs,
+    each scaled by coefficients <span class="math inline">\(b_0, b_P, b_{\parallel}, b_{\perp}\)</span> [<span class="math inline">\(\mathrm{m}\)</span>].
+    Therefore, the full kernel output <span class="math inline">\(\hat{n}(t)\)</span> is dimensionally closed in <span class="math inline">\(\mathrm{m}\)</span>.
+  </p>
 
-            <h4>Modeling Protocol</h4>
-            <ol>
-                <li>Remove datum shifts</li>
-                <li>Compute \( U_c^{\text{astro}}(t) \) with nodal modulation</li>
-                <li>Fit AO amplitudes/phases \( \{a_c\} \)</li>
-                <li>Add surge \( \eta_{\text{surge}}(t) \)</li>
-                <li>Enable modulation of \( Q(t), \omega_0(t) \)</li>
-                <li>Optionally scale \( U_c(t) \)</li>
-                <li>Apply blocked cross-validation and ridge regularization</li>
-            </ol>
+  <h4>Measurement Protocol</h4>
+  <p>
+    All inputs to the tide kernel <span class="math inline">\(K_{AB}(x,x',t)\)</span> must be empirically measurable, with acquisition methods and uncertainty bounds defined. No symbolic term is accepted without traceable instrumentation or derivation.
+  </p>
+  <ul>
+    <li><strong>Amplitude coefficients</strong> <span class="math inline">\(a_c\)</span>: derived from harmonic analysis of historical tide records; uncertainty <span class="math inline">\(\sigma_{a_c}\)</span> from regression residuals.</li>
+    <li><strong>Angular frequencies</strong> <span class="math inline">\(\omega_c\)</span>: computed from astronomical ephemerides; uncertainty negligible for primary constituents.</li>
+    <li><strong>Transfer function</strong> <span class="math inline">\(\chi(\omega_c;\omega_0,Q)\)</span>: computed from calibrated basin response; <span class="math inline">\(\omega_0(t)\)</span> and <span class="math inline">\(Q(t)\)</span> derived from pressure and wind inputs.</li>
+    <li><strong>Quality factor</strong> <span class="math inline">\(Q(t)\)</span>: modeled via <span class="math inline">\(Q_0[1 + \alpha_P \Delta P(t) + \alpha_W W(t)]\)</span>; inputs from barometric and anemometric sensors.</li>
+    <li><strong>Astronomical forcing</strong> <span class="math inline">\(U_c(t)\)</span>: computed from ephemerides; modulated by pressure and wind via <span class="math inline">\(\gamma_P, \gamma_W\)</span>.</li>
+    <li><strong>Surge height</strong> <span class="math inline">\(\eta_{\text{surge}}(t)\)</span>: derived from pressure <span class="math inline">\(\Delta P(t)\)</span> and wind stress components <span class="math inline">\(\tau_{\parallel}(t), \tau_{\perp}(t)\)</span>; coefficients <span class="math inline">\(b_0, b_P, b_{\parallel}, b_{\perp}\)</span> fitted from residual analysis.</li>
+    <li><strong>Observed sea level</strong> <span class="math inline">\(n(t)\)</span>: measured via tide gauges; uncertainty <span class="math inline">\(\sigma_n\)</span> from instrument resolution and noise.</li>
+    <li><strong>Predicted sea level</strong> <span class="math inline">\(\hat{n}(t)\)</span>: computed from full kernel model; validated against <span class="math inline">\(n(t)\)</span>.</li>
+  </ul>
+
+  <h4>Observable Mapping</h4>
+  <ul>
+    <li><span class="math inline">\(a_c\)</span>: amplitude [<span class="math inline">\(\mathrm{m}\)</span>] — harmonic fit from gauge data</li>
+    <li><span class="math inline">\(\chi(\omega)\)</span>: dimensionless — basin response model</li>
+    <li><span class="math inline">\(U_c(t)\)</span>: astronomical forcing [<span class="math inline">\(\mathrm{m}\)</span>] — ephemeris-derived</li>
+    <li><span class="math inline">\(\omega_c\)</span>: angular frequency [<span class="math inline">\(\mathrm{rad/s}\)</span>] — orbital mechanics</li>
+    <li><span class="math inline">\(Q(t)\)</span>: quality factor [unitless] — pressure/wind modulated</li>
+    <li><span class="math inline">\(\eta_{\text{surge}}(t)\)</span>: surge height [<span class="math inline">\(\mathrm{m}\)</span>] — meteorological inputs</li>
+    <li><span class="math inline">\(n_c(t),\ \hat{n}(t)\)</span>: sea level [<span class="math inline">\(\mathrm{m}\)</span>] — observed and modeled</li>
+  </ul>
+
+  <h4>Uncertainty Propagation</h4>
+  <p>
+    For each time step <span class="math inline">\(t\)</span>, propagate uncertainty from input parameters:
+  </p>
+  <ul>
+    <li><span class="math inline">\(\sigma_{a_c}, \sigma_{\omega_c}, \sigma_{\omega_0}, \sigma_Q\)</span>: spectral uncertainty</li>
+    <li><span class="math inline">\(\sigma_{\Delta P}, \sigma_W, \sigma_{\tau_{\parallel}}, \sigma_{\tau_{\perp}}\)</span>: surge input uncertainty</li>
+  </ul>
+  <p>
+    Total propagated uncertainty in predicted tide height:
+  </p>
+  <div class="math display">
+
+\[
+    \sigma_{\hat{n}}^2(t) = \sum_{c} \left( \frac{\partial \hat{n}}{\partial a_c} \sigma_{a_c} \right)^2
+    + \left( \frac{\partial \hat{n}}{\partial \omega_0} \sigma_{\omega_0} \right)^2
+    + \left( \frac{\partial \hat{n}}{\partial Q} \sigma_Q \right)^2
+    + \left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2
+    + \left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2
+    + \cdots
+    \]
+
+  </div>
+
+  <h4>Acceptance Band</h4>
+  <p>
+    Compare predicted tide <span class="math inline">\(\hat{n}(t)\)</span> to observed tide <span class="math inline">\(n(t)\)</span> using:
+  </p>
+  <ul>
+    <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
+    <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
+    <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
+  </ul>
+  <p>
+    Acceptance criteria:
+  </p>
+  <ul>
+    <li><strong>Accept:</strong> <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span> and <span class="math inline">\(R^2 \ge 0.95\)</span></li>
+    <li><strong>Investigate:</strong> <span class="math inline">\(0.90 \le R^2 < 0.95\)</span> or <span class="math inline">\(\mathrm{RMSE} > \epsilon_{\max}\)</span> with localized bias</li>
+    <li><strong>Reject:</strong> <span class="math inline">\(R^2 < 0.90\)</span> or persistent deviation beyond uncertainty bounds</li>
+  </ul>
+
+  <h4>Falsifiability and Closure</h4>
+  <ul>
+    <li><strong>No free parameters:</strong> all coefficients must be derived from data or published priors.</li>
+    <li><strong>Uncertainty propagation:</strong> each input’s <span class="math inline">\(\sigma\)</span> must be propagated to <span class="math inline">\(\hat{n}(t)\)</span>.</li>
+    <li><strong>Acceptance band:</strong> model accepted if <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span> and <span class="math inline">\(R^2 \ge 0.95\)</span>.</li>
+    <li><strong>Reject if:</strong> persistent deviation beyond uncertainty bounds or dimensional mismatch.</li>
+  </ul>
+
+  <h4>Weather Coupling</h4>
+  <figure class="equation" id="eq-29_2">
+    <div class="math display">
+      \begin{align}
+      Q(t) &= Q_0 \left[ 1 + \alpha_P\,\Delta P(t) + \alpha_W\,W(t) \right], \\
+      \omega_0(t) &= \omega_{0,0} \left[ 1 + \epsilon_S\,S(t) \right], \\
+      U_c(t) &= U_c^{\text{astro}}(t) \left[ 1 + \gamma_P\,\Delta P(t) + \gamma_W\,W(t) \right], \\
+      \eta_{\text{surge}}(t) &= b_0 + b_P\,\Delta P(t) + b_{\parallel}\,\tau_{\parallel}(t) + b_{\perp}\,\tau_{\perp}(t)
+      \end{align}
+    </div>
+    <figcaption><a href="#eq-29_2">Equation (29.2)</a> — weather-modulated tide kernel.</figcaption>
+  </figure>
+
+  <p>Inputs:</p>
+  <ul>
+    <li><span class="math inline">\(\Delta P(t)\)</span>: pressure anomaly [<span class="math inline">\(\mathrm{Pa}\)</span>]</li>
+    <li><span class="math inline">\(W(t)\)</span>: wind speed [<span class="math inline">\(\mathrm{m/s}\)</span>]</li>
+    <li><span class="math inline">\(\tau_{\parallel}(t),\ \tau_{\perp}(t)\)</span>: wind stress components [<span class="math inline">\(\mathrm{Pa}\)</span>]</li>
+    <li><span class="math inline">\(S(t)\)</span>: seasonal index [unitless]</li>
+  </ul>
+
+  <h5>Dimensional Closure</h5>
+  <ul>
+    <li><span class="math inline">\(Q(t)\)</span>: unitless (quality factor)</li>
+    <li><span class="math inline">\(\omega_0(t)\)</span>: angular frequency [<span class="math inline">\(\mathrm{rad/s}\)</span>]</li>
+    <li><span class="math inline">\(U_c(t)\)</span>: astronomical forcing [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+    <li><span class="math inline">\(\eta_{\text{surge}}(t)\)</span>: surge height [<span class="math inline">\(\mathrm{m}\)</span>]</li>
+  </ul>
+  <p>
+    All terms resolve to physical quantities in SI units. The final output <span class="math inline">\(\hat{n}(t)\)</span> remains dimensionally closed in meters.
+  </p>
+
+  <h5>Uncertainty Propagation</h5>
+  <p>
+    Propagate uncertainty from meteorological inputs to tide prediction:
+  </p>
+  <div class="math display">
+
+\[
+    \sigma_{\hat{n}}^2(t) =
+    \left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2 +
+    \left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2 +
+    \left( \frac{\partial \hat{n}}{\partial \tau_{\parallel}} \sigma_{\tau_{\parallel}} \right)^2 +
+    \left( \frac{\partial \hat{n}}{\partial \tau_{\perp}} \sigma_{\tau_{\perp}} \right)^2 +
+    \left( \frac{\partial \hat{n}}{\partial S} \sigma_S \right)^2
+    \]
+
+  </div>
+
+  <h5>Acceptance Band</h5>
+  <ul>
+    <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
+    <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
+    <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
+  </ul>
+  <p>
+    Model accepted if <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span> and <span class="math inline">\(R^2 \ge 0.95\)</span>; flagged for review if <span class="math inline">\(0.90 \le R^2 < 0.95\)</span>.
+  </p>
+
+  <h5>Measurement Protocol</h5>
+  <ul>
+    <li><strong>Pressure anomaly</strong> <span class="math inline">\(\Delta P(t)\)</span>: barometric sensors; uncertainty <span class="math inline">\(\sigma_{\Delta P}\)</span> from calibration drift.</li>
+    <li><strong>Wind speed</strong> <span class="math inline">\(W(t)\)</span>: anemometers; <span class="math inline">\(\sigma_W\)</span> from gust variability.</li>
+    <li><strong>Wind stress</strong> <span class="math inline">\(\tau_{\parallel}, \tau_{\perp}\)</span>: derived from wind vector and surface drag coefficients.</li>
+    <li><strong>Seasonal index</strong> <span class="math inline">\(S(t)\)</span>: climatological model or empirical harmonic fit.</li>
+    <li><strong>Observed tide</strong> <span class="math inline">\(n(t)\)</span>: tide gauge; resolution <span class="math inline">\(\pm 1\,\mathrm{cm}\)</span>.</li>
+  </ul>
+
+  <h5>Observable Mapping</h5>
+  <ul>
+    <li><span class="math inline">\(\Delta P(t)\)</span>: pressure anomaly [<span class="math inline">\(\mathrm{Pa}\)</span>] — barometric</li>
+    <li><span class="math inline">\(W(t)\)</span>: wind speed [<span class="math inline">\(\mathrm{m/s}\)</span>] — anemometric</li>
+    <li><span class="math inline">\(\tau_{\parallel,\perp}(t)\)</span>: wind stress [<span class="math inline">\(\mathrm{Pa}\)</span>] — derived</li>
+    <li><span class="math inline">\(S(t)\)</span>: seasonal index [unitless] — climatological</li>
+    <li><span class="math inline">\(Q(t), \omega_0(t), U_c(t)\)</span>: modulated parameters — computed</li>
+    <li><span class="math inline">\(\eta_{\text{surge}}(t)\)</span>: surge height [<span class="math inline">\(\mathrm{m}\)</span>] — modeled</li>
+  </ul>
+
+  <h4>Modeling Protocol</h4>
+  <ol>
+    <li>Remove datum shifts</li>
+    <li>Compute <span class="math inline">\(U_c^{\text{astro}}(t)\)</span> with nodal modulation</li>
+    <li>Fit AO amplitudes/phases <span class="math inline">\(\{a_c\}\)</span></li>
+    <li>Add surge <span class="math inline">\(\eta_{\text{surge}}(t)\)</span></li>
+    <li>Enable modulation of <span class="math inline">\(Q(t), \omega_0(t)\)</span></li>
+    <li>Optionally scale <span class="math inline">\(U_c(t)\)</span></li>
+    <li>Apply blocked cross-validation and ridge regularization</li>
+  </ol>
 
             <h4>Benchmark Results</h4>
             <p>
