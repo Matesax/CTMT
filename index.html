@@ -1198,60 +1198,59 @@
       Thus, <span class="math inline">\(\mu\)</span> is dimensionless and suitable for cross-domain coherence validation.
     </p>
 
-    <h4>Uncertainty Propagation</h4>
-
-    <p>
-      Propagate uncertainty from all input observables:
-    </p>
-
-    <div class="math display">
-      
-
-\[
-      \frac{\delta\mu}{\mu}
-      = \sqrt{
-      \left(\frac{\delta|\vec{K}|}{|\vec{K}|}\right)^2 +
-      \left(\frac{\delta\Omega}{\Omega}\right)^2 +
-      \left(\frac{\delta\Theta}{\Theta}\right)^2 +
-      \left(\frac{\delta\mathcal{S}_\ast}{\mathcal{S}_\ast}\right)^2
-      }.
-      \]
-
-
-    </div>
-
-    <p>
-      Each uncertainty term must be empirically derived or bounded via calibration. No symbolic term is exempt from traceability.
-    </p>
-
-<h4>Acceptance Band</h4>
-
+<h4>Uncertainty Propagation</h4>
 <p>
-To validate modulation coherence, the index <span class="math inline">\(\mu\)</span> must fall within a domain-specific acceptance band:
+Propagate uncertainty from all input observables using full Jacobian and covariance structure.
+Let <span class="math inline">\(\mu = \frac{|\vec{K}|\,\Omega}{\Theta\,\mathcal{S}_\ast}\)</span> and define the parameter vector
+<span class="math inline">\(\mathbf{p} = \{|\vec{K}|, \Omega, \Theta, \mathcal{S}_\ast\}\)</span>.
+Then the propagated variance is:
 </p>
 
 <div class="math display">
-  
 
 \[
-  |\mu - \tau| \le \delta\tau,
-  \]
-
+\sigma_\mu^2 = \mathbf{J}\,\Sigma_p\,\mathbf{J}^\top
+\quad\text{where}\quad
+\mathbf{J} = \left[
+\frac{\partial \mu}{\partial |\vec{K}|},
+\frac{\partial \mu}{\partial \Omega},
+\frac{\partial \mu}{\partial \Theta},
+\frac{\partial \mu}{\partial \mathcal{S}_\ast}
+\right]
+\]
 
 </div>
 
-<ul>
-  <li><span class="math inline">\(\tau\)</span> — coherence threshold of the medium (e.g., orbital lock, quantum synchrony, biological entrainment)</li>
-  <li><span class="math inline">\(\delta\tau\)</span> — admissible lock bandwidth, empirically derived from system stability margins</li>
-</ul>
+<p>
+If independence is assumed, this reduces to:
+</p>
+
+<div class="math display">
+
+\[
+\frac{\delta\mu}{\mu}
+= \sqrt{
+\left(\frac{\delta|\vec{K}|}{|\vec{K}|}\right)^2 +
+\left(\frac{\delta\Omega}{\Omega}\right)^2 +
+\left(\frac{\delta\Theta}{\Theta}\right)^2 +
+\left(\frac{\delta\mathcal{S}_\ast}{\mathcal{S}_\ast}\right)^2
+}
+\]
+
+</div>
 
 <p>
-Acceptance criteria:
+Each uncertainty term must be empirically derived or bounded via calibration. No symbolic term is exempt from traceability.
+</p>
+
+<h4>Acceptance Band</h4>
+<p>
+To validate modulation coherence, the index <span class="math inline">\(\mu(t)\)</span> must satisfy:
 </p>
 <ul>
-  <li><strong>Accept:</strong> <span class="math inline">\(|\mu - \tau| \le \delta\tau\)</span> — stable phase-lock, no drift</li>
-  <li><strong>Investigate:</strong> <span class="math inline">\(|\mu - \tau| > \delta\tau\)</span> but within uncertainty bounds</li>
-  <li><strong>Reject:</strong> persistent deviation beyond <span class="math inline">\(\delta\tau + \delta\mu\)</span> or incoherent modulation</li>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(\mu(t)\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> <span class="math inline">\(\mu_{\text{mean}} \in [\mu_{\text{min}}, \mu_{\text{max}}]\)</span> based on system class</li>
+  <li><strong>Fit:</strong> Residuals of <span class="math inline">\(\mu(t)\)</span> must pass ACF and QQ diagnostics</li>
 </ul>
 
 <h4>Measurement Protocol</h4>
@@ -4265,36 +4264,135 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 				for the collapse form <span class="math inline">\([\Delta\gamma/\Delta\rho]=\mathrm{m\,s^{-2}}\)</span>.
 			</p>
 
-			<h4>Uncertainty propagation</h4>
-			<p><strong>Curvature form (Eq. <a href="#eq-9_1">9.1</a>):</strong></p>
-			<div class="math display">
+<h4>Uncertainty Propagation — Curvature Form</h4>
+<p>
+For <a href="#eq-9_1">Equation 9.1</a>, acceleration is expressed as:
+<span class="math inline">\(a = M_1 \frac{d\Theta}{dS} + \Theta \frac{dM_1}{dS}\)</span>.
+Let the parameter vector be:
+<span class="math inline">\(\mathbf{p}_a = \{M_1, \Theta, \frac{dM_1}{dS}, \frac{d\Theta}{dS}, S\}\)</span>.
+Then the propagated uncertainty is:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_a^2 =
+\left(M_1 \frac{d\Theta}{dS}\right)^2 \sigma_S^2 +
+\left(\Theta \frac{dM_1}{dS}\right)^2 \sigma_S^2 +
+2\,\mathrm{Cov}\left(M_1 \frac{d\Theta}{dS}, \Theta \frac{dM_1}{dS}\right)
+\]
+
+</div>
+
+<p>
+Alternatively, define the Jacobian:
+<span class="math inline">\(\mathbf{J}_a = \frac{\partial a}{\partial \mathbf{p}_a}\)</span> and covariance matrix
+<span class="math inline">\(\Sigma_a\)</span>. Then:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_a^2 = \mathbf{J}_a\,\Sigma_a\,\mathbf{J}_a^\top
+\]
+
+</div>
+
+<h4>Uncertainty Propagation — Collapse Form</h4>
+<p>
+For <a href="#eq-9_2">Equation 9.2</a>, acceleration is expressed as:
+<span class="math inline">\(a = \frac{\Delta\gamma}{\Delta\rho}\)</span>.
+Let the parameter vector be:
+<span class="math inline">\(\mathbf{p}_a = \{\Delta\gamma, \Delta\rho\}\)</span>.
+Then the propagated uncertainty is:
+</p>
+
+<div class="math display">
 
 
-				\[
-				\sigma_{a}^2
-				= \left(M_1\frac{d\Theta}{dS}\right)^2\sigma_S^2
-				+ \left(\Theta\frac{dM_1}{dS}\right)^2\sigma_S^2
-				+ 2\,\mathrm{Cov}\!\left(M_1\frac{d\Theta}{dS},
-				\Theta\frac{dM_1}{dS}\right)
-				\]
+\[
+\sigma_a^2 =
+\left(\frac{1}{\Delta\rho}\right)^2 \sigma_{\Delta\gamma}^2 +
+\left(\frac{\Delta\gamma}{\Delta\rho^2}\right)^2 \sigma_{\Delta\rho}^2 -
+2 \frac{\Delta\gamma}{\Delta\rho^3} \mathrm{Cov}(\Delta\gamma, \Delta\rho)
+\]
 
 
-			</div>
+</div>
 
-			<p><strong>Collapse form (Eq. <a href="#eq-9_2">9.2</a>):</strong></p>
-			<div class="math display">
+<p>
+Or in matrix form:
+<span class="math inline">\(\mathbf{J}_a = \left[\frac{\partial a}{\partial \Delta\gamma}, \frac{\partial a}{\partial \Delta\rho}\right]\)</span>,
+then:
+</p>
 
+<div class="math display">
 
-				\[
-				\sigma_a^2
-				= \left(\frac{1}{\Delta\rho}\right)^2\sigma_{\Delta\gamma}^2
-				+ \left(\frac{\Delta\gamma}{\Delta\rho^2}\right)^2\sigma_{\Delta\rho}^2
-				- 2\frac{\Delta\gamma}{\Delta\rho^3}\,
-				\mathrm{Cov}(\Delta\gamma,\Delta\rho)
-				\]
+\[
+\sigma_a^2 = \mathbf{J}_a\,\Sigma_a\,\mathbf{J}_a^\top
+\quad \text{with} \quad
+\frac{\partial a}{\partial \Delta\gamma} = \frac{1}{\Delta\rho},\quad
+\frac{\partial a}{\partial \Delta\rho} = -\frac{\Delta\gamma}{\Delta\rho^2}
+\]
 
+</div>
 
-			</div>
+<h5>Dimensional Closure</h5>
+<p>
+Acceleration must satisfy:
+<span class="math inline">\([a] = \mathrm{m/s^2}\)</span>. For collapse form:
+</p>
+
+<div class="math display">
+
+\[
+[\Delta\gamma] = \mathrm{N/m^3},\quad [\Delta\rho] = \mathrm{kg/m^3}
+\quad \Rightarrow \quad
+[a] = \frac{\mathrm{N/m^3}}{\mathrm{kg/m^3}} = \mathrm{m/s^2}
+\]
+
+</div>
+
+<h4>Acceptance Band</h4>
+<p>
+Accept predicted acceleration <span class="math inline">\(a_{\rm pred}\)</span> if:
+</p>
+
+<div class="math display">
+
+\[
+|a_{\rm obs} - a_{\rm pred}| \leq k\,\sigma_a
+\quad \text{with} \quad k \approx 2
+\]
+
+</div>
+
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(a_{\rm obs}\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> RMSE ≤ <span class="math inline">\(\epsilon_{\max}\)</span> tied to application precision</li>
+  <li><strong>Dimensional:</strong> <span class="math inline">\([a] = \mathrm{m/s^2}\)</span> must hold</li>
+</ul>
+
+<h4>Falsifiability Protocol</h4>
+<ul>
+  <li><strong>Observables:</strong> measure <span class="math inline">\(a_{\rm obs}\)</span> via accelerometry or inferred from motion profiles</li>
+  <li><strong>Model computation:</strong> evaluate curvature or collapse form with ensemble sampling</li>
+  <li><strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation across time or space</li>
+      <li>Non-physical parameters (e.g. <span class="math inline">\(\Delta\rho < 0\)</span>)</li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\(a_{\rm obs}\)</span> within 95% CI</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Diagnostics and Reporting</h4>
+<ul>
+  <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_a\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(M_1, \Theta)\)</span>)</li>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(a_{\rm obs} - a_{\rm pred}\)</span></li>
+  <li>Use ensemble Monte Carlo if curvature or collapse terms are nonlinear or time-dependent</li>
+  <li>Report coverage: fraction of time points within 95% predictive intervals</li>
+</ul>
 
 			<h4>Bridge to Orbital Mechanics (explicit link to shape factor)</h4>
 			<figure class="equation" id="eq-9_4">
@@ -4624,28 +4722,105 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
   as <span class="math inline">\(a_{\mathrm{kernel}}\)</span> in <a href="#sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">modulation-derived acceleration law</a>.
 </p>
 
-<h4>Uncertainty propagation</h4>
+<h4>Uncertainty Propagation</h4>
 <p>
-  For <a href="#eq-10_2">Equation (10.2)</a>,
+For <a href="#eq-10_2">Equation (10.2)</a>, thermal acceleration <span class="math inline">\(a_T\)</span> depends on:
+<span class="math inline">\(\Phi\)</span> (thermal flux), <span class="math inline">\(\gamma\)</span> (dissipation rate),
+<span class="math inline">\(\rho\)</span> (mass density), and <span class="math inline">\(v_{\mathrm{sync}}\)</span> (synchronization velocity).
+Define the parameter vector:
+<span class="math inline">\(\mathbf{p}_T = \{\Phi, \gamma, \rho, v_{\mathrm{sync}}\}\)</span> and Jacobian:
+<span class="math inline">\(\mathbf{J}_T = \frac{\partial a_T}{\partial \mathbf{p}_T}\)</span>.
+Then the propagated uncertainty is:
 </p>
 
-<figure class="equation" id="eq-10_4">
-  <div class="math display">
+<div class="math display">
 
 \[
-    \sigma_{a_T}^2
-    =\left(\frac{\partial a_T}{\partial\Phi}\sigma_\Phi\right)^2
-    +\left(\frac{\partial a_T}{\partial\gamma}\sigma_\gamma\right)^2
-    +\left(\frac{\partial a_T}{\partial\rho}\sigma_\rho\right)^2
-    +\left(\frac{\partial a_T}{\partial v_{\mathrm{sync}}}\sigma_v\right)^2
-    +2\,\mathrm{Cov}\!\left(\gamma,\rho\right)
-      \left(\frac{\partial a_T}{\partial\gamma}\right)
-      \left(\frac{\partial a_T}{\partial\rho}\right).
-    \]
+\sigma_{a_T}^2 = \mathbf{J}_T\,\Sigma_T\,\mathbf{J}_T^\top
+\]
 
-  </div>
-  <figcaption><a href="#eq-10_4">Equation (10.4)</a> — full uncertainty propagation with covariance.</figcaption>
-</figure>
+</div>
+
+<p>
+If only <span class="math inline">\(\mathrm{Cov}(\gamma,\rho)\)</span> is known, the scalar expansion becomes:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{a_T}^2 =
+\left(\frac{\partial a_T}{\partial \Phi} \sigma_\Phi\right)^2 +
+\left(\frac{\partial a_T}{\partial \gamma} \sigma_\gamma\right)^2 +
+\left(\frac{\partial a_T}{\partial \rho} \sigma_\rho\right)^2 +
+\left(\frac{\partial a_T}{\partial v_{\mathrm{sync}}} \sigma_v\right)^2 +
+2\,\mathrm{Cov}(\gamma,\rho)
+\left(\frac{\partial a_T}{\partial \gamma}\right)
+\left(\frac{\partial a_T}{\partial \rho}\right)
+\]
+
+</div>
+
+<figcaption><a href="#eq-10_4">Equation (10.4)</a> — full uncertainty propagation with covariance.</figcaption>
+
+<h5>Dimensional Closure</h5>
+<p>
+Thermal acceleration must satisfy:
+<span class="math inline">\([a_T] = \mathrm{m/s^2}\)</span>. For canonical forms:
+</p>
+
+<div class="math display">
+
+\[
+[\Phi] = \mathrm{W/m^3},\quad
+[\gamma] = \mathrm{s^{-1}},\quad
+[\rho] = \mathrm{kg/m^3},\quad
+[v_{\mathrm{sync}}] = \mathrm{m/s}
+\quad \Rightarrow \quad
+[a_T] = \frac{\Phi}{\rho\,v_{\mathrm{sync}}} \sim \mathrm{m/s^2}
+\]
+
+</div>
+
+<h5>Acceptance Band</h5>
+<p>
+Accept predicted thermal acceleration <span class="math inline">\(a_T^{\rm pred}\)</span> if:
+</p>
+
+<div class="math display">
+
+\[
+|a_T^{\rm obs} - a_T^{\rm pred}| \leq k\,\sigma_{a_T}
+\quad \text{with} \quad k \approx 2
+\]
+
+</div>
+
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(a_T^{\rm obs}\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> RMSE ≤ <span class="math inline">\(\epsilon_{\max}\)</span> tied to thermal sensor precision</li>
+  <li><strong>Dimensional:</strong> <span class="math inline">\([a_T] = \mathrm{m/s^2}\)</span> must hold</li>
+</ul>
+
+<h5>Falsifiability Protocol</h5>
+<ul>
+  <li><strong>Observables:</strong> measure <span class="math inline">\(a_T^{\rm obs}\)</span> via thermal drift, calorimetry, or inferred from energy gradients</li>
+  <li><strong>Model computation:</strong> evaluate Equation (10.2) with ensemble sampling or posterior inference</li>
+  <li><strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation across time or spatial domain</li>
+      <li>Non-physical parameters (e.g. <span class="math inline">\(\rho < 0\)</span>, <span class="math inline">\(\gamma \to \infty\)</span>)</li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\(a_T^{\rm obs}\)</span> within 95% CI</li>
+    </ul>
+  </li>
+</ul>
+
+<h5>Diagnostics and Reporting</h5>
+<ul>
+  <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_T\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(\gamma, \rho)\)</span>)</li>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(a_T^{\rm pred} - a_T^{\rm obs}\)</span></li>
+  <li>Use ensemble Monte Carlo if inputs are nonlinear or temperature-dependent</li>
+  <li>Report coverage: fraction of observed <span class="math inline">\(a_T\)</span> values within 95% predictive intervals</li>
+</ul>
 
 <p>
   In thermal experiments, correlations between <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\rho\)</span>
@@ -4722,25 +4897,49 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 <h4>Falsifiability Protocol</h4>
 <p>
-  The model is falsifiable if measured observables cannot reproduce <span class="math inline">\(a_T\)</span> within propagated uncertainty. Protocol:
+The model is falsifiable if measured observables cannot reproduce <span class="math inline">\(a_T\)</span> within propagated uncertainty. Protocol:
 </p>
+
 <ul>
-  <li><strong>Observables:</strong> measure <span class="math inline">\(E(x)\)</span> via calorimetry or spectroscopy, <span class="math inline">\(v_{\rm sync}(x)\)</span> via correlation time/length, and <span class="math inline">\(\gamma(x)\)</span> via linewidth or decoherence rate.</li>
-  <li><strong>Model computation:</strong> <span class="math inline">\(L_K = v_{\rm sync}/\gamma\)</span>, <span class="math inline">\(a_T = d(E/L_K)/dt\)</span>.</li>
-  <li><strong>Error propagation:</strong>
-    <div class="math display">   
+  <li><strong>Observables:</strong> measure <span class="math inline">\(E(x)\)</span> via calorimetry or spectroscopy, <span class="math inline">\(v_{\rm sync}(x)\)</span> via correlation time or length scale, and <span class="math inline">\(\gamma(x)\)</span> via linewidth or decoherence rate.</li>
+
+  <li><strong>Model computation:</strong> define kernel length <span class="math inline">\(L_K = v_{\rm sync}/\gamma\)</span>, then compute thermal amplitude as <span class="math inline">\(a_T = \frac{d}{dt}\left(\frac{E}{L_K}\right)\)</span>.</li>
+
+  <li><strong>Error propagation:</strong> let <span class="math inline">\(\mathbf{p}_T = \{E, v_{\rm sync}, \gamma\}\)</span> and <span class="math inline">\(\mathbf{J}_T = \frac{\partial a_T}{\partial \mathbf{p}_T}\)</span>. Then:
+    <div class="math display">
+    
 
 \[
-      \sigma_{a_T}^2 =
-      \left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
-      \left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
-      \left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2.
-      \]
+    \sigma_{a_T}^2 = \mathbf{J}_T\,\Sigma_T\,\mathbf{J}_T^\top
+    \]
+
+
+    </div>
+    <p>If only scalar variances are known, use:</p>
+    <div class="math display">
+    
+
+\[
+    \sigma_{a_T}^2 =
+    \left(\frac{\partial a_T}{\partial E}\sigma_E\right)^2 +
+    \left(\frac{\partial a_T}{\partial v_{\rm sync}}\sigma_v\right)^2 +
+    \left(\frac{\partial a_T}{\partial \gamma}\sigma_\gamma\right)^2
+    \]
+
 
     </div>
   </li>
+
   <li><strong>Acceptance band:</strong> accept if <span class="math inline">\(|a_T^{\rm obs} - a_T^{\rm model}| \leq k\,\sigma_{a_T}\)</span> with <span class="math inline">\(k \approx 2\)</span> (95% confidence).</li>
-  <li><strong>Fail conditions:</strong> systematic deviation, non-physical parameter values, or dimensional mismatch (<span class="math inline">\(\neq \mathrm{J\,m^{-3}\,s^{-1}}\)</span>).</li>
+
+  <li><strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation beyond uncertainty bounds</li>
+      <li>Non-physical parameter values (e.g. <span class="math inline">\(\gamma < 0\)</span>, <span class="math inline">\(v_{\rm sync} \gg c\)</span>)</li>
+      <li>Dimensional mismatch: <span class="math inline">\(a_T \notin \mathrm{J\,m^{-3}\,s^{-1}}\)</span></li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\(a_T^{\rm obs}\)</span> within 95% CI</li>
+    </ul>
+  </li>
 </ul>
 
 <h4>Monte Carlo Validation</h4>
@@ -9528,59 +9727,100 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
     Deviations quantify synchrony drift and resonance stress.
   </p>
 
-  <h4>Uncertainty Propagation</h4>
+<h4>Uncertainty Propagation</h4>
+<p>
+Propagate uncertainty from orbital observables using full Jacobian and covariance structure.
+Let <span class="math inline">\(\mu^\ast = \mu''(1 + \lambda R)\)</span> with constituent terms:
+<span class="math inline">\(\mu'' = \frac{v}{a(1 - e^2)}\)</span> (dimensional) or
+<span class="math inline">\(\tilde{\mu}^\ast = \frac{v}{n a (1 - e^2)}(1 + \lambda R)\)</span> (dimensionless).
+</p>
 
-  <p>Dimensional form:</p>
-  <div class="math display">
+<p>
+Define the parameter vector:
+<span class="math inline">\(\mathbf{p}_{\rm orb} = \{v, a, e, R, n\}\)</span> and Jacobian:
+<span class="math inline">\(\mathbf{J}_{\rm orb} = \frac{\partial \mu^\ast}{\partial \mathbf{p}_{\rm orb}}\)</span>.
+Then the propagated variance is:
+</p>
 
-\[
-    \frac{\delta\mu^\ast_{\rm d}}{\mu^\ast_{\rm d}} =
-    \sqrt{
-      \left(\frac{\delta v}{v}\right)^2 +
-      \left(\frac{\delta a}{a}\right)^2 +
-      \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
-      \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
-    }
-    \]
-
-  </div>
-
-  <p>Dimensionless form:</p>
-  <div class="math display">
+<div class="math display">
 
 \[
-    \frac{\delta\tilde{\mu}^\ast}{\tilde{\mu}^\ast} =
-    \sqrt{
-      \left(\frac{\delta v}{v}\right)^2 +
-      \left(\frac{\delta n}{n}\right)^2 +
-      \left(\frac{\delta a}{a}\right)^2 +
-      \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
-      \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
-    }
-    \]
+\sigma_{\mu^\ast}^2 = \mathbf{J}_{\rm orb}\,\Sigma_{\rm orb}\,\mathbf{J}_{\rm orb}^\top
+\]
 
-  </div>
+</div>
 
-  <h4>Acceptance Band</h4>
-  <p>
-    Orbital coherence requires:
-  </p>
+<p>
+If independence is assumed, the scalar form reduces to:
+</p>
 
-  <div class="math display">
+<p>Dimensional form:</p>
+<div class="math display">
 
 \[
-    |\mu^\ast_{\rm d} - \tau_{\rm orb}| \le \delta\tau_{\rm orb}
-    \quad \text{or} \quad
-    |\tilde{\mu}^\ast - 1| \le \delta\tilde{\mu}
-    \]
+\frac{\delta\mu^\ast_{\rm d}}{\mu^\ast_{\rm d}} =
+\sqrt{
+  \left(\frac{\delta v}{v}\right)^2 +
+  \left(\frac{\delta a}{a}\right)^2 +
+  \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
+  \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
+}
+\]
 
-  </div>
+</div>
 
-  <ul>
-    <li><span class="math inline">\(\tau_{\rm orb}\)</span> — orbital coherence threshold</li>
-    <li><span class="math inline">\(\delta\tau_{\rm orb}\)</span> — admissible lock bandwidth</li>
-    <li><span class="math inline">\(\delta\tilde{\mu}\)</span> — deviation from circular synchrony</li>
-  </ul>
+<p>Dimensionless form:</p>
+<div class="math display">
+
+\[
+\frac{\delta\tilde{\mu}^\ast}{\tilde{\mu}^\ast} =
+\sqrt{
+  \left(\frac{\delta v}{v}\right)^2 +
+  \left(\frac{\delta n}{n}\right)^2 +
+  \left(\frac{\delta a}{a}\right)^2 +
+  \left(\frac{2e\,\delta e}{1 - e^2}\right)^2 +
+  \left(\frac{\lambda\,\delta R}{1 + \lambda R}\right)^2
+}
+\]
+
+</div>
+
+<h5>Diagnostics and Reporting</h5>
+<ul>
+  <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_{\rm orb}\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(v, a)\)</span>)</li>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(\mu^\ast(t) - \tau_{\rm orb}\)</span></li>
+  <li>Use ensemble Monte Carlo if eccentricity or resonance terms are nonlinear or time-dependent</li>
+  <li>Report coverage: fraction of <span class="math inline">\(\mu^\ast(t)\)</span> within 95% predictive intervals</li>
+</ul>
+
+<h4>Acceptance Band</h4>
+<p>
+Orbital coherence requires:
+</p>
+
+<div class="math display">
+
+\[
+|\mu^\ast_{\rm d} - \tau_{\rm orb}| \le \delta\tau_{\rm orb}
+\quad \text{or} \quad
+|\tilde{\mu}^\ast - 1| \le \delta\tilde{\mu}
+\]
+
+</div>
+
+<ul>
+  <li><span class="math inline">\(\tau_{\rm orb}\)</span> — orbital coherence threshold</li>
+  <li><span class="math inline">\(\delta\tau_{\rm orb}\)</span> — admissible lock bandwidth</li>
+  <li><span class="math inline">\(\delta\tilde{\mu}\)</span> — deviation from circular synchrony</li>
+</ul>
+
+<h5>Validation Criteria</h5>
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(\mu^\ast(t)\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> Mean <span class="math inline">\(\mu^\ast\)</span> within threshold band</li>
+  <li><strong>Dimensional:</strong> Units of <span class="math inline">\(\mu^\ast_{\rm d}\)</span> must be <span class="math inline">\(\mathrm{s^{-1}}\)</span></li>
+  <li><strong>Fail conditions:</strong> systematic deviation, non-physical orbital parameters, or coverage failure</li>
+</ul>
 
   <h4>Measurement Protocol</h4>
 
@@ -16025,33 +16265,99 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
     <section>
         <h2 title="Click to toggle" id="sec-22-molecular-rotational-spectra">Molecular Rotational Spectra</h2>
         <article style="display:none">
-            <p>
-                Rotational transitions in diatomic molecules are modeled using the <strong>sync-phase kernel</strong>, which encodes geometric modulation of phase across molecular bonds.
-                The rotational constant <span class="math inline">\( B_e \)</span> and transition frequency <span class="math inline">\( \bar{\nu}_{J \to J+1} \)</span> are given by:
-            </p>
 
-            <figure class="equation" id="eq-22_1">
-                <div class="math display">
+    <p>
+      In the kernel framework, rotational transitions in diatomic molecules arise from recursive phase modulation across a bond-aligned coherence envelope.
+      The sync-phase kernel encodes angular momentum quantization and geometric phase dispersion.
+    </p>
+
+    <h4>Kernel Formulation</h4>
+    <p>
+      The rotational recursion kernel is defined as:
+    </p>
+
+    <figure class="equation" id="eq-22_1">
+      <div class="math display">
+
+\[
+      K_J(x,x') = \int_{\Omega_J} M[J, \mu, r_e, \gamma, \Theta] \cdot e^{i\Phi_J(x,x';J)}\, dJ
+      \]
 
 
-                    \[
-                    B_e = \frac{h}{8\pi^{2}c \mu r_e^{2}}, \quad \bar{\nu}_{J \to J+1} = 2B_e(J+1)
-                    \]
+      </div>
+      <figcaption><a href="#eq-22_1">Equation (22.1)</a> — rotational recursion kernel.</figcaption>
+    </figure>
+
+    <p>Where:</p>
+    <ul>
+      <li><span class="math inline">\(M[J, \dots]\)</span> — modulation envelope (mass, bond length, damping, curvature)</li>
+      <li><span class="math inline">\(\Phi_J(x,x';J)\)</span> — rotational phase propagation function</li>
+      <li><span class="math inline">\(\Omega_J\)</span> — domain of allowed rotational states</li>
+    </ul>
+
+    <h4>Quantization Conditions</h4>
+    <p>
+      Allowed rotational transitions correspond to eigenstates <span class="math inline">\(J_n\)</span> satisfying:
+    </p>
+
+    <figure class="equation" id="eq-22_2">
+      <div class="math display">
+
+\[
+      \frac{\partial \Phi_J(x,x';J)}{\partial J} = 0 \quad \text{(stationary phase)}, \qquad
+      \Phi_J(x,x';J_n) = 2\pi n \quad \text{(quantized recursion)}
+      \]
+
+      </div>
+      <figcaption><a href="#eq-22_2">Equation (22.2)</a> — rotational quantization conditions.</figcaption>
+    </figure>
+
+    <p>
+      These conditions enforce synchrony between angular phase propagation and molecular geometry, producing discrete rotational energy levels.
+    </p>
+
+    <h4>Observable Frequencies</h4>
+    <p>
+      The transition frequency between rotational states is:
+    </p>
+
+    <figure class="equation" id="eq-22_3">
+      <div class="math display">
+
+\[
+      \bar{\nu}_{J \to J+1} = \frac{E_{J+1} - E_J}{h} = 2B_e(J+1)
+      \]
 
 
-                </div>
-                <figcaption><a href="#eq-22_1">Equation (22.1)</a></figcaption>
-            </figure>
+      </div>
+      <figcaption><a href="#eq-22_3">Equation (22.3)</a> — rotational transition frequency.</figcaption>
+    </figure>
 
-            <p>where:</p>
-            <ul>
-                <li><span class="math inline">\( h \)</span> — Planck constant</li>
-                <li><span class="math inline">\( c \)</span> — speed of light</li>
-                <li><span class="math inline">\( \mu = \tfrac{m_1 m_2}{m_1 + m_2} \)</span> — reduced mass</li>
-                <li><span class="math inline">\( r_e \)</span> — equilibrium bond length</li>
-            </ul>
+    <p>
+      With rotational constant:
+    </p>
 
-            <h4>Centrifugal Distortion Correction</h4>
+    <figure class="equation" id="eq-22_4">
+      <div class="math display">
+
+\[
+      B_e = \frac{h}{8\pi^2 c \mu r_e^2}
+      \]
+
+      </div>
+      <figcaption><a href="#eq-22_4">Equation (22.4)</a> — rotational constant from kernel geometry.</figcaption>
+    </figure>
+
+    <p>Where:</p>
+    <ul>
+      <li><span class="math inline">\( \mu = \frac{m_1 m_2}{m_1 + m_2} \)</span> — reduced mass</li>
+      <li><span class="math inline">\( r_e \)</span> — equilibrium bond length</li>
+      <li><span class="math inline">\( c \)</span> — speed of light</li>
+      <li><span class="math inline">\( h \)</span> — Planck constant</li>
+    </ul>
+
+    <h4>Centrifugal Distortion</h4>
+
             <p>
                 At higher rotational quantum numbers <span class="math inline">\( J \)</span>, centrifugal distortion must be included:
             </p>
@@ -16070,16 +16376,132 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
             </figure>
 
             <p>
-                where <span class="math inline">\( D_e \)</span> is the distortion constant derived from bond flexibility.
+                where <span class="math inline">\( D_e \)</span> is the distortion constant, interpreted in the kernel as a second-order phase dispersion parameter.
                 In the sync-phase kernel, <span class="math inline">\( D_e \)</span> corresponds to a <em>sync-splay parameter</em> that reflects geometric phase dispersion.
             </p>
 
-            <h4>Selection Rules</h4>
-            <p>
-                In quantum mechanics, allowed rotational transitions satisfy <span class="math inline">\( \Delta J = \pm 1 \)</span>.
-                In the sync-phase ontology, this emerges from a <strong>synchrony resonance filter</strong>:
-                only specific phase differentials couple to electromagnetic fields, enforcing discrete transition conditions.
-            </p>
+    <h4>Selection Rules</h4>
+    <p>
+      Allowed transitions satisfy <span class="math inline">\(\Delta J = \pm 1\)</span>, enforced by synchrony resonance:
+    </p>
+
+    <div class="math display">
+
+\[
+    \Delta J = \pm 1 \quad \Leftrightarrow \quad \delta\phi_J = \frac{2\pi}{\lambda_{\text{EM}}}
+    \]
+
+    </div>
+
+    <p>
+      Only phase differentials matching the electromagnetic field wavelength couple to the field, producing observable transitions.
+    </p>
+
+    <h4>Dimensional Closure</h4>
+    <div class="math display">
+    
+\[
+    [B_e] = \frac{[h]}{[c][\mu][r_e^2]} = \mathrm{Hz}
+    \quad \Rightarrow \quad [\bar{\nu}] = \mathrm{Hz}
+    \]
+
+    </div>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+Rotational transition frequencies <span class="math inline">\(\bar{\nu}_{J \to J+1}\)</span> depend on the rotational constant <span class="math inline">\(B_e\)</span>, which is derived from:
+</p>
+
+<div class="math display">
+
+\[
+B_e = \frac{h}{8\pi^2 c \mu r_e^2}
+\quad \Rightarrow \quad
+\bar{\nu}_{J \to J+1} = 2B_e(J+1)
+\]
+
+</div>
+
+<p>
+Let the parameter vector be:
+<span class="math inline">\(\mathbf{p}_R = \{h, c, \mu, r_e\}\)</span> and define the Jacobian:
+<span class="math inline">\(\mathbf{J}_R = \frac{\partial \bar{\nu}}{\partial \mathbf{p}_R}\)</span>.
+Then the propagated uncertainty is:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{\bar{\nu}}^2 = \mathbf{J}_R\,\Sigma_R\,\mathbf{J}_R^\top
+\]
+
+</div>
+
+<p>
+Expanded scalar form:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{\bar{\nu}}^2 =
+\left(\frac{\partial \bar{\nu}}{\partial \mu} \sigma_\mu\right)^2 +
+\left(\frac{\partial \bar{\nu}}{\partial r_e} \sigma_{r_e}\right)^2 +
+2\,\mathrm{Cov}(\mu, r_e)
+\left(\frac{\partial \bar{\nu}}{\partial \mu}\right)
+\left(\frac{\partial \bar{\nu}}{\partial r_e}\right)
+\]
+
+</div>
+
+<p>
+Where:
+</p>
+<ul>
+  <li><span class="math inline">\(\frac{\partial \bar{\nu}}{\partial \mu} = -\frac{h(J+1)}{4\pi^2 c r_e^2 \mu^2}\)</span></li>
+  <li><span class="math inline">\(\frac{\partial \bar{\nu}}{\partial r_e} = -\frac{h(J+1)}{4\pi^2 c \mu r_e^3}\)</span></li>
+</ul>
+
+<h5>Acceptance Band</h5>
+<p>
+Accept predicted rotational frequency <span class="math inline">\(\bar{\nu}_{\rm pred}\)</span> if:
+</p>
+
+<div class="math display">
+
+\[
+|\bar{\nu}_{\rm obs} - \bar{\nu}_{\rm pred}| \leq k\,\sigma_{\bar{\nu}}
+\quad \text{with} \quad k \approx 2
+\]
+
+</div>
+
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(\bar{\nu}_{\rm obs}\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> RMSE ≤ <span class="math inline">\(\epsilon_{\max}\)</span> tied to spectrometer resolution</li>
+  <li><strong>Dimensional:</strong> <span class="math inline">\([\bar{\nu}] = \mathrm{Hz}\)</span> must hold</li>
+</ul>
+
+<h5>Falsifiability Protocol</h5>
+<ul>
+  <li><strong>Observables:</strong> measure <span class="math inline">\(\bar{\nu}_{\rm obs}\)</span> via rotational spectroscopy; estimate <span class="math inline">\(\mu\)</span> from atomic masses; calibrate <span class="math inline">\(r_e\)</span> from bond geometry</li>
+  <li><strong>Model computation:</strong> evaluate <span class="math inline">\(\bar{\nu}_{J \to J+1} = 2B_e(J+1)\)</span> with ensemble sampling or posterior inference</li>
+  <li><strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation across rotational ladder</li>
+      <li>Non-physical parameters (e.g. <span class="math inline">\(\mu < 0\)</span>, <span class="math inline">\(r_e \to 0\)</span>)</li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\(\bar{\nu}_{\rm obs}\)</span> within 95% CI</li>
+    </ul>
+  </li>
+</ul>
+
+<h5>Diagnostics and Reporting</h5>
+<ul>
+  <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_R\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(\mu, r_e)\)</span>)</li>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(\bar{\nu}_{\rm obs} - \bar{\nu}_{\rm pred}\)</span></li>
+  <li>Use ensemble Monte Carlo if bond geometry or mass estimates are nonlinear or temperature-dependent</li>
+  <li>Report coverage: fraction of rotational lines within 95% predictive intervals</li>
+</ul>
 
             <h4>Test Cases and Accuracy</h4>
             <p>
@@ -18901,122 +19323,122 @@ zscore = (median - Xi_crit) / std
         </h2>
         <article style="display:none">
 
-            <p>
-                In the kernel framework, cosmological density is not introduced as an external postulate but emerges from the
-                self-referential impulse balance between expansion rhythm and gravitational coherence.
-                The Hubble parameter <span class="math inline">\(H_0\)</span> plays the role of a synchrony frequency, while
-                <span class="math inline">\(G\)</span> encodes the coherence coupling of mass-energy.
-            </p>
+  <p>
+    In the kernel framework, cosmological critical (closure) density <span class="math inline">\(\rho_c\)</span> is not an empirical constant but a structural fixed-point of recursive impulse balance.
+    It emerges from the same modulation–coherence law that governs quantum spectral lines and orbital synchrony.
+	The Hubble parameter <span class="math inline">\(H_0\)</span> plays the role of a synchrony frequency, while
+	<span class="math inline">\(G\)</span> encodes the coherence coupling of mass-energy.
+    Each domain projects the synchrony variable and coherence coupling into its own observable space:
+  </p>
 
-            <h4>Kernel Constants</h4>
+            <h5>Kernel Constants</h5>
             <ul>
                 <li>Hubble constant: <span class="math inline">\(H_{0,\text{kernel}} = 67.5 \,\text{km/s/Mpc}\)</span></li>
                 <li>Gravitational constant: <span class="math inline">\(G_{\text{kernel}} = 6.674 \times 10^{-11}\,\text{m}^{3}/\text{kg·s}^{2}\)</span></li>
             </ul>
 
-<h4>Kernel Structural Derivation</h4>
+  <ul>
+    <li><strong>Quantum domain:</strong> <span class="math inline">\(\Theta\)</span> (phase curvature), <span class="math inline">\(\mathcal{C}\)</span> (charge coupling)</li>
+    <li><strong>Orbital domain:</strong> <span class="math inline">\(\Theta\)</span> (orbital pacing), <span class="math inline">\(\mathcal{C}\)</span> (gravitational curvature)</li>
+    <li><strong>Cosmological domain:</strong> <span class="math inline">\(H_0\)</span> (expansion rate), <span class="math inline">\(G\)</span> (universal gravitational coupling)</li>
+  </ul>
 
-<p>
-In the kernel framework, cosmological closure density <span class="math inline">\(\rho_c\)</span> emerges from the impulse balance between expansion pacing and gravitational coherence. This is not a postulate—it is a structural consequence of the kernel’s modulation–coherence schema.
-</p>
+  <h4>Recursion Diagram</h4>
+  <p>
+    The cosmological critical (closure) density is the global fixed-point of the kernel recursion:
+    <a href="#sec-25-spectral-line-derivation-from-kernel-recursion">quantum spectral lines</a> →
+    <a href="#sec-50-orbital-mechanics">orbital synchrony</a> →
+    universal expansion (this section).
+    Each scale reuses the same impulse law with a different projection of the synchrony variable
+    <span class="math inline">\((\Theta \rightarrow H_0)\)</span> and coupling constant
+    <span class="math inline">\((\mathcal{C} \rightarrow G)\)</span>,
+    demonstrating full dimensional and structural coherence.
+  </p>
 
-<p>
-The kernel impulse law defines synchrony pressure as:
-</p>
-
-<div class="math display">
-
-\[
-\mathcal{P}_{\rm sync} = \frac{\Omega^2}{\mathcal{C}}
-\]
-
-</div>
-
-<ul>
-  <li><span class="math inline">\(\Omega\)</span> — synchrony frequency (e.g. Hubble parameter <span class="math inline">\(H_0\)</span>)</li>
-  <li><span class="math inline">\(\mathcal{C}\)</span> — coherence coupling constant (e.g. gravitational constant <span class="math inline">\(G\)</span>)</li>
-</ul>
-
-<p>
-In cosmology, the synchrony frequency is the Hubble parameter <span class="math inline">\(H_0\)</span>, and the coherence coupling is <span class="math inline">\(G\)</span>. The kernel impulse law therefore yields:
-</p>
-
-<div class="math display">
+  <figure class="equation" id="eq-26_0">
+    <div class="math display">
 
 \[
-\rho_c = \frac{3H_0^2}{8\pi G}
-\]
+      \text{(Local Kernel Law)}\;
+      a_{\mathrm{kernel}} = \frac{d(M_1\Theta)}{dS}
+      \;\;\Rightarrow\;\;
+      \text{(Cosmic Kernel Law)}\;
+      \rho_c = \frac{3H_0^2}{8\pi G}
+      \]
 
-</div>
+    </div>
+    <figcaption><a href="#eq-26_0">Equation (26.0)</a> — recursive projection of the local kernel law into cosmological domain.</figcaption>
+  </figure>
 
-<p>
-This is not inserted—it is derived. The factor <span class="math inline">\(3/8\pi\)</span> arises from the kernel’s spherical collapse geometry, where impulse balance is distributed over a 3D curvature field.
-</p>
+  <h4>Final Form</h4>
+  <p>
+    This relation follows directly from the general kernel acceleration invariant
+    (<a href="#eq-9_1">Eq. 9.1</a>) and the coherence–energy law
+    (<a href="#eq-10_1">Eq. 10.1</a>):
+    replacing the local synchrony rate <span class="math inline">\(\Theta\)</span> with the cosmological expansion rate <span class="math inline">\(H_0\)</span>,
+    and the coherence coupling term with the universal gravitational constant <span class="math inline">\(G\)</span>,
+    one obtains the macroscopic balance:
+  </p>
 
-<h4>Kernel Ontological Mapping</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Kernel Term</th>
-      <th>Cosmological Observable</th>
-      <th>Role</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="math inline">\(\Omega\)</span></td>
-      <td><span class="math inline">\(H_0\)</span></td>
-      <td>Expansion pacing frequency</td>
-    </tr>
-    <tr>
-      <td><span class="math inline">\(\mathcal{C}\)</span></td>
-      <td><span class="math inline">\(G\)</span></td>
-      <td>Mass–energy coherence coupling</td>
-    </tr>
-    <tr>
-      <td><span class="math inline">\(\mathcal{P}_{\rm sync}\)</span></td>
-      <td><span class="math inline">\(\rho_c\)</span></td>
-      <td>Closure density (synchrony pressure)</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4>Dimensional Closure</h4>
-
-<ul>
-  <li><span class="math inline">\(H_0\)</span> — <span class="math inline">\(\mathrm{s^{-1}}\)</span></li>
-  <li><span class="math inline">\(H_0^2\)</span> — <span class="math inline">\(\mathrm{s^{-2}}\)</span></li>
-  <li><span class="math inline">\(G\)</span> — <span class="math inline">\(\mathrm{m^3/kg \cdot s^2}\)</span></li>
-  <li><span class="math inline">\(H_0^2/G\)</span> — <span class="math inline">\(\mathrm{kg/m^3}\)</span></li>
-</ul>
-
-<p>
-Thus, <span class="math inline">\(\rho_c\)</span> is dimensionally closed and ontologically grounded in kernel structure.
-</p>
-
-<h4>Kernel Universality</h4>
-
-<p>
-This derivation confirms that the same kernel impulse law used to define orbital stability, quantum synchrony, and modulation compatibility also yields cosmological closure density. No external postulates are required. The kernel structure is sufficient.
-</p>
-
-<h4>Final Form</h4>
-
-<figure class="equation" id="eq-26_1">
   <div class="math display">
 
 \[
-    \rho_c = \frac{3H_0^2}{8\pi G}
+    \rho_c \propto \frac{\Theta^2}{\mathcal{C}} \quad \Rightarrow \quad \rho_c = \frac{3H_0^2}{8\pi G}
     \]
 
   </div>
-  <figcaption><a href="#eq-26_1">Equation (26.1)</a></figcaption>
-</figure>
 
-<p>
-This is now adopted as the kernel-standard cosmological closure law. It is derived, not assumed.
-</p>
+  <figure class="equation" id="eq-26_1">
+    <div class="math display">  
+
+\[
+      \rho_c = \frac{3H_0^2}{8\pi G}
+      \]
+
+    </div>
+    <figcaption><a href="#eq-26_1">Equation (26.1)</a></figcaption>
+  </figure>
+
+  <p>
+    The factor <span class="math inline">\(3/8\pi\)</span> arises from the spherical kernel geometry of the cosmological impulse.
+    This is now adopted as the kernel-standard cosmological  law. It is derived, not assumed.
+  </p>
+
+  <h4>Kernel Ontological Mapping</h4>
+  <p>
+    The cosmological critical-density (closure) law is a projection of the general kernel impulse law. Each term in <a href="#eq-26_1">Eq. (26.1)</a> corresponds to a kernel invariant:
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Kernel Term</th>
+        <th>Cosmological Observable</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="math inline">\(\Omega\)</span></td>
+        <td><span class="math inline">\(H_0\)</span></td>
+        <td>Expansion pacing frequency</td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(\mathcal{C}\)</span></td>
+        <td><span class="math inline">\(G\)</span></td>
+        <td>Mass–energy coherence coupling</td>
+      </tr>
+      <tr>
+        <td><span class="math inline">\(\mathcal{P}_{\rm sync}\)</span></td>
+        <td><span class="math inline">\(\rho_c\)</span></td>
+        <td>Critical density (synchrony pressure)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    This mapping confirms that the kernel structure is not domain-specific—it is universal. The same impulse law that governs atomic spectra and orbital stability also yields cosmological critical (closure) density.
+  </p>
 
             <h4>Conversion to SI Units</h4>
             <figure class="equation" id="eq-26_2">
@@ -19035,13 +19457,11 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
             <figure class="equation" id="eq-26_3">
                 <div class="math display">
 
-
                     \[
                     \rho_{c,\text{kernel}} =
                     \frac{3(2.19 \times 10^{-18})^{2}}{8\pi (6.674 \times 10^{-11})}
                     \;\approx\; 8.56 \times 10^{-27}\,\text{kg/m}^{3}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-26.3">Equation (26.3)</a></figcaption>
@@ -19054,11 +19474,9 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
             <figure class="equation" id="eq-26_4">
                 <div class="math display">
 
-
                     \[
                     \rho_{c,\text{CODATA}} \approx 8.5 \times 10^{-27}\,\text{kg/m}^{3}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-26.4">Equation (26.4)</a></figcaption>
@@ -19069,33 +19487,61 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
                 This demonstrates that the kernel synchrony law reproduces cosmological limit conditions
                 without empirical fitting or dimensional imports.
                 The derivation is therefore self-consistent: the same kernel impulse law that governs
-                orbital mechanics and energy scaling also yields the cosmological closure density.
+                orbital mechanics and energy scaling also yields the cosmological critical (closure) density.
             </p>
 
-            <h4>Dimensional Closure</h4>
-            <ul>
-                <li><span class="math inline">\(H_0\)</span> — s\(^{-1}\)</li>
-                <li><span class="math inline">\(H_0^2\)</span> — s\(^{-2}\)</li>
-                <li><span class="math inline">\(G\)</span> — m\(^3\)/kg·s\(^2\)</li>
-                <li><span class="math inline">\(H_0^2/G\)</span> — kg/m\(^3\)</li>
-            </ul>
-            <p>
-                Thus, <span class="math inline">\(\rho_c\)</span> has the correct units of mass density.
-            </p>
+  <h4>Dimensional Closure</h4>
+  <ul>
+    <li><span class="math inline">\(H_0\)</span> — <span class="math inline">\(\mathrm{s^{-1}}\)</span></li>
+    <li><span class="math inline">\(H_0^2\)</span> — <span class="math inline">\(\mathrm{s^{-2}}\)</span></li>
+    <li><span class="math inline">\(G\)</span> — <span class="math inline">\(\mathrm{m^3/kg \cdot s^2}\)</span></li>
+    <li><span class="math inline">\(H_0^2/G\)</span> — <span class="math inline">\(\mathrm{kg/m^3}\)</span></li>
+  </ul>
+  <p>
+    Thus, <span class="math inline">\(\rho_c\)</span> is dimensionally closed and ontologically grounded in kernel structure.
+  </p>
 
-            <h4>Falsifiability Protocol</h4>
-            <ul>
-                <li><strong>Direct test:</strong> Measure <span class="math inline">\(H_0\)</span> independently (e.g. Cepheid/SN Ia ladder vs. CMB anisotropy). Insert into <a href="#eq-26_1">Eq. (26.1)</a>. If the resulting <span class="math inline">\(\rho_c\)</span> deviates systematically from observed closure density, the kernel law fails.</li>
-                <li><strong>Cross‑domain consistency:</strong> Verify that the same kernel constants used here also reproduce orbital mechanics (Δv protocol) and quantum collapse (Balmer lines). Any inconsistency across domains falsifies universality.</li>
-                <li><strong>Numerical robustness:</strong> Perturb <span class="math inline">\(H_0\)</span> within observational error bars. If kernel predictions drift outside CODATA bounds, the formulation lacks stability.</li>
-            </ul>
+<h4>Uncertainty Propagation</h4>
+<p>
+For small fractional uncertainties in \(H_0\) and \(G\),
+the propagated uncertainty in critical density is:
+</p>
+<figure class="equation" id="eq-26_5">
+  <div class="math display">
+  \[
+  \frac{\sigma_{\rho_c}}{\rho_c}
+  = \sqrt{
+    \left( 2\frac{\sigma_{H_0}}{H_0} \right)^2
+    + \left( \frac{\sigma_G}{G} \right)^2
+  }.
+  \]
+  </div>
+  <figcaption><a href="#eq-26_5">Equation (26.5)</a> — first-order uncertainty propagation for kernel critical density.</figcaption>
+</figure>
+
+<h4>Uncertainty Propagation</h4>
+<p>
+Using current observational uncertainties:
+<span class="math inline">\(\sigma_{H_0} / H_0 \approx 0.015\)</span>,
+<span class="math inline">\(\sigma_G / G \approx 2 \times 10^{-5}\)</span>,
+the relative uncertainty in critical (closure) density is:
+<span class="math inline">\(\epsilon_{\rho_c} \approx 3\%\)</span>,
+well within observational tolerances and consistent with kernel stability margins.
+</p>
+
+<h4>Falsifiability Protocol</h4>
+<ul>
+  <li><strong>Direct test:</strong> Measure <span class="math inline">\(H_0\)</span> independently (e.g. Cepheid/SN Ia ladder vs. CMB anisotropy). Insert into <a href="#eq-26_1">Eq. (26.1)</a>. If the resulting <span class="math inline">\(\rho_c\)</span> deviates systematically from observed critical (closure) density beyond <span class="math inline">\(\epsilon_{\rho_c}\)</span>, the kernel law fails.</li>
+  <li><strong>Cross-domain consistency:</strong> Verify that the same kernel constants <span class="math inline">\(G\)</span> and <span class="math inline">\(H_0\)</span> also reproduce orbital mechanics (e.g. <span class="math inline">\(\Delta v\)</span> protocol) and quantum collapse (e.g. Balmer lines). Any inconsistency across domains falsifies kernel universality.</li>
+  <li><strong>Numerical robustness:</strong> Perturb <span class="math inline">\(H_0\)</span> and <span class="math inline">\(G\)</span> within their respective uncertainty bounds. If the resulting <span class="math inline">\(\rho_c\)</span> drifts outside CODATA reference values or violates dimensional critical (closure), the kernel formulation lacks structural integrity.</li>
+</ul>
 
             <h4>Conclusion</h4>
             <p>
                 The kernel‑derived critical density emerges naturally from the self‑referential impulse law,
                 requiring no external assumptions. Its agreement with CODATA values confirms that the kernel
                 framework is dimensionally rigorous, numerically accurate, and experimentally falsifiable.
-                This unification of cosmological closure with orbital and quantum kernel laws
+                This unification of cosmological critical-density (closure) with orbital and quantum kernel laws
                 demonstrates the structural reach of the kernel synchrony principle across all scales.
             </p>
         </article>
@@ -19656,6 +20102,69 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
                 <span class="math inline">G\to 1</span> and <span class="math inline">\(\rho_\Phi/\rho_S \to \mu_0\)</span> in the static vacuum limit, recovering the classical Biot–Savart law.
             </p>
 
+<h4>Uncertainty Propagation</h4>
+<p>
+Let the parameter vector be <span class="math inline">\(\mathbf{p}_B = \{G(x,x'), \mathbf{u}(x')\}\)</span> and define the Jacobian:
+<span class="math inline">\(\mathbf{J}_B(x) = \frac{\partial \mathbf{B}(x)}{\partial \mathbf{p}_B}\)</span>. Then the propagated uncertainty is:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{\mathbf{B}}^2(x) = \mathbf{J}_B(x)\,\Sigma_B(x)\,\mathbf{J}_B^\top(x)
+\]
+
+</div>
+
+<p>
+Explicit partial derivatives:
+</p>
+<ul>
+  <li><span class="math inline">\(\frac{\partial \mathbf{B}}{\partial G(x,x')} = \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right]\)</span></li>
+  <li><span class="math inline">\(\frac{\partial \mathbf{B}}{\partial \mathbf{u}(x')} = G(x,x') \times \frac{x - x'}{4\pi |x - x'|^3}\)</span></li>
+</ul>
+
+<h4>Acceptance Band</h4>
+<p>
+Accept predicted field <span class="math inline">\(\mathbf{B}_{\rm pred}(x)\)</span> if:
+</p>
+
+<div class="math display">
+
+\[
+\|\mathbf{B}_{\rm obs}(x) - \mathbf{B}_{\rm pred}(x)\| \leq k\,\sigma_{\mathbf{B}}(x)
+\quad \text{with} \quad k \approx 2
+\]
+
+</div>
+
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(\mathbf{B}_{\rm obs}(x)\)</span> within 95% CI</li>
+  <li><strong>Deterministic:</strong> Mean residual <span class="math inline">\(\leq \epsilon_{\max}\)</span> tied to sensor precision</li>
+  <li><strong>Dimensional:</strong> <span class="math inline">\([\mathbf{B}] = \mathrm{T}\)</span> must hold</li>
+</ul>
+
+<h4>Falsifiability Protocol</h4>
+<ul>
+  <li><strong>Observables:</strong> measure <span class="math inline">\(\mathbf{B}(x)\)</span> via magnetometry; estimate <span class="math inline">\(\mathbf{u}(x')\)</span> from current density; calibrate <span class="math inline">\(G(x,x')\)</span> from geometry</li>
+  <li><strong>Model computation:</strong> evaluate full kernel integral for each ensemble member; compute mean and variance</li>
+  <li><strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation across spatial domain</li>
+      <li>Non-physical parameters (e.g. singular kernels, unbounded currents)</li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\(\mathbf{B}_{\rm obs}(x)\)</span> within 95% CI</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Diagnostics and Reporting</h4>
+<ul>
+  <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_B(x)\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(G, \mathbf{u})\)</span>)</li>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(\mathbf{B}_{\rm obs}(x) - \mathbf{B}_{\rm pred}(x)\)</span></li>
+  <li>Use ensemble Monte Carlo if kernel geometry or current field is nonlinear or spatially uncertain</li>
+  <li>Report coverage: fraction of spatial points within 95% predictive intervals</li>
+</ul>
+
             <h4>Verification Table: Source Choices and Dimensional Closure</h4>
 
             <p>
@@ -20122,47 +20631,94 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
     <li><span class="math inline">\(n_c(t),\ \hat{n}(t)\)</span>: sea level [<span class="math inline">\(\mathrm{m}\)</span>] — observed and modeled</li>
   </ul>
 
-  <h4>Uncertainty Propagation</h4>
-  <p>
-    For each time step <span class="math inline">\(t\)</span>, propagate uncertainty from input parameters:
-  </p>
-  <ul>
-    <li><span class="math inline">\(\sigma_{a_c}, \sigma_{\omega_c}, \sigma_{\omega_0}, \sigma_Q\)</span>: spectral uncertainty</li>
-    <li><span class="math inline">\(\sigma_{\Delta P}, \sigma_W, \sigma_{\tau_{\parallel}}, \sigma_{\tau_{\perp}}\)</span>: surge input uncertainty</li>
-  </ul>
-  <p>
-    Total propagated uncertainty in predicted tide height:
-  </p>
-  <div class="math display">
+<h4>Uncertainty Propagation</h4>
+<p>
+For each time step <span class="math inline">\(t\)</span>, propagate uncertainty from input parameters:
+</p>
+<ul>
+  <li><span class="math inline">\(\sigma_{a_c}, \sigma_{\omega_c}, \sigma_{\omega_0}, \sigma_Q\)</span>: spectral uncertainty</li>
+  <li><span class="math inline">\(\sigma_{\Delta P}, \sigma_W, \sigma_{\tau_{\parallel}}, \sigma_{\tau_{\perp}}\)</span>: surge input uncertainty</li>
+</ul>
+
+<p>
+Define the complex constituent response:
+<span class="math inline">\(\mathcal{N}_c(t) = a_c\,\chi(\omega_c;\omega_0,Q)\,U_c(t)\,e^{-i\omega_c t}\)</span>,
+with predicted tide height:
+<span class="math inline">\(\hat{n}(t) = \Re\{\sum_c \mathcal{N}_c(t)\} + \eta_{\text{surge}}(t)\)</span>.
+</p>
+
+<p>
+Let <span class="math inline">\(\mathbf{p}(t)\)</span> be the full parameter vector and <span class="math inline">\(\mathbf{J}(t) = \frac{\partial \hat{n}(t)}{\partial \mathbf{p}}\)</span> the Jacobian.
+Then the first-order propagated variance is:
+</p>
+
+<div class="math display">
 
 \[
-    \sigma_{\hat{n}}^2(t) = \sum_{c} \left( \frac{\partial \hat{n}}{\partial a_c} \sigma_{a_c} \right)^2
-    + \left( \frac{\partial \hat{n}}{\partial \omega_0} \sigma_{\omega_0} \right)^2
-    + \left( \frac{\partial \hat{n}}{\partial Q} \sigma_Q \right)^2
-    + \left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2
-    + \left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2
-    + \cdots
-    \]
+\sigma_{\hat{n}}^2(t) = \mathbf{J}(t)\,\Sigma_p(t)\,\mathbf{J}^\top(t)
+\]
 
-  </div>
+</div>
 
-  <h4>Acceptance Band</h4>
-  <p>
-    Compare predicted tide <span class="math inline">\(\hat{n}(t)\)</span> to observed tide <span class="math inline">\(n(t)\)</span> using:
-  </p>
-  <ul>
-    <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
-    <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
-    <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
-  </ul>
-  <p>
-    Acceptance criteria:
-  </p>
-  <ul>
-    <li><strong>Accept:</strong> <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span> and <span class="math inline">\(R^2 \ge 0.95\)</span></li>
-    <li><strong>Investigate:</strong> <span class="math inline">\(0.90 \le R^2 < 0.95\)</span> or <span class="math inline">\(\mathrm{RMSE} > \epsilon_{\max}\)</span> with localized bias</li>
-    <li><strong>Reject:</strong> <span class="math inline">\(R^2 < 0.90\)</span> or persistent deviation beyond uncertainty bounds</li>
-  </ul>
+<p>
+This matrix form includes cross-terms and covariances (e.g. amplitude–frequency, surge–wind coupling).
+If parameters are assumed independent, this reduces to the scalar sum:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{\hat{n}}^2(t) = \sum_c \left( \frac{\partial \hat{n}}{\partial a_c} \sigma_{a_c} \right)^2
++ \left( \frac{\partial \hat{n}}{\partial \omega_0} \sigma_{\omega_0} \right)^2
++ \left( \frac{\partial \hat{n}}{\partial Q} \sigma_Q \right)^2
++ \left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2
++ \left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2
++ \cdots
+\]
+
+</div>
+
+<h5>Time Correlation and Heteroskedasticity</h5>
+<ul>
+  <li>Estimate residual autocorrelation <span class="math inline">\(\hat{n}(t) - n(t)\)</span> and report Durbin–Watson or Ljung–Box tests.</li>
+  <li>Use time-dependent <span class="math inline">\(\Sigma_p(t)\)</span> to capture gust-driven heteroskedasticity.</li>
+  <li>For aggregated metrics over a window <span class="math inline">\(T\)</span>, use block bootstrap or residual covariance matrix.</li>
+</ul>
+
+<h5>Nonlinear and Bayesian Options</h5>
+<ul>
+  <li><strong>Ensemble Monte Carlo:</strong> Sample <span class="math inline">\(\mathbf{p} \sim \mathcal{N}(\hat{\mathbf{p}}, \Sigma_p)\)</span>, evaluate <span class="math inline">\(\hat{n}(t)\)</span>, compute empirical <span class="math inline">\(\sigma_{\hat{n}}(t)\)</span>, skewness, and coverage.</li>
+  <li><strong>Bayesian posterior:</strong> Use MCMC to estimate joint posterior of parameters. Report median, 90% credible intervals, ESS, and <span class="math inline">\(\hat{R}\)</span>.</li>
+</ul>
+
+<h5>Diagnostics and Reporting</h5>
+<ul>
+  <li>Show residual ACF and QQ plot of <span class="math inline">\(\hat{n}(t) - n(t)\)</span>.</li>
+  <li>Report parameter covariance matrix or key correlations (e.g. <span class="math inline">\(\text{corr}(a_c, \omega_0)\)</span>).</li>
+  <li>Coverage test: fraction of observations within 95% predictive intervals.</li>
+  <li>Use blocked cross-validation (time blocks) for model evaluation.</li>
+</ul>
+
+<h4>Acceptance Band</h4>
+<p>
+Compare predicted tide <span class="math inline">\(\hat{n}(t)\)</span> to observed tide <span class="math inline">\(n(t)\)</span> using:
+</p>
+<ul>
+  <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
+  <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
+  <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
+</ul>
+
+<h5>Acceptance Criteria</h5>
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(n(t)\)</span> within 95% CI of <span class="math inline">\(\hat{n}(t)\)</span>.</li>
+  <li><strong>Deterministic:</strong> <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span>, tied to station precision (e.g. <span class="math inline">\(\epsilon_{\max} = 0.02\,\mathrm{m}\)</span> for coastal gauges).</li>
+  <li><strong>Fit:</strong> <span class="math inline">\(R^2 \ge 0.95\)</span> or adjusted <span class="math inline">\(R^2\)</span> for multi-constituent models.</li>
+</ul>
+
+<p>
+Flag model if (1) fails or both (2) and (3) fail. This combines probabilistic and deterministic checks for robust validation.
+</p>
 
   <h4>Falsifiability and Closure</h4>
   <ul>
@@ -20204,32 +20760,65 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
     All terms resolve to physical quantities in SI units. The final output <span class="math inline">\(\hat{n}(t)\)</span> remains dimensionally closed in meters.
   </p>
 
-  <h5>Uncertainty Propagation</h5>
-  <p>
-    Propagate uncertainty from meteorological inputs to tide prediction:
-  </p>
-  <div class="math display">
+<h5>Uncertainty Propagation</h5>
+<p>
+Propagate uncertainty from meteorological inputs to tide prediction using full Jacobian and covariance structure.
+Let <span class="math inline">\(\mathbf{p}_{\text{met}}(t) = \{\Delta P, W, \tau_{\parallel}, \tau_{\perp}, S, \dots\}\)</span> be the meteorological parameter vector and
+<span class="math inline">\(\mathbf{J}_{\text{met}}(t) = \frac{\partial \hat{n}(t)}{\partial \mathbf{p}_{\text{met}}}\)</span> the corresponding Jacobian.
+Then the first-order propagated variance is:
+</p>
+
+<div class="math display">
 
 \[
-    \sigma_{\hat{n}}^2(t) =
-    \left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2 +
-    \left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2 +
-    \left( \frac{\partial \hat{n}}{\partial \tau_{\parallel}} \sigma_{\tau_{\parallel}} \right)^2 +
-    \left( \frac{\partial \hat{n}}{\partial \tau_{\perp}} \sigma_{\tau_{\perp}} \right)^2 +
-    \left( \frac{\partial \hat{n}}{\partial S} \sigma_S \right)^2
-    \]
+\sigma_{\hat{n}}^2(t) = \mathbf{J}_{\text{met}}(t)\,\Sigma_{\text{met}}(t)\,\mathbf{J}_{\text{met}}^\top(t)
+\]
 
-  </div>
+</div>
 
-  <h5>Acceptance Band</h5>
-  <ul>
-    <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
-    <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
-    <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
-  </ul>
-  <p>
-    Model accepted if <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span> and <span class="math inline">\(R^2 \ge 0.95\)</span>; flagged for review if <span class="math inline">\(0.90 \le R^2 < 0.95\)</span>.
-  </p>
+<p>
+This matrix form includes cross-covariances between meteorological drivers (e.g. pressure–wind coupling, directional gusts).
+If parameters are assumed independent, the scalar approximation is:
+</p>
+
+<div class="math display">
+
+\[
+\sigma_{\hat{n}}^2(t) =
+\left( \frac{\partial \hat{n}}{\partial \Delta P} \sigma_{\Delta P} \right)^2 +
+\left( \frac{\partial \hat{n}}{\partial W} \sigma_W \right)^2 +
+\left( \frac{\partial \hat{n}}{\partial \tau_{\parallel}} \sigma_{\tau_{\parallel}} \right)^2 +
+\left( \frac{\partial \hat{n}}{\partial \tau_{\perp}} \sigma_{\tau_{\perp}} \right)^2 +
+\left( \frac{\partial \hat{n}}{\partial S} \sigma_S \right)^2 + \cdots
+\]
+
+</div>
+
+<h6>Time-Varying and Nonlinear Effects</h6>
+<ul>
+  <li><strong>Heteroskedasticity:</strong> Use time-dependent <span class="math inline">\(\Sigma_{\text{met}}(t)\)</span> to reflect gust variability and storm dynamics.</li>
+  <li><strong>Autocorrelation:</strong> Estimate residual ACF of <span class="math inline">\(\hat{n}(t) - n(t)\)</span>; apply Durbin–Watson or Ljung–Box tests.</li>
+  <li><strong>Ensemble Monte Carlo:</strong> Sample <span class="math inline">\(\mathbf{p}_{\text{met}} \sim \mathcal{N}(\hat{\mathbf{p}}, \Sigma_{\text{met}})\)</span>, evaluate <span class="math inline">\(\hat{n}(t)\)</span>, compute empirical variance and coverage.</li>
+  <li><strong>Bayesian posterior:</strong> Use MCMC to estimate joint posterior of surge coefficients and meteorological inputs. Report credible intervals, ESS, and <span class="math inline">\(\hat{R}\)</span>.</li>
+</ul>
+
+<h6>Acceptance Band</h6>
+<ul>
+  <li><span class="math inline">\(\mathrm{RMSE} = \sqrt{\tfrac{1}{N} \sum_t (\hat{n}(t) - n(t))^2}\)</span></li>
+  <li><span class="math inline">\(\mathrm{MAE} = \tfrac{1}{N} \sum_t |\hat{n}(t) - n(t)|\)</span></li>
+  <li><span class="math inline">\(R^2 = 1 - \frac{\sum_t (\hat{n}(t) - n(t))^2}{\sum_t (n(t) - \bar{n})^2}\)</span></li>
+</ul>
+
+<h6>Acceptance Criteria</h6>
+<ul>
+  <li><strong>Probabilistic:</strong> At least 90% of <span class="math inline">\(n(t)\)</span> within 95% CI of <span class="math inline">\(\hat{n}(t)\)</span>.</li>
+  <li><strong>Deterministic:</strong> <span class="math inline">\(\mathrm{RMSE} \le \epsilon_{\max}\)</span>, tied to station precision (e.g. <span class="math inline">\(\epsilon_{\max} = 0.02\,\mathrm{m}\)</span> for coastal gauges).</li>
+  <li><strong>Fit:</strong> <span class="math inline">\(R^2 \ge 0.95\)</span> or adjusted <span class="math inline">\(R^2\)</span> for multi-driver models.</li>
+</ul>
+
+<p>
+Model is accepted if (1) passes or both (2) and (3) pass. Flag for review if <span class="math inline">\(0.90 \le R^2 &lt; 0.95\)</span> or if predictive intervals fail coverage test.
+</p>
 
   <h5>Measurement Protocol</h5>
   <ul>
@@ -20250,16 +20839,19 @@ This is now adopted as the kernel-standard cosmological closure law. It is deriv
     <li><span class="math inline">\(\eta_{\text{surge}}(t)\)</span>: surge height [<span class="math inline">\(\mathrm{m}\)</span>] — modeled</li>
   </ul>
 
-  <h4>Modeling Protocol</h4>
-  <ol>
-    <li>Remove datum shifts</li>
-    <li>Compute <span class="math inline">\(U_c^{\text{astro}}(t)\)</span> with nodal modulation</li>
-    <li>Fit AO amplitudes/phases <span class="math inline">\(\{a_c\}\)</span></li>
-    <li>Add surge <span class="math inline">\(\eta_{\text{surge}}(t)\)</span></li>
-    <li>Enable modulation of <span class="math inline">\(Q(t), \omega_0(t)\)</span></li>
-    <li>Optionally scale <span class="math inline">\(U_c(t)\)</span></li>
-    <li>Apply blocked cross-validation and ridge regularization</li>
-  </ol>
+<h4>Modeling Protocol</h4>
+<ol>
+  <li>Remove datum shifts and harmonize reference levels across stations</li>
+  <li>Compute astronomical forcing <span class="math inline">\(U_c^{\text{astro}}(t)\)</span> with full nodal modulation and constituent phase corrections</li>
+  <li>Fit amplitude and phase parameters <span class="math inline">\(\{a_c, \phi_c\}\)</span> using least squares or ridge regularization</li>
+  <li>Add surge component <span class="math inline">\(\eta_{\text{surge}}(t)\)</span> using meteorological transfer functions (e.g. pressure, wind, shear)</li>
+  <li>Enable time-dependent modulation of resonance parameters <span class="math inline">\(Q(t), \omega_0(t)\)</span> to capture seasonal and storm-driven shifts</li>
+  <li>Optionally scale <span class="math inline">\(U_c(t)\)</span> using ensemble or Bayesian posterior weights</li>
+  <li>Apply blocked cross-validation (e.g. weekly or tidal-cycle blocks) to preserve temporal structure</li>
+  <li>Include parameter covariance matrix <span class="math inline">\(\Sigma_p(t)\)</span> for uncertainty propagation and diagnostics</li>
+  <li>Report residual diagnostics: ACF, QQ plot, coverage test, and predictive interval performance</li>
+  <li>Flag model if acceptance criteria (RMSE, <span class="math inline">\(R^2\)</span>, coverage) fail persistently or violate uncertainty bounds</li>
+</ol>
 
             <h4>Benchmark Results</h4>
             <p>
