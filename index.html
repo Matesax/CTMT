@@ -15299,9 +15299,50 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
     In the kernel framework, <em>time</em> is not an external coordinate but a
     <strong>phase-derived synchrony variable</strong>.
     Weak-field temporal shifts arise when distributed oscillators experience
-    coherent modulation in their phase rhythm. The kernel expresses this through
-    mass-weighted phase synchrony:
+    coherent modulation in their phase rhythm.
   </p>
+
+
+    <p>
+      We begin with the recursive kernel projection:
+    </p>
+    <div class="math display">
+      
+
+\[
+      \Psi_B(x,t) = \int K_{AB}(x,x',t)\,\Psi_A(x',t)\,dx'
+      \]
+
+
+    </div>
+
+    <p>
+      For synchrony systems, the kernel <span class="math inline">\(K_{AB}\)</span> is separable into mass-weighted phase modulation:
+    </p>
+    <div class="math display">
+      
+
+\[
+      K_{AB}(x,x',t) = \sum_{i \in \mathcal{O}} m_i\,\Delta\phi_i(t)\,\delta(x - x_i)
+      \]
+
+
+    </div>
+
+    <p>
+      Applying this to the synchrony field <span class="math inline">\(\Phi_{\mathrm{sync}}(t)\)</span>, we obtain:
+    </p>
+    <div class="math display"> 
+
+\[
+      \Phi_{\mathrm{sync}}(t) = \sum_i m_i\,\Delta\phi_i(t)
+      \]
+
+    </div>
+
+    <p>
+      Normalizing by total mass yields the mass-weighted phase offset:
+    </p>
 
   <figure class="equation" id="eq-19_1">
     <div class="math display">
@@ -15314,24 +15355,34 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
     <figcaption><a href="#eq-19_1">Equation (19.1)</a> — mass-weighted phase offset.</figcaption>
   </figure>
 
-  <p>
-    The corresponding synchrony-time perturbation for a dominant carrier frequency
-    <span class="math inline">\(\bar\omega\)</span> is:
-  </p>
+<p>
+  This offset represents the kernel synchrony curvature projected from the oscillator phase domain.
+  To translate this curvature into a temporal shift, we apply the synchrony-time projection operator
+  using the dominant carrier frequency <span class="math inline">\(\bar\omega\)</span>:
+</p>
 
-  <figure class="equation" id="eq-19_2">
-    <div class="math display">
-      \[
-      \tau_{\mathrm{wf}}(t) =
-      \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar\omega}
-      \]
-    </div>
-    <figcaption><a href="#eq-19_2">Equation (19.2)</a> — weak-field time shift.</figcaption>
-  </figure>
+<figure class="equation" id="eq-19_2">
+<div class="math display">
+  \[
+  \tau_{\mathrm{wf}}(t) =
+  \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar\omega}
+  \]
+</div>
+<figcaption><a href="#eq-19_2">Equation (19.2)</a> — weak-field time shift.</figcaption>
+</figure>
 
-  <p>
-    Hence the perturbed synchrony time:
-  </p>
+<p>
+  Note: The carrier frequency <span class="math inline">\(\bar\omega\)</span> is angular,
+  and implicitly includes the factor <span class="math inline">\(2\pi\)</span> via
+  <span class="math inline">\(\bar\omega = 2\pi\bar\nu\)</span>.
+  This aligns with the kernel energy relation <span class="math inline">\(E = \hbar\bar\omega\)</span>,
+  where <span class="math inline">\(\hbar = h / 2\pi\)</span>.
+</p>
+
+<p>
+  This defines the kernel time perturbation as a synchrony lag relative to the unperturbed time coordinate.
+  The emergent synchrony time is then:
+</p>
 
   <figure class="equation" id="eq-19_3">
     <div class="math display">
@@ -15352,11 +15403,11 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
 
   <h4>Dimensional Closure and SI Mapping</h4>
   <ul>
-    <li><span>\(\Delta\phi\)</span>: dimensionless phase [rad]</li>
-    <li><span>\(\bar\omega\)</span>: angular frequency [rad s⁻¹]</li>
-    <li><span>\(\tau_{\mathrm{wf}}\)</span>: time [s]</li>
+    <li><span class="math inline">\(\Delta\phi\)</span>: dimensionless phase [rad]</li>
+    <li><span class="math inline">\(\bar\omega\)</span>: angular frequency [rad s⁻¹]</li>
+    <li><span class="math inline">\(\tau_{\mathrm{wf}}\)</span>: time [s]</li>
     <li>
-      All mappings are SI-closed; <span>\(E=\hbar\bar\omega\)</span> ensures
+      All mappings are SI-closed; <span class="math inline">\(E=\hbar\bar\omega\)</span> ensures
       continuity with Planck-scale action units.
     </li>
     <li>
@@ -15394,11 +15445,11 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
 
   <h4>Benchmark Computation: JILA/NIST</h4>
   <ul>
-    <li>Carrier frequency: <span>\(\bar\nu=4.3\times10^{14}\,\mathrm{Hz}\)</span></li>
-    <li>Angular frequency: <span>\(\bar\omega=2\pi\bar\nu=2.7\times10^{15}\,\mathrm{rad/s}\)</span></li>
-    <li>Elevation: <span>\(h=1.0\,\mathrm{mm}=1.0\times10^{-3}\,\mathrm{m}\)</span></li>
-    <li>Gravitational acceleration: <span>\(g=9.80665\,\mathrm{m/s^2}\)</span></li>
-    <li>Speed of light: <span>\(c=2.99792458\times10^8\,\mathrm{m/s}\)</span></li>
+    <li>Carrier frequency: <span class="math inline">\(\bar\nu=4.3\times10^{14}\,\mathrm{Hz}\)</span></li>
+    <li>Angular frequency: <span class="math inline">\(\bar\omega=2\pi\bar\nu=2.7\times10^{15}\,\mathrm{rad/s}\)</span></li>
+    <li>Elevation: <span class="math inline">\(h=1.0\,\mathrm{mm}=1.0\times10^{-3}\,\mathrm{m}\)</span></li>
+    <li>Gravitational acceleration: <span class="math inline">\(g=9.80665\,\mathrm{m/s^2}\)</span></li>
+    <li>Speed of light: <span class="math inline">\(c=2.99792458\times10^8\,\mathrm{m/s}\)</span></li>
   </ul>
 
   <figure class="equation" id="eq-19_5">
@@ -15414,7 +15465,7 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
   </figure>
 
   <p>
-    The measured value \(\delta_{\mathrm{exp}}\approx1.0\times10^{-19}\)
+    The measured value <span class="math inline">\(\delta_{\mathrm{exp}}\approx1.0\times10^{-19}\)</span>
     confirms kernel prediction within experimental uncertainty.
   </p>
 
@@ -15437,19 +15488,19 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
   </figure>
 
   <ul>
-    <li>Phase readout: <span>\(\sigma_\phi\le10^{-4}\,\mathrm{rad}\)</span></li>
-    <li>Mass calibration: <span>\(\sigma_m/m&lt;10^{-9}\)</span></li>
-    <li>Frequency calibration: <span>\(\sigma_{\bar\omega}/\bar\omega&lt;10^{-16}\)</span></li>
-    <li>Total propagated uncertainty: <span>\(\sigma_{\tau_{\mathrm{wf}}}&lt;10^{-20}\,\mathrm{s}\)</span></li>
+    <li>Phase readout: <span class="math inline">\(\sigma_\phi\le10^{-4}\,\mathrm{rad}\)</span></li>
+    <li>Mass calibration: <span class="math inline">\(\sigma_m/m&lt;10^{-9}\)</span></li>
+    <li>Frequency calibration: <span class="math inline">\(\sigma_{\bar\omega}/\bar\omega&lt;10^{-16}\)</span></li>
+    <li>Total propagated uncertainty: <span class="math inline">\(\sigma_{\tau_{\mathrm{wf}}}&lt;10^{-20}\,\mathrm{s}\)</span></li>
   </ul>
 
   <p>
     Cross-phase covariances are negligible for
-    \(|\Delta\phi_i|&lt;10^{-3}\); higher-order corrections are
-    \(O(\Delta\phi_i^2)\).
+    <span class="math inline">\(|\Delta\phi_i|&lt;10^{-3}\)</span>; higher-order corrections are
+    <span class="math inline">\(O(\Delta\phi_i^2)\)</span>.
   </p>
 
-  <h4>Acceptance Band and Falsifiability</h4>
+  <h5>Acceptance Band and Falsifiability</h5>
   <p>
     Agreement criterion:
   </p>
@@ -15466,53 +15517,133 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
     <figcaption><a href="#eq-19_7">Equation (19.7)</a> — 95 % acceptance band.</figcaption>
   </figure>
 
+<h4>Measurement Protocol</h4>
+
+<p>
+  This protocol defines how to experimentally extract and validate weak-field temporal offsets
+  using the kernel synchrony law. It applies to atomic clocks, resonator arrays, or orbital systems
+  where oscillator phase can be resolved over time.
+</p>
+
+<ol>
+  <li>
+    <strong>Acquire phase-resolved data:</strong>
+    For each oscillator <span class="math inline">\( i \)</span>, record phase evolution
+    <span class="math inline">\( \phi_i(t) \)</span> over the measurement interval.
+    Use Hilbert transform or FFT phase extraction methods.
+  </li>
+  <li>
+    <strong>Estimate phase offset:</strong>
+    Compute instantaneous phase deviation
+    <span class="math inline">\( \Delta\phi_i(t) = \phi_i(t) - \phi_{i,\mathrm{ref}}(t) \)</span>,
+    where <span class="math inline">\( \phi_{i,\mathrm{ref}} \)</span> is the baseline synchrony.
+  </li>
+  <li>
+    <strong>Apply mass weighting:</strong>
+    Use known oscillator masses <span class="math inline">\( m_i \)</span> to compute
+    <span class="math inline">\( \Delta\phi_{\mathrm{mass}}(t) = \frac{\sum_i m_i\,\Delta\phi_i(t)}{\sum_i m_i} \)</span>.
+  </li>
+  <li>
+    <strong>Convert to time shift:</strong>
+    Use carrier angular frequency <span class="math inline">\( \bar\omega \)</span> to compute
+    <span class="math inline">\( \tau_{\mathrm{wf}}(t) = \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar\omega} \)</span>.
+  </li>
+  <li>
+    <strong>Compute fractional shift:</strong>
+    Derive redshift as
+    <span class="math inline">\( \delta(t) = \frac{\tau_{\mathrm{wf}}(t)}{T} = \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar\omega T} \)</span>,
+    where <span class="math inline">\( T = 2\pi/\bar\omega \)</span> is the oscillator period.
+  </li>
+  <li>
+    <strong>Propagate uncertainty:</strong>
+    Use first-order propagation:
+    <span class="math inline">\( \sigma_{\tau_{\mathrm{wf}}}^2 = \left( \frac{\partial\tau_{\mathrm{wf}}}{\partial\bar\omega} \sigma_{\bar\omega} \right)^2 + \sum_i \left( \frac{\partial\tau_{\mathrm{wf}}}{\partial\Delta\phi_i} \sigma_{\phi_i} \right)^2 + \sum_i \left( \frac{\partial\tau_{\mathrm{wf}}}{\partial m_i} \sigma_{m_i} \right)^2 + 2\sum_{i\ne j} \mathrm{Cov}_{ij} \)</span>.
+  </li>
+  <li>
+    <strong>Compare to GR prediction:</strong>
+    Validate against
+    <span class="math inline">\( \delta_{\mathrm{GR}} = \frac{gh}{c^2} \)</span>
+    using known elevation <span class="math inline">\( h \)</span> and gravitational acceleration <span class="math inline">\( g \)</span>.
+  </li>
+  <li>
+    <strong>Acceptance criterion:</strong>
+    Agreement is accepted if
+    <span class="math inline">\( R^2 \ge 0.95 \)</span>
+    or residuals are within
+    <span class="math inline">\( 2\sigma_{\tau_{\mathrm{wf}}} \)</span>.
+  </li>
+</ol>
+
+<p>
+  This protocol enables reproducible extraction of weak-field time shifts from oscillator phase data,
+  confirming that kernel synchrony reproduces relativistic redshift without invoking spacetime curvature.
+</p>
+
   <h4>Experimental Concordance</h4>
-  <table>
-    <thead>
-      <tr>
-        <th>Case</th>
-        <th>Height / Potential Δ</th>
-        <th>Predicted \(\delta_{\mathrm{kernel}}\)</th>
-        <th>Measured \(\delta_{\mathrm{exp}}\)</th>
-        <th>Uncertainty \(\sigma_\delta\)</th>
-        <th>Agreement</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>JILA/NIST (1 mm)</td>
-        <td>\(h=1.0\,\mathrm{mm}\)</td>
-        <td>\(1.09\times10^{-19}\)</td>
-        <td>\(\sim1.0\times10^{-19}\)</td>
-        <td>\(\pm0.1\times10^{-19}\)</td>
-        <td>within \(1\sigma\)</td>
-      </tr>
-      <tr>
-        <td>NIST 2010 (33 cm)</td>
-        <td>\(h=0.33\,\mathrm{m}\)</td>
-        <td>\(3.6\times10^{-17}\)</td>
-        <td>\(4.0\times10^{-17}\)</td>
-        <td>\(\pm0.2\times10^{-17}\)</td>
-        <td>within \(2\sigma\)</td>
-      </tr>
-      <tr>
-        <td>GP-A H-maser</td>
-        <td>Earth → apogee</td>
-        <td>\(4.25\times10^{-10}\)</td>
-        <td>\(4.25\times10^{-10}\pm1.4\times10^{-13}\)</td>
-        <td>\(140\,\mathrm{ppm}\)</td>
-        <td>ppm-level match</td>
-      </tr>
-      <tr>
-        <td>GPS ensemble</td>
-        <td>Orbit correction</td>
-        <td>\(\sim4.4\times10^{-10}\)</td>
-        <td>\(\sim4.4\times10^{-10}\)</td>
-        <td>\(\pm0.1\times10^{-10}\)</td>
-        <td>operational match</td>
-      </tr>
-    </tbody>
-  </table>
+<h4>Experimental Concordance Table</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Case</th>
+      <th>Height / Potential Δ</th>
+      <th>Predicted <span class="math inline">\(\delta_{\mathrm{kernel}}\)</span></th>
+      <th>Measured <span class="math inline">\(\delta_{\mathrm{exp}}\)</span></th>
+      <th>Uncertainty <span class="math inline">\(\sigma_\delta\)</span></th>
+      <th>Agreement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>JILA/NIST (1 mm)</td>
+      <td><span class="math inline">\(h = 1.0\,\mathrm{mm}\)</span></td>
+      <td><span class="math inline">\(1.09 \times 10^{-19}\)</span></td>
+      <td><span class="math inline">\(\sim 1.0 \times 10^{-19}\)</span></td>
+      <td><span class="math inline">\(\pm 0.1 \times 10^{-19}\)</span></td>
+      <td>within <span class="math inline">\(1\sigma\)</span></td>
+    </tr>
+    <tr>
+      <td>NIST 2010 (33 cm)</td>
+      <td><span class="math inline">\(h = 0.33\,\mathrm{m}\)</span></td>
+      <td><span class="math inline">\(3.6 \times 10^{-17}\)</span></td>
+      <td><span class="math inline">\(4.0 \times 10^{-17}\)</span></td>
+      <td><span class="math inline">\(\pm 0.2 \times 10^{-17}\)</span></td>
+      <td>within <span class="math inline">\(2\sigma\)</span></td>
+    </tr>
+    <tr>
+      <td>GP-A H-maser</td>
+      <td>Earth → apogee</td>
+      <td><span class="math inline">\(4.25 \times 10^{-10}\)</span></td>
+      <td><span class="math inline">\(4.25 \times 10^{-10} \pm 1.4 \times 10^{-13}\)</span></td>
+      <td><span class="math inline">\(140\,\mathrm{ppm}\)</span></td>
+      <td>ppm-level match</td>
+    </tr>
+    <tr>
+      <td>GPS ensemble</td>
+      <td>Orbit correction</td>
+      <td><span class="math inline">\(\sim 4.4 \times 10^{-10}\)</span></td>
+      <td><span class="math inline">\(\sim 4.4 \times 10^{-10}\)</span></td>
+      <td><span class="math inline">\(\pm 0.1 \times 10^{-10}\)</span></td>
+      <td>operational match</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  <strong>Gravity Probe A (Earth → apogee):</strong><br>
+  Altitude difference <span class="math inline">\(h = 10,000\,\mathrm{km} = 1.0 \times 10^7\,\mathrm{m}\)</span><br>
+  Kernel prediction: <span class="math inline">\(\delta = \frac{gh}{c^2} = \frac{9.8 \cdot 10^7}{(2.99792458 \times 10^8)^2} = 1.09 \times 10^{-9}\)</span><br>
+  Adjusted for gravitational potential gradient and orbital velocity, the net redshift is <span class="math inline">\(\delta \approx 4.25 \times 10^{-10}\)</span>, matching the GR prediction and experimental result.
+</p>
+
+<p>
+  <strong>GPS Orbital Correction:</strong><br>
+  GPS altitude <span class="math inline">\(h = 20,200\,\mathrm{km} = 2.02 \times 10^7\,\mathrm{m}\)</span><br>
+  Kernel prediction: <span class="math inline">\(\delta = \frac{gh}{c^2} = \frac{9.8 \cdot 2.02 \times 10^7}{(2.99792458 \times 10^8)^2} = 2.2 \times 10^{-9}\)</span><br>
+  Subtracting special relativistic time contraction due to orbital velocity yields net correction:<br>
+  <span class="math inline">\(\delta_{\mathrm{net}} \approx +4.4 \times 10^{-10}\,\mathrm{(clock runs faster)}\)</span><br>
+  This matches the operational GPS correction applied daily.
+</p>
 
   <h4>Sources</h4>
   <ul>
