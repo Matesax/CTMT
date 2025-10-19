@@ -3816,6 +3816,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
                     Inversion gives <span class="math inline">\(\sigma^{2}(t) = 2Dt\)</span> with <span class="math inline">\(D = k_B T / 6\pi \eta r\)</span>.
                     For <span class="math inline">\(t=30\)</span>s, <span class="math inline">\(r=0.5\,\mu\)</span>m particles, reconstructed variance
                     <span class="math inline">\(\sigma^{2}=0.52\,\mu\)</span>m\(^2\), in agreement with Einstein’s prediction (0.50 µm\(^2\)) within 3%.
+					(The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.)
                 </li>
                 <li>
                     <strong>Einstein–Smoluchowski Diffusion (1905–1906):</strong>
@@ -3923,7 +3924,9 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Only ratios <span class="math inline">\(\Delta\phi/\bar{\omega}\)</span> are observable, so the kernel dynamics are invariant under transformations that preserve the dimensionless ratio
                 <span class="math inline">\(v/c\)</span>, where <span class="math inline">\(c\)</span> is the kernel’s intrinsic pacing speed.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 The kernel resolves observable time from mass‑weighted phase pacing.
                 Consider two inertial frames with relative velocity <span class="math inline">\(v\)</span> along <span class="math inline">\(\hat{x}\)</span>.
@@ -6610,7 +6613,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 <li><strong>Cross-shell gain</strong> <span class="math inline">\(G_{\text{coh}}\)</span> — derived from cross-spectral coherence with bounded estimators</li>
                 <li><strong>Holonomy factor</strong> <span class="math inline">\(\Phi_\varphi\)</span> — measurable from modal phase winding or set to <span class="math inline">\(2\pi\)</span> for closed orbital loops</li>
             </ul>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Error Handling and Convergence</h4>
             <ul>
                 <li>Bootstrap averaging across 20–100 overlapping windows yields robust median ±MAD estimates</li>
@@ -6880,7 +6885,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 </li>
                 <li><strong>Fail conditions:</strong> systematic excess beyond tolerance across parameter sweeps; non‑physical requirements (<span class="math inline">\(v_{\mathrm{sync}}>v_{\max}\)</span>, <span class="math inline">\(\lambda_{\mathrm{coh}} \le 0\)</span>); dimensional mismatch; or disagreement with the weak‑field bridge (energy derived from orbital law in §50 within same region).</li>
             </ul>
-
+<p>
+The appearance of <span class="math inline">\(8\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Benchmarks (sanity‑checked)</h4>
             <ul>
                 <li>
@@ -7070,7 +7077,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 </div>
                 <figcaption><a href="#eq-50_52">Equation (13.52)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 where symbols are as follows:
             </p>
@@ -7299,7 +7308,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 </div>
                 <figcaption><a href="#eq-50_55">Equation (13.55)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(3\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 With electron number density <span class="math inline">\(n_e=\rho/(\mu_e m_p)\)</span>, counting coherence cells gives:
             </p>
@@ -7450,7 +7461,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 <li><span class="math inline">\( \text{Compute } \chi=E_{\rm coh}/E_{\rm dis},\;C(\chi),\;f_{\rm pack} \)</span></li>
                 <li><span class="math inline">\( \text{Compute } M=\tfrac{4\pi}{3}R^3\cdot \mu m_p/\lambda_{\rm coh}^3 \cdot f_{\rm pack}C(\chi)\mathcal{M} \)</span></li>
             </ol>
-
+<p>
+The appearance of <span class="math inline">\(4\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 Use layer-weighted averages for stellar cores (e.g. <span class="math inline">\(\langle \lambda_D(r)\rangle\)</span> over the burning core) rather than a single-point evaluation when available.
                 For planets, construct layered models (core + mantle + crust) and sum mass contributions using the appropriate <span class="math inline">\(a_{\rm coh}\)</span> for each layer (iron core vs silicate mantle).
@@ -8212,7 +8225,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 </div>
                 <figcaption><a href="#eq-50_38">Equation (13.38)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <figure class="equation" id="eq-50_39">
                 <div class="math display">
 
@@ -8312,7 +8327,9 @@ The model is falsifiable if measured observables cannot reproduce <span class="m
                 </div>
                 <figcaption><a href="#eq-50_41">Equation (13.41)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 This formulation uses only structural observables, each measurable from mission data archives:
             </p>
@@ -10438,7 +10455,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
                 </div>
                 <figcaption><a href="#eq-50_83">Equation (13.83)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 For two orbits with <span class="math inline">\((P_1,a_1)\)</span> and <span class="math inline">\((P_2,a_2)\)</span>, define:
             </p>
@@ -11108,7 +11127,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
                 </div>
                 <figcaption><a href="#eq-13_98">Equation (13.98)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <figure class="equation" id="eq-13_99">
                 <div class="math display">
 
@@ -14086,7 +14107,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
   </div>
   <figcaption><a href="#eq-144_11">Equation (144.11)</a> — Phase-closure quantization.</figcaption>
 </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
 <h4>Regime Bridges and Scaling</h4>
 <figure class="equation" id="eq-144_19">
   <div class="math display">
@@ -14247,7 +14270,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
                 <li><span class="math inline">\(D_{\rm ang} = \Omega_{\rm det}/4\pi\)</span> — angular acceptance</li>
                 <li><span class="math inline">\(D_{\rm pol}, D_{\rm freq} \in [0,1]\)</span> — polarization and frequency distinguishability</li>
             </ul>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p><strong>(B) Visible Which-Path (e.g., He-Ne)</strong></p>
             <p>Same form as (A), with platform-specific parameters.</p>
 
@@ -14956,7 +14981,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
 			<p>
 				confirming that quantum evolution emerges as a rhythm echo from kernel modulation.
 			</p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
 			<h4>Experimental Calibration and Validation</h4>
 			<p>
 				The kernel propagation energy law <span class="math inline">\(E = \rho_t \cdot \Delta_{\mathrm{collapse}} \cdot \gamma_{\mathrm{mod}}\)</span> was calibrated using published experimental data for photons, electrons, and neutrons. Each test case includes measured energy, kernel prediction, relative error, and source citation.
@@ -15326,7 +15353,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
             <p>
                 Let <span class="math inline">\(m = [2,\,1,\,3]\)</span>, <span class="math inline">\(\Delta\phi = [0.10,\,-0.05,\,0.04]\)</span> (radians), and <span class="math inline">\(\bar{\omega} = \frac{2\pi}{12.42} \approx 0.505\)</span> rad/h.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <figure class="equation" id="eq-19_4">
                 <div class="math display">
 
@@ -16028,7 +16057,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
                 <li><strong>Predict observables:</strong> Map <span class="math inline">\(\omega_n\)</span> to measurable quantities such as wavelength <span class="math inline">\(\lambda_n = 2\pi c/\omega_n\)</span>, energy <span class="math inline">\(E_n = \hbar \omega_n\)</span>, or fringe spacing <span class="math inline">\(w\)</span>.</li>
                 <li><strong>Validate:</strong> Compare predictions with experiment within propagated uncertainty bounds.</li>
             </ul>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Worked Regimes</h4>
 
             <p><strong>Optical (Double‑slit interference):</strong></p>
@@ -16273,7 +16304,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
       </div>
       <figcaption><a href="#eq-22_2">Equation (22.2)</a> — rotational quantization conditions.</figcaption>
     </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
     <p>
       These conditions enforce synchrony between angular phase propagation and molecular geometry, producing discrete rotational energy levels.
     </p>
@@ -16317,7 +16350,9 @@ All derived forms—dimensional, dimensionless, and normalized—are operational
       <li><span class="math inline">\( c \)</span> — speed of light</li>
       <li><span class="math inline">\( h \)</span> — Planck constant</li>
     </ul>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
     <h4>Centrifugal Distortion</h4>
 
             <p>
@@ -16423,7 +16458,9 @@ Where:
   <li><span class="math inline">\(\frac{\partial \bar{\nu}}{\partial \mu} = -\frac{h(J+1)}{4\pi^2 c r_e^2 \mu^2}\)</span></li>
   <li><span class="math inline">\(\frac{\partial \bar{\nu}}{\partial r_e} = -\frac{h(J+1)}{4\pi^2 c \mu r_e^3}\)</span></li>
 </ul>
-
+<p>
+The appearance of <span class="math inline">\(4\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
 <h5>Acceptance Band</h5>
 <p>
 Accept predicted rotational frequency <span class="math inline">\(\bar{\nu}_{\rm pred}\)</span> if:
@@ -16593,7 +16630,9 @@ Accept predicted rotational frequency <span class="math inline">\(\bar{\nu}_{\rm
                 </div>
                 <figcaption><a href="#eq-23_2">Equation (23.2)</a></figcaption>
             </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Experimental Anchor</h4>
             <p>
                 Consider a tungsten filament at temperature <span class="math inline">\(T = 2400\ \mathrm{K}\)</span>.
@@ -16711,7 +16750,9 @@ Accept predicted rotational frequency <span class="math inline">\(\bar{\nu}_{\rm
                 </span>
                 reflecting isotropic propagation in 3D space with synchrony limit <span class="math inline">\(c\)</span>.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(8\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>2. Energy per Mode from Kernel Recursion</h4>
             <p>
                 Each mode carries the mean energy
@@ -16805,7 +16846,9 @@ Accept predicted rotational frequency <span class="math inline">\(\bar{\nu}_{\rm
                 Thus, the full radiative thermodynamics — including Planck’s and Wien’s constants —
                 originates directly from kernel phase closure and equilibrium recursion.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <svg viewBox="260 20 360 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
                 <style>
                     .node {
@@ -17680,7 +17723,9 @@ zscore = (median - Xi_crit) / std
                     <span class="math inline">\( \boxed{\sigma = \frac{2\pi^5 k_B^4}{15 h^3 c^2}} \)</span>
                 </li>
             </ol>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 This derivation confirms that <span class="math inline">\(\sigma\)</span> is not empirical but structurally emergent from quantum and thermodynamic principles. The factor <span class="math inline">15</span> arises from the integral of the Bose–Einstein distribution and reflects deep mathematical symmetry.
             </p>
@@ -18181,7 +18226,9 @@ zscore = (median - Xi_crit) / std
                     representing the spatial collapse rate of coherence layers.
                 </li>
             </ol>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <p>
                 Substituting the kernel observables yields
                 <span class="math inline">\(G_{\rm struct}=6.72\times10^{-11}\,\mathrm{m^3·kg^{-1}·s^{-2}}\)</span>,
@@ -18222,7 +18269,9 @@ zscore = (median - Xi_crit) / std
 
                 ) captures gravity as a spatial collapse rate, not a force. It explains why strong fields destroy matter: coherence rhythm fails across layers, and modulation cannot survive. This model predicts gravitational behavior in high-curvature domains without relying on metric assumptions, offering a computable alternative to singularity-based theories.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(4\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h5>Dimensional Closure and Structural Validity</h5>
 
             <p>
@@ -19174,7 +19223,9 @@ zscore = (median - Xi_crit) / std
       </div>
       <figcaption><a href="#eq-25_3">Equation (25.3)</a></figcaption>
     </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
     <h4>Kernel Ontological Mapping</h4>
     <table>
       <thead>
@@ -19331,7 +19382,9 @@ zscore = (median - Xi_crit) / std
     </div>
     <figcaption><a href="#eq-26_0">Equation (26.0)</a> — recursive projection of the local kernel law into cosmological domain.</figcaption>
   </figure>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
   <h4>Final Form</h4>
   <p>
     This relation follows directly from the general kernel acceleration invariant
@@ -20028,7 +20081,9 @@ well within observational tolerances and consistent with kernel stability margin
                 \]
 
             </div>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Dimensional Closure</h4>
 
             <div class="math display">
@@ -20214,7 +20269,9 @@ Accept predicted field <span class="math inline">\(\mathbf{B}_{\rm pred}(x)\)</s
                 <span class="math inline">\(B_0 = (\rho_\Phi/\rho_S)(u_0/r_0^2) G_0\)</span>.
                 Thus the normalized law is purely geometric and structural.
             </p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h5>Benefits of Normalization</h5>
             <ul>
                 <li><strong>Universality:</strong> The same form applies in vacuum, media, and relativistic regimes.</li>
@@ -23048,7 +23105,9 @@ Model is accepted if (1) passes or both (2) and (3) pass. Flag for review if <sp
                 <span class="math inline">\(\epsilon_{\rm rupture} = \Delta\phi_{\max}/2\pi = 0.25\)</span>.
                 (<a href="#sec-23-planck-kernel-from-blackbody-data">Here you can find full derivation of the Planck Kernel.</a>)
             </p>
-
+<p>
+The appearance of <span class="math inline">\(\pi\)</span> in this formulation is structurally justified through kernel impulse recursion and domain-specific projection. For a complete derivation and normalization rationale, see <a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+</p>
             <h4>Validation Across Elemental Data</h4>
 
             <p>
@@ -23211,6 +23270,162 @@ Model is accepted if (1) passes or both (2) and (3) pass. Flag for review if <sp
             </p>
         </article>
     </section>
+<section>
+  <h2 id="sec-pi-factors-in-kernel-framework">
+    Origin and Application of π-Factors in Kernel Impulse Framework
+  </h2>
+
+  <p>
+    Different appearances of <span class="math inline">\(\pi\)</span> in formulas across spectral, orbital, and cosmological regimes are not accidental:
+    they follow directly from the <strong>projection of the same kernel impulse law</strong> onto different coordinate and normalization conventions—
+    such as temporal frequency vs angular frequency, or surface flux vs volumetric balance.
+    This section provides a compact derivation and a practical rule set to eliminate ambiguity.
+  </p>
+
+  <h4>Spectral Domain — Why <span class="math inline">\(2\pi\)</span> Appears</h4>
+  <p>
+    The kernel integral is expressed in frequency space. Two conventions are common:
+  </p>
+  <ul>
+    <li><strong>Cycle-based frequency</strong> <span class="math inline">\(\nu\)</span> (Hz): Fourier factor <span class="math inline">\(\exp(2\pi i \nu t)\)</span>; Planck’s form <span class="math inline">\(E = h\nu\)</span></li>
+    <li><strong>Angular frequency</strong> <span class="math inline">\(\omega = 2\pi\nu\)</span> (rad/s): Fourier factor <span class="math inline">\(\exp(i\omega t)\)</span>; Planck’s form <span class="math inline">\(E = \hbar\omega\)</span> with <span class="math inline">\(\hbar = h / (2\pi)\)</span></li>
+  </ul>
+
+<p>
+  <strong>Kernel mapping:</strong> When expressing the path-sum formulation as
+  <span class="math inline">\(K_{\text{path}} \propto \sum_\gamma A[\gamma]\, \exp(iS[\gamma]/S_\ast)\)</span>,
+  and adopting angular frequency <span class="math inline">\(\omega\)</span> in the phase integral,
+  the action quantum must be defined consistently as <span class="math inline">\(S_\ast = \hbar\)</span>.
+  This ensures compatibility with the Fourier convention <span class="math inline">\(\exp(i\omega t)\)</span>
+  and preserves dimensional consistency across spectral derivations.
+</p>
+
+  <p>
+    <strong>Worked derivation:</strong>
+    <span class="math inline">\(E = h\nu, \quad \omega = 2\pi\nu \Rightarrow E = \frac{h}{2\pi} \omega = \hbar\omega\)</span>.
+    Therefore, if phases are written with <span class="math inline">\(\exp(i\omega t)\)</span>, define <span class="math inline">\(S_\ast = \hbar\)</span>.
+  </p>
+
+  <h4>Spatial Domain — Why <span class="math inline">\(4\pi\)</span> Appears</h4>
+  <p>
+    Spherical surface integrals produce factors of <span class="math inline">\(4\pi\)</span> because the surface area of a unit sphere is <span class="math inline">\(4\pi\)</span>.
+    This factor appears in field equations and Green-function derivations:
+  </p>
+
+  <ul>
+    <li>Poisson equation: <span class="math inline">\(\nabla^2 \Phi = 4\pi G \rho\)</span></li>
+    <li>Green kernel: <span class="math inline">\(\nabla^2 G(x) = -\delta(x) \Rightarrow G(r) = -\frac{1}{4\pi r}\)</span></li>
+    <li>Solid angle integral: <span class="math inline">\(\int_{S^2} d\Omega = 4\pi\)</span></li>
+  </ul>
+
+  <p>
+    <strong>Kernel mapping:</strong> When projecting a point impulse over solid angle (e.g. deriving a radial kernel or Green’s function from an isotropic impulse),
+    the <span class="math inline">\(4\pi\)</span> normalization appears automatically.
+  </p>
+
+  <h4>Cosmological Domain — Why <span class="math inline">\(8\pi\)</span> and <span class="math inline">\(\frac{3}{8\pi}\)</span> Appear</h4>
+  <p>
+    In cosmology, the Friedmann equation links the Hubble parameter to energy density:
+    <span class="math inline">\(H^2 = \frac{8\pi G}{3} \rho\)</span>, rearranged as
+    <span class="math inline">\(\rho_c = \frac{3H^2}{8\pi G}\)</span>.
+  </p>
+
+  <p>
+    <strong>Kernel interpretation:</strong> The cosmological closure density is a global fixed point of the same kernel law,
+    projected onto spherical geometry and GR normalization conventions.
+    The <span class="math inline">\(\frac{3}{8\pi}\)</span> factor arises from:
+  </p>
+  <ul>
+    <li><span class="math inline">\(4\pi\)</span> — flux normalization</li>
+    <li><span class="math inline">\(2\)</span> — Einstein curvature normalization</li>
+    <li><span class="math inline">\(3\)</span> — spatial dimensional trace</li>
+  </ul>
+
+  <h4>Summary — When Each <span class="math inline">\(\pi\)</span> Type Is Appropriate</h4>
+  <ul>
+    <li><strong><span class="math inline">\(2\pi\)</span></strong> — Use for angular frequency <span class="math inline">\(\omega\)</span>, phase integrals, group delay <span class="math inline">\(\partial\Phi/\partial\omega\)</span>, and Planck’s relation <span class="math inline">\(E = \hbar\omega\)</span>.</li>
+    <li><strong><span class="math inline">\(4\pi\)</span></strong> — Use for solid-angle integrals, Green/Poisson normalizations, and spatial flux derivations.</li>
+    <li><strong><span class="math inline">\(8\pi\)</span> or <span class="math inline">\(\frac{3}{8\pi}\)</span></strong> — Use in cosmological projections (Friedmann equations, critical density) with GR conventions.</li>
+  </ul>
+
+  <h4>Canonical Conventions</h4>
+  <ul>
+    <li><strong>Spectral domain:</strong> Use <span class="math inline">\(\omega\)</span> (rad/s) and <span class="math inline">\(S_\ast = \hbar\)</span>; write <span class="math inline">\(E = \hbar\omega\)</span>.</li>
+    <li><strong>Spatial domain:</strong> Use <span class="math inline">\(4\pi\)</span> normalization in Green/Poisson equations; state explicitly if using GR vs Newtonian conventions.</li>
+    <li><strong>Cosmology:</strong> Adopt standard Friedmann normalization: <span class="math inline">\(H^2 = \frac{8\pi G}{3} \rho\)</span>, <span class="math inline">\(\rho_c = \frac{3H^2}{8\pi G}\)</span>.</li>
+  </ul>
+
+  <p>
+    These choices should be documented in the notation section and cross-linked from each equation where a <span class="math inline">\(\pi\)</span>-factor appears.
+  </p>
+
+  <h4>Practical Cross-References</h4>
+  <ul>
+    <li>After any spectral formula using <span class="math inline">\(\omega\)</span>: “(angular-frequency convention; hence factors of <span class="math inline">\(2\pi\)</span> are absorbed in <span class="math inline">\(\hbar\)</span>)”</li>
+    <li>After any Green or flux formula: “(solid-angle normalization <span class="math inline">\(\int d\Omega = 4\pi\)</span>)”</li>
+    <li>After cosmological critical density: link to Friedmann derivation and kernel → spherical projection mapping <span class="math inline">\(\Theta \to H_0\)</span>, <span class="math inline">\(C \to G\)</span></li>
+  </ul>
+
+<h4>Editorial Standards for <span class="math inline">\(\pi\)</span>-Factor Usage</h4>
+<ul>
+  <li>Formulas expressed in terms of frequency <span class="math inline">\(\nu\)</span> (Hz) and Planck constant <span class="math inline">\(h\)</span> should retain the form <span class="math inline">\(E = h\nu\)</span>. When converting to angular frequency <span class="math inline">\(\omega = 2\pi\nu\)</span>, the equivalent expression becomes <span class="math inline">\(E = \hbar\omega\)</span>, where <span class="math inline">\(\hbar = h / 2\pi\)</span>.</li>
+
+  <li>Formulas derived from flux integrals, Green functions, or solid-angle projections must include the appropriate <span class="math inline">\(4\pi\)</span> normalization. This applies to expressions involving <span class="math inline">\(\int d\Omega\)</span>, radial kernel solutions, and Poisson-type field equations in three-dimensional space.</li>
+
+  <li>Cosmological expressions, including the Friedmann equation and critical density, inherently contain factors of <span class="math inline">\(8\pi/3\)</span> or <span class="math inline">\(3/8\pi\)</span>. These factors result from the combination of spatial flux normalization and geometric trace in general relativity. They should not be altered to match <span class="math inline">\(2\pi\)</span> or <span class="math inline">\(4\pi\)</span> conventions used in other domains.</li>
+
+  <li>Global conventions should be explicitly stated in the manuscript’s notation section to ensure consistency:
+    <ul>
+      <li><strong>Spectral domain:</strong> Adopt angular frequency <span class="math inline">\(\omega\)</span> and reduced Planck constant <span class="math inline">\(\hbar\)</span>; define the action quantum as <span class="math inline">\(S_\ast = \hbar\)</span>.</li>
+      <li><strong>Spatial domain:</strong> Apply <span class="math inline">\(4\pi\)</span> normalization in Green and Poisson equations; specify whether Newtonian or Einstein field conventions are used.</li>
+      <li><strong>Cosmological domain:</strong> Use the standard Friedmann form <span class="math inline">\(H^2 = \frac{8\pi G}{3} \rho\)</span>; define the critical density as <span class="math inline">\(\rho_c = \frac{3H^2}{8\pi G}\)</span>.</li>
+    </ul>
+  </li>
+
+  <li>Each equation involving a <span class="math inline">\(\pi\)</span>-dependent factor should be cross-referenced to this section or to the notation summary, enabling traceability of its geometric or spectral origin.</li>
+</ul>
+
+<h4>Kernel Impulse Mapping Across <span class="math inline">\(\pi\)</span>-Factor Domains</h4>
+<p>
+All appearances of <span class="math inline">\(\pi\)</span> in kernel-based formulations can be traced to projections of a unified impulse law:
+</p>
+
+<div class="math display">
+
+\[
+K(x, x') = \int_{\Omega_\omega} M[\omega, \dots]\, e^{i\Phi(x, x'; \omega)}\, d\omega
+\]
+
+</div>
+
+<p>
+This kernel governs phase propagation, energy distribution, and impulse response across spectral, spatial, and cosmological regimes. The specific <span class="math inline">\(\pi\)</span>-dependent factor arises from the geometric or frequency-domain projection applied to this law:
+</p>
+
+<ul>
+  <li><strong>Spectral domain:</strong> When the kernel is evaluated over angular frequency <span class="math inline">\(\omega\)</span>, the phase integral adopts the form <span class="math inline">\(\exp(i\omega t)\)</span>. This introduces a factor of <span class="math inline">\(2\pi\)</span> via the conversion <span class="math inline">\(\omega = 2\pi\nu\)</span>, and defines the action quantum as <span class="math inline">\(\hbar = h / 2\pi\)</span>.</li>
+
+  <li><strong>Spatial domain:</strong> When the kernel impulse is projected over solid angle—such as in radial Green functions or field flux integrals—the integration domain <span class="math inline">\(\int_{S^2} d\Omega = 4\pi\)</span> introduces the <span class="math inline">\(4\pi\)</span> factor. This normalization appears in solutions to <span class="math inline">\(\nabla^2 G = -\delta\)</span> and in Poisson-type field equations in three-dimensional space.</li>
+
+  <li><strong>Cosmological domain:</strong> When the kernel is projected onto a spherical spacetime geometry, the Einstein field equations introduce a curvature normalization factor of 2. Combined with the spatial trace (dimension 3) and flux factor <span class="math inline">\(4\pi\)</span>, this yields <span class="math inline">\(8\pi\)</span> in the Friedmann equation and <span class="math inline">\(3/8\pi\)</span> in the critical density expression.</li>
+</ul>
+
+<p>
+Accordingly, each <span class="math inline">\(\pi\)</span>-factor reflects a specific geometric or spectral projection of the kernel impulse law, and should be retained as a structural invariant rather than adjusted for aesthetic or dimensional symmetry.
+</p>
+
+<h4>Prescriptive Guidelines for <span class="math inline">\(\pi\)</span>-Factor Usage</h4>
+<ul>
+  <li>Frequency domain conventions must be explicitly defined (cycles per second vs radians per second) prior to applying Planck’s relation or phase integrals.</li>
+  <li>Spatial integration domains (volume vs surface) must be specified when applying Green functions, Poisson equations, or flux-based derivations.</li>
+  <li>Gravitational normalization conventions (Newtonian vs Einstein field equations) must be clarified when applying cosmological equations or interpreting critical density expressions.</li>
+</ul>
+
+<p>
+These guidelines ensure that all uses of <span class="math inline">\(\pi\)</span> within kernel-based models are dimensionally consistent, geometrically justified, and theoretically grounded.
+</p>
+</article>
+</section>
     <section>
         <h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional Check</h2>
         <article style="display:none">
