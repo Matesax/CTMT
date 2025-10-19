@@ -3156,84 +3156,295 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
             </p>
 
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_3">Green Kernel (Spectral)</h3>
-            <ol>
-                <li>Measure impulse responses <span class="math inline">\(h(t;x_i)\)</span> across spatial grid.</li>
-                <li>Compute spectra <span class="math inline">\(W(\omega;x_i) = |\mathcal{F}[h(t;x_i)]|^{2}\)</span>.</li>
-                <li>Expand <span class="math inline">\(M(\omega) = \sum_j m_j b_j(\omega)\)</span>; assemble matrix <span class="math inline">\(A\)</span>.</li>
-                <li>Invert with regularization; reconstruct <span class="math inline">\(G(x,x')\)</span> via quadrature.</li>
-                <li>Validate via time‑delay comparison.</li>
-            </ol>
+<p>
+  The Green kernel defines the spectral response of a system to localized impulse excitation.
+  It encodes the propagation characteristics and synchrony curvature across spatial domains.
+  The protocol below outlines the recursive steps for spectral reconstruction and kernel inversion:
+</p>
+
+<ol>
+  <li>
+    <strong>Impulse Response Measurement:</strong>
+    Record time-domain impulse responses
+    <span class="math inline">\(h(t;x_i)\)</span>
+    at spatial grid points
+    <span class="math inline">\(x_i\)</span>.
+  </li>
+  <li>
+    <strong>Spectral Power Computation:</strong>
+    Compute local spectra via Fourier transform:
+    <span class="math inline">\(W(\omega;x_i) = |\mathcal{F}[h(t;x_i)]|^2\)</span>,
+    capturing energy distribution across frequency.
+  </li>
+  <li>
+    <strong>Spectral Expansion:</strong>
+    Expand the spectral model
+    <span class="math inline">\(M(\omega) = \sum_j m_j b_j(\omega)\)</span>
+    using adaptive basis functions
+    <span class="math inline">\(b_j(\omega)\)</span>
+    (e.g., wavelets, Gaussians).
+    Assemble forward matrix
+    <span class="math inline">\(A\)</span>
+    for inversion.
+  </li>
+  <li>
+    <strong>Kernel Inversion:</strong>
+    Solve for model coefficients
+    <span class="math inline">\(m_j\)</span>
+    via regularized inversion (e.g., Tikhonov, L1 minimization).
+    Reconstruct the Green kernel
+    <span class="math inline">\(G(x,x')\)</span>
+    via quadrature over spectral domain.
+  </li>
+  <li>
+    <strong>Physical Validation:</strong>
+    Compare reconstructed kernel against measured time-delay profiles
+    to confirm synchrony curvature and propagation fidelity.
+  </li>
+</ol>
+
+<p>
+  This protocol defines the spectral emergence of the Green kernel from impulse measurements.
+  Each step is recursive, spectrally adaptive, and dimensionally auditable.
+</p>
+
 
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_4">Path‑Sum Kernel (Holonomy)</h3>
-            <ol>
-                <li>Perform closed‑loop interferometry; record phase <span class="math inline">\(\phi(\gamma_i)\)</span>, visibility <span class="math inline">\(V_i\)</span>.</li>
-                <li>Fit topological weights <span class="math inline">\(m_j\)</span> over homology basis.</li>
-                <li>Validate by loop deformation and phase shift prediction.</li>
-            </ol>
+<p>
+  The path-sum kernel encodes holonomy as a recursive projection of synchrony curvature over closed loops.
+  It captures topological phase shifts and visibility modulations arising from geometric deformation and synchrony delay.
+  The protocol defines the generative and diagnostic steps for extracting holonomy observables from kernel structure:
+</p>
 
-            <h4>Procedures Applied</h4>
-            <ol>
-                <li>We applied the recursive kernel framework to a dataset of Wilson loop observables derived from AdS‑BH geometry. The following procedures were used:</li>
-                <li>Forward map construction: Loop integrals <span class="math inline">\(V(L)\)</span> were modeled via nonlinear modulation of a recursive kernel <span class="math inline">\(K(x,x')\)</span>, with geometry encoded in synchrony delay <span class="math inline">\(\tau(x,x')\)</span>.</li>
-                <li>Kernel tuning: The modulation envelope <span class="math inline">\(M[\omega]\)</span> was tuned using stationary‑phase amplification, with collapse predicted where <span class="math inline">\(\partial_\omega \arg M[\omega] = 0\)</span>.</li>
-                <li>Nonlinear inversion: Gauss–Newton iteration with Tikhonov regularization was used to recover kernel parameters from loop data. The Jacobian was computed via adjoint methods.</li>
-                <li>Regularization: A Laplacian prior was applied to enforce smoothness, with <span class="math inline">\(\lambda = 10^{-3}\)</span> selected via L‑curve diagnostics.</li>
-                <li>Unit consistency: All observables were dimensionless combinations of <span class="math inline">\(TL\)</span>, <span class="math inline">\(V/T\)</span>, and <span class="math inline">\(\sigma/T\)</span>, ensuring compatibility with kernel scaling.</li>
-            </ol>
+<ol>
+  <li>
+    <strong>Closed-Loop Interferometry:</strong>
+    Perform loop-based measurements and record phase
+    <span class="math inline">\(\phi(\gamma_i)\)</span>
+    and visibility
+    <span class="math inline">\(V_i\)</span>
+    for each path
+    <span class="math inline">\(\gamma_i\)</span>.
+  </li>
+  <li>
+    <strong>Topological Weight Fitting:</strong>
+    Fit loop observables to homology basis using topological weights
+    <span class="math inline">\(m_j\)</span>,
+    capturing curvature-induced modulation.
+  </li>
+  <li>
+    <strong>Deformation Validation:</strong>
+    Predict phase shifts under loop deformation and compare against measured
+    <span class="math inline">\(\Delta\phi(\gamma)\)</span>
+    to confirm holonomy structure.
+  </li>
+</ol>
 
-            <h4>Accuracy Results</h4>
-            <p>
-                The reconstructed kernel predicted loop observables with the following accuracy:
-            </p>
-            <ul>
-                <li>Root‑mean‑square error (RMSE): <span class="math inline">\(0.0095\)</span></li>
-                <li>Relative <span class="math inline">\(\ell_2\)</span> error: <span class="math inline">\(2.07\%\)</span></li>
-            </ul>
+<h4>Procedures Applied</h4>
 
-            <p>
-                These results confirm that the recursive kernel framework resolves nonlinear holonomy observables with high fidelity,
-                outperforming symbolic models in noisy or chaotic regimes.
-            </p>
+<ol>
+  <li>
+    Applied recursive kernel framework to Wilson loop observables derived from AdS–BH geometry.
+  </li>
+  <li>
+    <strong>Forward Map Construction:</strong>
+    Modeled loop integrals
+    <span class="math inline">\(V(L)\)</span>
+    via nonlinear modulation of recursive kernel
+    <span class="math inline">\(K(x,x')\)</span>,
+    with geometry encoded in synchrony delay
+    <span class="math inline">\(\tau(x,x')\)</span>.
+  </li>
+  <li>
+    <strong>Kernel Tuning:</strong>
+    Tuned modulation envelope
+    <span class="math inline">\(M[\omega]\)</span>
+    using stationary-phase amplification;
+    collapse predicted where
+    <span class="math inline">\(\partial_\omega \arg M[\omega] = 0\)</span>.
+  </li>
+  <li>
+    <strong>Nonlinear Inversion:</strong>
+    Recovered kernel parameters via Gauss–Newton iteration with Tikhonov regularization;
+    Jacobian computed using adjoint methods.
+  </li>
+  <li>
+    <strong>Regularization:</strong>
+    Applied Laplacian prior for smoothness;
+    selected
+    <span class="math inline">\(\lambda = 10^{-3}\)</span>
+    via L-curve diagnostics.
+  </li>
+  <li>
+    <strong>Unit Consistency:</strong>
+    All observables expressed as dimensionless combinations of
+    <span class="math inline">\(TL\)</span>,
+    <span class="math inline">\(V/T\)</span>,
+    and
+    <span class="math inline">\(\sigma/T\)</span>,
+    ensuring compatibility with kernel scaling.
+  </li>
+</ol>
 
-            <h4>Reproducibility</h4>
-            <p>
-                <a href="https://github.com/arpn/real_wilson" target="_blank">GitHub: real_wilson</a>
-                with <span class="math inline">\(N=1000\)</span> samples,
-                <span class="math inline">\(\sigma_{\text{noise}}=10^{-3}\)</span>,
-                and regularization parameter <span class="math inline">\(\lambda = 10^{-3}\)</span>.
-                Loop integrals should be predicted via kernel collapse geometry and compared to measured values using RMSE and relative error metrics.
-            </p>
+<h4>Accuracy Results</h4>
 
-            <p>
-                The experiment can be repeated using the <em>AdSBHDataset</em>.
-            </p>
+<p>
+  The reconstructed kernel predicted loop observables with high fidelity:
+</p>
 
-            <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_5">Gaussian Kernel (Diffusive)</h3>
-            <ol>
-                <li>Measure covariance field <span class="math inline">\(C(x,x') = \langle h(t;x)\,h(t;x') \rangle_t\)</span>.</li>
-                <li>Fit Gaussian model <span class="math inline">\(C \sim \exp(-|x-x'|^2 / 2\sigma^2)\)</span>.</li>
-                <li>Estimate <span class="math inline">\(\sigma^2\)</span>, map to <span class="math inline">\(\Theta\)</span>; validate via diffusion observables.</li>
-            </ol>
+<ul>
+  <li>Root-mean-square error (RMSE): <span class="math inline">\(0.0095\)</span></li>
+  <li>Relative <span class="math inline">\(\ell_2\)</span> error: <span class="math inline">\(2.07\%\)</span></li>
+</ul>
 
-            <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_6">Topological Energy Kernel</h3>
-            <ol>
-                <li>Map spatial topological defects; measure local energies <span class="math inline">\(E_i\)</span>.</li>
-                <li>Fit model <span class="math inline">\(E_{\text{top}}(Q,R) = b\, \rho_{\text{topo}} |Q| L_Z^2 \,\Phi(R/L_Z,\ldots)\)</span>.</li>
-                <li>Infer parameters via nonlinear least squares; validate scaling.</li>
-            </ol>
+<p>
+  These results confirm that the recursive kernel framework resolves nonlinear holonomy observables with high accuracy,
+  outperforming symbolic models in noisy or chaotic regimes.
+</p>
+
+<h4>Reproducibility</h4>
+
+<p>
+  <a href="https://github.com/arpn/real_wilson" target="_blank">GitHub: real_wilson</a>
+  with <span class="math inline">\(N = 1000\)</span> samples,
+  <span class="math inline">\(\sigma_{\text{noise}} = 10^{-3}\)</span>,
+  and regularization parameter
+  <span class="math inline">\(\lambda = 10^{-3}\)</span>.
+  Loop integrals should be predicted via kernel collapse geometry and compared to measured values using RMSE and relative error metrics.
+</p>
+
+<p>
+  The experiment can be repeated using the <em>AdSBHDataset</em>.
+</p>
 
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_7">Weak-Field Time Kernel</h3>
-            <ol>
-                <li>Acquire timing traces; fit phase offset field <span class="math inline">\(\Delta\phi_i(t)\)</span>.</li>
-                <li>Infer synchrony parameters <span class="math inline">\(\tau, \Delta\phi\)</span>; validate via Doppler shift correction.</li>
-            </ol>
+<p>
+  In the kernel framework, weak-field time emerges from recursive modulation of oscillator phase.
+  It is not an external coordinate, but a synchrony-derived variable projected from mass-weighted phase curvature.
+  (<a href="#sec-19-weak-field-time-from-mass-weighted-phase-synchrony">Full derivation here.</a>)
+  The Recursive Modulation Impulse (RMI) protocol defines the generative and diagnostic steps for extracting time from kernel observables:
+</p>
+
+<ol>
+  <li>
+    <strong>Timing Trace Acquisition:</strong>
+    Record oscillator signals and extract phase offset field
+    <span class="math inline">\(\Delta\phi_i(t)\)</span> across distributed sources.
+  </li>
+  <li>
+    <strong>Synchrony Inference:</strong>
+    Compute mass-weighted synchrony curvature
+    <span class="math inline">\(\Delta\phi_{\mathrm{mass}}(t)\)</span> and time shift
+    <span class="math inline">\(\tau_{\mathrm{wf}}(t) = \Delta\phi_{\mathrm{mass}}(t)/\bar\omega\)</span>.
+    Validate against Doppler shift and gravitational redshift.
+  </li>
+  <li>
+    <strong>Wave Packet Launch:</strong>
+    Emit modulated waveforms and record transmitted envelope
+    <span class="math inline">\(A(t;x)\)</span> across propagation domain.
+  </li>
+  <li>
+    <strong>Modulation Fit:</strong>
+    Extract amplitude modulation
+    <span class="math inline">\(\varphi[\gamma]\)</span> and collapse rhythm
+    <span class="math inline">\(\gamma_{\mathrm{mod}}\)</span> from packet structure.
+  </li>
+  <li>
+    <strong>Numerical Inversion:</strong>
+    Choose spectral basis
+    <span class="math inline">\(b_j(\omega)\)</span>, discretize frequency, and solve for model
+    <span class="math inline">\(m^\star\)</span> via regularized least squares or sparse recovery.
+  </li>
+  <li>
+    <strong>Synchrony–Potential Projection:</strong>
+    Map synchrony curvature into gravitational potential via
+    <span class="math inline">\(\Delta\Phi_{\mathrm{sync}} = c^2\,\bar\omega^{-1}\,\partial_t\,\Delta\phi_{\mathrm{mass}}(t)\)</span>,
+    enabling direct comparison with kernel redshift and orbital mechanics.
+  </li>
+  <li>
+    <strong>Dimensional Audit:</strong>
+    Apply the consistency test
+    <span class="math inline">\(\epsilon_{\mathrm{dim}} = \frac{\left\| [Q_k]_{\mathrm{pred}} - [Q_k]_{\mathrm{SI}} \right\|}{\left\| [Q_k]_{\mathrm{SI}} \right\|}\)</span>
+    to confirm SI closure of all derived quantities.
+  </li>
+  <li>
+    <strong>Uncertainty and Phase Noise Diagnostics:</strong>
+    Bootstrap raw data to estimate nonlinear uncertainty in
+    <span class="math inline">\(\Delta\phi_i(t)\)</span> and
+    <span class="math inline">\(\tau_{\mathrm{wf}}(t)\)</span>,
+    and diagnose coherence loss or jitter in synchrony rhythm.
+  </li>
+</ol>
+
+<p>
+  This protocol defines the operational emergence of time from kernel structure.
+  Each step is recursive, dimensionally sealed, and experimentally traceable.
+</p>
 
             <h3 id="sec-8-propagation-kernel">Propagation Kernel</h3>
-            <ol>
-                <li>Launch wave packets; record transmitted envelope <span class="math inline">\(A(t;x)\)</span>.</li>
-                <li>Fit modulation amplitude <span class="math inline">\(\varphi[\gamma]\)</span> and collapse rhythm <span class="math inline">\(\gamma_{\text{mod}}\)</span>.</li>
-                <li>Validate across packet shapes and center frequencies.</li>
-            </ol>
+<p>
+  The propagation kernel governs how modulated waveforms traverse a medium under synchrony curvature.
+  It projects the source field into a transmitted envelope via recursive modulation, enabling extraction of collapse rhythm and spectral structure.
+  The protocol defines the generative and diagnostic steps for waveform propagation under kernel law:
+</p>
+
+<ol>
+  <li>
+    <strong>Wave Packet Launch:</strong>
+    Emit structured waveforms from synchronized sources and record the transmitted envelope
+    <span class="math inline">\(A(t;x)\)</span> across spatial domain.
+  </li>
+  <li>
+    <strong>Envelope Extraction:</strong>
+    Isolate the received signal’s amplitude and phase components; apply filtering to remove carrier drift.
+  </li>
+  <li>
+    <strong>Modulation Fit:</strong>
+    Fit amplitude modulation
+    <span class="math inline">\(\varphi[\gamma]\)</span> and collapse rhythm
+    <span class="math inline">\(\gamma_{\mathrm{mod}}(t)\)</span>,
+    which encode synchrony curvature and spectral compression.
+  </li>
+  <li>
+    <strong>Spectral Basis Selection:</strong>
+    Choose adaptive basis
+    <span class="math inline">\(b_j(\omega)\)</span> (e.g., wavelets, Gaussians) to match spectral structure.
+    Discretize frequency domain and apply quadrature.
+  </li>
+  <li>
+    <strong>Numerical Inversion:</strong>
+    Solve for model parameters
+    <span class="math inline">\(m^\star\)</span> using regularized least squares:
+    <span class="math inline">\(\|A m - O\|_2^2 + \lambda \|L m\|_2^2\)</span>,
+    or sparse recovery:
+    <span class="math inline">\(\|A m - O\|_2^2 + \mu \|m\|_1\)</span>.
+  </li>
+  <li>
+    <strong>Collapse–Synchrony Mapping:</strong>
+    Relate collapse rhythm
+    <span class="math inline">\(\gamma_{\mathrm{mod}}(t)\)</span> to synchrony curvature
+    <span class="math inline">\(\Delta\phi_{\mathrm{mass}}(t)\)</span>,
+    enabling projection into weak-field time shift
+    <span class="math inline">\(\tau_{\mathrm{wf}}(t)\)</span>.
+  </li>
+  <li>
+    <strong>Dimensional Audit:</strong>
+    Apply consistency test
+    <span class="math inline">\(\epsilon_{\mathrm{dim}} < 10^{-12}\)</span>
+    to confirm SI closure of all derived quantities, including modulation amplitude and collapse rhythm.
+  </li>
+  <li>
+    <strong>Uncertainty and Envelope Diagnostics:</strong>
+    Bootstrap raw data to estimate nonlinear uncertainty in
+    <span class="math inline">\(A(t;x)\)</span>,
+    and diagnose coherence loss, jitter, or envelope distortion.
+  </li>
+</ol>
+
+<p>
+  This protocol defines the operational emergence of waveform structure from kernel projection.
+  Each step is recursive, spectrally adaptive, and dimensionally sealed.
+</p>
 
             <h3 id="sec-8-numerical-inversion">Numerical Inversion and Regularization</h3>
             <p>
@@ -15318,8 +15529,8 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
 </figure>
 <p>
   Here <span class="math inline">\(\Psi_A,\Psi_B\)</span> denote the source and
-  response synchrony fields in Hilbert space <span class="math inline">\(\mathcal{H}_\Phi\)</span>,
-  connected through the local kernel operator <span class="math inline">\(\mathcal{R}_{AB}\)</span>.
+  response synchrony fields in Hilbert space <span class="math inline">\(H_\Phi\)</span>,
+  connected through the local kernel operator <span class="math inline">\(R_{AB}\)</span>.
 </p>
     <p>
       For synchrony systems, the kernel <span class="math inline">\(K_{AB}\)</span> is separable into mass-weighted phase modulation:
