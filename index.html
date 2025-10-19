@@ -14113,17 +14113,19 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
 <h4>Regime Bridges and Scaling</h4>
 <figure class="equation" id="eq-144_19">
   <div class="math display">
-  \[
-  \mathcal{S}_\ast\Theta=\rho L_Z^3c^2,
-  \quad
-  E_{\mathrm{top}}=\Delta\mathcal{S}_\ast\rho_{\mathrm{mod}}L_Z^2.
-  \]
+    \[
+    \mathcal{S}_\ast \Theta = \rho L_Z^3 c^2,
+    \quad
+    E_{\mathrm{top}} = \Delta \mathcal{S}_\ast \rho_{\mathrm{mod}} L_Z^2.
+    \]
   </div>
-  <figcaption><a href="#eq-144_19">Equation (144.19)</a> — Structural bridge between kernel energy and topological regime.</figcaption>
+  <figcaption><a href="#eq-144_19">Equation (144.19)</a> — dimensional closure between local and cosmological kernels.</figcaption>
 </figure>
-
 <p>
-  These relations preserve dimensional continuity across quantum, thermal, and orbital regimes.
+  This expresses conservation of action density across scales. 
+  The π-factor associated with each projection reflects the kernel’s integration dimension:
+  <span class="math inline">\(2\pi \to 4\pi \to 8\pi\)</span> as the domain measure evolves from
+  one-dimensional phase rotation to full three-dimensional flux closure.
 </p>
 
 <h4>Computation and Validation Protocols</h4>
@@ -15293,7 +15295,7 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
         </article>
     </section>
     <section>
-        <h2 title="Click to toggle" id="sec-19-weak-field-time-from-mass-weighted-phase-synchrony">Weak Field Time from Mass-Weighted Phase Synchrony</h2>
+        <h2 title="Click to toggle" id="sec-19-weak-field-time-from-mass-weighted-phase-synchrony">Weak-Field Time from Mass-Weighted Phase Synchrony</h2>
         <article style="display:none">
   <p>
     In the kernel framework, <em>time</em> is not an external coordinate but a
@@ -15306,16 +15308,19 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
     <p>
       We begin with the recursive kernel projection:
     </p>
-    <div class="math display">
-      
-
-\[
+<figure class="equation" id="eq-19_0">
+  <div class="math display">
+    \[
       \Psi_B(x,t) = \int K_{AB}(x,x',t)\,\Psi_A(x',t)\,dx'
-      \]
-
-
-    </div>
-
+    \]
+  </div>
+  <figcaption><a href="#eq-19_0">Equation (19.0)</a> — kernel recursion in the synchrony domain.</figcaption>
+</figure>
+<p>
+  Here <span class="math inline">\(\Psi_A,\Psi_B\)</span> denote the source and
+  response synchrony fields in Hilbert space <span class="math inline">\(\mathcal{H}_\Phi\)</span>,
+  connected through the local kernel operator <span class="math inline">\(\mathcal{R}_{AB}\)</span>.
+</p>
     <p>
       For synchrony systems, the kernel <span class="math inline">\(K_{AB}\)</span> is separable into mass-weighted phase modulation:
     </p>
@@ -15423,6 +15428,16 @@ The appearance of <span class="math inline">\(\pi\)</span> in this formulation i
     Atomic clocks measure fractional frequency shifts, which in the kernel
     ontology correspond to phase-synchrony gradients:
   </p>
+
+<p>
+  Using the synchrony–potential mapping
+  <span class="math inline">\(\Delta\Phi_{\mathrm{sync}} = c^2\,\bar\omega^{-1}\,\partial_t\,\Delta\phi_{\mathrm{sync}}(t)\)</span>,
+  we recover the static fractional-shift form
+  <span class="math inline">\(\delta = \frac{\Delta\Phi_{\mathrm{sync}}}{c^2}\)</span>.
+  This expression ties directly to the kernel-potential operator used in earlier sections,
+  and makes explicit why the ratio <span class="math inline">\(\Delta\Phi_{\mathrm{sync}} / c^2\)</span> appears
+  as the synchrony-time projection of gravitational potential.
+</p>
 
   <figure class="equation" id="eq-19_4">
     <div class="math display">
@@ -23724,6 +23739,55 @@ These guidelines ensure that all uses of <span class="math inline">\(\pi\)</span
 
             </ul>
 
+<h3 id="sec-37-dimensional-check_dimax">Kernel Dimensional Axiom</h3>
+
+<p>
+  Every measurable quantity derived from the kernel law is dimensionally closed if
+  and only if the kernel projection preserves the <em>action invariant</em>
+  <span class="math inline">\(\mathcal{S}_\ast = \frac{E}{\nu}\)</span>.
+  Under this axiom:
+</p>
+
+<ul>
+  <li>
+    The <strong><span class="math inline">\(\pi\)</span>-factor</strong> is the normalization constant associated with
+    the kernel’s domain measure (angular → linear, or spherical → volumetric).
+  </li>
+  <li>
+    The <strong>unit bridge</strong> between any two domains satisfies
+    <span class="math inline">\([\mathcal{S}_\ast]_A = [\mathcal{S}_\ast]_B\)</span>,
+    and the corresponding Jacobian of transformation introduces
+    <span class="math inline">\(2\pi\)</span>, <span class="math inline">\(4\pi\)</span>, or <span class="math inline">\(8\pi\)</span>
+    depending on integration dimensionality.
+  </li>
+  <li>
+    Dimensional mismatches are therefore diagnostic of incomplete kernel projection,
+    not physical inconsistency.
+  </li>
+</ul>
+
+<h5>Dimensional Consistency Test</h5>
+
+<p>
+  For each derived quantity <span class="math inline">\(Q_k\)</span>,
+  define the dimension residual:
+</p>
+
+<div class="math display">
+
+\[
+  \epsilon_{\mathrm{dim}} =
+  \frac{\left\| [Q_k]_{\mathrm{pred}} - [Q_k]_{\mathrm{SI}} \right\|}
+       {\left\| [Q_k]_{\mathrm{SI}} \right\|}
+  \]
+
+</div>
+
+<p>
+  The model passes dimensional closure if
+  <span class="math inline">\(\epsilon_{\mathrm{dim}} < 10^{-12}\)</span>,
+  confirming that all derived laws remain SI-consistent to machine precision.
+</p>
             <!-- ENERGY LAW -->
             <h3 id="sec-37-dimensional-check_2">Energy law axioms</h3>
             <table class="axiom-table" border="1" cellpadding="6" style="border-collapse:collapse;width:100%;">
