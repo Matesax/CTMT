@@ -3447,200 +3447,322 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 </p>
 
             <h3 id="sec-8-numerical-inversion">Numerical Inversion and Regularization</h3>
-            <p>
-                Choose basis <span class="math inline">\(b_j(\omega)\)</span> adaptive to spectral structure (e.g., wavelets, Gaussians).
-                Discretize <span class="math inline">\(\omega\)</span> and apply quadrature.
-            </p>
+<p>
+  Numerical inversion resolves kernel parameters from observed data by projecting spectral structure onto a chosen basis.
+  This process is recursive, spectrally adaptive, and dimensionally sealed.
+  The protocol below defines the steps for model recovery and uncertainty quantification:
+</p>
 
-            <figure class="equation" id="eq-8_13">
-                <div class="math display">
-                    \[
-                    m^\star = \arg\min_m \|A m - O\|_2^2 + \lambda \|L m\|_2^2,
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_13">Equation (8.13)</a></figcaption>
-            </figure>
+<ol>
+  <li>
+    <strong>Spectral Basis Selection:</strong>
+    Choose basis functions
+    <span class="math inline">\(b_j(\omega)\)</span>
+    adaptive to spectral structure (e.g., wavelets, Gaussians).
+    Discretize frequency domain
+    <span class="math inline">\(\omega\)</span>
+    and apply quadrature.
+  </li>
+  <li>
+    <strong>Linear Inversion:</strong>
+    Solve for model
+    <span class="math inline">\(m^\star\)</span>
+    using Tikhonov regularization:
+    </li>
+</ol>
 
-            <p>
-                where <span class="math inline">\(L\)</span> is a smoothing operator.
-                Choose <span class="math inline">\(\lambda\)</span> via L‑curve or cross‑validation
-                <a href="#ref-tikhonov">[tikhonov]</a>.
-            </p>
+<figure class="equation" id="eq-8_13">
+  <div class="math display">
+    
 
-            <figure class="equation" id="eq-8_14">
-                <div class="math display">
-                    \[
-                    m^\star = \arg\min_m \|A m - O\|_2^2 + \mu \|m\|_1,
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_14">Equation (8.14)</a></figcaption>
-            </figure>
+\[
+    m^\star = \arg\min_m \|A m - O\|_2^2 + \lambda \|L m\|_2^2,
+    \]
 
-            <p>
-                solved via ISTA/FISTA; select <span class="math inline">\(\mu\)</span> by cross‑validation.
-            </p>
 
-            <figure class="equation" id="eq-8_15">
-                <div class="math display">
-                    \[
-                    \mathrm{Cov}(m) \approx (A^\top A + \lambda L^\top L)^{-1}
-                    A^\top \Sigma_O A
-                    (A^\top A + \lambda L^\top L)^{-1}.
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_15">Equation (8.15)</a></figcaption>
-            </figure>
+  </div>
+  <figcaption><a href="#eq-8_13">Equation (8.13)</a></figcaption>
+</figure>
 
-            <p>
-                Bootstrap raw data to estimate nonlinear uncertainty.
-            </p>
+<p>
+  where <span class="math inline">\(L\)</span> is a smoothing operator.
+  Select regularization parameter
+  <span class="math inline">\(\lambda\)</span>
+  via L-curve diagnostics or cross-validation
+  <a href="#ref-tikhonov">[tikhonov]</a>.
+</p>
+
+<ol start="3">
+  <li>
+    <strong>Sparse Recovery:</strong>
+    Alternatively, solve using L1 regularization:
+  </li>
+</ol>
+
+<figure class="equation" id="eq-8_14">
+  <div class="math display">
+ 
+
+\[
+    m^\star = \arg\min_m \|A m - O\|_2^2 + \mu \|m\|_1,
+    \]
+
+  </div>
+  <figcaption><a href="#eq-8_14">Equation (8.14)</a></figcaption>
+</figure>
+
+<p>
+  Solved via ISTA/FISTA algorithms.
+  Select sparsity parameter
+  <span class="math inline">\(\mu\)</span>
+  by cross-validation.
+</p>
+
+<ol start="4">
+  <li>
+    <strong>Covariance Estimation:</strong>
+    Estimate model uncertainty via linearized covariance propagation:
+  </li>
+</ol>
+
+<figure class="equation" id="eq-8_15">
+  <div class="math display">
+
+\[
+    \mathrm{Cov}(m) \approx (A^\top A + \lambda L^\top L)^{-1}
+    A^\top \Sigma_O A
+    (A^\top A + \lambda L^\top L)^{-1}.
+    \]
+
+  </div>
+  <figcaption><a href="#eq-8_15">Equation (8.15)</a></figcaption>
+</figure>
+
+<ol start="5">
+  <li>
+    <strong>Bootstrap Diagnostics:</strong>
+    Resample raw data to estimate nonlinear uncertainty and validate robustness of recovered kernel parameters.
+  </li>
+</ol>
+
+<p>
+  This protocol enables recursive recovery of kernel structure from noisy data.
+  Each step is spectrally tuned, regularized, and dimensionally consistent.
+</p>
 
             <h3 id="sec-8-primitive-extraction">Primitive Extraction and Constant Derivation</h3>
+<p>
+  Kernel primitives are extracted from impulse responses and spectral observables using recursive modulation and synchrony curvature.
+  These quantities define coherence, occupancy, and emergent constants—including the fine-structure constant—via dimensionally sealed projection.
+</p>
 
-            <ul>
-                <li>
-                    <span class="math inline">\( r_i \)</span>: denotes the spatial displacement from the impulse origin to the
-                    <span class="math inline">\( i \)</span>-th sampling point. It captures the effective modulation path length
-                    over which the kernel amplitude <span class="math inline">\(\hat{K}(r_i)\)</span> is evaluated. This spatial
-                    weighting enables extraction of the mean hop <span class="math inline">\(M_1\)</span>, coherence length
-                    <span class="math inline">\(L_K\)</span>, and synchrony velocity <span class="math inline">\(v_{\text{sync}}\)</span>.
-                </li>
+<ul>
+  <li>
+    <strong>Spatial Displacement:</strong>
+    <span class="math inline">\(r_i\)</span> is the spatial offset from impulse origin to sampling point
+    <span class="math inline">\(i\)</span>.
+    It defines the modulation path length over which kernel amplitude
+    <span class="math inline">\(\hat{K}(r_i)\)</span> is evaluated.
+    This weighting enables extraction of:
+    <ul>
+      <li>Mean hop: <span class="math inline">\(M_1\)</span></li>
+      <li>Coherence length: <span class="math inline">\(L_K\)</span></li>
+      <li>Synchrony velocity: <span class="math inline">\(v_{\text{sync}}\)</span></li>
+    </ul>
+  </li>
 
-                <li>
-                    <span class="math inline">\(\Theta\)</span>: Fit kernel occupancy
-                    <span class="math inline">\(n(\omega) \approx (e^{\mathcal{S}_\ast\omega/\Theta} - 1)^{-1}\)</span>.
-                </li>
+  <li>
+    <strong>Mean Hop:</strong>
+    Computed from impulse-weighted displacement:
+    <div class="math display">
+      
+\[
+      M_1 \approx \frac{\sum_i r_i \hat{K}(r_i)}{\sum_i \hat{K}(r_i)}
+      \]
 
-                <li>
-                    <span class="math inline">\(\gamma\)</span>: Extract from spectral linewidths:
-                    <span class="math inline">\(\gamma \approx \text{FWHM}/2\)</span>.
-                </li>
+    </div>
+  </li>
 
-                <li>
-                    <span class="math inline">\(M_1\)</span>: Mean hop from impulse response:
-                    <div class="math display">
-                        \[
-                        M_1 \approx \frac{\sum_i r_i \hat{K}(r_i)}{\sum_i \hat{K}(r_i)}
-                        \]
-                    </div>
-                </li>
+  <li>
+    <strong>Synchrony Velocity:</strong>
+    Defined by:
+    <span class="math inline">\(v_{\text{sync}} = M_1 \nu_{\text{sync}}\)</span>,
+    where
+    <span class="math inline">\(\nu_{\text{sync}}\)</span>
+    is the synchrony frequency derived from phase curvature.
+  </li>
 
-                <li>
-                    <span class="math inline">\(L_K = v_{\text{sync}}/\gamma\)</span>, with
-                    <span class="math inline">\(v_{\text{sync}} = M_1 \nu_{\text{sync}}\)</span>.
-                </li>
+  <li>
+    <strong>Coherence Length:</strong>
+    Given by:
+    <span class="math inline">\(L_K = v_{\text{sync}} / \gamma\)</span>,
+    where
+    <span class="math inline">\(\gamma\)</span>
+    is the damping rate extracted from spectral linewidth:
+    <span class="math inline">\(\gamma \approx \text{FWHM}/2\)</span>.
+  </li>
 
-                <li>
-                    Fine-structure constant:
-                    <div class="math display">
-                        \[
-                        \alpha = \frac{\gamma}{v_{\text{sync}} \Theta}\cdot
-                        \frac{1}{\mathcal{G}(E_{\text{mode}} / \mathcal{S}_\ast \Theta)}
-                        \]
-                    </div>
-                    where <span class="math inline">\(\mathcal{G}\)</span> is derived from KMS statistics or calibration sweeps.
-                </li>
-            </ul>
+  <li>
+    <strong>Kernel Occupancy:</strong>
+    Fit spectral occupancy using:
+    <span class="math inline">\(n(\omega) \approx \left(e^{\mathcal{S}_\ast\omega/\Theta} - 1\right)^{-1}\)</span>,
+    where
+    <span class="math inline">\(\Theta\)</span>
+    is the kernel temperature parameter and
+    <span class="math inline">\(\mathcal{S}_\ast = E/\nu\)</span>
+    is the action invariant.
+  </li>
 
-            <p>
-                The suppression factor <span class="math inline">\(\mathcal{G}\)</span> is empirically measurable via
-                Kubo–Martin–Schwinger statistics or calibration sweeps. It encodes the occupancy-weighted coherence decay
-                across the spectral window.
-            </p>
+  <li>
+    <strong>Fine-Structure Constant:</strong>
+    Derived from synchrony dynamics and occupancy-weighted coherence:
+    <div class="math display">
+
+\[
+      \alpha = \frac{\gamma}{v_{\text{sync}} \Theta} \cdot
+      \frac{1}{\mathcal{G}\left(E_{\text{mode}} / \mathcal{S}_\ast \Theta\right)}
+      \]
+
+    </div>
+    where
+    <span class="math inline">\(\mathcal{G}\)</span>
+    is the suppression factor derived from Kubo–Martin–Schwinger statistics or calibration sweeps.
+  </li>
+</ul>
+
+<p>
+  The suppression factor
+  <span class="math inline">\(\mathcal{G}\)</span>
+  encodes occupancy-weighted coherence decay across the spectral window.
+  It ensures dimensional closure of
+  <span class="math inline">\(\alpha\)</span>
+  and confirms that emergent constants are kernel-sealed.
+  Validation is performed via
+  <span class="math inline">\(\epsilon_{\mathrm{dim}} < 10^{-12}\)</span>,
+  confirming SI consistency of all derived quantities.
+</p>
 
             <h3 id="sec-8-tuning-density">Tuning Density (Impedance Density)</h3>
+<p>
+  Tuning density, denoted <span class="math inline">\(\rho(x)\)</span>, quantifies a medium’s resistance to synchrony modulation.
+  It emerges from the recursive projection of kernel amplitude under impulse deformation and governs magnetic and topological field strength.
+</p>
 
-            <p>
-                Tuning density, denoted <span class="math inline">\(\rho\)</span>, characterizes the modulation resistance of a
-                medium to impulse propagation. It emerges from the spatial impedance response of the kernel and governs
-                magnetic and topological field strength via:
-            </p>
+<p>
+  The kernel-induced magnetic field is defined by:
+</p>
 
-            <figure class="equation" id="eq-8_18">
-                <div class="math display">
-                    \[
-                    B_{\text{kernel}} = \kappa \nabla \times (\rho \mathbf{u}),
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_18">Equation (8.18)</a></figcaption>
-            </figure>
+<figure class="equation" id="eq-8_18">
+  <div class="math display">
 
-            <p>
-                where <span class="math inline">\(\mathbf{u}\)</span> is the modulation velocity and
-                <span class="math inline">\(\kappa\)</span> is a coupling constant.
-            </p>
+\[
+    B_{\text{kernel}} = \kappa \nabla \times (\rho \mathbf{u}),
+    \]
 
-            <p>
-                <span class="math inline">\(\rho\)</span> is derived from the spatial gradient of kernel amplitude under impulse
-                modulation:
-            </p>
+  </div>
+  <figcaption><a href="#eq-8_18">Equation (8.18)</a></figcaption>
+</figure>
 
-            <figure class="equation" id="eq-8_19">
-                <div class="math display">
-                    \[
-                    \rho(x) \approx \frac{\partial \hat{K}(x)}{\partial x}\cdot \left(\frac{1}{\mathbf{u}(x)}\right),
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_19">Equation (8.19)</a></figcaption>
-            </figure>
+<p>
+  where <span class="math inline">\(\mathbf{u}(x)\)</span> is the local modulation velocity and
+  <span class="math inline">\(\kappa\)</span> is a synchrony–field coupling constant derived from kernel curvature.
+</p>
 
-            <p>
-                where <span class="math inline">\(\hat{K}(x)\)</span> is the measured kernel envelope and
-                <span class="math inline">\(\mathbf{u}(x)\)</span> is the local modulation velocity.
-            </p>
+<p>
+  Tuning density is computed from the spatial gradient of the kernel envelope:
+</p>
 
-            <p>
-                Tuning density can be experimentally estimated via impedance spectroscopy or magnetic field mapping:
-            </p>
+<figure class="equation" id="eq-8_19">
+  <div class="math display">
 
-            <figure class="equation" id="eq-8_20">
-                <div class="math display">
-                    \[
-                    \rho \approx \frac{\Delta Z}{\Delta x}\cdot \left(\frac{1}{\mathbf{u}}\right),
-                    \]
-                </div>
-                <figcaption><a href="#eq-8_20">Equation (8.20)</a></figcaption>
-            </figure>
+\[
+    \rho(x) \approx \frac{\partial \hat{K}(x)}{\partial x} \cdot \left(\frac{1}{\mathbf{u}(x)}\right),
+    \]
 
-            <p>
-                where <span class="math inline">\(\Delta Z\)</span> is the change in impedance across spatial interval
-                <span class="math inline">\(\Delta x\)</span>. Calibration against known modulation velocities yields absolute
-                <span class="math inline">\(\rho\)</span> values.
-            </p>
+  </div>
+  <figcaption><a href="#eq-8_19">Equation (8.19)</a></figcaption>
+</figure>
 
-            <p>
-                <strong>Validation:</strong> The predicted field strength from <span class="math inline">\(\rho\)</span> can be
-                validated against Hall probe or SQUID magnetometry, confirming the kernel's magnetic response.
-            </p>
+<p>
+  where <span class="math inline">\(\hat{K}(x)\)</span> is the measured kernel amplitude envelope.
+  This formulation links spatial impedance directly to synchrony curvature and collapse rhythm.
+</p>
+
+<p>
+  Alternatively, tuning density can be estimated via impedance spectroscopy:
+</p>
+
+<figure class="equation" id="eq-8_20">
+  <div class="math display">
+
+\[
+    \rho \approx \frac{\Delta Z}{\Delta x} \cdot \left(\frac{1}{\mathbf{u}}\right),
+    \]
+
+  </div>
+  <figcaption><a href="#eq-8_20">Equation (8.20)</a></figcaption>
+</figure>
+
+<p>
+  where <span class="math inline">\(\Delta Z\)</span> is the impedance change across spatial interval
+  <span class="math inline">\(\Delta x\)</span>.
+  Calibration against known modulation velocities yields absolute values of
+  <span class="math inline">\(\rho(x)\)</span>.
+</p>
+
+<p>
+  <strong>Validation:</strong>
+  Predicted field strength from
+  <span class="math inline">\(\rho(x)\)</span>
+  can be validated using Hall probe or SQUID magnetometry.
+  Dimensional consistency is confirmed via audit:
+  <span class="math inline">\(\epsilon_{\mathrm{dim}} < 10^{-12}\)</span>,
+  ensuring that magnetic field emergence is kernel-sealed.
+</p>
 
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_11">Experimental Checklist</h3>
-            <p><strong>Spectral / Impulse</strong></p>
-            <ul>
-                <li>High-bandwidth digitizer with jitter <span class="math inline">\(&lt;10^{-6}\)</span></li>
-                <li>Calibrated impulse sources and spatially distributed detectors</li>
-            </ul>
+<p>
+  The following checklist defines the instrumentation and validation protocols required to test Recursive Modulation Impulse (RMI) projections across spectral, topological, and thermodynamic domains.
+  Each modality supports falsifiability of kernel hypotheses via dimensional audit and synchrony curvature reconstruction.
+</p>
 
-            <p><strong>Topological / Interferometric</strong></p>
-            <ul>
-                <li>High-coherence interferometer with phase stability <span class="math inline">\(&lt;10^{-3}\ \mathrm{rad}\)</span></li>
-                <li>Controlled loop deformation capability</li>
-            </ul>
+<p><strong>Spectral / Impulse Domain</strong></p>
+<ul>
+  <li>High-bandwidth digitizer with timing jitter <span class="math inline">\(&lt;10^{-6}\)</span> for phase-accurate impulse capture</li>
+  <li>Calibrated impulse sources and spatially distributed detectors for kernel envelope reconstruction</li>
+</ul>
 
-            <p><strong>Thermodynamic Fits</strong></p>
-            <ul>
-                <li>Radiometrically calibrated spectrometers (CMB-class or lab blackbody)</li>
-            </ul>
-            <p>Falsifiability Tests</p>
-            <ul>
-                <li><strong>Green kernel:</strong> Predict impulse response at new geometry</li>
-                <li><strong>Path-sum kernel:</strong> Phase shift under loop deformation</li>
-                <li><strong>Gaussian kernel:</strong> Occupancy change under temperature sweep</li>
-                <li>
-                    <strong>Topological kernel:</strong> Energy scaling with charge
-                    <span class="math inline">\(Q\)</span>
-                </li>
-            </ul>
-            <p>Failure to reproduce observables within error bounds under reasonable priors falsifies the RMI hypothesis for that projection layer.</p>
+<p><strong>Topological / Interferometric Domain</strong></p>
+<ul>
+  <li>High-coherence interferometer with phase stability <span class="math inline">\(&lt;10^{-3}\ \mathrm{rad}\)</span> for holonomy extraction</li>
+  <li>Controlled loop deformation capability for path-sum kernel validation</li>
+</ul>
+
+<p><strong>Thermodynamic / Occupancy Domain</strong></p>
+<ul>
+  <li>Radiometrically calibrated spectrometers (CMB-class or lab blackbody) for kernel occupancy fitting and temperature sweep diagnostics</li>
+</ul>
+
+<p><strong>Falsifiability Tests</strong></p>
+<ul>
+  <li><strong>Green kernel:</strong> Predict impulse response at new spatial geometry and compare against measured <span class="math inline">\(h(t;x')\)</span></li>
+  <li><strong>Path-sum kernel:</strong> Predict phase shift under loop deformation and validate holonomy structure</li>
+  <li><strong>Gaussian kernel:</strong> Predict occupancy change under temperature sweep and validate coherence decay</li>
+  <li><strong>Topological energy kernel:</strong> Predict energy scaling with topological charge <span class="math inline">\(Q\)</span> and validate against spatial defect mapping</li>
+</ul>
+
+<p>
+  <strong>Dimensional Audit:</strong>
+  All derived observables must satisfy the consistency test
+  <span class="math inline">\(\epsilon_{\mathrm{dim}} &lt; 10^{-12}\)</span>,
+  confirming SI closure and kernel-sealed projection.
+</p>
+
+<p>
+  <strong>Falsifiability Criterion:</strong>
+  Failure to reproduce observables within error bounds under reasonable priors falsifies the RMI hypothesis for that projection layer.
+  This ensures that each kernel domain remains experimentally accountable and recursively validated.
+</p>
 
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_12">Conclusion and Practical Remarks</h3>
 
