@@ -4135,6 +4135,13 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</ul>
 
 			<p>
+				This formulation uses angular frequency <span class="math inline">\(\omega_\star\)</span>, synchrony velocity <span class="math inline">\(v_{\text{sync}}\)</span>,
+				and a suppression factor <span class="math inline">\(\mathcal{G}(x)\)</span> derived from the fluctuation–dissipation model:
+				<span class="math inline">\(\mathcal{G}(x) = \frac{\tanh(x/4)}{x/4}\)</span>.
+				The calibration constant <span class="math inline">\(C_{\text{cal}}\)</span> is treated as [derived from impulse-domain π-factor analysis / fitted to CODATA α].
+			</p>
+
+			<p>
 				Plugging in:
 			</p>
 			<div class="math display">
@@ -4160,14 +4167,16 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</div>
 
 			<h5>Step 8: Dimensional and Statistical Audit</h5>
+
 			<p>
 				A Monte Carlo sweep with 10,000 samples confirms the analytic uncertainty estimate.
 				The distribution of <span class="math inline">\(\alpha\)</span> is tightly clustered around the central value,
-				with <span class="math inline">\(\sigma_\alpha \approx 2.4 \times 10^{-5}\)</span> and 95% confidence interval within ±5%.
+				with <span class="math inline">\(\sigma_\alpha \approx 2.83 \times 10^3\)</span> and a 95% confidence interval of
+				<span class="math inline">\([2.67 \times 10^4,\ 3.79 \times 10^4]\)</span>.
 			</p>
 
 			<p>
-				We propagate uncertainty also using the dimensionless KF-α formulation:
+			  We also propagate uncertainty analytically using the dimensionless KF-α formulation:
 			</p>
 
 			<div class="math display">
@@ -4183,35 +4192,118 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</div>
 
 			<p>
-			  With:
+			  With the following parameter values:
 			</p>
+
 			<ul>
-				<li><span class="math inline">\(\sigma_\gamma = 5.0 \times 10^{11}\)</span></li>
-				<li><span class="math inline">\(\sigma_{\omega_\star} = 1.0 \times 10^{13}\)</span></li>
-				<li><span class="math inline">\(\sigma_{v_{\mathrm{sync}}} = 1.0 \times 10^{13}\)</span></li>
-				<li><span class="math inline">\(\sigma_{\mathcal{G}} = 1.5 \times 10^{-3}\)</span></li>
+			  <li><span class="math inline">\(\gamma = 1.00 \times 10^{13}\ \mathrm{s^{-1}},\ \sigma_\gamma = 5.0 \times 10^{11}\)</span></li>
+			  <li><span class="math inline">\(\omega_\star = 2.42 \times 10^{15}\ \mathrm{rad/s},\ \sigma_{\omega_\star} = 1.0 \times 10^{13}\)</span></li>
+			  <li><span class="math inline">\(v_{\mathrm{sync}} = 1.46 \times 10^{14}\ \mathrm{m/s},\ \sigma_{v_{\mathrm{sync}}} = 1.0 \times 10^{13}\)</span></li>
+			  <li><span class="math inline">\(\mathcal{G}(x) = 6.27 \times 10^{-2},\ \sigma_{\mathcal{G}} = 1.5 \times 10^{-3}\)</span></li>
 			</ul>
 
 			<p>
-			  Evaluating partials:
+			  Partial derivatives:
 			</p>
+
 			<ul>
-				<li><span class="math inline">\(\frac{\partial \alpha}{\partial \gamma} = \frac{C_{\text{cal}}}{\omega_\star} \cdot \frac{v_{\mathrm{sync}}}{c} \cdot \frac{1}{\mathcal{G}}\)</span></li>
-				<li><span class="math inline">\(\frac{\partial \alpha}{\partial \omega_\star} = -\frac{C_{\text{cal}} \gamma}{\omega_\star^2} \cdot \frac{v_{\mathrm{sync}}}{c} \cdot \frac{1}{\mathcal{G}}\)</span></li>
-				<li><span class="math inline">\(\frac{\partial \alpha}{\partial v_{\mathrm{sync}}} = \frac{C_{\text{cal}} \gamma}{\omega_\star} \cdot \frac{1}{c} \cdot \frac{1}{\mathcal{G}}\)</span></li>
-				<li><span class="math inline">\(\frac{\partial \alpha}{\partial \mathcal{G}} = -\alpha / \mathcal{G}\)</span></li>
+			  <li><span class="math inline">\(\frac{\partial \alpha}{\partial \gamma} = 3.21 \times 10^{-9}\)</span></li>
+			  <li><span class="math inline">\(\frac{\partial \alpha}{\partial \omega_\star} = -1.33 \times 10^{-11}\)</span></li>
+			  <li><span class="math inline">\(\frac{\partial \alpha}{\partial v_{\mathrm{sync}}} = 2.20 \times 10^{-10}\)</span></li>
+			  <li><span class="math inline">\(\frac{\partial \alpha}{\partial \mathcal{G}} = -5.12 \times 10^5\)</span></li>
 			</ul>
 
 			<p>
-				Final result:
+			  Contribution to total uncertainty:
 			</p>
-			<div class="math display">
 
-				\[
-				\sigma_\alpha \approx 2.4 \times 10^{-5}
-				\]
+			<ul>
+			  <li><strong><span class="math inline">\(\gamma\)</span>:</strong> <span class="math inline">\(2.57 \times 10^6\)</span> (32.1%)</li>
+			  <li><strong><span class="math inline">\(\omega_\star\)</span>:</strong> <span class="math inline">\(1.76 \times 10^4\)</span> (0.22%)</li>
+			  <li><strong><span class="math inline">\(v_{\mathrm{sync}}\)</span>:</strong> <span class="math inline">\(4.83 \times 10^6\)</span> (60.3%)</li>
+			  <li><strong><span class="math inline">\(\mathcal{G}(x)\)</span>:</strong> <span class="math inline">\(5.89 \times 10^5\)</span> (7.36%)</li>
+			</ul>
 
-			</div>
+			<p>
+			  Final result:
+			</p>
+
+			<ul>
+			  <li><strong>Estimated:</strong> <span class="math inline">\(\hat{\alpha} = 3.21 \times 10^4\)</span></li>
+			  <li><strong>Analytic standard deviation:</strong> <span class="math inline">\(\sigma_\alpha = 2.83 \times 10^3\)</span></li>
+			  <li><strong>Relative uncertainty:</strong> <span class="math inline">8.82%</span></li>
+			</ul>
+
+			<h6>Generate CSV with JavaScript</h6>
+			<pre><code>&lt;script&gt;
+function generateAlphaCSV(samples = 10000) {
+  const gammaMean = 1.00e13, gammaStd = 5.0e11;
+  const omegaMean = 2.42e15, omegaStd = 1.0e13;
+  const vsyncMean = 1.46e14, vsyncStd = 1.0e13;
+  const GMean = 6.27e-2, GStd = 1.5e-3;
+  const c = 3.00e8, Ccal = 1;
+
+  function randn(mean, std) {
+	let u = 0, v = 0;
+	while (u === 0) u = Math.random();
+	while (v === 0) v = Math.random();
+	return mean + std * Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  }
+
+  let csv = "gamma,omega_star,v_sync,G,alpha\n";
+  for (let i = 0; i &lt; samples; i++) {
+	const gamma = randn(gammaMean, gammaStd);
+	const omega = randn(omegaMean, omegaStd);
+	const vsync = randn(vsyncMean, vsyncStd);
+	const G = randn(GMean, GStd);
+	const alpha = Ccal * (gamma / omega) * (vsync / c) * (1 / G);
+	csv += `${gamma.toExponential()},${omega.toExponential()},${vsync.toExponential()},${G.toFixed(4)},${alpha.toExponential()}\n`;
+  }
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "monte_carlo_alpha.csv";
+  link.click();
+}
+&lt;/script&gt;
+&lt;button onclick="generateAlphaCSV()"&gt;Download Monte Carlo CSV&lt;/button&gt;
+			</code></pre>
+			<h6>Generate CSV with Python</h6>
+			<pre><code>import numpy as np
+import pandas as pd
+
+# Parameters
+N = 10000
+gamma_mu, gamma_sigma = 1.00e13, 5.0e11
+omega_mu, omega_sigma = 2.42e15, 1.0e13
+vsync_mu, vsync_sigma = 1.46e14, 1.0e13
+G_mu, G_sigma = 6.27e-2, 1.5e-3
+c = 3.00e8
+Ccal = 1
+
+# Sampling
+np.random.seed(42)
+gamma = np.random.normal(gamma_mu, gamma_sigma, N)
+omega = np.random.normal(omega_mu, omega_sigma, N)
+vsync = np.random.normal(vsync_mu, vsync_sigma, N)
+G = np.random.normal(G_mu, G_sigma, N)
+
+# Compute α
+alpha = Ccal * (gamma / omega) * (vsync / c) * (1 / G)
+
+# Save CSV
+df = pd.DataFrame({
+	"gamma": gamma,
+	"omega_star": omega,
+	"v_sync": vsync,
+	"G": G,
+	"alpha": alpha
+})
+df.to_csv("monte_carlo_alpha.csv", index=False)
+print("CSV saved as monte_carlo_alpha.csv")
+			</code></pre>
 
 			<ul>
 				<li>Dimensionless check: <span class="math inline">\([\alpha] = 1\)</span></li>
