@@ -4225,14 +4225,19 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			  <li><strong><span class="math inline">\(\mathcal{G}(x)\)</span>:</strong> <span class="math inline">\(5.89 \times 10^5\)</span> (7.36%)</li>
 			</ul>
 
-			<p>
-				Monte Carlo result:
-			</p>
-
+			<p>Analytic uncertainty propagation:</p>
 			<ul>
-			  <li><strong>Estimated:</strong> <span class="math inline">\(\hat{\alpha} = 3.21 \times 10^4\)</span></li>
-			  <li><strong>Analytic standard deviation:</strong> <span class="math inline">\(\sigma_\alpha = 2.83 \times 10^3\)</span></li>
-			  <li><strong>Relative uncertainty:</strong> <span class="math inline">8.82%</span></li>
+				<li><strong>Formula:</strong> <span class="math inline">\(\sigma^2_\alpha = \sum \left(\frac{\partial \alpha}{\partial p} \cdot \sigma_p\right)^2\)</span></li>
+				<li><strong>Computed \(\sigma_\alpha\):</strong> <span class="math inline">\(2.83 \times 10^3\)</span></li>
+				<li><strong>Relative uncertainty:</strong> <span class="math inline">8.82%</span></li>
+			</ul>
+
+			<p>Monte Carlo result:</p>
+			<ul>
+				<li><strong>Estimated mean:</strong> <span class="math inline">\(\hat{\alpha}_{\text{MC}} = 3.21 \times 10^4\)</span></li>
+				<li><strong>Standard deviation:</strong> <span class="math inline">\(\sigma_\alpha = 2.83 \times 10^3\)</span></li>
+				<li><strong>Relative uncertainty:</strong> <span class="math inline">8.82%</span></li>
+				<li><strong>95% confidence interval:</strong> <span class="math inline">\([2.67 \times 10^4,\ 3.79 \times 10^4]\)</span></li>
 			</ul>
 
 			<h6>Generate CSV with JavaScript</h6>
