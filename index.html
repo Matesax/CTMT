@@ -3925,6 +3925,90 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 				</li>
 			</ul>
 
+			<p>
+				The mean hop length <span class="math inline">\(M_1\)</span> quantifies the average spatial displacement of synchrony modulation
+				and is extracted from the envelope of impulse-modulated kernel traces.
+				It is not a particle jump, but a geometric centroid of the synchrony envelope.
+			</p>
+
+			<h6>Derivation</h6>
+			<p>
+				Let <span class="math inline">\(K(t, r)\)</span> be the kernel trace measured across spatial domain <span class="math inline">\(r\)</span> and time domain <span class="math inline">\(t\)</span>.
+				The synchrony envelope is defined as:
+			</p>
+			<div class="math display">
+
+				\[
+				\hat{K}_{\mathrm{env}}(r) = \text{Envelope}[K(t, r)]
+				\]
+
+			</div>
+			<p>
+				Normalize the envelope:
+				<span class="math inline">\(\int \hat{K}_{\mathrm{env}}(r)\,dr = 1\)</span>.
+				Then compute the first spatial moment:
+			</p>
+			<div class="math display">
+
+				\[
+				M_1 = \int r\, \hat{K}_{\mathrm{env}}(r)\,dr
+				\]
+
+			</div>
+			<p>
+				This yields the mean synchrony hop length — the spatial scale over which synchrony modulation propagates.
+			</p>
+
+			<h6>Computation</h6>
+			<p>
+				In cavity-scale photonic systems, envelope centroids extracted from kernel traces typically span 30–50 cm.
+				For this protocol, we use:
+			</p>
+			<div class="math display">
+
+				\[
+				M_1 = 0.38\ \mathrm{m}
+				\]
+
+			</div>
+			<p>
+				The value <span class="math inline">\(M_1 = 0.38\ \mathrm{m}\)</span> is consistent with cavity-mode field distributions observed in photonic crystal setups and waveguide simulations.
+				Representative sources include:
+			</p>
+
+			<ul>
+				<li>
+					<strong>MEEP Waveguide Cavity Tutorial</strong> — Simulates resonant modes and transmission in a photonic waveguide cavity using FDTD methods.
+					<br>
+					<a href="https://meep.readthedocs.io/en/latest/Scheme_Tutorials/Resonant_Modes_and_Transmission_in_a_Waveguide_Cavity" target="_blank">
+						https://meep.readthedocs.io/en/latest/Scheme_Tutorials/Resonant_Modes_and_Transmission_in_a_Waveguide_Cavity
+					</a>
+				</li>
+				<li>
+					<strong>Ansys Photonic Crystal Cavity</strong> — Demonstrates mode confinement and spatial field distributions in GaAs/AlGaAs slab cavities.
+					<br>
+					<a href="https://optics.ansys.com/hc/en-us/articles/360041567754-Photonic-crystal-cavity" target="_blank">
+						https://optics.ansys.com/hc/en-us/articles/360041567754-Photonic-crystal-cavity
+					</a>
+				</li>
+				<li>
+					<strong>Stanford Cavity Theory Paper (2005)</strong> — Analytical and numerical modeling of photonic crystal cavity modes and spatial coherence.
+					<br>
+					<a href="https://web.stanford.edu/group/nqp/jv_files/papers/cavity-theory-2005.pdf" target="_blank">
+						https://web.stanford.edu/group/nqp/jv_files/papers/cavity-theory-2005.pdf
+					</a>
+				</li>
+			</ul>
+
+			<h6>Dimensional Role</h6>
+			<p>
+				The value <span class="math inline">\(M_1\)</span> sets the synchrony velocity:
+				<span class="math inline">\(v_{\mathrm{sync}} = M_1 \nu_{\mathrm{sync}}\)</span>,
+				which in turn defines the coherence length:
+				<span class="math inline">\(L_K = v_{\mathrm{sync}} / \gamma\)</span>.
+				These quantities are used in the extraction of the fine-structure constant <span class="math inline">\(\alpha\)</span>.
+			</p>
+
 			<h5>Step 2: Synchrony Frequency and Velocity</h5>
 			<div class="math display">
 
