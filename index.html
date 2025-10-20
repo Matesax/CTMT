@@ -4171,12 +4171,13 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			<p>
 				A Monte Carlo sweep with 10,000 samples confirms the analytic uncertainty estimate.
 				The distribution of <span class="math inline">\(\alpha\)</span> is tightly clustered around the central value,
-				with <span class="math inline">\(\sigma_\alpha \approx 2.83 \times 10^3\)</span> and a 95% confidence interval of
+				with <span class="math inline">\(\hat{\alpha}_{\text{MC}} = 3.21 \times 10^4\)</span>,
+				<span class="math inline">\(\sigma_\alpha \approx 2.83 \times 10^3\)</span>, and a 95% confidence interval of
 				<span class="math inline">\([2.67 \times 10^4,\ 3.79 \times 10^4]\)</span>.
 			</p>
 
 			<p>
-			  We also propagate uncertainty analytically using the dimensionless KF-α formulation:
+				We also propagate uncertainty analytically using the dimensionless KF-α formulation:
 			</p>
 
 			<div class="math display">
@@ -4192,7 +4193,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</div>
 
 			<p>
-			  With the following parameter values:
+				With the following parameter values:
 			</p>
 
 			<ul>
@@ -4203,7 +4204,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</ul>
 
 			<p>
-			  Partial derivatives:
+				Partial derivatives:
 			</p>
 
 			<ul>
@@ -4214,7 +4215,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</ul>
 
 			<p>
-			  Contribution to total uncertainty:
+				Contribution to total uncertainty:
 			</p>
 
 			<ul>
@@ -4225,7 +4226,7 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 			</ul>
 
 			<p>
-			  Final result:
+				Monte Carlo result:
 			</p>
 
 			<ul>
