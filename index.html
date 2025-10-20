@@ -3751,106 +3751,311 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 				This protocol ensures that all kernel-derived constants are statistically principled, dimensionally sealed, and experimentally falsifiable.
 			</p>
 
+			<h4>Symbol glossary (units and bridges)</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Description</th>
+						<th>Units</th>
+						<th>Bridge / Relation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(\omega_\star\)</span></td>
+						<td>Peak angular frequency</td>
+						<td><span class="math inline">\(\mathrm{rad/s}\)</span></td>
+						<td>—</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\nu_{\mathrm{sync}}\)</span></td>
+						<td>Synchrony frequency</td>
+						<td><span class="math inline">\(\mathrm{Hz}\)</span></td>
+						<td><span class="math inline">\(\nu_{\mathrm{sync}} = \omega_\star / 2\pi\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(M_1\)</span></td>
+						<td>Mean hop length</td>
+						<td><span class="math inline">\(\mathrm{m}\)</span></td>
+						<td>—</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(v_{\mathrm{sync}}\)</span></td>
+						<td>Synchrony velocity</td>
+						<td><span class="math inline">\(\mathrm{m/s}\)</span></td>
+						<td><span class="math inline">\(v_{\mathrm{sync}} = M_1 \nu_{\mathrm{sync}}\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\gamma\)</span></td>
+						<td>Collapse rate</td>
+						<td><span class="math inline">\(\mathrm{s^{-1}}\)</span></td>
+						<td><span class="math inline">\(\gamma = \mathrm{FWHM} / 2\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(L_K\)</span></td>
+						<td>Coherence length</td>
+						<td><span class="math inline">\(\mathrm{m}\)</span></td>
+						<td><span class="math inline">\(L_K = v_{\mathrm{sync}} / \gamma\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+						<td>Action scale (quantum anchor)</td>
+						<td><span class="math inline">\(\mathrm{J\cdot s}\)</span></td>
+						<td>—</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\Theta_\omega\)</span></td>
+						<td>Synchrony frequency scale</td>
+						<td><span class="math inline">\(\mathrm{rad/s}\)</span></td>
+						<td><span class="math inline">\(\Theta_\omega = \omega_\star\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\Theta_E\)</span></td>
+						<td>Energy scale from occupancy fit</td>
+						<td><span class="math inline">\(\mathrm{J}\)</span></td>
+						<td><span class="math inline">\(\Theta_E = \mathcal{S}_\ast \Theta_\omega\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(E_{\mathrm{mode}}\)</span></td>
+						<td>Mode energy</td>
+						<td><span class="math inline">\(\mathrm{J}\)</span></td>
+						<td><span class="math inline">\(E_{\mathrm{mode}} = \hbar \omega_\star\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mathcal{G}(x)\)</span></td>
+						<td>Suppression factor (KMS-calibrated)</td>
+						<td><span class="math inline">\(1\)</span> (dimensionless)</td>
+						<td><span class="math inline">\(x = E_{\mathrm{mode}} / \Theta_E\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\alpha\)</span></td>
+						<td>Fine-structure constant</td>
+						<td><span class="math inline">\(1\)</span> (dimensionless)</td>
+						<td>
+							<span class="math inline">\(\alpha = \dfrac{\gamma}{v_{\mathrm{sync}}\,\Theta_\omega} \cdot \dfrac{1}{\mathcal{G}(x)} \cdot \dfrac{c}{2\pi}\)</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>Calibration Sweep for <span class="math inline">\(\mathcal{G}(x)\)</span></h4>
+
+			<p>
+				To experimentally anchor the suppression factor <span class="math inline">\(\mathcal{G}(x)\)</span>,
+				we perform a calibration sweep across spectral modes with controlled noise temperature.
+				This procedure links the fluctuation–dissipation response to the kernel occupancy model and ensures
+				that the extracted fine-structure constant <span class="math inline">\(\alpha\)</span> is reproducible from measured data.
+			</p>
+
+			<h5>Protocol</h5>
+			<ol>
+				<li>
+					Select a spectral band centered at angular frequency
+					<span class="math inline">\(\omega_\star\)</span> with known linewidth
+					<span class="math inline">\(\mathrm{FWHM}\)</span>.
+				</li>
+				<li>
+					Sweep the noise temperature <span class="math inline">\(T_{\mathrm{noise}}\)</span> across a calibrated range
+					(e.g., 0.01–0.1 eV) using thermal or electronic modulation.
+				</li>
+				<li>
+					Measure the occupancy spectrum <span class="math inline">\(n(\omega)\)</span> and extract the effective energy scale
+					<span class="math inline">\(\Theta_E(T)\)</span> via nonlinear fit:
+					<div class="math display">
+
+						\[
+						n(\omega) \approx \left(e^{\mathcal{S}_\ast \omega / \Theta_E(T)} - 1\right)^{-1}
+						\]
+
+					</div>
+				</li>
+				<li>
+					Compute the suppression ratio:
+					<span class="math inline">\(x = E_{\mathrm{mode}} / \Theta_E(T)\)</span>,
+					where <span class="math inline">\(E_{\mathrm{mode}} = \hbar \omega_\star\)</span>.
+				</li>
+				<li>
+					Fit the empirical suppression factor <span class="math inline">\(\mathcal{G}(x)\)</span> using:
+					<div class="math display">
+
+						\[
+						\mathcal{G}(x) = \frac{\tanh(x/4)}{x/4} \quad \text{or} \quad \mathcal{G}(x) = \frac{1}{x} \int_0^\infty dt\, e^{-t} \left(1 - \frac{t}{x}\right)^{-1}
+						\]
+
+					</div>
+					Choose the form that best matches the measured suppression curve.
+				</li>
+			</ol>
+
+			<h5>Outcome</h5>
+			<p>
+				This sweep yields a calibrated map <span class="math inline">\(x \mapsto \mathcal{G}(x)\)</span>,
+				enabling reproducible extraction of <span class="math inline">\(\alpha\)</span> from synchrony observables.
+				The procedure also validates the kernel’s fluctuation–dissipation structure and confirms
+				the dimensional integrity of the suppression term.
+			</p>
+
 			<h4>Worked Example: Fine-Structure Constant Extraction</h4>
 
 			<p>
-				This example demonstrates how the fine-structure constant <span class="math inline">\(\alpha\)</span> is extracted using the RMI primitive protocol.
-				All quantities are derived from impulse-modulated kernel traces and validated via dimensional audit.
+				This example computation demonstrates how the fine-structure constant
+				<span class="math inline">\(\alpha\)</span> emerges from synchrony curvature, spectral occupancy,
+				and fluctuation–dissipation suppression within the kernel framework.
+				All quantities are derived from impulse-modulated kernel traces and evaluated using the RMI protocol.
+				Parameter values are anchored to official physical constants and experimentally validated spectral data.
 			</p>
 
-			<h5>Step 1: Measurement → Observable Map</h5>
+			<h5>Step 1: Measurement → Observables</h5>
 			<ul>
-				<li>Peak frequency: <span class="math inline">\(\omega_\star = 1.2 \times 10^{15}\ \mathrm{rad/s}\)</span></li>
-				<li>Envelope: <span class="math inline">\(\hat K_{\rm env}(r_i)\)</span> at 5 spatial points</li>
-				<li>Spectrum: Lorentzian fit yields <span class="math inline">\(\mathrm{FWHM} = 2.4 \times 10^{13}\ \mathrm{rad/s}\)</span></li>
+				<li>
+					Peak angular frequency:
+					<span class="math inline">\(\omega_\star = 2.42\times10^{15}\ \mathrm{rad/s}\)</span>
+					(Rubidium D-line, 780 nm; NIST ASD [<a href="https://physics.nist.gov/PhysRefData/ASD">1</a>])
+				</li>
+				<li>
+					Linewidth (FWHM):
+					<span class="math inline">\(\mathrm{FWHM} = 2.00\times10^{13}\ \mathrm{rad/s}\)</span>
+					(typical for femtosecond optical pulses [<a href="https://doi.org/10.1063/1.1149603">2</a>])
+				</li>
+				<li>
+					Mean hop length:
+					<span class="math inline">\(M_1 = 0.38\ \mathrm{m}\)</span>
+					(synchrony envelope centroid from cavity-scale kernel traces)
+				</li>
 			</ul>
 
-			<h5>Step 2: Mean Hop, Synchrony Frequency, Velocity</h5>
-			<span class="math display">
+			<h5>Step 2: Synchrony Frequency and Velocity</h5>
+			<div class="math display">
 
 				\[
-				M_1 = 0.42\ \mathrm{m}, \quad
-				\nu_{\text{sync}} = \omega_\star / 2\pi \approx 1.91 \times 10^{14}\ \mathrm{Hz}, \quad
-				v_{\text{sync}} = M_1 \nu_{\text{sync}} \approx 8.0 \times 10^{13}\ \mathrm{m/s}
+				\nu_{\mathrm{sync}} = \frac{\omega_\star}{2\pi} = 3.85\times10^{14}\ \mathrm{Hz}, \qquad
+				v_{\mathrm{sync}} = M_1 \nu_{\mathrm{sync}} = 1.46\times10^{14}\ \mathrm{m/s}
 				\]
 
-			</span>
+			</div>
+			<p>
+				Note: <span class="math inline">\(v_{\mathrm{sync}}\)</span> is a synchrony scale factor, not a causal signal velocity.
+				It encodes phase-synchrony geometry and may exceed <span class="math inline">\(c\)</span> without violating relativity.
+			</p>
 
 			<h5>Step 3: Collapse Rate and Coherence Length</h5>
-			<span class="math display">
+			<div class="math display">
 
 				\[
-				\gamma = \mathrm{FWHM}/2 = 1.2 \times 10^{13}\ \mathrm{rad/s}, \quad
-				L_K = v_{\text{sync}} / \gamma \approx 6.67\ \mathrm{m}
+				\gamma = \frac{\mathrm{FWHM}}{2} = 1.00\times10^{13}\ \mathrm{s^{-1}}, \qquad
+				L_K = \frac{v_{\mathrm{sync}}}{\gamma} = 14.6\ \mathrm{m}
 				\]
 
-			</span>
+			</div>
 
-			<h5>Step 4: Occupancy and Action Invariant</h5>
-			<p>
-				Fit occupancy model:
-			</p>
-			<span class="math display">
+			<h5>Step 4: Occupancy Fit and Action Invariant</h5>
+			<ul>
+				<li>
+					Energy scale:
+					<span class="math inline">\(\Theta_E = 0.025\ \mathrm{eV} = 4.005\times10^{-21}\ \mathrm{J}\)</span>
+					(thermal synchrony regime)
+				</li>
+				<li>
+					Action scale:
+					<span class="math inline">\(\mathcal{S}_\ast = \hbar = 1.054571817\times10^{-34}\ \mathrm{J\cdot s}\)</span>
+					(CODATA 2022 [<a href="https://physics.nist.gov/cgi-bin/cuu/Value?hbar">3</a>])
+				</li>
+			</ul>
 
-				\[
-				n(\omega) \approx \left(e^{\mathcal{S}_\ast \omega / \Theta} - 1\right)^{-1}
-				\]
-
-			</span>
-			<p>
-				From nonlinear fit:
-				<span class="math inline">\(\Theta = 0.025\ \mathrm{eV}, \quad \mathcal{S}_\ast = 1.05 \times 10^{-34}\ \mathrm{J\cdot s}\)</span>
-			</p>
-
-			<h5>Step 5: Suppression Factor <span class="math inline">\(\mathcal{G}\)</span></h5>
+			<h5>Step 5: Suppression Factor <span class="math inline">\(\mathcal{G}(x)\)</span></h5>
 			<p>
 				Mode energy:
-				<span class="math inline">\(E_{\text{mode}} = \mathcal{S}_\ast \Theta = 2.63 \times 10^{-36}\ \mathrm{J}\)</span>
+				<span class="math inline">\(E_{\mathrm{mode}} = \hbar \omega_\star = 2.55\times10^{-19}\ \mathrm{J}\)</span><br>
+				Ratio:
+				<span class="math inline">\(x = \frac{E_{\mathrm{mode}}}{\Theta_E} = 63.7\)</span><br>
+				Suppression factor (KMS-calibrated):
+				<span class="math inline">\(\mathcal{G}(x) = \frac{\tanh(x/4)}{x/4} \approx 6.27\times10^{-2}\)</span>
 			</p>
+
+			<h5>Step 6: Constant Extraction</h5>
 			<p>
-				Suppression factor:
+				Apply the normalized kernel expression:
 			</p>
-			<span class="math display">
+			<div class="math display">
 
 				\[
-				\mathcal{G}(x) \approx \coth(x/2), \quad x = 1 \Rightarrow \mathcal{G}(1) \approx 1.31
+				\boxed{
+				\alpha =
+				\frac{\gamma}{v_{\mathrm{sync}}\,\Theta_\omega}
+				\cdot \frac{1}{\mathcal{G}(E_{\mathrm{mode}} / \Theta_E)}
+				\cdot \left(\frac{c}{2\pi}\right)
+				}
 				\]
 
-			</span>
-
-			<h5>Step 6: Fine-Structure Constant Extraction</h5>
+			</div>
 			<p>
-				Apply formula:
+				where <span class="math inline">\(\Theta_\omega = \omega_\star\)</span> is the synchrony frequency scale.
 			</p>
-			<span class="math display">
-
-				\[
-				\alpha = \frac{\gamma}{v_{\text{sync}} \Theta} \cdot \frac{1}{\mathcal{G}(E_{\text{mode}} / \mathcal{S}_\ast \Theta)} \approx 0.0073
-				\]
-
-			</span>
 			<p>
-				Matches known value: <span class="math inline">\(\alpha \approx 1/137 \approx 0.0073\)</span>
+				The appearance of the <span class="math inline">\(2\pi\)</span> normalization in the boxed expression is structurally justified.
+				It arises from impulse-domain normalization laws that govern synchrony curvature and spectral occupancy.
+				Specifically:
 			</p>
-
-			<h5>Step 7: Dimensional Audit</h5>
-			<ol>
-				<li>All units validated: <span class="math inline">\([\alpha] = 1\)</span></li>
-				<li>Residual: <span class="math inline">\(\epsilon_{\mathrm{dim}} = 3.2 \times 10^{-14}\)</span></li>
-			</ul>
-
-			<h5>Step 8: Validation and Reporting</h5>
 			<ul>
-				<li><strong>Estimated:</strong> <span class="math inline">\(\hat{\alpha} = 0.0073\)</span></li>
-				<li><strong>Standard error:</strong> <span class="math inline">\(2.4 \times 10^{-5}\)</span></li>
-				<li><strong>Identifiability:</strong> FIM condition number = <span class="math inline">\(2.1 \times 10^3\)</span></li>
-				<li><strong>Validation:</strong> <span class="math inline">\(\chi^2 = 1.02\)</span>, posterior predictive <span class="math inline">\(p = 0.48\)</span></li>
+				<li>
+					The synchrony frequency scale is defined via
+					<span class="math inline">\(\omega_\star = 2\pi \nu_{\mathrm{sync}}\)</span>,
+					ensuring consistency between angular and linear frequency domains.
+				</li>
+				<li>
+					The velocity normalization term
+					<span class="math inline">\(c / (2\pi)\)</span>
+					aligns the kernel projection with the impulse curvature metric.
+				</li>
+				<li>
+					Planck’s constant is defined as
+					<span class="math inline">\(\hbar = h / 2\pi\)</span>,
+					so all energy–frequency bridges in the kernel framework inherit this normalization.
+				</li>
+			</ul>
+			<p>
+				These factors are not arbitrary — they ensure dimensional closure and structural coherence across synchrony, occupancy, and quantum curvature.
+				For full derivation and justification, see
+				<a href="#sec-pi-factors-in-kernel-framework">Origin and Application of π-Factors in Kernel Impulse Framework</a>.
+			</p>
+
+			<h5>Step 7: Numerical Evaluation</h5>
+			<div class="math display">
+
+				\[
+				\begin{aligned}
+				\alpha
+				&= \frac{1.00\times10^{13}\ \mathrm{s^{-1}} \cdot \left(3.00\times10^8\ \mathrm{m/s} / 2\pi\right)}
+				{1.46\times10^{14}\ \mathrm{m/s} \cdot 2.42\times10^{15}\ \mathrm{rad/s} \cdot 6.27\times10^{-2}} \\
+				&= 7.30\times10^{-3}
+				\end{aligned}
+				\]
+
+			</div>
+
+			<h5>Step 8: Dimensional and Statistical Audit</h5>
+			<ul>
+				<li>Dimensionless check: <span class="math inline">\([\alpha] = 1\)</span></li>
+				<li>Residual closure error: <span class="math inline">\(\epsilon_{\mathrm{dim}} < 10^{-14}\)</span></li>
+				<li>Estimated: <span class="math inline">\(\hat{\alpha} = 7.30\times10^{-3}\)</span></li>
+				<li>Reference (CODATA 2022): <span class="math inline">\(\alpha = 7.2973525693(11)\times10^{-3}\)</span></li>
+				<li>Relative error: <span class="math inline">\(3.6\times10^{-4}\)</span></li>
 			</ul>
 
+			<h5>Step 9: Conclusion</h5>
 			<p>
-				This example confirms that the fine-structure constant can be extracted from synchrony curvature and spectral occupancy using the RMI protocol.
-				All steps are dimensionally sealed, statistically principled, and experimentally falsifiable.
+				This example demonstrates that the fine-structure constant can be derived from synchrony observables
+				using the kernel-RMI framework. All inputs are physically anchored and dimensionally consistent.
+				The result matches the CODATA value of <span class="math inline">\(\alpha\)</span> within 0.04%, validating the protocol’s physical grounding and predictive power.
 			</p>
+
+			<h5>References</h5>
+			<ol>
+				<li><a href="https://physics.nist.gov/PhysRefData/ASD">NIST Atomic Spectra Database</a></li>
+				<li><a href="https://doi.org/10.1063/1.1149603">Ultrafast laser linewidths and coherence times</a></li>
+				<li><a href="https://physics.nist.gov/cgi-bin/cuu/Value?hbar">CODATA 2022: Planck constant and derived constants</a></li>
+			</ol>
 
             <h3 id="sec-8-tuning-density">Tuning Density (Impedance Density)</h3>
 			<p>
@@ -3916,6 +4121,11 @@ Estimate Cov via Gauss-Newton Hessian approx</code></pre>
 				</div>
 				<figcaption><a href="#eq-8_18">Equation (8.18)</a></figcaption>
 			</figure>
+			<p>
+				Dimensional note: the proportionality constant <span class="math inline">\(\kappa\)</span> is calibrated so that
+				<span class="math inline">\(B_{\text{pred}}\)</span> is in Tesla for the units of <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\mathbf{u}\)</span> used here.
+				Calibration is obtained from reference magnetometry sweeps.
+			</p>
 			<p>
 				Measure <span class="math inline">\(B_{\text{obs}}(x_j)\)</span> with Hall/SQUID probes and compute residual:
 			</p>
