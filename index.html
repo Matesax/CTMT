@@ -3363,7 +3363,7 @@ print("relative difference:", rel_diff)
     </li>
   </ul>
 
-  <h5>9. Representative symbolic / Python pseudo-code (pre/code)</h5>
+  <h5>9. Representative symbolic / Python pseudo-code</h5>
   <pre><code class="language-python">
 # Pseudo-code: compute stationary-phase prefactor symbolically (use sympy in real notebook)
 # from sympy import symbols, Matrix, sqrt, pi, exp, I, det
@@ -3384,7 +3384,7 @@ prefactor = (2*pi*Sstar)**(n/2) / sqrt(abs(detH))
     <li>Write <span class="math inline">\(M = C_{\rm phys}\tilde M\)</span> before stationary-phase and display the explicit form of <span class="math inline">\(C_{\rm phys}\)</span>.</li>
     <li>Compute <span class="math inline">\(H\)</span> symbolically from your model for <span class="math inline">\(\Phi\)</span> (show units of each derivative term).</li>
     <li>Evaluate <span class="math inline">\(\det H\)</span>, carry the factor <span class="math inline">\((2\pi\mathcal{S}_\ast)^{n/2}/\sqrt{|\det H|}\)</span> through to the observable expression, and check unit balance with <span class="math inline">\(C_{\rm phys}\)</span>.</li>
-    <li>Report next-order correction term sizes by estimating cubic remainder contributions or using standard asymptotic error bounds (O(\mathcal{S}_\ast) relative scaling). </li>
+    <li>Report next-order correction term sizes by estimating cubic remainder contributions or using standard asymptotic error bounds (\(O(\mathcal{S}_\ast)\) relative scaling). </li>
   </ol>
 
   <h5>Worked example: Hessian for geometric delay model</h5>
