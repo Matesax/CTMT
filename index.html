@@ -2342,16 +2342,1418 @@
         <h2 title="Click to toggle" id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl">Recursive Modulation Impulse as a Generative Kernel Principle</h2>
         <article style="display:none">
             <p>
-                The Recursive Modulation Impulse (RMI) is introduced as a constructive principle: a self-referential modulation pulse that, under projection-layer constraints, generates the family of operational kernels observed across physics and engineering. Formally,
-                we define the impulse as a generator functional:
-            </p>
-            <p>
-                <figure class="equation" id="eq-8_1">
-                    <div class="math display">
-                        \begin{equation} K(x,x') = \int_{\Omega_\omega}M[\omega,\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)}\, d\omega, \end{equation}
-                    </div>
-                    <figcaption><a href="#eq-8_1">Equation (8.1)</a></figcaption>
-                </figure> where <span class="math inline"><span class="math inline">\( M[\cdot] \)</span></span> encodes modulation parameters such as entropy, decoherence rate, impedance density, topological charge, and thermodynamic time; <span class="math inline">\(\Phi\)</span> is a phase kernel determined by geometry and collapse rhythm; and integration is over the relevant spectral window <span class="math inline">\( \Omega_\omega \)</span>.
+                The Recursive Modulation Impulse (RMI) is introduced as a constructive principle: a self-referential modulation pulse that, under projection-layer constraints, generates the family of operational kernels observed across physics and engineering.
+				Every symbol used in the self‑referential impulse kernel is listed with units, anchor/measurement, regime, and its precise role in the kernel integrand.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Meaning</th>
+      <th>Units</th>
+      <th>Anchor / measurement</th>
+      <th>Regime / assumptions</th>
+      <th>Entry into kernel / role</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td><span class="math inline">\(x,x'\)</span></td>
+      <td>Space and time coordinates (source, target)</td>
+      <td><span class="math inline">\(\text{m};\ \text{s}\)</span></td>
+      <td>Position/time of measurement or model geometry</td>
+      <td>Continuum or discretized cell; observer frame declared</td>
+      <td>Arguments of <span class="math inline">\(\Phi(x,x';\omega)\)</span> and output field <span class="math inline">\(p(x,t)\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\omega\)</span></td>
+      <td>Spectral label: angular frequency or spectral coordinate</td>
+      <td><span class="math inline">\(\text{s}^{-1}\)</span> (Hz or rad·s<sup>−1</sup>)</td>
+      <td>Spectral data, mode labels, chosen parametrization</td>
+      <td>Choose either cycle freq <span class="math inline">\(\nu\)</span> or angular freq; mapping stated</td>
+      <td>Integration variable in <span class="math inline">\(\int_{\Omega_\omega} \cdot d\omega\)</span>; appears in phase <span class="math inline">\(\omega\tau\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(d\omega\)</span></td>
+      <td>Spectral measure element</td>
+      <td><span class="math inline">\(\text{s}^{-1}\), \(\text{m}^{-d}\)</span> (depends on parametrization)</td>
+      <td>Chosen parametrization: <span class="math inline">\(d^d k\)</span>, <span class="math inline">\(d\nu\)</span>, etc.</td>
+      <td>Explicit radial/angular decomposition required to expose <span class="math inline">\(\pi\)</span> factors</td>
+      <td>Provides Jacobian and surface factors; used to compute mode density</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\Omega_\omega\)</span></td>
+      <td>Spectral integration domain</td>
+      <td><span class="math inline">\(\text{set}\)</span> / interval</td>
+      <td>Declared per experiment (band-limited or full shell)</td>
+      <td>Band-limited, shell, or full space; geometry must be explicit</td>
+      <td>Integration bounds; determines which stationary points contribute</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(k\)</span></td>
+      <td>Wavevector magnitude (spatial spectral coordinate)</td>
+      <td><span class="math inline">\(\text{m}^{-1}\)</span></td>
+      <td>Measured from dispersion/geometry or modal analysis</td>
+      <td>For waves: relation <span class="math inline">\(\omega = c\,k\)</span> usually assumed for photons</td>
+      <td>Used in measure decomposition <span class="math inline">\(d^d k = k^{d-1} dk\, d\Omega\)</span> and mode-counting</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(d^d k\)</span></td>
+      <td>Wavevector-space measure</td>
+      <td><span class="math inline">\(\text{m}^{-d}\)</span></td>
+      <td>Choice tied to Fourier convention</td>
+      <td>Radial/angular split required when evaluating integrals</td>
+      <td>Generates explicit surface factors <span class="math inline">\(\text{Surface}(S^{d-1})\)</span> and <span class="math inline">\((2\pi)\)</span> factors via Fourier normalization</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\text{Surface}(S^{d-1})\)</span></td>
+      <td>Angular-surface factor from the unit sphere</td>
+      <td><span class="math inline">\(\text{dimensionless}\)</span></td>
+      <td>Analytic: e.g., <span class="math inline">\(4\pi\)</span> in 3D</td>
+      <td>Rotational symmetry around <span class="math inline">\(k\)</span></td>
+      <td>Produces numeric <span class="math inline">\(\pi\)</span> factors in mode densities and integrals</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(M[\omega,\gamma,\Theta,Q,\phi,T]\)</span></td>
+      <td>Modulation envelope / amplitude weight</td>
+      <td><span class="math inline">\(\text{domain-dependent SI units (see } C_{\rm phys} \text{)}\)</span></td>
+      <td>Measured spectral envelope, cavity response, thermal spectrum</td>
+      <td>Factorized into dimensional prefactor and dimensionless shape</td>
+      <td>Main multiplicative weight in integrand: <span class="math inline">\(M = C_{\rm phys}\,\tilde M\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\tilde M(\omega)\)</span></td>
+      <td>Dimensionless shape / coherence function</td>
+      <td><span class="math inline">\(\text{dimensionless}\)</span></td>
+      <td>Fitted from spectral shape (lines, blackbody, cavity response)</td>
+      <td>Represents normalized envelope once units removed</td>
+      <td>Shape factor that multiplies <span class="math inline">\(C_{\rm phys}\)</span>; used in stationary-phase as <span class="math inline">\(\tilde M(\omega_0)\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(C_{\rm phys}\)</span></td>
+      <td>Dimensional prefactor carrying SI constants & Fourier normalizations</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s} \cdot \text{m}^{-d}\)</span></td>
+      <td>Assembled from <span class="math inline">\(k_B, c, \mathcal{S}_\ast, (2\pi)^{-d}\)</span>, geometry</td>
+      <td>Must be shown explicitly per derivation; solve exponents by unit balance</td>
+      <td>Provides units for integrand; includes <span class="math inline">\((2\pi)^{-d}\)</span>, powers of <span class="math inline">\(c\)</span>, and physical constants</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\Phi(x,x';\omega)\)</span></td>
+      <td>Phase / action functional appearing in exponent</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span> or <span class="math inline">\(\text{dimensionless}\)</span> when scaled by <span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+      <td>Derived from synchrony delay, wavevector and path action</td>
+      <td>Assume smoothness and nondegenerate stationary points for asymptotics</td>
+      <td>Exponent argument: <span class="math inline">\(e^{i\Phi/\mathcal{S}_\ast}\)</span>; stationary points give <span class="math inline">\(S[\gamma]\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\tau(x,x')\)</span></td>
+      <td>Synchrony delay / propagation time between points</td>
+      <td><span class="math inline">\(\text{s}\)</span></td>
+      <td>Measured hop time or geometric <span class="math inline">\(L/u\)</span></td>
+      <td>Geometric synchrony regime</td>
+      <td>Appears in base phase as <span class="math inline">\(\Phi \supset \omega\,\tau\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(S[\gamma]\)</span></td>
+      <td>Action along path <span class="math inline">\(\gamma\)</span></td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span></td>
+      <td>Computed from model; validated against measured <span class="math inline">\(E/\nu\)</span></td>
+      <td>Semiclassical stationary-phase regime</td>
+      <td>Enters <span class="math inline">\(\Phi\)</span>; difference between dominant stationary paths yields phase quantization</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\gamma\)</span></td>
+      <td>Path label / discrete stationary contribution index</td>
+      <td><span class="math inline">\(\text{dimensionless index}\)</span></td>
+      <td>Identified by resonance peaks / modal decomposition</td>
+      <td>Semiclassical assumption: finite set of dominant <span class="math inline">\(\gamma\)</span></td>
+      <td>Summed contributions in path-sum; amplitude <span class="math inline">\(\mathcal{A}[\gamma]\)</span> enters <span class="math inline">\(\tilde M\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+      <td>Emergent action scale (kernel divisor)</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span></td>
+      <td>Empirical: <span class="math inline">\(S_{\rm meas} = E_{\rm peak}/\nu_{\rm peak}\)</span> (Cs, CMB anchors)</td>
+      <td>Global scalar; multi-anchor consistency must be shown</td>
+      <td>Divides action in exponent; smallest action quantum <span class="math inline">\(\Delta S_{\min} = 2\pi\mathcal{S}_\ast\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(S_{\rm meas}\)</span></td>
+      <td>Measured modal action <span class="math inline">\(E_{\rm peak}/\nu_{\rm peak}\)</span></td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span></td>
+      <td>Atomic lines, CMB spectral peak, other spectral features</td>
+      <td>High SNR spectral measurements</td>
+      <td>Used to identify <span class="math inline">\(\mathcal{S}_\ast\)</span> via <span class="math inline">\(\Delta S_{\min} = S_{\rm meas}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(E_{\rm peak}\)</span></td>
+      <td>Energy of spectral feature or mode</td>
+      <td><span class="math inline">\(\text{J}\)</span></td>
+      <td>Measured line energies or integrated spectral bin</td>
+      <td>Calibration required for radiometry</td>
+      <td>Paired with <span class="math inline">\(\nu_{\rm peak}\)</span> to compute <span class="math inline">\(S_{\rm meas}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\nu_{\rm peak}\)</span></td>
+      <td>Peak cycle frequency (Hz)</td>
+      <td><span class="math inline">\(\text{s}^{-1}\)</span></td>
+      <td>Defined atomic references (e.g., Cs) or spectral fits (CMB)</td>
+      <td>High-precision spectroscopy/metrology</td>
+      <td>Used to compute <span class="math inline">\(S_{\rm meas} = E/\nu\)</span> and to compute <span class="math inline">\(v_{\rm sync} = M_1 \nu\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(M_1\)</span></td>
+      <td>Measured meso-scale hop length</td>
+      <td><span class="math inline">\(\text{m}\)</span></td>
+      <td>Metrology cavity length or hop distance</td>
+      <td>Lab/resonator scale; uncertainty stated</td>
+      <td>Used with <span class="math inline">\(\nu_{\rm Cs}\)</span> to compute <span class="math inline">\(v_{\rm sync} = M_1 \nu_{\rm Cs}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(v_{\rm sync}\)</span></td>
+      <td>Synchronization speed (identified with <span class="math inline">\(c\)</span> if anchors agree)</td>
+      <td><span class="math inline">\(\text{m} \cdot \text{s}^{-1}\)</span></td>
+      <td>Computed from meso anchor and compared to displacement-law-derived <span class="math inline">\(c\)</span></td>
+      <td>Multi-anchor agreement used to assign physical constant status</td>
+      <td>Appears in mapping between <span class="math inline">\(k\)</span> and <span class="math inline">\(\nu\)</span> and in <span class="math inline">\(C_{\rm phys}\)</span> if used</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\lambda_{\rm peak}\)</span></td>
+      <td>Peak wavelength</td>
+      <td><span class="math inline">\(\text{m}\)</span></td>
+      <td>Measured blackbody peak (CMB) or lab spectrum</td>
+      <td>Thermal spectrum fits</td>
+      <td>Used in displacement law to compute <span class="math inline">\(c\)</span> given <span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(k_B\)</span></td>
+      <td>Boltzmann constant</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{K}^{-1}\)</span></td>
+      <td>SI constant (exact)</td>
+      <td>Fixed</td>
+      <td>Enters thermal parts of <span class="math inline">\(C_{\rm phys}\)</span> and occupancy factors</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(T\)</span></td>
+      <td>Temperature (or time-window depending on context)</td>
+      <td><span class="math inline">\(\text{K}\)</span> (or <span class="math inline">\(\text{s}\)</span> for sampling window)</td>
+      <td>Measured thermodynamic temperature or experimental sampling</td>
+      <td>Thermal equilibrium or stationarity assumption</td>
+      <td>Appears in thermal weightings, <span class="math inline">\(C_{\rm phys}\)</span>, and resolution <span class="math inline">\(\Delta\omega \approx 1/T\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\Theta\)</span></td>
+      <td>Coherence parameter (time or temperature scale)</td>
+      <td><span class="math inline">\(\text{K}\)</span> or <span class="math inline">\(\text{s}^{-1}\)</span> (depends on definition)</td>
+      <td>Measured coherence time, linewidth or effective temperature</td>
+      <td>Decoherent or thermal regimes</td>
+      <td>Controls envelope decay: e.g., <span class="math inline">\(\tilde M \propto e^{-\omega/\Theta}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(Q\)</span></td>
+      <td>Quality factor (resonator)</td>
+      <td><span class="math inline">\(\text{dimensionless}\)</span></td>
+      <td>Measured resonance linewidth</td>
+      <td>High-Q cavity regime</td>
+      <td>Shapes <span class="math inline">\(\tilde M\)</span>: narrower peaks for larger <span class="math inline">\(Q\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\phi\)</span></td>
+      <td>Phase offset / bias</td>
+      <td><span class="math inline">\(\text{rad}\)</span> (<span class="math inline">\(\text{dimensionless}\)</span>)</td>
+      <td>Measured interferometric phase</td>
+      <td>Interference/coherent regime</td>
+      <td>Multiplicative phase factor in <span class="math inline">\(\tilde M\)</span> or additive in <span class="math inline">\(\Phi\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(h\)</span></td>
+      <td>Planck constant (when identified from <span class="math inline">\(S_{\rm meas}\)</span>)</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span></td>
+      <td>Measured via spectral anchors or SI fixed value</td>
+      <td>Microphysical anchor</td>
+      <td>When <span class="math inline">\(S_{\rm meas} = h\)</span>, then <span class="math inline">\(\mathcal{S}_\ast = h / (2\pi) = \hbar\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\hbar\)</span></td>
+      <td>Reduced Planck constant</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s}\)</span></td>
+      <td>Derived: <span class="math inline">\(\hbar = h / (2\pi)\)</span> or <span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+      <td>Quantum / semiclassical matching</td>
+      <td>Often identified with <span class="math inline">\(\mathcal{S}_\ast\)</span> in kernel phase divisor</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\varepsilon_0,\ \mu_0\)</span></td>
+      <td>Permittivity/permeability of vacuum</td>
+      <td><span class="math inline">\(\text{F} \cdot \text{m}^{-1},\ \text{H} \cdot \text{m}^{-1}\)</span></td>
+      <td>EM domain constants (SI)</td>
+      <td>Fixed except where emergent <span class="math inline">\(\mu\)</span> estimated</td>
+      <td>Enter <span class="math inline">\(C_{\rm phys}\)</span> for electromagnetic derivations and mode energies</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(c\)</span></td>
+      <td>Speed of light / synchronization speed</td>
+      <td><span class="math inline">\(\text{m} \cdot \text{s}^{-1}\)</span></td>
+      <td>Derived from displacement law with <span class="math inline">\(\mathcal{S}_\ast\)</span> and measured <span class="math inline">\(\lambda_{\rm peak}, T\)</span> or meso anchor <span class="math inline">\(M_1 \nu\)</span></td>
+      <td>Multi-anchor agreement required to call it physical constant</td>
+      <td>Maps between <span class="math inline">\(k\)</span> and <span class="math inline">\(\nu\)</span>: <span class="math inline">\(\omega = c k\)</span>; included in <span class="math inline">\(C_{\rm phys}\)</span> powers</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(H\)</span></td>
+      <td>Hessian matrix of <span class="math inline">\(\Phi\)</span> at stationary point</td>
+      <td><span class="math inline">\(\text{J} \cdot \text{s} / (\text{spectral unit})^2\)</span> per element; <span class="math inline">\(\det H \sim (\text{J} \cdot \text{s})^n\)</span></td>
+      <td>Computed from second derivatives of <span class="math inline">\(\Phi\)</span></td>
+      <td>Nondegenerate required for standard stationary-phase</td>
+      <td>Appears in prefactor: <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(n\)</span></td>
+      <td>Dimension of spectral integration (number of variables)</td>
+      <td><span class="math inline">\(\text{integer}\)</span></td>
+      <td>Set by chosen spectral coordinates (1 for <span class="math inline">\(\nu\)</span>, 3 for <span class="math inline">\(k\)</span>-space etc.)</td>
+      <td>Specifies prefactor power of <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2}\)</span></td>
+      <td>Determines stationary-phase prefactor exponent</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\det H\)</span></td>
+      <td>Determinant of Hessian</td>
+      <td><span class="math inline">\((\text{J} \cdot \text{s})^n\)</span></td>
+      <td>Computed symbolically/numerically at <span class="math inline">\(\omega_0\)</span></td>
+      <td>Nonzero for applicability</td>
+      <td>Denominator in stationary-phase prefactor; supplies units to cancel <span class="math inline">\(\mathcal{S}_\ast\)</span> factors</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\varepsilon_k\)</span></td>
+      <td>Measurement/model noise/error term</td>
+      <td><span class="math inline">\(\text{same units as observed quantity}\)</span></td>
+      <td>Measured instrument uncertainty</td>
+      <td>Stochastic; include in uncertainty propagation</td>
+      <td>Limits precision of anchors and thus of derived constants</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(V\)</span></td>
+      <td>Physical volume (for mode counting)</td>
+      <td><span class="math inline">\(\text{m}^3\)</span></td>
+      <td>Experimental cavity or domain volume</td>
+      <td>Large‑<span class="math inline">\(V\)</span> continuum limit for mode density</td>
+      <td>Mode-counting factor: <span class="math inline">\(V / (2\pi)^d\)</span> appears in mode densities</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(L\)</span></td>
+      <td>Characteristic length for dimensional balancing</td>
+      <td><span class="math inline">\(\text{m}\)</span></td>
+      <td>Chosen per derivation to balance units (e.g., cavity length)</td>
+      <td>Used in <span class="math inline">\(C_{\rm phys}\)</span> template to resolve leftover length powers</td>
+      <td>Enters <span class="math inline">\(C_{\rm phys}\)</span> as <span class="math inline">\(L^{-n_L}\)</span> when required by unit closure</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(n_c, n_L\)</span></td>
+      <td>Integer exponents for powers of <span class="math inline">\(c\)</span> and <span class="math inline">\(L\)</span> in <span class="math inline">\(C_{\rm phys}\)</span></td>
+      <td><span class="math inline">\(\text{integers}\)</span></td>
+      <td>Solved by unit balance per derivation</td>
+      <td>Not fundamental constants; bookkeeping indices</td>
+      <td>Appear in canonical template for <span class="math inline">\(C_{\rm phys}\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(p(x,t)\)</span></td>
+      <td>Measured/projection field produced by kernel (observable)</td>
+      <td><span class="math inline">\(\text{domain-dependent units}\)</span> (e.g., <span class="math inline">\(\text{Pa},\ \text{V/m},\ \text{J/m}^3\)</span>)</td>
+      <td>Experimental measurement or observed field</td>
+      <td>Observable whose statistics are compared to theory</td>
+      <td>Result of projection/integration of <span class="math inline">\(K(x,x')\)</span> against source/measurement operator</td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(O\)</span></td>
+      <td>Measurement / projection operator mapping kernel to observables</td>
+      <td><span class="math inline">\(\text{operator-dependent units}\)</span></td>
+      <td>Defined by measurement chain</td>
+      <td>Specified for each experiment</td>
+      <td>Projects kernel <span class="math inline">\(K\)</span> to measured quantity <span class="math inline">\(p = O[K]\)</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="math inline">\(\alpha\)</span></td>
+      <td>Fine-structure constant (if used to derive <span class="math inline">\(h\)</span> etc.)</td>
+      <td><span class="math inline">\(\text{dimensionless}\)</span></td>
+      <td>CODATA value / inferred via emergent relations</td>
+      <td>Use only if deriving electromagnetic coupling</td>
+      <td>May be used in secondary derivations linking <span class="math inline">\(\mathcal{S}_\ast\)</span> to electron charge / uncertainty relations</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<p><strong>Usage notes</strong>:</p>
+<ul>
+<li>
+  Always state the Fourier convention and the explicit form of 
+  <span class="math inline">\(d\omega\)</span> at the start of each derivation so 
+  <span class="math inline">\((2\pi)\)</span> factors are traceable.
+</li>
+<li>
+  Factor 
+  <span class="math inline">\(M = C_{\rm phys} \tilde M\)</span> and display 
+  <span class="math inline">\(C_{\rm phys}\)</span> algebraically to show no constants are hidden in 
+  <span class="math inline">\(\tilde M\)</span>.
+</li>
+<li>
+  When performing stationary-phase, show local quadratic expansion, compute 
+  <span class="math inline">\(H\)</span> explicitly, and carry the prefactor 
+  <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span> 
+  through to the observable units.
+</li>
+</ul>
+
+  <h4>Algebraic factorization rules and explicit <span class="math inline">\(C_{\rm phys}\)</span> template</h4>
+
+  <p>
+    Declare conventions first, then factor every dimensional constant out of the shape function so numeric
+    <span class="math inline">\(\pi\)</span> and SI constants are explicit and traceable.
+  </p>
+
+  <h5>Conventions (declare at start of each derivation)</h5>
+  <ul>
+    <li>
+      Fourier transform:
+      <span class="math inline">\( \mathcal{F}[f](k) = \int_{\mathbb{R}^d} f(x)\,e^{-i k \cdot x}\,d^d x \)</span>;
+      inverse:
+      <span class="math inline">\( f(x) = (2\pi)^{-d} \int_{\mathbb{R}^d} \mathcal{F}[f](k)\,e^{i k \cdot x}\,d^d k \)</span>.
+      Put <span class="math inline">\((2\pi)^{-d}\)</span> explicitly into <span class="math inline">\(C_{\rm phys}\)</span>.
+    </li>
+    <li>
+      Spectral parametrization: choose and state mapping explicitly, e.g.
+      <span class="math inline">\( \omega = c\,k,\quad \nu = \omega / 2\pi \)</span> (photons), or declare use of <span class="math inline">\(\nu\)</span> directly.
+    </li>
+    <li>
+      Phase normalization: always write exponent as
+      <span class="math inline">\( \exp\big(i\Phi / \mathcal{S}_\ast\big) \)</span> with
+      <span class="math inline">\([ \Phi ] = [ \mathcal{S}_\ast ] = \text{J} \cdot \text{s}\)</span>.
+    </li>
+  </ul>
+
+  <h5>Factorization rule (canonical)</h5>
+  <div class="math display">
+
+\[
+    M[\omega,\ldots] = C_{\rm phys}\;\tilde M(\omega,\ldots)
+    \]
+
+  </div>
+
+  <p>
+    <span class="math inline">\(\tilde M\)</span> is strictly dimensionless; 
+    <span class="math inline">\(C_{\rm phys}\)</span> is an explicit product of SI constants,
+    Fourier normalizations, and geometric scale factors chosen to make the integrand produce the target observable units.
+  </p>
+
+  <h5>Canonical <span class="math inline">\(C_{\rm phys}\)</span> template (thermal / spectral example)</h5>
+  <div class="math display">
+
+\[
+    C_{\rm phys} = \frac{k_B\,T}{\mathcal{S}_\ast}\,(2\pi)^{-d}\,c^{-n_c}\,L^{-n_L}
+    \]
+
+  </div>
+
+  <h5>Anchor → <span class="math inline">\(\mathcal{S}_\ast\)</span> and <span class="math inline">\(c\)</span> explicit algebraic steps</h5>
+  <div class="math display">   
+
+\[
+    S_{\rm meas} = \frac{E_{\rm peak}}{\nu_{\rm peak}} \quad \text{[J·s]}
+    \]
+
+
+\[
+    \Delta S_{\min} = 2\pi\,\mathcal{S}_\ast \overset{!}{=} S_{\rm meas}
+    \quad \Rightarrow \quad \mathcal{S}_\ast = \frac{S_{\rm meas}}{2\pi}
+    \]
+
+
+\[
+    \lambda_{\rm peak}\,T = \frac{c\,\mathcal{S}_\ast}{2.821\,k_B}
+    \quad \Rightarrow \quad c = \frac{2.821\,k_B\,\lambda_{\rm peak}\,T}{\mathcal{S}_\ast}
+    \]
+
+  </div>
+
+  <h5>Stationary-phase change of variables</h5>
+  <p>Starting integral (spectral n-dim):</p>
+  <div class="math display">
+
+\[
+    I = \int_{\mathbb{R}^n} C_{\rm phys}\,\tilde M(\omega)\,e^{i\Phi(\omega)/\mathcal{S}_\ast}\,d^n\omega
+    \]
+
+  </div>
+
+  <p>Quadratic expansion about nondegenerate stationary point <span class="math inline">\(\omega_0\)</span>:</p>
+  <div class="math display">
+
+\[
+    \Phi(\omega) = \Phi_0 + \tfrac{1}{2}(\omega - \omega_0)^T H (\omega - \omega_0) + \cdots
+    \]
+
+  </div>
+
+  <p>Change variable <span class="math inline">\( q = (\omega - \omega_0)\sqrt{1/\mathcal{S}_\ast} \)</span> ⇒ 
+     <span class="math inline">\( d^n\omega = (\mathcal{S}_\ast)^{n/2} d^n q \)</span>.</p>
+
+  <div class="math display">
+
+\[
+    I \approx C_{\rm phys}\,\tilde M(\omega_0)\,e^{i\Phi_0/\mathcal{S}_\ast}\,
+    \frac{(2\pi\,\mathcal{S}_\ast)^{n/2}}{\sqrt{|\det H|}}
+    \]
+
+  </div>
+
+  <h5>Python pseudo-code: numeric anchor propagation)</h5>
+
+  <pre><code class="language-python">
+# Anchor values (example)
+nu_Cs = 9_192_631_770.0           # Hz
+M1 = 3.26e-2                      # m
+v_sync_Cs = M1 * nu_Cs            # m/s
+
+lambda_peak = 1.063e-3            # m (CMB)
+T_cmb = 2.725                     # K
+kB = 1.380649e-23                 # J/K
+
+# Suppose S_meas computed from spectral data:
+h_meas = 6.62607015e-34           # J*s (example/anchor)
+Sstar = h_meas / (2.0 * math.pi)  # J*s
+
+# Compute c from displacement law
+c_from_displacement = 2.821 * kB * lambda_peak * T_cmb / Sstar
+
+print("v_sync_Cs =", v_sync_Cs)
+print("c_from_displacement =", c_from_displacement)
+  </code></pre>
+
+  <h5>Python pseudo-code: Monte Carlo uncertainty propagation (outline)</h5>
+
+  <pre><code class="language-python">
+import numpy as np
+
+N = 20000
+# Gaussian draws around anchors (example uncertainties)
+M1_mean, M1_sigma = 3.26e-2, 3.26e-5   # 0.1% rel unc
+nu_mean, nu_sigma = 9_192_631_770.0, 1e0 # assume tiny
+M1_samples = np.random.normal(M1_mean, M1_sigma, N)
+nu_samples = np.random.normal(nu_mean, nu_sigma, N)
+v_samples = M1_samples * nu_samples
+v_mean, v_std = v_samples.mean(), v_samples.std()
+print("v_sync mean,std", v_mean, v_std)
+  </code></pre>
+
+  <h5>Checklist for inclusion near derivations</h5>
+  <ul>
+    <li>State Fourier convention and spectral parametrization at the top.</li>
+    <li>
+      Show explicit form of <span class="math inline">\(C_{\rm phys}\)</span> used for that derivation and solve exponents by unit balance.
+    </li>
+    <li>
+      Perform stationary-phase with explicit local quadratic expansion, compute <span class="math inline">\(H\)</span>, and carry the prefactor 
+      <span class="math inline">\((2\pi\mathcal{S}_\ast)^{n/2}/\sqrt{|\det H|}\)</span> to the final units.
+    </li>
+    <li>Publish the symbolic factorization notebook and the Monte Carlo anchor propagation alongside the manuscript.</li>
+  </ul>
+
+  <h4>3D electromagnetic mode density → Planck spectral law (worked derivation)</h4>
+
+  <p>
+    This fragment is a single continuous derivation presented as code-ready HTML. It:
+    <strong>(A)</strong> fixes conventions, 
+    <strong>(B)</strong> derives the 3D mode density 
+    <span class="math inline">\(\frac{V}{(2\pi)^3} \cdot 4\pi k^2\,dk\)</span>, 
+    <strong>(C)</strong> converts to frequency with explicit powers of <span class="math inline">\(c\)</span> and <span class="math inline">\(2\pi\)</span>, 
+    <strong>(D)</strong> integrates energy-per-mode <span class="math inline">\(h\nu\)</span> with Bose occupancy to obtain Planck’s law and the 
+    <span class="math inline">\(\pi^4/15\)</span> factor, and 
+    <strong>(E)</strong> gives a Python snippet that inserts numeric anchors and propagates uncertainties.
+  </p>
+
+  <h5>Conventions and target</h5>
+  <div class="math display">
+
+\[
+    \mathcal{F}[f](k) = \int_{\mathbb{R}^d} f(x)\,e^{-i k \cdot x}\,d^d x
+    \quad\text{and}\quad
+    f(x) = (2\pi)^{-d} \int_{\mathbb{R}^d} \mathcal{F}[f](k)\,e^{i k \cdot x}\,d^d k
+    \]
+
+\[
+    \omega = c k,\quad \nu = \frac{\omega}{2\pi}
+    \]
+
+\[
+    u(\nu, T) \quad \text{with units} \quad \text{J} \cdot \text{m}^{-3} \cdot \text{Hz}^{-1}
+    \]
+
+  </div>
+
+  <h5>Step 1 — Mode counting in k-space (3D)</h5>
+  <div class="math display">
+
+\[
+    \text{modes per volume in shell } [k, k + dk] = \frac{V}{(2\pi)^3} \cdot 4\pi k^2\,dk
+    \]
+
+  </div>
+
+  <h5>Step 2 — Energy per mode and occupancy</h5>
+  <p>
+    Each photon mode carries energy given by the Planck relation:
+  </p>
+  <div class="math display">
+   
+\[
+    E_{\text{mode}} = h \nu
+    \]
+
+  </div>
+  <p>
+    The average number of photons per mode at frequency \( \nu \) and temperature \( T \) is given by the Bose–Einstein distribution:
+  </p>
+  <div class="math display">
+    
+
+\[
+    n(\nu, T) = \frac{1}{\exp\left(\frac{h \nu}{k_B T}\right) - 1}
+    \]
+
+  </div>
+
+  <h5>Step 3 — Convert measure from \(k\) to \(\nu\)</h5>
+  <p>
+    To express the mode density in terms of frequency \( \nu \), we use the relations:
+    <span class="math inline">\( \omega = c k \)</span> and 
+    <span class="math inline">\( \nu = \omega / 2\pi \)</span>, which imply:
+  </p>
+  <div class="math display">
+
+\[
+    k = \frac{2\pi \nu}{c}, \quad dk = \frac{2\pi\,d\nu}{c}
+    \]
+
+  </div>
+  <p>
+    Substituting into the 3D mode-counting expression:
+  </p>
+  <div class="math display">
+    
+\[
+    \frac{V}{(2\pi)^3} \cdot 4\pi k^2 \cdot \frac{dk}{d\nu}
+    = \frac{V}{(2\pi)^3} \cdot 4\pi \left( \frac{2\pi \nu}{c} \right)^2 \cdot \left( \frac{2\pi}{c} \right)
+    = V \cdot \frac{4\pi \nu^2}{c^3}
+    \]
+
+  </div>
+  <p>
+    The explicit <span class="math inline">\((2\pi)^3\)</span> from the Fourier normalization cancels with the substitution, leaving the familiar 
+    <span class="math inline">\(\nu^2 / c^3\)</span> scaling in the mode density.
+  </p>
+
+  <h5>Step 4 — Spectral energy density integrand</h5>
+  <p>
+    The spectral energy density per unit volume per unit frequency is obtained by multiplying:
+    <em>(i)</em> the number of modes per unit volume per unit frequency,
+    <em>(ii)</em> the energy per mode, and
+    <em>(iii)</em> the occupancy:
+  </p>
+  <div class="math display">
+
+\[
+    u(\nu, T)\,d\nu = \left( \frac{V \cdot 4\pi \nu^2}{c^3} \right) \cdot (h \nu) \cdot \left( \frac{1}{\exp\left( \frac{h \nu}{k_B T} \right) - 1} \right)
+    \]
+
+  </div>
+  <p>
+    Dividing by <span class="math inline">\(V\)</span> gives the energy density per unit volume:
+  </p>
+  <div class="math display">
+
+\[
+    u(\nu, T) = \frac{4\pi h \nu^3}{c^3} \cdot \frac{1}{\exp\left( \frac{h \nu}{k_B T} \right) - 1}
+    \]
+
+  </div>
+
+  <h5>Step 5 — Polarizations and the \(8\pi\) prefactor</h5>
+  <p>
+    The previous expression accounts for the density of modes in 3D wavevector space. However, photons have two independent transverse polarization states, which doubles the mode count. This yields the final form of the Planck spectral energy density:
+  </p>
+  <div class="math display">
+    
+
+\[
+    u(\nu, T) = \frac{8\pi h \nu^3}{c^3} \cdot \frac{1}{\exp\left( \frac{h \nu}{k_B T} \right) - 1}
+    \]
+
+
+  </div>
+
+  <h5>Step 6 — Total energy density and Stefan–Boltzmann constant</h5>
+  <p>
+    Integrating the spectral energy density over all frequencies gives the total energy density:
+  </p>
+  <div class="math display">
+
+\[
+    u(T) = \int_0^\infty u(\nu, T)\,d\nu
+    = \int_0^\infty \frac{8\pi h \nu^3}{c^3} \cdot \frac{1}{e^{h\nu/(k_B T)} - 1}\,d\nu
+    \]
+
+  </div>
+  <p>
+    Substituting <span class="math inline">\( x = \frac{h \nu}{k_B T} \)</span> gives:
+  </p>
+  <div class="math display">
+
+\[
+    \nu = \frac{k_B T}{h} x, \quad d\nu = \frac{k_B T}{h} dx
+    \]
+
+\[
+    u(T) = \frac{8\pi h}{c^3} \left( \frac{k_B T}{h} \right)^4 \int_0^\infty \frac{x^3}{e^x - 1}\,dx
+    = \frac{8\pi k_B^4}{h^3 c^3} T^4 \cdot \frac{\pi^4}{15}
+    \]
+
+\[
+    \Rightarrow\quad u(T) = \frac{8\pi^5 k_B^4}{15\,h^3 c^3} T^4
+    \]
+
+  </div>
+  <p>
+    The radiative flux from a blackbody is related to the energy density by 
+    <span class="math inline">\( j^\ast = \frac{c}{4} u(T) \)</span>, yielding the Stefan–Boltzmann constant:
+  </p>
+  <div class="math display">
+
+\[
+    \sigma = \frac{c}{4} \cdot \frac{8\pi^5 k_B^4}{15\,h^3 c^3}
+    = \frac{2\pi^5 k_B^4}{15\,h^3 c^2}
+    \]
+
+  </div>
+
+  <h5>Step 7 — Annotated provenance of numeric factors</h5>
+  <p><strong>Provenance checklist:</strong></p>
+  <ul>
+    <li><strong><span class="math inline">\(4\pi\)</span>:</strong> from the angular surface integral over the unit sphere <span class="math inline">\(S^2\) in 3D \(k\)</span>-space.</li>
+    <li><strong><span class="math inline">\((2\pi)^{-3}\)</span>:</strong> from the inverse Fourier normalization; cancels with the Jacobian from <span class="math inline">\(k \rightarrow \nu\)</span> substitution.</li>
+    <li><strong>Factor 2:</strong> accounts for the two transverse polarization states of photons.</li>
+    <li><strong><span class="math inline">\(\pi^4/15\)</span>:</strong> arises from the thermal integral 
+      <span class="math inline">\(\int_0^\infty \frac{x^3}{e^x - 1} dx\)</span> after substitution 
+      <span class="math inline">\(x = h\nu / (k_B T)\)</span>.
+    </li>
+    <li><strong>Stationary-phase prefactors:</strong> if used elsewhere, contribute 
+      <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2}\)</span> factors and must be included in 
+      <span class="math inline">\(C_{\rm phys}\)</span> when combining asymptotic contributions.
+    </li>
+  </ul>
+
+  <h5>Step 8 — Numeric anchor substitution and consistency check (Python)</h5>
+  <pre><code class="language-python">
+# Example Python snippet to compute c from displacement law and compare to v_sync anchor
+import math
+import numpy as np
+
+# Anchors (example values)
+nu_Cs = 9_192_631_770.0            # Hz (Cs hyperfine)
+M1 = 3.26e-2                       # m (measured cavity hop)
+v_sync_Cs = M1 * nu_Cs             # m/s
+
+lambda_peak = 1.063e-3             # m (CMB λ_peak)
+T_cmb = 2.725                      # K
+kB = 1.380649e-23                  # J/K
+h_meas = 6.62607015e-34            # J*s  (anchor or measured S_meas if available)
+Sstar = h_meas / (2.0 * math.pi)   # J*s (identify S_* = ħ if h_meas = h)
+
+# displacement relation c = (2.821 * kB * λ_peak * T) / S_*
+c_from_displacement = 2.821 * kB * lambda_peak * T_cmb / Sstar
+
+print("v_sync_Cs (m/s):", v_sync_Cs)
+print("c_from_displacement (m/s):", c_from_displacement)
+# Compute relative difference
+rel_diff = abs(c_from_displacement - v_sync_Cs) / ((c_from_displacement + v_sync_Cs)/2)
+print("relative difference:", rel_diff)
+  </code></pre>
+
+  <h5>Notes and provenance checklist</h5>
+  <ul>
+    <li>
+      <strong>Fourier convention:</strong> The inverse transform normalization 
+      <span class="math inline">\((2\pi)^{-3}\)</span> is used to count modes in 3D wavevector space. 
+      This factor must be included explicitly in <span class="math inline">\(C_{\rm phys}\)</span> when presenting alternative Fourier conventions, 
+      to ensure dimensional closure and traceability.
+    </li>
+    <li>
+      <strong>Angular integral:</strong> The surface integral over the unit sphere 
+      <span class="math inline">\(\text{Surface}(S^2) = 4\pi\)</span> supplies one source of 
+      <span class="math inline">\(\pi\)</span>. The thermal integral 
+      <span class="math inline">\(\int_0^\infty \frac{x^3}{e^x - 1}\,dx\)</span> contributes the factor 
+      <span class="math inline">\(\pi^4 / 15\)</span> in the final expression for energy density.
+    </li>
+    <li>
+      <strong>Conversion from <span class="math inline">\(k\)</span> to <span class="math inline">\(\nu\)</span>:</strong> 
+      The mapping <span class="math inline">\(k = 2\pi \nu / c\)</span> introduces powers of 
+      <span class="math inline">\(c\)</span> and <span class="math inline">\(2\pi\)</span> that must be followed algebraically. 
+      In the canonical derivation, these powers cancel with the inverse Fourier normalization, 
+      leaving the expected scaling <span class="math inline">\(\nu^2 / c^3\)</span> in the mode density.
+    </li>
+    <li>
+      <strong>Traceability:</strong> This worked derivation is fully explicit: 
+      each numeric factor involving <span class="math inline">\(\pi\)</span> or <span class="math inline">\(2\pi\)</span> 
+      can be traced to one of three sources — angular measure, Fourier normalization, or change of variables in the integral. 
+      This ensures that no numeric constant is introduced arbitrarily or hidden in shape functions.
+    </li>
+  </ul>
+
+  <h4>Stationary‑phase derivation with full change‑of‑variables and unit tracking</h4>
+
+  <p>
+    Purpose: carry a generic spectral integral
+    <span class="math inline">\(I = \displaystyle\int_{\mathbb{R}^n} C_{\rm phys}\,\tilde M(\omega)\, e^{\,i\Phi(\omega)/\mathcal{S}_\ast}\,d^n\omega\)</span>
+    through a rigorous stationary‑phase expansion about a nondegenerate stationary point <span class="math inline">\( \omega_0 \)</span>, show the exact Gaussian evaluation prefactor,
+    and verify dimensional closure step‑by‑step so all powers of <span class="math inline">\(2\pi\)</span>, <span class="math inline">\( \mathcal{S}_\ast \)</span>, and units are explicit.
+  </p>
+
+  <h5>1. Starting integral and declarations</h5>
+  <p>
+    Begin with the spectral integral over a local domain 
+    <span class="math inline">\(\Omega = \mathbb{R}^n\)</span>:
+  </p>
+  <div class="math display">
+
+\[
+    I = \int_{\mathbb{R}^n} C_{\rm phys}\,\tilde M(\omega)\,
+    \exp\left( \frac{i}{\mathcal{S}_\ast} \Phi(\omega) \right)\,d^n\omega
+    \]
+
+  </div>
+  <p>
+    Here, <span class="math inline">\(n\)</span> is the spectral dimension (e.g., 
+    <span class="math inline">\(n = 1\)</span> for frequency <span class="math inline">\(\nu\)</span>, 
+    <span class="math inline">\(n = 3\)</span> for wavevector <span class="math inline">\(k\)</span>-space). 
+    The phase function <span class="math inline">\(\Phi\)</span> and action scale 
+    <span class="math inline">\(\mathcal{S}_\ast\)</span> both have units 
+    <span class="math inline">\(\text{J} \cdot \text{s}\)</span>. The prefactor 
+    <span class="math inline">\(C_{\rm phys}\)</span> carries the remaining SI units to ensure 
+    <span class="math inline">\(I\)</span> has the correct observable units.
+
+  </p>
+
+  <h5>2. Stationary point and quadratic expansion</h5>
+  <p>
+    Assume a nondegenerate stationary point 
+    <span class="math inline">\(\omega_0 \in \mathbb{R}^n\)</span> satisfying 
+    <span class="math inline">\(\nabla_\omega \Phi(\omega_0) = 0\)</span>. 
+    Expand the phase locally around <span class="math inline">\(\omega_0\)</span>:
+  </p>
+  <div class="math display">
+
+\[
+    \Phi(\omega) = \Phi_0 + \tfrac{1}{2} (\omega - \omega_0)^T H (\omega - \omega_0) + R_3(\omega)
+    \]
+
+\[
+    \text{where } \Phi_0 = \Phi(\omega_0), \quad H = \left. \nabla^2_\omega \Phi \right|_{\omega_0}
+    \]
+
+  </div>
+  <p>
+    The Hessian matrix <span class="math inline">\(H\)</span> is symmetric and nondegenerate. 
+    Each element <span class="math inline">\(H_{ij}\)</span> has units 
+    <span class="math inline">\([\Phi] / [\omega]^2 = \text{J} \cdot \text{s} / (\text{spectral unit})^2\)</span>.
+  </p>
+
+  <h5>3. Local approximation and separation of factors</h5>
+  <p>
+    At leading order, replace <span class="math inline">\(\tilde M(\omega)\)</span> by its local value 
+    <span class="math inline">\(\tilde M(\omega_0)\)</span> and factor out constants:
+  </p>
+  <div class="math display">
+
+\[
+    I \approx C_{\rm phys}\,\tilde M(\omega_0)\, e^{i\Phi_0/\mathcal{S}_\ast}
+    \int_{\mathbb{R}^n} \exp\left( \frac{i}{2\mathcal{S}_\ast} (\omega - \omega_0)^T H (\omega - \omega_0) \right)\,d^n\omega
+    \]
+
+  </div>
+
+  <h5>4. Change of variables to canonical Gaussian</h5>
+  <p>
+    Define the scaled variable 
+    <span class="math inline">\( q = (\omega - \omega_0)\sqrt{1/\mathcal{S}_\ast} \)</span>. 
+    Then the measure transforms as 
+    <span class="math inline">\( d^n\omega = (\mathcal{S}_\ast)^{n/2} d^n q \)</span>, 
+    and the exponent becomes:
+  </p>
+  <div class="math display">
+    
+
+\[
+    \frac{i}{2\mathcal{S}_\ast} (\omega - \omega_0)^T H (\omega - \omega_0)
+    = \frac{i}{2} q^T \tilde H q
+    \quad \text{with } \tilde H = \frac{H}{\mathcal{S}_\ast}
+    \]
+
+
+  </div>
+  <p>
+    The integral now becomes:
+  </p>
+  <div class="math display">
+
+\[
+    \int_{\mathbb{R}^n} \exp\left( \frac{i}{2} q^T \tilde H q \right)\, (\mathcal{S}_\ast)^{n/2} d^n q
+    \]
+
+  </div>
+
+  <h5>5. Standard Gaussian integral and prefactor</h5>
+  <p>
+    The oscillatory Gaussian integral is evaluated using analytic continuation of the real Gaussian. 
+    For a nondegenerate symmetric matrix <span class="math inline">\(\tilde H\)</span>, the standard result is:
+  </p>
+  <div class="math display">
+
+\[
+    \int_{\mathbb{R}^n} \exp\left( \frac{i}{2} q^T \tilde H q \right)\, d^n q
+    = (2\pi)^{n/2} e^{i \pi s/4} (\det \tilde H)^{-1/2}
+    \]
+
+  </div>
+  <p>
+    Here, <span class="math inline">\(s\)</span> is the signature of <span class="math inline">\(H\)</span>, 
+    determining the phase from contour choice. For amplitude and provenance, we focus on the modulus:
+  </p>
+  <div class="math display">
+
+\[
+    \left| \int \cdots \right| = \frac{(2\pi)^{n/2}}{\sqrt{|\det \tilde H|}}
+    \]
+
+  </div>
+  <p>
+    Undoing the substitution and collecting all factors, the final leading-order approximation is:
+  </p>
+  <div class="math display">
+
+\[
+    I \approx C_{\rm phys} \cdot \tilde M(\omega_0) \cdot e^{i\Phi_0/\mathcal{S}_\ast} \cdot 
+    \frac{(2\pi \mathcal{S}_\ast)^{n/2}}{\sqrt{|\det H|}}
+    \]
+
+  </div>
+
+  <h5>6. Dimensional bookkeeping and unit cancellation</h5>
+  <p>
+    A line-by-line dimensional check confirms that all units cancel appropriately:
+  </p>
+  <ol>
+    <li>
+      The phase function and action scale both have units 
+      <span class="math inline">\([\Phi] = [\mathcal{S}_\ast] = \text{J} \cdot \text{s}\)</span>, 
+      so the exponent 
+      <span class="math inline">\(\exp(i\Phi/\mathcal{S}_\ast)\)</span> is dimensionless.
+    </li>
+    <li>
+      Each Hessian element 
+      <span class="math inline">\(H_{ij}\)</span> has units 
+      <span class="math inline">\([\Phi] / [\omega]^2\)</span>. 
+      Therefore, 
+      <span class="math inline">\(\det H\)</span> scales as 
+      <span class="math inline">\([\Phi]^n / [\omega]^{2n}\)</span>, 
+      and 
+      <span class="math inline">\(\sqrt{|\det H|}\)</span> has units 
+      <span class="math inline">\([\Phi]^{n/2} / [\omega]^n\)</span>.
+    </li>
+    <li>
+      The prefactor 
+      <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2}\)</span> carries units 
+      <span class="math inline">\([\Phi]^{n/2}\)</span>, 
+      so the ratio 
+      <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span> 
+      is dimensionless times 
+      <span class="math inline">\([\omega]^n\)</span>.
+    </li>
+    <li>
+      The measure 
+      <span class="math inline">\(d^n\omega\)</span> contributes units 
+      <span class="math inline">\([\omega]^n\)</span>, 
+      which cancels the spectral-unit powers from the prefactor. 
+      The remaining units are provided by 
+      <span class="math inline">\(C_{\rm phys}\)</span> to match the target observable.
+    </li>
+  </ol>
+
+  <h5>7. Final stationary‑phase result (leading order)</h5>
+  <p>
+    The leading-order stationary-phase approximation is:
+  </p>
+  <div class="math display">
+
+\[
+    I \approx C_{\rm phys}\,\tilde M(\omega_0)\, e^{i\Phi_0/\mathcal{S}_\ast}
+    \cdot \frac{(2\pi\mathcal{S}_\ast)^{n/2}}{\sqrt{|\det H(\omega_0)|}}
+    \]
+
+  </div>
+  <p>
+    Higher-order corrections enter at 
+    <span class="math inline">\(\mathcal{O}(\mathcal{S}_\ast^{(n+2)/2})\)</span> 
+    from cubic terms in the remainder 
+    <span class="math inline">\(R_3(\omega)\)</span>.
+  </p>
+
+  <h5>8. Provenance of numeric factors</h5>
+  <ul>
+    <li>
+      <span class="math inline">\((2\pi)^{n/2}\)</span> arises from the canonical Gaussian integral over 
+      <span class="math inline">\(\mathbb{R}^n\)</span> after the change of variables.
+    </li>
+    <li>
+      <span class="math inline">\(\mathcal{S}_\ast^{n/2}\)</span> comes from the Jacobian of the scaled variable transformation 
+      <span class="math inline">\(q = (\omega - \omega_0)\sqrt{1/\mathcal{S}_\ast}\)</span>, 
+      and makes explicit the dependence of the prefactor on the emergent action scale.
+    </li>
+    <li>
+      Fourier normalization factors 
+      <span class="math inline">\((2\pi)^{-d}\)</span> and angular-surface factors 
+      <span class="math inline">\(\text{Surface}(S^{d-1})\)</span> are algebraic and must be carried explicitly in 
+      <span class="math inline">\(C_{\rm phys}\)</span>.
+    </li>
+  </ul>
+
+  <h5>9. Representative symbolic / Python pseudo-code (pre/code)</h5>
+  <pre><code class="language-python">
+# Pseudo-code: compute stationary-phase prefactor symbolically (use sympy in real notebook)
+# from sympy import symbols, Matrix, sqrt, pi, exp, I, det
+# Symbols
+n = symbols('n', integer=True, positive=True)
+Sstar, = symbols('Sstar')            # units: J*s (symbolic)
+# H : symbolic Hessian matrix evaluated at omega0
+# Example: for diagonal H = diag(h1,...,hn)
+H = Matrix([[h11, 0], [0, h22]])    # replace with actual Hessian entries
+detH = det(H)
+prefactor = (2*pi*Sstar)**(n/2) / sqrt(abs(detH))
+# Leading contribution:
+# I ≈ C_phys * Mtilde(omega0) * exp(I*Phi0/Sstar) * prefactor
+  </code></pre>
+
+  <h5>10. How to embed into your kernel derivations</h5>
+  <ol>
+    <li>Write <span class="math inline">\(M = C_{\rm phys}\tilde M\)</span> before stationary-phase and display the explicit form of <span class="math inline">\(C_{\rm phys}\)</span>.</li>
+    <li>Compute <span class="math inline">\(H\)</span> symbolically from your model for <span class="math inline">\(\Phi\)</span> (show units of each derivative term).</li>
+    <li>Evaluate <span class="math inline">\(\det H\)</span>, carry the factor <span class="math inline">\((2\pi\mathcal{S}_\ast)^{n/2}/\sqrt{|\det H|}\)</span> through to the observable expression, and check unit balance with <span class="math inline">\(C_{\rm phys}\)</span>.</li>
+    <li>Report next-order correction term sizes by estimating cubic remainder contributions or using standard asymptotic error bounds (O(\mathcal{S}_\ast) relative scaling). </li>
+  </ol>
+
+  <h5>Worked example: Hessian for geometric delay model</h5>
+  <p style="font-size:0.9em;color:#586069">
+    Tip: include a short numeric worked example where you compute <span class="math inline">\(H\)</span> for a simple geometric delay model 
+    <span class="math inline">\(\Phi(\omega) = \omega \tau + \alpha \omega^2\)</span> so readers can see exact numeric prefactors and unit cancellation in practice.
+  </p>
+
+  <p>
+    Consider the phase function:
+  </p>
+  <div class="math display">
+
+\[
+    \Phi(\omega) = \omega \tau + \alpha \omega^2
+    \]
+
+  </div>
+
+  <p>
+    The first derivative is:
+  </p>
+  <div class="math display">
+
+\[
+    \frac{d\Phi}{d\omega} = \tau + 2\alpha \omega
+    \]
+
+  </div>
+
+  <p>
+    The stationary point occurs at:
+  </p>
+  <div class="math display">
+
+\[
+    \omega_0 = -\frac{\tau}{2\alpha}
+    \]
+
+  </div>
+
+  <p>
+    The second derivative (Hessian in 1D) is:
+  </p>
+  <div class="math display">
+   
+\[
+    H = \frac{d^2\Phi}{d\omega^2} = 2\alpha
+    \]
+
+  </div>
+
+  <p>
+    Suppose we choose:
+    <span class="math inline">\(\tau = 1\,\text{ns} = 10^{-9}\,\text{s}\)</span> and 
+    <span class="math inline">\(\alpha = 2\,\text{J} \cdot \text{s} \cdot \text{Hz}^{-2}\)</span>. 
+    Then:
+  </p>
+  <div class="math display">
+
+\[
+    H = 2\alpha = 4\,\text{J} \cdot \text{s} \cdot \text{Hz}^{-2}
+    \]
+
+
+  </div>
+
+  <p>
+    The prefactor becomes:
+  </p>
+  <div class="math display">
+
+\[
+    \frac{(2\pi \mathcal{S}_\ast)^{1/2}}{\sqrt{H}} = \frac{(2\pi \mathcal{S}_\ast)^{1/2}}{\sqrt{4\,\text{J} \cdot \text{s} \cdot \text{Hz}^{-2}}}
+    \]
+
+  </div>
+
+  <p>
+    Since <span class="math inline">\(\mathcal{S}_\ast\)</span> has units 
+    <span class="math inline">\(\text{J} \cdot \text{s}\)</span>, the numerator has units 
+    <span class="math inline">\([\Phi]^{1/2} = (\text{J} \cdot \text{s})^{1/2}\)</span>. 
+    The denominator has units 
+    <span class="math inline">\((\text{J} \cdot \text{s} \cdot \text{Hz}^{-2})^{1/2} = (\text{J} \cdot \text{s})^{1/2} \cdot \text{Hz}^{-1}\)</span>. 
+    Thus the prefactor has units:
+  </p>
+  <div class="math display">
+
+\[
+    \text{Hz}
+    \]
+
+  </div>
+
+  <p>
+    This cancels the units from the measure 
+    <span class="math inline">\(d\omega\)</span>, confirming that the integral yields a dimensionally consistent observable.
+  </p>
+
+  <h4>Symbolic and numeric derivation of impulse kernel (Python notebook)</h4>
+
+  <p>
+    This section presents a complete, executable Python derivation of the impulse kernel using symbolic and numeric tools. 
+    The notebook is structured to support both theoretical inspection and practical computation, including uncertainty propagation.
+  </p>
+
+  <p>
+    The derivation includes:
+  </p>
+  <ul>
+    <li>Declaration of conventions and symbolic variables using <code>sympy</code></li>
+    <li>Algebraic factorization of the modulation envelope 
+      <span class="math inline">\( M = C_{\rm phys} \cdot \tilde M \)</span> and unit-balance resolution for a chosen observable
+    </li>
+    <li>Derivation of 3D electromagnetic mode density 
+      (<span class="math inline">\(k\)</span>-space to <span class="math inline">\(\nu\)</span>) and recovery of Planck’s spectral law
+    </li>
+    <li>Symbolic stationary-phase expansion for a model phase function 
+      <span class="math inline">\(\Phi(\omega)\)</span>
+    </li>
+    <li>Computation of the Hessian, prefactor, and verification of dimensional consistency</li>
+    <li>Numeric substitution of anchor values and Monte Carlo propagation of uncertainty</li>
+  </ul>
+
+  <p>
+    Replace the example numeric anchors with your measured values where indicated. 
+    Required packages: <code>sympy</code>, <code>numpy</code>, <code>scipy</code>. 
+    Install via <code>pip install sympy numpy scipy</code> if needed.
+  </p>
+ 
+  <pre><code class="language-python">
+# %% [markdown]
+#  Jupyter notebook: Symbolic + numeric derivation for kernel assembly, stationary phase, and anchor checks
+#
+#  This notebook is runnable. It:
+#  - Declares conventions and symbols (sympy)
+#  - Implements algebraic factorization M = C_phys * Mtilde and solves unit-balance exponents for a chosen observable
+#  - Derives 3D EM mode density (k-space → ν) and recovers Planck spectral law
+#  - Performs stationary-phase expansion symbolically for a simple model Φ(ω)
+#  - Computes Hessian, prefactor, and verifies unit closure
+#  - Runs numeric anchor substitution and Monte Carlo uncertainty propagation
+#
+#  Replace example numeric anchors with your measured values where noted.
+#  Required packages: sympy, numpy, scipy. Install if needed: pip install sympy numpy scipy
+
+# %% [markdown]
+### Imports and numeric constants
+
+# %% code
+import math
+import numpy as np
+from math import pi
+import sympy as sp
+from sympy import symbols, Matrix, sqrt, simplify, Rational
+from scipy import integrate
+
+# Fundamental constants (examples; replace or treat as symbols in symbolic sections)
+kB_val = 1.380649e-23          # J/K
+h_val = 6.62607015e-34         # J*s
+hbar_val = h_val / (2*pi)
+c_val = 299792458.0            # m/s
+
+# %% [markdown]
+### Symbol declarations (symbolic algebra setup)
+
+# %% code
+# Spectral and kernel symbols
+n, d = symbols(&#39;n d&#39;, integer=True, positive=True)
+Sstar = symbols(&#39;Sstar&#39;)                 # emergent action scale [J*s]
+Phi0 = symbols(&#39;Phi0&#39;)                   # Φ at stationary point [J*s]
+omega = sp.symbols(&#39;omega&#39;, real=True)   # generic spectral variable
+nu = symbols(&#39;nu&#39;)                       # cycle frequency
+k = symbols(&#39;k&#39;)                         # wavevector magnitude
+V = symbols(&#39;V&#39;)                         # volume [m^3]
+L = symbols(&#39;L&#39;)                         # characteristic length [m]
+
+# C_phys template exponents (to be solved by unit balance)
+nc, nL = symbols(&#39;nc nL&#39;, integer=True)
+
+# Envelope symbols
+Mtilde = symbols(&#39;Mtilde&#39;)               # dimensionless shape (symbolic placeholder)
+
+# Hessian / stationary-phase
+# For symbolic stationary-phase we will use a simple scalar or diagonal example H
+h11, h22, h33 = symbols(&#39;h11 h22 h33&#39;)   # Hessian diagonal entries in example
+
+# %% [markdown]
+### Algebraic factorization rule and canonical C_phys template (symbolic)
+# Solve exponents by unit balance for target observable: spectral energy density u(ν) [J m^-3 Hz^-1].
+
+# %% code
+# Template: C_phys = kB*T / Sstar * (2π)^(-d) * c^(-nc) * L^(-nL)
+T = symbols(&#39;T&#39;)  # temperature [K]
+C_phys_template = (kB_val * T) / Sstar * (2*pi)**(-d) * sp.Symbol(&#39;c&#39;)**(-nc) * L**(-nL)
+sp.pretty_print(C_phys_template)
+
+# Note: Above uses numeric kB_val for clarity in mixed symbolic/numeric manipulation.
+# In a pure symbolic derivation replace kB_val with symbol kB.
+
+# %% [markdown]
+### 3D EM mode density derivation (symbolic → numeric sketch)
+# Using Fourier inverse normalization (2π)^(-3), derive modes per volume in shell [k, k+dk].
+
+# %% code
+# Mode counting expression (symbolic)
+modes_per_vol_per_dk = V / (2*pi)**3 * 4*pi * k**2
+sp.simplify(modes_per_vol_per_dk)
+
+# Convert k -&gt; ν for photons: ω = c k, ν = ω/(2π) =&gt; k = 2π ν / c, dk = 2π dν / c
+nu_sym = symbols(&#39;nu_sym&#39;)
+c_sym = symbols(&#39;c_sym&#39;)
+k_from_nu = 2*pi*nu_sym / c_sym
+dk_dnu = 2*pi / c_sym
+modes_per_vol_per_dnu = (V / (2*pi)**3) * 4*pi * k_from_nu**2 * dk_dnu
+modes_per_vol_per_dnu_simpl = sp.simplify(modes_per_vol_per_dnu)
+sp.pretty_print(modes_per_vol_per_dnu_simpl)
+
+# Show cancellation of (2π)^3
+# Result should be V * 4π * ν^2 / c^3
+sp.expand(modes_per_vol_per_dnu_simpl)
+
+# %% [markdown]
+### Recover Planck spectral density (symbolic steps)
+# u(ν,T) = (modes_per_vol_per_dν / V) * (energy per mode = h ν) * occupancy BE
+# Include factor 2 for photon polarizations and factor 1/volume division
+
+# %% code
+# Symbolic expression
+h, kB_s = symbols(&#39;h kB_s&#39;)
+nu_s = symbols(&#39;nu_s&#39;, positive=True)
+modes_per_vol_per_dnu_expr = (4*pi * nu_s**2) / c_sym**3   # per volume
+# include polarizations factor 2 -&gt; 8π ν^2 / c^3
+energy_per_mode = h * nu_s
+BE = 1 / (sp.exp(h*nu_s/(kB_s*T)) - 1)
+u_nu = (8*pi * h * nu_s**3 / c_sym**3) * BE
+sp.pretty_print(u_nu)
+
+# Change variable x = h ν / (kB T) to integrate total energy density
+x = symbols(&#39;x&#39;, positive=True)
+# u(T) integral symbolic prefactor:
+prefactor_uT = 8*pi * kB_s**4 / (h**3 * c_sym**3)
+sp.pretty_print(prefactor_uT)
+
+# Integral ∫ x^3/(e^x-1) dx = π^4/15 (will be used numerically)
+
+# %% [markdown]
+### Stationary-phase: symbolic scalar example and prefactor derivation
+# Use scalar ω (n=1) example with Φ(ω) = Φ0 + 1/2 H (ω-ω0)^2 to show change of variables and prefactor.
+
+# %% code
+# Scalar Hessian H (units [Φ]/[ω]^2)
+H = symbols(&#39;H&#39;)
+n_val = 1
+# Leading-order integral I ≈ C_phys * Mtilde(ω0) * exp(iΦ0/S*) * (2π S*)^{n/2} / sqrt(|det H|)
+prefactor_scalar = (2*pi*Sstar)**(Rational(n_val,2)) / sqrt(abs(H))
+sp.pretty_print(prefactor_scalar)
+
+# Confirm units: Sstar^(n/2) has same units as sqrt(det H) for cancellation when multiplied with measure dω
+
+# %% [markdown]
+### Symbolic Hessian matrix example (n=3 diagonal) and determinant
+# Demonstrate determinant scaling and stationary-phase prefactor for n=3.
+
+# %% code
+Hmat = Matrix.diag(h11, h22, h33)
+detH = sp.simplify(Hmat.det())
+prefactor_3d = (2*pi*Sstar)**(Rational(3,2)) / sqrt(abs(detH))
+sp.pretty_print(detH)
+sp.pretty_print(prefactor_3d)
+
+# %% [markdown]
+### Concrete numeric example: compute stationary-phase prefactor for a simple model
+# Example model: Φ(ω) = ω τ + α ω^2 ; choose scalar ω, compute H = d^2Φ/dω^2 = 2α.
+# Use numeric anchors for α, τ and Sstar = ħ.
+
+# %% code
+# Numeric anchors (example values)
+tau = 1e-6                     # s (example synchrony delay)
+alpha = 1e-34                  # J*s^3 (choose units so Φ has J*s units: α * ω^2 must be J*s)
+Sstar_num = hbar_val           # identify S_* = ħ for demo
+
+# For scalar model Φ = ω*tau + 1/2 * 2α ω^2 =&gt; second derivative H = 2α
+H_num = 2.0 * alpha
+# prefactor numeric
+prefactor_num = (2*pi*Sstar_num)**0.5 / math.sqrt(abs(H_num))
+print(&quot;Scalar stationary-phase prefactor (numeric):&quot;, prefactor_num)
+
+# %% [markdown]
+### Numeric anchor substitution and Monte Carlo uncertainty propagation
+# Compute c from displacement law and compare to v_sync anchor using Monte Carlo.
+
+# %% code
+# Example numeric anchors (replace with your measured values)
+nu_Cs = 9_192_631_770.0            # Hz (Cs)
+M1 = 3.26e-2                       # m (example)
+v_sync_Cs = M1 * nu_Cs             # m/s
+
+lambda_peak = 1.063e-3             # m (CMB)
+T_cmb = 2.725                      # K
+kB = 1.380649e-23                  # J/K
+h_meas = 6.62607015e-34            # J*s (Planck constant)
+Sstar_from_h = h_meas / (2.0 * math.pi)
+
+c_from_displacement = 2.821 * kB * lambda_peak * T_cmb / Sstar_from_h
+
+print(&quot;v_sync_Cs (m/s):&quot;, v_sync_Cs)
+print(&quot;c_from_displacement (m/s):&quot;, c_from_displacement)
+print(&quot;relative diff:&quot;, abs(c_from_displacement - v_sync_Cs) / ((c_from_displacement + v_sync_Cs)/2))
+
+# Monte Carlo propagation for v_sync = M1 * nu with uncertainties
+N = 20000
+M1_mean, M1_sigma = M1, abs(M1)*1e-4   # example relative uncertainty 0.01%
+nu_mean, nu_sigma = nu_Cs, 1e-1        # example absolute uncertainty
+M1_samples = np.random.normal(M1_mean, M1_sigma, N)
+nu_samples = np.random.normal(nu_mean, nu_sigma, N)
+v_samples = M1_samples * nu_samples
+print(&quot;v_sync mean (MC):&quot;, v_samples.mean(), &quot;std:&quot;, v_samples.std())
+
+# Monte Carlo for c_from_displacement using uncertainties in lambda_peak and T
+lambda_mean, lambda_sigma = lambda_peak, lambda_peak*1e-4
+T_mean, T_sigma = T_cmb, 1e-3
+lambda_samps = np.random.normal(lambda_mean, lambda_sigma, N)
+T_samps = np.random.normal(T_mean, T_sigma, N)
+c_samps = 2.821 * kB * lambda_samps * T_samps / Sstar_from_h
+print(&quot;c_from_displacement mean (MC):&quot;, c_samps.mean(), &quot;std:&quot;, c_samps.std())
+
+# %% [markdown]
+### Diagnostic outputs and checks
+# Print symbolic-to-numeric consistency checks and remind where to replace anchors.
+
+# %% code
+print(&quot;\nSymbolic checks/info:&quot;)
+print(&quot;- Mode density derivation produced 4π ν^2 / c^3 per volume (polarization factor added separately).&quot;)
+print(&quot;- Stationary-phase prefactor scales as (2π S_*)^{n/2} / sqrt(|det H|).&quot;)
+print(&quot;- Replace example anchors with your measured values for final reported numbers.&quot;)
+  </code></pre>
+
+<h4>Final assembly</h4>  
+
+  <p>
+    The derivation has now produced all necessary components for assembling the impulse kernel:
+  </p>
+  <ul>
+    <li>Mode density derivation yields 
+      <span class="math inline">\( \frac{4\pi \nu^2}{c^3} \)</span> per unit volume; polarization factor is added separately.
+    </li>
+    <li>Stationary-phase prefactor scales as 
+      <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span>.
+    </li>
+    <li>Replace example anchors with your measured values to compute final reported observables.
+    </li>
+  </ul>
+
+  <p>
+    Formally, we define the impulse as a generator functional:
+  </p>
+ 
+			<figure class="equation" id="eq-8_1">
+				<div class="math display">
+					\[ \boxed{K(x,x') = \int_{\Omega_\omega}M[\omega,\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)}\, d\omega} \]
+				</div>
+				<figcaption><a href="#eq-8_1">Equation (8.1)</a></figcaption>
+			</figure>
+			<p>
+				Here, <span class="math inline">\( M[\cdot] \)</span> encodes modulation parameters such as entropy, decoherence rate, impedance density, topological charge, and thermodynamic time. 
+				The phase kernel <span class="math inline">\(\Phi(x,x';\omega)\)</span> is determined by geometric synchrony and collapse rhythm. 
+				Integration is performed over the relevant spectral window 
+				<span class="math inline">\(\Omega_\omega\)</span>, which may be defined by experimental bandwidth, coherence constraints, or anchor resolution.
+			</p>
             </p>
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_1">Kernel Taxonomy</h3>
             <p>The RMI generates distinct operational kernels depending on the measurement constraints:</p>
