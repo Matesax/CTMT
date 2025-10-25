@@ -3722,25 +3722,155 @@ print(&quot;- Stationary-phase prefactor scales as (2π S_*)^{n/2} / sqrt(|det H
 print(&quot;- Replace example anchors with your measured values for final reported numbers.&quot;)
   </code></pre>
 
-<h4>Final assembly</h4>  
+  <h4>Oscillatory exponent</h4>
 
   <p>
-    The derivation has now produced all necessary components for assembling the impulse kernel:
+    The impulse kernel includes an oscillatory exponential factor of the form 
+    <span class="math inline">\( e^{i\Phi/\mathcal{S}_\ast} \)</span>, which is introduced as a structural component of the kernel. 
+    This exponent encodes spectral interference, ensures dimensional closure, and enables stationary-phase evaluation.
   </p>
+
   <ul>
-    <li>Mode density derivation yields 
-      <span class="math inline">\( \frac{4\pi \nu^2}{c^3} \)</span> per unit volume; polarization factor is added separately.
+    <li><strong>\( \Phi(\omega) \)</strong> — phase function with units 
+      <span class="math inline">\([\Phi] = \mathrm{J \cdot s}\)</span>, typically encoding geometric delay, dispersion, or collapse rhythm.</li>
+    <li><strong>\( \mathcal{S}_\ast \)</strong> — emergent action scale with units 
+      <span class="math inline">\([\mathcal{S}_\ast] = \mathrm{J \cdot s}\)</span>, used to normalize the phase and ensure the exponent is dimensionless.</li>
+    <li><strong>\( i \)</strong> — imaginary unit, included to model wave-like interference and enable asymptotic evaluation.</li>
+  </ul>
+
+  <h5>Why the imaginary unit is used</h5>
+  <ul>
+    <li>
+      <strong>Oscillatory representation:</strong> Physical wave propagation and path-sum phases take the form 
+      <span class="math inline">\( e^{iS/\hbar} \)</span> in semiclassical approximations. Replacing 
+      <span class="math inline">\( S \mapsto \Phi \)</span> and 
+      <span class="math inline">\( \hbar \mapsto \mathcal{S}_\ast \)</span> preserves that structure.
     </li>
-    <li>Stationary-phase prefactor scales as 
-      <span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span>.
+    <li>
+      <strong>Dimensional closure:</strong> Since 
+      <span class="math inline">\([\Phi] = [\mathcal{S}_\ast] = \mathrm{J \cdot s}\)</span>, 
+      the ratio is dimensionless and admissible inside the exponential.
     </li>
-    <li>Replace example anchors with your measured values to compute final reported observables.
+    <li>
+      <strong>Interference encoding:</strong> The imaginary unit ensures that spectral contributions interfere coherently, enabling phase-sensitive integration.
     </li>
   </ul>
 
+  <h5>Sign convention and causality</h5>
   <p>
-    Formally, we define the impulse as a generator functional:
+    The sign of the exponent determines the direction of phase evolution and must be chosen consistently throughout the derivation. Two common conventions are:
   </p>
+  <ul>
+    <li>
+      <strong>Phase-advance:</strong> 
+      <span class="math inline">\( e^{+i\Phi/\mathcal{S}_\ast} \)</span> — used in forward-time propagation and semiclassical path integrals.
+    </li>
+    <li>
+      <strong>Phase-retardation:</strong> 
+      <span class="math inline">\( e^{-i\Phi/\mathcal{S}_\ast} \)</span> — used in retarded Green’s functions and causal response kernels.
+    </li>
+  </ul>
+  <p>
+    To enforce causality in frequency-domain integrals, apply the analytic continuation prescription 
+    <span class="math inline">\( \Phi \mapsto \Phi \pm i0^+ \)</span>, 
+    which shifts poles off the real axis and selects the appropriate time-ordering. 
+    This ensures that the impulse kernel respects physical causality and decays appropriately in the time domain.
+  </p>
+
+  <h5>Stationary-phase: complex Gaussian phase and signature factor</h5>
+  <p>
+    Expanding about a nondegenerate stationary point yields a complex Gaussian integral. 
+    The canonical modulus produces the amplitude prefactor 
+    <span class="math inline">\((2\pi\mathcal{S}_\ast)^{n/2}/\sqrt{|\det H|}\)</span>, 
+    while the oscillatory contour contributes a local phase 
+    <span class="math inline">\(e^{i\pi s/4}\)</span>, where 
+    <span class="math inline">\(s\)</span> is the signature (number of negative eigenvalues minus positive ones) of the Hessian.
+  </p>
+
+  <p style="text-align:center">
+    <span class="math inline">
+      \( \displaystyle
+        \int_{\mathbb{R}^n} e^{\tfrac{i}{2} q^T \tilde H q}\,d^n q
+        = (2\pi)^{n/2} e^{i\pi s/4} \,|\det \tilde H|^{-1/2}
+      \)
+    </span>
+  </p>
+
+  <h5>Illustrative code: complex Gaussian prefactor</h5>
+  <pre><code class="language-python">
+# Scalar stationary-phase illustration (numeric placeholders)
+import numpy as np, math
+
+# Example scalar Hessian eigenvalue and S_*
+lambda_pos = 1.0    # positive eigenvalue scale (units consistent with Phi)
+lambda_neg = -0.5   # example negative eigenvalue
+eigs = np.array([lambda_pos, lambda_neg])
+s = np.sum(np.sign(eigs) == -1) - np.sum(np.sign(eigs) == 1)  # signature (neg - pos)
+Sstar = 1.0         # placeholder for emergent action scale (J*s)
+
+# Determinant and prefactor (modulus)
+detH = np.prod(eigs)
+prefactor_mod = (2 * math.pi * Sstar)**(len(eigs)/2) / math.sqrt(abs(detH))
+
+# Phase from signature
+phase_factor = math.cos(math.pi*s/4) + 1j*math.sin(math.pi*s/4)  # e^{iπs/4}
+
+print(&quot;prefactor modulus:&quot;, prefactor_mod)
+print(&quot;signature s:&quot;, s)
+print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
+  </code></pre>
+
+  <h5>Checklist for kernel assembly</h5>
+  <ol>
+    <li>Declare exponent sign convention and causality prescription.</li>
+    <li>Confirm units: <span class="math inline">\([\Phi] = [\mathcal{S}_\ast] = \mathrm{J \cdot s}\)</span> so exponent is dimensionless.</li>
+    <li>Compute Hessian <span class="math inline">\(H\)</span>, list eigenvalue signs, and record signature <span class="math inline">\(s\)</span>.</li>
+    <li>Report amplitude prefactor and include phase factor <span class="math inline">\(e^{i\pi s/4}\)</span> with branch-choice note.</li>
+  </ol>
+
+<h4>Final assembly</h4>  
+
+<p>
+  The derivation has now produced all necessary components for assembling the impulse kernel:
+</p>
+<ul>
+  <li>
+	<strong>Mode density:</strong> Derived from 3D spectral geometry, yielding 
+	<span class="math inline">\( \frac{4\pi \nu^2}{c^3} \)</span> per unit volume. 
+	Polarization and angular surface factors are carried separately in 
+	<span class="math inline">\( C_{\rm phys} \)</span>.
+  </li>
+  <li>
+	<strong>Modulation envelope:</strong> 
+	<span class="math inline">\( M[\omega,\gamma,\Theta,Q,\phi,T] \)</span> encodes entropy, decoherence rate, impedance density, topological charge, and thermodynamic time.
+  </li>
+  <li>
+	<strong>Phase kernel:</strong> 
+	<span class="math inline">\( \Phi(x,x';\omega) \)</span> determines geometric delay, dispersion, and collapse rhythm.
+  </li>
+  <li>
+	<strong>Oscillatory exponent:</strong> 
+	<span class="math inline">\( e^{i\Phi/\mathcal{S}_\ast} \)</span> ensures wave-like interference and enables stationary-phase asymptotics. 
+	The exponent is dimensionless since 
+	<span class="math inline">\([\Phi] = [\mathcal{S}_\ast] = \mathrm{J \cdot s}\)</span>.
+  </li>
+  <li>
+	<strong>Stationary-phase prefactor:</strong> 
+	<span class="math inline">\((2\pi \mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span>, 
+	where <span class="math inline">\(H\)</span> is the Hessian of the phase at the stationary point. 
+	The signature <span class="math inline">\(s\)</span> of <span class="math inline">\(H\)</span> contributes a local phase 
+	<span class="math inline">\(e^{i\pi s/4}\)</span>.
+  </li>
+  <li>
+	<strong>Spectral measure:</strong> 
+	<span class="math inline">\( d^n\omega \)</span> integrates over the relevant spectral window 
+	<span class="math inline">\( \Omega_\omega \)</span>, defined by coherence bandwidth, anchor resolution, or physical constraints.
+  </li>
+</ul>
+
+			<p>
+				With all components defined, we now assemble the impulse as a generator functional:
+			</p>
  
 			<figure class="equation" id="eq-8_1">
 				<div class="math display">
@@ -3749,12 +3879,14 @@ print(&quot;- Replace example anchors with your measured values for final report
 				<figcaption><a href="#eq-8_1">Equation (8.1)</a></figcaption>
 			</figure>
 			<p>
-				Here, <span class="math inline">\( M[\cdot] \)</span> encodes modulation parameters such as entropy, decoherence rate, impedance density, topological charge, and thermodynamic time. 
-				The phase kernel <span class="math inline">\(\Phi(x,x';\omega)\)</span> is determined by geometric synchrony and collapse rhythm. 
-				Integration is performed over the relevant spectral window 
-				<span class="math inline">\(\Omega_\omega\)</span>, which may be defined by experimental bandwidth, coherence constraints, or anchor resolution.
+				This kernel captures the spectral synthesis of modulated, phase-structured contributions across the domain 
+				<span class="math inline">\(\Omega_\omega\)</span>. 
+				It is the central object from which observable fields, statistical projections, and thermodynamic quantities are derived.
 			</p>
-            </p>
+			<p>
+				Replace example anchors with your measured values to compute final observables. 
+				Ensure that all symbolic components — including the sign convention in the exponent and the signature of the Hessian — are consistently applied.
+			</p>
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_1">Kernel Taxonomy</h3>
             <p>The RMI generates distinct operational kernels depending on the measurement constraints:</p>
             <ul>
