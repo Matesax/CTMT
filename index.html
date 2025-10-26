@@ -3888,20 +3888,123 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
 				Ensure that all symbolic components — including the sign convention in the exponent and the signature of the Hessian — are consistently applied.
 			</p>
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_1">Kernel Taxonomy</h3>
-            <p>The RMI generates distinct operational kernels depending on the measurement constraints:</p>
-            <ul>
-                <li><strong>Green Kernel:</strong> Spectral propagation kernel</li>
-                <li><strong>Gaussian Kernel:</strong> Dispersion and coherence decay</li>
-                <li>
-                    <strong>Magnetic Kernel:</strong> Curl dynamics,
-                    <span class="math inline">\(B_{\text{kernel}} = \kappa \nabla \times (\rho \mathbf{u})\)</span>
-                </li>
-                <li>
-                    <strong>Topological Kernel:</strong> Holonomy along closed loops,
-                    <span class="math inline">\(\phi = \frac{1}{\mathcal{S}_\ast} \oint T\)</span>
-                </li>
-                <li><strong>Collapse Kernel:</strong> Mass-phase drift and destructive return</li>
-            </ul>
+  <p>
+    The RMI framework defines a generative taxonomy of impulse kernels. Each kernel is specified by its operational role, canonical form, dimensional structure, and integration behavior. 
+    Classical kernels (e.g., Green, Gaussian) are extended by modulation, action scaling, and topological structure. 
+    This taxonomy supports orbital systems, structural energy laws, holonomy, and recursive uncertainty propagation.
+  </p>
+
+  <h4>Green Kernel (linear propagation)</h4>
+  <p><strong>Role:</strong> Spectral propagator transmitting phase and amplitude between source and observation.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( G(x,x';\omega) = \dfrac{A(\omega)}{D(\omega)}\,e^{i\Phi(x,x';\omega)/\mathcal{S}_\ast} \)</span></li>
+    <li><strong>Units:</strong> field-dependent (e.g., <span class="math inline">\( \mathrm{V \cdot m^{-1}} \)</span>)</li>
+    <li><strong>Regime:</strong> linear, causal, weak scattering</li>
+    <li><strong>Assembly:</strong> define phase <span class="math inline">\( \Phi \)</span>, apply causal prescription <span class="math inline">\( \pm i0^+ \)</span>, normalize with <span class="math inline">\( C_{\rm phys} \)</span></li>
+  </ul>
+
+  <h4>Gaussian Kernel (coherence envelope)</h4>
+  <p><strong>Role:</strong> Spectral damping kernel modeling finite coherence, dispersion, or envelope regularization.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( G_{\rm Gauss}(\omega) = C_{\rm phys}\,\tilde M(\omega)\,e^{-(\omega-\omega_c)^2/2\sigma^2} \)</span></li>
+    <li><strong>Units:</strong> amplitude-matched to observable</li>
+    <li><strong>Regime:</strong> near-resonant, Markovian, envelope smoothing</li>
+    <li><strong>Assembly:</strong> fit <span class="math inline">\( \sigma, \omega_c \)</span>, embed into modulation envelope <span class="math inline">\( M[\cdot] \)</span></li>
+  </ul>
+
+  <h4>Energy Kernel (structural energy law)</h4>
+  <p><strong>Role:</strong> Weights modes by energy content and occupancy; bridges classical and quantum spectral energy.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( K_E(\nu) = C_{\rm phys}\,\tilde M(\nu)\,h\nu\,n(\nu,T) \)</span></li>
+    <li><strong>Units:</strong> <span class="math inline">\( \mathrm{J \cdot m^{-3} \cdot Hz^{-1}} \)</span></li>
+    <li><strong>Regime:</strong> thermal equilibrium, quantized occupancy</li>
+    <li><strong>Assembly:</strong> choose statistics (Bose/Fermi), embed <span class="math inline">\( h\nu \)</span> and <span class="math inline">\( n(\nu,T) \)</span>, balance units</li>
+  </ul>
+
+  <h4>Quantum Kernel (path-sum interference)</h4>
+  <p><strong>Role:</strong> Encodes discrete stationary paths with quantized action and interference phases.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( K_Q(x,x') = \sum_\gamma \mathcal{A}_\gamma\,e^{iS[\gamma]/\mathcal{S}_\ast} \)</span></li>
+    <li><strong>Units:</strong> determined by <span class="math inline">\( \mathcal{A}_\gamma \)</span> and <span class="math inline">\( C_{\rm phys} \)</span></li>
+    <li><strong>Regime:</strong> semiclassical, nondegenerate paths</li>
+    <li><strong>Assembly:</strong> compute actions <span class="math inline">\( S[\gamma] \)</span>, apply prefactor and signature phase <span class="math inline">\( e^{i\pi s/4} \)</span></li>
+  </ul>
+
+  <h4>Topological Kernel (holonomy and charge)</h4>
+  <p><strong>Role:</strong> Encodes global phase from loops, defects, or conserved topological quantities.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( K_{\rm topo}[\gamma] = e^{i\oint_\gamma \mathcal{A}/\mathcal{S}_\ast} \)</span></li>
+    <li><strong>Units:</strong> dimensionless phase</li>
+    <li><strong>Regime:</strong> adiabatic transport, quantized holonomy</li>
+    <li><strong>Assembly:</strong> define loop <span class="math inline">\( \gamma \)</span>, evaluate integral, embed into RMI kernel</li>
+  </ul>
+
+<h4>Magnetic / Vorticity Kernel (rotational and flux systems)</h4>
+<p><strong>Role:</strong> Models rotational flow, curl dynamics, and impedance-weighted circulation across fluid, electromagnetic, and orbital systems. 
+This kernel captures conserved flux, angular momentum, and rotational mode coupling in both classical and spectral domains.</p>
+<ul>
+  <li><strong>Form:</strong> 
+    <span class="math inline">\( B_{\rm kernel}(\mathbf{x}) = \kappa(\mathbf{x})\,\nabla\times\big(\rho(\mathbf{x})\,\mathbf{u}(\mathbf{x})\big) \)</span>
+  </li>
+  <li><strong>Units:</strong> 
+    <span class="math inline">\( \mathrm{T} \)</span> (magnetic flux density), 
+    <span class="math inline">\( \mathrm{s^{-1}} \)</span> (vorticity), or 
+    <span class="math inline">\( \mathrm{kg \cdot m^{-2} \cdot s^{-1}} \)</span> (circulation flux)
+  </li>
+  <li><strong>Regime:</strong> incompressible or weakly compressible flow, magnetohydrodynamics, rotational symmetry, spectral circulation</li>
+  <li><strong>Assembly:</strong>
+    <ol>
+      <li>Define material density <span class="math inline">\( \rho(\mathbf{x}) \)</span>, velocity field <span class="math inline">\( \mathbf{u}(\mathbf{x}) \)</span>, and impedance or gain factor <span class="math inline">\( \kappa(\mathbf{x}) \)</span>.</li>
+      <li>Apply curl operator analytically or numerically on the domain; preserve boundary conditions and symmetry.</li>
+      <li>Embed the resulting rotational field into the modulation envelope <span class="math inline">\( M[\cdot] \)</span> or couple it to phase kernel <span class="math inline">\( \Phi(x,x';\omega) \)</span> to modulate spectral contributions.</li>
+      <li>For orbital systems, enforce circulation quantization or holonomy constraints via topological kernel coupling.</li>
+    </ol>
+  </li>
+</ul>
+
+  <h4>Collapse / Dissipative Kernel (irreversible dynamics)</h4>
+  <p><strong>Role:</strong> Models amplitude loss, phase collapse, or measurement back-action via exponential decay.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( K_{\rm diss}(\omega) = C_{\rm phys}\,\tilde M(\omega)\,e^{i\Phi/\mathcal{S}_\ast - \gamma(\omega)} \)</span></li>
+    <li><strong>Units:</strong> observable-dependent; <span class="math inline">\( \gamma \)</span> in <span class="math inline">\( \mathrm{s^{-1}} \)</span></li>
+    <li><strong>Regime:</strong> open systems, non-Hermitian dynamics</li>
+    <li><strong>Assembly:</strong> define decay rate <span class="math inline">\( \gamma(\omega) \)</span>, apply analytic continuation <span class="math inline">\( \omega \mapsto \omega + i\epsilon \)</span></li>
+  </ul>
+
+  <h4>Time Kernel (temporal projection and anchor propagation)</h4>
+  <p><strong>Role:</strong> Projects impulse kernel into time domain; governs anchor substitution, uncertainty propagation, and observable evolution.</p>
+  <ul>
+    <li><strong>Form:</strong> 
+      <span class="math inline">\( K_t(x,t) = \int_{\Omega_\omega} M[\omega,\gamma,\Theta,Q,\phi,T]\,e^{i\Phi(x,t;\omega)/\mathcal{S}_\ast}\,d\omega \)</span>
+    </li>
+    <li><strong>Units:</strong> observable-dependent (e.g., 
+      <span class="math inline">\( \mathrm{V \cdot m^{-1}} \)</span>, 
+      <span class="math inline">\( \mathrm{J \cdot m^{-3}} \)</span>, 
+      <span class="math inline">\( \mathrm{W \cdot m^{-2}} \)</span>)
+    </li>
+    <li><strong>Regime:</strong> causal projection, time-resolved observables, anchor substitution, recursive uncertainty propagation</li>
+    <li><strong>Assembly:</strong> 
+      <ol>
+        <li>Substitute anchor values (e.g., delay, decoherence rate, thermodynamic time) into modulation envelope <span class="math inline">\( M[\cdot] \)</span>.</li>
+        <li>Apply inverse Fourier or Laplace transform to project into time domain.</li>
+        <li>Propagate uncertainty recursively using anchor distributions and emergent scale <span class="math inline">\( \mathcal{S}_\ast \)</span>.</li>
+        <li>Ensure causality via analytic continuation <span class="math inline">\( \omega \mapsto \omega + i0^+ \)</span> if required.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <hr/>
+
+  <h4>Taxonomy Usage Notes</h4>
+  <ul>
+    <li>Begin with a primary kernel (e.g., Green, Quantum, Energy) and layer secondary effects (e.g., Gaussian damping, topological phase, collapse).</li>
+    <li>Declare sign convention and analytic continuation explicitly; document stationary-phase signature <span class="math inline">\( s \)</span> and branch choice.</li>
+    <li>Embed modulation envelope <span class="math inline">\( M[\omega,\gamma,\Theta,Q,\phi,T] \)</span> to encode entropy, decoherence, impedance, topology, and thermodynamic time.</li>
+    <li>Use emergent action scale <span class="math inline">\( \mathcal{S}_\ast \)</span> consistently to normalize phase, scale prefactors, and unify dimensional structure.</li>
+    <li>For orbital systems, combine magnetic/vorticity kernels with topological and energy kernels to enforce circulation, quantized flux, and holonomy.</li>
+    <li>Perform unit balance in <span class="math inline">\( C_{\rm phys} \)</span> to ensure final observables carry correct SI units.</li>
+    <li>When projecting into time domain, propagate anchor uncertainties recursively and track how modulation affects observable evolution.</li>
+  </ul>
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2">Forward Map and Inversion</h3>
 
             <p>
