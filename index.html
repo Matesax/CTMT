@@ -3912,7 +3912,7 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
     <li><strong>Assembly:</strong> fit <span class="math inline">\( \sigma, \omega_c \)</span>, embed into modulation envelope <span class="math inline">\( M[\cdot] \)</span></li>
   </ul>
 
-  <h4>Energy Kernel (structural energy law)</h4>
+  <h4>Spectral Occupancy Energy Kernel</h4>
   <p><strong>Role:</strong> Weights modes by energy content and occupancy; bridges classical and quantum spectral energy.</p>
   <ul>
     <li><strong>Form:</strong> <span class="math inline">\( K_E(\nu) = C_{\rm phys}\,\tilde M(\nu)\,h\nu\,n(\nu,T) \)</span></li>
@@ -3920,6 +3920,31 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
     <li><strong>Regime:</strong> thermal equilibrium, quantized occupancy</li>
     <li><strong>Assembly:</strong> choose statistics (Bose/Fermi), embed <span class="math inline">\( h\nu \)</span> and <span class="math inline">\( n(\nu,T) \)</span>, balance units</li>
   </ul>
+
+<h4>Structural Energy Kernel (convolutional power density law)</h4>
+<p><strong>Role:</strong> Computes power density from localized energy sources convolved with a transport kernel. 
+This kernel replaces empirical coefficients with generative spectral structure and supports thermal, photonic, nuclear, and mechanical systems. 
+It is derived from the RMI framework and ensures dimensional closure, causal propagation, and modulation-aware integration.</p>
+
+<ul>
+  <li><strong>Form:</strong> 
+    <span class="math inline">\( p(\mathbf{x},t) = \int_{\Omega_\epsilon} \int_V \int_{\epsilon} \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)\cdot \mathcal{S}(\mathbf{x}',t';\epsilon)\,d^3x'\,dt'\,d\epsilon \)</span>
+  </li>
+  <li><strong>Units:</strong> 
+    <span class="math inline">\( \mathrm{W \cdot m^{-3}} \)</span> (power density), or 
+    <span class="math inline">\( \mathrm{J \cdot m^{-3} \cdot s^{-1}} \)</span>
+  </li>
+  <li><strong>Regime:</strong> localized energy release, spectral transport, causal propagation, modulated occupancy, recursive uncertainty propagation</li>
+  <li><strong>Assembly:</strong>
+    <ol>
+      <li>Define source term <span class="math inline">\( \mathcal{S}(\mathbf{x}',t';\epsilon) \)</span> with units <span class="math inline">\( \mathrm{J \cdot s^{-1} \cdot m^{-3} \cdot eV^{-1}} \)</span>.</li>
+      <li>Construct transport kernel <span class="math inline">\( \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon) \sim e^{i\Phi/\mathcal{S}_\ast} \)</span> with optional prefactor and signature phase.</li>
+      <li>Embed modulation envelope <span class="math inline">\( M[\epsilon,\gamma,\Theta,Q,\phi,T] \)</span> to encode entropy, decoherence, impedance, and thermodynamic time.</li>
+      <li>Integrate over energy bin <span class="math inline">\( \epsilon \)</span>, spatial domain <span class="math inline">\( V \)</span>, and time domain <span class="math inline">\( t' \)</span>.</li>
+      <li>Propagate uncertainty via anchor substitution and recursive Jacobian evaluation; track coverage and confidence intervals.</li>
+    </ol>
+  </li>
+</ul>
 
   <h4>Quantum Kernel (path-sum interference)</h4>
   <p><strong>Role:</strong> Encodes discrete stationary paths with quantized action and interference phases.</p>
@@ -3958,6 +3983,30 @@ This kernel captures conserved flux, angular momentum, and rotational mode coupl
       <li>Apply curl operator analytically or numerically on the domain; preserve boundary conditions and symmetry.</li>
       <li>Embed the resulting rotational field into the modulation envelope <span class="math inline">\( M[\cdot] \)</span> or couple it to phase kernel <span class="math inline">\( \Phi(x,x';\omega) \)</span> to modulate spectral contributions.</li>
       <li>For orbital systems, enforce circulation quantization or holonomy constraints via topological kernel coupling.</li>
+    </ol>
+  </li>
+</ul>
+<h4>Structural Magnetism Kernel (kernel-normalized field law)</h4>
+<p><strong>Role:</strong> Computes magnetic field strength from kernel-normalized source fields and geometric integrals. 
+This kernel replaces empirical current densities with structurally defined quantities and ensures dimensional closure via normalized velocity and impedance ratios. 
+It supports static, dynamic, and dispersive regimes and integrates seamlessly with modulation and uncertainty propagation.</p>
+
+<ul>
+  <li><strong>Form:</strong> 
+    <span class="math inline">\( \mathbf{B}(x) = \frac{\rho_\Phi}{\rho_S} \int G(x,x') \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] d^3x' \)</span>
+  </li>
+  <li><strong>Units:</strong> 
+    <span class="math inline">\( \mathrm{T} \)</span> (Tesla, magnetic flux density)
+  </li>
+  <li><strong>Regime:</strong> static vacuum, charge-flux transport, dispersive media, orbital circulation, kernel-modulated magnetism</li>
+  <li><strong>Assembly:</strong>
+    <ol>
+      <li>Define normalized velocity field <span class="math inline">\( \mathbf{u}(x') \)</span> with units <span class="math inline">\( [U] \)</span> (e.g., <span class="math inline">\( \mathrm{m/s} \)</span> or <span class="math inline">\( \mathrm{A/m} \)</span>).</li>
+      <li>Construct source field <span class="math inline">\( \mathbf{S}(x') = \rho_S \mathbf{u}(x') \)</span> with units <span class="math inline">\( \mathrm{A \cdot m^{-2}} \)</span>.</li>
+      <li>Define structural ratio <span class="math inline">\( \rho_\Phi/\rho_S \)</span> with units <span class="math inline">\( \mathrm{T \cdot m/A} \)</span>; set <span class="math inline">\( \mu_0 \)</span> in vacuum limit.</li>
+      <li>Specify kernel geometry <span class="math inline">\( G(x,x') \)</span>; set <span class="math inline">\( G \to 1 \)</span> for static vacuum or embed dispersion via <span class="math inline">\( G(k,\omega) \)</span>.</li>
+      <li>Evaluate integral over domain; propagate uncertainty via Jacobian <span class="math inline">\( \mathbf{J}_B(x) \)</span> and covariance matrix <span class="math inline">\( \Sigma_B(x) \)</span>.</li>
+      <li>Embed modulation envelope <span class="math inline">\( M[\gamma,\Theta,Q,\phi,T] \)</span> if dynamic or topological effects are present.</li>
     </ol>
   </li>
 </ul>
@@ -14784,6 +14833,47 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 and mechanical systems, and replaces empirical scaling factors with observable quantities.
             </p>
 
+<h4>Stepwise Derivation: From RMI to Energy Kernel</h4>
+<p>
+  The transport kernel <span class="math inline">\( \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon) \)</span> is constructed from the native RMI framework. 
+  This ensures dimensional closure, causal propagation, and spectral modulation. The derivation proceeds as follows:
+</p>
+
+<ol>
+  <li>
+    <strong>Phase kernel:</strong> Define the phase function 
+    <span class="math inline">\( \Phi(\mathbf{x},t;\mathbf{x}',t';\epsilon) \)</span> to encode geometric delay, dispersion, and collapse rhythm. 
+    Units: <span class="math inline">\( [\Phi] = \mathrm{J \cdot s} \)</span>.
+  </li>
+  <li>
+    <strong>Emergent action scale:</strong> Introduce 
+    <span class="math inline">\( \mathcal{S}_\ast \)</span> to normalize the phase and ensure the exponent is dimensionless. 
+    This scale governs recursive uncertainty propagation and stationary-phase behavior.
+  </li>
+  <li>
+    <strong>Oscillatory exponent:</strong> Construct the core transport kernel as 
+    <span class="math inline">\( \mathcal{T} \sim e^{i\Phi/\mathcal{S}_\ast} \)</span>, 
+    optionally multiplied by stationary-phase prefactor 
+    <span class="math inline">\( (2\pi\mathcal{S}_\ast)^{n/2}/\sqrt{|\det H|} \)</span> and signature phase 
+    <span class="math inline">\( e^{i\pi s/4} \)</span>.
+  </li>
+  <li>
+    <strong>Modulation envelope:</strong> Embed system-specific modulation 
+    <span class="math inline">\( M[\epsilon,\gamma,\Theta,Q,\phi,T] \)</span> to encode entropy, decoherence rate, impedance density, topological charge, and thermodynamic time.
+  </li>
+  <li>
+    <strong>Spectral integration:</strong> Integrate over energy bin 
+    <span class="math inline">\( \epsilon \)</span> and spacetime domain 
+    <span class="math inline">\( (\mathbf{x}',t') \)</span> to yield observable power density 
+    <span class="math inline">\( p(\mathbf{x},t) \)</span>.
+  </li>
+</ol>
+
+<p>
+  This construction replaces empirical transport coefficients with a generative kernel derived from first principles. 
+  It ensures that energy propagation is causally structured, spectrally modulated, and dimensionally consistent.
+</p>
+
             <h4>General Formulation</h4>
             <p>
                 The instantaneous power density at spacetime point <span class="math inline">\((\mathbf{x},t)\)</span> is:
@@ -23252,13 +23342,9 @@ zscore = (median - Xi_crit) / std
 
             <div class="math display">
 
-
-
                 \[
                 [\mathbf{B}] = \frac{\mathrm{T\cdot m/A}\cdot \mathrm{A/m}}{\mathrm{m^2}} = \mathrm{T}
                 \]
-
-
 
             </div>
 
@@ -23266,6 +23352,8 @@ zscore = (median - Xi_crit) / std
                 This confirms that the structural magnetism law yields the correct SI units for magnetic field strength without introducing arbitrary constants.
                 <span class="math inline">G\to 1</span> and <span class="math inline">\(\rho_\Phi/\rho_S \to \mu_0\)</span> in the static vacuum limit, recovering the classical Biot–Savart law.
             </p>
+
+
 
             <h4>Uncertainty Propagation</h4>
             <p>
@@ -23309,76 +23397,223 @@ zscore = (median - Xi_crit) / std
                 <li><strong>Dimensional:</strong> <span class="math inline">\([\mathbf{B}] = \mathrm{T}\)</span> must hold</li>
             </ul>
 
-            <h4>Falsifiability Protocol</h4>
-            <ul>
-                <li><strong>Observables:</strong> measure <span class="math inline">\(\mathbf{B}(x)\)</span> via magnetometry; estimate <span class="math inline">\(\mathbf{u}(x')\)</span> from current density; calibrate <span class="math inline">\(G(x,x')\)</span> from geometry</li>
-                <li><strong>Model computation:</strong> evaluate full kernel integral for each ensemble member; compute mean and variance</li>
-                <li>
-                    <strong>Fail conditions:</strong>
-                    <ul>
-                        <li>Systematic deviation across spatial domain</li>
-                        <li>Non-physical parameters (e.g. singular kernels, unbounded currents)</li>
-                        <li>Coverage failure: fewer than 90% of <span class="math inline">\(\mathbf{B}_{\rm obs}(x)\)</span> within 95% CI</li>
-                    </ul>
-                </li>
-            </ul>
+<h4>Stepwise Derivation: From Kernel Primitives to Magnetic Field</h4>
+<p>
+  The structural magnetism law is derived from the Biot–Savart integral by substituting kernel-normalized source fields and enforcing dimensional closure. 
+  This yields a magnetic field expression that is structurally justified, unit-consistent, and free of arbitrary constants.
+</p>
 
-            <h4>Diagnostics and Reporting</h4>
-            <ul>
-                <li>Report parameter covariance matrix <span class="math inline">\(\Sigma_B(x)\)</span> or key correlations (e.g. <span class="math inline">\(\text{corr}(G, \mathbf{u})\)</span>)</li>
-                <li>Show residual ACF and QQ plot of <span class="math inline">\(\mathbf{B}_{\rm obs}(x) - \mathbf{B}_{\rm pred}(x)\)</span></li>
-                <li>Use ensemble Monte Carlo if kernel geometry or current field is nonlinear or spatially uncertain</li>
-                <li>Report coverage: fraction of spatial points within 95% predictive intervals</li>
-            </ul>
+<ol>
+  <li>
+    <strong>Define normalized velocity field:</strong> Let <span class="math inline">\( \mathbf{u}(x) \)</span> carry units <span class="math inline">\( [U] \)</span> (e.g., <span class="math inline">\( \mathrm{m/s} \)</span> or <span class="math inline">\( \mathrm{A/m} \)</span> depending on interpretation).
+  </li>
+  <li>
+    <strong>Define source field:</strong> Construct the current-like source field as 
+    <span class="math inline">\( \mathbf{S}(x) = \rho_S \mathbf{u}(x) \)</span> with units 
+    <span class="math inline">\( [\mathbf{S}] = \mathrm{A \cdot m^{-2}} \)</span>.
+    This matches the current density used in the Biot–Savart law.
+  </li>
+  <li>
+    <strong>Define structural ratio:</strong> Introduce 
+    <span class="math inline">\( \rho_\Phi/\rho_S \)</span> with units 
+    <span class="math inline">\( \mathrm{T \cdot m/A} \)</span>, matching vacuum permeability 
+    <span class="math inline">\( \mu_0 \)</span> in the static limit.
+  </li>
+  <li>
+    <strong>Substitute into Biot–Savart integral:</strong> Replace the current density with 
+    <span class="math inline">\( \mathbf{S}(x') = \rho_S \mathbf{u}(x') \)</span> and factor out the structural ratio:
+    <div class="math display">
 
-            <h4>Verification Table: Source Choices and Dimensional Closure</h4>
+\[
+      \mathbf{B}(x) = \frac{\rho_\Phi}{\rho_S} \int G(x,x') \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] d^3x'
+      \]
 
-            <p>
-                The following table summarizes how different interpretations of the kernel velocity/source field
-                <span class="math inline">\(\mathbf{u}\)</span> map into consistent magnetic field units,
-                demonstrating dimensional closure across regimes:
-            </p>
+    </div>
+  </li>
+  <li>
+    <strong>Dimensional closure:</strong> Evaluate units:
+    <div class="math display">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Choice of <span class="math inline">\(\mathbf{u}\)</span></th>
-                        <th>Definition of <span class="math inline">\(\rho_S\)</span></th>
-                        <th>Kernel Limit <span class="math inline">\(G\)</span></th>
-                        <th>Ratio <span class="math inline">\(\rho_\Phi/\rho_S\)</span></th>
-                        <th>Recovered Law</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Current per unit length<br><span class="math inline">\([u]=\mathrm{A/m}\)</span></td>
-                        <td>Dimensionless scaling<br>so that <span class="math inline">\(\mathbf{S}=\rho_S \mathbf{u}\)</span> has [A·m⁻²]</td>
-                        <td><span class="math inline">\(G \to 1\)</span> (vacuum, static)</td>
-                        <td><span class="math inline">\(\mu_0\)</span></td>
-                        <td>Classical Biot–Savart<br><span class="math inline">\(\mathbf{B}=\mu_0 I/(2\pi r)\)</span></td>
-                    </tr>
-                    <tr>
-                        <td>Mechanical velocity<br><span class="math inline">\([u]=\mathrm{m/s}\)</span></td>
-                        <td><span class="math inline">\(\rho_S = q n\)</span> with [A·s·m⁻³], so <span class="math inline">\(\mathbf{S}=q n \mathbf{u}\)</span> has [A·m⁻²]</td>
-                        <td><span class="math inline">\(G \to 1\)</span></td>
-                        <td><span class="math inline">\(\mu_0\)</span></td>
-                        <td>Charge‑flux form of Biot–Savart<br>(microscopic current density)</td>
-                    </tr>
-                    <tr>
-                        <td>Dispersive/anisotropic medium</td>
-                        <td>As above, with medium‑specific <span class="math inline">\(\rho_S\)</span></td>
-                        <td><span class="math inline">\(G(k,\omega)\)</span> encodes dispersion</td>
-                        <td><span class="math inline">\(\mu_{\mathrm{eff}}(x,x';k,\omega)\)</span></td>
-                        <td>Nonlocal, anisotropic Biot–Savart<br>(effective permeability)</td>
-                    </tr>
-                </tbody>
-            </table>
+\[
+      [\mathbf{B}] = \frac{[\rho_\Phi]}{[\rho_S]} \cdot \frac{[u]}{[r^2]} = \frac{\mathrm{T \cdot m/A} \cdot \mathrm{A/m}}{\mathrm{m^2}} = \mathrm{T}
+      \]
 
-            <p>
-                This table shows that regardless of whether <span class="math inline">\(\mathbf{u}\)</span> is interpreted as
-                a normalized current, a mechanical velocity, or a medium‑modified drift, the structural magnetism law
-                remains dimensionally closed and reduces to the correct Tesla‑scale field.
-            </p>
+    </div>
+    confirming magnetic field strength in SI units.
+  </li>
+  <li>
+    <strong>Structural simplification:</strong> In kernel-normalized form, set 
+    <span class="math inline">\( \rho_\Phi/\rho_S \to \mu_0 \)</span> and 
+    <span class="math inline">\( G(x,x') \to 1 \)</span> in static vacuum limit, recovering:
+    <div class="math display">
+
+\[
+      \mathbf{B}(x) = \frac{\mu_0}{4\pi} \int \left[ \mathbf{u}(x') \times \frac{x - x'}{|x - x'|^3} \right] d^3x'
+      \]
+
+    </div>
+  </li>
+</ol>
+
+<p>
+  This derivation shows that magnetic field strength can be computed from kernel primitives without introducing arbitrary constants. 
+  The mapping between mechanical and electrical units is encoded in <span class="math inline">\( \rho_S \)</span>, which is experimentally measurable and system-specific.
+</p>
+<h4>Uncertainty Propagation (Kernel-Normalized)</h4>
+<p>
+  Let the parameter vector be 
+  <span class="math inline">\( \mathbf{p}_B = \{G(x,x'),\,\mathbf{u}(x'),\,\rho_S,\,\rho_\Phi\} \)</span> 
+  and define the Jacobian:
+  <span class="math inline">\( \mathbf{J}_B(x) = \frac{\partial \mathbf{B}(x)}{\partial \mathbf{p}_B} \)</span>. 
+  Then the propagated uncertainty is:
+</p>
+
+<div class="math display">
+
+\[
+  \sigma_{\mathbf{B}}^2(x) = \mathbf{J}_B(x)\,\Sigma_B(x)\,\mathbf{J}_B^\top(x)
+  \]
+
+</div>
+
+<p>
+  Explicit partial derivatives:
+</p>
+<ul>
+  <li>
+    <span class="math inline">\( \frac{\partial \mathbf{B}}{\partial G(x,x')} = \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] \cdot \frac{\rho_\Phi}{\rho_S} \)</span>
+  </li>
+  <li>
+    <span class="math inline">\( \frac{\partial \mathbf{B}}{\partial \mathbf{u}(x')} = G(x,x') \times \frac{x - x'}{4\pi |x - x'|^3} \cdot \frac{\rho_\Phi}{\rho_S} \)</span>
+  </li>
+  <li>
+    <span class="math inline">\( \frac{\partial \mathbf{B}}{\partial \rho_S} = -\frac{\rho_\Phi}{\rho_S^2} \int G(x,x') \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] d^3x' \)</span>
+  </li>
+  <li>
+    <span class="math inline">\( \frac{\partial \mathbf{B}}{\partial \rho_\Phi} = \frac{1}{\rho_S} \int G(x,x') \left[ \mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] d^3x' \)</span>
+  </li>
+</ul>
+
+<p>
+  This formulation accounts for uncertainty in both the geometric kernel and the structural mapping between mechanical and electromagnetic quantities. 
+  It enables recursive propagation across spatial domains and supports anchor substitution for experimental calibration.
+</p>
+
+<h4>Acceptance Band</h4>
+<p>
+  Accept predicted field 
+  <span class="math inline">\( \mathbf{B}_{\rm pred}(x) \)</span> if:
+</p>
+
+<div class="math display">
+
+\[
+  \left| \mathbf{B}_{\rm meas}(x) - \mathbf{B}_{\rm pred}(x) \right| \leq \alpha \cdot \sigma_{\mathbf{B}}(x)
+  \]
+
+</div>
+
+<p>
+  where <span class="math inline">\( \alpha \)</span> is a confidence multiplier (e.g., 2 for 95% band). 
+  This band can be used for kernel validation, anomaly detection, or adaptive refinement.
+</p>
+
+<h4>Falsifiability Protocol</h4>
+<ul>
+  <li>
+    <strong>Observables:</strong> 
+    Measure <span class="math inline">\( \mathbf{B}(x) \)</span> via magnetometry; 
+    estimate <span class="math inline">\( \mathbf{u}(x') \)</span> from current density or flow field; 
+    calibrate kernel geometry <span class="math inline">\( G(x,x') \)</span> from spatial domain and boundary conditions.
+  </li>
+  <li>
+    <strong>Model computation:</strong> 
+    Evaluate full kernel integral for each ensemble member; 
+    propagate uncertainty via Jacobian <span class="math inline">\( \mathbf{J}_B(x) \)</span>; 
+    compute predictive mean <span class="math inline">\( \mathbf{B}_{\rm pred}(x) \)</span> and variance <span class="math inline">\( \sigma_{\mathbf{B}}^2(x) \)</span>.
+  </li>
+  <li>
+    <strong>Fail conditions:</strong>
+    <ul>
+      <li>Systematic deviation across spatial domain exceeding threshold bias</li>
+      <li>Non-physical parameters: singular kernels, unbounded currents, or negative impedance</li>
+      <li>Coverage failure: fewer than 90% of <span class="math inline">\( \mathbf{B}_{\rm obs}(x) \)</span> within 95% confidence interval</li>
+      <li>Residuals exhibit autocorrelation or non-Gaussian structure inconsistent with propagated uncertainty</li>
+    </ul>
+  </li>
+</ul>
+<h4>Diagnostics and Reporting</h4>
+<ul>
+  <li>
+    Report parameter covariance matrix <span class="math inline">\( \Sigma_B(x) \)</span> and key correlations 
+    (e.g., <span class="math inline">\( \text{corr}(G, \mathbf{u}) \)</span>, 
+    <span class="math inline">\( \text{corr}(\rho_S, \rho_\Phi) \)</span>) to identify structural coupling.
+  </li>
+  <li>
+    Visualize residuals: show autocorrelation function (ACF), QQ plot, and spatial residual map 
+    <span class="math inline">\( \mathbf{B}_{\rm obs}(x) - \mathbf{B}_{\rm pred}(x) \)</span>.
+  </li>
+  <li>
+    Use ensemble Monte Carlo if kernel geometry, source field, or impedance structure is nonlinear or spatially uncertain.
+  </li>
+  <li>
+    Report coverage: fraction of spatial points within 95% predictive intervals; 
+    optionally stratify by region, source strength, or modulation envelope.
+  </li>
+  <li>
+    Track signature phase behavior (e.g., <span class="math inline">\( e^{i\pi s/4} \)</span>) if stationary-phase prefactors are used.
+  </li>
+</ul>
+
+<h4>Verification Table: Source Choices and Dimensional Closure</h4>
+
+<p>
+  The table below summarizes how different interpretations of the kernel velocity/source field 
+  <span class="math inline">\( \mathbf{u} \)</span> yield consistent magnetic field units. 
+  It confirms that the structural magnetism law remains dimensionally closed across regimes, 
+  and that each source choice maps cleanly into the kernel framework.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Choice of <span class="math inline">\( \mathbf{u} \)</span></th>
+      <th>Definition of <span class="math inline">\( \rho_S \)</span></th>
+      <th>Kernel Limit <span class="math inline">\( G(x,x') \)</span></th>
+      <th>Ratio <span class="math inline">\( \rho_\Phi/\rho_S \)</span></th>
+      <th>Recovered Law</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Current per unit length<br><span class="math inline">\( [u] = \mathrm{A/m} \)</span></td>
+      <td>Dimensionless scaling<br>so that <span class="math inline">\( \mathbf{S} = \rho_S \mathbf{u} \)</span> has <span class="math inline">\( \mathrm{A \cdot m^{-2}} \)</span></td>
+      <td><span class="math inline">\( G \to 1 \)</span> (vacuum, static)</td>
+      <td><span class="math inline">\( \mu_0 \)</span></td>
+      <td>Classical Biot–Savart<br><span class="math inline">\( \mathbf{B} = \mu_0 I / (2\pi r) \)</span></td>
+    </tr>
+    <tr>
+      <td>Mechanical velocity<br><span class="math inline">\( [u] = \mathrm{m/s} \)</span></td>
+      <td><span class="math inline">\( \rho_S = q n \)</span> with <span class="math inline">\( \mathrm{A \cdot s \cdot m^{-3}} \)</span><br>so <span class="math inline">\( \mathbf{S} = q n \mathbf{u} \)</span> has <span class="math inline">\( \mathrm{A \cdot m^{-2}} \)</span></td>
+      <td><span class="math inline">\( G \to 1 \)</span></td>
+      <td><span class="math inline">\( \mu_0 \)</span></td>
+      <td>Charge–flux Biot–Savart<br>(microscopic current density)</td>
+    </tr>
+    <tr>
+      <td>Dispersive / anisotropic medium<br><span class="math inline">\( [u] \)</span> depends on drift model</td>
+      <td>Medium-specific <span class="math inline">\( \rho_S \)</span> from transport or impedance model</td>
+      <td><span class="math inline">\( G(k,\omega) \)</span> encodes dispersion and nonlocality</td>
+      <td><span class="math inline">\( \mu_{\mathrm{eff}}(x,x';k,\omega) \)</span></td>
+      <td>Nonlocal Biot–Savart<br>(effective permeability kernel)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  This table confirms that regardless of how <span class="math inline">\( \mathbf{u} \)</span> is interpreted — as a normalized current, mechanical velocity, or medium-modified drift — 
+  the structural magnetism law yields the correct SI units for magnetic field strength. 
+  The kernel formulation remains dimensionally closed, physically interpretable, and experimentally falsifiable.
+</p>
 
             <h4>Normalization Form of the Magnetism Law</h4>
 
