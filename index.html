@@ -26794,47 +26794,110 @@ zscore = (median - Xi_crit) / std
     \]
 
   </div>
-  <p>
-    where \(s\) is the Morse signature of \(H\). Units: ensure \([a]\cdot[\mathcal{S}_\ast]^{n/2}\cdot[\det H]^{-1/2}\cdot[\mathrm{m}]^{n}\) match the desired observable units (explicitly annotate \([a]\) when applying to a model).
-  </p>
+<p>
+  where <span class="math inline">\( s \)</span> is the Morse signature of <span class="math inline">\( H \)</span>.
+  Units: ensure <span class="math inline">\( [a] \cdot [\mathcal{S}_\ast]^{n/2} \cdot [\det H]^{-1/2} \cdot [\mathrm{m}]^n \)</span>
+  match the desired observable units (explicitly annotate <span class="math inline">\( [a] \)</span> when applying to a model).
+</p>
 
-  <h4>Handling degeneracies and stationary manifolds</h4>
-  <ul>
-    <li>If \(H\) is singular in transverse directions (stationary manifold of dimension \(m>0\)), perform reduction: split coordinates \(x'=(y,z)\) with \(y\) transverse and \(z\) along manifold, apply stationary‑phase to \(y\) only, and integrate along manifold \(z\) with remaining amplitude.</li>
-    <li>For fold or cusp degeneracies use uniform approximations (Airy, Pearcey) appropriate to local normal form; include scaling of \(\mathcal{S}_\ast\) in those formulae.</li>
-    <li>Document the chosen uniform approximation and its domain of validity in every model application.</li>
-  </ul>
+<h4>Handling degeneracies and stationary manifolds</h4>
+<ul>
+  <li>
+    If <span class="math inline">\( H \)</span> is singular in transverse directions (stationary manifold of dimension <span class="math inline">\( m > 0 \)</span>),
+    perform reduction: split coordinates <span class="math inline">\( x' = (y, z) \)</span> with <span class="math inline">\( y \)</span> transverse and <span class="math inline">\( z \)</span> along manifold,
+    apply stationary‑phase to <span class="math inline">\( y \)</span> only, and integrate along manifold <span class="math inline">\( z \)</span> with remaining amplitude.
+  </li>
+  <li>
+    For fold or cusp degeneracies, use uniform approximations (Airy, Pearcey) appropriate to local normal form;
+    include scaling of <span class="math inline">\( \mathcal{S}_\ast \)</span> in those formulae.
+  </li>
+  <li>
+    Document the chosen uniform approximation and its domain of validity in every model application.
+  </li>
+</ul>
 
-  <h4>Numerical recipe (executable)</h4>
-  <ol>
-    <li>Provide analytic expression for \(\Phi(x,x';\omega)\) and \(a(x,x';\omega)\) and declare units for both.</li>
-    <li>Solve \(\nabla_{x'}\Phi=0\) for candidate stationary points \(x^\ast\) using robust root finding (Newton–Raphson with Jacobian/Hessian, homotopy continuation for multimodal cases).</li>
-    <li>At each candidate compute \(H\), its eigenvalues \(\{\lambda_j\}\), determinant \(\det H\), and signature \(s\). Report condition number of \(H\).</li>
-    <li>When \(|\det H|\) is small, decide: (a) apply uniform approximation, (b) perform manifold reduction, or (c) increase numerical precision and re-evaluate.</li>
-    <li>Evaluate amplitude \(a(x,x^\ast;\omega)\) and assemble the asymptotic term using the formula above; sum contributions from all relevant \(x^\ast\).</li>
-    <li>Compare asymptotic reconstruction with direct numerical integration on a test grid; report relative error, residuals, and phase offsets.</li>
-  </ol>
+<h4>Numerical recipe (executable)</h4>
+<ol>
+  <li>
+    Provide analytic expression for <span class="math inline">\( \Phi(x, x'; \omega) \)</span> and <span class="math inline">\( a(x, x'; \omega) \)</span>;
+    declare units for both.
+  </li>
+  <li>
+    Solve <span class="math inline">\( \nabla_{x'} \Phi = 0 \)</span> for candidate stationary points <span class="math inline">\( x^\ast \)</span>
+    using robust root finding (Newton–Raphson with Jacobian/Hessian, homotopy continuation for multimodal cases).
+  </li>
+  <li>
+    At each candidate, compute <span class="math inline">\( H \)</span>, its eigenvalues <span class="math inline">\( \{ \lambda_j \} \)</span>,
+    determinant <span class="math inline">\( \det H \)</span>, and signature <span class="math inline">\( s \)</span>.
+    Report condition number of <span class="math inline">\( H \)</span>.
+  </li>
+  <li>
+    When <span class="math inline">\( |\det H| \)</span> is small, decide:
+    (a) apply uniform approximation,
+    (b) perform manifold reduction, or
+    (c) increase numerical precision and re-evaluate.
+  </li>
+  <li>
+    Evaluate amplitude <span class="math inline">\( a(x, x^\ast; \omega) \)</span> and assemble the asymptotic term using the formula above;
+    sum contributions from all relevant <span class="math inline">\( x^\ast \)</span>.
+  </li>
+  <li>
+    Compare asymptotic reconstruction with direct numerical integration on a test grid;
+    report relative error, residuals, and phase offsets.
+  </li>
+</ol>
 
-  <h4>Worked example (ray action model)</h4>
-  <p>
-    Let \(\Phi(x,x';\omega)=\mathbf{k}\cdot(x-x')-\omega\tau(x,x')\) with \([\Phi]=\mathrm{J\cdot s}\) after multiplication by an action scale if required. Stationary condition \(\nabla_{x'}\Phi=0\) yields Fermat/ray equations \(\mathbf{k}=\omega\nabla_{x'}\tau\). For isolated ray \(x^\ast\), compute Hessian \(H=\nabla^2_{x'}\Phi=\omega\nabla^2_{x'}\tau\), evaluate signature \(s\), and form contribution using the asymptotic formula. Annotate \([a]\) (e.g., geometric spreading factor) so resulting units match the target observable.
-  </p>
+<h4>Worked example (ray action model)</h4>
+<p>
+  Let <span class="math inline">\( \Phi(x, x'; \omega) = \mathbf{k} \cdot (x - x') - \omega \tau(x, x') \)</span> with
+  <span class="math inline">\( [\Phi] = \mathrm{J \cdot s} \)</span> after multiplication by an action scale if required.
+  Stationary condition <span class="math inline">\( \nabla_{x'} \Phi = 0 \)</span> yields Fermat/ray equations
+  <span class="math inline">\( \mathbf{k} = \omega \nabla_{x'} \tau \)</span>.
+  For isolated ray <span class="math inline">\( x^\ast \)</span>, compute Hessian
+  <span class="math inline">\( H = \nabla^2_{x'} \Phi = \omega \nabla^2_{x'} \tau \)</span>,
+  evaluate signature <span class="math inline">\( s \)</span>, and form contribution using the asymptotic formula.
+  Annotate <span class="math inline">\( [a] \)</span> (e.g., geometric spreading factor) so resulting units match the target observable.
+</p>
 
-  <h4>Diagnostics and falsifiability checks</h4>
-  <ul>
-    <li>Publish the list of stationary points, residual norms \(\|\nabla_{x'}\Phi(x,x^\ast)\|\), \(\det H\), and condition numbers used in published examples.</li>
-    <li>Provide plots of predicted interference fringes from summed stationary contributions and compare to direct integral evaluation; quantify fringe visibility and phase offsets.</li>
-    <li>Include sensitivity of stationary loci to anchor perturbations (compute \(\partial x^\ast/\partial \text{anchor}\) via implicit differentiation) and report propagated amplitude/phase variance.</li>
-  </ul>
+<h4>Diagnostics and falsifiability checks</h4>
+<ul>
+  <li>
+    Publish the list of stationary points, residual norms
+    <span class="math inline">\( \| \nabla_{x'} \Phi(x, x^\ast) \| \)</span>,
+    <span class="math inline">\( \det H \)</span>, and condition numbers used in published examples.
+  </li>
+  <li>
+    Provide plots of predicted interference fringes from summed stationary contributions and compare to direct integral evaluation;
+    quantify fringe visibility and phase offsets.
+  </li>
+  <li>
+    Include sensitivity of stationary loci to anchor perturbations
+    (compute <span class="math inline">\( \partial x^\ast / \partial \text{anchor} \)</span> via implicit differentiation)
+    and report propagated amplitude / phase variance.
+  </li>
+</ul>
 
-  <h4>Compact collapse checklist (for insertion)</h4>
-  <ol>
-    <li>Declare \(\Phi\), \(a\), \(\mathcal{S}_\ast\) with SI units; list domain \(M\) and integration variables.</li>
-    <li>Solve \(\nabla_{x'}\Phi=0\); list all candidate \(x^\ast\) and their residuals.</li>
-    <li>Compute \(H(x^\ast)\), \(\det H\), eigenvalues, signature \(s\), and condition number.</li>
-    <li>Decide treatment for near-degeneracy (uniform approximation or manifold reduction) and document choice.</li>
-    <li>Assemble asymptotic contributions, sum, and validate against a numerical integral; include unit check and anchor normalization.</li>
-  </ol>
+<h4>Compact collapse checklist (for insertion)</h4>
+<ol>
+  <li>
+    Declare <span class="math inline">\( \Phi \)</span>, <span class="math inline">\( a \)</span>, <span class="math inline">\( \mathcal{S}_\ast \)</span> with SI units;
+    list domain <span class="math inline">\( M \)</span> and integration variables.
+  </li>
+  <li>
+    Solve <span class="math inline">\( \nabla_{x'} \Phi = 0 \)</span>; list all candidate <span class="math inline">\( x^\ast \)</span> and their residuals.
+  </li>
+  <li>
+    Compute <span class="math inline">\( H(x^\ast) \)</span>, <span class="math inline">\( \det H \)</span>, eigenvalues, signature <span class="math inline">\( s \)</span>, and condition number.
+  </li>
+  <li>
+    Decide treatment for near-degeneracy (uniform approximation or manifold reduction) and document choice.
+  </li>
+  <li>
+    Assemble asymptotic contributions, sum, and validate against a numerical integral;
+    include unit check and anchor normalization.
+  </li>
+</ol>
+
 <h4>Worked example (one-dimensional quadratic phase)</h4>
 
 <p>
@@ -27015,32 +27078,74 @@ zscore = (median - Xi_crit) / std
   </ul>
 
   <h4>Assembly rules and anchors</h4>
-  <ol>
-    <li>Factor modulation into a dimensionful prefactor and dimensionless shape: <span class="math inline">\(C_{\rm phys}\times \mathrm{Mod}\text{-}M(\cdot)\).</span></li>
-    <li>Use anchors (measured constants or calibration points) to solve for <span class="math inline">\(C_{\rm phys}\)</span> by unit balance and amplitude matching.</li>
-    <li>Document which geometry supplies each factor in <span class="math inline">\(C_{\rm phys}\)</span> (e.g., transport surface factor from Trans, Boltzmann factors from Anch).</li>
-    <li>When modulation varies spatially, promote <span class="math inline">\(\mathrm{Mod}\text{-}M(\omega)\)</span> to <span class="math inline">\(\mathrm{Mod}\text{-}M(x,\omega)\)</span> and include coupling into transport composition order.
-    </li>
-  </ol>
+<ol>
+  <li>
+    Factor modulation into a dimensionful prefactor and dimensionless shape:
+    <span class="math inline">\( C_{\rm phys} \times \mathrm{Mod}\text{-}M(\cdot) \)</span>.
+  </li>
+  <li>
+    Use anchors (measured constants or calibration points) to solve for
+    <span class="math inline">\( C_{\rm phys} \)</span> by unit balance and amplitude matching.
+  </li>
+  <li>
+    Document which geometry supplies each factor in
+    <span class="math inline">\( C_{\rm phys} \)</span>
+    (e.g., transport surface factor from Trans, Boltzmann factors from Anch).
+  </li>
+  <li>
+    When modulation varies spatially, promote
+    <span class="math inline">\( \mathrm{Mod}\text{-}M(\omega) \)</span> to
+    <span class="math inline">\( \mathrm{Mod}\text{-}M(x, \omega) \)</span>
+    and include coupling into transport composition order.
+  </li>
+</ol>
 
-  <h4>Numerical recipe (executable)</h4>
-  <ol>
-    <li>Choose a parsimonious parameterization (e.g., Lorentzian, Gaussian, cutoff) guided by physical anchors and expected lineshape.</li>
-    <li>Fit modulation shape parameters (\(\omega_0,Q,\gamma,\sigma\)) to calibration data using weighted least squares or maximum likelihood with anchor priors; include anchor covariance in the loss function.</li>
-    <li>When modulation multiplies singular kernels, regularize or pre-smooth modulation to avoid amplifying near-field singularities.</li>
-    <li>For spatially varying modulation, discretize \(x\) coarsely for initial fits, then refine adaptively in regions of high curvature/gradient of \(\mathrm{Mod}\text{-}M\).</li>
-    <li>Propagate parameter uncertainties into kernel outputs via Jacobian rows \(\partial K/\partial\theta\) or ensemble Monte Carlo when nonlinear coupling is strong.
-    </li>
-  </ol>
+<h4>Numerical recipe (executable)</h4>
+<ol>
+  <li>
+    Choose a parsimonious parameterization (e.g., Lorentzian, Gaussian, cutoff) guided by physical anchors and expected lineshape.
+  </li>
+  <li>
+    Fit modulation shape parameters
+    <span class="math inline">\( (\omega_0, Q, \gamma, \sigma) \)</span>
+    to calibration data using weighted least squares or maximum likelihood with anchor priors;
+    include anchor covariance in the loss function.
+  </li>
+  <li>
+    When modulation multiplies singular kernels, regularize or pre-smooth modulation to avoid amplifying near-field singularities.
+  </li>
+  <li>
+    For spatially varying modulation, discretize <span class="math inline">\( x \)</span> coarsely for initial fits,
+    then refine adaptively in regions of high curvature or gradient of
+    <span class="math inline">\( \mathrm{Mod}\text{-}M \)</span>.
+  </li>
+  <li>
+    Propagate parameter uncertainties into kernel outputs via Jacobian rows
+    <span class="math inline">\( \partial K / \partial \theta \)</span>
+    or ensemble Monte Carlo when nonlinear coupling is strong.
+  </li>
+</ol>
 
-  <h4>Diagnostics and falsifiability</h4>
-  <ul>
-    <li>Report fitted parameter covariance and credible intervals for \(\omega_0,Q,\gamma\) and for \(C_{\rm phys}\).</li>
-    <li>Show residual spectral maps (observed minus model) and QQ plots for residuals to check for non-Gaussianity induced by unmodeled modulation structure.</li>
-    <li>Test robustness to anchor perturbation: vary anchors within their uncertainties and report modulation-induced variation in final observables.</li>
-    <li>When modulation implies topological weight (e.g., amplitude zero crossing with phase jump), include phase-resolved diagnostics to verify predicted charge behavior.
-    </li>
-  </ul>
+<h4>Diagnostics and falsifiability</h4>
+<ul>
+  <li>
+    Report fitted parameter covariance and credible intervals for
+    <span class="math inline">\( \omega_0, Q, \gamma \)</span> and for
+    <span class="math inline">\( C_{\rm phys} \)</span>.
+  </li>
+  <li>
+    Show residual spectral maps (observed minus model) and QQ plots for residuals
+    to check for non-Gaussianity induced by unmodeled modulation structure.
+  </li>
+  <li>
+    Test robustness to anchor perturbation: vary anchors within their uncertainties
+    and report modulation-induced variation in final observables.
+  </li>
+  <li>
+    When modulation implies topological weight (e.g., amplitude zero crossing with phase jump),
+    include phase-resolved diagnostics to verify predicted charge behavior.
+  </li>
+</ul>
 
   <h4>Worked example (Lorentzian cavity response)</h4>
   <p>
@@ -27057,22 +27162,42 @@ zscore = (median - Xi_crit) / std
 
 
   </div>
-  <p>
-    where \(S_0(\omega)\) is a baseline spectral kernel (units already matching target when multiplied by \(C_{\rm phys}\)). Anchors: measured resonance peak \(S(\omega_0)=S_{\rm peak}\) and linewidth \(\Delta\omega\) give initial \(\omega_0\) and \(Q=\omega_0/\Delta\omega\).
-  </p>
-  <ol>
-    <li>Determine \(C_{\rm phys}\) from amplitude anchor: set \(C_{\rm phys}=S_{\rm peak}/( \mathrm{Mod}\text{-}M(\omega_0)\,S_0(\omega_0))\).</li>
-    <li>Fit residuals by adjusting \(Q\) and small detuning in \(\omega_0\) using weighted least squares with anchor priors; include \(\Sigma_{\rm anchor}\) in parameter covariance.</li>
-    <li>Propagate parameter covariance to predictive variance of \(S(\omega)\) using Jacobian \(\partial S/\partial(\omega_0,Q,C_{\rm phys})\) or via Monte Carlo ensembles.</li>
-  </ol>
+<p>
+  where <span class="math inline">\( S_0(\omega) \)</span> is a baseline spectral kernel (units already matching target when multiplied by <span class="math inline">\( C_{\rm phys} \)</span>).
+  Anchors: measured resonance peak <span class="math inline">\( S(\omega_0) = S_{\rm peak} \)</span> and linewidth <span class="math inline">\( \Delta\omega \)</span> give initial
+  <span class="math inline">\( \omega_0 \)</span> and <span class="math inline">\( Q = \omega_0 / \Delta\omega \)</span>.
+</p>
 
-  <h4>Compact modulation checklist</h4>
-  <ol>
-    <li>Declare \(\mathrm{Mod}\text{-}M\), \(C_{\rm phys}\), \(Z(x)\), and anchors with units and domains.</li>
-    <li>Choose parametrization and initial anchors for \(\omega_0,Q,\gamma\); document priors and covariance.</li>
-    <li>Fit parameters and compute covariance; regularize spatial modulation if multiplying singular kernels.</li>
-    <li>Propagate uncertainties to kernel outputs and include modulation diagnostics in falsifiability reporting.</li>
-  </ol>
+<ol>
+  <li>
+    Determine <span class="math inline">\( C_{\rm phys} \)</span> from amplitude anchor:
+    set <span class="math inline">\( C_{\rm phys} = S_{\rm peak} / \left( \mathrm{Mod}\text{-}M(\omega_0)\, S_0(\omega_0) \right) \)</span>.
+  </li>
+  <li>
+    Fit residuals by adjusting <span class="math inline">\( Q \)</span> and small detuning in <span class="math inline">\( \omega_0 \)</span>
+    using weighted least squares with anchor priors; include <span class="math inline">\( \Sigma_{\rm anchor} \)</span> in parameter covariance.
+  </li>
+  <li>
+    Propagate parameter covariance to predictive variance of <span class="math inline">\( S(\omega) \)</span> using Jacobian
+    <span class="math inline">\( \partial S / \partial(\omega_0, Q, C_{\rm phys}) \)</span> or via Monte Carlo ensembles.
+  </li>
+</ol>
+
+<h4>Compact modulation checklist</h4>
+<ol>
+  <li>
+    Declare <span class="math inline">\( \mathrm{Mod}\text{-}M \)</span>, <span class="math inline">\( C_{\rm phys} \)</span>, <span class="math inline">\( Z(x) \)</span>, and anchors with units and domains.
+  </li>
+  <li>
+    Choose parametrization and initial anchors for <span class="math inline">\( \omega_0, Q, \gamma \)</span>; document priors and covariance.
+  </li>
+  <li>
+    Fit parameters and compute covariance; regularize spatial modulation if multiplying singular kernels.
+  </li>
+  <li>
+    Propagate uncertainties to kernel outputs and include modulation diagnostics in falsifiability reporting.
+  </li>
+</ol>
 
   <h4>Worked example (Lorentzian cavity with anchor and uncertainty)</h4>
 
@@ -27262,18 +27387,32 @@ zscore = (median - Xi_crit) / std
   </p>
 
   <h4>Key properties and constraints</h4>
-  <ul>
-    <li><strong>Causal support:</strong> Trans-T should ensure support only for \(t\ge t'+\tau_{\min}(x,x')\) for retarded solutions; document minimal travel time and any acausal approximations.</li>
-    <li><strong>Conservation / balance:</strong> Specify whether Trans-T enforces local conservation (e.g., flux continuity) or includes sinks/sources via \(a(x,\omega)\).</li>
-    <li><strong>Reciprocity and symmetry:</strong> State whether \(G(x,x';\omega)=G(x',x;\omega)\) holds under your chosen boundary/gauge conditions.</li>
-    <li><strong>Scattering kernels:</strong> If scattering is significant, decompose Trans-T into direct plus scattered parts and state single-/multiple-scattering approximations.</li>
-  </ul>
+<ul>
+  <li>
+    <strong>Causal support:</strong> Trans‑T should ensure support only for
+    <span class="math inline">\( t \ge t' + \tau_{\min}(x, x') \)</span> for retarded solutions;
+    document minimal travel time and any acausal approximations.
+  </li>
+  <li>
+    <strong>Conservation / balance:</strong> Specify whether Trans‑T enforces local conservation
+    (e.g., flux continuity) or includes sinks/sources via
+    <span class="math inline">\( a(x, \omega) \)</span>.
+  </li>
+  <li>
+    <strong>Reciprocity and symmetry:</strong> State whether
+    <span class="math inline">\( G(x, x'; \omega) = G(x', x; \omega) \)</span>
+    holds under your chosen boundary / gauge conditions.
+  </li>
+  <li>
+    <strong>Scattering kernels:</strong> If scattering is significant, decompose Trans‑T into direct plus scattered parts
+    and state single‑ / multiple‑scattering approximations.
+  </li>
+</ul>
 
   <h4>Analytic constructions and common forms</h4>
   <ul>
     <li><strong>Retarded Green:</strong>
       <div class="math display">
-        
 
 \[
         G_{\rm ret}(x,x';t-t') = H(t-t')\,\tilde G(x,x';t-t')\,
@@ -27313,22 +27452,47 @@ zscore = (median - Xi_crit) / std
   </ul>
 
   <h4>Numerical recipe (executable)</h4>
-  <ol>
-    <li>Choose representation: time-domain convolution, frequency-domain Green functions, or path-sum/ray-summation depending on bandwidth and scattering regime.</li>
-    <li>Define travel-time map \(\tau(x,x')\) and verify monotonicity/continuity; include metric or index-of-refraction fields used to compute \(\tau\).</li>
-    <li>If using frequency domain, implement causal regulator \( \omega\mapsto\omega+i0^+ \) or Laplace inversion with Bromwich contour; document branch cuts and numerical routes.</li>
-    <li>Include attenuation by path integrals \(\Lambda=\int a\,ds\) along discrete path approximations or via an effective frequency-dependent attenuation factor in \(G\).</li>
-    <li>For WKB/ray methods: compute ray paths \(\gamma\), geometric spreading \(A_{\rm ray}\), action \(\Phi_{\rm ray}\), and include Maslov indices or stationary-phase prefactors where collapse geometry couples in.</li>
-    <li>For strongly scattering media use diffusion solvers (finite element or finite volume) and validate against Monte Carlo radiative-transfer simulations if available.</li>
-  </ol>
+<ol>
+  <li>
+    Choose representation: time-domain convolution, frequency-domain Green functions, or path-sum / ray-summation depending on bandwidth and scattering regime.
+  </li>
+  <li>
+    Define travel-time map <span class="math inline">\( \tau(x, x') \)</span> and verify monotonicity / continuity;
+    include metric or index-of-refraction fields used to compute <span class="math inline">\( \tau \)</span>.
+  </li>
+  <li>
+    If using frequency domain, implement causal regulator <span class="math inline">\( \omega \mapsto \omega + i0^+ \)</span>
+    or Laplace inversion with Bromwich contour; document branch cuts and numerical routes.
+  </li>
+  <li>
+    Include attenuation by path integrals <span class="math inline">\( \Lambda = \int a\, ds \)</span> along discrete path approximations
+    or via an effective frequency-dependent attenuation factor in <span class="math inline">\( G \)</span>.
+  </li>
+  <li>
+    For WKB / ray methods: compute ray paths <span class="math inline">\( \gamma \)</span>, geometric spreading <span class="math inline">\( A_{\rm ray} \)</span>,
+    action <span class="math inline">\( \Phi_{\rm ray} \)</span>, and include Maslov indices or stationary-phase prefactors where collapse geometry couples in.
+  </li>
+  <li>
+    For strongly scattering media, use diffusion solvers (finite element or finite volume) and validate against Monte Carlo radiative-transfer simulations if available.
+  </li>
+</ol>
 
-  <h4>Diagnostics and falsifiability</h4>
-  <ul>
-    <li>Report travel-time residuals: compare predicted \(\tau(x,x')\) against measured arrival times and quote RMS and bias.</li>
-    <li>Report attenuation matches: compare predicted amplitude decay \(e^{-\Lambda}\) against measured amplitude envelopes across distances.</li>
-    <li>Provide reciprocity tests when applicable: compare \(G(x,x')\) and \(G(x',x)\) under identical boundary conditions.</li>
-    <li>When using WKB/ray sums, test completeness by comparing summed ray reconstruction to full-wave direct solves on representative meshes; report relative error and spectral band limits.</li>
-  </ul>
+<h4>Diagnostics and falsifiability</h4>
+<ul>
+  <li>
+    Report travel-time residuals: compare predicted <span class="math inline">\( \tau(x, x') \)</span> against measured arrival times and quote RMS and bias.
+  </li>
+  <li>
+    Report attenuation matches: compare predicted amplitude decay <span class="math inline">\( e^{-\Lambda} \)</span> against measured amplitude envelopes across distances.
+  </li>
+  <li>
+    Provide reciprocity tests when applicable: compare <span class="math inline">\( G(x, x') \)</span> and <span class="math inline">\( G(x', x) \)</span> under identical boundary conditions.
+  </li>
+  <li>
+    When using WKB / ray sums, test completeness by comparing summed ray reconstruction to full-wave direct solves on representative meshes;
+    report relative error and spectral band limits.
+  </li>
+</ul>
 
   <h4>Worked example (one-dimensional retarded propagator with attenuation)</h4>
   <p>
@@ -27342,34 +27506,47 @@ zscore = (median - Xi_crit) / std
     \]
 
   </div>
-  <p>
-    where \(c\) is propagation speed (m·s^{-1}), \(a\) is attenuation per unit length (m^{-1}), and the prefactor \(1/(2c)\) normalizes a one-dimensional Green function for waves. Units: check that integrating a source with units U_source over \(dx'\,dt'\) yields the target observable units via \(C_{\rm phys}\).
-  </p>
-  <ol>
-    <li>Convolution with a source \(s(x',t')\) gives
-      <div class="math display">
-        
+<p>
+  where <span class="math inline">\( c \)</span> is propagation speed <span class="math inline">\( (\mathrm{m} \cdot \mathrm{s}^{-1}) \)</span>,
+  <span class="math inline">\( a \)</span> is attenuation per unit length <span class="math inline">\( (\mathrm{m}^{-1}) \)</span>,
+  and the prefactor <span class="math inline">\( \frac{1}{2c} \)</span> normalizes a one-dimensional Green function for waves.
+  Units: check that integrating a source with units <span class="math inline">\( U_{\text{source}} \)</span> over
+  <span class="math inline">\( dx'\,dt' \)</span> yields the target observable units via <span class="math inline">\( C_{\text{phys}} \)</span>.
+</p>
+
+<ol>
+  <li>
+    Convolution with a source <span class="math inline">\( s(x',t') \)</span> gives:
+    <div class="math display">
 
 \[
-        u(x,t)=\iint \mathrm{Trans}\text{-}T(x,t;x',t')\,s(x',t')\,dx'\,dt'
-        =\frac{1}{2c}\int s(x',t-|x-x'|/c)\,e^{-a|x-x'|}\,dx'.
-        \]
+      u(x,t) = \iint \mathrm{Trans}\text{-}T(x,t;x',t')\,s(x',t')\,dx'\,dt'
+      = \frac{1}{2c} \int s\left(x', t - \frac{|x - x'|}{c}\right)\, e^{-a|x - x'|}\, dx'.
+      \]
 
+    </div>
+  </li>
+  <li>
+    Numeric anchor check: choose <span class="math inline">\( c = 340\ \mathrm{m\,s}^{-1} \)</span>,
+    <span class="math inline">\( a = 0.01\ \mathrm{m}^{-1} \)</span>, and a localized pulse
+    <span class="math inline">\( s(x',t') = \delta(x')\delta(t') \)</span>.
+    Then at <span class="math inline">\( x = 10\ \mathrm{m} \)</span>, arrival at
+    <span class="math inline">\( t = \frac{10}{340} \approx 0.02941\ \mathrm{s} \)</span> with amplitude
+    <span class="math inline">\( \frac{1}{2c} e^{-0.1} \approx \frac{1}{680} \times 0.9048 \approx 1.33 \times 10^{-3} \)</span> times source units.
+  </li>
+  <li>
+    Compare this analytic arrival time and amplitude with a direct numerical convolution on a discretized grid to verify implementation and unit balance.
+  </li>
+</ol>
 
-      </div>
-    </li>
-    <li>Numeric anchor check: choose \(c=340\ \mathrm{m\ s^{-1}}\), \(a=0.01\ \mathrm{m^{-1}}\) and a localized pulse \(s(x',t')=\delta(x')\delta(t')\). Then at \(x=10\ \mathrm{m}\) arrival at \(t=10/340\approx0.02941\ \mathrm{s}\) with amplitude \((2c)^{-1}e^{-0.1}\approx(680)^{-1}\times0.9048\approx1.33\times10^{-3}\) times source units.</li>
-    <li>Compare this analytic arrival time/amplitude with a direct numerical convolution on a discretized grid to verify implementation and unit balance.</li>
-  </ol>
-
-  <h4>Compact transport checklist</h4>
-  <ol>
-    <li>Declare Trans-T, \(G\), \(v\), \(\tau_g\), and attenuation \(a\) with units and domains.</li>
-    <li>Choose representation (time/frequency/ray/diffusion) appropriate to regime and bandwidth.</li>
-    <li>Implement causal regulator and document analytic continuation choices and branch cuts.</li>
-    <li>Include attenuation consistently in path integrals or as frequency-dependent factors in \(G\).</li>
-    <li>Validate travel times and attenuation against measured anchors and report residuals and error statistics.</li>
-  </ol>
+<h4>Compact transport checklist</h4>
+<ol>
+  <li>Declare Trans‑T, <span class="math inline">\( G \)</span>, <span class="math inline">\( v \)</span>, <span class="math inline">\( \tau_g \)</span>, and attenuation <span class="math inline">\( a \)</span> with units and domains.</li>
+  <li>Choose representation (time, frequency, ray, diffusion) appropriate to regime and bandwidth.</li>
+  <li>Implement causal regulator and document analytic continuation choices and branch cuts.</li>
+  <li>Include attenuation consistently in path integrals or as frequency-dependent factors in <span class="math inline">\( G \)</span>.</li>
+  <li>Validate travel times and attenuation against measured anchors and report residuals and error statistics.</li>
+</ol>
 
   <h4>Worked example (1D retarded propagator with frequency‑dependent attenuation)</h4>
 
@@ -27530,42 +27707,43 @@ zscore = (median - Xi_crit) / std
     \]
 
   </div>
-  <p>
-    where \(W(\gamma)=\exp((i/\mathcal{S}_\ast)\oint_\gamma\mathcal{A})\) encodes holonomy and the sum runs over distinct homotopy classes \([\gamma]\). Topological charges impose selection rules that zero or weight entire classes independent of local perturbations.
-  </p>
+<p>
+  where <span class="math inline">\( W(\gamma) = \exp\left( \frac{i}{\mathcal{S}_\ast} \oint_\gamma \mathcal{A} \right) \)</span> encodes holonomy, and the sum runs over distinct homotopy classes <span class="math inline">\( [\gamma] \)</span>.
+  Topological charges impose selection rules that zero or weight entire classes independent of local perturbations.
+</p>
 
-  <h4>Key properties and constraints</h4>
-  <ul>
-    <li><strong>Gauge invariance:</strong> Physical holonomy factors are gauge invariant modulo integer multiples of \(2\pi\) in the exponent when normalized by \(\mathcal{S}_\ast\); specify gauge choice for local computations.</li>
-    <li><strong>Quantization:</strong> Integrated curvature over closed surfaces yields quantized invariants when topology and normalization permit (e.g., Chern number \(n=\frac{1}{2\pi\mathcal{S}_\ast}\int\mathcal{F}\in\mathbb{Z}\)).</li>
-    <li><strong>Nonlocal observability:</strong> Holonomy affects interference and selection rules even when local fields vanish on measurement domain (Aharonov–Bohm effect style).</li>
-    <li><strong>Discrete robustness:</strong> Topological contributions persist under smooth deformations that do not cross critical singularities or change homotopy class.</li>
-  </ul>
+<h4>Key properties and constraints</h4>
+<ul>
+  <li><strong>Gauge invariance:</strong> Physical holonomy factors are gauge invariant modulo integer multiples of <span class="math inline">\( 2\pi \)</span> in the exponent when normalized by <span class="math inline">\( \mathcal{S}_\ast \)</span>; specify gauge choice for local computations.</li>
+  <li><strong>Quantization:</strong> Integrated curvature over closed surfaces yields quantized invariants when topology and normalization permit (e.g., Chern number <span class="math inline">\( n = \frac{1}{2\pi \mathcal{S}_\ast} \int \mathcal{F} \in \mathbb{Z} \)</span>).</li>
+  <li><strong>Nonlocal observability:</strong> Holonomy affects interference and selection rules even when local fields vanish on the measurement domain (Aharonov–Bohm effect style).</li>
+  <li><strong>Discrete robustness:</strong> Topological contributions persist under smooth deformations that do not cross critical singularities or change homotopy class.</li>
+</ul>
 
-  <h4>Numerical recipe (executable)</h4>
-  <ol>
-    <li>Identify nontrivial cycles \(\{\gamma_j\}\) in the domain \(M\) relevant to your kernel (compute basis of \(H_1(M)\) or representative loops encircling defects).</li>
-    <li>Choose a gauge or patching scheme for \(\mathcal{A}\); if \(\mathcal{A}\) is given implicitly by \(\mathcal{F}\), construct \(\mathcal{A}\) locally ensuring consistency on overlaps.</li>
-    <li>Compute holonomy numerically: discretize \(\gamma\) into nodes \(x_k\) and approximate line integral \(\oint_\gamma \mathcal{A}\approx\sum_k \mathcal{A}(x_k)\cdot\Delta x_k\); refine until convergence of phase within tolerance.\item
-    <li>Normalize holonomy by \(\mathcal{S}_\ast\) for phase exponentiation: compute \(W(\gamma)=\exp((i/\mathcal{S}_\ast)\oint_\gamma\mathcal{A})\).</li>
-    <li>When curvature \(\mathcal{F}\) is available, compute flux through a spanning surface \(S\) via \(\int_S\mathcal{F}\) and compare with loop integral by Stokes' theorem to validate numerics.</li>
-    <li>In path-sum evaluations, sum contributions per homotopy class weighted by computed \(W(\gamma)\); enforce selection rules (zero-weight classes) explicitly where topology mandates.</li>
-  </ol>
+<h4>Numerical recipe (executable)</h4>
+<ol>
+  <li>Identify nontrivial cycles <span class="math inline">\( \{ \gamma_j \} \)</span> in the domain <span class="math inline">\( M \)</span> relevant to your kernel (compute basis of <span class="math inline">\( H_1(M) \)</span> or representative loops encircling defects).</li>
+  <li>Choose a gauge or patching scheme for <span class="math inline">\( \mathcal{A} \)</span>; if <span class="math inline">\( \mathcal{A} \)</span> is given implicitly by <span class="math inline">\( \mathcal{F} \)</span>, construct <span class="math inline">\( \mathcal{A} \)</span> locally ensuring consistency on overlaps.</li>
+  <li>Compute holonomy numerically: discretize <span class="math inline">\( \gamma \)</span> into nodes <span class="math inline">\( x_k \)</span> and approximate line integral <span class="math inline">\( \oint_\gamma \mathcal{A} \approx \sum_k \mathcal{A}(x_k) \cdot \Delta x_k \)</span>; refine until convergence of phase within tolerance.</li>
+  <li>Normalize holonomy by <span class="math inline">\( \mathcal{S}_\ast \)</span> for phase exponentiation: compute <span class="math inline">\( W(\gamma) = \exp\left( \frac{i}{\mathcal{S}_\ast} \oint_\gamma \mathcal{A} \right) \)</span>.</li>
+  <li>When curvature <span class="math inline">\( \mathcal{F} \)</span> is available, compute flux through a spanning surface <span class="math inline">\( S \)</span> via <span class="math inline">\( \int_S \mathcal{F} \)</span> and compare with loop integral by Stokes' theorem to validate numerics.</li>
+  <li>In path-sum evaluations, sum contributions per homotopy class weighted by computed <span class="math inline">\( W(\gamma) \)</span>; enforce selection rules (zero-weight classes) explicitly where topology mandates.</li>
+</ol>
 
-  <h4>Gauge and regularity notes</h4>
-  <ul>
-    <li>State gauge choice explicitly (e.g., Coulomb gauge, singular gauge for idealized flux tubes) and document branch cuts introduced by patching.</li>
-    <li>For singular defects (e.g., ideal flux tube) use regularized core models with finite-radius smoothing and show convergence as core radius → 0.</li>
-    <li>Ensure numerical discretization of loops and surfaces respects mesh topology; use topologically consistent meshes or mapping to reference manifolds for robust homology computation.</li>
-  </ul>
+<h4>Gauge and regularity notes</h4>
+<ul>
+  <li>State gauge choice explicitly (e.g., Coulomb gauge, singular gauge for idealized flux tubes) and document branch cuts introduced by patching.</li>
+  <li>For singular defects (e.g., ideal flux tube), use regularized core models with finite-radius smoothing and show convergence as core radius <span class="math inline">\( \to 0 \)</span>.</li>
+  <li>Ensure numerical discretization of loops and surfaces respects mesh topology; use topologically consistent meshes or mapping to reference manifolds for robust homology computation.</li>
+</ul>
 
-  <h4>Diagnostics and falsifiability</h4>
-  <ul>
-    <li>Report computed line integrals \(\oint_\gamma\mathcal{A}\) and surface fluxes \(\int_S\mathcal{F}\) with numerical uncertainty and mesh convergence diagnostics.</li>
-    <li>Demonstrate gauge invariance by computing holonomy in two gauges or after adding an exact differential and confirming phase invariance modulo \(2\pi\mathcal{S}_\ast\) units.</li>
-    <li>Show interference observables (phase shifts, fringe patterns) sensitive to \(W(\gamma)\) and compare with non-topological control experiments or simulations where topology is trivialized.</li>
-    <li>When claiming quantization, present integer-fitting diagnostics and statistical tests that reject non-integer hypotheses within reported uncertainties.</li>
-  </ul>
+<h4>Diagnostics and falsifiability</h4>
+<ul>
+  <li>Report computed line integrals <span class="math inline">\( \oint_\gamma \mathcal{A} \)</span> and surface fluxes <span class="math inline">\( \int_S \mathcal{F} \)</span> with numerical uncertainty and mesh convergence diagnostics.</li>
+  <li>Demonstrate gauge invariance by computing holonomy in two gauges or after adding an exact differential and confirming phase invariance modulo <span class="math inline">\( 2\pi \mathcal{S}_\ast \)</span> units.</li>
+  <li>Show interference observables (phase shifts, fringe patterns) sensitive to <span class="math inline">\( W(\gamma) \)</span> and compare with non-topological control experiments or simulations where topology is trivialized.</li>
+  <li>When claiming quantization, present integer-fitting diagnostics and statistical tests that reject non-integer hypotheses within reported uncertainties.</li>
+</ul>
 
   <h4>Worked example (Aharonov–Bohm style flux tube)</h4>
 
@@ -27825,29 +28003,67 @@ zscore = (median - Xi_crit) / std
     <li>For spatially varying anchors, discretize anchors on the same grid as kernels and provide interpolation rules; ensure Jacobian maps respect discretization.</li>
   </ol>
 
-  <h4>Numerical recipe (executable)</h4>
-  <ol>
-    <li>Declare numeric anchor vector \(\bar{\mathbf{\alpha}}\) and covariance \(\Sigma_{\rm anchor}\) with units and provenance; convert units consistently to SI for computation.</li>
-    <li>Assemble kernel at nominal anchors \(K_0=K(\cdot;\bar{\mathbf{\alpha}})\) and compute Jacobian \(\mathcal{J}_{K,\alpha}\) analytically when feasible or with finite differences/automatic differentiation otherwise.</li>
-    <li>Compute linearized predictive covariance \(\Sigma_K=\mathcal{J}_{K,\alpha}\Sigma_{\rm anchor}\mathcal{J}_{K,\alpha}^\top\) and extract marginal standard deviations and covariance diagnostics for observables (e.g., pointwise, integrated power).</li>
-    <li>When nonlinear anchor dependence is strong, run Monte Carlo ensembles: sample \(\mathbf{\alpha}^{(m)}\sim\mathcal{N}(\bar{\mathbf{\alpha}},\Sigma_{\rm anchor})\), compute \(K^{(m)}=K(\cdot;\mathbf{\alpha}^{(m)})\), and summarize ensemble mean and credible intervals for derived observables.</li>
-    <li>If anchors are learned from data, include posterior update step and propagate posterior covariance into downstream predictions; if anchors are empirically replaced, record acceptance criteria and versioned anchor metadata.</li>
-  </ol>
+<h4>Numerical recipe (executable)</h4>
+<ol>
+  <li>
+    Declare numeric anchor vector <span class="math inline">\( \bar{\alpha} \)</span> and covariance <span class="math inline">\( \Sigma_{\rm anchor} \)</span> with units and provenance;
+    convert units consistently to SI for computation.
+  </li>
+  <li>
+    Assemble kernel at nominal anchors <span class="math inline">\( K_0 = K(\cdot;\bar{\alpha}) \)</span> and compute Jacobian
+    <span class="math inline">\( \mathcal{J}_{K,\alpha} \)</span> analytically when feasible or with finite differences / automatic differentiation otherwise.
+  </li>
+  <li>
+    Compute linearized predictive covariance
+    <span class="math inline">\( \Sigma_K = \mathcal{J}_{K,\alpha} \, \Sigma_{\rm anchor} \, \mathcal{J}_{K,\alpha}^\top \)</span>
+    and extract marginal standard deviations and covariance diagnostics for observables (e.g., pointwise, integrated power).
+  </li>
+  <li>
+    When nonlinear anchor dependence is strong, run Monte Carlo ensembles:
+    sample <span class="math inline">\( \alpha^{(m)} \sim \mathcal{N}(\bar{\alpha}, \Sigma_{\rm anchor}) \)</span>,
+    compute <span class="math inline">\( K^{(m)} = K(\cdot; \alpha^{(m)}) \)</span>,
+    and summarize ensemble mean and credible intervals for derived observables.
+  </li>
+  <li>
+    If anchors are learned from data, include posterior update step and propagate posterior covariance into downstream predictions;
+    if anchors are empirically replaced, record acceptance criteria and versioned anchor metadata.
+  </li>
+</ol>
 
-  <h4>Handling correlated anchors and high dimensionality</h4>
-  <ul>
-    <li>Exploit low-rank structure in \(\Sigma_{\rm anchor}\) via truncated SVD or precision (sparse inverse covariance) modeling to reduce computational cost in \(\mathcal{J}\Sigma\mathcal{J}^\top\) evaluations.</li>
-    <li>Use Sherman–Morrison–Woodbury formulas for updates when anchors change by low-rank perturbations.</li>
-    <li>When anchors form fields with spatial correlation, consider hierarchical models that parameterize covariance via a small set of hyperparameters (length scale, variance) and propagate uncertainty on hyperparameters via marginalization or Laplace approximation.</li>
-  </ul>
+<h4>Handling correlated anchors and high dimensionality</h4>
+<ul>
+  <li>
+    Exploit low-rank structure in <span class="math inline">\( \Sigma_{\rm anchor} \)</span> via truncated SVD or precision (sparse inverse covariance) modeling
+    to reduce computational cost in <span class="math inline">\( \mathcal{J} \Sigma \mathcal{J}^\top \)</span> evaluations.
+  </li>
+  <li>
+    Use Sherman–Morrison–Woodbury formulas for updates when anchors change by low-rank perturbations.
+  </li>
+  <li>
+    When anchors form fields with spatial correlation, consider hierarchical models that parameterize covariance via a small set of hyperparameters
+    (length scale, variance) and propagate uncertainty on hyperparameters via marginalization or Laplace approximation.
+  </li>
+</ul>
 
-  <h4>Diagnostics and falsifiability</h4>
-  <ul>
-    <li>Publish anchor list, numeric values, provenance, and full covariance \(\Sigma_{\rm anchor}\) (or its low-rank representation) alongside results.</li>
-    <li>Report sensitivity measures (influence functions) \(\mathcal{I}_\alpha = \|\mathcal{J}_{K,\alpha}(:,\alpha)\|\) for each anchor to show which anchors dominate predictive variance.</li>
-    <li>Perform anchor perturbation tests: vary key anchors within credible ranges and show resulting changes in observables; include acceptance bands and decision thresholds used for anchor replacement.</li>
-    <li>For posterior-updated anchors provide prior vs posterior comparison and show how predictive intervals tighten or shift accordingly.</li>
-  </ul>
+<h4>Diagnostics and falsifiability</h4>
+<ul>
+  <li>
+    Publish anchor list, numeric values, provenance, and full covariance <span class="math inline">\( \Sigma_{\rm anchor} \)</span>
+    (or its low-rank representation) alongside results.
+  </li>
+  <li>
+    Report sensitivity measures (influence functions)
+    <span class="math inline">\( \mathcal{I}_\alpha = \| \mathcal{J}_{K,\alpha}(:,\alpha) \| \)</span>
+    for each anchor to show which anchors dominate predictive variance.
+  </li>
+  <li>
+    Perform anchor perturbation tests: vary key anchors within credible ranges and show resulting changes in observables;
+    include acceptance bands and decision thresholds used for anchor replacement.
+  </li>
+  <li>
+    For posterior-updated anchors, provide prior vs posterior comparison and show how predictive intervals tighten or shift accordingly.
+  </li>
+</ul>
 
   <h4>Worked example (anchor substitution and Monte Carlo propagation)</h4>
 
@@ -27901,16 +28117,12 @@ zscore = (median - Xi_crit) / std
 \[
     \Sigma_{\rm anchor} = 
     \begin{pmatrix}
-    \sigma_A^2 & \rho\sigma_A\sigma_T\
-
-\[4pt]
+    \sigma_A^2 & \rho\sigma_A\sigma_T\\[4pt]
     \rho\sigma_A\sigma_T & \sigma_T^2
     \end{pmatrix}
     =
     \begin{pmatrix}
-    1^2 & 0.1\times1\times2\
-
-\[4pt]
+    1^2 & 0.1\times1\times2\\[4pt]
     0.2 & 4
     \end{pmatrix}.
     \]
@@ -28006,27 +28218,20 @@ zscore = (median - Xi_crit) / std
   </div>
 
   <h5>Anchor covariance matrix</h5>
-  <div class="math display">
-
+<div class="math display">
 \[
-    \Sigma_{\rm anchor}=
-    \begin{pmatrix}
-      \sigma_A^2 & \rho\sigma_A\sigma_T\
-
-\[4pt]
-      \rho\sigma_A\sigma_T & \sigma_T^2
-    \end{pmatrix}
-    =
-    \begin{pmatrix}
-      1.0 & 0.2\
-
-\[4pt]
-      0.2 & 4.0
-    \end{pmatrix}.
-    \]
-
-
-  </div>
+\Sigma_{\rm anchor} =
+\begin{pmatrix}
+  \sigma_A^2 & \rho\sigma_A\sigma_T \\[4pt]
+  \rho\sigma_A\sigma_T & \sigma_T^2
+\end{pmatrix}
+=
+\begin{pmatrix}
+  1.0 & 0.2 \\[4pt]
+  0.2 & 4.0
+\end{pmatrix}.
+\]
+</div>
 
   <h5>Linearized predictive variance and interval</h5>
   <p>Compute linearized predictive variance:</p>
@@ -28113,6 +28318,201 @@ zscore = (median - Xi_crit) / std
   <li>Publish <span class="math inline">\(\bar{\alpha},\ \Sigma_{\rm anchor}\)</span> and the seed for any Monte Carlo sampling.</li>
   <li>Provide both linearized <span class="math inline">\(\sigma_O\)</span> and Monte Carlo <span class="math inline">\(\hat{\sigma}_O\)</span> with commentary if they differ beyond sampling error.</li>
   <li>Include sensitivity table showing influence measures and state which anchors dominate predictive uncertainty.</li>
+</ol>
+
+  <h3 id="sec-geometry-formalism_9">Tensor machinery as a special case</h3>
+
+<p>
+  Purpose: show how the classical tensor apparatus (metrics, connections, curvature, Hessians, covariances)
+  appears naturally from the primitive geometry types (Coll, Mod, Trans, Topo, Anch) introduced above.
+  Present coordinate‑free definitions, the corresponding component expansions, and a minimal worked example
+  tying the Hessian (stationary‑phase) and anchor covariance into <span class="math inline">\((0,2)\)</span> tensors used in kernel assembly.
+</p>
+
+<h4>Coordinate‑free statement</h4>
+<p>
+  Let <span class="math inline">\(M\)</span> be a smooth manifold (spatial or spectral) with tangent bundle <span class="math inline">\(TM\)</span> and cotangent bundle <span class="math inline">\(T^*M\)</span>.
+  A tensor of type <span class="math inline">\((r,s)\)</span> is a multilinear map
+  <span class="math inline">\(T: (T^*M)^r \times (TM)^s \to \mathbb{R}\)</span>.
+  All tensorial objects used in RMI are sections of appropriate bundles over <span class="math inline">\(M\)</span> or over product manifolds
+  (e.g., <span class="math inline">\(\text{spatial} \times \text{spectral}\)</span>, anchor manifold).
+</p>
+
+<h4>Mapping primitives → tensor objects (coordinate‑free)</h4>
+<ul>
+  <li><strong>Collapse geometry</strong>:<br>
+    Phase one‑form <span class="math inline">\( \theta = d\Phi \in \Omega^1(M \times \Omega_\omega) \)</span><br>
+    Hessian of the phase is a symmetric (0,2) tensor:
+    <span class="math inline">\( H = \nabla d\Phi \in \Gamma(S^2 T^*(\Omega_\omega)) \)</span>
+  </li>
+
+  <li><strong>Modulation geometry</strong>:<br>
+    Impedance and response define rank‑2 fields:
+    <span class="math inline">\( Z \in \Gamma(T^*M \otimes T^*M) \)</span><br>
+    Permittivity tensor:
+    <span class="math inline">\( \varepsilon \in \Gamma(T^*M \otimes T^*M) \)</span>
+  </li>
+
+  <li><strong>Transport geometry</strong>:<br>
+    Connection <span class="math inline">\( \nabla \)</span> acts on sections of <span class="math inline">\( TM \)</span><br>
+    Christoffel symbols yield a (1,2) tensor:
+    <span class="math inline">\( \Gamma \in \Gamma(T^*M \otimes TM \otimes T^*M) \)</span><br>
+    Curvature is the Riemann tensor:
+    <span class="math inline">\( R \in \Gamma(T^*M \otimes TM \otimes T^*M \otimes T^*M) \)</span>
+  </li>
+
+  <li><strong>Topological geometry</strong>:<br>
+    Connection 1‑form:
+    <span class="math inline">\( \mathcal{A} \in \Omega^1(M) \)</span><br>
+    Curvature 2‑form:
+    <span class="math inline">\( F = d\mathcal{A} + \mathcal{A} \wedge \mathcal{A} \in \Omega^2(M) \)</span><br>
+    When lowered with a metric <span class="math inline">\( g \in \Gamma(S^2 T^*M) \)</span>, <span class="math inline">\( F \)</span> becomes an antisymmetric (0,2) tensor
+  </li>
+
+  <li><strong>Anchor geometry</strong>:<br>
+    Anchor covariance is a symmetric, positive semidefinite (0,2) tensor:
+    <span class="math inline">\( \Sigma_{\rm anchor} \in \Gamma(S^2 T^*(\mathrm{Anch})) \)</span>
+  </li>
+</ul>
+
+<h4>Component expansion and units</h4>
+<p>
+  Choose local coordinates <span class="math inline">\( x^i \)</span> on <span class="math inline">\( M \)</span> and <span class="math inline">\( \omega^\alpha \)</span> on the spectral manifold. Component forms:
+</p>
+<ul>
+  <li>
+    <strong>Phase:</strong>
+    <span class="math inline">\( \theta_i = \partial_i \Phi \)</span>,
+    units: <span class="math inline">\( \mathrm{J \cdot s} \)</span> per coordinate unit.
+  </li>
+  <li>
+    <strong>Hessian:</strong>
+    <span class="math inline">\( H_{\alpha\beta} = \partial_\alpha \partial_\beta \Phi \)</span>,
+    units: <span class="math inline">\( \mathrm{J \cdot s \cdot \omega^{-2}} \)</span>; appears in stationary‑phase prefactor via
+    <span class="math inline">\( \det H \)</span>.
+  </li>
+  <li>
+    <strong>Metric tensor:</strong>
+    <span class="math inline">\( g_{ij} \in \Gamma(S^2 T^*M) \)</span>,
+    units: depend on coordinate scaling; used to raise/lower indices and define volume forms.
+  </li>
+  <li>
+    <strong>Riemann tensor:</strong>
+    <span class="math inline">\( R^i_{\ jkl} \)</span>, type (1,3); encodes curvature via commutators of covariant derivatives.
+  </li>
+  <li>
+    <strong>Anchor covariance:</strong>
+    <span class="math inline">\( \Sigma_{AB} = \mathbb{E}\left[ (a_A - \bar{a}_A)(a_B - \bar{a}_B) \right] \)</span>,
+    units: product of anchor units; used in scalar variance formula
+    <span class="math inline">\( \mathrm{Var}(K) = \partial_A K \, \Sigma^{AB} \, \partial_B K \)</span>.
+  </li>
+</ul>
+
+<h4>Why tensors are the natural special case</h4>
+<p>
+  Tensors emerge whenever primitives define multilinear maps or bilinear pairings:
+  curvature and Hessian derive from second derivatives (bilinear forms), modulations define linear response maps,
+  and anchor covariances define quadratic forms on parameter perturbations. Working tensorially keeps expressions
+  coordinate invariant and clarifies unit and index bookkeeping across kernel compositions.
+</p>
+
+<h4>Worked example — Hessian as (0,2) tensor feeding stationary‑phase prefactor</h4>
+<p>
+  Let the spectral phase on the local spectral manifold be <span class="math inline">\( \Phi(\omega) \)</span> with coordinates <span class="math inline">\( \omega^\alpha \)</span>.
+  The Hessian is the symmetric <span class="math inline">\((0,2)\)</span> tensor
+  <span class="math inline">\( H_{\alpha\beta} = \partial_\alpha \partial_\beta \Phi \)</span>.
+  The stationary‑phase leading amplitude contains
+  <span class="math inline">\( (\det H)^{-1/2} \)</span>, which is the determinant of <span class="math inline">\( H \)</span> regarded as a linear map
+  <span class="math inline">\( H^\sharp : T^* \to T \)</span> once an inner product or volume form is chosen on the spectral manifold.
+</p>
+
+<pre><code class="language-tex">
+% symbolic summary (for inline inclusion)
+H_{alpha beta} = partial_alpha partial_beta Phi(omega)   % (0,2) tensor on spectral manifold
+prefactor ∝ (2 pi S_*)^(n/2) / sqrt(|det H_{alpha beta}|)
+</code></pre>
+
+<h4>Worked example — anchor covariance propagates to kernel variance</h4>
+<p>
+  Let anchors <span class="math inline">\( a^A \)</span> have covariance <span class="math inline">\( \Sigma_{AB} \)</span>. Linearizing the assembled kernel <span class="math inline">\( K \)</span> around the anchor mean gives
+  <span class="math inline">\( \delta K \approx (\partial_A K)\, \delta a^A \)</span>, so
+  <span class="math inline">\( \mathrm{Var}(K) = (\partial_A K)\, \Sigma^{AB}\, (\partial_B K) \)</span>.
+  This is the coordinate component form of the quadratic form induced by <span class="math inline">\( \Sigma \)</span> on the cotangent gradient <span class="math inline">\( \partial K \)</span>.
+</p>
+<p>
+  The Hessian <span class="math inline">\( H_{\alpha\beta} \)</span> contracts with inverse metric <span class="math inline">\( g^{\alpha\beta} \)</span> to yield scalar curvature contributions or prefactors in kernel amplitudes.
+</p>
+
+<pre><code class="language-python">
+# SymPy example: build Hessian tensor for Phi(w1, w2) = a*w1**2 + b*w1*w2 + c*w2**2
+import sympy as sp
+
+# Declare coordinates and parameters
+w1, w2, a, b, c, S = sp.symbols('w1 w2 a b c S')
+
+# Define scalar field Phi on spectral manifold
+Phi = a*w1**2 + b*w1*w2 + c*w2**2
+
+# Compute Hessian H_{ab} = ∂_a ∂_b Phi
+H = sp.hessian(Phi, (w1, w2))
+
+# Compute determinant and stationary-phase prefactor
+detH = sp.simplify(H.det())
+n = 2  # spectral dimension
+prefactor = (2*sp.pi*S)**(n/2) / sp.sqrt(sp.Abs(detH))
+
+# Output tensor, determinant, and prefactor
+H, detH, sp.simplify(prefactor)
+</code></pre>
+
+<h4>Notation and documentation rules to adopt in this subsection</h4>
+<ol>
+  <li>
+    Always state the manifold and local coordinates before introducing components
+    (e.g., "spectral manifold <span class="math inline">\( \Omega \)</span> with coords <span class="math inline">\( \omega^\alpha \)</span>").
+  </li>
+  <li>
+    Annotate tensor type <span class="math inline">\((r,s)\)</span> and SI units at first use,
+    e.g., "<span class="math inline">\( H_{\alpha\beta} \)</span> (0,2), units <span class="math inline">\( \mathrm{J \cdot s \cdot \omega^{-2}} \)</span>".
+  </li>
+  <li>
+    When contracting tensors or applying musical isomorphisms
+    (e.g., <span class="math inline">\( \sharp, \flat \)</span>), state the metric used and clarify bundle morphism type.
+  </li>
+  <li>
+    Prefer coordinate‑free formulas in the main text; include one component expansion per object in an appendix or inline code block for reproducibility.
+  </li>
+  <li>
+    Use geometry prefixes when naming derived tensors:
+    Coll‑<span class="math inline">\( H \)</span>, Mod‑<span class="math inline">\( \varepsilon \)</span>,
+    Trans‑<span class="math inline">\( \Gamma \)</span>, Topo‑<span class="math inline">\( F \)</span>,
+    Anch‑<span class="math inline">\( \Sigma \)</span>.
+  </li>
+</ol>
+
+<h4>Minimal checklist for the reader to reproduce tensor emergence</h4>
+<ol>
+  <li>
+    Pick manifold(s): spatial <span class="math inline">\( M \)</span>, spectral <span class="math inline">\( \Omega \)</span>,
+    anchor manifold <span class="math inline">\( \mathrm{Anch} \)</span>.
+  </li>
+  <li>
+    Define primitive scalar fields:
+    <span class="math inline">\( \Phi(x, \omega) \)</span>, <span class="math inline">\( M(x, \omega) \)</span>,
+    anchor maps <span class="math inline">\( a(x) \)</span>.
+  </li>
+  <li>
+    Compute first and second derivatives to form
+    <span class="math inline">\( \theta = d\Phi \)</span> and <span class="math inline">\( H = \nabla d\Phi \)</span>.
+  </li>
+  <li>
+    Interpret <span class="math inline">\( H \)</span> as a <span class="math inline">\((0,2)\)</span> tensor;
+    compute <span class="math inline">\( \det(H) \)</span> and include it in the stationary‑phase prefactor.
+  </li>
+  <li>
+    Compute anchor covariance <span class="math inline">\( \Sigma \)</span> and propagate it via gradient
+    <span class="math inline">\( \partial_A K \)</span> to get <span class="math inline">\( \mathrm{Var}(K) \)</span>.
+  </li>
 </ol>
   </article>
 </section>
