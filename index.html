@@ -26877,7 +26877,7 @@ zscore = (median - Xi_crit) / std
   </li>
 </ul>
 
-<h4>Compact collapse checklist (for insertion)</h4>
+<h4>Compact collapse checklist</h4>
 <ol>
   <li>
     Declare <span class="math inline">\( \Phi \)</span>, <span class="math inline">\( a \)</span>, <span class="math inline">\( \mathcal{S}_\ast \)</span> with SI units;
@@ -27000,13 +27000,11 @@ zscore = (median - Xi_crit) / std
 </p>
 
 <h5>Interpretation and inclusion guidance</h5>
-<ul>
-  <li>Use this template as an <strong>h4 worked example</strong> in the Collapse geometry subsection: include the Setup, Stationary, Asymptotic, Numeric check and Interpretation blocks as shown.</li>
-  <li>When you substitute a model-specific phase kernel, follow identical steps: solve ∇Φ=0, compute H and s, form prefactor, then validate numerically or with a uniform approximation if degeneracies occur.</li>
-  <li>Annotate all units inline and show one numeric anchor table like above to demonstrate consistency and reproducibility.
-  </li>
-</ul>
-
+<p>
+When substituting a model-specific phase kernel, follow identical steps:
+solve <span class="math inline">\( \nabla \Phi = 0 \)</span>, compute <span class="math inline">\( H \)</span> and <span class="math inline">\( s \)</span>,
+form prefactor, then validate numerically or apply a uniform approximation (e.g., Airy, Pearcey) if degeneracies occur.
+</p>
 
   <h3 id="sec-geometry-formalism_5">Modulation geometry</h3>
 
@@ -27389,12 +27387,12 @@ zscore = (median - Xi_crit) / std
   <h4>Key properties and constraints</h4>
 <ul>
   <li>
-    <strong>Causal support:</strong> Trans‑T should ensure support only for
+    <strong>Causal support:</strong> <span class="math inline">\( \mathrm{Trans}\text{-}T \)</span> should ensure support only for
     <span class="math inline">\( t \ge t' + \tau_{\min}(x, x') \)</span> for retarded solutions;
     document minimal travel time and any acausal approximations.
   </li>
   <li>
-    <strong>Conservation / balance:</strong> Specify whether Trans‑T enforces local conservation
+    <strong>Conservation / balance:</strong> Specify whether <span class="math inline">\( \mathrm{Trans}\text{-}T \)</span> enforces local conservation
     (e.g., flux continuity) or includes sinks/sources via
     <span class="math inline">\( a(x, \omega) \)</span>.
   </li>
@@ -27404,52 +27402,56 @@ zscore = (median - Xi_crit) / std
     holds under your chosen boundary / gauge conditions.
   </li>
   <li>
-    <strong>Scattering kernels:</strong> If scattering is significant, decompose Trans‑T into direct plus scattered parts
+    <strong>Scattering kernels:</strong> If scattering is significant, decompose <span class="math inline">\( \mathrm{Trans}\text{-}T \)</span> into direct plus scattered parts
     and state single‑ / multiple‑scattering approximations.
   </li>
 </ul>
 
   <h4>Analytic constructions and common forms</h4>
-  <ul>
-    <li><strong>Retarded Green:</strong>
-      <div class="math display">
+<ul>
+  <li><strong>Retarded Green:</strong>
+    <div class="math display">
 
 \[
-        G_{\rm ret}(x,x';t-t') = H(t-t')\,\tilde G(x,x';t-t')\,
-        e^{-\int_{t'}^{t} a(\gamma(\tau),\omega)\,d\tau},
-        \]
+      G_{\rm ret}(x,x';t-t') = H(t-t')\,\tilde G(x,x';t-t')\,
+      e^{-\int_{t'}^{t} a(\gamma(\tau),\omega)\,d\tau}
+      \]
 
+    </div>
+    where <span class="math inline">\( H \)</span> is the Heaviside step and <span class="math inline">\( \tilde G \)</span> carries phase via
+    <span class="math inline">\( e^{(i/\mathcal{S}_\ast)\Phi} \)</span> when collapse geometry contributes.
+  </li>
 
-      </div>
-      where \(H\) is the Heaviside step and \(\tilde G\) carries phase via \(e^{(i/\mathcal{S}_\ast)\Phi}\) when collapse geometry contributes.
-    </li>
-    <li><strong>WKB / ray approximation:</strong> for high-frequency transport,
-      <div class="math display">
-        
-
-\[
-        G(x,x';\omega)\approx A_{\rm ray}(x,x';\omega)\,e^{(i/\mathcal{S}_\ast)\Phi_{\rm ray}(x,x';\omega)}\,e^{-\Lambda(x,x';\omega)},
-        \]
-
-
-      </div>
-      where \(A_{\rm ray}\) is geometric spreading, \(\Phi_{\rm ray}\) is accumulated action, and \(\Lambda\) is integrated attenuation.
-    </li>
-    <li><strong>Diffusive limit:</strong> when scattering/diffusion dominates,
-      <div class="math display">
-        
+  <li><strong>WKB / ray approximation:</strong> for high-frequency transport,
+    <div class="math display">
 
 \[
-        \partial_t u = \nabla\cdot(D\nabla u) - \alpha u + s,
-        \qquad
-        G \ \text{from inverse of }(\partial_t - \nabla\cdot D\nabla + \alpha).
-        \]
+      G(x,x';\omega) \approx A_{\rm ray}(x,x';\omega)\,
+      e^{(i/\mathcal{S}_\ast)\Phi_{\rm ray}(x,x';\omega)}\,
+      e^{-\Lambda(x,x';\omega)}
+      \]
 
+    </div>
+    where <span class="math inline">\( A_{\rm ray} \)</span> is geometric spreading,
+    <span class="math inline">\( \Phi_{\rm ray} \)</span> is accumulated action, and
+    <span class="math inline">\( \Lambda \)</span> is integrated attenuation.
+  </li>
 
-      \end{div>
-      Provide units: \(D\) (m^2·s^{-1}), \(\alpha\) (s^{-1}).
-    </li>
-  </ul>
+  <li><strong>Diffusive limit:</strong> when scattering/diffusion dominates,
+    <div class="math display">
+
+\[
+      \partial_t u = \nabla\cdot(D\nabla u) - \alpha u + s,
+      \qquad
+      G \ \text{from inverse of }(\partial_t - \nabla\cdot D\nabla + \alpha)
+      \]
+
+    </div>
+    Provide units:
+    <span class="math inline">\( D \)</span> (<span class="math inline">\( \mathrm{m^2 \cdot s^{-1}} \)</span>),
+    <span class="math inline">\( \alpha \)</span> (<span class="math inline">\( \mathrm{s^{-1}} \)</span>).
+  </li>
+</ul>
 
   <h4>Numerical recipe (executable)</h4>
 <ol>
@@ -27541,7 +27543,7 @@ zscore = (median - Xi_crit) / std
 
 <h4>Compact transport checklist</h4>
 <ol>
-  <li>Declare Trans‑T, <span class="math inline">\( G \)</span>, <span class="math inline">\( v \)</span>, <span class="math inline">\( \tau_g \)</span>, and attenuation <span class="math inline">\( a \)</span> with units and domains.</li>
+  <li>Declare <span class="math inline">\( \mathrm{Trans}\text{-}T \)</span>, <span class="math inline">\( G \)</span>, <span class="math inline">\( v \)</span>, <span class="math inline">\( \tau_g \)</span>, and attenuation <span class="math inline">\( a \)</span> with units and domains.</li>
   <li>Choose representation (time, frequency, ray, diffusion) appropriate to regime and bandwidth.</li>
   <li>Implement causal regulator and document analytic continuation choices and branch cuts.</li>
   <li>Include attenuation consistently in path integrals or as frequency-dependent factors in <span class="math inline">\( G \)</span>.</li>
@@ -27664,12 +27666,52 @@ zscore = (median - Xi_crit) / std
     <li>Check reciprocity (if applicable): compare <span class="math inline">\(G(x,x')\)</span> and <span class="math inline">\(G(x',x)\)</span> for symmetric media and boundary conditions.</li>
   </ol>
 
-  <h5>Inclusion guidance</h5>
-  <ul>
-    <li>Include the full frequency‑domain Green function and specify causal prescription when pasting into the Transport geometry subsection.</li>
-    <li>State dispersion relation used to compute <span class="math inline">\(k(\omega)\)</span> and whether group velocity <span class="math inline">\(v_g\)</span> or phase velocity <span class="math inline">\(c(\omega)\)</span> is used to set arrival times.</li>
-    <li>For broadband sources prefer direct inverse Fourier evaluation with appropriate numerical contour and sampling; for narrowband regimes the stationary‑phase single‑frequency approximation above is sufficient and cheaper to compute.</li>
-  </ul>
+<h5>Inclusion guidance</h5>
+<ul>
+  <li>
+    Include the full frequency-domain Green function
+    <span class="math inline">\( G(x, x'; \omega) \)</span> and specify the causal prescription used,
+    e.g., <span class="math inline">\( \omega \mapsto \omega + i0^+ \)</span> for retarded solutions.
+  </li>
+  <li>
+    State the dispersion relation used to compute
+    <span class="math inline">\( k(\omega) \)</span>, such as
+    <span class="math inline">\( k(\omega) = \omega / c(\omega) \)</span>,
+    and clarify whether group velocity
+    <span class="math inline">\( v_g = \partial_\omega k^{-1} \)</span> or phase velocity
+    <span class="math inline">\( c(\omega) \)</span> is used to define arrival times.
+  </li>
+  <li>
+    Annotate all physical quantities with SI units:
+    <ul>
+      <li><span class="math inline">\( [G] = \mathrm{U_{obs} \cdot s} \)</span> (Green function maps source units to observable units over time)</li>
+      <li><span class="math inline">\( [k] = \mathrm{rad \cdot m^{-1}} \)</span></li>
+      <li><span class="math inline">\( [\omega] = \mathrm{rad \cdot s^{-1}} \)</span></li>
+      <li><span class="math inline">\( [A_{\rm ray}] = \mathrm{U_{obs} \cdot s} \)</span> (amplitude prefactor)</li>
+      <li><span class="math inline">\( [\Phi] = \mathrm{J \cdot s} \)</span> (action phase)</li>
+      <li><span class="math inline">\( [\Lambda] = \mathrm{1} \)</span> (dimensionless attenuation exponent)</li>
+    </ul>
+  </li>
+  <li>
+    Include at least one numeric anchor to calibrate the model:
+    for example, a measured peak amplitude
+    <span class="math inline">\( G(x, x'; \omega_0) = G_{\rm peak} \)</span> at frequency
+    <span class="math inline">\( \omega_0 \)</span>, or a known arrival time
+    <span class="math inline">\( t = |x - x'| / c(\omega_0) \)</span>.
+    Use this to solve for the physical prefactor
+    <span class="math inline">\( C_{\rm phys} \)</span> and validate scaling.
+  </li>
+  <li>
+    For broadband sources, evaluate the time-domain Green function via inverse Fourier transform:
+    <span class="math inline">\( G(x, x'; t) = \int G(x, x'; \omega)\, e^{-i\omega t}\, d\omega \)</span>,
+    using a causal contour and sufficient sampling to resolve features.
+  </li>
+  <li>
+    For narrowband regimes, the stationary-phase approximation
+    <span class="math inline">\( G(x, x'; \omega) \approx A_{\rm ray}(x, x'; \omega)\, e^{(i/\mathcal{S}_\ast)\Phi_{\rm ray}(x, x'; \omega)}\, e^{-\Lambda(x, x'; \omega)} \)</span>
+    is sufficient and computationally cheaper.
+  </li>
+</ul>
 
   <p>
     <em>Replace anchors and dispersion model with your system‑specific values. For publication include a small numeric table comparing analytic narrowband prediction to a direct numeric inversion at two distances to demonstrate agreement and document discretization parameters used in the numerical inversion.</em>
@@ -27688,7 +27730,14 @@ zscore = (median - Xi_crit) / std
 
   <h4>Canonical objects and units</h4>
   <ul>
-    <li><strong>Connection 1-form</strong> <span class="math inline">\( \mathcal{A} \in \Omega^1(M) \)</span>; units such that <span class="math inline">\( \oint \mathcal{A} \)</span> has units of action (J·s) when normalized by <span class="math inline">\( \mathcal{S}_\ast \)</span> for phase exponentiation.</li>
+	<li>
+	  <strong>Connection 1-form</strong>
+	  <span class="math inline">\( \mathcal{A} \in \Omega^1(M) \)</span>;
+	  units such that
+	  <span class="math inline">\( \oint \mathcal{A} \)</span> has units of
+	  <span class="math inline">\( \mathrm{J \cdot s} \)</span> when normalized by
+	  <span class="math inline">\( \mathcal{S}_\ast \)</span> for phase exponentiation.
+	</li>
     <li><strong>Holonomy / Wilson loop</strong> <span class="math inline">\( W(\gamma)=\exp\!\big((i/\mathcal{S}_\ast)\oint_\gamma \mathcal{A}\big) \)</span>; dimensionless phase factor.</li>
     <li><strong>Curvature 2-form</strong> <span class="math inline">\( \mathcal{F}=d\mathcal{A} \)</span>; units consistent with <span class="math inline">\( \mathcal{A} \)</span> and describing flux density (action per area).</li>
     <li><strong>Topological charges</strong> discrete invariants <span class="math inline">\( n\in\mathbb{Z} \)</span> (e.g., Chern numbers, winding numbers) arising from integrated curvature or mapping degree.</li>
@@ -27827,9 +27876,13 @@ zscore = (median - Xi_crit) / std
   </p>
 
   <h5>Setup and model</h5>
-  <p>
-    Domain: punctured plane <span class="math inline">\(M=\mathbb{R}^2\setminus\{0\}\)</span>. Use polar coordinates <span class="math inline">\( (r,\theta) \)</span>. Represent a confined flux in a finite core radius <span class="math inline">\(r_0\)</span> with total flux action <span class="math inline">\( \Phi_B \)</span> (units J·s when normalized by <span class="math inline">\( \mathcal{S}_\ast \)</span>).
-  </p>
+<p>
+  Domain: punctured plane <span class="math inline">\( M = \mathbb{R}^2 \setminus \{0\} \)</span>.
+  Use polar coordinates <span class="math inline">\( (r, \theta) \)</span>.
+  Represent a confined flux in a finite core radius <span class="math inline">\( r_0 \)</span> with total flux action
+  <span class="math inline">\( \Phi_B \)</span> (units <span class="math inline">\( \mathrm{J \cdot s} \)</span> when normalized by
+  <span class="math inline">\( \mathcal{S}_\ast \)</span>).
+</p>
 
   <h5>Regularized connection (finite core)</h5>
   <p>
@@ -27965,7 +28018,12 @@ zscore = (median - Xi_crit) / std
   <h4>Canonical objects and units</h4>
   <ul>
     <li><strong>Anchor fields</strong> <span class="math inline">\( \gamma(x),\;T(x),\;\Theta(x)\)</span>; declare units for each (e.g., <span class="math inline">\([T]=\mathrm{K},\ [\gamma]=\mathrm{m\cdot s^{-1}}\)</span>).</li>
-    <li><strong>Anchor covariance</strong> <span class="math inline">\( \Sigma_{\rm anchor}(x,x')\)</span>; units are product of anchor units (matrix entry units = unit(anchor_i)×unit(anchor_j)).</li>
+	<li>
+	  <strong>Anchor covariance</strong>
+	  <span class="math inline">\( \Sigma_{\rm anchor}(x,x') \)</span>;
+	  units are product of anchor units
+	  (<span class="math inline">\( \text{matrix entry units} = \mathrm{unit}(a_i) \cdot \mathrm{unit}(a_j) \)</span>).
+	</li>
     <li><strong>Anchor mean / prior</strong> <span class="math inline">\( \bar{\mathbf{\alpha}}(x)\)</span> where <span class="math inline">\( \mathbf{\alpha}\)</span> lists named anchors; annotate units.</li>
     <li><strong>Jacobian maps</strong> <span class="math inline">\( \mathcal{J}_{K,\alpha}=\partial K/\partial\alpha \)</span> that map anchor perturbations to kernel output perturbations; units follow from derivative.</li>
     <li><strong>Acceptance bands</strong> numeric intervals or credible sets for observables derived from anchor uncertainty (units of observable).</li>
@@ -28068,9 +28126,12 @@ zscore = (median - Xi_crit) / std
   <h4>Worked example (anchor substitution and Monte Carlo propagation)</h4>
 
   <h5>Setup</h5>
-  <p>
-    Model scalar observable \(O\) depends on two anchors: calibration constant \(A\) (units U_A) and temperature \(T\) (K). Model form:
-  </p>
+<p>
+  Model scalar observable <span class="math inline">\( O \)</span> depends on two anchors:
+  calibration constant <span class="math inline">\( A \)</span> (units <span class="math inline">\( \mathrm{U_A} \)</span>) and temperature
+  <span class="math inline">\( T \)</span> (<span class="math inline">\( \mathrm{K} \)</span>).
+  Model form:
+</p>
   <div class="math display">
 
 \[
@@ -28139,34 +28200,70 @@ zscore = (median - Xi_crit) / std
     \]
 
   </div>
-  <p>
-    Numeric substitution yields \(\sigma_O\) (compute numerically in your environment and report \(\sigma_O\) and 95% band \(O\pm 1.96\sigma_O\)).
-  </p>
+<p>
+  Numeric substitution yields <span class="math inline">\( \sigma_O \)</span>
+  (compute numerically in your environment and report
+  <span class="math inline">\( \sigma_O \)</span> and 95% band
+  <span class="math inline">\( O \pm 1.96\sigma_O \)</span>).
+</p>
 
-  <h5>Monte Carlo propagation (nonlinear check)</h5>
-  <ol>
-    <li>Sample \(M\) realizations \(\mathbf{\alpha}^{(m)}\sim\mathcal{N}(\bar{\mathbf{\alpha}},\Sigma_{\rm anchor})\) with \(M\sim 10^3\)–\(10^5\) as needed for desired Monte Carlo error.</li>
-    <li>Compute \(O^{(m)}=C_{\rm phys}(A^{(m)},T^{(m)})K_0\) for each sample.</li>
-    <li>Estimate ensemble mean \(\hat{O}\), standard deviation \(\hat{\sigma}_O\), and empirical quantiles for credible intervals; compare with linearized \(\sigma_O\) to check nonlinearity effects.</li>
-    <li>Report influence: compute empirical correlation between each anchor sample and \(O^{(m)}\) to demonstrate sensitivity ranking.
-    </li>
-  </ol>
+<h5>Monte Carlo propagation (nonlinear check)</h5>
+<ol>
+  <li>
+    Sample <span class="math inline">\( M \)</span> realizations
+    <span class="math inline">\( \alpha^{(m)} \sim \mathcal{N}(\bar{\alpha}, \Sigma_{\rm anchor}) \)</span>
+    with <span class="math inline">\( M \sim 10^3 \)</span>–<span class="math inline">\( 10^5 \)</span> as needed for desired Monte Carlo error.
+  </li>
+  <li>
+    Compute <span class="math inline">\( O^{(m)} = C_{\rm phys}(A^{(m)}, T^{(m)}) K_0 \)</span> for each sample.
+  </li>
+  <li>
+    Estimate ensemble mean <span class="math inline">\( \hat{O} \)</span>, standard deviation
+    <span class="math inline">\( \hat{\sigma}_O \)</span>, and empirical quantiles for credible intervals;
+    compare with linearized <span class="math inline">\( \sigma_O \)</span> to check nonlinearity effects.
+  </li>
+  <li>
+    Report influence: compute empirical correlation between each anchor sample and
+    <span class="math inline">\( O^{(m)} \)</span> to demonstrate sensitivity ranking.
+  </li>
+</ol>
 
-  <h5>Reporting and reproducibility</h5>
-  <ul>
-    <li>Publish anchor vector, full \(\Sigma_{\rm anchor}\) (or low-rank factorization), and random seed used for Monte Carlo so results are reproducible.</li>
-    <li>Provide both linearized and Monte Carlo propagated uncertainties and comment on discrepancies indicating nonlinear anchor effects.</li>
-    <li>Include influence functions and a small table showing how 1% perturbations in each anchor change the observable (sensitivity coefficients).
-    </li>
-  </ul>
+<h5>Reporting and reproducibility</h5>
+<ul>
+  <li>
+    Publish anchor vector <span class="math inline">\( \bar{\alpha} \)</span>,
+    full <span class="math inline">\( \Sigma_{\rm anchor} \)</span>
+    (or low-rank factorization), and random seed used for Monte Carlo so results are reproducible.
+  </li>
+  <li>
+    Provide both linearized and Monte Carlo propagated uncertainties and comment on discrepancies
+    indicating nonlinear anchor effects.
+  </li>
+  <li>
+    Include influence functions and a small table showing how 1% perturbations in each anchor
+    change the observable (sensitivity coefficients).
+  </li>
+</ul>
 
-  <h4>Compact anchor checklist</h4>
-  <ol>
-    <li>List anchors, units, provenance and assemble \(\bar{\mathbf{\alpha}}\) and \(\Sigma_{\rm anchor}\).</li>
-    <li>Compute Jacobian maps \(\mathcal{J}_{K,\alpha}\) analytically or numerically; document method and discretization.</li>
-    <li>Propagate uncertainty via linearization and validate with Monte Carlo if nonlinearity is suspected.</li>
-    <li>Report predictive covariance, influence measures, and acceptance bands; provide reproducible seeds and anchor metadata.</li>
-  </ol>
+<h4>Compact anchor checklist</h4>
+<ol>
+  <li>
+    List anchors, units, provenance and assemble
+    <span class="math inline">\( \bar{\alpha} \)</span> and
+    <span class="math inline">\( \Sigma_{\rm anchor} \)</span>.
+  </li>
+  <li>
+    Compute Jacobian maps <span class="math inline">\( \mathcal{J}_{K,\alpha} \)</span>
+    analytically or numerically; document method and discretization.
+  </li>
+  <li>
+    Propagate uncertainty via linearization and validate with Monte Carlo if nonlinearity is suspected.
+  </li>
+  <li>
+    Report predictive covariance, influence measures, and acceptance bands;
+    provide reproducible seeds and anchor metadata.
+  </li>
+</ol>
 
   <h4>Worked example (anchor substitution, linear propagation, and Monte Carlo outline)</h4>
 
