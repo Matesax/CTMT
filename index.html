@@ -320,7 +320,7 @@
             <ul>
                 <li><span class="math inline">\( d_i \)</span>: Euclidean distance [m]</li>
                 <li><span class="math inline">\( v_{\text{sync}} \)</span>: synchronization velocity [m/s]</li>
-                <li><span class="math inline">\( \gamma \)</span>: decoherence rate [s<sup>−1</sup>]</li>
+                <li><span class="math inline">\( \gamma \)</span>: decoherence rate <span class="math inline">\( [\gamma] = \mathrm{s^{-1}} \)</span></li>
                 <li><span class="math inline">\( L_K \)</span>: coherence length [m]</li>
                 <li><span class="math inline">\( \Phi_i \)</span>: dimensionless phase</li>
             </ul>
@@ -807,7 +807,7 @@
                 <li><span class="math inline">\(v\)</span> is constant cruising speed (m/s)</li>
                 <li><span class="math inline">\(\Phi\)</span> is a vehicle shape/drag geometry factor (dimensionless; includes aerodynamic and rolling contributions)</li>
                 <li><span class="math inline">\(h\)</span> is a reference length (vehicle frontal height, m)</li>
-                <li><span class="math inline">\(\rho\)</span> is air density (kg/m<sup>3</sup>)</li>
+                <li><span class="math inline">\( \rho \)</span> is air density <span class="math inline">\( [\rho] = \mathrm{kg \cdot m^{-3}} \)</span></li>
             </ul>
 
             <p>Calibration point (observed data — anchor)</p>
@@ -843,7 +843,12 @@
 
             </div>
 
-            <p>Compute <span class="math inline">\(\chi_0\)</span> by Eq. <span class="math inline">\(\chi = \frac{M v^2}{\Phi g h \rho}\)</span> (using <span class="math inline">\(M=M_0\)</span> in kg; gives m<sup>3</sup>):</p>
+            <p>
+				Compute <span class="math inline">\( \chi_0 \)</span> using the equation
+				<span class="math inline">\( \chi = \frac{M v^2}{\Phi\, g\, h\, \rho} \)</span>,
+				where <span class="math inline">\( M = M_0 \)</span> is in kilograms.
+				The result has units of <span class="math inline">\( \mathrm{m^3} \)</span>.
+			</p>
 
             <div class="math display">
 
@@ -881,9 +886,12 @@
 
             </div>
 
-            <p>
-                Define calibration constant <span class="math inline">\(k_{\mathrm{fuel}}\)</span> to map <span class="math inline">\(\chi\)</span> (m<sup>3</sup>) to instantaneous fuel rate (L/s):
-            </p>
+			<p>
+				Define calibration constant <span class="math inline">\( k_{\mathrm{fuel}} \)</span> to map
+				<span class="math inline">\( \chi \)</span>
+				(<span class="math inline">\( \mathrm{m^3} \)</span>) to instantaneous fuel rate
+				(<span class="math inline">\( \mathrm{L \cdot s^{-1}} \)</span>):
+			</p>
 
             <div class="math display">
 
@@ -959,9 +967,13 @@
                 \]
             </div>
 
-            <p>
-                Take <span class="math inline">\(R=\sqrt{A/\pi}\approx1.784\ \mathrm{m}\)</span>. Choose <span class="math inline">\(\Phi=1.0\)</span>. Compute <span class="math inline">\(\chi_0\)</span> (units m<sup>3</sup>/s because <span class="math inline">\(M\)</span> is kg/s):
-            </p>
+			<p>
+				Take <span class="math inline">\( R = \sqrt{A / \pi} \approx 1.784\ \mathrm{m} \)</span>.
+				Choose <span class="math inline">\( \Phi = 1.0 \)</span>.
+				Compute <span class="math inline">\( \chi_0 \)</span>
+				(units <span class="math inline">\( \mathrm{m^3 \cdot s^{-1}} \)</span> because
+				<span class="math inline">\( M \)</span> is in <span class="math inline">\( \mathrm{kg \cdot s^{-1}} \)</span>):
+			</p>
 
             <div class="math display">
                 \[
@@ -1099,15 +1111,18 @@
             </p>
 
             <h3 id="sec-39-practical_demonst_of_coh_law_4">Limits and cautions</h3>
-            <p>
-                <span class="math inline">\(\Phi\)</span> must be chosen/estimated from geometry and regime; it is not always unity and encodes many sub-grid physics (viscous losses, conversion efficiency).
-                Interpreting <span class="math inline">\(M\)</span> as mass vs mass flow changes units; be explicit for each domain
-                (mass [kg] <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\chi\)</span> in m<sup>3</sup>,
-                mass flow [kg/s] <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\chi\)</span> in m<sup>3</sup>/s).
-                Single calibration does not guarantee high accuracy in regimes far from the anchor (the pump example showed this).
-                Add a second calibration point if the regime is nonlinear.
-                Uncertainties should be propagated from <span class="math inline">\(\Phi\)</span>, anchor measurement error, and ambient parameters (e.g., <span class="math inline">\(\rho\)</span>, temperature).
-            </p>
+			<p>
+				<span class="math inline">\( \Phi \)</span> must be chosen or estimated from geometry and regime;
+				it is not always unity and encodes many sub-grid physics (e.g., viscous losses, conversion efficiency).
+				Interpreting <span class="math inline">\( M \)</span> as mass versus mass flow changes units — be explicit for each domain:
+				<span class="math inline">\( \text{mass} \ [\mathrm{kg}] \Rightarrow \chi \in \mathrm{m^3} \)</span>,
+				<span class="math inline">\( \text{mass flow} \ [\mathrm{kg \cdot s^{-1}}] \Rightarrow \chi \in \mathrm{m^3 \cdot s^{-1}} \)</span>.
+				Single-point calibration does not guarantee high accuracy in regimes far from the anchor (as the pump example showed).
+				Add a second calibration point if the regime is nonlinear.
+				Uncertainties should be propagated from <span class="math inline">\( \Phi \)</span>,
+				anchor measurement error, and ambient parameters (e.g.,
+				<span class="math inline">\( \rho \)</span>, temperature).
+			</p>
 
             <p>For a new application:</p>
             <ul>
@@ -2369,7 +2384,10 @@
     <tr>
       <td><span class="math inline">\(\omega\)</span></td>
       <td>Spectral label: angular frequency or spectral coordinate</td>
-      <td><span class="math inline">\(\text{s}^{-1}\)</span> (Hz or rad·s<sup>−1</sup>)</td>
+      <td>
+		<span class="math inline">\( \mathrm{s^{-1}} \)</span>
+		(<span class="math inline">\( \mathrm{Hz} \)</span> or <span class="math inline">\( \mathrm{rad \cdot s^{-1}} \)</span>)
+      </td>
       <td>Spectral data, mode labels, chosen parametrization</td>
       <td>Choose either cycle freq <span class="math inline">\(\nu\)</span> or angular freq; mapping stated</td>
       <td>Integration variable in <span class="math inline">\(\int_{\Omega_\omega} \cdot d\omega\)</span>; appears in phase <span class="math inline">\(\omega\tau\)</span></td>
@@ -12221,12 +12239,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 </tbody>
             </table>
 
-            <p>
-                The resulting <span class="math inline">\(\mu_{\mathrm{mod}}\)</span>
-                values span roughly 3.6×10<sup>23</sup> to 1.2×10<sup>25</sup> kg,
-                i.e. within two orders of magnitude despite planetary masses spanning five.
-                The next table tests how each anchor propagates to other bodies.
-            </p>
+			<p>
+				The resulting <span class="math inline">\( \mu_{\mathrm{mod}} \)</span> values span roughly
+				<span class="math inline">\( 3.6 \times 10^{23}\ \mathrm{kg} \)</span> to
+				<span class="math inline">\( 1.2 \times 10^{25}\ \mathrm{kg} \)</span> —
+				i.e., within two orders of magnitude, despite planetary masses spanning five.
+				The next table tests how each anchor propagates to other bodies.
+			</p>
 
             <h5>Reciprocal Propagation Test</h5>
 
@@ -12789,14 +12808,20 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <figcaption><a href="#eq-50_68">Equation (13.68)</a></figcaption>
             </figure>
 
-            <p>
-                <em>Unit check:</em>
-                <span class="math inline">\(v\)</span> has units m·s<sup>−1</sup>,
-                <span class="math inline">\(a\)</span> has units m,
-                so <span class="math inline">\(v/a\)</span> has units s<sup>−1</sup>.
-                The eccentricity correction <span class="math inline">\((1-e^{2})^{-1}\)</span> and resonance factor <span class="math inline">\((1+\lambda R)\)</span> are dimensionless.
-                Therefore <span class="math inline">\(\mu^\ast_{\rm d}\)</span> is a frequency–like stability measure in s<sup>−1</sup>, directly comparable to dynamical timescales.
-            </p>
+			<p>
+				<em>Unit check:</em>
+				<span class="math inline">\( v \)</span> has units
+				<span class="math inline">\( \mathrm{m \cdot s^{-1}} \)</span>,
+				<span class="math inline">\( a \)</span> has units
+				<span class="math inline">\( \mathrm{m} \)</span>,
+				so <span class="math inline">\( v / a \)</span> has units
+				<span class="math inline">\( \mathrm{s^{-1}} \)</span>.
+				The eccentricity correction
+				<span class="math inline">\( (1 - e^2)^{-1} \)</span> and resonance factor
+				<span class="math inline">\( (1 + \lambda R) \)</span> are dimensionless.
+				Therefore <span class="math inline">\( \mu^\ast_{\rm d} \)</span> is a frequency-like stability measure in
+				<span class="math inline">\( \mathrm{s^{-1}} \)</span>, directly comparable to dynamical timescales.
+			</p>
 
             <p><strong>Dimensionless index</strong> (normalized by circular synchrony):</p>
 
@@ -12864,7 +12889,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <p><strong>Summary:</strong></p>
             <ul>
-                <li>Dimensional form <span class="math inline">\(\mu^\ast_{\rm d}\)</span> provides a frequency–like stability measure in s<sup>−1</sup>.</li>
+                <li>Dimensional form <span class="math inline">\( \mu^\ast_{\rm d} \)</span> provides a frequency-like stability measure in <span class="math inline">\( \mathrm{s^{-1}} \)</span>.</li>
                 <li>Dimensionless form <span class="math inline">\(\tilde{\mu}^\ast\)</span> normalizes stability relative to circular synchrony.</li>
                 <li>Resonance proximity <span class="math inline">\(R\)</span> and coupling <span class="math inline">\(\lambda\)</span> embed dynamical stress into the index.</li>
                 <li>The framework is falsifiable: incorrect resonance or eccentricity modeling yields measurable deviations from observed orbital stability.
@@ -13095,12 +13120,12 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <li><span class="math inline">\(\beta \in (0,1]\)</span> — structural efficiency (from cross‑spectral coherence or overlap integrals)</li>
             </ul>
 
-            <p>
-                <strong>Unit check:</strong>
-                <span class="math inline">\(r\)</span> (m) × <span class="math inline">\(|\Delta n|\)</span> (s<sup>−1</sup>) = m/s.
-                Multipliers <span class="math inline">\((1+\lambda R)\beta\)</span> are dimensionless.
-                Thus <span class="math inline">\(\Delta v_{\mathrm{ker}}\)</span> is dimensionally consistent.
-            </p>
+			<p>
+				<strong>Unit check:</strong>
+				<span class="math inline">\( r \times |\Delta n| = \mathrm{m} \times \mathrm{s^{-1}} = \mathrm{m \cdot s^{-1}} \)</span>.
+				Multipliers <span class="math inline">\( (1 + \lambda R)\beta \)</span> are dimensionless.
+				Thus <span class="math inline">\( \Delta v_{\mathrm{ker}} \)</span> is dimensionally consistent.
+			</p>
 
             <p>
                 The kernel Δv protocol is a direct application of the
@@ -13299,12 +13324,12 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <li><span class="math inline">\(\beta\)</span> — bounded efficiency factor (<span class="math inline">\(0 < \beta \leq 1\)</span>) derived from coherence</li>
             </ul>
 
-            <p>
-                <strong>Unit check:</strong>
-                <span class="math inline">\(r\)</span> (m) × <span class="math inline">\(|\Delta n|\)</span> (s<sup>−1</sup>) = m/s;
-                <span class="math inline">\((1+\lambda R)\beta\)</span> is dimensionless.
-                Therefore, <span class="math inline">\(\Delta v_{\rm ker}\)</span> is dimensionally consistent.
-            </p>
+			<p>
+				<strong>Unit check:</strong>
+				<span class="math inline">\( r \times |\Delta n| = \mathrm{m} \times \mathrm{s^{-1}} = \mathrm{m \cdot s^{-1}} \)</span>;
+				<span class="math inline">\( (1 + \lambda R)\beta \)</span> is dimensionless.
+				Therefore, <span class="math inline">\( \Delta v_{\rm ker} \)</span> is dimensionally consistent.
+			</p>
 
             <h5>Worked examples</h5>
 
@@ -19247,10 +19272,12 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </ul>
             <h4>Dimensional Check and Plasma Collapse Validation</h4>
 
-            <p>
-                The kernel stationary‑phase peak has units of frequency (s<sup>−1</sup>). Mapping
-                <span class="math inline">\(\omega_p \mapsto E = \hbar \omega_p\)</span> yields energy in joules, ensuring dimensional closure.
-            </p>
+			<p>
+				The kernel stationary‑phase peak has units of frequency
+				(<span class="math inline">\( \mathrm{s^{-1}} \)</span>).
+				Mapping <span class="math inline">\( \omega_p \mapsto E = \hbar \omega_p \)</span>
+				yields energy in joules, ensuring dimensional closure.
+			</p>
 
             <figure class="equation" id="eq-21_4">
                 <div class="math display">
@@ -20514,11 +20541,17 @@ for k,v in results.items():
 
             <h4>Threshold Calibration and Cross-System Validity</h4>
 
-            <p>
-                The threshold value <span class="math inline">\( \Xi_{\rm crit} = 1.1 \times 10^{19}\ \mathrm{s^{-2}} \)</span> was adopted based on two converging sources:
-                <strong>(1)</strong> internal calibration from LHCb time-dependent CP asymmetry fits in the D<sup>0</sup>–<span class="math inline">\(\overline{\mathrm{D}}^0\)</span> system, and
-                <strong>(2)</strong> theoretical constraints from the kernel’s fixed-point stress response.
-            </p>
+			<p>
+				The threshold value <span class="math inline">\( \Xi_{\mathrm{crit}} = 1.1 \times 10^{19}\ \mathrm{s^{-2}} \)</span> was adopted based on two converging sources:
+			</p>
+			<ol>
+				<li>
+					Internal calibration from LHCb time-dependent CP asymmetry fits in the <span class="math inline">\( \mathrm{D^0} \text{–} \overline{\mathrm{D}}^0 \)</span> system.
+				</li>
+				<li>
+					Theoretical constraints from the kernel’s fixed-point stress response.
+				</li>
+			</ol>
 
             <p>
                 In the kernel framework, <span class="math inline">\( \Xi_{\rm crit} \)</span> represents the minimal modulation stress required to trigger re-projection into antimatter configurations.
@@ -20531,10 +20564,17 @@ for k,v in results.items():
                 This cross-experiment consistency strengthens the claim that <span class="math inline">\( \Xi_{\rm crit} \)</span> is a universal kernel property rather than an empirical artifact.
             </p>
 
-            <p>
-                Future work may extend this test to other meson systems (e.g., B<sup>0</sup>–<span class="math inline">\(\overline{\mathrm{B}}^0\)</span>, K<sup>0</sup>–<span class="math inline">\(\overline{\mathrm{K}}^0\)</span>)
-                or explore variations in beam conditions to further probe the robustness of the threshold law.
-            </p>
+			<p><strong>Future work may:</strong></p>
+			<ul>
+				<li>
+					Extend this test to other meson systems, such as
+					<span class="math inline">\( \mathrm{B^0} \text{–} \overline{\mathrm{B}}^0 \)</span> and
+					<span class="math inline">\( \mathrm{K^0} \text{–} \overline{\mathrm{K}}^0 \)</span>.
+				</li>
+				<li>
+					Explore variations in beam conditions to further probe the robustness of the threshold law.
+				</li>
+			</ul>
 
             <ul class="sources">
                 <li>
@@ -23070,11 +23110,20 @@ zscore = (median - Xi_crit) / std
             <p>
                 where:
             </p>
-            <ul>
-                <li><span class="math inline">\(q_{\rm eff}\)</span> — effective charge (use <span class="math inline">\(e\)</span> for electron-driven currents)</li>
-                <li><span class="math inline">\(n_e\)</span> — electron number density [m<sup>−3</sup>]</li>
-                <li><span class="math inline">\(\mathbf{u}\)</span> — bulk drift velocity [m/s]</li>
-            </ul>
+			<ul>
+				<li>
+					<span class="math inline">\( q_{\mathrm{eff}} \)</span> — effective charge
+					(use <span class="math inline">\( \mathrm{e} \)</span> for electron-driven currents)
+				</li>
+				<li>
+					<span class="math inline">\( n_e \)</span> — electron number density
+					<span class="math inline">\( [\mathrm{m^{-3}}] \)</span>
+				</li>
+				<li>
+					<span class="math inline">\( \mathbf{u} \)</span> — bulk drift velocity
+					<span class="math inline">\( [\mathrm{m \cdot s^{-1}}] \)</span>
+				</li>
+			</ul>
 
             <p>
                 The kernel source is specified from directly measurable plasma or conductor quantities.
@@ -26340,11 +26389,19 @@ zscore = (median - Xi_crit) / std
             </figure>
 
             <p>where:</p>
-            <ul>
-                <li><span class="math inline">\(\rho\)</span>: electron (node) density [m<sup>−3</sup>]</li>
-                <li><span class="math inline">\(\mathbf{u}\)</span>: harmonization drift field [m/s]</li>
-                <li><span class="math inline">\(\kappa\)</span>: dimensionless kernel coupling constant</li>
-            </ul>
+			<ul>
+				<li>
+					<span class="math inline">\( \rho \)</span>: electron (node) density
+					<span class="math inline">\( [\mathrm{m^{-3}}] \)</span>
+				</li>
+				<li>
+					<span class="math inline">\( \mathbf{u} \)</span>: harmonization drift field
+					<span class="math inline">\( [\mathrm{m \cdot s^{-1}}] \)</span>
+				</li>
+				<li>
+					<span class="math inline">\( \kappa \)</span>: dimensionless kernel coupling constant
+				</li>
+			</ul>
 
             <p>
                 However, direct projection of <span class="math inline">\(\mathbf{B}_{\text{kernel}}\)</span> into laboratory observables
@@ -26370,7 +26427,7 @@ zscore = (median - Xi_crit) / std
                 <li><span class="math inline">\(\mu_{\text{eff}} = \mu_B \cdot g(\Phi)\)</span>: effective magnetic moment per carrier</li>
                 <li><span class="math inline">\(\mu_B\)</span>: Bohr magneton</li>
                 <li><span class="math inline">\(g(\Phi)\)</span>: dimensionless kernel shape factor</li>
-                <li><span class="math inline">\(n\)</span>: carrier (electron) density [m<sup>−3</sup>]</li>
+                <li><span class="math inline">\( n \)</span>: carrier (electron) density <span class="math inline">\( [\mathrm{m^{-3}}] \)</span></li>
                 <li>
                     <span class="math inline">\(f\)</span>: alignment fraction, modeled as
                     <figure class="equation" id="eq-35_30">
@@ -28061,6 +28118,46 @@ form prefactor, then validate numerically or apply a uniform approximation (e.g.
     <li>For spatially varying anchors, discretize anchors on the same grid as kernels and provide interpolation rules; ensure Jacobian maps respect discretization.</li>
   </ol>
 
+<h4>Thermodynamic and Radiative Inputs to Anchor Geometry</h4>
+<p>
+  Thermodynamic and radiative fields serve as foundational anchors that inject physical scale, energy balance, and stochastic structure into the geometry. These inputs calibrate prefactors, constrain priors, and define uncertainty propagation across Collapse, Modulation, Transport, and Topological geometries.
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Anchor Field</th>
+      <th>Physical Role</th>
+      <th>Units</th>
+      <th>Coupling Path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( T(x) \)</span></td>
+      <td>Thermal scale; sets energy normalization and entropy gradients</td>
+      <td><span class="math inline">\( \mathrm{K} \)</span></td>
+      <td>Modulation kernels, transport coefficients, prior variance</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \Theta(x) \)</span></td>
+      <td>Radiative potential; encodes photon field or emissivity</td>
+      <td><span class="math inline">\( \mathrm{W \cdot m^{-2}} \)</span> or dimensionless</td>
+      <td>Collapse geometry, stochastic priors, topological stress</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \gamma(x) \)</span></td>
+      <td>Drift or flow field; links to kinetic energy and transport</td>
+      <td><span class="math inline">\( \mathrm{m \cdot s^{-1}} \)</span></td>
+      <td>Transport geometry, modulation response</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  These anchors are not merely inputs — they define the physical context in which kernels operate. For example, a change in <span class="math inline">\( T(x) \)</span> alters the Jacobian 
+  <span class="math inline">\( \mathcal{J}_{K,\alpha} \)</span>, reshaping the uncertainty structure and shifting the predictive band of observables. Radiation enters not only through energy balance but also via its influence on prior structure and topological constraints.
+</p>
+
 <h4>Numerical recipe (executable)</h4>
 <ol>
   <li>
@@ -28141,13 +28238,22 @@ form prefactor, then validate numerically or apply a uniform approximation (e.g.
     \]
 
   </div>
-  <p>
-    where \(\beta\) is known constant (units K^{-1}) and \(K_0\) is kernel value at normalized units. Anchors: \(\bar{A}=100\ \mathrm{U_A}\) with \(\sigma_A=1\), and \(\bar{T}=300\ \mathrm{K}\) with \(\sigma_T=2\). Assume joint normal with small correlation \(\rho=0.1\).
-  </p>
+<p>
+  where <span class="math inline">\( \beta \)</span> is a known constant
+  (units <span class="math inline">\( \mathrm{K^{-1}} \)</span>) and
+  <span class="math inline">\( K_0 \)</span> is the kernel value at normalized units.
+  Anchors:
+  <span class="math inline">\( \bar{A} = 100\ \mathrm{U_A} \)</span> with
+  <span class="math inline">\( \sigma_A = 1 \)</span>, and
+  <span class="math inline">\( \bar{T} = 300\ \mathrm{K} \)</span> with
+  <span class="math inline">\( \sigma_T = 2 \)</span>.
+  Assume joint normal with small correlation
+  <span class="math inline">\( \rho = 0.1 \)</span>.
+</p>
 
   <h5>Linearized propagation (Jacobian)</h5>
   <p>
-    Parameter vector \(\mathbf{\alpha}=(A,T)\). Jacobian for \(O\) equals:
+    Parameter vector <span class="math inline">\(\mathbf{\alpha}=(A,T)\)</span>. Jacobian for <span class="math inline">\(O\)</span> equals:
   </p>
   <div class="math display">
 
@@ -28280,13 +28386,31 @@ form prefactor, then validate numerically or apply a uniform approximation (e.g.
   </div>
 
   <h5>Anchors and constants (numeric)</h5>
-  <ul>
-    <li>Calibration constant: <strong>\(\bar{A}=100.0\)</strong> (units U_A), uncertainty \(\sigma_A=1.0\).</li>
-    <li>Temperature: <strong>\(\bar{T}=300.0\ \mathrm{K}\)</strong>, uncertainty \(\sigma_T=2.0\ \mathrm{K}\).</li>
-    <li>Correlation: <strong>\(\rho=0.1\)</strong>.</li>
-    <li>Model constant: <strong>\(\beta=10^{-3}\ \mathrm{K^{-1}}\)</strong>.</li>
-    <li>Kernel baseline: <strong>\(K_0=1.0\)</strong>.</li>
-  </ul>
+<ul>
+  <li>
+    Calibration constant:
+    <span class="math inline"><strong>\( \bar{A} = 100.0 \)</strong></span>
+    (units <span class="math inline">\( \mathrm{U_A} \)</span>), uncertainty
+    <span class="math inline">\( \sigma_A = 1.0 \)</span>.
+  </li>
+  <li>
+    Temperature:
+    <span class="math inline"><strong>\( \bar{T} = 300.0\ \mathrm{K} \)</strong></span>,
+    uncertainty <span class="math inline">\( \sigma_T = 2.0\ \mathrm{K} \)</span>.
+  </li>
+  <li>
+    Correlation:
+    <span class="math inline"><strong>\( \rho = 0.1 \)</strong></span>.
+  </li>
+  <li>
+    Model constant:
+    <span class="math inline"><strong>\( \beta = 10^{-3}\ \mathrm{K^{-1}} \)</strong></span>.
+  </li>
+  <li>
+    Kernel baseline:
+    <span class="math inline"><strong>\( K_0 = 1.0 \)</strong></span>.
+  </li>
+</ul>
 
   <h5>Nominal observable</h5>
   <div class="math display">
