@@ -27185,12 +27185,13 @@ form prefactor, then validate numerically or apply a uniform approximation (e.g.
 <ul>
   <li>
     Report fitted parameter covariance and credible intervals for
-    <span class="math inline">\( \omega_0, Q, \gamma \)</span> and for
-    <span class="math inline">\( C_{\rm phys} \)</span>.
+    <span class="math inline">\( \omega_0, Q, \gamma \)</span> and
+    <span class="math inline">\( C_{\mathrm{phys}} \)</span>.
   </li>
   <li>
-    Show residual spectral maps (observed minus model) and QQ plots for residuals
-    to check for non-Gaussianity induced by unmodeled modulation structure.
+    Show residual spectral maps (observed minus model) and quantile–quantile (QQ) plots to assess the distributional shape of residuals.
+    QQ plots compare empirical quantiles of residuals against theoretical quantiles from a Gaussian reference.
+    Deviations from linearity indicate non-Gaussianity, often due to unmodeled modulation or anchor mis-specification.
   </li>
   <li>
     Test robustness to anchor perturbation: vary anchors within their uncertainties
@@ -28890,6 +28891,155 @@ H, detH, sp.simplify(prefactor)
             <p>
                 These guidelines ensure that all uses of <span class="math inline">\(\pi\)</span> within kernel-based models are dimensionally consistent, geometrically justified, and theoretically grounded.
             </p>
+
+<h4>Tensor-to-Kernel Calibration</h4>
+
+<p>
+  Tensor computation serves not only to evaluate physical quantities (e.g., stress, curvature, flux) but also to calibrate kernel parameters within the CTMT framework. This enables conversion of legacy tensor systems into kernel-based formulations by extracting scalar or structured inputs for kernel prefactors, priors, and uncertainty propagation.
+</p>
+
+<div class="math display">
+
+
+\[
+K_{\mathrm{cal}} = K\left(\cdot;\, \mathcal{F}[\mathbf{T}]\right),
+\quad
+\text{where } \mathcal{F}[\mathbf{T}] \text{ extracts scalar anchors or structured priors from tensor field } \mathbf{T}.
+\]
+
+
+</div>
+
+<ul>
+  <li>
+    <strong>Example:</strong> Stress tensor <span class="math inline">\( \sigma_{ij} \)</span> yields scalar pressure
+    <span class="math inline">\( P = \frac{1}{3} \mathrm{Tr}(\sigma) \)</span>, which calibrates collapse kernel prefactor.
+  </li>
+  <li>
+    <strong>Example:</strong> Curvature tensor <span class="math inline">\( R_{ijkl} \)</span> feeds topological kernel via Ricci scalar
+    <span class="math inline">\( R = g^{ij} R_{ij} \)</span>.
+  </li>
+  <li>
+    <strong>Example:</strong> Electromagnetic field tensor <span class="math inline">\( F_{\mu\nu} \)</span> provides modulation anchors via energy density
+    <span class="math inline">\( u = \frac{1}{2}(\mathbf{E}^2 + \mathbf{B}^2) \)</span>.
+  </li>
+</ul>
+
+<p>
+  This calibration pathway ensures dimensional consistency and preserves physical interpretability while enabling legacy tensor systems to participate in CTMT inference and uncertainty propagation.
+</p>
+
+
+<h4>Tensor-to-Kernel Mapping</h4>
+
+<p>
+  Tensor fields can be systematically converted into kernel-native primitives that drive Collapse, Transport, Modulation, and Topological geometries. This goes beyond compatibility: it enables legacy tensor systems to yield tuning values, anchor priors, and prefactors that directly shape kernel behavior.
+</p>
+
+<div class="math display">
+
+
+\[
+\mathcal{F}_{\mathrm{prim}}[\mathbf{T}] \mapsto \{ \alpha_i \},
+\quad
+K_{\mathrm{cal}} = K(\cdot;\, \mathcal{F}_{\mathrm{prim}}[\mathbf{T}])
+\]
+
+
+</div>
+
+<p>
+  Here, <span class="math inline">\( \mathcal{F}_{\mathrm{prim}} \)</span> is a mapping from tensor fields <span class="math inline">\( \mathbf{T} \)</span> to kernel primitives <span class="math inline">\( \{ \alpha_i \} \)</span>, such as anchor means, variances, or prefactors. These primitives are then used to calibrate kernel outputs and propagate uncertainty.
+</p>
+
+<ul>
+  <li>
+    <strong>Stress tensor</strong> <span class="math inline">\( \sigma_{ij} \)</span> → scalar pressure
+    <span class="math inline">\( P = \frac{1}{3} \mathrm{Tr}(\sigma) \)</span> → collapse kernel prefactor.
+  </li>
+  <li>
+    <strong>Curvature tensor</strong> <span class="math inline">\( R_{ijkl} \)</span> → Ricci scalar
+    <span class="math inline">\( R = g^{ij} R_{ij} \)</span> → topological kernel anchor.
+  </li>
+  <li>
+    <strong>Electromagnetic field tensor</strong> <span class="math inline">\( F_{\mu\nu} \)</span> → energy density
+    <span class="math inline">\( u = \frac{1}{2}(\mathbf{E}^2 + \mathbf{B}^2) \)</span> → modulation kernel amplitude.
+  </li>
+</ul>
+
+<p>
+  This mapping ensures dimensional closure and preserves physical interpretability while enabling full CTMT-native operation. Tensor-derived anchors can also be used to define prior covariance:
+</p>
+
+<div class="math display">
+
+\[
+\delta\mathbf{\alpha} \sim \mathcal{N}(0,\, \Sigma_{\mathrm{anchor}}),
+\quad
+\Sigma_{\mathrm{anchor}} = \mathcal{G}[\mathbf{T}]
+\]
+
+</div>
+
+<p>
+  where <span class="math inline">\( \mathcal{G}[\mathbf{T}] \)</span> extracts uncertainty structure from tensor fluctuations. This allows legacy tensor systems to seed both deterministic and stochastic components of kernel geometry.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tensor System</th>
+      <th>Tensor Field</th>
+      <th>Extracted Primitive</th>
+      <th>Kernel Role</th>
+      <th>Units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Stress–strain (continuum mechanics)</td>
+      <td><span class="math inline">\( \sigma_{ij} \)</span></td>
+      <td><span class="math inline">\( P = \frac{1}{3} \mathrm{Tr}(\sigma) \)</span></td>
+      <td>Collapse prefactor, anchor prior</td>
+      <td><span class="math inline">\( \mathrm{Pa} = \mathrm{kg \cdot m^{-1} \cdot s^{-2}} \)</span></td>
+    </tr>
+    <tr>
+      <td>General relativity</td>
+      <td><span class="math inline">\( R_{ijkl},\; R_{ij} \)</span></td>
+      <td><span class="math inline">\( R = g^{ij} R_{ij} \)</span></td>
+      <td>Topological kernel anchor</td>
+      <td><span class="math inline">\( \mathrm{m^{-2}} \)</span></td>
+    </tr>
+    <tr>
+      <td>Electromagnetism</td>
+      <td><span class="math inline">\( F_{\mu\nu} \)</span></td>
+      <td><span class="math inline">\( u = \frac{1}{2}(\mathbf{E}^2 + \mathbf{B}^2) \)</span></td>
+      <td>Modulation amplitude, anchor prior</td>
+      <td><span class="math inline">\( \mathrm{J \cdot m^{-3}} \)</span></td>
+    </tr>
+    <tr>
+      <td>Fluid dynamics</td>
+      <td><span class="math inline">\( T_{ij} \)</span> (momentum flux)</td>
+      <td><span class="math inline">\( \rho,\; \mathbf{u} \)</span> from decomposition</td>
+      <td>Transport kernel anchors</td>
+      <td><span class="math inline">\( \mathrm{kg \cdot m^{-3}},\; \mathrm{m \cdot s^{-1}} \)</span></td>
+    </tr>
+    <tr>
+      <td>Thermodynamics</td>
+      <td><span class="math inline">\( S_{ij},\; T(x) \)</span></td>
+      <td><span class="math inline">\( T,\; \nabla T \)</span></td>
+      <td>Modulation kernel scale, prior gradient</td>
+      <td><span class="math inline">\( \mathrm{K},\; \mathrm{K \cdot m^{-1}} \)</span></td>
+    </tr>
+    <tr>
+      <td>Quantum field theory</td>
+      <td><span class="math inline">\( \langle T_{\mu\nu} \rangle \)</span></td>
+      <td><span class="math inline">\( \epsilon,\; p \)</span> (energy density, pressure)</td>
+      <td>Collapse and modulation anchors</td>
+      <td><span class="math inline">\( \mathrm{J \cdot m^{-3}},\; \mathrm{Pa} \)</span></td>
+    </tr>
+  </tbody>
+</table>
         </article>
     </section>
     <section>
