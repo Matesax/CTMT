@@ -145,8 +145,8 @@
                 <text x="500" y="150" class="composition-label">KAC = ∫ KAB · KBC</text>
 
                 <!-- Impulse source -->
-                <circle cx="120" cy="50" r="10" class="impulse" />
-                <text x="100" y="30" font-size="12" fill="red">Impulse</text>
+                <circle cx="134" cy="44" r="10" class="impulse" />
+                <text x="112" y="26" font-size="12" fill="red">Impulse</text>
 
                 <!-- Comparison: Green's Function -->
                 <rect x="550" y="50" width="200" height="80" class="comparison-box" />
@@ -176,9 +176,9 @@
                 <text x="230" y="334" font-size="12">Node C</text>
 
                 <!-- Sync arrows -->
-                <line x1="120" y1="250" x2="235" y2="150" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="120" y1="250" x2="235" y2="250" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="120" y1="250" x2="235" y2="350" stroke="blue" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="120" y1="250" x2="235" y2="150" stroke="blue" stroke-width="2" marker-end="url(#sync_arrow)" />
+                <line x1="120" y1="250" x2="235" y2="250" stroke="blue" stroke-width="2" marker-end="url(#sync_arrow)" />
+                <line x1="120" y1="250" x2="235" y2="350" stroke="blue" stroke-width="2" marker-end="url(#sync_arrow)" />
 
                 <!-- Sync spread nodes -->
                 <circle cx="400" cy="150" r="15" fill="lightgreen" />
@@ -189,9 +189,9 @@
                 <text x="380" y="334" font-size="12">Node C′</text>
 
                 <!-- Sync propagation arrows -->
-                <line x1="265" y1="150" x2="385" y2="150" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="265" y1="250" x2="385" y2="250" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="265" y1="350" x2="385" y2="350" stroke="green" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="265" y1="150" x2="385" y2="150" stroke="green" stroke-width="2" marker-end="url(#sync_arrow)" />
+                <line x1="265" y1="250" x2="385" y2="250" stroke="green" stroke-width="2" marker-end="url(#sync_arrow)" />
+                <line x1="265" y1="350" x2="385" y2="350" stroke="green" stroke-width="2" marker-end="url(#sync_arrow)" />
 
                 <!-- Sync bars (phase delay) -->
                 <rect x="420" y="145" width="80" height="5" fill="green" />
@@ -208,7 +208,7 @@
 
                 <!-- Arrow marker definition -->
                 <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                    <marker id="sync_arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
                         <path d="M0,0 L10,5 L0,10 Z" fill="blue" />
                     </marker>
                 </defs>
@@ -8888,7 +8888,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <text x="255" y="42" font-size="9" fill="#888">mirror</text>
 
                 <!-- Reprojection arrow -->
-                <line x1="250" y1="80" x2="210" y2="80" stroke="#d62728" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="250" y1="80" x2="210" y2="80" stroke="#d62728" stroke-width="2" marker-end="url(#mirror_arrow)" />
                 <text x="190" y="66" font-size="9" fill="#d62728">X‑reprojection</text>
 
                 <!-- Shadow region -->
@@ -8897,7 +8897,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
                 <!-- Arrow marker -->
                 <defs>
-                    <marker id="arrow" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+                    <marker id="mirror_arrow" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
                         <path d="M0,0 L8,3 L0,6 Z" fill="#d62728" />
                     </marker>
                 </defs>
@@ -8905,7 +8905,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
             <h5>Conclusion</h5>
             <p>
-                Light, as a rupture of charge‑phase coherence, is governed by the local coherence density and the kernel‑derived coherence length. Low \(\rho_c\) environments enable maximal projection and high apparent brightness via reduced damping; reflective boundaries act as phase‑preserving modulation interfaces; shadows are modulation echoes of rupture interruption rather than mere absences. The framework is dimensionally closed, operationally testable, and falsifiable. Its consistency with the kernel energy law and vacuum stiffness results supports a coherence‑centric rendering of optical phenomena without invoking traditional ray‑only optics.
+                Light, as a rupture of charge‑phase coherence, is governed by the local coherence density and the kernel‑derived coherence length. Low <span class="math inline">\(\rho_c\)</span> environments enable maximal projection and high apparent brightness via reduced damping; reflective boundaries act as phase‑preserving modulation interfaces; shadows are modulation echoes of rupture interruption rather than mere absences. The framework is dimensionally closed, operationally testable, and falsifiable. Its consistency with the kernel energy law and vacuum stiffness results supports a coherence‑centric rendering of optical phenomena without invoking traditional ray‑only optics.
             </p>
         </article>
     </section>
@@ -20169,7 +20169,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 <path d="M400 525 C300 530, 300 80, 400 70" class="planck_feedback" />
 
                 <!-- Axis label -->
-                <text x="300" y="580" class="axislabel">→ increasing structural emergence (recursive depth)</text>
+                <text x="300" y="580" class="planck_axislabel">→ increasing structural emergence (recursive depth)</text>
             </svg>
 
             <h4>Decoherence–Radiation Law</h4>
@@ -20880,14 +20880,14 @@ zscore = (median - Xi_crit) / std
                         <circle cx="500" cy="75" r="40" fill="#fee" stroke="#f00" />
                         <text x="500" y="80">ρ</text>
                         <path d="M140 75 H260" stroke="#00f" stroke-width="2"
-                              marker-end="url(#arrow)" />
+                              marker-end="url(#rec_arrow)" />
                         <path d="M340 75 H460" stroke="#080" stroke-width="2"
-                              marker-end="url(#arrow)" />
+                              marker-end="url(#rec_arrow)" />
                         <path d="M500 35 L100 35" stroke="#f00" stroke-width="2"
-                              marker-end="url(#arrow)" />
+                              marker-end="url(#rec_arrow)" />
                     </g>
                     <defs>
-                        <marker id="arrow" markerWidth="10" markerHeight="10"
+                        <marker id="rec_arrow" markerWidth="10" markerHeight="10"
                                 refX="6" refY="3" orient="auto">
                             <path d="M0,0 L6,3 L0,6 Z" fill="#000" />
                         </marker>
@@ -21346,7 +21346,7 @@ zscore = (median - Xi_crit) / std
                     <path d="M400 615 C300 620, 300 80, 400 70" class="orb_energy_feedback" />
 
                     <!-- Axis label -->
-                    <text x="250" y="670" class="axislabel">→ increasing structural complexity (snowball gain)</text>
+                    <text x="250" y="670" class="orb_energy_axislabel">→ increasing structural complexity (snowball gain)</text>
                 </svg>
 
                 <figcaption>
@@ -22669,7 +22669,7 @@ zscore = (median - Xi_crit) / std
                 </foreignObject>
 
                 <!-- Arrow 1 -->
-                <line x1="350" y1="140" x2="350" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="350" y1="140" x2="350" y2="160" stroke="#333" stroke-width="2" marker-end="url(#pi_arrow)" />
 
                 <!-- Step 2 -->
                 <foreignObject x="220" y="160" width="360" height="60">
@@ -22680,7 +22680,7 @@ zscore = (median - Xi_crit) / std
                 </foreignObject>
 
                 <!-- Arrow 2 -->
-                <line x1="350" y1="220" x2="350" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="350" y1="220" x2="350" y2="240" stroke="#333" stroke-width="2" marker-end="url(#pi_arrow)" />
 
                 <!-- Step 3 -->
                 <foreignObject x="220" y="240" width="360" height="60">
@@ -22691,7 +22691,7 @@ zscore = (median - Xi_crit) / std
                 </foreignObject>
 
                 <!-- Arrow 3 -->
-                <line x1="350" y1="300" x2="350" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="350" y1="300" x2="350" y2="320" stroke="#333" stroke-width="2" marker-end="url(#pi_arrow)" />
 
                 <!-- Step 4 -->
                 <foreignObject x="220" y="320" width="360" height="60">
@@ -22702,7 +22702,7 @@ zscore = (median - Xi_crit) / std
                 </foreignObject>
 
                 <!-- Arrow 4 -->
-                <line x1="350" y1="380" x2="350" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="350" y1="380" x2="350" y2="400" stroke="#333" stroke-width="2" marker-end="url(#pi_arrow)" />
 
                 <!-- Step 5 -->
                 <foreignObject x="220" y="400" width="360" height="60">
@@ -22725,7 +22725,7 @@ zscore = (median - Xi_crit) / std
 
                 <!-- Arrow marker definition -->
                 <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5"
+                    <marker id="pi_arrow" markerWidth="10" markerHeight="10" refX="5" refY="5"
                             orient="auto-start-reverse" markerUnits="strokeWidth">
                         <path d="M 0 0 L 10 5 L 0 10 z" fill="#333" />
                     </marker>
@@ -24956,7 +24956,7 @@ zscore = (median - Xi_crit) / std
             <p><strong>Recursive Feedback Loop:</strong></p>
             <svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="display:block; margin:auto;">
                 <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <marker id="rec_feedback_arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
                         <path d="M0,0 L0,6 L9,3 z" fill="#333" />
                     </marker>
                 </defs>
@@ -24975,10 +24975,10 @@ zscore = (median - Xi_crit) / std
                 <text x="250" y="225" text-anchor="middle" font-size="14" fill="#333">Persistence</text>
 
                 <!-- Arrows -->
-                <line x1="140" y1="150" x2="210" y2="90" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="290" y1="90" x2="360" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="440" y1="150" x2="290" y2="220" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="210" y1="220" x2="140" y2="160" stroke="#333" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="140" y1="150" x2="210" y2="90" stroke="#333" stroke-width="2" marker-end="url(#rec_feedback_arrow)" />
+                <line x1="290" y1="90" x2="360" y2="150" stroke="#333" stroke-width="2" marker-end="url(#rec_feedback_arrow)" />
+                <line x1="440" y1="150" x2="290" y2="220" stroke="#333" stroke-width="2" marker-end="url(#rec_feedback_arrow)" />
+                <line x1="210" y1="220" x2="140" y2="160" stroke="#333" stroke-width="2" marker-end="url(#rec_feedback_arrow)" />
 
                 <!-- Feedback label -->
                 <text x="300" y="270" text-anchor="middle" font-size="12" fill="#666">Recursive Feedback Loop</text>
@@ -25622,22 +25622,22 @@ zscore = (median - Xi_crit) / std
                 <text x="100" y="280" font-size="14" fill="red">Rupture Index Curve</text>
 
                 <!-- Kernel vector arrows -->
-                <line x1="100" y1="150" x2="100" y2="100" stroke="black" stroke-width="1" marker-end="url(#arrow)" />
+                <line x1="100" y1="150" x2="100" y2="100" stroke="black" stroke-width="1" marker-end="url(#el_mani_arrow)" />
                 <text x="93" y="93" font-size="14">K₁</text>
 
-                <line x1="160" y1="150" x2="160" y2="100" stroke="black" stroke-width="1" marker-end="url(#arrow)" />
+                <line x1="160" y1="150" x2="160" y2="100" stroke="black" stroke-width="1" marker-end="url(#el_mani_arrow)" />
                 <text x="153" y="93" font-size="14">K₂</text>
 
-                <line x1="222" y1="150" x2="220" y2="100" stroke="black" stroke-width="1" marker-end="url(#arrow)" />
+                <line x1="222" y1="150" x2="220" y2="100" stroke="black" stroke-width="1" marker-end="url(#el_mani_arrow)" />
                 <text x="213" y="93" font-size="14">K₃</text>
 
                 <!-- Optional: Mass modulation vector -->
-                <line x1="222" y1="150" x2="280" y2="80" stroke="purple" stroke-width="1" marker-end="url(#arrow)" />
+                <line x1="222" y1="150" x2="280" y2="80" stroke="purple" stroke-width="1" marker-end="url(#el_mani_arrow)" />
                 <text x="285" y="75" font-size="10" fill="purple">Mass Modulation</text> -->
 
                 <!-- Arrow marker -->
                 <defs>
-                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                    <marker id="el_mani_arrow" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
                         <path d="M0,0 L10,5 L0,10 Z" fill="black" />
                     </marker>
                 </defs>
