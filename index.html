@@ -22879,7 +22879,109 @@ zscore = (median - Xi_crit) / std
         <article style="display:none">
 
             <p>
-                We propose that light deflection by astrophysical systems is produced by spatial gradients of modulation (coherence) curvature rather than by a direct force between masses. The modulation-based deflection angle <span class="math inline">\( \theta_{\rm mod} \)</span> for a light ray traversing a path <span class="math inline">\( \gamma \)</span> is:
+                We propose that light deflection by astrophysical systems is produced by spatial gradients of modulation (coherence) curvature rather than by a direct force between masses.
+            </p>
+<ol start="1">
+  <li>
+    <strong>Start from the impulse kernel structure</strong>
+    <p>
+      The modulation kernel is defined spectrally as:
+    </p>
+    <div class="math display">
+      
+
+\[
+      K(x,x') = \int_{\Omega_\omega} M[\omega,\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)}\, d\omega
+      \]
+
+
+    </div>
+    <p>
+      Modulation enters via the amplitude <span class="math inline">\( M \)</span> and the phase <span class="math inline">\( \Phi \)</span>, both of which depend on synchrony and coherence fields.
+    </p>
+  </li>
+</ol>
+
+<ol start="2">
+  <li>
+    <strong>Apply stationary-phase approximation</strong>
+    <p>
+      In the high-frequency limit, the integral is dominated by stationary points of the phase:
+    </p>
+    <div class="math display">
+      
+
+\[
+      \frac{d\Phi(x,x';\omega)}{d\omega} = 0
+      \]
+
+
+    </div>
+    <p>
+      This selects the dominant propagation paths — effectively, the photon trajectory <span class="math inline">\( \gamma \)</span>.
+    </p>
+  </li>
+</ol>
+
+<ol start="3">
+  <li>
+    <strong>Extract spatial curvature from phase structure</strong>
+    <p>
+      The spatial gradient of the phase function encodes modulation curvature. In particular, the radial derivative:
+    </p>
+    <div class="math display">
+      
+
+\[
+      \frac{\partial \Phi(\mathbf{x})}{\partial r}
+      \]
+
+
+    </div>
+    <p>
+      acts as a deflection source, analogous to a refractive index gradient in geometric optics.
+    </p>
+  </li>
+</ol>
+
+<ol start="4">
+  <li>
+    <strong>Normalize by synchrony speed</strong>
+    <p>
+      To convert curvature into a deflection angle, normalize by the local synchrony speed <span class="math inline">\( v_{\rm sync}(\mathbf{x}) \)</span>, which sets the scale for coherence transport:
+    </p>
+    <div class="math display">
+      
+
+\[
+      \delta\theta(\mathbf{x}) \propto \frac{1}{v_{\rm sync}(\mathbf{x})} \cdot \frac{\partial \Phi(\mathbf{x})}{\partial r}
+      \]
+
+
+    </div>
+  </li>
+</ol>
+
+<ol start="5">
+  <li>
+    <strong>Include geometric projection factor</strong>
+    <p>
+      The geometric factor <span class="math inline">\( \Gamma(\ell) \)</span> accounts for projection effects and curvature alignment along the path:
+    </p>
+    <div class="math display">
+      
+
+\[
+      \delta\theta(\ell) \propto \Gamma(\ell) \cdot \frac{1}{v_{\rm sync}(\mathbf{x})} \cdot \frac{\partial \Phi(\mathbf{x})}{\partial r}
+      \]
+
+
+    </div>
+  </li>
+</ol>
+
+            <p>
+				Summing local contributions yields the total deflection angle <span class="math inline">\( \theta_{\rm mod} \)</span> for a light ray traversing a path <span class="math inline">\( \gamma \)</span> is:
             </p>
 
             <figure class="equation" id="eq-27_1">
