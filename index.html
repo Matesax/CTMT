@@ -7925,175 +7925,561 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <h3 id="sec-11-full-spatial-validation-from-kernel-coherence_1">X–axis: Charge–Phase Tension</h3>
+  <p>
+    The X-axis emerges from the coupling between electric charge and phase coherence. In the kernel geometry, it represents the spatial direction along which electromagnetic coherence is established via charge–phase tension. This tension is encoded by the fine-structure constant 
+    <span class="math inline">\( \alpha \)</span>, which governs the strength of quantum electromagnetic interaction. The axis is not arbitrary—it reflects a rhythm gradient in the modulation manifold, where charge density 
+    <span class="math inline">\( \rho \)</span> interacts with synchrony fields to define coherence length.
+  </p>
 
-            <p>
-                The fine‑structure constant <span class="math inline">\(\alpha\)</span> encodes the coupling between charge and phase:
-            </p>
+  <h4>Kernel Embedding and Derivation</h4>
 
-            <figure class="equation" id="eq-11_3">
-                <div class="math display">
+  <p>
+    The X-axis coherence length <span class="math inline">\(L_X\)</span> emerges from the modulation kernel as a direct consequence of charge–phase coupling. It is not imposed externally but derived from the impulse kernel structure:
+  </p>
 
+  <div class="math display">
 
-                    \[
-                    \alpha = \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot L_X^{2}}
-                    \quad \Rightarrow \quad
-                    L_X = \left( \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot \alpha}\right)^{1/2}.
-                    \]
+\[
+  K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)/\mathcal{S}_\ast}\, d^3\omega
+  \]
 
+  </div>
 
-                </div>
-                <figcaption><a href="#eq-11_3">Equation (11.3)</a></figcaption>
-            </figure>
+  <p>
+    The derivation proceeds under minimal assumptions: separability of the modulation envelope, sheet-like spatial support, and stationary-phase localization. No phenomenological closures are introduced; all steps follow from kernel structure and modulation dependence on the fine-structure constant <span class="math inline">\( \alpha \)</span>.
+  </p>
 
-            <p>
-                With <span class="math inline">\(\alpha = 7.297\,352\,5693 \times 10^{-3}\)</span>:
-            </p>
+  <h5>Step 0 — Assumptions and Notation</h5>
+  <ul>
+    <li><strong>Impulse kernel:</strong> <span class="math inline">\(K(x,x') = \int M(\omega;x,x';\alpha)\, e^{i\Phi/\mathcal{S}_\ast}\, d\omega\)</span></li>
+    <li><strong>Geometry:</strong> coherence sheet near <span class="math inline">\(x_0\)</span> with thickness <span class="math inline">\(L_0\)</span> and lateral scale <span class="math inline">\(L_X\)</span>; volume <span class="math inline">\(V_{\rm sheet} \sim L_0 L_X^2\)</span></li>
+    <li><strong>Modulation separability:</strong> <span class="math inline">\(M = C_{\rm phys}(x)\, \mathcal{G}(\alpha)\, \tilde M(\omega)\)</span>, with <span class="math inline">\(C_{\rm phys}\)</span> carrying SI units (e.g., charge density <span class="math inline">\( \rho \)</span>)</li>
+    <li><strong>Stationary-phase:</strong> localizes spectral and spatial contributions to dominant loci</li>
+  </ul>
 
-            <figure class="equation" id="eq-11_4">
-                <div class="math display">
+<p>
+  <em>That reduction from 3D to 1D spectral integration is not a simplification but a consequence of geometric and spectral localization. All algebraic steps follow from the kernel structure and the modulation dependence on the fine-structure constant <span class="math inline">\( \alpha \)</span>.</em>
+</p>
 
+  <h5>Step 1 — Stationary Evaluation on the Sheet</h5>
+  <p>
+    At leading order, the kernel contribution from the sheet is:
+  </p>
+  <div class="math display">
 
-                    \[
-                    L_X \approx 1.04 \times 10^{-1}\ \mathrm{m}.
-                    \]
+\[
+    K_{\rm sheet} \approx C_{\rm phys}(x_0)\, \mathcal{G}(\alpha)\, \tilde M(\omega_0)\, e^{i\Phi_0/\mathcal{S}_\ast} \cdot \frac{(2\pi\mathcal{S}_\ast)^{n/2}}{\sqrt{|\det H|}} \cdot N_{\rm spatial}
+    \]
 
+  </div>
+  <p>
+    where <span class="math inline">\(N_{\rm spatial}\)</span> counts coherent spatial contributions. Rather than estimating this geometrically, we proceed via integrated action.
+  </p>
 
-                </div>
-                <figcaption><a href="#eq-11_4">Equation (11.4)</a></figcaption>
-            </figure>
+  <h5>Step 2 — Sheet Action Content</h5>
+  <p>
+    The physical prefactor contains the local action density. Integrating over the sheet:
+  </p>
+  <div class="math display">
 
-            <p>
-                This is the mesoscopic electromagnetic coherence scale emerging from the kernel.
-            </p>
+\[
+    \mathcal{A}_{\rm sheet} \sim C_{\rm phys}|_{\rm sheet} \cdot V_{\rm sheet} \propto \rho \cdot L_0 L_X^2 \cdot \mathcal{G}(\alpha)
+    \]
+
+  </div>
+
+  <h5>Step 3 — Kernel Coherence Selection Rule</h5>
+  <p>
+    Stationary-phase coherence requires:
+  </p>
+  <div class="math display">
+
+\[
+    \mathcal{A}_{\rm sheet} \sim \mathcal{S}_\ast
+    \]
+
+  </div>
+  <p>
+    This selects spatial regions whose integrated action matches the kernel’s phase sensitivity scale.
+  </p>
+
+  <h5>Step 4 — Solve for <span class="math inline">\(L_X\)</span></h5>
+  <div class="math display">
+
+\[
+    \rho\, L_0\, L_X^2\, \mathcal{G}(\alpha) \sim \mathcal{S}_\ast
+    \quad \Rightarrow \quad
+    L_X = \left( \frac{\mathcal{S}_\ast}{\rho\, L_0\, \mathcal{G}(\alpha)} \right)^{1/2}
+    \]
+
+  </div>
+
+  <h5>Step 5 — Identify Coupling</h5>
+  <p>
+    For electromagnetic modulation, <span class="math inline">\(\mathcal{G}(\alpha) = \alpha\)</span>, yielding:
+  </p>
+  <div class="math display">
+
+\[
+    L_X = \left( \frac{\mathcal{S}_\ast}{\rho\, L_0\, \alpha} \right)^{1/2}
+    \]
+
+  </div>
+
+  <p>
+    where 
+    <span class="math inline">\( \mathcal{S}_\ast \)</span> is the kernel action scale, 
+    <span class="math inline">\( \rho \)</span> is the charge density, and 
+    <span class="math inline">\( L_0 \)</span> is the base coherence unit. This length scale defines the mesoscopic electromagnetic coherence domain.
+  </p>
+
+  <h5>Step 6 — Dimensional Consistency</h5>
+  <div class="math display">
+
+\[
+    [L_X] = \left[ \frac{\mathrm{J \cdot s}}{\mathrm{C^2 \cdot m^{-3}} \cdot \mathrm{m} \cdot 1} \right]^{1/2} = \mathrm{m}
+    \]
+
+  </div>
+
+  <h5>Step 7 — Reproducibility Notes</h5>
+  <ul>
+    <li>Specify <span class="math inline">\(C_{\rm phys}(x)\)</span> to expose <span class="math inline">\(\rho\)</span> explicitly</li>
+    <li>Declare the stationary frequency <span class="math inline">\(\omega_0\)</span> and spectral Hessian <span class="math inline">\(H\)</span></li>
+    <li>Justify the sheet geometry: <span class="math inline">\(V_{\rm sheet} = L_0 L_X^2\)</span></li>
+    <li>Anchor <span class="math inline">\(\mathcal{S}_\ast\)</span> via measurement or substitution</li>
+  </ul>
+
+  <h5>Step 8 — Generalizations</h5>
+  <ul>
+    <li>Nonlinear modulation: <span class="math inline">\(\mathcal{G}(\alpha) = \alpha^\beta \Rightarrow L_X \propto \alpha^{-\beta/2}\)</span></li>
+    <li>Spectral weighting: use <span class="math inline">\(\langle \mathcal{G}(\alpha) \rangle_{\tilde M}\)</span> if <span class="math inline">\(\tilde M(\omega)\)</span> is sharply peaked</li>
+    <li>Uncertainty: propagate anchor covariances or sample kernel inputs</li>
+  </ul>
+
+  <h5>Summary</h5>
+  <p>
+    The X-axis coherence length <span class="math inline">\(L_X\)</span> is derived directly from the impulse kernel by evaluating the action content of a charge-modulated coherence sheet. It reflects the spatial scale over which charge–phase tension maintains synchrony and serves as the electromagnetic coherence anchor in the kernel geometry.
+  </p>
+
+  <h4>Spatial Layering and Interpretation</h4>
+  <p>
+    In spatial layering, the X-axis defines the electromagnetic coherence sheet—an intermediate layer between spin-resolved (Y-axis) and mass-drift (Z-axis) domains. It anchors modulation geometry to observable charge distributions and sets the scale for phase synchrony across spatial cells. The numerical value:
+  </p>
+  <div class="math display">
+
+\[
+    \alpha = 7.297\,352\,5693 \times 10^{-3}, \quad L_X \approx 1.04 \times 10^{-1}\ \mathrm{m}
+    \]
+
+  </div>
+  <p>
+    confirms that the X-axis coherence scale lies in the decimeter regime, consistent with mesoscopic electromagnetic structures such as cavity modes, plasma filaments, and phase-aligned charge domains.
+  </p>
+
+  <h4>Predictive Role and Asymmetry Basis</h4>
+  <p>
+    The X-axis coherence length 
+    <span class="math inline">\( L_X \)</span> serves as a reference scale for modulation-based lensing, spectral filtering, and transport kernels. It also provides the baseline for X–Y asymmetry justification: since 
+    <span class="math inline">\( L_Y > L_X \)</span>, rotational coherence extends beyond charge-phase coherence, leading to observable anisotropies in synchrony propagation and spectral response. This asymmetry is not imposed—it emerges naturally from kernel geometry and physical constants.
+  </p>
+
+  <h4>Summary</h4>
+  <ul>
+    <li><strong>Rhythm gradient:</strong> charge–phase tension</li>
+    <li><strong>Kernel anchor:</strong> fine-structure constant 
+      <span class="math inline">\( \alpha \)</span>
+    </li>
+    <li><strong>Coherence length:</strong> 
+      <span class="math inline">\( L_X \approx 0.104\ \mathrm{m} \)</span>
+    </li>
+    <li><strong>Spatial role:</strong> electromagnetic coherence sheet</li>
+    <li><strong>Used in:</strong> lensing, modulation, asymmetry justification</li>
+  </ul>
 
             <h3 id="sec-11-full-spatial-validation-from-kernel-coherence_2">Y–axis: Spin–Phase Modulation</h3>
+  <p>
+    The Y-axis emerges from the coupling between spin and phase synchrony. In the kernel geometry, it represents the spatial direction along which rotational coherence is established via spin–phase modulation. This modulation is governed by the electron <span class="math inline">\( g \)</span>-factor, which encodes the magnetic response of spin under phase evolution. The Y-axis thus defines a rhythm gradient orthogonal to charge–phase tension, anchoring rotational degrees of freedom in the modulation manifold.
+  </p>
 
-            <p>
-                Spin–phase rhythm is encoded via the electron <span class="math inline">\(g\)</span>‑factor:
-            </p>
+  <h4>Kernel Embedding and Derivation</h4>
 
-            <figure class="equation" id="eq-11_5">
-                <div class="math display">
+  <p>
+    The Y-axis coherence length <span class="math inline">\(L_Y\)</span> emerges directly from the impulse kernel structure. It reflects the spatial scale over which spin–phase modulation maintains synchrony and is derived without phenomenological assumptions. The starting point is the impulse law:
+  </p>
 
+  <div class="math display">
 
-                    \[
-                    \gamma = \frac{g_e}{2\pi}, \quad g_e \approx 2.002\,319\,304\,362\,56.
-                    \]
+\[
+  K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)/\mathcal{S}_\ast}\, d^3\omega
+  \]
 
+  </div>
 
-                </div>
-                <figcaption><a href="#eq-11_5">Equation (11.5)</a></figcaption>
-            </figure>
+  <p>
+    The derivation uses minimal assumptions: separability of the modulation envelope, sheet-like spatial support, and stationary-phase localization. The modulation dependence on spin coupling <span class="math inline">\( \gamma \)</span> drives the emergence of <span class="math inline">\(L_Y\)</span>.
+  </p>
 
-            <p>
-                The Y‑axis coherence length is:
-            </p>
+  <h5>Step 0 — Assumptions and Notation</h5>
+  <ul>
+    <li><strong>Impulse kernel:</strong> <span class="math inline">\(K(x,x') = \int M(\omega;x,x';\gamma)\, e^{i\Phi/\mathcal{S}_\ast}\, d\omega\)</span></li>
+    <li><strong>Geometry:</strong> coherence sheet near <span class="math inline">\(x_0\)</span> with thickness <span class="math inline">\(L_0\)</span> and lateral scale <span class="math inline">\(L_Y\)</span>; volume <span class="math inline">\(V_{\rm sheet} \sim L_0 L_Y^2\)</span></li>
+    <li><strong>Modulation separability:</strong> <span class="math inline">\(M = C_{\rm phys}(x)\, \mathcal{F}(\gamma)\, \tilde M(\omega)\)</span>, with <span class="math inline">\(C_{\rm phys}\)</span> carrying SI units (e.g., charge density <span class="math inline">\( \rho \)</span>)</li>
+    <li><strong>Stationary-phase:</strong> localizes spectral and spatial contributions to dominant loci</li>
+  </ul>
 
-            <figure class="equation" id="eq-11_6">
-                <div class="math display">
+<p>
+  <em>That reduction from 3D to 1D spectral integration is not a simplification but a consequence of geometric and spectral localization. All algebraic steps follow from the kernel structure and the modulation dependence on the fine-structure constant <span class="math inline">\( \alpha \)</span>.</em>
+</p>
 
+  <h5>Step 1 — Stationary Evaluation on the Sheet</h5>
+  <p>
+    At leading order, the kernel contribution from the sheet is:
+  </p>
+  <div class="math display">
 
-                    \[
-                    L_Y = \left( \frac{\mathcal{S}_\ast}{\rho \cdot L_0 \cdot \gamma}\right)^{1/2}.
-                    \]
+\[
+    K_{\rm sheet} \approx C_{\rm phys}(x_0)\, \mathcal{F}(\gamma)\, \tilde M(\omega_0)\, e^{i\Phi_0/\mathcal{S}_\ast} \cdot \frac{(2\pi\mathcal{S}_\ast)^{n/2}}{\sqrt{|\det H|}} \cdot N_{\rm spatial}
+    \]
 
+  </div>
+  <p>
+    where <span class="math inline">\(N_{\rm spatial} \sim L_Y^2 / L_0^2\)</span> counts coherent spatial contributions. We proceed via integrated action instead.
+  </p>
 
-                </div>
-                <figcaption><a href="#eq-11_6">Equation (11.6)</a></figcaption>
-            </figure>
+  <h5>Step 2 — Sheet Action Content</h5>
+  <p>
+    The physical prefactor contains the local action density. Integrating over the sheet:
+  </p>
+  <div class="math display">
 
-            <p>
-                Numerically:
-            </p>
+\[
+    \mathcal{A}_{\rm sheet} \sim C_{\rm phys}|_{\rm sheet} \cdot V_{\rm sheet} \propto \rho \cdot L_0 L_Y^2 \cdot \mathcal{F}(\gamma)
+    \]
 
-            <figure class="equation" id="eq-11_7">
-                <div class="math display">
+  </div>
 
+  <h5>Step 3 — Kernel Coherence Selection Rule</h5>
+  <p>
+    Stationary-phase coherence requires:
+  </p>
+  <div class="math display">
 
-                    \[
-                    \gamma \approx 0.31831, \quad
-                    L_Y \approx 4.73 \times 10^{-1}\ \mathrm{m}.
-                    \]
+\[
+    \mathcal{A}_{\rm sheet} \sim \mathcal{S}_\ast
+    \]
 
+  </div>
+  <p>
+    This selects spatial regions whose integrated action matches the kernel’s phase sensitivity scale.
+  </p>
 
-                </div>
-                <figcaption><a href="#eq-11_7">Equation (11.7)</a></figcaption>
-            </figure>
+  <h5>Step 4 — Solve for <span class="math inline">\(L_Y\)</span></h5>
+  <div class="math display">
 
-            <p>
-                This corresponds to rotational/spin‑resolved coherence scales.
-            </p>
+\[
+    \rho\, L_0\, L_Y^2\, \mathcal{F}(\gamma) \sim \mathcal{S}_\ast
+    \quad \Rightarrow \quad
+    L_Y = \left( \frac{\mathcal{S}_\ast}{\rho\, L_0\, \mathcal{F}(\gamma)} \right)^{1/2}
+    \]
+
+  </div>
+
+  <h5>Step 5 — Identify Coupling</h5>
+  <p>
+    For spin modulation, <span class="math inline">\(\mathcal{F}(\gamma) = \gamma\)</span>, yielding:
+  </p>
+  <div class="math display">
+
+\[
+    L_Y = \left( \frac{\mathcal{S}_\ast}{\rho\, L_0\, \gamma} \right)^{1/2}
+    \]
+
+  </div>
+
+  <p>
+    where <span class="math inline">\( \mathcal{S}_\ast \)</span> is the kernel action scale, <span class="math inline">\( \rho \)</span> is the charge density, and <span class="math inline">\( L_0 \)</span> is the base coherence unit. The factor <span class="math inline">\( \gamma \)</span> reflects the spin–phase coupling strength and modulates the coherence envelope.
+  </p>
+
+  <h5>Step 6 — Dimensional Consistency</h5>
+  <div class="math display">
+
+\[
+    [L_Y] = \left[ \frac{\mathrm{J \cdot s}}{\mathrm{C^2 \cdot m^{-3}} \cdot \mathrm{m} \cdot 1} \right]^{1/2} = \mathrm{m}
+    \]
+
+  </div>
+
+  <h5>Step 7 — Reproducibility Notes</h5>
+  <ul>
+    <li>Specify <span class="math inline">\(C_{\rm phys}(x)\)</span> to expose <span class="math inline">\(\rho\)</span> explicitly</li>
+    <li>Declare the stationary frequency <span class="math inline">\(\omega_0\)</span> and spectral Hessian <span class="math inline">\(H\)</span></li>
+    <li>Justify the sheet geometry: <span class="math inline">\(V_{\rm sheet} = L_0 L_Y^2\)</span></li>
+    <li>Anchor <span class="math inline">\(\mathcal{S}_\ast\)</span> via measurement or substitution</li>
+  </ul>
+
+  <h5>Step 8 — Generalizations</h5>
+  <ul>
+    <li>Nonlinear modulation: <span class="math inline">\(\mathcal{F}(\gamma) = \gamma^\beta \Rightarrow L_Y \propto \gamma^{-\beta/2}\)</span></li>
+    <li>Spectral weighting: use <span class="math inline">\(\langle \mathcal{F}(\gamma) \rangle_{\tilde M}\)</span> if <span class="math inline">\(\tilde M(\omega)\)</span> is sharply peaked</li>
+    <li>Uncertainty: propagate anchor covariances or sample kernel inputs</li>
+  </ul>
+
+  <h5>Summary</h5>
+  <p>
+    The Y-axis coherence length <span class="math inline">\(L_Y\)</span> is derived directly from the impulse kernel by evaluating the action content of a spin-modulated coherence sheet. It reflects the spatial scale over which spin–phase modulation maintains synchrony and serves as the rotational coherence anchor in the kernel geometry.
+  </p>
+
+  <h4>Spatial Layering and Interpretation</h4>
+  <p>
+    In spatial layering, the Y-axis defines the rotational coherence sheet—extending beyond the X-axis electromagnetic domain. It captures synchrony in spin-resolved systems, such as magnetic cavities, spin-polarized plasmas, and rotationally modulated fields. The numerical values:
+  </p>
+  <div class="math display">
+
+\[
+    g_e \approx 2.002\,319\,304\,362\,56, \quad \gamma \approx 0.31831, \quad L_Y \approx 4.73 \times 10^{-1}\ \mathrm{m}
+    \]
+
+  </div>
+  <p>
+    confirm that the Y-axis coherence scale lies in the sub-meter regime, consistent with rotational modulation observed in spin-aligned systems and phase-resolved spectroscopy.
+  </p>
+
+  <h4>Predictive Role and Asymmetry Basis</h4>
+  <p>
+    The Y-axis coherence length <span class="math inline">\( L_Y \)</span> plays a central role in modulation-based lensing, spin-resolved transport, and spectral filtering. Its magnitude relative to the X-axis (<span class="math inline">\( L_Y > L_X \)</span>) establishes the foundation for X–Y asymmetry: rotational coherence persists over longer spatial domains than charge–phase coherence, leading to anisotropic synchrony propagation and observable spectral asymmetries. This asymmetry is geometric and kernel-driven—not imposed by external constraints.
+  </p>
+
+  <h4>Summary</h4>
+  <ul>
+    <li><strong>Rhythm gradient:</strong> spin–phase modulation</li>
+    <li><strong>Kernel anchor:</strong> electron <span class="math inline">\( g \)</span>-factor</li>
+    <li><strong>Coherence length:</strong> <span class="math inline">\( L_Y \approx 0.473\ \mathrm{m} \)</span></li>
+    <li><strong>Spatial role:</strong> rotational coherence sheet</li>
+    <li><strong>Used in:</strong> lensing, modulation, asymmetry justification</li>
+  </ul>
 
             <h3 id="sec-11-full-spatial-validation-from-kernel-coherence_3">Z–axis: Mass–Phase Drift</h3>
+  <p>
+    The Z-axis emerges from the coupling between mass and phase synchrony. In the kernel geometry, it represents the spatial direction along which inertial coherence is established via mass–phase drift. This drift reflects how mass perturbs synchrony fields, introducing curvature and delay in modulation propagation. The Z-axis defines the gravitational rhythm gradient of the system—orthogonal to both charge–phase (X) and spin–phase (Y) axes.
+  </p>
 
-            <p>
-                Mass–phase drag is encoded via the dimensionless coupling:
-            </p>
+  <h4>Kernel Embedding and Derivation</h4>
 
-            <figure class="equation" id="eq-11_8">
-                <div class="math display">
+  <p>
+    The Z-axis coherence length <span class="math inline">\(L_Z\)</span> emerges from the impulse kernel when mass–phase coupling enters the modulation structure. It reflects the spatial scale over which inertial coherence is maintained and is derived directly from the kernel:
+  </p>
 
+  <div class="math display">
 
-                    \[
-                    \delta(m) = \frac{G m^{2}}{k_e e^{2}}, \quad
-                    L_Z(m) = L_0 \cdot \delta(m)^{1/3}.
-                    \]
+\[
+K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)/\mathcal{S}_\ast}\, d^3\omega
+\]
 
+  </div>
 
-                </div>
-                <figcaption><a href="#eq-11_8">Equation (11.8)</a></figcaption>
-            </figure>
+  <p>
+    The derivation uses separable modulation, volumetric support, and stationary-phase localization. The mass coupling enters via the dimensionless ratio:
+    <span class="math inline">\( \delta(m) = \frac{G m^2}{k_e e^2} \)</span>, comparing gravitational self-energy to electrostatic energy.
+  </p>
 
-            <p>
-                With
-                <span class="math inline">\(G = 6.67430 \times 10^{-11}\ \mathrm{m^{3}\,kg^{-1}\,s^{-2}}\)</span>,
-                <span class="math inline">\(k_e = 8.98755 \times 10^{9}\ \mathrm{N\,m^{2}\,C^{-2}}\)</span>,
-                <span class="math inline">\(e = 1.602176634 \times 10^{-19}\ \mathrm{C}\)</span>:
-            </p>
+  <h5>Step 0 — Assumptions and Notation</h5>
+  <ul>
+    <li><strong>Impulse kernel:</strong> <span class="math inline">\(M(\omega;x,x';m) = C_{\rm phys}(x)\, \mathcal{H}(\delta(m))\, \tilde M(\omega)\)</span></li>
+    <li><strong>Geometry:</strong> Z-domain with volumetric support <span class="math inline">\(V_Z \sim L_Z^3\)</span>; base coherence unit <span class="math inline">\(L_0 = (\mathcal{S}_\ast/\rho)^{1/3}\)</span></li>
+    <li><strong>Prefactor:</strong> <span class="math inline">\(C_{\rm phys}\)</span> carries local action density, typically proportional to <span class="math inline">\(\rho\)</span></li>
+  </ul>
 
-            <p><strong>Proton mass</strong> <span class="math inline">\(m_p = 1.67262192369 \times 10^{-27}\ \mathrm{kg}\)</span>:</p>
+  <h5>Step 1 — Stationary Evaluation and Integrated Action</h5>
+  <p>
+    The integrated action from the Z-domain is:
+  </p>
+  <div class="math display">
 
-            <figure class="equation" id="eq-11_9">
-                <div class="math display">
+\[
+    \mathcal{A}_{\rm Z} \sim C_{\rm phys}|_{\rm Z} \cdot V_Z \propto \rho_{\rm eff} \cdot L_Z^3 \cdot \mathcal{H}(\delta)
+    \]
 
+  </div>
+  <p>
+    where <span class="math inline">\(\rho_{\rm eff}\)</span> is the effective impedance density and <span class="math inline">\(\mathcal{H}(\delta)\)</span> encodes mass modulation.
+  </p>
 
-                    \[
-                    \delta_p \approx 8.1 \times 10^{-37}, \quad
-                    L_Z(p) \approx 4.0 \times 10^{-15}\ \mathrm{m}.
-                    \]
+  <h5>Step 2 — Kernel Coherence Selection Rule</h5>
+  <p>
+    Stationary-phase coherence requires:
+  </p>
+  <div class="math display">
 
+\[
+    \mathcal{A}_{\rm Z} \sim \mathcal{S}_\ast
+    \]
 
-                </div>
-                <figcaption><a href="#eq-11_9">Equation (11.9)</a></figcaption>
-            </figure>
+  </div>
 
-            <p><strong>Electron mass</strong> <span class="math inline">\(m_e = 9.10938356 \times 10^{-31}\ \mathrm{kg}\)</span>:</p>
+  <h5>Step 3 — Choose Physical Mapping</h5>
+  <ul>
+    <li><strong>Mapping A:</strong> <span class="math inline">\(\rho_{\rm eff} = \rho / \delta\)</span> → <span class="math inline">\(\mathcal{H}(\delta) = \delta^{-1}\)</span></li>
+    <li><strong>Mapping B:</strong> <span class="math inline">\(\rho_{\rm eff} = \rho \cdot \delta\)</span> → <span class="math inline">\(\mathcal{H}(\delta) = \delta\)</span></li>
+  </ul>
 
-            <figure class="equation" id="eq-11_10">
-                <div class="math display">
+  <h5>Step 4 — Collapse Algebra (Mapping A)</h5>
+  <div class="math display">
 
+\[
+    \frac{\rho}{\delta} \cdot L_Z^3 \sim \mathcal{S}_\ast
+    \quad \Rightarrow \quad
+    L_Z^3 \sim \frac{\mathcal{S}_\ast \cdot \delta}{\rho}
+    \quad \Rightarrow \quad
+    L_Z = \left( \frac{\mathcal{S}_\ast}{\rho} \right)^{1/3} \cdot \delta^{1/3}
+    \]
 
-                    \[
-                    \delta_e \approx 2.4 \times 10^{-43}, \quad
-                    L_Z(e) \approx 1.2 \times 10^{-17}\ \mathrm{m}.
-                    \]
+  </div>
+  <p>
+    Recognizing <span class="math inline">\(L_0 = (\mathcal{S}_\ast/\rho)^{1/3}\)</span> gives:
+  </p>
+  <div class="math display">
 
+\[
+    L_Z = L_0 \cdot \delta^{1/3}
+    \]
 
-                </div>
-                <figcaption><a href="#eq-11_10">Equation (11.10)</a></figcaption>
-            </figure>
+  </div>
 
-            <p>
-                These match nuclear and sub‑nuclear coherence scales.
-            </p>
+  <p>
+    where <span class="math inline">\( L_0 \)</span> is the base coherence unit. This length scales with mass and reflects the spatial domain over which mass-induced phase drift becomes significant.
+  </p>
+
+  <h5>Step 5 — Dimensional Consistency</h5>
+  <div class="math display">
+
+\[
+    [L_Z] = [L_0] \cdot [\delta]^{1/3} = \mathrm{m}
+    \]
+
+  </div>
+
+  <h5>Step 6 — Physical Interpretation</h5>
+  <p>
+    Mapping A assumes gravitational self-coupling softens impedance, extending coherence. Mapping B assumes mass concentrates action, reducing coherence. The kernel structure allows both to be tested via <span class="math inline">\(\mathcal{H}(\delta)\)</span> fitting.
+  </p>
+
+  <h5>Step 7 — Kernel Embedding and Operational Recipe</h5>
+  <ol>
+    <li>Make <span class="math inline">\(M\)</span>'s dependence on <span class="math inline">\(m\)</span> explicit: write <span class="math inline">\(M = C_{\rm phys}(x)\, \mathcal{H}(\delta(m))\, \tilde M(\omega)\)</span></li>
+    <li>Compute <span class="math inline">\(\mathcal{A}_{\rm Z}\)</span> over chosen geometry and enforce <span class="math inline">\(\mathcal{A}_{\rm Z} \sim \mathcal{S}_\ast\)</span></li>
+    <li>Propagate uncertainties via <span class="math inline">\(\partial L_Z / \partial m\)</span> or Monte Carlo sampling</li>
+  </ol>
+
+  <h5>Compact Logical Chain (Kernel → <span class="math inline">\(L_Z\)</span></h5>
+  <p>
+    Impulse kernel with mass dependence → stationary-phase localization → integrate <span class="math inline">\(C_{\rm phys}\)</span> over volume → apply mass coupling via <span class="math inline">\(\mathcal{H}(\delta)\)</span> → enforce coherence condition → solve for <span class="math inline">\(L_Z = L_0 \cdot \delta^{1/3}\)</span>.
+  </p>
+
+  <h5>Summary</h5>
+  <p>
+    The Z-axis coherence length <span class="math inline">\(L_Z\)</span> is derived from the impulse kernel by evaluating the action content of a mass-modulated coherence volume. It anchors gravitational and inertial modulation in the kernel geometry and connects directly to orbital mechanics and sub-nuclear coherence domains.
+  </p>
+
+  <h4>Elemental and Energy Connections</h4>
+  <p>
+    The Z-axis coherence scale varies with particle mass, linking directly to elemental structure and nuclear energy domains. For example:
+  </p>
+  <ul>
+    <li><strong>Proton mass</strong> <span class="math inline">\( m_p = 1.6726 \times 10^{-27}\ \mathrm{kg} \)</span> → 
+      <span class="math inline">\( L_Z(p) \approx 4.0 \times 10^{-15}\ \mathrm{m} \)</span>
+    </li>
+    <li><strong>Electron mass</strong> <span class="math inline">\( m_e = 9.109 \times 10^{-31}\ \mathrm{kg} \)</span> → 
+      <span class="math inline">\( L_Z(e) \approx 1.2 \times 10^{-17}\ \mathrm{m} \)</span>
+    </li>
+  </ul>
+  <p>
+    These coherence lengths correspond to nuclear and sub-nuclear domains, aligning with binding energies and orbital shell structures. The Z-axis thus anchors the kernel to atomic and quantum mechanical regimes.
+  </p>
+
+  <h4>Orbital Mechanics and Modulation Drift</h4>
+  <p>
+    In orbital systems, mass–phase drift manifests as curvature in synchrony propagation, influencing orbital precession, modulation delay, and gravitational lensing. The Z-axis coherence scale sets the threshold below which mass-induced modulation becomes non-negligible. It also defines the spatial resolution for inertial transport kernels and collapse geometry in gravitational fields.
+  </p>
+
+  <h4>Spatial Layering and Interpretation</h4>
+  <p>
+    In spatial layering, the Z-axis defines the deepest coherence sheet—beneath electromagnetic (X) and rotational (Y) domains. It governs phase stability in mass-dense regions and sets the modulation floor for collapse kernels. Its short coherence length reflects the localized nature of mass–phase interactions and their role in anchoring kernel geometry to matter.
+  </p>
+
+  <h4>Summary</h4>
+  <ul>
+    <li><strong>Rhythm gradient:</strong> mass–phase drift</li>
+    <li><strong>Kernel anchor:</strong> dimensionless coupling 
+      <span class="math inline">\( \delta(m) = \frac{G m^2}{k_e e^2} \)</span>
+    </li>
+    <li><strong>Coherence length:</strong> 
+      <span class="math inline">\( L_Z(p) \approx 4.0 \times 10^{-15}\ \mathrm{m},\; L_Z(e) \approx 1.2 \times 10^{-17}\ \mathrm{m} \)</span>
+    </li>
+    <li><strong>Spatial role:</strong> inertial coherence sheet</li>
+    <li><strong>Used in:</strong> collapse kernels, orbital modulation, gravitational lensing</li>
+  </ul>
 
             <h3 id="sec-11-full-spatial-validation-from-kernel-coherence_4">Conclusion</h3>
-            <p>Each spatial axis emerges from a distinct rhythm gradient:</p>
-            <ul>
-                <li><strong>X: charge–phase tension</strong> → electromagnetic coherence</li>
-                <li><strong>Y: spin–phase modulation</strong> → rotational coherence</li>
-                <li><strong>Z: mass–phase drift</strong> → gravitational/inertial coherence</li>
-            </ul>
+  <p>
+    The X, Y, and Z axes represent orthogonal rhythm gradients in the kernel geometry, each emerging from a distinct physical coupling:
+  </p>
+  <ul>
+    <li><strong>X-axis:</strong> charge–phase tension → electromagnetic coherence</li>
+    <li><strong>Y-axis:</strong> spin–phase modulation → rotational coherence</li>
+    <li><strong>Z-axis:</strong> mass–phase drift → inertial coherence</li>
+  </ul>
+  <p>
+    These axes are not arbitrary coordinates—they are coherence directions defined by kernel primitives and modulation structure. Each axis anchors a spatial layer in the CTMT framework, forming a nested geometry of synchrony domains.
+  </p>
+
+  <h4>Dimensional Scaling and Coherence Hierarchy</h4>
+  <p>
+    The coherence lengths 
+    <span class="math inline">\( L_X, L_Y, L_Z \)</span> define a hierarchy of spatial scales:
+  </p>
+  <div class="math display">
+
+\[
+    L_Z \ll L_X \ll L_Y
+    \]
+
+  </div>
+  <p>
+    This ordering reflects the strength and reach of each rhythm gradient. Mass–phase drift is highly localized (nuclear scale), charge–phase tension spans mesoscopic domains, and spin–phase modulation extends into macroscopic coherence. The kernel geometry thus encodes dimensional layering through rhythm strength and spectral reach.
+  </p>
+
+  <h4>Quantum vs. Macroscopic Dimensional Behavior</h4>
+  <p>
+    Quantum systems lack explicit spatial dimensions because their coherence is encoded spectrally and probabilistically. They operate within modulation manifolds where spatial axes are latent—present as potential but not yet geometrically resolved. The quantum regime is rhythm-rich but dimension-poor: it contains the seeds of geometry without expressing it.
+  </p>
+  <p>
+    In contrast, macroscopic systems generate dimensions through modulation collapse and synchrony propagation. As coherence extends and rhythm gradients stabilize, spatial axes emerge as resolved directions in the kernel. This transition—from latent modulation to explicit geometry—is governed by the CTMT sequence:
+  </p>
+  <div class="math display">
+
+\[
+    \text{Collapse} \rightarrow \text{Transport} \rightarrow \text{Modulation} \rightarrow \text{Topology}
+    \]
+
+  </div>
+  <p>
+    Quantum systems reside in the pre-collapse regime, where modulation is spectral and topological but not yet spatial. Macroscopic systems complete the CTMT cycle, generating spatial dimensions as emergent coherence layers.
+  </p>
+
+  <h4>Predictive Implications</h4>
+  <p>
+    This axis framework enables predictive modeling of coherence behavior across scales. It explains why quantum fields exhibit nonlocality and dimensional ambiguity, while macroscopic systems display anisotropy, spatial layering, and modulation-based lensing. It also supports the derivation of kernel laws from spectral primitives without requiring fitted parameters.
+  </p>
+
+  <h4>Summary</h4>
+  <ul>
+    <li>Axes emerge from rhythm gradients encoded in kernel structure</li>
+    <li>Quantum systems contain dimensional potential but lack resolved geometry</li>
+    <li>Macroscopic systems generate dimensions via modulation collapse</li>
+    <li>Coherence lengths define spatial layering and asymmetry</li>
+    <li>CTMT sequence governs the transition from spectral modulation to spatial topology</li>
+  </ul>
             <p>
                 All lengths are derived from kernel primitives <span class="math inline">\((\hbar, \rho)\)</span> and standard constants, with no fitted parameters.
             </p>
