@@ -25619,100 +25619,6 @@ zscore = (median - Xi_crit) / std
         </article>
     </section>
     <section>
-        <h2 title="Click to toggle" id="sec-32-dimensional-collapse-rendering-kernel-formalism">
-            Dimensional Collapse Rendering: Kernel Formalism
-        </h2>
-        <article style="display:none">
-            <p>Let the kernel define three emergent rhythm axes:</p>
-
-            <figure class="equation" id="eq-32_1">
-                <div class="math display">
-
-
-                    \[
-                    \hat{X}= \text{charge-phase rupture}, \quad
-                    \hat{Y}= \text{spin-phase modulation}, \quad
-                    \hat{Z}= \text{mass-phase drift}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-32_1">Equation (32.1)</a></figcaption>
-            </figure>
-
-            <p>Define coherence density:</p>
-
-            <figure class="equation" id="eq-32_2">
-                <div class="math display">
-
-
-                    \[
-                    \rho_c = \text{local rhythm stiffness}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-32_2">Equation (32.2)</a></figcaption>
-            </figure>
-
-            <p>Define gravitational potential as a compressed rhythm field:</p>
-
-            <figure class="equation" id="eq-32_3">
-                <div class="math display">
-
-
-                    \[
-                    \Phi = \Phi(\rho_c, \nabla \hat{X}, \nabla \hat{Y}, \nabla \hat{Z})
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-32_3">Equation (32.3)</a></figcaption>
-            </figure>
-
-            <p>
-                Then, the synchronization offset across a closed loop
-                <span class="math inline">\(\gamma\)</span> becomes:
-            </p>
-
-            <figure class="equation" id="eq-32_4">
-                <div class="math display">
-
-
-                    \[
-                    \Delta_{\text{sync}} = \oint_{\gamma}\mathbf{D}\cdot d\ell
-                    \;\approx\; \int_{\gamma}\left( -\frac{v^{2}}{2c^{2}} + \frac{\Phi}{c^{2}} \right) d\ell
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-32_4">Equation (32.4)</a></figcaption>
-            </figure>
-
-            <p>Where:</p>
-            <ul>
-                <li><span class="math inline">\(\mathbf{D}\)</span> is the dimensional drift vector (modulated by <span class="math inline">\(\rho_c\)</span>)</li>
-                <li><span class="math inline">\(v\)</span> is local mass‑phase drift velocity</li>
-                <li><span class="math inline">\(c\)</span> is rupture rendering rate (not classical light speed)</li>
-            </ul>
-
-            <h4>Phenomenological Effects</h4>
-            <ul>
-                <li><strong>Light Bending:</strong> <span class="math inline">\(\nabla \hat{X}\neq 0\)</span> near mass‑phase collapse</li>
-                <li><strong>Frame Dragging:</strong> <span class="math inline">\(\nabla \hat{Y}\neq 0\)</span> under rotational coherence</li>
-                <li><strong>Time Dilation:</strong> <span class="math inline">\(\nabla \hat{Z}\to \infty\)</span> as <span class="math inline">\(\rho_c \to 0\)</span></li>
-                <li><strong>Horizon Behavior:</strong> <span class="math inline">\(\rho_c < \rho_{\text{min}} \Rightarrow\)</span> rupture unrenderable</li>
-                <li><strong>Image Projection:</strong> <span class="math inline">\(\hat{X}\)</span> trace reoriented at <span class="math inline">\(\rho_c\)</span> boundary</li>
-            </ul>
-
-            <h4>Rendering Conditions</h4>
-            <p>
-                All paradoxes dissolve when spacetime is replaced by rhythm collapse.
-                The kernel renders reality from origin, not projection.
-            </p>
-        </article>
-    </section>
-    <section>
         <h2 title="Click to toggle" id="sec-33-kernel-holonomy-and-strong-field-relativistic-energy-modulat">
             Kernel Holonomy and Strong-Field Relativistic Energy Modulation
         </h2>
@@ -29584,6 +29490,200 @@ H, detH, sp.simplify(prefactor)
                     </tr>
                 </tbody>
             </table>
+        </article>
+    </section>
+    <section>
+        <h2 title="Click to toggle" id="sec-32-dimensional-collapse-rendering-kernel-formalism">
+            Dimensional Collapse Rendering: Kernel Formalism
+        </h2>
+        <article style="display:none">
+<section id="sec-32-dim-collapse-expanded">
+  <p>
+    Purpose: connect the RMI impulse kernel and the geometry taxonomy 
+    (<span class="math inline">\(\text{Coll}\)</span>, <span class="math inline">\(\text{Mod}\)</span>, <span class="math inline">\(\text{Trans}\)</span>, <span class="math inline">\(\text{Topo}\)</span>, <span class="math inline">\(\text{Anch}\)</span>) 
+    to the dimensional‑collapse axes 
+    <span class="math inline">\(\hat X,\hat Y,\hat Z\)</span>. Present a single, consistent derivation path
+    from primitive kernel objects to the coherence lengths 
+    <span class="math inline">\(L_X,L_Y,L_Z\)</span>, show how 
+    <span class="math inline">\(\rho_c\)</span> and 
+    <span class="math inline">\(\Phi\)</span> follow,
+    and list modelling paradoxes with explicit resolutions grounded in the kernel formalism.
+  </p>
+
+  <h4>One kernel, five geometries — restatement of primitives</h4>
+  <p>Start from the impulse law:</p>
+  <div class="math display">
+
+\[
+    K(x,x') = \int_{\Omega_\omega} M[\omega;\,\text{Anch},\text{Mod}]\, 
+    \exp\left(\frac{i}{\mathcal{S}_\ast} \Phi(x,x';\omega;\text{Coll},\text{Topo})\right)\, d^3\omega
+    \]
+
+  </div>
+
+  <ul>
+    <li><strong>Coll–<span class="math inline">\(\Phi\)</span></strong>: phase/action field and Hessian <span class="math inline">\(H\)</span></li>
+    <li><strong>Mod–<span class="math inline">\(M\)</span></strong>: modulation envelope <span class="math inline">\(M = C_{\rm phys} \tilde M\)</span> with dependencies on <span class="math inline">\(\rho, \alpha, \gamma, \delta\)</span></li>
+    <li><strong>Trans–<span class="math inline">\(T\)</span></strong>: transport structure (velocity fields, causal continuation)</li>
+    <li><strong>Topo–<span class="math inline">\(\mathcal{H}\)</span></strong>: holonomy and connection terms in <span class="math inline">\(\Phi\)</span></li>
+    <li><strong>Anch–<span class="math inline">\(\Sigma\)</span></strong>: anchor values and covariances for <span class="math inline">\(\mathcal{S}_\ast, \rho, \alpha, g_e, m, \dots\)</span></li>
+  </ul>
+
+  <h4>2. Kernel → selection rule (stationary‑phase chain)</h4>
+  <ol>
+    <li>Spectral stationary point <span class="math inline">\(\omega_0\)</span> satisfies <span class="math inline">\(\partial_\omega \Phi|_{\omega_0} = 0\)</span></li>
+    <li>Spatial stationary loci satisfy <span class="math inline">\(\nabla_x \Phi = 0\)</span> or near-stationarity</li>
+    <li>Evaluate <span class="math inline">\(C_{\rm phys} \tilde M\)</span> at stationary loci and multiply by prefactor <span class="math inline">\((2\pi\mathcal{S}_\ast)^{n/2} / \sqrt{|\det H|}\)</span></li>
+    <li>Integrate across support volume <span class="math inline">\(V_{\rm support}\)</span> to obtain action content <span class="math inline">\(\mathcal{A}_{\rm support}\)</span></li>
+    <li>Selection rule: <span class="math inline">\(\mathcal{A}_{\rm support} \sim \mathcal{S}_\ast\)</span> ⇒ leading-order contribution</li>
+  </ol>
+
+  <h4>Unified derivation template</h4>
+  <p>
+    For support geometry <span class="math inline">\(V\)</span> (sheet: <span class="math inline">\(L_0 L^2\)</span>, filament: <span class="math inline">\(L_0^2 L\)</span>, voxel: <span class="math inline">\(L^3\)</span>), the integrated action reads:
+  </p>
+  <div class="math display">
+
+\[
+    \mathcal{A}_{\rm support} \sim \rho_{\rm eff} \cdot V \cdot \mathcal{F}(\text{coupling})
+    \]
+
+  </div>
+  <p>
+    Enforce <span class="math inline">\(\mathcal{A}_{\rm support} \sim \mathcal{S}_\ast\)</span> and solve for lateral scale <span class="math inline">\(L\)</span>.
+  </p>
+
+  <h4>Axis derivations from kernel primitives</h4>
+
+  <h5>X — charge–phase (sheet geometry)</h5>
+  <ol>
+    <li><span class="math inline">\(\mathcal{F} = \mathcal{G}(\alpha)\)</span>, with <span class="math inline">\(\mathcal{G}(\alpha) \propto \alpha\)</span></li>
+    <li><span class="math inline">\(V_X \sim L_0 L_X^2\)</span>, with <span class="math inline">\(L_0 = (\mathcal{S}_\ast / \rho)^{1/3}\)</span></li>
+    <li><span class="math inline">\(\mathcal{A}_X \sim \rho L_0 L_X^2 \alpha\)</span></li>
+    <li>Selection rule ⇒ <span class="math inline">\(L_X = \left( \frac{\mathcal{S}_\ast}{\rho L_0 \alpha} \right)^{1/2}\)</span></li>
+  </ol>
+
+  <h5>Y — spin–phase (sheet geometry)</h5>
+  <ol>
+    <li><span class="math inline">\(\mathcal{F} = \mathcal{F}_s(\gamma)\)</span>, with <span class="math inline">\(\gamma = g_e / 2\pi\)</span></li>
+    <li><span class="math inline">\(V_Y \sim L_0 L_Y^2\)</span></li>
+    <li><span class="math inline">\(\mathcal{A}_Y \sim \rho L_0 L_Y^2 \gamma\)</span></li>
+    <li>Selection rule ⇒ <span class="math inline">\(L_Y = \left( \frac{\mathcal{S}_\ast}{\rho L_0 \gamma} \right)^{1/2}\)</span></li>
+  </ol>
+
+  <h5>Z — mass–phase (volumetric geometry)</h5>
+  <ol>
+    <li><span class="math inline">\(\mathcal{F} = \mathcal{H}(\delta)\)</span>, with <span class="math inline">\(\delta = \frac{G m^2}{k_e e^2}\)</span></li>
+    <li><span class="math inline">\(V_Z \sim L_Z^3\)</span></li>
+    <li><span class="math inline">\(\mathcal{A}_Z \sim \rho_{\rm eff} L_Z^3 \mathcal{H}(\delta)\)</span></li>
+    <li>Mapping A: <span class="math inline">\(\rho_{\rm eff} = \rho / \delta\)</span> ⇒ <span class="math inline">\(L_Z = L_0 \delta^{1/3}\)</span></li>
+    <li>Mapping B: <span class="math inline">\(\rho_{\rm eff} = \rho \cdot \delta\)</span> ⇒ <span class="math inline">\(L_Z = L_0 \delta^{-1/3}\)</span></li>
+  </ol>
+
+<h4>Coherence density and rhythm potential</h4>
+
+<p>
+  Define local coherence density <span class="math inline">\(\rho_c(x)\)</span> as the rhythm stiffness — the action content per coherence cell volume:
+</p>
+
+<div class="math display">
+
+\[
+  \rho_c(x) = \frac{\mathcal{A}_{\rm cell}(x)}{L_0^3} 
+  \sim \frac{C_{\rm phys}(x) \cdot \mathcal{F}(\text{coupling})(x) \cdot L_{\rm cell}^3}{L_0^3}
+  \]
+
+</div>
+
+<p>
+  This quantity governs how modulation gradients translate into rendered spatial structure. It is not a classical density but a coherence-weighted action field, sensitive to modulation type and anchor values.
+</p>
+
+<p>
+  Define the rhythm potential <span class="math inline">\(\Phi_{\rm rhythm}(x)\)</span> as a compressed field encoding coherence curvature and modulation tension:
+</p>
+
+<div class="math display">
+
+\[
+  \Phi_{\rm rhythm}(x) = \mathcal{W}\left[\rho_c(x), \nabla \hat{X}, \nabla \hat{Y}, \nabla \hat{Z}\right]
+  \]
+
+</div>
+
+<p>
+  where <span class="math inline">\(\mathcal{W}\)</span> is a functional derived from integrated action density and holonomy corrections (Topo–<span class="math inline">\(\mathcal{H}\)</span>). The explicit form depends on the modulation envelope <span class="math inline">\(M\)</span> and the phase structure <span class="math inline">\(\Phi\)</span>.
+</p>
+
+<h4>Synchronization offset and dimensional drift</h4>
+
+<p>
+  The synchronization offset across a closed loop <span class="math inline">\(\gamma\)</span> is computed from the local drift vector <span class="math inline">\(\mathbf{D}(x)\)</span> and the rhythm potential:
+</p>
+
+<div class="math display">
+
+\[
+  \Delta_{\rm sync} = \oint_\gamma \mathbf{D}(x) \cdot d\ell 
+  \approx \int_\gamma \left( -\frac{v^2(x)}{2c^2} + \frac{\Phi_{\rm rhythm}(x)}{c^2} \right) d\ell
+  \]
+</div>
+
+<p>
+  Here <span class="math inline">\(v(x)\)</span> is the local mass–phase drift velocity, and <span class="math inline">\(c\)</span> is the rupture rendering rate supplied by anchors (<span class="math inline">\(\Sigma\)</span>). This expression generalizes gravitational redshift and frame dragging into a modulation-based synchronization law.
+</p>
+
+<h4>Phenomenology, paradoxes, and kernel-based resolutions</h4>
+
+<h5>Paradox A — causality vs instantaneous collapse</h5>
+<p>
+  Collapse appears globally synchronized, violating causal transport. Kernel resolution: collapse is selected via stationary-phase, not propagated. Transport structure (<span class="math inline">\(\text{Trans}\)</span>) enforces causality via analytic continuation and finite support of <span class="math inline">\(\tilde M(\omega)\)</span>.
+</p>
+
+<h5>Paradox B — overlapping geometry domains</h5>
+<p>
+  Sheet and volume supports may overlap, risking double-counting. Kernel resolution: use orthogonal projection operators and partition of unity to assign dominant action source per cell. Stationary-phase suppresses subdominant overlaps.
+</p>
+
+<h5>Paradox C — scale mismatch (micro vs meso)</h5>
+<p>
+  Misidentifying geometry (e.g., filament vs sheet) leads to incorrect scaling. Kernel resolution: let modulation envelope <span class="math inline">\(M\)</span> determine effective geometry. Anchors guide sensitivity tests to detect mismatches.
+</p>
+
+<h5>Paradox D — ambiguity in mass coupling mapping</h5>
+<p>
+  Both <span class="math inline">\(L_Z = L_0 \delta^{1/3}\)</span> and <span class="math inline">\(L_Z = L_0 \delta^{-1/3}\)</span> are plausible. Kernel resolution: fit <span class="math inline">\(\mathcal{H}(\delta)\)</span> to data via modulation envelope <span class="math inline">\(M\)</span>. The sign reflects whether mass softens or stiffens coherence.
+</p>
+
+<h5>Paradox E — energy conservation vs rendered potential</h5>
+<p>
+  Treating <span class="math inline">\(\Phi_{\rm rhythm}\)</span> as gravitational potential raises conservation concerns. Kernel resolution: energy conservation is enforced via real/imaginary parts of <span class="math inline">\(M\)</span> and dissipative terms in <span class="math inline">\(\text{Trans}\)</span>. Open systems require flux balance equations.
+</p>
+
+<h5>Paradox F — quantum dimensional ambiguity</h5>
+<p>
+  Quantum systems lack resolved dimensions yet encode modulation gradients. Kernel resolution: dimensions are latent in modulation; collapse renders them when coherence exceeds threshold. Quantum nonlocality is spectral, not spatial.
+</p>
+
+<h5>Paradox G — horizon rendering and rupture limits</h5>
+<p>
+  Near horizons, <span class="math inline">\(\rho_c \to 0\)</span> and <span class="math inline">\(\nabla \hat{Z} \to \infty\)</span>, making rupture unrenderable. Kernel resolution: rendering fails when coherence density drops below threshold. This defines horizon behavior without singularities.
+</p>
+
+<h4>Operational checklist to reproduce dimensional collapse</h4>
+<ol>
+  <li>Declare anchors <span class="math inline">\(\Sigma\)</span>: <span class="math inline">\(\mathcal{S}_\ast, \rho, \alpha, g_e, m, c_{\rm render}, \dots\)</span></li>
+  <li>Specify kernel separability: give <span class="math inline">\(C_{\rm phys}(x)\)</span> and forms <span class="math inline">\(\mathcal{G}(\alpha), \mathcal{F}_s(\gamma), \mathcal{H}(\delta)\)</span></li>
+  <li>Choose spatial geometry (sheet, filament, volume) and compute <span class="math inline">\(V_{\rm support}\)</span></li>
+  <li>Compute stationary points <span class="math inline">\(\omega_0\)</span> and Hessian <span class="math inline">\(H\)</span>; build prefactor and local amplitude</li>
+  <li>Apply selection rule <span class="math inline">\(\mathcal{A}_{\rm support} \sim \mathcal{S}_\ast\)</span> and solve for <span class="math inline">\(L\)</span></li>
+  <li>Propagate uncertainties using <span class="math inline">\(\Sigma\)</span>; test mappings by fitting modulation functions to data</li>
+</ol>
+
+<h4>Summary</h4>
+<p>
+  The dimensional axes <span class="math inline">\(\hat X, \hat Y, \hat Z\)</span> are rhythm gradients rendered from a single impulse kernel when geometry types are made explicit. Coherence scales <span class="math inline">\(L_X, L_Y, L_Z\)</span> follow from stationary-phase selection and modulation dependence. Coherence density <span class="math inline">\(\rho_c\)</span> and rhythm potential <span class="math inline">\(\Phi_{\rm rhythm}\)</span> encode curvature and synchronization drift. All paradoxes are resolved by making modulation explicit, choosing correct geometry, and fitting kernel primitives to anchors. This closes the loop from spectral modulation to rendered dimensional structure.
+</p>
         </article>
     </section>
     <section>
