@@ -1444,241 +1444,532 @@
     <section>
         <h2 title="Click to toggle" id="sec-41-replacing-trigonometry">Replacing Trigonometry with Kernel Collapse Geometry</h2>
         <article style="display:none">
-            <p>
-                Distance in the kernel formalism emerges not from geometric projection, but from phase–collapse dynamics within the self-referential kernel:
-            </p>
+<p>
+  Classical trigonometry relies on static geometric projection — angles, lengths, and ratios in Euclidean space. In kernel collapse geometry, these emerge dynamically from phase gradients and coherence structure. The impulse kernel:
+</p>
 
-            <figure class="equation" id="eq-41_1">
-                <div class="math display">
-                    \[
-                    K(x,x') = \int_{\Omega_\omega} M[\omega,\gamma,\Theta,Q,\phi,T]\,
-                    e^{\,i\Phi(x,x';\omega)}\,d\omega .
-                    \]
-                </div>
-                <figcaption><a href="#eq-41_1">Equation (41.1)</a> — Self-referential kernel integral.</figcaption>
-            </figure>
+<div class="math display">
 
-            <p>
-                The exponential phase term encodes spatial and temporal coherence:
-                <span class="math inline">\(\Phi(x,x';\omega) = \omega\,t - k(\omega)\,|x - x'|\)</span>,
-                where the local wave number <span class="math inline">\(k(\omega)\)</span> is modulated by synchrony and collapse parameters
-                <span class="math inline">\(\Theta\)</span> and <span class="math inline">\(\gamma\)</span>.
-                Expanding the phase to first order in frequency yields the kernel impulse propagation distance:
-            </p>
+\[
+  K(x,x') = \int_{\Omega_\omega} M[\omega;\gamma,\Theta,Q,\phi,T]\, e^{i\Phi(x,x';\omega)}\, d^3\omega
+  \]
 
-            <figure class="equation" id="eq-41_2">
-                <div class="math display">
-                    \[
-                    D_{\mathrm{kernel}}
-                    = \frac{1}{\gamma}\,\frac{\partial \Phi}{\partial \omega}
-                    = \frac{v_{\mathrm{sync}}}{\gamma},
-                    \quad
-                    v_{\mathrm{sync}} = M_1\,\Theta .
-                    \]
-                </div>
-                <figcaption><a href="#eq-41_2">Equation (41.2)</a> — Kernel distance from phase derivative.</figcaption>
-            </figure>
+</div>
 
-            <p>
-                This result identifies the measurable parameters:
-            </p>
-            <ul>
-                <li><span class="math inline">\(M_1 = \langle x \rangle\)</span> — mean spatial moment of the impulse response (m)</li>
-                <li><span class="math inline">\(\Theta\)</span> — synchrony frequency (s⁻¹), spectral centroid of modulation</li>
-                <li><span class="math inline">\(\gamma\)</span> — collapse rate (s⁻¹), reciprocal of coherence lifetime</li>
-            </ul>
+<p>
+  encodes all spatial relations via the phase function <span class="math inline">\(\Phi(x,x';\omega)\)</span>. When expanded near a stationary frequency <span class="math inline">\(\omega_0\)</span>, the phase becomes:
+</p>
 
-            <p>
-                Thus, distance arises as a phase–coherence observable, not as a static geometric relation.
-            </p>
+<div class="math display">
 
-            <h4>Connection to Classical Trigonometry</h4>
+\[
+  \Phi(x,x';\omega) \approx \omega\,t - k(\omega)\,|x - x'| + \phi_0
+  \]
 
-            <p>
-                Classical trigonometry expresses distance via angular or light-time relations:
-            </p>
-            <div class="math display">
-                \[
-                D_{\mathrm{tri}} = d\,\tan(\theta)
-                \quad \text{or} \quad
-                D_{\mathrm{tri}} = \frac{c\,\Delta t}{2}.
-                \]
-            </div>
+</div>
 
-            <p>
-                Under small-angle or short-delay approximations,
-                <span class="math inline">\(\tan(\theta) \approx \theta\)</span> and
-                <span class="math inline">\(\Delta t \approx \tfrac{|x - x'|}{v_{\mathrm{sync}}}\)</span>,
-                one recovers
-                <span class="math inline">\(D_{\mathrm{tri}} \approx \tfrac{v_{\mathrm{sync}}}{\gamma}\)</span>
-                when the kernel phase increment
-                <span class="math inline">\(\Phi = \omega\,t - k(\omega)\,x\)</span>
-                is stationary.
-                Hence, trigonometry appears as the static-limit projection of kernel collapse geometry.
-            </p>
+<p>
+  where <span class="math inline">\(k(\omega)\)</span> is the local wave number modulated by synchrony and collapse parameters. The kernel propagation distance is then:
+</p>
+
+<div class="math display">
+
+\[
+  D_{\rm kernel} = \frac{1}{\gamma} \cdot \frac{\partial \Phi}{\partial \omega} = \frac{v_{\rm sync}}{\gamma}
+  \]
+
+</div>
+
+<p>
+  with synchrony velocity <span class="math inline">\(v_{\rm sync} = M_1 \cdot \Theta\)</span>, where:
+</p>
+
+<ul>
+  <li><span class="math inline">\(M_1 = \langle x \rangle\)</span> — mean spatial moment of the impulse response (m)</li>
+  <li><span class="math inline">\(\Theta\)</span> — synchrony frequency \(\left[\mathrm{s}^{-1}\right]\), spectral centroid of modulation</li>
+  <li><span class="math inline">\(\gamma\)</span> — collapse rate \(\left[\mathrm{s}^{-1}\right]\), reciprocal of coherence lifetime</li>
+</ul>
+
+<p>
+  These quantities are directly measurable from modulation spectra and impulse response profiles. The kernel distance <span class="math inline">\(D_{\rm kernel}\)</span> is thus a phase–coherence observable, not a geometric projection.
+</p>
+
+<h4>Recovering Classical Trigonometry</h4>
+
+<p>
+  Classical trigonometry expresses distance via angular or time-delay relations:
+</p>
+
+<div class="math display">
+
+\[
+  D_{\rm tri} = d \cdot \tan(\theta)
+  \quad \text{or} \quad
+  D_{\rm tri} = \frac{c \cdot \Delta t}{2}
+  \]
+
+</div>
+
+<p>
+  Under small-angle and short-delay approximations:
+</p>
+
+<ul>
+  <li><span class="math inline">\(\tan(\theta) \approx \theta\)</span> for <span class="math inline">\(\theta \ll 1\)</span></li>
+  <li><span class="math inline">\(\Delta t \approx \frac{|x - x'|}{v_{\rm sync}}\)</span> when synchrony dominates transport</li>
+</ul>
+
+<p>
+  Substituting into the classical formula yields:
+</p>
+
+<div class="math display">
+
+\[
+  D_{\rm tri} \approx \frac{v_{\rm sync}}{\gamma} = D_{\rm kernel}
+  \]
+
+</div>
+
+<p>
+  when the kernel phase increment is stationary. Thus, classical trigonometry is recovered as the static-limit projection of kernel collapse geometry.
+</p>
+
+<h4>Measurement Guidance and Operational Steps</h4>
+
+<ol>
+  <li>Measure impulse response <span class="math inline">\(M(x,t)\)</span> and compute spatial moment <span class="math inline">\(M_1 = \langle x \rangle\)</span></li>
+  <li>Extract synchrony frequency <span class="math inline">\(\Theta\)</span> from spectral centroid of <span class="math inline">\(\tilde M(\omega)\)</span></li>
+  <li>Determine collapse rate <span class="math inline">\(\gamma\)</span> from coherence lifetime or spectral width</li>
+  <li>Compute kernel distance: <span class="math inline">\(D_{\rm kernel} = M_1 \cdot \Theta / \gamma\)</span></li>
+  <li>Compare with classical <span class="math inline">\(D_{\rm tri}\)</span> to validate collapse geometry predictions</li>
+</ol>
+
+<h4>Generalization to Angular Modulation</h4>
+
+<p>
+  In rotational domains (Y-axis), angular displacement <span class="math inline">\(\theta\)</span> is encoded in the phase gradient:
+</p>
+
+<div class="math display">
+
+\[
+  \frac{\partial \Phi}{\partial \theta} \sim \frac{L_Y}{\mathcal{S}_\ast} \cdot \mathcal{F}_s(\gamma)
+  \]
+
+</div>
+
+<p>
+  where <span class="math inline">\(L_Y\)</span> is the rotational coherence length and <span class="math inline">\(\mathcal{F}_s(\gamma)\)</span> is the spin–phase modulation factor. This allows angular trigonometry to be reconstructed from kernel primitives.
+</p>
+
+<h4>Conclusion</h4>
+
+<p>
+  Trigonometry is not discarded — it is reinterpreted. Angles, distances, and projections are emergent from phase–coherence gradients and modulation structure. The kernel formalism replaces static geometry with dynamic rhythm collapse, yielding trigonometric relations as measurable consequences of spectral modulation and coherence dynamics.
+</p>
 
             <h4>Dimensional Closure</h4>
-
-            <table>
-                <thead>
-                    <tr><th>Quantity</th><th>Symbol</th><th>Units</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Mean hop length</td><td><span class="math inline">\(M_1\)</span></td><td>m</td></tr>
-                    <tr><td>Synchrony frequency</td><td><span class="math inline">\(\Theta\)</span></td><td>s⁻¹</td></tr>
-                    <tr><td>Collapse rate</td><td><span class="math inline">\(\gamma\)</span></td><td>s⁻¹</td></tr>
-                    <tr><td>Synchrony velocity</td><td><span class="math inline">\(v_{\mathrm{sync}} = M_1\Theta\)</span></td><td>m·s⁻¹</td></tr>
-                    <tr><td>Kernel distance</td><td><span class="math inline">\(D = v_{\mathrm{sync}}/\gamma\)</span></td><td>m</td></tr>
-                </tbody>
-            </table>
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Symbol</th>
+      <th>Units</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mean hop length</td>
+      <td><span class="math inline">\(M_1\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Spatial moment of impulse response</td>
+    </tr>
+    <tr>
+      <td>Synchrony frequency</td>
+      <td><span class="math inline">\(\Theta\)</span></td>
+      <td><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
+      <td>Spectral centroid of modulation</td>
+    </tr>
+    <tr>
+      <td>Collapse rate</td>
+      <td><span class="math inline">\(\gamma\)</span></td>
+      <td><span class="math inline">\(\mathrm{s}^{-1}\)</span></td>
+      <td>Reciprocal of coherence lifetime</td>
+    </tr>
+    <tr>
+      <td>Synchrony velocity</td>
+      <td><span class="math inline">\(v_{\mathrm{sync}} = M_1 \cdot \Theta\)</span></td>
+      <td><span class="math inline">\(\mathrm{m} \cdot \mathrm{s}^{-1}\)</span></td>
+      <td>Effective propagation speed of modulation</td>
+    </tr>
+    <tr>
+      <td>Kernel distance</td>
+      <td><span class="math inline">\(D = \frac{v_{\mathrm{sync}}}{\gamma}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Phase–coherence derived distance</td>
+    </tr>
+    <tr>
+      <td>Base coherence unit</td>
+      <td><span class="math inline">\(L_0 = \left( \frac{\mathcal{S}_\ast}{\rho} \right)^{1/3}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Fundamental spatial scale from action and impedance</td>
+    </tr>
+    <tr>
+      <td>Charge–phase coherence length</td>
+      <td><span class="math inline">\(L_X = \left( \frac{\mathcal{S}_\ast}{\rho L_0 \alpha} \right)^{1/2}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>X-axis modulation scale from fine-structure coupling</td>
+    </tr>
+    <tr>
+      <td>Spin–phase coherence length</td>
+      <td><span class="math inline">\(L_Y = \left( \frac{\mathcal{S}_\ast}{\rho L_0 \gamma} \right)^{1/2}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Y-axis modulation scale from spin coupling</td>
+    </tr>
+    <tr>
+      <td>Mass–phase coherence length</td>
+      <td><span class="math inline">\(L_Z = L_0 \cdot \delta^{1/3}\)</span></td>
+      <td><span class="math inline">\(\mathrm{m}\)</span></td>
+      <td>Z-axis modulation scale from mass coupling</td>
+    </tr>
+    <tr>
+      <td>Coherence density</td>
+      <td><span class="math inline">\(\rho_c = \frac{\mathcal{A}_{\rm cell}}{L_0^3}\)</span></td>
+      <td><span class="math inline">\(\mathrm{J} \cdot \mathrm{m}^{-3}\)</span></td>
+      <td>Local rhythm stiffness per coherence volume</td>
+    </tr>
+    <tr>
+      <td>Rhythm potential</td>
+      <td><span class="math inline">\(\Phi_{\rm rhythm} = \mathcal{W}[\rho_c, \nabla \hat{X}, \nabla \hat{Y}, \nabla \hat{Z}]\)</span></td>
+      <td><span class="math inline">\(\mathrm{J} \cdot \mathrm{kg}^{-1}\)</span></td>
+      <td>Compressed modulation curvature field</td>
+    </tr>
+  </tbody>
+</table>
 
             <p>
                 The kernel law is therefore dimensionally closed and physically invariant across domains.
             </p>
 
-            <h4>Uncertainty and Propagation</h4>
+<h4>Uncertainty and Propagation</h4>
 
-            <p>
-                Let <span class="math inline">\(D = M_1\Theta/\gamma\)</span>.
-                First-order uncertainty propagation gives:
-            </p>
-            <div class="math display">
-                \[
-                \sigma_D^2 =
-                \left(\tfrac{\Theta}{\gamma}\sigma_{M_1}\right)^2 +
-                \left(\tfrac{M_1}{\gamma}\sigma_{\Theta}\right)^2 +
-                \left(\tfrac{M_1\Theta}{\gamma^2}\sigma_{\gamma}\right)^2 .
-                \]
-            </div>
+<p>
+  Let <span class="math inline">\(D = \frac{M_1 \Theta}{\gamma}\)</span>. This expression depends on three measurable quantities: mean hop length <span class="math inline">\(M_1\)</span>, synchrony frequency <span class="math inline">\(\Theta\)</span>, and collapse rate <span class="math inline">\(\gamma\)</span>. First-order uncertainty propagation yields:
+</p>
 
-            <p>
-                Relative uncertainty is therefore
-                <span class="math inline">
-                    \(\frac{\sigma_{D}}{D}
-                    = \sqrt{ \left(\tfrac{\sigma_{M_{1}}}{M_{1}}\right)^{2}
-                    + \left(\tfrac{\sigma_{\Theta}}{\Theta}\right)^{2}
-                    + \left(\tfrac{\sigma_{\gamma}}{\gamma}\right)^{2} }\)
-                </span>.
-                Since <span class="math inline">\(\gamma\)</span> enters in the denominator,
-                decay-rate estimation dominates the uncertainty budget.
-                Weighted averaging over independent impulse measurements minimizes
-                <span class="math inline">\(\sigma_{D}\)</span>
-                via the estimator
-                <span class="math inline">\(\hat{D} = \frac{\sum_{i} w_{i} D_{i}}{\sum_{i} w_{i}}\)</span>,
-                with weights <span class="math inline">\(w_{i} = \sigma_{D_{i}}^{-2}\)</span>.
-            </p>
+<div class="math display">
+  
 
-            <h4>Measurement Protocol</h4>
+\[
+  \sigma_D^2 =
+  \left( \frac{\Theta}{\gamma} \sigma_{M_1} \right)^2 +
+  \left( \frac{M_1}{\gamma} \sigma_{\Theta} \right)^2 +
+  \left( \frac{M_1 \Theta}{\gamma^2} \sigma_{\gamma} \right)^2
+  \]
 
-            <ul>
-                <li><strong>Mean Hop Length</strong> (<span class="math inline">\(M_1\)</span>): derive from impulse envelope width, coherence length, or modulation spacing.</li>
-                <li><strong>Synchrony Frequency</strong> (<span class="math inline">\(\Theta\)</span>): extract from the dominant spectral peak of modulation; validated via FFT analysis.</li>
-                <li><strong>Collapse Rate</strong> (<span class="math inline">\(\gamma\)</span>): obtain from exponential decay of the autocorrelation function of the field amplitude.</li>
-            </ul>
 
-            <p>
-                Typical relative uncertainties are:
-                \(
-                \sigma_{M_1}/M_1 \approx 1\!-\!5\%,\;
-                \sigma_{\Theta}/\Theta \approx 0.1\!-\!1\%,\;
-                \sigma_{\gamma}/\gamma \approx 2\!-\!10\%.
-                \)
-            </p>
+</div>
 
-            <h4>Regime-Specific Tuning</h4>
+<p>
+  The relative uncertainty becomes:
+</p>
 
-            <p>
-                For different physical domains:
-            </p>
-            <ul>
-                <li><strong>Optical systems</strong>: <span class="math inline">\(\Theta\)</span> = optical frequency, <span class="math inline">\(\gamma^{-1}\)</span> = coherence time.</li>
-                <li><strong>Orbital systems</strong>: <span class="math inline">\(M_1\)</span> = mean orbital arc, <span class="math inline">\(\Theta\)</span> = synchrony period, <span class="math inline">\(\gamma\)</span> = secular drift rate.</li>
-                <li><strong>Thermal systems</strong>: <span class="math inline">\(\Theta\)</span> = phonon frequency, <span class="math inline">\(\gamma\)</span> = thermal relaxation rate.</li>
-            </ul>
+<div class="math display">
 
-            <p>
-                Medium corrections apply via local tuning density
-                <span class="math inline">\(\rho\)</span> or damping factor
-                <span class="math inline">\(\delta\)</span>, yielding
-                <span class="math inline">
-                    \(
-                    D' = (M_{1}\Theta/\gamma)\,f(\rho,\delta)
-                    \)
-                </span>,
-                with
-                <span class="math inline">\(f \approx 1 - \beta\,\rho\,\delta\)</span>
-                for weak coupling.
-            </p>
+\[
+  \frac{\sigma_D}{D} =
+  \sqrt{
+    \left( \frac{\sigma_{M_1}}{M_1} \right)^2 +
+    \left( \frac{\sigma_{\Theta}}{\Theta} \right)^2 +
+    \left( \frac{\sigma_{\gamma}}{\gamma} \right)^2
+  }
+  \]
 
-            <h4>Falsifiability protocol</h4>
+</div>
 
-            <ol>
-                <li>
-                    Compute predicted distance
-                    <span class="math inline">\(D_{\mathrm{kernel}} = M_{1}\Theta/\gamma\)</span>.
-                </li>
-                <li>
-                    Compare with geometric or radar measurement
-                    <span class="math inline">\(D_{\mathrm{tri}}\)</span>.
-                </li>
-                <li>
-                    Accept if
-                    <span class="math inline">\(\lvert D_{\mathrm{kernel}} - D_{\mathrm{tri}} \rvert \le 2\sigma_{D}\)</span>
-                    (95% confidence).
-                </li>
-                <li>
-                    Reject if systematic bias exceeds uncertainty or if parameters yield non-physical drift
-                    <span class="math inline">\((\gamma\ \text{inconsistency})\)</span>.
-                </li>
-            </ol>
+<p>
+  Since <span class="math inline">\(\gamma\)</span> appears in the denominator, its uncertainty dominates the error budget. To minimize <span class="math inline">\(\sigma_D\)</span>, use weighted averaging over independent impulse measurements:
+</p>
 
-            <h4>Theoretical consistency and units</h4>
+<div class="math display">
+  
 
-            <p>
-                Formally, the kernel-derived distance follows from the first spectral moment of the phase integral
-                <span class="math inline">\(\partial\Phi/\partial\omega\)</span>,
-                analogous to the group delay in Fourier optics.
-                Unlike trigonometry—which depends on static spatial geometry—the kernel formulation
-                preserves phase–time duality and remains invariant under synchrony rescaling.
-                All units close to base SI:
-                <span class="math inline">\([\Theta] = [\gamma] = \mathrm{s^{-1}}\)</span>,
-                <span class="math inline">\([M_{1}] = \mathrm{m}\)</span>, so
-                <span class="math inline">\([D] = \mathrm{m}\)</span>,
-                <span class="math inline">\([\mathcal{S}_{\ast}] = \mathrm{J\,s}\)</span>
-                ensures phase term
-                <span class="math inline">\(\Phi/\mathcal{S}_{\ast}\)</span>
-                is dimensionless.
-            </p>
+\[
+  \hat{D} = \frac{ \sum_i w_i D_i }{ \sum_i w_i },
+  \quad
+  w_i = \frac{1}{\sigma_{D_i}^2}
+  \]
+
+
+</div>
+
+<h5>Jacobian Matrix for Full Propagation</h5>
+
+<p>
+  Define the Jacobian vector of partial derivatives:
+</p>
+
+<div class="math display">
+
+\[
+  \mathbf{J}_D =
+  \left[
+    \frac{\partial D}{\partial M_1},
+    \frac{\partial D}{\partial \Theta},
+    \frac{\partial D}{\partial \gamma}
+  \right]
+  =
+  \left[
+    \frac{\Theta}{\gamma},
+    \frac{M_1}{\gamma},
+    -\frac{M_1 \Theta}{\gamma^2}
+  \right]
+  \]
+
+</div>
+
+<p>
+  Then the propagated variance is:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \sigma_D^2 = \mathbf{J}_D \cdot \Sigma \cdot \mathbf{J}_D^\top
+  \]
+
+
+</div>
+
+<p>
+  where <span class="math inline">\(\Sigma\)</span> is the covariance matrix of <span class="math inline">\((M_1, \Theta, \gamma)\)</span>. This formulation allows correlated uncertainties and supports full error modeling.
+</p>
+
+<h4>Measurement Protocol</h4>
+
+<ul>
+  <li><strong>Mean Hop Length</strong> (<span class="math inline">\(M_1\)</span>): derive from impulse envelope width, coherence length, or modulation spacing</li>
+  <li><strong>Synchrony Frequency</strong> (<span class="math inline">\(\Theta\)</span>): extract from dominant spectral peak of modulation; validated via FFT or spectral centroid</li>
+  <li><strong>Collapse Rate</strong> (<span class="math inline">\(\gamma\)</span>): obtain from exponential decay of autocorrelation function or spectral linewidth</li>
+</ul>
+
+<p>
+  Typical relative uncertainties:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \frac{\sigma_{M_1}}{M_1} \approx 1\text{–}5\%,
+  \quad
+  \frac{\sigma_{\Theta}}{\Theta} \approx 0.1\text{–}1\%,
+  \quad
+  \frac{\sigma_{\gamma}}{\gamma} \approx 2\text{–}10\%
+  \]
+
+</div>
+
+<h4>Regime-Specific Tuning</h4>
+
+<p>
+  Kernel parameters adapt to physical domains:
+</p>
+
+<ul>
+  <li><strong>Optical systems:</strong> <span class="math inline">\(\Theta\)</span> = optical frequency, <span class="math inline">\(\gamma^{-1}\)</span> = coherence time</li>
+  <li><strong>Orbital systems:</strong> <span class="math inline">\(M_1\)</span> = mean orbital arc, <span class="math inline">\(\Theta\)</span> = synchrony period, <span class="math inline">\(\gamma\)</span> = secular drift rate</li>
+  <li><strong>Thermal systems:</strong> <span class="math inline">\(\Theta\)</span> = phonon frequency, <span class="math inline">\(\gamma\)</span> = thermal relaxation rate</li>
+</ul>
+
+<p>
+  Medium corrections apply via local tuning density <span class="math inline">\(\rho\)</span> or damping factor <span class="math inline">\(\delta\)</span>, yielding:
+</p>
+
+<div class="math display">
+
+\[
+  D' = \left( \frac{M_1 \Theta}{\gamma} \right) \cdot f(\rho, \delta),
+  \quad
+  f(\rho, \delta) \approx 1 - \beta \rho \delta
+  \]
+
+</div>
+
+<h4>Falsifiability Protocol</h4>
+
+<ol>
+  <li>Compute predicted kernel distance: <span class="math inline">\(D_{\mathrm{kernel}} = \frac{M_1 \Theta}{\gamma}\)</span></li>
+  <li>Compare with geometric or radar measurement: <span class="math inline">\(D_{\mathrm{tri}}\)</span></li>
+  <li>Accept if <span class="math inline">\(\left| D_{\mathrm{kernel}} - D_{\mathrm{tri}} \right| \le 2\sigma_D\)</span> (95% confidence)</li>
+  <li>Reject if systematic bias exceeds uncertainty or if parameters yield non-physical drift (e.g., <span class="math inline">\(\gamma < 0\)</span>)</li>
+</ol>
+
+<h4>Theoretical Consistency and Units</h4>
+
+<p>
+  The kernel-derived distance arises from the first spectral moment of the phase integral <span class="math inline">\(\partial \Phi / \partial \omega\)</span>, analogous to group delay in Fourier optics. Unlike classical trigonometry, which assumes static spatial geometry, the kernel formulation preserves phase–time duality and remains invariant under synchrony rescaling.
+</p>
+
+<p>
+  All units close under SI:
+</p>
+
+<ul>
+  <li><span class="math inline">\([\Theta] = [\gamma] = \mathrm{s}^{-1}\)</span></li>
+  <li><span class="math inline">\([M_1] = \mathrm{m}\)</span></li>
+  <li><span class="math inline">\([D] = \mathrm{m}\)</span></li>
+  <li><span class="math inline">\([\mathcal{S}_\ast] = \mathrm{J \cdot s}\)</span> ⇒ ensures <span class="math inline">\(\Phi / \mathcal{S}_\ast\)</span> is dimensionless</li>
+  <li><strong>Dimensional residual:</strong> <span class="math inline">\(\epsilon_{\mathrm{dim}} = 0\)</span> — predicted and SI units match exactly</li>
+</ul>
+
+<p>
+  This dimensional closure confirms that kernel-derived observables are physically consistent and measurable, enabling rigorous comparison with classical geometric methods.
+</p>
+
+<h4>Residual Analysis and Model Bias</h4>
+
+<p>
+  Define the kernel–geometry discrepancy (residuum) as:
+</p>
+
+<div class="math display">
+
+\[
+  R = D_{\mathrm{tri}} - D_{\mathrm{kernel}} = D_{\mathrm{tri}} - \frac{M_1 \Theta}{\gamma}
+  \]
+
+</div>
+
+<p>
+  This quantity captures the deviation between classical geometric measurement and kernel-derived prediction. It is used to test model fidelity and detect systematic bias.
+</p>
+
+<p>
+  The normalized residual (z-score) is:
+</p>
+
+<div class="math display">
+
+\[
+  z = \frac{R}{\sigma_D}
+  \]
+
+</div>
+
+<p>
+  Interpretation:
+</p>
+<ul>
+  <li><span class="math inline">\(|z| \le 2\)</span> ⇒ residual within 95% confidence bounds (model consistent)</li>
+  <li><span class="math inline">\(|z| > 2\)</span> ⇒ residual exceeds expected uncertainty (model tension)</li>
+</ul>
+
+<p>
+  Residual diagnostics include:
+</p>
+<ul>
+  <li><strong>Bias detection:</strong> persistent sign of <span class="math inline">\(R\)</span> across trials</li>
+  <li><strong>Nonlinearity:</strong> curvature in <span class="math inline">\(R(\Theta)\)</span> or <span class="math inline">\(R(\gamma)\)</span> plots</li>
+  <li><strong>Anchor drift:</strong> time-dependent variation in <span class="math inline">\(\Sigma\)</span> affecting <span class="math inline">\(\mathcal{S}_\ast\)</span></li>
+</ul>
+
+<h4>Higher-Order Corrections</h4>
+
+<p>
+  For strong modulation or nonlinear collapse, expand the kernel phase to second order:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \Phi(\omega) \approx \omega t - k(\omega) x + \frac{1}{2} \Phi''(\omega_0) (\omega - \omega_0)^2
+  \]
+
+</div>
+
+<p>
+  Then the corrected kernel distance becomes:
+</p>
+
+<div class="math display">
+
+\[
+  D_{\mathrm{kernel}}^{(2)} = \frac{v_{\mathrm{sync}}}{\gamma} + \epsilon,
+  \quad
+  \epsilon = \frac{1}{2\gamma} \cdot \Phi''(\omega_0)
+  \]
+
+</div>
+
+<p>
+  where <span class="math inline">\(\epsilon\)</span> is the second-order correction term. This accounts for spectral curvature and coherence dispersion.
+</p>
+
+<h4>Dimensional Consistency and Unit Closure</h4>
+
+<p>
+  All derived quantities are dimensionally consistent:
+</p>
+
+<ul>
+  <li><span class="math inline">\([M_1] = \mathrm{m}\)</span></li>
+  <li><span class="math inline">\([\Theta] = [\gamma] = \mathrm{s}^{-1}\)</span></li>
+  <li><span class="math inline">\([D] = \mathrm{m}\)</span></li>
+  <li><span class="math inline">\([\sigma_D] = \mathrm{m}\)</span></li>
+  <li><span class="math inline">\([\Phi] = \mathrm{J \cdot s}\)</span>, so <span class="math inline">\(\Phi / \mathcal{S}_\ast\)</span> is dimensionless</li>
+</ul>
+
+<p>
+  This confirms that kernel-derived observables are physically meaningful and compatible with SI base units.
+</p>
+
+<h4>Model Closure Summary</h4>
+
+<ul>
+  <li>Distance <span class="math inline">\(D = M_1 \Theta / \gamma\)</span> is derived from kernel phase structure</li>
+  <li>Uncertainty <span class="math inline">\(\sigma_D\)</span> follows from Jacobian propagation</li>
+  <li>Residual <span class="math inline">\(R = D_{\mathrm{tri}} - D_{\mathrm{kernel}}\)</span> tests model fidelity</li>
+  <li>Higher-order corrections <span class="math inline">\(\epsilon\)</span> account for spectral curvature</li>
+  <li>All quantities close under SI units and are operationally measurable</li>
+</ul>
 
             <h4>Conclusion</h4>
+<p>
+  Kernel collapse geometry replaces classical trigonometric distance computation with a generative, phase-based relation derived from the self-referential impulse kernel. Rather than assuming static spatial projections, it defines distance as a coherence-weighted observable:
+  <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>.
+  This formulation is dimensionally exact, empirically falsifiable, and consistent across physical regimes.
+</p>
 
-            <p>
-                Kernel collapse geometry replaces trigonometric distance computation with a generative,
-                phase-based relation derived from the self-referential kernel integral.
-                It is dimensionally exact, empirically falsifiable, and consistent across regimes.
-                Classical trigonometry appears as the limiting case
-                where synchrony frequency and collapse rate become constants and phase curvature vanishes:
-                <span class="math inline">\(\gamma \rightarrow \mathrm{const},\; \Phi \rightarrow kx.\)</span>
-                Thus, the kernel framework generalizes angular geometry to a universal,
-                coherence-driven metric.
-            </p>
+<p>
+  Classical trigonometry emerges as a limiting case in which synchrony frequency and collapse rate become constant and phase curvature vanishes:
+  <span class="math inline">\(\gamma \to \mathrm{const},\; \partial^2_\omega \Phi \to 0,\; \Phi \to kx\)</span>.
+  In this limit, the kernel reduces to a static geometric projector. Thus, the kernel framework generalizes angular geometry into a universal, coherence-driven metric that remains valid in dispersive, refractive, and multipath environments where classical trigonometry fails.
+</p>
 
-            <h3 id="sec-41-replacing-trigonometry_1">Calibration, domain anchors, and validation</h3>
+<h3 id="sec-41-replacing-trigonometry_1">Calibration, Domain Anchors, and Validation</h3>
 
-            <p>
-                Kernel collapse geometry computes distance via phase–coherence observables, not assumed angles:
-                <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>.
-                Classical trigonometry emerges as a limiting case when synchrony and collapse are effectively constant and media are ideal.
-                Across domains, the kernel law correlates with geometric baselines within uncertainty, and remains valid where trigonometry degrades (refraction, dispersion, multipath).
-            </p>
+<p>
+  Kernel collapse geometry computes distance via phase–coherence observables, not assumed angles or idealized rays. The core law:
+  <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>
+  remains valid across domains, provided modulation structure and coherence decay are measurable. Classical trigonometry is recovered when synchrony and collapse are constant and media are homogeneous.
+</p>
 
-            <h5>Correlation overview</h5>
-            <ul>
-                <li><strong>Expressive law:</strong> <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>, with <span class="math inline">\(v_{\mathrm{sync}} = M_1 \Theta\)</span></li>
-                <li><strong>Tri baseline:</strong> <span class="math inline">\(D_{\mathrm{tri}} = d \tan\theta\)</span> or <span class="math inline">\(D_{\mathrm{tri}} = \tfrac{c \Delta t}{2}\)</span></li>
-                <li><strong>Small‑angle/group‑delay bridge:</strong> If <span class="math inline">\(\tan\theta \!\approx\! \theta\)</span> and <span class="math inline">\(\Delta t \!\approx\! \tfrac{D}{v_{\mathrm{sync}}}\)</span> with stationary phase, then <span class="math inline">\(D_{\mathrm{tri}} \!\approx\! D_{\mathrm{kernel}}\)</span></li>
-                <li><strong>Empirical pattern:</strong> Domains with stable coherence and weak dispersion show near‑unity correlation; distorted media show divergence favoring kernel estimates</li>
-            </ul>
+<h5>Correlation Overview</h5>
+<ul>
+  <li><strong>Expressive law:</strong> <span class="math inline">\(D_{\mathrm{kernel}} = \tfrac{M_1 \Theta}{\gamma}\)</span>, with synchrony velocity <span class="math inline">\(v_{\mathrm{sync}} = M_1 \Theta\)</span></li>
+  <li><strong>Trigonometric baseline:</strong> <span class="math inline">\(D_{\mathrm{tri}} = d \tan\theta\)</span> or <span class="math inline">\(D_{\mathrm{tri}} = \tfrac{c \Delta t}{2}\)</span></li>
+  <li><strong>Small-angle/group-delay bridge:</strong> If <span class="math inline">\(\tan\theta \approx \theta\)</span> and <span class="math inline">\(\Delta t \approx \tfrac{D}{v_{\mathrm{sync}}}\)</span> under stationary-phase conditions, then <span class="math inline">\(D_{\mathrm{tri}} \approx D_{\mathrm{kernel}}\)</span></li>
+  <li><strong>Empirical pattern:</strong> Domains with stable coherence and weak dispersion show near-unity correlation; in distorted or lossy media, kernel estimates outperform classical projections</li>
+</ul>
+
+<p>
+  The kernel framework thus offers a unified, physically grounded alternative to trigonometry, with direct ties to measurable quantities and built-in mechanisms for uncertainty propagation and falsifiability.
+</p>
 
             <h5>Compact comparison</h5>
             <table class="mce-item-table">
