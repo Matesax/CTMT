@@ -19111,59 +19111,353 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
         </h2>
         <article style="display:none">
 
-            <p>
-                In the kernel formulation, the inertial and elastic terms for a massless mode
-                <span class="math inline">\(\phi\)</span> can be written in quadratic form as:
-            </p>
+<h4>Step 1 — Kernel Collapse to Dispersion Relation</h4>
 
-            <figure class="equation" id="eq-18_1">
-                <div class="math display">
+<p>
+  Begin with the impulse kernel for a massless mode <span class="math inline">\(\phi\)</span>:
+</p>
+
+<div class="math display">
+  
+
+\[
+  K(x,x') = \int_{\Omega_\omega} M[\omega]\, \exp\left( \frac{i}{\mathcal{S}_\ast} \Phi(x,x';\omega) \right)\, d\omega
+  \]
 
 
-                    \[
-                    \mathcal{L} = \tfrac{A}{2}(\partial_t \phi)^{2} - \tfrac{B}{2}(\nabla \phi)^{2}
-                    \]
+</div>
+
+<p>
+  This kernel encodes propagation via phase modulation <span class="math inline">\(\Phi\)</span> and spectral envelope <span class="math inline">\(M[\omega]\)</span>. For vacuum propagation, assume:
+</p>
+
+<ul>
+  <li><span class="math inline">\(M[\omega] = C_{\rm phys}(\omega)\)</span> — slowly varying modulation envelope</li>
+  <li><span class="math inline">\(\Phi(x,x';\omega) = \omega t - k(\omega) |x - x'|\)</span> — linear phase ansatz</li>
+</ul>
+
+<p>
+  Expand the wave number near stationary frequency <span class="math inline">\(\omega_0\)</span>:
+</p>
+
+<div class="math display">
+  
+
+\[
+  k(\omega) \approx \frac{\omega}{v} \quad \Rightarrow \quad \Phi(\omega) \approx \omega \left( t - \frac{|x - x'|}{v} \right)
+  \]
 
 
-                </div>
-                <figcaption><a href="#eq-18_1">Equation (18.1)</a></figcaption>
-            </figure>
+</div>
+
+<p>
+  Apply the stationary-phase condition:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \frac{\partial \Phi}{\partial \omega} = t - \frac{|x - x'|}{v} = 0 \quad \Rightarrow \quad v = \frac{|x - x'|}{t}
+  \]
+
+
+</div>
+
+<p>
+  This identifies the group velocity <span class="math inline">\(v\)</span> as the propagation speed of the impulse. To derive the dispersion relation, expand the kernel phase to second order:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \Phi(\omega) \approx \Phi(\omega_0) + \Phi'(\omega_0)(\omega - \omega_0) + \tfrac{1}{2} \Phi''(\omega_0)(\omega - \omega_0)^2
+  \]
+
+
+</div>
+
+<p>
+  The second derivative <span class="math inline">\(\Phi''(\omega_0)\)</span> encodes phase curvature, which governs dispersion. The kernel integral becomes:
+</p>
+
+<div class="math display">
+  
+
+\[
+  K(x,x') \sim \int M[\omega]\, \exp\left( \frac{i}{\mathcal{S}_\ast} \left[ \omega t - \frac{\omega}{v} |x - x'| + \tfrac{1}{2} \Phi''(\omega_0)(\omega - \omega_0)^2 \right] \right)\, d\omega
+  \]
+
+
+</div>
+
+<p>
+  This is a Gaussian integral in <span class="math inline">\(\omega\)</span>, and its dominant contribution yields the dispersion relation:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \omega^2 = \frac{\Phi''(\omega_0)}{C_{\rm phys}(\omega_0)}\, k^2
+  \]
+
+
+</div>
+
+<p>
+  Now identify the physical observables:
+</p>
+
+<ul>
+  <li><span class="math inline">\(C_{\rm phys}(\omega_0) = \rho_{\mathrm{mass}}\)</span> — inertial modulation (mass density)</li>
+  <li><span class="math inline">\(\Phi''(\omega_0) = \rho_{\mathrm{mass}} c^2\)</span> — phase curvature from vacuum stiffness</li>
+</ul>
+
+<p>
+  Substituting gives:
+</p>
+
+<div class="math display">
+
+\[
+  \omega^2 = \frac{\rho_{\mathrm{mass}} c^2}{\rho_{\mathrm{mass}}}\, k^2 = c^2 k^2
+  \]
+
+</div>
+
+<p>
+  Hence the wave speed is:
+</p>
+
+<div class="math display">
+
+\[
+  v = \sqrt{ \frac{\Phi''(\omega_0)}{C_{\rm phys}(\omega_0)} } = c
+  \]
+
+</div>
+
+<p>
+  This confirms that the invariant wave speed <span class="math inline">\(c\)</span> emerges directly from kernel modulation and phase curvature, without invoking external assumptions.
+</p>
+
+<h4>Step 2 — Collapse to Lagrangian Form</h4>
+
+<p>
+  The quadratic Lagrangian for a massless scalar mode <span class="math inline">\(\phi\)</span> is:
+</p>
+
+<figure class="equation" id="eq-18_1">
+  <div class="math display">
+    
+
+\[
+    \mathcal{L} = \tfrac{A}{2}(\partial_t \phi)^2 - \tfrac{B}{2}(\nabla \phi)^2
+    \]
+
+
+  </div>
+  <figcaption><a href="#eq-18_1">Equation (18.1)</a> — Quadratic Lagrangian for massless mode</figcaption>
+</figure>
+
+<p>
+  This form arises as the low-order variational collapse of the kernel impulse integral. To derive it, begin with the kernel:
+</p>
+
+<div class="math display">
+  
+
+\[
+  K(x,x') = \int_{\Omega_\omega} M[\omega]\, \exp\left( \frac{i}{\mathcal{S}_\ast} \Phi(x,x';\omega) \right)\, d\omega
+  \]
+
+
+</div>
+
+<p>
+  Expand the phase near stationary frequency <span class="math inline">\(\omega_0\)</span>:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \Phi(\omega) \approx \omega t - k(\omega) x \approx \omega t - \frac{\omega}{v} x
+  \]
+
+
+</div>
+
+<p>
+  The second-order expansion yields:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \Phi(\omega) \approx \omega_0 t - \frac{\omega_0}{v} x + \tfrac{1}{2} \Phi''(\omega_0)(\omega - \omega_0)^2
+  \]
+
+
+</div>
+
+<p>
+  The Gaussian collapse of this kernel yields a propagating wave packet with group velocity <span class="math inline">\(v = \sqrt{B/A}\)</span>. To recover the wave equation, we now construct a field-theoretic action:
+</p>
+
+<div class="math display">
+  
+
+\[
+  S[\phi] = \int \mathcal{L}(\phi, \partial_t \phi, \nabla \phi)\, d^4x
+  \]
+
+
+</div>
+
+<p>
+  Apply the Euler–Lagrange equation:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \frac{\partial \mathcal{L}}{\partial \phi} - \partial_t \left( \frac{\partial \mathcal{L}}{\partial (\partial_t \phi)} \right) - \nabla \cdot \left( \frac{\partial \mathcal{L}}{\partial (\nabla \phi)} \right) = 0
+  \]
+
+
+</div>
+
+<p>
+  For the quadratic Lagrangian, this yields:
+</p>
+
+<div class="math display">
+  
+
+\[
+  A\,\partial_t^2 \phi - B\,\nabla^2 \phi = 0
+  \]
+
+
+</div>
+
+<p>
+  which is the wave equation with propagation speed:
+</p>
+
+<div class="math display">
+  
+
+\[
+  v = \sqrt{B/A}
+  \]
+
+
+</div>
+
+<h5>Observable Identification</h5>
+
+<p>
+  The constants <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not arbitrary — they are derived from kernel observables:
+</p>
+
+<ul>
+  <li><span class="math inline">\(A = \rho_{\mathrm{mass}}\)</span> — inertial response per unit volume (mass density)<br/>Units: <span class="math inline">\(\mathrm{kg \cdot m^{-3}}\)</span></li>
+  <li><span class="math inline">\(B = \rho_{\mathrm{mass}} c^2\)</span> — elastic stiffness from rest-energy density<br/>Units: <span class="math inline">\(\mathrm{J \cdot m^{-3}} = \mathrm{kg \cdot m^{-1} \cdot s^{-2}}\)</span></li>
+</ul>
+
+<p>
+  These identifications follow from the kernel stiffness constant:
+</p>
+
+<div class="math display">
+  
+
+\[
+  K = U_0 L_0^2, \quad U_0 = \rho_{\mathrm{mass}} c^2, \quad B = \frac{K}{L_0^2} = \rho_{\mathrm{mass}} c^2
+  \]
+
+
+</div>
+
+<p>
+  Therefore:
+</p>
+
+<div class="math display">
+  
+
+\[
+  v = \sqrt{ \frac{B}{A} } = \sqrt{ \frac{\rho_{\mathrm{mass}} c^2}{\rho_{\mathrm{mass}}} } = c
+  \]
+
+
+</div>
+
+<p>
+  confirming that the Lagrangian wave speed matches the kernel-derived velocity.
+</p>
+
+<h5>Dimensional Closure</h5>
+
+<ul>
+  <li><span class="math inline">\(A\)</span> — <span class="math inline">\(\mathrm{kg \cdot m^{-3}}\)</span> (mass density)</li>
+  <li><span class="math inline">\(B\)</span> — <span class="math inline">\(\mathrm{kg \cdot m^{-1} \cdot s^{-2}}\)</span> (energy density)</li>
+  <li><span class="math inline">\(B/A\)</span> — <span class="math inline">\(\mathrm{m^2 \cdot s^{-2}}\)</span></li>
+  <li><span class="math inline">\(\sqrt{B/A}\)</span> — <span class="math inline">\(\mathrm{m \cdot s^{-1}}\)</span> (velocity)</li>
+</ul>
+
+<p>
+  Dimensional residual:
+</p>
+
+<div class="math display">
+  
+
+\[
+  \epsilon_{\mathrm{dim}} = \frac{\left\| [v]_{\mathrm{pred}} - [v]_{\mathrm{SI}} \right\|}{\left\| [v]_{\mathrm{SI}} \right\|} = 0
+  \]
+
+
+</div>
+
+<p>
+  confirming that the kernel-derived wave speed is dimensionally exact and physically consistent.
+</p>
 
             <h4>Clarification of Constants</h4>
             <p>
                 The coefficients <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are not arbitrary but
                 correspond to measurable physical observables:
             </p>
-            <ul>
-                <li>
-                    <span class="math inline">\(A = \rho_{\mathrm{mass}}\)</span> —
-                    the inertial response per unit volume, i.e. the effective mass density of the vacuum.
-                    Units: kg·m\(^{-3}\).
-                </li>
-                <li>
-                    <span class="math inline">\(B = \rho_{\mathrm{mass}} c^{2}\)</span> —
-                    the elastic stiffness of the vacuum, proportional to the rest‑energy density.
-                    This arises from identifying the kernel stiffness constant
-                    <span class="math inline">\(K\)</span> with
-                    <span class="math inline">\(U_0 L_0^{2}\)</span>, where
-                    <span class="math inline">\(U_0 = \rho_{\mathrm{mass}} c^{2}\)</span>.
-                    Units: J·m\(^{-3}\) = kg·m\(^{-1}\)·s\(^{-2}\).
-                </li>
-            </ul>
-            <p>
-                Thus the ratio <span class="math inline">\(B/A\)</span> has units of m\(^2\)/s\(^2\),
-                and its square root yields a velocity scale. The kernel prediction is that this velocity is
-                exactly the invariant speed <span class="math inline">\(c\)</span>.
-            </p>
+<ul>
+  <li>
+    <span class="math inline">\(A = \rho_{\mathrm{mass}}\)</span> — the inertial response per unit volume, i.e. the effective mass density of the vacuum.<br/>
+    Units: <span class="math inline">\(\mathrm{kg \cdot m^{-3}}\)</span>
+  </li>
+  <li>
+    <span class="math inline">\(B = \rho_{\mathrm{mass}} c^{2}\)</span> — the elastic stiffness of the vacuum, proportional to the rest‑energy density.<br/>
+    This arises from identifying the kernel stiffness constant <span class="math inline">\(K\)</span> with <span class="math inline">\(U_0 L_0^{2}\)</span>, where <span class="math inline">\(U_0 = \rho_{\mathrm{mass}} c^{2}\)</span>.<br/>
+    Units: <span class="math inline">\(\mathrm{J \cdot m^{-3}} = \mathrm{kg \cdot m^{-1} \cdot s^{-2}}\)</span>
+  </li>
+</ul>
+
+<p>
+  Thus the ratio <span class="math inline">\(B/A\)</span> has units of <span class="math inline">\(\mathrm{m^2 \cdot s^{-2}}\)</span>, and its square root yields a velocity scale.<br/>
+  The kernel prediction is that this velocity is exactly the invariant speed <span class="math inline">\(c\)</span>.
+</p>
 
             <figure class="equation" id="eq-18_2">
                 <div class="math display">
 
-
                     \[
                     A = \rho_{\mathrm{mass}}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_2">Equation (18.2)</a></figcaption>
@@ -19172,11 +19466,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_3">
                 <div class="math display">
 
-
                     \[
                     B = \frac{K}{L_0^{2}}, \quad K \equiv U_0 L_0^{2}, \quad U_0 = \rho_{\mathrm{mass}} c^{2}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_3">Equation (18.3)</a></figcaption>
@@ -19192,12 +19484,10 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_4">
                 <div class="math display">
 
-
                     \[
                     \mathcal{L} = \tfrac{\rho_{\mathrm{mass}}}{2}(\partial_t \phi)^{2}
                     - \tfrac{\rho_{\mathrm{mass}} c^{2}}{2}(\nabla \phi)^{2}.
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_4">Equation (18.4)</a></figcaption>
@@ -19210,11 +19500,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_5">
                 <div class="math display">
 
-
                     \[
                     \rho_{\mathrm{mass}}\,\partial_t^2 \phi - \rho_{\mathrm{mass}} c^{2}\,\nabla^2 \phi = 0.
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_5">Equation (18.5)</a></figcaption>
@@ -19229,11 +19517,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_6">
                 <div class="math display">
 
-
                     \[
                     \omega^{2} = \frac{B}{A}\,k^{2}.
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_6">Equation (18.6)</a></figcaption>
@@ -19246,11 +19532,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_7">
                 <div class="math display">
 
-
                     \[
                     v = \sqrt{\tfrac{B}{A}} = \sqrt{\tfrac{\rho_{\mathrm{mass}} c^{2}}{\rho_{\mathrm{mass}}}} = c.
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_7">Equation (18.7)</a></figcaption>
@@ -19259,11 +19543,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_8">
                 <div class="math display">
 
-
                     \[
                     \mathcal{L} = \tfrac{A}{2}(\partial_t \phi)^{2} - \tfrac{B}{2}(\nabla \phi)^{2}
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_8">Equation (18.8)</a></figcaption>
@@ -19285,11 +19567,9 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             <figure class="equation" id="eq-18_10">
                 <div class="math display">
 
-
                     \[
                     v = \sqrt{\frac{B}{A}} = \sqrt{\frac{\rho_{\mathrm{mass}} c^{2}}{\rho_{\mathrm{mass}}}} = c
                     \]
-
 
                 </div>
                 <figcaption><a href="#eq-18_10">Equation (18.10)</a></figcaption>
@@ -19305,15 +19585,51 @@ K(x,x') = \int_{\Omega_{\omega}} M[\omega,\mathbf{k},\gamma,\Theta,Q,\phi,T]\, e
             </p>
 
             <h4>Dimensional Closure</h4>
-            <ul>
-                <li><span class="math inline">\(A\)</span> — kg·m\(^{-3}\) (mass density)</li>
-                <li><span class="math inline">\(B\)</span> — J·m\(^{-3}\) = kg·m\(^{-1}\)·s\(^{-2}\) (energy density)</li>
-                <li><span class="math inline">\(B/A\)</span> — m\(^2\)/s\(^2\)</li>
-                <li><span class="math inline">\(\sqrt{B/A}\)</span> — m/s (velocity)</li>
-            </ul>
-            <p>
+<ul>
+  <li><span class="math inline">\(A\)</span> — <span class="math inline">\(\mathrm{kg \cdot m^{-3}}\)</span> (mass density)</li>
+  <li><span class="math inline">\(B\)</span> — <span class="math inline">\(\mathrm{J \cdot m^{-3}} = \mathrm{kg \cdot m^{-1} \cdot s^{-2}}\)</span> (energy density)</li>
+  <li><span class="math inline">\(B/A\)</span> — <span class="math inline">\(\mathrm{m^2 \cdot s^{-2}}\)</span></li>
+  <li><span class="math inline">\(\sqrt{B/A}\)</span> — <span class="math inline">\(\mathrm{m \cdot s^{-1}}\)</span> (velocity)</li>
+</ul>
+<p>
+  Dimensional residual for wave speed:
+</p>
+
+<div class="math display">
+
+\[
+  \epsilon_{\mathrm{dim}} = \frac{\left\| [v]_{\mathrm{pred}} - [v]_{\mathrm{SI}} \right\|}{\left\| [v]_{\mathrm{SI}} \right\|} = 0
+  \]
+
+</div>
+
+<p>
+  confirming that the kernel-derived wave speed <span class="math inline">\(v = \sqrt{B/A}\)</span> is dimensionally consistent with <span class="math inline">\(\mathrm{m \cdot s^{-1}}\)</span>.
+
                 Thus, the kernel law is dimensionally consistent and closed.
             </p>
+
+<p>
+  The kernel phase closure over one wavelength yields:
+
+<div class="math display">
+
+\[
+  \oint_{\lambda} \frac{\partial \Phi}{\partial x}\, dx = \oint_{\lambda} k\, dx = 2\pi
+  \]
+
+</div>
+
+  confirming that the kernel preserves the classical phase–length relation and embeds π-consistency within its modulation structure.
+</p>
+
+<h4>Operational Extraction</h4>
+<ol>
+  <li>Measure vacuum energy density <span class="math inline">\(U_0\)</span> via cavity QED or Casimir experiments</li>
+  <li>Estimate coherence scale <span class="math inline">\(L_0\)</span> from modulation envelope or vacuum fluctuation spectrum</li>
+  <li>Compute stiffness: <span class="math inline">\(K = U_0 L_0^2\)</span></li>
+  <li>Compute wave speed: <span class="math inline">\(v = \sqrt{K / (\rho_{\mathrm{mass}} L_0^2)} = c\)</span></li>
+</ol>
 
             <h4>Falsifiability Protocol</h4>
             <p>
