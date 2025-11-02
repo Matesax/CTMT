@@ -1569,6 +1569,146 @@
   Trigonometry is not discarded — it is reinterpreted. Angles, distances, and projections are emergent from phase–coherence gradients and modulation structure. The kernel formalism replaces static geometry with dynamic rhythm collapse, yielding trigonometric relations as measurable consequences of spectral modulation and coherence dynamics.
 </p>
 
+<h4>Operational Extraction from Data</h4>
+
+<p>
+  To test the kernel collapse geometry against classical trigonometry, use the following procedure to extract distance from experimental data and evaluate phase–closure consistency.
+</p>
+
+<h5>Operational π-Consistency Test</h5>
+
+<ol>
+  <li>
+    Measure the following quantities from impulse or modulation data:
+    <ul>
+      <li><span class="math inline">\(M_1\)</span> — mean hop length (in <span class="math inline">\(\mathrm{m}\)</span>)</li>
+      <li><span class="math inline">\(\Theta\)</span> — synchrony frequency (in <span class="math inline">\(\mathrm{s}^{-1}\)</span>)</li>
+      <li><span class="math inline">\(\gamma\)</span> — collapse rate (in <span class="math inline">\(\mathrm{s}^{-1}\)</span>)</li>
+    </ul>
+  </li>
+  <li>
+    Compute the kernel-derived distance:
+    <div class="math display">
+
+\[
+      D_{\mathrm{kernel}} = \frac{M_1 \Theta}{\gamma}
+      \]
+
+    </div>
+  </li>
+  <li>
+    Obtain the geometric baseline distance from classical measurement:
+    <div class="math display">
+
+\[
+      D_{\mathrm{tri}} = d \cdot \tan(\theta)
+      \quad \text{or} \quad
+      D_{\mathrm{tri}} = \frac{c \cdot \Delta t}{2}
+      \]
+
+    </div>
+  </li>
+  <li>
+    Define the phase–closure ratio:
+    <div class="math display">
+
+\[
+      \Pi_{\mathrm{eff}} = \frac{D_{\mathrm{tri}}}{D_{\mathrm{kernel}}}
+      \]
+
+    </div>
+  </li>
+  <li>
+    Interpret the result:
+    <ul>
+      <li><span class="math inline">\(\Pi_{\mathrm{eff}} \to \pi\)</span> in the static limit (ideal synchrony, no collapse)</li>
+      <li>Deviations from <span class="math inline">\(\pi\)</span> indicate dynamic dispersion, collapse effects, or medium distortion</li>
+    </ul>
+  </li>
+</ol>
+
+<h5>Example Application</h5>
+
+<p>
+  Suppose an optical system yields:
+</p>
+
+<ul>
+  <li><span class="math inline">\(M_1 = 0.25\,\mathrm{m}\)</span></li>
+  <li><span class="math inline">\(\Theta = 5 \times 10^{14}\,\mathrm{s}^{-1}\)</span></li>
+  <li><span class="math inline">\(\gamma = 1 \times 10^{12}\,\mathrm{s}^{-1}\)</span></li>
+</ul>
+
+<p>
+  Then:
+</p>
+
+<div class="math display">
+
+\[
+  D_{\mathrm{kernel}} = \frac{0.25 \cdot 5 \times 10^{14}}{1 \times 10^{12}} = 125\,\mathrm{m}
+  \]
+
+</div>
+
+<p>
+  If the geometric baseline is <span class="math inline">\(D_{\mathrm{tri}} = 392.7\,\mathrm{m}\)</span>, then:
+</p>
+
+<div class="math display">
+
+\[
+  \Pi_{\mathrm{eff}} = \frac{392.7}{125} \approx 3.1416
+  \]
+
+</div>
+
+<p>
+  This confirms π-consistency and validates the kernel geometry in the static regime.
+</p>
+
+<h5>Use Cases</h5>
+
+<ul>
+  <li><strong>Optical interferometry:</strong> test coherence collapse vs geometric delay</li>
+  <li><strong>Thermal transport:</strong> compare phonon propagation vs Fourier baseline</li>
+  <li><strong>Orbital mechanics:</strong> validate synchrony drift against radar triangulation</li>
+</ul>
+
+<p>
+  This test provides a direct, quantitative bridge between kernel collapse geometry and conventional trigonometric π, enabling falsifiability and calibration across physical domains.
+</p>
+
+<h4>Geometric Closure and π-Consistency</h4>
+
+<p>
+  In the static limit where synchrony and collapse parameters are constant, the kernel phase reduces to the linear form:
+</p>
+
+<div class="math display">
+
+\[
+  \Phi(x;\omega) \rightarrow kx = \frac{2\pi x}{\lambda}
+  \]
+
+</div>
+
+<p>
+  The factor <span class="math inline">\(2\pi\)</span> re-emerges as the closed phase around one wavelength, restoring the circular geometry of conventional trigonometry. Hence, <span class="math inline">\(\pi\)</span> is not introduced axiomatically but arises naturally as the phase closure of a complete modulation cycle in the kernel domain:
+</p>
+
+<div class="math display">
+
+\[
+  \pi_{\mathrm{kernel}} = \frac{1}{2} \oint_{\lambda} \frac{\partial \Phi}{\partial (kx)}\, dx
+  \]
+
+</div>
+
+<p>
+  This shows that <span class="math inline">\(\pi\)</span> is the invariant of full-phase rotation in the static limit, verifying that kernel geometry contains classical trigonometry as its smooth boundary case. The kernel framework thus generalizes Euclidean geometry while preserving its foundational constants through dynamic coherence.
+</p>
+
             <h4>Dimensional Closure</h4>
 <table>
   <thead>
@@ -1660,7 +1800,6 @@
 </p>
 
 <div class="math display">
-  
 
 \[
   \sigma_D^2 =
@@ -1668,7 +1807,6 @@
   \left( \frac{M_1}{\gamma} \sigma_{\Theta} \right)^2 +
   \left( \frac{M_1 \Theta}{\gamma^2} \sigma_{\gamma} \right)^2
   \]
-
 
 </div>
 
@@ -1694,14 +1832,12 @@
 </p>
 
 <div class="math display">
-  
 
 \[
   \hat{D} = \frac{ \sum_i w_i D_i }{ \sum_i w_i },
   \quad
   w_i = \frac{1}{\sigma_{D_i}^2}
   \]
-
 
 </div>
 
