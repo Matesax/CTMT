@@ -20288,7 +20288,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 			<p>
 				If phases are independently read out and masses are independently calibrated,
-				<span class="math inline">\(\mathbf{C}_{\phi}\)</span> and <span class="math inline">\(\mathbf{C}_{m}\)</span> are diagonal and cross‑covariances vanish, reproducing the scalar form in Equation (19.6).
+				<span class="math inline">\(\mathbf{C}_{\phi}\)</span> and <span class="math inline">\(\mathbf{C}_{m}\)</span> are diagonal and cross‑covariances vanish, reproducing the scalar form in <a href="#eq-19_6">Equation (19.6)</a>.
 			</p>
 
 			<h5>Second‑order correction (curvature term)</h5>
@@ -20343,7 +20343,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 				\[
 				\epsilon(t)=\frac{|\delta_{\mathrm{exp}}(t)-\delta_{\mathrm{kernel}}(t)|}
 				{\sqrt{\sigma_{\delta,\mathrm{exp}}^2(t)+\sigma_{\delta,\mathrm{kernel}}^2(t)}} \;\le\; 2
-				\quad\Rightarrow\quad \text{Accepted at 95\% CL}
+				\quad\Rightarrow\quad \text{Accepted at 95 % CL}
 				\]
 
 			</div>
@@ -20440,9 +20440,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 			<ol>
 				<li>
 					<strong>Acquire phase-resolved data:</strong>
-					For each oscillator <span class="math inline">\( i \)</span>, record phase evolution
-					<span class="math inline">\( \phi_i(t) \)</span> over the measurement interval.
-					Use Hilbert transform or FFT phase extraction methods with sampling rates ≥ 1 Hz and integration times of 10<sup>3</sup>–10<sup>4</sup> s.
+					For each oscillator <span class="math inline">\(\mathit{i}\)</span>, record phase evolution
+					<span class="math inline">\(\phi_i(t)\)</span> over the measurement interval.
+					Use Hilbert transform or FFT phase extraction methods with sampling rates 
+					<span class="math inline">\(\geq 1\,\mathrm{Hz}\)</span> and integration times of 
+					<span class="math inline">\(10^3\text{–}10^4\,\mathrm{s}\)</span>.
 				</li>
 
 				<li>
@@ -20454,7 +20456,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 				<li>
 					<strong>Apply mass weighting:</strong>
-					Use known oscillator masses <span class="math inline">\( m_i \)</span> (CODATA 2024 values, Penning trap calibration) to compute
+					Use known oscillator masses <span class="math inline">\( m_i \)</span> (<span class="math inline">\(\mathrm{CODATA}_{2024}\)</span> values, Penning trap calibration) to compute
 					<span class="math inline">\( \Delta\phi_{\mathrm{mass}}(t) = \frac{\sum_i m_i\,\Delta\phi_i(t)}{\sum_i m_i} \)</span>.
 				</li>
 
@@ -20474,9 +20476,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 				<li>
 					<strong>Propagate uncertainty (Jacobian method):</strong>
 					Use the full Jacobian–covariance formalism:
-					<span class="math inline">\( \sigma_{\tau_{\mathrm{wf}}}^2 = \mathbf{J}^\top \mathrm{Cov}(\mathbf{x}) \mathbf{J} \)</span>,
-					where <span class="math inline">\(\mathbf{x} = (\bar\omega,\{\Delta\phi_i\},\{m_i\})\)</span>.
-					Include cross‑covariances and second‑order Hessian terms if phase excursions exceed 10<sup>-3</sup> rad.
+					<span class="math inline">\(\sigma_{\tau_{\mathrm{wf}}}^2 = \mathbf{J}^\top \, \mathrm{Cov}(\mathbf{x}) \, \mathbf{J}\)</span>,
+					where <span class="math inline">\(\mathbf{x} = (\bar{\omega}, \{\Delta\phi_i\}, \{m_i\})\)</span>.
+					Include cross‑covariances and second‑order Hessian terms if phase excursions exceed 
+					<span class="math inline">\(10^{-3}\,\mathrm{rad}\)</span>.
 				</li>
 
 				<li>
@@ -20510,11 +20513,11 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 			<h5>Checklist for Rigor and Reproducibility</h5>
 			<ul>
 				<li>All frequencies referenced to SI standards (Cs, optical lattice clocks)</li>
-				<li>Masses calibrated to CODATA 2024 values</li>
-				<li>Environmental perturbations monitored and corrected at 10<sup>-18</sup> level</li>
+				<li>Masses calibrated to <span class="math inline">\(\mathrm{CODATA}_{2024}\)</span> values</li>
+				<li>Environmental perturbations monitored and corrected at <span class="math inline">\(10^{-18}\)</span> level</li>
 				<li>Phase readout precision: <span class="math inline">\(\sigma_\phi \le 10^{-4}\,\mathrm{rad}\)</span></li>
 				<li>Mass calibration: <span class="math inline">\(\sigma_m/m \le 10^{-9}\)</span></li>
-				<li>Frequency calibration: <span class="math inline">\(\sigma_{\bar\omega}/\bar\omega \le 10^{-16}\)</span></li>
+				<li>Frequency calibration: <span class="math inline">\(\sigma_{\bar{\omega}}/\bar{\omega} \le 10^{-16}\)</span></li>
 				<li>Total propagated time uncertainty: <span class="math inline">\(\sigma_{\tau_{\mathrm{wf}}} \lesssim 10^{-20}\,\mathrm{s}\)</span></li>
 				<li>Residual test: <span class="math inline">\(|z| \le 2\)</span> across repeated runs and oscillator types</li>
 			</ul>
