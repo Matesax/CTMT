@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19663,10 +19661,10 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
         <h2 title="Click to toggle" id="sec-19-weak-field-time-from-mass-weighted-phase-synchrony">Weak-Field Time from Mass-Weighted Phase Synchrony</h2>
         <article style="display:none">
             <p>
-                In the kernel framework, <em>time</em> is not an external coordinate but a
-                <strong>phase-derived synchrony variable</strong>.
-                Weak-field temporal shifts arise when distributed oscillators experience
-                coherent modulation in their phase rhythm.
+                In the kernel framework, <em>time</em> is not an external coordinate but a <strong>phase-derived synchrony variable</strong>.
+                Weak-field temporal shifts arise when distributed oscillators experience coherent modulation in their phase rhythm.
+				Unlike coordinate time in metric theories, kernel synchrony time emerges from the spectral curvature of oscillator phase rhythms.
+				It is not imposed externally but computed from the internal coherence structure of the system. This makes time a measurable, observer-linked quantity rather than a geometric abstraction.
             </p>
 			<p>
 				We begin with the general impulse kernel:
@@ -19972,6 +19970,14 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 				</li>
 			</ul>
 
+			<p>
+				The angular frequency <span class="math inline">\(\bar{\omega}\)</span> serves as the kernel’s internal clock reference, anchoring synchrony time to a physically measurable standard.
+				Unlike abstract coordinate time, <span class="math inline">\(\bar{\omega}\)</span> is directly linked to oscillator dynamics and spectral curvature.
+				Its normalization via <span class="math inline">\(\bar{\omega} = 2\pi \bar{\nu}\)</span> ensures compatibility with SI frequency standards,
+				while its connection to quantum energy through <span class="math inline">\(E = \hbar \bar{\omega}\)</span> embeds Planck-scale action into the kernel framework. This makes <span class="math inline">\(\bar{\omega}\)</span> not just a parameter,
+				but a physically grounded synchrony driver that defines time as a coherence-derived observable.
+			</p>
+
 			<table class="mce-item-table">
 				<thead>
 					<tr>
@@ -20017,6 +20023,120 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 			<p>
 				All kernel‑level quantities used in the weak‑field time formulation exhibit
 				<span class="math inline">\(\epsilon_{\mathrm{dim}} = 0\)</span>, confirming full SI dimensional closure.
+			</p>
+
+			<h4>Limit Case: Reduction to Classical Coordinate Time</h4>
+
+			<p>
+				In the kernel framework, time emerges from phase synchrony rather than being imposed as an external coordinate. However, in the limit of vanishing phase curvature and decoherence, the kernel synchrony time <span class="math inline">\(\tilde{t}(t)\)</span> must reduce to the classical coordinate time <span class="math inline">\(t\)</span>. This section derives that reduction step-by-step, confirming that kernel time generalizes and contains classical time as a smooth boundary case.
+			</p>
+
+			<h5>Step 1 — Kernel Synchrony Time Definition</h5>
+
+			<p>
+				The emergent synchrony time is defined as:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tilde{t}(t) = t + \tau_{\mathrm{wf}}(t)
+			\]
+
+			</div>
+
+			<p>
+				where <span class="math inline">\(\tau_{\mathrm{wf}}(t)\)</span> is the weak-field time shift derived from mass-weighted phase offset:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tau_{\mathrm{wf}}(t) = \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar{\omega}}
+			\]
+
+			</div>
+
+			<h5>Step 2 — Mass-Weighted Phase Offset</h5>
+
+			<p>
+			The mass-weighted phase offset is given by:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\Delta\phi_{\mathrm{mass}}(t) = \frac{\sum_i m_i\,\Delta\phi_i(t)}{\sum_i m_i}
+			\]
+
+			</div>
+
+			<p>
+				where <span class="math inline">\(\Delta\phi_i(t)\)</span> is the phase deviation of oscillator <span class="math inline">\(i\)</span> from its reference synchrony. In the limit case, we assume:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\Delta\phi_i(t) \to 0 \quad \forall i
+			\]
+
+			</div>
+
+			<p>
+				This implies:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\Delta\phi_{\mathrm{mass}}(t) \to 0
+			\]
+
+			</div>
+
+			<h5>Step 3 — Collapse of Synchrony Shift</h5>
+
+			<p>
+			Substituting into the synchrony time shift:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tau_{\mathrm{wf}}(t) = \frac{0}{\bar{\omega}} = 0
+			\]
+
+			</div>
+
+			<p>
+				Therefore:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tilde{t}(t) = t + 0 = t
+			\]
+
+			</div>
+
+			<h5>Step 4 — Interpretation</h5>
+
+			<p>
+				This confirms that in the absence of phase curvature and decoherence, the kernel synchrony time collapses to the classical coordinate time. The kernel framework thus contains classical time as a limiting case:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\lim_{\Delta\phi_i \to 0} \tilde{t}(t) = t
+			\]
+
+			</div>
+
+			<p>
+				This validates the kernel time law as a generalization of coordinate time, where coherence and modulation effects introduce measurable deviations, but vanish smoothly in the classical regime.
 			</p>
 
             <h4>Benchmark Computation: JILA/NIST</h4>
@@ -20401,6 +20521,210 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 
 			<p>
 				This expanded protocol ensures that weak‑field time shifts derived from kernel synchrony are experimentally measurable, dimensionally closed, statistically robust, and falsifiable against GR benchmarks.
+			</p>
+
+			<h4>Synchrony Time Framework</h4>
+
+<svg viewBox="260 20 400 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+  <style>
+    .weak_sync_node {
+      stroke: #333;
+      stroke-width: 1.5px;
+      rx: 6;
+      ry: 6;
+    }
+
+    .weak_sync_arrow {
+      stroke: #555;
+      stroke-width: 1.5px;
+      fill: none;
+      marker-end: url(#weak_sync_arrowhead);
+    }
+
+    .weak_sync_feedback {
+      stroke: #cc5500;
+      stroke-width: 1.8px;
+      stroke-dasharray: 6 4;
+      fill: none;
+      marker-end: url(#weak_sync_arrowhead);
+    }
+
+    .weak_sync_kernel {
+      fill: #e6f7ff;
+    }
+
+    .weak_sync_measure {
+      fill: #fff1e0;
+    }
+
+    .weak_sync_closure {
+      fill: #f5f5f5;
+    }
+
+    .weak_sync_axislabel {
+      font-style: italic;
+      font-size: 12px;
+      fill: #666;
+    }
+  </style>
+
+  <defs>
+    <marker id="weak_sync_arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- Step 1 -->
+  <rect x="400" y="40" width="200" height="60" class="weak_sync_node weak_sync_kernel" />
+  <foreignObject x="400" y="52" width="200" height="48">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Kernel Phase Modulation</b><br />
+      <span class="math">\( \Phi(\omega) = \omega t - k(\omega)x \)</span>
+    </div>
+  </foreignObject>
+
+  <!-- Step 2 -->
+  <rect x="400" y="130" width="200" height="60" class="weak_sync_node weak_sync_kernel" />
+  <foreignObject x="400" y="138" width="200" height="52">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Mass-Weighted Phase Offset</b><br />
+      <span class="math">\( \Delta\phi_{\mathrm{mass}} = \frac{\sum m_i \Delta\phi_i}{\sum m_i} \)</span>
+    </div>
+  </foreignObject>
+
+  <!-- Step 3 -->
+  <rect x="400" y="220" width="200" height="60" class="weak_sync_node weak_sync_measure" />
+  <foreignObject x="400" y="226" width="200" height="54">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Synchrony Time Shift</b><br />
+      <span class="math">\( \tau_{\mathrm{wf}} = \Delta\phi_{\mathrm{mass}} / \bar\omega \)</span>
+    </div>
+  </foreignObject>
+
+  <!-- Step 4 -->
+  <rect x="400" y="310" width="200" height="60" class="weak_sync_node weak_sync_measure" />
+  <foreignObject x="400" y="316" width="200" height="52">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Fractional Shift</b><br />
+      <span class="math">\( \delta = \tau_{\mathrm{wf}} / T \)</span>
+    </div>
+  </foreignObject>
+
+  <!-- Step 5 -->
+  <rect x="400" y="400" width="200" height="60" class="weak_sync_node weak_sync_closure" />
+  <foreignObject x="400" y="408" width="200" height="50">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Dimensional Closure</b><br />
+      <span class="math">\( \epsilon_{\mathrm{dim}} = 0 \)</span>
+    </div>
+  </foreignObject>
+
+  <!-- Step 6 -->
+  <rect x="400" y="490" width="200" height="70" class="weak_sync_node weak_sync_closure" />
+  <foreignObject x="400" y="494" width="200" height="70">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
+      <b>Experimental Agreement</b><br />
+      <div class="math">\( \epsilon(t) = \frac{|\delta_{\mathrm{exp}} - \delta_{\mathrm{kernel}}|}{\sigma_\delta} \le 2 \)</div>
+      <div class="math">\( R^2 \ge 0.95 \)</div>
+    </div>
+  </foreignObject>
+
+  <!-- Arrows -->
+  <path d="M500 100 L500 130" class="weak_sync_arrow" />
+  <path d="M500 190 L500 220" class="weak_sync_arrow" />
+  <path d="M500 280 L500 310" class="weak_sync_arrow" />
+  <path d="M500 370 L500 400" class="weak_sync_arrow" />
+  <path d="M500 460 L500 490" class="weak_sync_arrow" />
+
+  <!-- Feedback loop -->
+  <path d="M400 525 C300 530, 300 80, 400 70" class="weak_sync_feedback" />
+
+  <!-- Axis label -->
+  <text x="300" y="580" class="weak_sync_axislabel">→ increasing observable complexity and measurement gain</text>
+</svg>
+
+			<h4>Cross-Domain Applicability of Kernel Synchrony Time</h4>
+
+			<p>
+				The kernel formulation of time as a synchrony-derived observable is not limited to gravitational systems. Because it is built from oscillator phase curvature and mass-weighted modulation, it applies broadly across domains where coherence and frequency are measurable. This section outlines how the same synchrony law generalizes to atomic, quantum, orbital, and thermal systems.
+			</p>
+
+			<h5>1. Atomic Clocks and Optical Lattices</h5>
+
+			<p>
+				In precision timekeeping systems, oscillator phase <span class="math inline">\(\phi_i(t)\)</span> is resolved with sub-radian accuracy. The kernel synchrony shift <span class="math inline">\(\tau_{\mathrm{wf}} = \Delta\phi_{\mathrm{mass}} / \bar{\omega}\)</span> maps directly onto fractional frequency deviations measured by atomic clocks. This enables direct comparison with general-relativistic redshift:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\delta = \frac{\tau_{\mathrm{wf}}}{T} = \frac{\Delta\phi_{\mathrm{mass}}}{2\pi}
+			\]
+
+			</div>
+
+			<h5>2. Quantum Resonator Arrays</h5>
+
+			<p>
+				In engineered quantum systems, phase coherence across resonators defines synchrony domains. The kernel law applies by treating each resonator’s mass <span class="math inline">\(m_i\)</span> and phase deviation <span class="math inline">\(\Delta\phi_i(t)\)</span> as inputs to the synchrony projection. This yields measurable decoherence-induced time shifts:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tilde{t}(t) = t + \frac{\sum_i m_i \Delta\phi_i(t)}{\bar{\omega} \sum_i m_i}
+			\]
+
+			</div>
+
+			<h5>3. Orbital Systems and Relativistic Clocks</h5>
+
+			<p>
+				Satellite-based clocks (e.g. GPS, Galileo) experience gravitational potential gradients. These manifest as phase-synchrony offsets in the kernel framework. The kernel fractional shift law:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\delta = \frac{\Delta\Phi_{\mathrm{sync}}}{c^2}
+			\]
+
+			</div>
+
+			<p>
+				reproduces the general-relativistic redshift <span class="math inline">\(\delta_{\mathrm{GR}} = gh/c^2\)</span> without invoking metric deformation, making the kernel law operationally equivalent but conceptually distinct.
+			</p>
+
+			<h5>4. Thermal Transport and Coherence Domains</h5>
+
+			<p>
+				In thermal systems, phase coherence across phonon modes can be tracked via modulation envelopes. The kernel synchrony law applies by treating temperature-dependent phase shifts as synchrony offsets. This enables time emergence from thermal decoherence:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tau_{\mathrm{thermal}} = \frac{\Delta\phi_{\mathrm{thermal}}}{\bar{\omega}(T)}
+			\]
+
+			</div>
+
+			<h5>5. Unified Interpretation</h5>
+
+			<p>
+				Across all domains, the kernel synchrony time:
+			</p>
+
+			<div class="math display">
+
+			\[
+			\tilde{t}(t) = t + \frac{\Delta\phi_{\mathrm{mass}}(t)}{\bar{\omega}}
+			\]
+
+			</div>
+
+			<p>
+				remains valid and measurable. It generalizes coordinate time by embedding coherence, modulation, and mass weighting into a unified observable. This makes kernel time a cross-domain invariant, not a geometry-specific construct.
 			</p>
 
 			<h4>Experimental Concordance</h4>
