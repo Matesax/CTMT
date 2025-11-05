@@ -6458,7 +6458,7 @@ function generateAlphaCSV(samples = 10000) {
 	}
 
 	let alphaSum = 0, alphaSqSum = 0;
-	let csv = "gamma,omega_star,v_sync,Gfactor,alpha\\n";
+	let csv = "gamma,omega_star,v_sync,Gfactor,alpha\n";
 
 	for (let i = 0; i &lt; samples; i++) {
 		const gamma = randn(gammaMean, gammaStd);
@@ -6470,7 +6470,7 @@ function generateAlphaCSV(samples = 10000) {
 		alphaSum += alpha;
 		alphaSqSum += alpha * alpha;
 
-		csv += `${gamma.toExponential()},${omega.toExponential()},${vsync.toExponential()},${Gfactor.toExponential()},${alpha.toExponential()}\\n`;
+		csv += `${gamma.toExponential()},${omega.toExponential()},${vsync.toExponential()},${Gfactor.toExponential()},${alpha.toExponential()}\n`;
 	}
 
 	const meanAlpha = alphaSum / samples;
@@ -7450,6 +7450,701 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
         </article>
     </section>
+<section>
+  <h2 title="Click to toggle" id="sec-terror-kernel-as-a-rupture-operator">Terror Kernel as a Rupture Operator</h2>
+  <article style="display:none">
+    <p>
+      The <strong>Terror Kernel</strong> is introduced as a rupture operator: a stochastic, non-normal, and non-unitary deformation of the coherent impulse kernel. It models decoherence, instability, and adversarial amplification across physical, informational, and symbolic systems. Where the Recursive Modulation Impulse (RMI) generates structure through synchrony and projection, the Terror Kernel <span class="math inline">\( T[K] \)</span> unravels it — exposing the fragility of coherence under rupture fields.
+    </p>
+
+<h4>Axioms of the Terror Kernel</h4>
+<ol>
+  <li><strong>(T1) Discoherence Principle:</strong> Phase offsets are stochastic; synchrony is not assumed.<br>
+    <span class="math inline">\( \forall i,j,\ \langle \phi_i - \phi_j \rangle \neq 0 \)</span>
+  </li>
+
+  <li><strong>(T2) Temporal Instability:</strong> Time is modulated by rupture fields.<br>
+    <span class="math inline">\( \hat{T}(t) = t \cdot \xi(t) \)</span> with stochastic <span class="math inline">\( \xi(t) \)</span>.
+  </li>
+
+  <li><strong>(T3) Mass-Amplified Rupture:</strong> Mass contributes to decoherence.<br>
+    <span class="math inline">\( \Xi_{\text{mass}} = \sum_i m_i \cdot \sigma_{\phi,i} \)</span>
+  </li>
+
+  <li><strong>(T4) Anti-Closure:</strong> Dimensional residuals are irreducible.<br>
+    <span class="math inline">\( \varepsilon_{\text{dim}}(x) \sim R(x) \)</span>
+  </li>
+</ol>
+
+<h4>Rupture–Coherence Duality Table</h4>
+<p>
+This table summarizes the structural duality between the Coherent Kernel (RMI) and the Terror Kernel (Rupture). Each row contrasts a core concept, revealing how rupture generalizes or inverts the assumptions of coherence.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Concept</th>
+      <th>Coherent Kernel (RMI)</th>
+      <th>Terror Kernel (Rupture)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Generator</td>
+      <td>Synchrony impulse</td>
+      <td>Rupture operator</td>
+    </tr>
+    <tr>
+      <td>Exponent</td>
+      <td><span class="math inline">\( e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
+      <td><span class="math inline">\( \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
+    </tr>
+    <tr>
+      <td>Measure</td>
+      <td>Stationary-phase Gaussian</td>
+      <td>Ensemble, heavy-tailed</td>
+    </tr>
+    <tr>
+      <td>Geometry</td>
+      <td>Closed, dimensional closure</td>
+      <td>Open, anti-closure</td>
+    </tr>
+    <tr>
+      <td>Spectral property</td>
+      <td>Hermitian / unitary</td>
+      <td>Non-Hermitian / non-normal</td>
+    </tr>
+    <tr>
+      <td>Observable</td>
+      <td><span class="math inline">\( p(x,t) \)</span> — stable projection</td>
+      <td><span class="math inline">\( R \gg 1 \)</span> — amplified variance</td>
+    </tr>
+    <tr>
+      <td>Diagnostic</td>
+      <td><span class="math inline">\( \rho_c \)</span> — coherence density</td>
+      <td><span class="math inline">\( R(x),\ \Lambda \)</span> — rupture ratio, Lyapunov exponent</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>
+      This chapter defines the Terror Kernel as a multiplicative–additive operator acting on a coherent base kernel <span class="math inline">\( K \)</span>. It introduces the axioms of rupture, the stochastic structure of the multiplicative field <span class="math inline">\( \Xi(x,\omega,t) \)</span>, and the additive shock term <span class="math inline">\( \eta(x,t) \)</span>. The resulting operator is non-Hermitian, non-invertible without priors, and spectrally unstable — exhibiting amplification regimes diagnosable via Lyapunov exponents, pseudospectra, and rupture metrics.
+    </p>
+
+    <p>
+      All symbols used in the Terror Kernel are listed with units, stochastic priors, rupture roles, and their entry into the kernel integrand. These symbols define a rupture calculus: a formalism for modeling the breakdown of coherence, the emergence of instability, and the amplification of uncertainty.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+          <th>Units</th>
+          <th>Stochastic Prior / Distribution</th>
+          <th>Role in Kernel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="math inline">\( \Xi(x,\omega,t) \)</span></td>
+          <td>Multiplicative rupture field</td>
+          <td>Dimensionless</td>
+          <td>Log-normal, Lévy, or adversarial</td>
+          <td>Modulates kernel integrand amplitude and phase</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( \eta(x,t) \)</span></td>
+          <td>Additive rupture source (shock)</td>
+          <td>Same as output field <span class="math inline">\( p(x,t) \)</span></td>
+          <td>Gaussian, α-stable, or impulsive</td>
+          <td>Adds stochastic noise or collapse events</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( \sigma_\phi(x,t) \)</span></td>
+          <td>Phase volatility field</td>
+          <td><span class="math inline">\( \mathrm{rad} \)</span></td>
+          <td>Empirical variance over time window</td>
+          <td>Used in rupture diagnostics and mass-weighted rupture</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( \Xi_{\mathrm{mass}}(t) \)</span></td>
+          <td>Mass-weighted rupture index</td>
+          <td>Dimensionless</td>
+          <td>Derived from <span class="math inline">\( m_i \cdot \sigma_{\phi,i}(t) \)</span></td>
+          <td>Quantifies rupture severity across mass-anchored oscillators</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( R(x) \)</span></td>
+          <td>Rupture ratio (local)</td>
+          <td>Dimensionless</td>
+          <td>Computed from ensemble statistics</td>
+          <td>Diagnoses terror regime: <span class="math inline">\( R \gg 1 \)</span> indicates amplification</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( \Lambda(x) \)</span></td>
+          <td>Lyapunov exponent field</td>
+          <td><span class="math inline">\( \mathrm{s}^{-1} \)</span></td>
+          <td>Estimated from perturbation growth</td>
+          <td>Measures exponential sensitivity to initial conditions</td>
+        </tr>
+        <tr>
+          <td><span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+          <td>Kolmogorov–Sinai entropy rate</td>
+          <td><span class="math inline">\( \mathrm{bit \cdot s^{-1}} \)</span></td>
+          <td>Estimated from symbolic dynamics</td>
+          <td>Quantifies information loss and irreversibility</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      These symbols and rupture observables define the operational language of the Terror Kernel. In the sections that follow, we formalize its axioms, construct its operator form, and derive its spectral and statistical properties. The goal is not to destroy coherence, but to understand how it fails — and what emerges when it does.
+    </p>
+
+<p><strong>Usage notes</strong>:</p>
+<ul>
+  <li>
+    Always declare the stochastic model for <span class="math inline">\(\Xi(x,\omega,t)\)</span> and <span class="math inline">\(\eta(x,t)\)</span> at the start of each derivation. Specify whether log-normal, Lévy, or adversarial, and include parameter priors.
+  </li>
+  <li>
+    Factor the rupture-modulated kernel as <span class="math inline">\(T[K] = C_{\rm phys} \cdot \Xi \cdot \tilde K + \eta\)</span>, where <span class="math inline">\(\tilde K\)</span> is the dimensionless coherent kernel and <span class="math inline">\(\Xi\)</span>, <span class="math inline">\(\eta\)</span> are rupture fields. Make <span class="math inline">\(C_{\rm phys}\)</span> explicit to trace units and amplification.
+  </li>
+  <li>
+    When computing rupture amplification, always include the Lyapunov exponent field <span class="math inline">\(\Lambda(x)\)</span> and rupture ratio <span class="math inline">\(R(x)\)</span>. These quantify exponential sensitivity and observable variance.
+  </li>
+  <li>
+    For inversion tasks, declare whether rupture fields are treated as latent variables or nuisance parameters. Use robust likelihoods (e.g. Student-t) and sparse priors for identifiability.
+  </li>
+</ul>
+
+<h4>Rupture factorization and stochastic kernel template</h4>
+
+<p>
+Declare rupture model and factor the kernel into physical constants, coherent shape, and stochastic rupture fields.
+</p>
+
+<h5>Canonical rupture-modulated kernel form</h5>
+<div class="math display">
+
+\[
+T[K](x,t) = C_{\rm phys} \cdot \Xi(x,\omega,t) \cdot \tilde K(x,\omega,t) + \eta(x,t)
+\]
+
+</div>
+
+<p>
+Here <span class="math inline">\(\tilde K\)</span> is the dimensionless coherent kernel, <span class="math inline">\(\Xi\)</span> is multiplicative rupture, and <span class="math inline">\(\eta\)</span> is additive shock. <span class="math inline">\(C_{\rm phys}\)</span> carries SI units and normalization.
+</p>
+
+<h5>Canonical <span class="math inline">\(C_{\rm phys}\)</span> template (rupture-aware)</h5>
+<div class="math display">
+
+\[
+C_{\rm phys} = \frac{k_B\,T}{\mathcal{S}_\ast}\,(2\pi)^{-d}\,c^{-n_c}\,L^{-n_L}
+\quad \text{(same as RMI, but rupture fields modulate output)}
+\]
+
+</div>
+
+<h5>Rupture diagnostics (ensemble-based)</h5>
+<ul>
+  <li>Phase volatility field: <span class="math inline">\(\sigma_\phi(x,t) = \mathrm{Var}[\phi(x,t+\Delta t) - \phi(x,t)]\)</span></li>
+  <li>Mass-weighted rupture: <span class="math inline">\(\Xi_{\mathrm{mass}}(t) = \sum_i m_i\,\sigma_{\phi,i}(t)\)</span></li>
+  <li>Rupture ratio: <span class="math inline">\(R(x) = \mathrm{Var}[T[K](x)] / |\mathbb{E}[T[K](x)]|\)</span></li>
+  <li>Lyapunov exponent: <span class="math inline">\(\Lambda(x) = \lim_{t \to \infty} \frac{1}{t} \log \frac{\|\delta p(x,t)\|}{\|\delta p(x,0)\|}\)</span></li>
+</ul>
+
+<h5>Python pseudo-code: rupture field sampling (log-normal)</h5>
+<pre><code class="language-python">
+import numpy as np
+
+N = 10000
+mu, sigma = 0.0, 0.2  # log-normal parameters
+Xi_samples = np.random.lognormal(mean=mu, sigma=sigma, size=N)
+
+# Apply to coherent kernel samples
+K_samples = np.ones(N)  # assume normalized base kernel
+T_samples = Xi_samples * K_samples
+
+R = np.var(T_samples) / np.abs(np.mean(T_samples))
+print("Rupture ratio R =", R)
+</code></pre>
+
+<h5>Python pseudo-code: rupture index propagation (Monte Carlo)</h5>
+<pre><code class="language-python">
+# Mass-weighted rupture index
+masses = np.random.uniform(1.0, 10.0, N)
+sigma_phi = np.random.normal(0.01, 0.005, N)
+Xi_mass = np.sum(masses * sigma_phi)
+print("Mass-weighted rupture index =", Xi_mass)
+</code></pre>
+
+<h5>Checklist for inclusion near derivations</h5>
+<ul>
+  <li>Declare rupture model: log-normal, Lévy, adversarial</li>
+  <li>Specify priors for <span class="math inline">\(\Xi\)</span> and <span class="math inline">\(\eta\)</span></li>
+  <li>Trace units via <span class="math inline">\(C_{\rm phys}\)</span></li>
+  <li>Include rupture diagnostics: <span class="math inline">\(R(x)\)</span>, <span class="math inline">\(\Lambda(x)\)</span>, <span class="math inline">\(\Xi_{\mathrm{mass}}(t)\)</span></li>
+  <li>Use robust likelihoods for inversion</li>
+  <li>Flag non-normal amplification regimes via pseudospectrum</li>
+</ul>
+
+<h4>Formal Properties of the Terror Operator</h4>
+
+<h5>Operator form and rupture decomposition</h5>
+<p>
+The Terror Kernel is defined as a rupture-modulated operator acting on a coherent base kernel:
+<span class="math inline">\( T[K](x,t) = \Xi(x,\omega,t) \cdot K(x,\omega,t) + \eta(x,t) \)</span>.
+</p>
+
+<h5>Operator identity and adjoint</h5>
+<p>
+The Terror operator is non-Hermitian and lacks a true inverse. Define:
+<span class="math inline">\( T = \Xi \circ K + \eta \)</span>,
+and its adjoint in the mean-square sense:
+<span class="math inline">\( T^{\dagger} = \mathbb{E}[\Xi^*] \cdot K^{\dagger} \)</span>.
+</p>
+<p>
+Non-normality implies <span class="math inline">\( [T, T^{\dagger}] \neq 0 \)</span>,
+and amplification may occur even when all eigenvalues of <span class="math inline">\( T \)</span> are stable.
+</p>
+
+<h5>Pseudospectral amplification and non-normal growth</h5>
+<p>
+To quantify instability, compute the numerical range and ε-pseudospectrum of <span class="math inline">\( T \)</span>.
+Transient amplification occurs when:
+<span class="math inline">\( \| (T - \lambda I)^{-1} \| > 1/\epsilon \)</span>,
+even if <span class="math inline">\( \lambda \)</span> lies within the stable spectrum.
+</p>
+
+<h4>Spectral and Variational Diagnostics</h4>
+
+<h5>Pseudospectral amplification</h5>
+<p>
+Transient growth occurs when the resolvent norm exceeds threshold:
+<span class="math inline">\( \| (T - \lambda I)^{-1} \| > 1/\epsilon \)</span>.
+This indicates non-normal amplification even if all eigenvalues are stable.
+</p>
+
+<h5>Rupture Variational Form</h5>
+<p>
+Define a rupture functional as the negative entropy of coherence:
+<span class="math inline">\( \mathcal{R}[K] = - \int |T[K]|^2 \log |T[K]|^2\,dx \)</span>.
+Its extrema correspond to maximum unpredictability (terror maxima) or restored coherence minima.
+</p>
+
+<h5>Lyapunov and entropy metrics</h5>
+<ul>
+  <li>Lyapunov exponent: <span class="math inline">\( \Lambda(x) = \lim_{t \to \infty} \frac{1}{t} \log \frac{\|\delta p(x,t)\|}{\|\delta p(x,0)\|} \)</span></li>
+  <li>KS entropy rate: <span class="math inline">\( h_{\mathrm{KS}} = \lim_{t \to \infty} H(p(x,t)) / t \)</span></li>
+</ul>
+
+<h4>Rupture-Deformed Exponent</h4>
+<p>
+In the Terror Kernel, the exponent is no longer purely oscillatory. Instead, it is modulated by a stochastic rupture field:
+<span class="math inline">\( \exp\big(i\Phi(\omega)/\mathcal{S}_\ast\big) \cdot \Xi(x,\omega,t) \)</span>,
+where <span class="math inline">\(\Xi(x,\omega,t)\)</span> introduces volatility, heavy tails, and adversarial deformation.
+</p>
+
+<p>
+The rupture field <span class="math inline">\(\Xi\)</span> may amplify or suppress the phase contribution, and can introduce non-smooth, discontinuous behavior.
+This breaks the assumptions of stationary-phase analysis and replaces them with ensemble-based diagnostics.
+</p>
+
+<p>
+In some cases, the exponent may include jump terms or multiplicative Lévy noise:
+<span class="math inline">\( \exp\big(i\Phi/\mathcal{S}_\ast\big) \cdot \prod_{k=1}^{N_t} J_k(x,\omega) \)</span>,
+where <span class="math inline">\(J_k\)</span> are rupture events drawn from a stable distribution.
+</p>
+
+<p>
+Dimensional consistency is preserved via <span class="math inline">\(C_{\rm phys}\)</span>, but the exponent itself becomes a carrier of rupture.
+Its statistical properties — variance, entropy, and sensitivity — are used to diagnose terror amplification.
+</p>
+
+<h5>Kolmogorov–Sinai Entropy Rate</h5>
+<p>
+The KS entropy rate quantifies the average rate of information production in a rupture-modulated system. It measures how unpredictable the kernel output becomes over time due to stochastic deformation. For a probability distribution <span class="math inline">\( p(x,t) \)</span> evolving under rupture dynamics, define:
+</p>
+
+<div class="math display">
+
+\[
+h_{\mathrm{KS}} = \lim_{t \to \infty} \frac{H(p(x,t))}{t}
+\quad \text{where} \quad
+H(p) = -\int p(x,t) \log p(x,t)\,dx
+\]
+
+</div>
+
+<p>
+High values of <span class="math inline">\( h_{\mathrm{KS}} \)</span> indicate rapid loss of coherence and strong rupture amplification. In contrast, low entropy rates suggest partial restoration of structure or suppression of rupture fields.
+</p>
+
+<p>
+In practice, <span class="math inline">\( h_{\mathrm{KS}} \)</span> can be estimated from ensemble simulations of <span class="math inline">\( T[K](x,t) \)</span> by tracking the evolution of output distributions over time. It complements the Lyapunov exponent <span class="math inline">\( \Lambda(x) \)</span> and rupture ratio <span class="math inline">\( R(x) \)</span> as part of the full diagnostic suite.
+</p>
+
+<p>
+Together, these metrics form the basis for rupture classification, regime detection, and terror amplification scoring.
+</p>
+
+<h5>Sign convention and rupture asymmetry</h5>
+<p>
+In the Terror Kernel, the sign of the exponent no longer solely determines phase evolution — it interacts with rupture fields to produce asymmetric amplification, decoherence, and directional instability. The exponent takes the form:
+<span class="math inline">\( \Xi(x,\omega,t) \cdot e^{\pm i\Phi(\omega)/\mathcal{S}_\ast} \)</span>,
+where <span class="math inline">\(\Xi\)</span> may amplify or suppress the phase term non-uniformly.
+</p>
+
+<ul>
+  <li>
+    <strong>Amplifying rupture:</strong>
+    <span class="math inline">\( \Xi > 1 \)</span> with <span class="math inline">\( e^{+i\Phi/\mathcal{S}_\ast} \)</span> — leads to forward-time instability and exponential growth.
+  </li>
+  <li>
+    <strong>Suppressive rupture:</strong>
+    <span class="math inline">\( \Xi < 1 \)</span> with <span class="math inline">\( e^{-i\Phi/\mathcal{S}_\ast} \)</span> — leads to decoherence and damping.
+  </li>
+</ul>
+
+<p>
+Unlike coherent kernels, the sign convention in terror calculus must be interpreted statistically. The rupture field <span class="math inline">\(\Xi\)</span> may flip sign locally or introduce complex phase shifts that violate standard causality assumptions.
+</p>
+
+<p>
+To model rupture-induced asymmetry, apply a stochastic continuation:
+<span class="math inline">\( \Phi \mapsto \Phi \pm i\epsilon(x,\omega,t) \)</span>,
+where <span class="math inline">\(\epsilon\)</span> is a random field with small positive mean and heavy-tailed variance.
+This shifts poles unpredictably and encodes rupture-driven time-ordering violations.
+</p>
+
+<p>
+Causality in the Terror Kernel is not enforced by analytic continuation alone — it must be diagnosed via Lyapunov exponents, entropy rates, and pseudospectral growth. These metrics reveal whether rupture has broken the causal structure of the kernel.
+</p>
+
+<h4>Rupture-Deformed Spectral Integral and Non-Normal Amplification</h4>
+
+<p>
+Purpose: evaluate the terror-modulated spectral integral
+<span class="math inline">\( T[K](x,t) = \displaystyle\int_{\mathbb{R}^n} C_{\rm phys}\,\tilde M(\omega)\, \Xi(x,\omega,t)\, e^{\,i\Phi(\omega)/\mathcal{S}_\ast}\,d^n\omega + \eta(x,t) \)</span>
+under rupture deformation. Instead of stationary-phase expansion, we analyze stochastic amplification, non-normal growth, and pseudospectral instability. The goal is not convergence, but rupture detection.
+</p>
+
+<h5>1. Declare rupture model and stochastic priors</h5>
+<ul>
+  <li>Choose <span class="math inline">\(\Xi(x,\omega,t)\)</span> from log-normal, Lévy, or adversarial field</li>
+  <li>Declare volatility parameter <span class="math inline">\(\sigma(x,\omega,t)\)</span> and correlation length <span class="math inline">\(L_{\text{rupt}}\)</span></li>
+  <li>Sample additive shock <span class="math inline">\(\eta(x,t)\)</span> from α-stable or impulsive distribution</li>
+</ul>
+
+<h5>2. Replace stationary point with rupture ensemble</h5>
+<p>
+Instead of expanding around a stationary point <span class="math inline">\(\omega_0\)</span>, sample an ensemble of rupture-modulated integrands:
+</p>
+<div class="math display">
+
+\[
+T^{(n)}(x,t) = \int_{\mathbb{R}^n} C_{\rm phys}\,\tilde M(\omega)\, \Xi^{(n)}(x,\omega,t)\, e^{i\Phi(\omega)/\mathcal{S}_\ast}\,d^n\omega + \eta^{(n)}(x,t)
+\]
+
+</div>
+
+<h5>3. Compute rupture metrics from ensemble</h5>
+<ul>
+  <li>Rupture ratio: <span class="math inline">\( R(x) = \mathrm{Var}[T^{(n)}(x)] / |\mathbb{E}[T^{(n)}(x)]| \)</span></li>
+  <li>Lyapunov exponent: <span class="math inline">\( \Lambda(x) = \lim_{t \to \infty} \frac{1}{t} \log \frac{\|\delta p(x,t)\|}{\|\delta p(x,0)\|} \)</span></li>
+  <li>Pseudospectrum width: compute <span class="math inline">\( \| (T - \lambda I)^{-1} \| \)</span> numerically</li>
+</ul>
+
+<h5>4. Python pseudo-code: rupture ensemble sampling</h5>
+<pre><code class="language-python">
+import numpy as np
+
+N = 10000
+sigma = 0.3
+Xi_samples = np.random.lognormal(mean=0.0, sigma=sigma, size=N)
+Mtilde = np.ones(N)
+Phi = np.random.uniform(0, 2*np.pi, N)
+Sstar = 6.626e-34 / (2*np.pi)
+
+T_samples = Xi_samples * Mtilde * np.exp(1j * Phi / Sstar)
+R = np.var(T_samples) / np.abs(np.mean(T_samples))
+print("Rupture ratio R =", R)
+</code></pre>
+
+<h5>5. Interpretation</h5>
+<p>
+Unlike the stationary-phase prefactor, the terror kernel does not yield a clean Gaussian amplitude. Instead, it produces a rupture-amplified observable whose variance, entropy, and sensitivity are diagnostic of decoherence. The prefactor is stochastic, and the integral is evaluated as an ensemble.
+</p>
+
+<h5>6. Dimensional consistency under rupture</h5>
+<p>
+Units are preserved via <span class="math inline">\(C_{\rm phys}\)</span>, but rupture fields <span class="math inline">\(\Xi\)</span> and <span class="math inline">\(\eta\)</span> introduce heteroscedastic scaling. Dimensional closure is not guaranteed — residuals <span class="math inline">\(\epsilon_{\text{dim}}(x)\)</span> are modeled as random fields.
+</p>
+
+<h5>7. Worked example: rupture-modulated delay model</h5>
+<p>
+Let <span class="math inline">\(\Phi(\omega) = \omega \tau + \alpha \omega^2\)</span> as before, but modulate with log-normal <span class="math inline">\(\Xi(\omega)\)</span>:
+</p>
+<div class="math display">
+
+\[
+T(\omega) = C_{\rm phys} \cdot \Xi(\omega) \cdot \tilde M(\omega) \cdot e^{i(\omega \tau + \alpha \omega^2)/\mathcal{S}_\ast}
+\]
+
+</div>
+<p>
+Sample <span class="math inline">\(\Xi(\omega)\)</span> and compute ensemble statistics. Observe amplification regimes where <span class="math inline">\(R \gg 1\)</span> and <span class="math inline">\(\Lambda > 0\)</span>.
+</p>
+
+<h5>8. How to embed the Terror Kernel into your kernel derivations</h5>
+<ol>
+  <li>
+    <strong>Declare rupture decomposition:</strong>
+    Write the kernel as 
+    <span class="math inline">\( T[K] = C_{\rm phys} \cdot \Xi(x,\omega,t) \cdot \tilde{K}(x,\omega,t) + \eta(x,t) \)</span>.
+    Display the explicit form of <span class="math inline">\( C_{\rm phys} \)</span> and rupture priors.
+  </li>
+  <li>
+    <strong>Specify rupture model:</strong>
+    Choose stochastic model for <span class="math inline">\( \Xi \)</span> (e.g., log-normal, Lévy, adversarial) and additive shock <span class="math inline">\( \eta \)</span>.
+    Declare volatility <span class="math inline">\( \sigma(x,\omega,t) \)</span>, heavy-tail index <span class="math inline">\( \alpha \)</span>, and correlation length <span class="math inline">\( L_{\mathrm{rupt}} \)</span>.
+  </li>
+  <li>
+    <strong>Sample rupture ensemble:</strong>
+    Generate <span class="math inline">\( N_{\mathrm{ens}} \)</span> realizations of <span class="math inline">\( \Xi^{(n)} \)</span> and <span class="math inline">\( \eta^{(n)} \)</span>.
+    Compute ensemble observables <span class="math inline">\( T^{(n)}[K] \)</span> and rupture metrics.
+  </li>
+  <li>
+    <strong>Compute rupture diagnostics:</strong>
+    Evaluate phase volatility <span class="math inline">\( \sigma_\phi(x,t) \)</span>, rupture ratio <span class="math inline">\( R(x) \)</span>, and Lyapunov exponent <span class="math inline">\( \Lambda(x) \)</span>.
+    Use these to detect amplification regimes.
+  </li>
+  <li>
+    <strong>Check dimensional consistency:</strong>
+    Ensure <span class="math inline">\( C_{\rm phys} \)</span> provides correct observable units.
+    Accept that rupture fields may introduce dimensional residuals <span class="math inline">\( \epsilon_{\mathrm{dim}}(x) \sim R(x) \)</span>.
+  </li>
+  <li>
+    <strong>Report ensemble behavior:</strong>
+    Instead of a single prefactor, report statistical spread, amplification thresholds, and entropy rates.
+    Include rupture field priors and sampling method in derivation metadata.
+  </li>
+</ol>
+
+<h4>Domain of validity and scope</h4>
+<p>
+The Terror Kernel applies to systems where coherence fails, phase synchrony breaks down, or observables exhibit high sensitivity to perturbation. It is valid in:
+</p>
+<ul>
+  <li>Quantum decoherence regimes</li>
+  <li>Thermal noise–dominated systems</li>
+  <li>Nonlinear oscillator networks with adversarial coupling</li>
+  <li>Cosmological phase transitions and dimensional mismatch</li>
+  <li>Any kernel-based model where rupture fields can be empirically diagnosed</li>
+</ul>
+<p>
+It is not intended for systems with strict unitary evolution, exact symmetry, or closed-form analytic kernels. In such cases, the Terror Kernel reduces to the coherent RMI kernel under the limit:
+<span class="math inline">\( \Xi \to 1,\quad \eta \to 0 \)</span>.
+</p>
+
+<h4>Interpretation and naming caveat</h4>
+<p>
+The term <strong>Terror Kernel</strong> is used deliberately to evoke rupture, instability, and the breakdown of coherence. It is a mathematical metaphor — not a psychological, political, or emotional claim.
+</p>
+<p>
+In this context, “terror” refers to:
+</p>
+<ul>
+  <li>Non-normal amplification of small perturbations</li>
+  <li>Loss of causal structure and time-ordering</li>
+  <li>Heavy-tailed rupture fields and stochastic deformation</li>
+  <li>Failure of inversion and identifiability</li>
+</ul>
+<p>
+This naming convention is chosen to emphasize the ontological inversion of coherence-based kernels. It is not intended to trivialize or appropriate real-world suffering. All applications must respect this boundary.
+</p>
+
+<h4>Worked Examples: Rupture Simulation and Diagnostic Metrics</h4>
+
+<p>
+This subsection presents executable worked examples that simulate rupture-modulated kernel behavior using Monte Carlo sampling. These examples demonstrate how the Terror Kernel behaves under stochastic deformation and how rupture metrics such as the rupture ratio <span class="math inline">\( R(x) \)</span> can be computed directly from synthetic ensembles.
+</p>
+
+<p>
+Two implementations are provided:
+</p>
+<ul>
+  <li>
+    A <strong>JavaScript snippet</strong> that runs entirely in-browser and generates a downloadable CSV file of rupture-modulated kernel samples. This is suitable for embedding directly in HTML documents or interactive notebooks.
+  </li>
+  <li>
+    A <strong>Python version</strong> that performs the same simulation using NumPy and pandas. This version is intended for offline analysis, reproducibility, and integration with symbolic modeling workflows.
+  </li>
+</ul>
+
+<p>
+The simulation models a 1D spectral kernel with a rupture field <span class="math inline">\( \Xi(\omega) \)</span> drawn from a log-normal distribution. The phase function is chosen as
+<span class="math inline">\( \Phi(\omega) = \omega \tau + \alpha \omega^2 \)</span>,
+representing a geometric delay plus curvature. The Terror Kernel is evaluated as:
+</p>
+
+<div class="math display">
+
+\[
+T[K](\omega) = C_{\rm phys} \cdot \Xi(\omega) \cdot \tilde M(\omega) \cdot \exp\left( \frac{i\Phi(\omega)}{\mathcal{S}_\ast} \right)
+\]
+
+</div>
+
+<p>
+For simplicity, <span class="math inline">\( \tilde M(\omega) = 1 \)</span> and <span class="math inline">\( C_{\rm phys} = 1 \)</span> are used. Only the real part of the kernel is computed (via <code>cos(Phi / Sstar)</code>) to illustrate observable behavior. The rupture ratio is then computed as:
+</p>
+
+<div class="math display">
+
+\[
+R = \frac{\mathrm{Std}[T[K]]}{|\mathrm{Mean}[T[K]]|}
+\]
+
+</div>
+
+<p>
+This ratio serves as a scalar diagnostic: values <span class="math inline">\( R \gg 1 \)</span> indicate rupture-dominated regimes where small fluctuations in <span class="math inline">\( \Xi \)</span> lead to large observable variance. The examples also demonstrate how rupture volatility <span class="math inline">\( \sigma \)</span> controls the transition from coherent to terror behavior.
+</p>
+
+<p>
+These examples are minimal but sufficient to:
+</p>
+<ul>
+  <li>Validate the rupture metrics defined in Section 5</li>
+  <li>Explore the phenomenology of terror amplification</li>
+  <li>Serve as templates for more complex rupture models (e.g., Lévy jumps, spatial correlation)</li>
+</ul>
+
+<p>
+To run the JavaScript version, simply click the button to generate and download the CSV. To extend the Python version, replace the phase model or rupture distribution as needed.
+</p>
+
+<h5>Monte Carlo Sampling (JS)</h5>
+<pre><code class="language-html">&lt;script&gt;
+function generateTerrorCSV(samples = 10000) {
+    const omegaMean = 2.42e15, omegaStd = 1.0e13;
+    const sigma = 0.3;  // rupture volatility
+    const Sstar = 6.626e-34 / (2 * Math.PI);  // action scale [J·s]
+    const Cphys = 1.0;  // physical prefactor (normalized)
+    let ruptureSum = 0, ruptureSqSum = 0;
+    let csv = "omega,Xi,Phi,TerrorKernel\n";
+
+    function randn(mean, std) {
+        let u = 0, v = 0;
+        while (u === 0) u = Math.random();
+        while (v === 0) v = Math.random();
+        return mean + std * Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+    }
+
+    for (let i = 0; i &lt; samples; i++) {
+        const omega = randn(omegaMean, omegaStd);
+        const Xi = Math.exp(sigma * randn(0, 1));  // log-normal rupture
+        const Phi = omega * 1.0e-9 + 2.0 * omega * omega * 1.0e-30;  // phase model
+        const T = Cphys * Xi * Math.cos(Phi / Sstar);  // terror kernel (real part)
+        ruptureSum += T;
+        ruptureSqSum += T * T;
+        csv += `${omega.toExponential()},${Xi.toExponential()},${Phi.toExponential()},${T.toExponential()}\n`;
+    }
+
+    const meanT = ruptureSum / samples;
+    const stdT = Math.sqrt((ruptureSqSum / samples) - (meanT * meanT));
+    const R = stdT / Math.abs(meanT);
+
+    console.log(`Mean T[K]: ${meanT.toExponential()}`);
+    console.log(`Std deviation: ${stdT.toExponential()}`);
+    console.log(`Rupture ratio R: ${R.toFixed(3)}`);
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "terror_kernel.csv";
+    link.click();
+}
+&lt;/script&gt;
+&lt;button onclick="generateTerrorCSV()"&gt;Download Terror Kernel CSV&lt;/button&gt;
+</code></pre>
+
+<h5>Monte Carlo Sampling (Python)</h5>
+<pre><code class="language-html">import numpy as np
+import pandas as pd
+
+# Number of samples
+N = 10000
+
+# Parameters
+omega = np.random.normal(loc=2.42e15, scale=1.0e13, size=N)
+sigma = 0.3  # rupture volatility
+Xi = np.random.lognormal(mean=0.0, sigma=sigma, size=N)  # rupture field
+Sstar = 6.626e-34 / (2 * np.pi)  # action scale [J·s]
+Cphys = 1.0  # normalized prefactor
+
+# Phase model
+tau = 1.0e-9  # delay [s]
+alpha = 2.0e-30  # curvature [J·s·Hz⁻²]
+Phi = omega * tau + alpha * omega**2
+
+# Terror kernel (real part)
+T = Cphys * Xi * np.cos(Phi / Sstar)
+
+# Diagnostics
+mean_T = T.mean()
+std_T = T.std()
+R = std_T / np.abs(mean_T)
+
+print(f"Mean T[K]: {mean_T:.5e}")
+print(f"Std deviation: {std_T:.5e}")
+print(f"Rupture ratio R: {R:.3f}")
+
+# Save to CSV
+df = pd.DataFrame({
+    "omega": omega,
+    "Xi": Xi,
+    "Phi": Phi,
+    "TerrorKernel": T
+})
+df.to_csv("terror_kernel.csv", index=False)
+print("CSV saved as terror_kernel.csv")
+</code></pre>
+
+<h4>Summary and closure</h4>
+<p>
+The Terror Kernel is a rupture-modulated operator that generalizes the coherent impulse kernel by introducing stochastic deformation, non-normal amplification, and ensemble-based observables. It is defined by:
+</p>
+<ul>
+  <li>Axioms T1–T4: discoherence, temporal instability, mass-amplified rupture, and anti-closure</li>
+  <li>Operator form: <span class="math inline">\( T[K](x,t) = \int \Xi \cdot K + \eta \)</span></li>
+  <li>Rupture metrics: <span class="math inline">\( \sigma_\phi, R(x), \Lambda(x), h_{\mathrm{KS}} \)</span></li>
+  <li>Inversion strategy: hierarchical Bayesian model with robust likelihoods and sparse priors</li>
+  <li>Simulation protocol: ensemble sampling, rupture field generation, and diagnostic computation</li>
+  <li>Spectral theory: pseudospectrum, Lyapunov growth, and entropy rates</li>
+</ul>
+<p>
+It complements the RMI kernel by modeling the breakdown of coherence and the emergence of instability. Together, they form a dual framework for understanding modulation, emergence, and rupture in physical and symbolic systems.
+</p>
+<h4>Conceptual Closure</h4>
+<p>
+The Terror Kernel completes the symmetry of the kernel ontology: where the RMI kernel produces form through synchrony, the Terror Kernel produces form through rupture. Together, they define a closed algebra of emergence and dissolution — the generative and entropic poles of the same dimensional calculus.
+</p>
+
+<p>
+In this framework, coherence and rupture are not opposites but dual modes of modulation. The RMI kernel encodes structure through stationary-phase alignment, while the Terror Kernel reveals instability through ensemble deformation. One builds observable order; the other diagnoses its breakdown.
+</p>
+
+<p>
+This duality enables a unified treatment of signal, noise, and emergence — where modulation is not merely a tool of synthesis, but a lens for understanding the limits of form itself.
+</p>
+  </article>
+</section>
     <section>
         <h2 title="Click to toggle" id="sec-9-modulation-derived-acceleration-in-kernel-collapse-geometry">
             Modulation‑Derived Acceleration in Kernel Collapse Geometry
