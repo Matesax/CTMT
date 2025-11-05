@@ -7619,6 +7619,72 @@ This table summarizes the structural duality between the Coherent Kernel (RMI) a
   </li>
 </ul>
 
+  <h4>New Measurement Observables Enabled by Terror</h4>
+
+  <p>
+    The Terror Kernel reframes measurement itself: instead of relying on magnetic observables or geometric projection,
+    it enables direct access to rupture-sensitive quantities derived from phase structure, ensemble volatility, and coherence drift.
+    This opens a new regime of diagnostics where tuning, coherence, and curvature are not inferred — they are <em>measured</em>.
+
+    These observables bypass classical constraints and allow π, synchrony, and modulation sharpness to be extracted from
+    rupture-deformed kernels. Below is a summary of the key quantities now accessible through terror calculus.
+  </p>
+
+  <h5>Table: Rupture-Sensitive Measurement Observables</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Observable</th>
+        <th>Definition</th>
+        <th>Physical Meaning</th>
+        <th>Measurement Modality</th>
+        <th>Terror Formula / Derivation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Coherence Density</strong> <span class="math inline">\( \rho_{\text{coh}}(x,t) \)</span></td>
+        <td><span class="math inline">\( \left| \mathbb{E}\left[ \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \right] \right| \)</span></td>
+        <td>Surviving synchrony under rupture</td>
+        <td>Optical phase drift, acoustic fields</td>
+        <td><span class="math inline">\( \Xi \sim \text{LogNormal}(0,\sigma^2) \Rightarrow \mathbb{E}[\Xi] = e^{\sigma^2/2} \)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tuning Density</strong> <span class="math inline">\( \rho_{\text{tune}}(\omega) \)</span></td>
+        <td><span class="math inline">\( \left| \frac{\partial^2}{\partial \omega^2} \log \mathbb{E}[\Xi] \right| \)</span></td>
+        <td>Spectral responsiveness under rupture</td>
+        <td>Spectral curvature, log-normal spread</td>
+        <td><span class="math inline">\( \log \mathbb{E}[\Xi] = \frac{\sigma^2}{2} \Rightarrow \rho_{\text{tune}} \sim \sigma^2 \)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Phase Decoherence Rate</strong> <span class="math inline">\( \Lambda(x,t) \)</span></td>
+        <td>Rate of phase divergence across ensemble</td>
+        <td>Loss of synchrony over time</td>
+        <td>Time-resolved interferometry</td>
+        <td><span class="math inline">\( \Lambda = \frac{d}{dt} \text{Var}[\arg(T)] \)</span>, where <span class="math inline">\( T = \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Rupture Entropy</strong> <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+        <td>Kolmogorov–Sinai entropy of rupture field</td>
+        <td>Information loss under rupture</td>
+        <td>Symbolic dynamics, volatility tracking</td>
+        <td><span class="math inline">\( h_{\mathrm{KS}} = \lim_{n \to \infty} \frac{1}{n} H(\Xi_1, \dots, \Xi_n) \)</span></td>
+      </tr>
+      <tr>
+        <td><strong>Residual Curvature</strong> <span class="math inline">\( \kappa_{\text{rupt}} \)</span></td>
+        <td>Deviation from harmonic phase closure</td>
+        <td>Geometric distortion from rupture</td>
+        <td>Kernel curvature analysis</td>
+        <td><span class="math inline">\( \kappa = \nabla^2 \arg(T) - \nabla^2 \Phi/\mathcal{S}_\ast \)</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>
+    These observables form a rupture-based measurement suite that replaces classical trigonometric and magnetic diagnostics.
+    They allow π, coherence, and tuning to be extracted from ensemble behavior — even when geometry and periodicity fail.
+  </p>
+
 <h4>Rupture factorization and stochastic kernel template</h4>
 
 <p>
