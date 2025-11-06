@@ -7564,7 +7564,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 						<td><span class="math inline">\( \eta(x,t) \)</span></td>
 						<td>Additive rupture source (shock)</td>
 						<td>Same as output field <span class="math inline">\( p(x,t) \)</span></td>
-						<td>Gaussian, α-stable, impulsive</td>
+						<td>Gaussian, &alpha;-stable, impulsive</td>
 						<td>Adds stochastic noise or collapse events</td>
 					</tr>
 					<tr>
@@ -7650,6 +7650,13 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
 						<td>Dimension-dependent</td>
 						<td>Computed from rupture-induced drift in conserved quantities</td>
 						<td>Measures breakdown of symmetry, conservation, or closure</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \mathrm{Var}(\epsilon) \)</span></td>
+						<td>Imaginary regulator variance</td>
+						<td><span class="math inline">\( \mathrm{unitless} \)</span></td>
+						<td>Estimated from ensemble regulator field <span class="math inline">\( \epsilon(x,\omega,t) \)</span></td>
+						<td>Controls rupture damping, causality bias, and ensemble acceptance thresholds</td>
 					</tr>
 				</tbody>
 			</table>
@@ -8170,6 +8177,76 @@ print("Rupture ratio R =", R)
                     Include rupture field priors and sampling method in derivation metadata.
                 </li>
             </ol>
+
+			<br/>
+
+			<h4>Imaginary regulator, sign convention and causality under rupture</h4>
+
+			<p>
+				Purpose: make the role of the imaginary unit, sign choices, and causal continuation explicit for rupture&#8209;deformed exponents,
+				give a reproducible per&#8209;realization rule, and state diagnostics and reporting requirements. This subsection is intended
+				to be read immediately after the Rupture&#8209;Deformed Exponent paragraph.
+			</p>
+
+			<h5>1. Local (per&#8209;realization) regulated exponent</h5>
+			<p>
+				For each ensemble realization <span class="math inline">\( n \)</span>, replace the deterministic exponent factor by a regulated, rupture&#8209;aware factor:
+				<span class="math inline">\( F^{(n)}(x,\omega,t) = \Xi^{(n)}(x,\omega,t)\, e^{\,i\Phi(x,\omega)/\mathcal{S}_\ast - \epsilon^{(n)}(x,\omega,t)} \)</span>,
+				where <span class="math inline">\( \epsilon^{(n)} \)</span> is a small real field (the imaginary regulator) sampled per realization.
+				Choose the prior for <span class="math inline">\( \epsilon^{(n)} \)</span> so <span class="math inline">\( \mathbb{E}[\epsilon] > 0 \)</span> and <span class="math inline">\( \mathrm{Var}(\epsilon) \)</span> reflects rupture uncertainty.
+			</p>
+
+			<h5>2. Sign convention and interpretation</h5>
+			<ul>
+				<li><strong>Retarded (causal) bias:</strong> positive regulator <span class="math inline">\( \epsilon > 0 \)</span> damps forward&#8209;time instabilities and implements a retarded contour analogous to <span class="math inline">\( \omega \mapsto \omega + i0^+ \)</span>.</li>
+				<li><strong>Advanced/anti&#8209;causal realizations:</strong> occasional <span class="math inline">\( \epsilon < 0 \)</span> samples are allowed to model adversarial rupture events but must be flagged and treated separately.</li>
+				<li><strong>Statistical sign reading:</strong> the effective sign of the phase contribution is interpreted from the joint statistics of <span class="math inline">\( \epsilon \)</span> and <span class="math inline">\( \Xi \)</span>: e.g., realizations with <span class="math inline">\( \Xi > 1 \)</span> and <span class="math inline">\( \epsilon \approx 0 \)</span> behave as forward&#8209;amplifying; <span class="math inline">\( \Xi < 1 \)</span> and <span class="math inline">\( \epsilon > 0 \)</span> behave as damped.
+			</ul>
+
+			<h5>3. Per&#8209;realization causality test and acceptance rule</h5>
+			<ol>
+				<li>For each realization <span class="math inline">\( n \)</span> construct the regulated kernel <span class="math inline">\( K^{(n)} \)</span> with <span class="math inline">\( \omega \mapsto \omega + i\epsilon^{(n)} \)</span> and compute the time&#8209;domain response or resolvent.</li>
+				<li>Compute diagnostics: Lyapunov exponent <span class="math inline">\( \Lambda^{(n)} \)</span>, rupture ratio <span class="math inline">\( R^{(n)} = \mathrm{Var}[T^{(n)}] / |\mathbb{E}[T^{(n)}]| \)</span>, and pseudospectral norm <span class="math inline">\( \Pi^{(n)} = \max_\lambda \left\| (A^{(n)} - \lambda I)^{-1} \right\| \)</span>.</li>
+				<li>Accept realization if <span class="math inline">\( \epsilon^{(n)}_{\text{mean}} \geq \epsilon_{\text{min}} > 0 \)</span> and diagnostics satisfy <span class="math inline">\( \Lambda^{(n)} \leq \Lambda_{\text{thresh}} \)</span>, <span class="math inline">\( R^{(n)} \leq R_{\text{thresh}} \)</span>, <span class="math inline">\( \Pi^{(n)} \leq \Pi_{\text{thresh}} \)</span>. Otherwise mark as REJECT or REGULARIZE.
+			</ol>
+
+			<h5>4. Ensemble assembly and weighting</h5>
+			<p>
+				Form observable estimates using accepted realizations only or with importance weights
+				<span class="math inline">\( w^{(n)} = \exp\left(-\beta \max\left(0, \Lambda^{(n)} - \Lambda_{\text{thresh}}\right)\right) \)</span>.
+				Report the acceptance fraction <span class="math inline">\( f_{\text{accept}} \)</span> and the diagnostics distributions alongside ensemble means and variances.
+			</p>
+
+			<h5>5. Practical regulator priors and modeling notes</h5>
+			<ul>
+				<li>Choose <span class="math inline">\( \epsilon \)</span> prior with small positive mean (e.g., truncated normal with <span class="math inline">\( \mu > 0 \)</span>) and heavy tails to reflect rupture shocks.</li>
+				<li>Make <span class="math inline">\( \epsilon \)</span> spatially and spectrally correlated over scale <span class="math inline">\( L_{\text{rupt}} \)</span> to reflect realistic rupture coherence.</li>
+				<li>For adversarial&#8209;style analyses, explicitly allow a controlled fraction <span class="math inline">\( p_{\text{adv}} \)</span> of realizations with <span class="math inline">\( \epsilon &lt; 0 \)</span> and treat them as regime&#8209;change samples.</li>
+			</ul>
+
+			<h5>6. Green kernel caution and inversion ordering</h5>
+			<p>
+				Do not ensemble&#8209;average Green functions before inversion. Compute per&#8209;realization propagators <span class="math inline">\( G^{(n)}(\omega) \)</span> with <span class="math inline">\( \omega \mapsto \omega + i\epsilon^{(n)} \)</span>, test causality, then assemble time&#8209;domain responses:
+				<span class="math inline">\( \langle G * s \rangle \neq \langle G \rangle * s \)</span> in general. This ordering prevents spurious non&#8209;causal tails.
+			</p>
+
+			<h5>7. Diagnostics and reporting checklist</h5>
+			<ul>
+				<li>State <span class="math inline">\( \epsilon \)</span> prior (distribution, mean, correlation length).</li>
+				<li>Report <span class="math inline">\( f_{\text{accept}} \)</span>, histograms of <span class="math inline">\( \epsilon \)</span>, <span class="math inline">\( \Xi \)</span>, <span class="math inline">\( \Lambda \)</span>, <span class="math inline">\( R \)</span>, <span class="math inline">\( \Pi \)</span>, and <span class="math inline">\( h_{\text{KS}} \)</span> where computed.</li>
+				<li>Include fallback strategy: reweight, regularize, or escalate to non&#8209;perturbative analysis when <span class="math inline">\( f_{\text{accept}} \)</span> is small.</li>
+			</ul>
+
+			<h5>8. Minimal code sketch</h5>
+<pre><code class="language-python">
+# per-realization regulated factor (sketch)
+eps = np.random.normal(loc=eps_mean, scale=eps_sigma, size=(N, ...))
+Xi = sample_Xi(...)
+Phi = compute_Phi(...)
+Sstar = ...
+F = Xi * np.exp(1j * Phi / Sstar) * np.exp(-eps)   # regulated per-realization factor
+# build K^{(n)}, compute diagnostics, accept/reject, then assemble ensemble
+</code></pre>
 
 			<h4>Rupture Geometry and Topology</h4>
 			<p>
@@ -8809,21 +8886,159 @@ print("CSV saved as terror_kernel.csv")
                 </li>
             </ul>
 
-            <h4>Terror Time Kernel (rupture-projected anchor evolution)</h4>
-            <p><strong>Role:</strong> Projects temporal anchors under rupture deformation and propagates ensemble uncertainty through time.</p>
-            <ul>
-                <li><strong>Form:</strong> <span class="math inline">\( T_{\rm terror}(t) = \int \Xi(t') \cdot e^{i\Phi(t,t')/\mathcal{S}_\ast} dt' \)</span></li>
-                <li><strong>Units:</strong> observable-dependent; typically <span class="math inline">\( \mathrm{s^{-1}} \)</span> or <span class="math inline">\( \mathrm{Hz} \)</span></li>
-                <li><strong>Regime:</strong> rupture-modulated time evolution, anchor drift, ensemble delay propagation</li>
-                <li>
-                    <strong>Assembly:</strong>
-                    <ol>
-                        <li>Define rupture field <span class="math inline">\( \Xi(t') \)</span> from ensemble volatility.</li>
-                        <li>Construct anchor phase <span class="math inline">\( \Phi(t,t') \)</span> and normalize with <span class="math inline">\( \mathcal{S}_\ast \)</span>.</li>
-                        <li>Propagate uncertainty recursively across anchor chain.</li>
-                    </ol>
-                </li>
-            </ul>
+			<h4>Terror Time Kernel (rupture-projected anchor evolution)</h4>
+			<p><strong>Role:</strong> Projects temporal anchors under rupture deformation, propagates ensemble uncertainty through time, and diagnoses rupture-induced time-ordering violations.</p>
+			<ul>
+				<li><strong>Form:</strong> 
+					<span class="math inline">\( T_{\rm terror}(t) = \mathbb{E}_{\Xi,\eta}\left[\int_{t_0}^{t} \Xi(t';x,\omega)\,C_{\rm phys}(t',x)\,\tilde{M}(\omega)\,e^{\,i\Phi(t,t';\omega)/\mathcal{S}_\ast - \epsilon(t',x,\omega)}\,dt' + \eta(t)\right] \)</span>
+				</li>
+				<li><strong>Units:</strong> observable-dependent; typical output units <span class="math inline">\( \mathrm{s^{-1}} \)</span> or <span class="math inline">\( \mathrm{Hz} \)</span> when representing rates; <span class="math inline">\( C_{\rm phys} \)</span> preserves dimensional closure.</li>
+				<li><strong>Regime:</strong> rupture-modulated time evolution, anchor drift, non-stationary delay propagation, possible non‑causal/advective realizations under heavy rupture.</li>
+				<li>
+					<strong>Assembly</strong>
+					<ol>
+						<li>
+							<strong>Declare anchors and domains:</strong> list temporal anchors <span class="math inline">\( a_k \)</span> (times, synchronization marks, clock offsets) with covariances in Anch‑<span class="math inline">\( \Sigma \)</span>; set integration window <span class="math inline">\([t_0, t]\)</span>.  
+							Document units and sampling resolution <span class="math inline">\( \Delta t \)</span> for discretization.
+						</li>
+						<li>
+							<strong>Specify rupture priors:</strong> model <span class="math inline">\( \Xi(t';x,\omega) \)</span> (log‑normal, Lévy, mixture), regulator field <span class="math inline">\( \epsilon(t') \)</span> (small positive mean for retarded bias), and additive shock noise <span class="math inline">\( \eta(t) \)</span>. State volatility <span class="math inline">\( \sigma(t) \)</span>, correlation length <span class="math inline">\( L_{\text{rupt}} \)</span>, and temporal correlation kernel.
+						</li>
+						<li>
+							<strong>Construct anchor phase kernel:</strong> choose phase functional <span class="math inline">\( \Phi(t,t';\omega) \)</span> that encodes delay, memory, and anchor coupling (e.g., <span class="math inline">\( \Phi = \omega (t - t') + \alpha (t - t')^2 \)</span>). Normalize by <span class="math inline">\( \mathcal{S}_\ast \)</span>.
+						</li>
+						<li>
+							<strong>Per‑realization time integration:</strong> for each sampled realization <span class="math inline">\( n \)</span> evaluate the regulated integrand and perform time integration (numerical quadrature or convolution). Use per‑realization analytic continuation <span class="math inline">\( \omega \mapsto \omega + i\epsilon^{(n)}(t') \)</span> where appropriate to enforce local retarded bias.
+						</li>
+						<li>
+							<strong>Recursive anchor propagation (chain rule):</strong> when anchors are hierarchical <span class="math inline">\( a_k \rightarrow a_{k+1} \)</span>, propagate uncertainty recursively:
+							<span class="math inline">\( a_{k+1}^{(n)} = \mathcal{R}(a_k^{(n)}, T_{\rm terror}^{(n)}; \Xi^{(n)}) \)</span>,
+							and update Anch‑<span class="math inline">\( \Sigma \)</span> via linearization or ensemble sampling (compute Jacobians <span class="math inline">\( \partial a_{k+1}/\partial a_k \)</span>).
+						</li>
+						<li>
+							<strong>Assemble ensemble statistics:</strong> compute mean, variance, KS entropy, rupture ratio <span class="math inline">\( R \)</span>, Lyapunov <span class="math inline">\( \Lambda \)</span>, and acceptance fraction <span class="math inline">\( f_{\text{accept}} \)</span> from accepted realizations (see causality tests). Report full distributions for time‑dependent observables.
+						</li>
+					</ol>
+				</li>
+
+				<li><strong>Time evolution details and choices</strong>
+					<ul>
+						<li><strong>Discrete vs continuous integration:</strong> use trapezoidal / Simpson integration with time step <span class="math inline">\( \Delta t \leq \min(L_{\text{rupt}} / v, \tau_{\text{coh}}) \)</span>. For very heavy‑tailed rupture, prefer Monte‑Carlo time sampling with importance weights.</li>
+						<li><strong>Convolutional form:</strong> if <span class="math inline">\( \Phi \)</span> is linear in <span class="math inline">\( (t - t') \)</span>, represent kernel as convolution and accelerate via FFT per realization when regulator <span class="math inline">\( \epsilon \)</span> is small and stationary assumptions apply locally.</li>
+						<li><strong>Recursive filtering:</strong> implement causal filters (one‑sided) per realization to avoid spurious advance effects; apply per‑realization acceptance/rejection before ensemble averaging.</li>
+						<li><strong>Anchor update rule (Jacobian):</strong> for small anchor perturbations use linear propagation:
+							<span class="math inline">\( \delta a_{k+1} \approx J_k\,\delta a_k \)</span>, compute <span class="math inline">\( J_k \)</span> from <span class="math inline">\( \partial T / \partial a \)</span> at ensemble mean or per realization.
+						</li>
+					</ul>
+					</li>
+
+					<li><strong>Causality, sign convention and diagnostics (time domain)</strong>
+					<ul>
+						<li>Use per‑realization imaginary regulator <span class="math inline">\( \epsilon^{(n)}(t') \)</span> with <span class="math inline">\( \mathbb{E}[\epsilon] > 0 \)</span> for retarded bias; allow controlled fraction of <span class="math inline">\( \epsilon < 0 \)</span> for adversarial testing but tag them.</li>
+						<li>Diagnose causality via time‑series Lyapunov exponent <span class="math inline">\( \Lambda(t) \)</span>, rupture ratio <span class="math inline">\( R(t) = \mathrm{Var}[T^{(n)}(t)] / |\mathbb{E}[T^{(n)}(t)]| \)</span>, and incremental Kullback–Leibler divergence of anchor distributions over time.</li>
+						<li>Accept only realizations passing stability thresholds for downstream anchor updates; reweight or regularize others rather than averaging blindly.</li>
+					</ul>
+				</li>
+
+				<li><strong>Numerical pseudocode (per‑realization pipeline)</strong>
+<pre><code class="language-python">
+# sketch for per-realization time integration
+for n in range(N):
+    Xi_n = sample_Xi_time_series()
+    eps_n = sample_eps_time_series()        # small positive mean
+    # integrand(t') = Xi_n(t') * C_phys(t') * Mtilde(omega) * exp(i*Phi(t,t')/S - eps_n(t'))
+    integrand = Xi_n * C_phys * Mtilde * np.exp(1j*Phi_dt/Sstar) * np.exp(-eps_n)
+    T_n = np.trapz(integrand, t_grid) + sample_eta()
+    diagnostics[n] = compute_diagnostics(T_n, integrand, eps_n)
+# accept/reweight based on diagnostics, then form ensemble stats
+</code></pre>
+				</li>
+
+				<li><strong>Worked example (anchor drift chain)</strong>
+					<p>
+					Suppose anchors are clock offsets <span class="math inline">\( a_0 \rightarrow a_1 \rightarrow a_2 \)</span> measured at times <span class="math inline">\( t_0 &lt; t_1 &lt; t_2 \)</span>. For each realization:
+					</p>
+					<ol>
+						<li>
+							Compute <span class="math inline">\( T^{(n)}(t_1) \)</span> and update 
+							<span class="math inline">\( a_1^{(n)} = a_0^{(n)} + G_1\left(T^{(n)}(t_1)\right) \)</span>.
+						</li>
+						<li>
+							Propagate to <span class="math inline">\( t_2 \)</span> using <span class="math inline">\( T^{(n)}(t_2) \)</span> and Jacobian 
+							<span class="math inline">\( J_1 = \frac{\partial a_1}{\partial a_0} \)</span> to update covariance via 
+							<span class="math inline">\( \Sigma_{a_1} = J_1\,\Sigma_{a_0}\,J_1^\top + \Sigma_{\text{process}} \)</span>.
+						</li>
+						<li>
+							Aggregate ensemble means and covariances for <span class="math inline">\( a_2 \)</span> after acceptance filtering.
+						</li>
+					</ol>
+				</li>
+
+				<li><strong>Reporting and reproducibility checklist</strong>
+					<ul>
+						<li>List anchor definitions, priors, and Anch‑<span class="math inline">\( \Sigma \)</span> used.</li>
+						<li>Specify rupture model family, <span class="math inline">\( \sigma(t) \)</span>, <span class="math inline">\( L_{\text{rupt}} \)</span>, and <span class="math inline">\( \epsilon \)</span> prior (mean, variance, correlation length).</li>
+						<li>State numerical parameters: <span class="math inline">\( \Delta t \)</span>, <span class="math inline">\( N \)</span> realizations, acceptance thresholds 
+							<span class="math inline">\( \Lambda_{\text{thresh}} \)</span>, <span class="math inline">\( R_{\text{thresh}} \)</span>, <span class="math inline">\( f_{\text{min}} \)</span>.
+						</li>
+						<li>Publish diagnostic time‑series: <span class="math inline">\( f_{\text{accept}}(t) \)</span>, <span class="math inline">\( R(t) \)</span>, 
+							<span class="math inline">\( \Lambda(t) \)</span>, <span class="math inline">\( h_{\text{KS}}(t) \)</span>, and anchor covariance evolution.
+						</li>
+					</ul>
+				</li>
+			</ul>
+
+			<h5>Seismic Time Destabilization and Rupture-Induced Delay</h5>
+
+			<p>
+				Seismic systems exhibit rupture-induced time anomalies that mirror the behavior modeled by the Terror Time Kernel.
+				Observed effects include non-causal wavefronts, delay asymmetry, and rupture-amplified phase drift.
+				These phenomena challenge classical assumptions of stationary propagation and are now measurable through ensemble diagnostics.
+			</p>
+
+			<h5>Observed Phenomena</h5>
+			<ul>
+				<li><strong>Delay asymmetry:</strong> Rupture fronts propagate faster in one direction due to stress field anisotropy and rupture-induced modulation.</li>
+				<li><strong>Phase drift:</strong> Seismic oscillators show rupture-weighted phase volatility, leading to anchor desynchronization.</li>
+				<li><strong>Non-causal arrivals:</strong> Multi-front wave propagation and rupture layering produce apparent time reversals and early arrivals.</li>
+			</ul>
+
+			<h5>Sources</h5>
+			<ul>
+				<li>Ben-Zion, Y. (2008). Collective behavior of earthquakes and faults: Continuum-discrete transitions, progressive evolutionary changes, and different dynamic regimes. <em>Reviews of Geophysics</em>, 46(4). DOI: <a href="https://doi.org/10.1029/2008RG000260" target="_blank">10.1029/2008RG000260</a></li>
+				<li>Ide, S., & Beroza, G. C. (2023). <em>Slow earthquake scaling reconsidered as a boundary between distinct modes of rupture propagation</em>. Edited by Emily Brodsky, University of California, Santa Cruz. DOI: <a href="https://www.pnas.org/doi/10.1073/pnas.2222102120" target="_blank">10.1073/pnas.2222102120</a></li>
+				<li>Peng, Z., & Ben-Zion, Y. (2006). Temporal changes of shallow seismic velocity around the Karadere-Düzce branch of the North Anatolian fault. <em>Geophysical Journal International</em>, 167(3), 1020–1034.</li>
+			</ul>
+
+			<h6>Sample Computation: Rupture-Modulated Delay</h6>
+			<p>
+				Let rupture field <span class="math inline">\( \Xi(t) \sim \mathrm{LogNormal}(0, \sigma^2) \)</span> and regulator <span class="math inline">\( \epsilon(t) \sim \mathcal{N}(\mu, \sigma_\epsilon^2) \)</span>.
+				Define phase kernel <span class="math inline">\( \Phi(t,t') = \omega(t - t') + \alpha(t - t')^2 \)</span> and compute ensemble delay:
+			</p>
+
+			<div class="math display">
+
+				\[
+				T_{\mathrm{terror}}(t) = \mathbb{E}_{\Xi,\epsilon} \left[ \int_{t_0}^{t} \Xi(t')\,e^{i\Phi(t,t')/\mathcal{S}_\ast - \epsilon(t')} dt' \right]
+				\]
+
+			</div>
+
+			<p>
+				For <span class="math inline">\( \omega = 2\pi \cdot 0.5\,\mathrm{Hz} \)</span>, <span class="math inline">\( \alpha = 0.01\,\mathrm{s}^{-2} \)</span>, <span class="math inline">\( \mathcal{S}_\ast = 1.05 \times 10^{-34} \)</span>, and <span class="math inline">\( \sigma = 0.3 \)</span>, simulate 1000 realizations and compute:
+			</p>
+
+			<ul>
+				<li><strong>Mean delay:</strong> <span class="math inline">\( \bar{T}(t) = \mathbb{E}[T^{(n)}(t)] \)</span></li>
+				<li><strong>Rupture ratio:</strong> <span class="math inline">\( R(t) = \mathrm{Var}[T^{(n)}(t)] / |\bar{T}(t)| \)</span></li>
+				<li><strong>Lyapunov exponent:</strong> <span class="math inline">\( \Lambda(t) = \lim_{t \to \infty} \frac{1}{t} \log \frac{\|\delta T(t)\|}{\|\delta T(0)\|} \)</span></li>
+			</ul>
+
+			<h5>Interpretation</h5>
+			<p>
+				High rupture ratio and positive Lyapunov exponent indicate destabilized time propagation consistent with seismic delay anomalies.
+				These metrics can be used to classify rupture regimes and detect non-causal behavior in real-time seismic monitoring.
+			</p>
 
             <h4>Terror Envelope Kernel (rupture-distorted coherence envelope)</h4>
             <p><strong>Role:</strong> Models coherence envelope distortion under rupture bandwidth and ensemble volatility.</p>
