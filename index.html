@@ -7536,76 +7536,127 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 This chapter defines the Terror Kernel as a multiplicative–additive operator acting on a coherent base kernel <span class="math inline">\( K \)</span>. It introduces the axioms of rupture, the stochastic structure of the multiplicative field <span class="math inline">\( \Xi(x,\omega,t) \)</span>, and the additive shock term <span class="math inline">\( \eta(x,t) \)</span>. The resulting operator is non-Hermitian, non-invertible without priors, and spectrally unstable — exhibiting amplification regimes diagnosable via Lyapunov exponents, pseudospectra, and rupture metrics.
             </p>
 
-            <p>
-                All symbols used in the Terror Kernel are listed with units, stochastic priors, rupture roles, and their entry into the kernel integrand. These symbols define a rupture calculus: a formalism for modeling the breakdown of coherence, the emergence of instability, and the amplification of uncertainty.
-            </p>
+			<h4>Symbol Table: Rupture Calculus and Kernel Observables</h4>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Meaning</th>
-                        <th>Units</th>
-                        <th>Stochastic Prior / Distribution</th>
-                        <th>Role in Kernel</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="math inline">\( \Xi(x,\omega,t) \)</span></td>
-                        <td>Multiplicative rupture field</td>
-                        <td>Dimensionless</td>
-                        <td>Log-normal, Lévy, or adversarial</td>
-                        <td>Modulates kernel integrand amplitude and phase</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( \eta(x,t) \)</span></td>
-                        <td>Additive rupture source (shock)</td>
-                        <td>Same as output field <span class="math inline">\( p(x,t) \)</span></td>
-                        <td>Gaussian, α-stable, or impulsive</td>
-                        <td>Adds stochastic noise or collapse events</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( \sigma_\phi(x,t) \)</span></td>
-                        <td>Phase volatility field</td>
-                        <td><span class="math inline">\( \mathrm{rad} \)</span></td>
-                        <td>Empirical variance over time window</td>
-                        <td>Used in rupture diagnostics and mass-weighted rupture</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( \Xi_{\mathrm{mass}}(t) \)</span></td>
-                        <td>Mass-weighted rupture index</td>
-                        <td>Dimensionless</td>
-                        <td>Derived from <span class="math inline">\( m_i \cdot \sigma_{\phi,i}(t) \)</span></td>
-                        <td>Quantifies rupture severity across mass-anchored oscillators</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( R(x) \)</span></td>
-                        <td>Rupture ratio (local)</td>
-                        <td>Dimensionless</td>
-                        <td>Computed from ensemble statistics</td>
-                        <td>Diagnoses terror regime: <span class="math inline">\( R \gg 1 \)</span> indicates amplification</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( \Lambda(x) \)</span></td>
-                        <td>Lyapunov exponent field</td>
-                        <td><span class="math inline">\( \mathrm{s}^{-1} \)</span></td>
-                        <td>Estimated from perturbation growth</td>
-                        <td>Measures exponential sensitivity to initial conditions</td>
-                    </tr>
-                    <tr>
-                        <td><span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
-                        <td>Kolmogorov–Sinai entropy rate</td>
-                        <td><span class="math inline">\( \mathrm{bit \cdot s^{-1}} \)</span></td>
-                        <td>Estimated from symbolic dynamics</td>
-                        <td>Quantifies information loss and irreversibility</td>
-                    </tr>
-                </tbody>
-            </table>
+			<p>
+				All symbols used in the Terror Kernel are listed with units, stochastic priors, rupture roles, and their entry into the kernel integrand. These symbols define a rupture calculus: a formalism for modeling the breakdown of coherence, the emergence of instability, and the amplification of uncertainty — including its impact on invariants, complexity, and reversibility.
+			</p>
 
-            <p>
-                These symbols and rupture observables define the operational language of the Terror Kernel. In the sections that follow, we formalize its axioms, construct its operator form, and derive its spectral and statistical properties. The goal is not to destroy coherence, but to understand how it fails — and what emerges when it does.
-            </p>
+			<table class="mce-item-table">
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Meaning</th>
+						<th>Units</th>
+						<th>Stochastic Prior / Distribution</th>
+						<th>Role in Kernel</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( \Xi(x,\omega,t) \)</span></td>
+						<td>Multiplicative rupture field</td>
+						<td>Dimensionless</td>
+						<td>Log-normal, Lévy, adversarial</td>
+						<td>Modulates kernel integrand amplitude and phase</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \eta(x,t) \)</span></td>
+						<td>Additive rupture source (shock)</td>
+						<td>Same as output field <span class="math inline">\( p(x,t) \)</span></td>
+						<td>Gaussian, α-stable, impulsive</td>
+						<td>Adds stochastic noise or collapse events</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \sigma_\phi(x,t) \)</span></td>
+						<td>Phase volatility field</td>
+						<td><span class="math inline">\( \mathrm{rad} \)</span></td>
+						<td>Empirical variance over time window</td>
+						<td>Used in diagnostics and mass-weighted rupture</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \Xi_{\mathrm{mass}}(t) \)</span></td>
+						<td>Mass-weighted rupture index</td>
+						<td>Dimensionless</td>
+						<td>Derived from <span class="math inline">\( m_i \cdot \sigma_{\phi,i}(t) \)</span></td>
+						<td>Quantifies rupture severity across mass-anchored oscillators</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( R(x) \)</span></td>
+						<td>Rupture ratio (local)</td>
+						<td>Dimensionless</td>
+						<td>Computed from ensemble statistics</td>
+						<td>Diagnoses terror regime: <span class="math inline">\( R \gg 1 \)</span> indicates amplification</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \Lambda(x) \)</span></td>
+						<td>Lyapunov exponent field</td>
+						<td><span class="math inline">\( \mathrm{s}^{-1} \)</span></td>
+						<td>Estimated from perturbation growth</td>
+						<td>Measures exponential sensitivity to initial conditions</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+						<td>Kolmogorov–Sinai entropy rate</td>
+						<td><span class="math inline">\( \mathrm{bit \cdot s^{-1}} \)</span></td>
+						<td>Estimated from symbolic dynamics</td>
+						<td>Quantifies information loss and irreversibility</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \mathbf{J}_G(x,\omega) \)</span></td>
+						<td>Rupture drift tensor</td>
+						<td><span class="math inline">\( \mathrm{m}^{-1} \)</span></td>
+						<td>Gradient of rupture field variance</td>
+						<td>Tracks spatial sensitivity and ensemble drift</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \mathcal{K}_{ij}(x) \)</span></td>
+						<td>Rupture curvature tensor</td>
+						<td><span class="math inline">\( \mathrm{rad} \cdot \mathrm{m}^{-2} \)</span></td>
+						<td>Derived from phase distortion</td>
+						<td>Measures directional curvature deviation from coherent geometry</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \epsilon_{\mathrm{comp}} \)</span></td>
+						<td>Composition residuum</td>
+						<td>Same as output field <span class="math inline">\( p(x,t) \)</span></td>
+						<td>Normed deviation from ideal rupture composition</td>
+						<td>Detects nonlinear stacking and adversarial rupture layering</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( D_{\mathrm{rupt}} \)</span></td>
+						<td>Symbolic divergence rate</td>
+						<td><span class="math inline">\( \mathrm{bit \cdot s^{-1}} \)</span></td>
+						<td>KL divergence between symbolic sequences</td>
+						<td>Quantifies semantic drift and symbolic rupture</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \Delta_\lambda \)</span></td>
+						<td>Rupture spectral spread</td>
+						<td>Depends on operator domain (e.g., <span class="math inline">\( \mathrm{s}^{-1} \)</span>)</td>
+						<td>Variance of operator eigenvalues</td>
+						<td>Measures spectral instability and non-normal growth potential</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \mathcal{C}_{\mathrm{rupt}} \)</span></td>
+						<td>Complexity gain under rupture</td>
+						<td><span class="math inline">\( \mathrm{bit} \)</span></td>
+						<td>Derived from entropy and divergence metrics</td>
+						<td>Quantifies increase in system description length due to rupture</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \varepsilon_{\mathrm{inv}} \)</span></td>
+						<td>Invariant deviation</td>
+						<td>Dimension-dependent</td>
+						<td>Computed from rupture-induced drift in conserved quantities</td>
+						<td>Measures breakdown of symmetry, conservation, or closure</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				These symbols and rupture observables define the operational language of the Terror Kernel. They span measurement, geometry, symbolic drift, spectral instability, and complexity amplification. Together, they form a rupture calculus that models not only the breakdown of coherence, but the emergence of new structure, unpredictability, and diagnostic insight.
+			</p>
 
             <p><strong>Usage notes</strong>:</p>
             <ul>
@@ -7635,54 +7686,89 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
             </p>
 
             <h5>Table: Rupture-Sensitive Measurement Observables</h5>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Observable</th>
-                        <th>Definition</th>
-                        <th>Physical Meaning</th>
-                        <th>Measurement Modality</th>
-                        <th>Terror Formula / Derivation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Coherence Density</strong> <span class="math inline">\( \rho_{\text{coh}}(x,t) \)</span></td>
-                        <td><span class="math inline">\( \left| \mathbb{E}\left[ \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \right] \right| \)</span></td>
-                        <td>Surviving synchrony under rupture</td>
-                        <td>Optical phase drift, acoustic fields</td>
-                        <td><span class="math inline">\( \Xi \sim \text{LogNormal}(0,\sigma^2) \Rightarrow \mathbb{E}[\Xi] = e^{\sigma^2/2} \)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Tuning Density</strong> <span class="math inline">\( \rho_{\text{tune}}(\omega) \)</span></td>
-                        <td><span class="math inline">\( \left| \frac{\partial^2}{\partial \omega^2} \log \mathbb{E}[\Xi] \right| \)</span></td>
-                        <td>Spectral responsiveness under rupture</td>
-                        <td>Spectral curvature, log-normal spread</td>
-                        <td><span class="math inline">\( \log \mathbb{E}[\Xi] = \frac{\sigma^2}{2} \Rightarrow \rho_{\text{tune}} \sim \sigma^2 \)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Phase Decoherence Rate</strong> <span class="math inline">\( \Lambda(x,t) \)</span></td>
-                        <td>Rate of phase divergence across ensemble</td>
-                        <td>Loss of synchrony over time</td>
-                        <td>Time-resolved interferometry</td>
-                        <td><span class="math inline">\( \Lambda = \frac{d}{dt} \text{Var}[\arg(T)] \)</span>, where <span class="math inline">\( T = \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rupture Entropy</strong> <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
-                        <td>Kolmogorov–Sinai entropy of rupture field</td>
-                        <td>Information loss under rupture</td>
-                        <td>Symbolic dynamics, volatility tracking</td>
-                        <td><span class="math inline">\( h_{\mathrm{KS}} = \lim_{n \to \infty} \frac{1}{n} H(\Xi_1, \dots, \Xi_n) \)</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Residual Curvature</strong> <span class="math inline">\( \kappa_{\text{rupt}} \)</span></td>
-                        <td>Deviation from harmonic phase closure</td>
-                        <td>Geometric distortion from rupture</td>
-                        <td>Kernel curvature analysis</td>
-                        <td><span class="math inline">\( \kappa = \nabla^2 \arg(T) - \nabla^2 \Phi/\mathcal{S}_\ast \)</span></td>
-                    </tr>
-                </tbody>
-            </table>
+			<table class="mce-item-table">
+				<thead>
+					<tr>
+						<th>Observable</th>
+						<th>Definition</th>
+						<th>Physical Meaning</th>
+						<th>Measurement Modality</th>
+						<th>Terror Formula / Derivation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Coherence Density</strong> <span class="math inline">\( \rho_{\text{coh}}(x,t) \)</span></td>
+						<td><span class="math inline">\( \left| \mathbb{E}\left[ \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \right] \right| \)</span></td>
+						<td>Surviving synchrony under rupture</td>
+						<td>Optical phase drift, acoustic fields</td>
+						<td><span class="math inline">\( \Xi \sim \text{LogNormal}(0,\sigma^2) \Rightarrow \mathbb{E}[\Xi] = e^{\sigma^2/2} \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Tuning Density</strong> <span class="math inline">\( \rho_{\text{tune}}(\omega) \)</span></td>
+						<td><span class="math inline">\( \left| \frac{\partial^2}{\partial \omega^2} \log \mathbb{E}[\Xi] \right| \)</span></td>
+						<td>Spectral responsiveness under rupture</td>
+						<td>Spectral curvature, log-normal spread</td>
+						<td><span class="math inline">\( \log \mathbb{E}[\Xi] = \frac{\sigma^2}{2} \Rightarrow \rho_{\text{tune}} \sim \sigma^2 \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Phase Decoherence Rate</strong> <span class="math inline">\( \Lambda(x,t) \)</span></td>
+						<td>Rate of phase divergence across ensemble</td>
+						<td>Loss of synchrony over time</td>
+						<td>Time-resolved interferometry</td>
+						<td><span class="math inline">\( \Lambda = \frac{d}{dt} \text{Var}[\arg(T)] \)</span>, where <span class="math inline">\( T = \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Rupture Entropy</strong> <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+						<td>Kolmogorov–Sinai entropy of rupture field</td>
+						<td>Information loss under rupture</td>
+						<td>Symbolic dynamics, volatility tracking</td>
+						<td><span class="math inline">\( h_{\mathrm{KS}} = \lim_{n \to \infty} \frac{1}{n} H(\Xi_1, \dots, \Xi_n) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Residual Curvature</strong> <span class="math inline">\( \kappa_{\text{rupt}} \)</span></td>
+						<td>Deviation from harmonic phase closure</td>
+						<td>Geometric distortion from rupture</td>
+						<td>Kernel curvature analysis</td>
+						<td><span class="math inline">\( \kappa = \nabla^2 \arg(T) - \nabla^2 \Phi/\mathcal{S}_\ast \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Symbolic Divergence Rate</strong> <span class="math inline">\( D_{\mathrm{rupt}} \)</span></td>
+						<td>KL divergence rate between symbolic sequences</td>
+						<td>Semantic drift and protocol instability</td>
+						<td>Symbolic sequence tracking, linguistic collapse</td>
+						<td><span class="math inline">\( D_{\mathrm{rupt}} = \lim_{t \to \infty} \frac{1}{t} \mathrm{KL}(S_1(t) \| S_2(t)) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Spectral Spread</strong> <span class="math inline">\( \Delta_\lambda \)</span></td>
+						<td>Variance of rupture operator eigenvalues</td>
+						<td>Spectral instability and non-normal growth</td>
+						<td>Numerical eigenspectrum analysis</td>
+						<td><span class="math inline">\( \Delta_\lambda = \mathrm{Var}[\lambda_i(T)] \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Drift Tensor</strong> <span class="math inline">\( \mathbf{J}_G(x,\omega) \)</span></td>
+						<td>Gradient of rupture field variance</td>
+						<td>Spatial sensitivity of rupture amplification</td>
+						<td>Ensemble variance mapping</td>
+						<td><span class="math inline">\( \mathbf{J}_G = \nabla_x \mathrm{Var}[\Xi(x,\omega)] \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Complexity Gain</strong> <span class="math inline">\( \mathcal{C}_{\mathrm{rupt}} \)</span></td>
+						<td>Increase in system description length</td>
+						<td>Emergent unpredictability under rupture</td>
+						<td>Symbolic entropy, model compression analysis</td>
+						<td><span class="math inline">\( \mathcal{C}_{\mathrm{rupt}} = H(T[K]) - H(K) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Invariant Drift</strong> <span class="math inline">\( \varepsilon_{\mathrm{inv}} \)</span></td>
+						<td>Deviation from conserved quantities</td>
+						<td>Breakdown of symmetry or closure</td>
+						<td>Tracking of physical or symbolic invariants</td>
+						<td><span class="math inline">\( \varepsilon_{\mathrm{inv}} = \| I_{\text{rupt}} - I_{\text{coh}} \| \)</span></td>
+					</tr>
+				</tbody>
+			</table>
 
             <p>
                 These observables form a rupture-based measurement suite that replaces classical trigonometric and magnetic diagnostics.
@@ -8381,76 +8467,147 @@ print("CSV saved as terror_kernel.csv")
 
             </div>
 
-            <h4>Comparative Table: π Estimation Modalities</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Method</th>
-                        <th>Phase Logic</th>
-                        <th>Data Source</th>
-                        <th>π Accuracy</th>
-                        <th>Uncertainty Model</th>
-                        <th>Rupture Volatility (σ)</th>
-                        <th>Ontological Role</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Classical Trigonometry</td>
-                        <td>Smooth, <span class="math inline">\( 2\pi \)</span>-periodic</td>
-                        <td>Optical geometry</td>
-                        <td>High (15+ digits)</td>
-                        <td>Gaussian error propagation</td>
-                        <td><span class="math inline">\( \sigma = 0 \)</span></td>
-                        <td>Baseline harmonic structure</td>
-                    </tr>
-                    <tr>
-                        <td>Rupture Trigonometry</td>
-                        <td>Modulated, non-uniform phase</td>
-                        <td>Optical + rupture field</td>
-                        <td>Low (≤ 3 digits)</td>
-                        <td>Heavy-tailed, non-Gaussian</td>
-                        <td><span class="math inline">\( \sigma = 0.5–1.0 \)</span></td>
-                        <td>Tests breakdown of periodicity</td>
-                    </tr>
-                    <tr>
-                        <td>Better Optical Measurement</td>
-                        <td>Smooth, high-resolution</td>
-                        <td>Interferometry, laser</td>
-                        <td>High (10–12 digits)</td>
-                        <td>Reduced Gaussian noise</td>
-                        <td><span class="math inline">\( \sigma \approx 0 \)</span></td>
-                        <td>Precision-enhanced classical method</td>
-                    </tr>
-                    <tr>
-                        <td>Terror Kernel (Ensemble)</td>
-                        <td>Stochastic phase ensemble</td>
-                        <td><span class="math inline">\( \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
-                        <td>Moderate (4–6 digits)</td>
-                        <td>Variance <span class="math inline">\( R(x) \)</span>, entropy <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
-                        <td><span class="math inline">\( \sigma = 0.01–0.3 \)</span></td>
-                        <td>π as emergent coherence metric</td>
-                    </tr>
-                    <tr>
-                        <td>Terror Kernel (High σ)</td>
-                        <td>Decoherent, rupture-dominated</td>
-                        <td>Same as above</td>
-                        <td>Unstable</td>
-                        <td>Divergent rupture ratio</td>
-                        <td><span class="math inline">\( \sigma \geq 1.0 \)</span></td>
-                        <td>π collapses — coherence is lost</td>
-                    </tr>
-                    <tr>
-                        <td>Symbolic Limit (Terror → RMI)</td>
-                        <td>Rupture → Coherence transition</td>
-                        <td>Ensemble average</td>
-                        <td>Converges</td>
-                        <td>Controlled volatility decay</td>
-                        <td><span class="math inline">\( \sigma \to 0 \)</span></td>
-                        <td>π recovered as limit of coherence</td>
-                    </tr>
-                </tbody>
-            </table>
+			<h4>Comparative Table: π Estimation Modalities</h4>
+
+			<table class="mce-item-table">
+				<thead>
+					<tr>
+						<th>Method</th>
+						<th>Phase Logic</th>
+						<th>Data Source</th>
+						<th><span class="math inline">\( \pi \)</span> Accuracy</th>
+						<th>Uncertainty Model</th>
+						<th>Rupture Volatility <span class="math inline">\( \sigma \)</span></th>
+						<th>Ontological Role</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Classical Trigonometry</td>
+						<td>Smooth, <span class="math inline">\( 2\pi \)</span>-periodic</td>
+						<td>Optical geometry</td>
+						<td>High (15+ digits)</td>
+						<td>Gaussian error propagation</td>
+						<td><span class="math inline">\( \sigma = 0 \)</span></td>
+						<td>Baseline harmonic structure</td>
+					</tr>
+					<tr>
+						<td>Better Optical Measurement</td>
+						<td>Smooth, high-resolution</td>
+						<td>Interferometry, laser</td>
+						<td>High (10–12 digits)</td>
+						<td>Reduced Gaussian noise</td>
+						<td><span class="math inline">\( \sigma \approx 0 \)</span></td>
+						<td>Precision-enhanced classical method</td>
+					</tr>
+					<tr>
+						<td>Rupture Trigonometry</td>
+						<td>Modulated, non-uniform phase</td>
+						<td>Optical + rupture field</td>
+						<td>Low (≤ 3 digits)</td>
+						<td>Heavy-tailed, non-Gaussian</td>
+						<td><span class="math inline">\( \sigma = 0.5\text{–}1.0 \)</span></td>
+						<td>Tests breakdown of periodicity</td>
+					</tr>
+					<tr>
+						<td>Terror Kernel (Ensemble)</td>
+						<td>Stochastic phase ensemble</td>
+						<td><span class="math inline">\( \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span></td>
+						<td>Moderate (4–6 digits)</td>
+						<td>Variance <span class="math inline">\( R(x) \)</span>, entropy <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+						<td><span class="math inline">\( \sigma = 0.01\text{–}0.3 \)</span></td>
+						<td><span class="math inline">\( \pi \)</span> as emergent coherence metric</td>
+					</tr>
+					<tr>
+						<td>Terror Kernel (High <span class="math inline">\( \sigma \)</span>)</td>
+						<td>Decoherent, rupture-dominated</td>
+						<td>Same as above</td>
+						<td>Unstable</td>
+						<td>Divergent rupture ratio</td>
+						<td><span class="math inline">\( \sigma \geq 1.0 \)</span></td>
+						<td><span class="math inline">\( \pi \)</span> collapses — coherence is lost</td>
+					</tr>
+					<tr>
+						<td>Symbolic Limit (Terror → RMI)</td>
+						<td>Rupture → Coherence transition</td>
+						<td>Ensemble average</td>
+						<td>Converges</td>
+						<td>Controlled volatility decay</td>
+						<td><span class="math inline">\( \sigma \to 0 \)</span></td>
+						<td><span class="math inline">\( \pi \)</span> recovered as limit of coherence</td>
+					</tr>
+					<tr>
+						<td>Symbolic Entropy Estimation</td>
+						<td>Phase encoded in symbolic dynamics</td>
+						<td>Symbolic sequence entropy</td>
+						<td>Low–moderate (3–5 digits)</td>
+						<td>Entropy rate <span class="math inline">\( h_{\mathrm{KS}} \)</span></td>
+						<td><span class="math inline">\( \sigma \sim 0.2\text{–}0.6 \)</span></td>
+						<td><span class="math inline">\( \pi \)</span> inferred from symbolic coherence</td>
+					</tr>
+					<tr>
+						<td>Rupture Curvature Method</td>
+						<td>Phase curvature distortion</td>
+						<td>Residual curvature <span class="math inline">\( \kappa_{\text{rupt}} \)</span></td>
+						<td>Low (≤ 2 digits)</td>
+						<td>Geometric distortion model</td>
+						<td><span class="math inline">\( \sigma \sim 0.8 \)</span></td>
+						<td><span class="math inline">\( \pi \)</span> as curvature closure failure</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>π Accuracy and Origin under Rupture</h4>
+
+			<p>
+				In classical systems, <span class="math inline">\( \pi \)</span> arises from smooth periodicity and geometric closure. In rupture calculus, its estimation becomes a coherence diagnostic — not a fixed constant, but an emergent metric sensitive to volatility, ensemble distortion, and symbolic drift.
+			</p>
+
+			<h5>Sample Computation: π from Ensemble Phase</h5>
+			<p>
+				Let the rupture-modulated phase kernel be:
+				<span class="math inline">\( T = \Xi \cdot e^{i\Phi/\mathcal{S}_\ast} \)</span>, where <span class="math inline">\( \Phi(\omega) = \omega \cdot \tau \)</span> and <span class="math inline">\( \tau \)</span> is a time-like parameter.
+			</p>
+
+			<p>
+				Estimate <span class="math inline">\( \pi \)</span> from ensemble coherence:
+			</p>
+
+			<ul>
+				<li>
+					Compute ensemble mean:
+					<span class="math inline">\( \mathbb{E}[T] = \mathbb{E}[\Xi] \cdot \mathbb{E}[e^{i\omega \tau/\mathcal{S}_\ast}] \)</span>
+				</li>
+				<li>Assume <span class="math inline">\( \omega \sim \text{Uniform}(0, 2\pi) \)</span> and <span class="math inline">\( \Xi \sim \text{LogNormal}(0, \sigma^2) \)</span></li>
+				<li>
+					Then:
+					<span class="math inline">\( \mathbb{E}[e^{i\omega \tau/\mathcal{S}_\ast}] \approx \frac{\sin(\pi \tau/\mathcal{S}_\ast)}{\pi \tau/\mathcal{S}_\ast} \)</span> (sinc kernel)
+				</li>
+				<li>
+					And:
+					<span class="math inline">\( \mathbb{E}[\Xi] = e^{\sigma^2/2} \)</span>
+				</li>
+			</ul>
+
+			<p>
+				Thus, the rupture-modulated coherence density becomes:
+				<span class="math inline">\( \rho_{\text{coh}}(\tau) = e^{\sigma^2/2} \cdot \frac{\sin(\pi \tau/\mathcal{S}_\ast)}{\pi \tau/\mathcal{S}_\ast} \)</span>
+			</p>
+
+			<p>
+				This expression shows that <span class="math inline">\( \pi \)</span> emerges as a structural constant in the ensemble phase kernel — but its accuracy degrades with increasing <span class="math inline">\( \sigma \)</span>. In the limit <span class="math inline">\( \sigma \to 0 \)</span>, classical coherence is restored and <span class="math inline">\( \pi \)</span> is recovered as a geometric invariant.
+			</p>
+
+			<h5>Interpretation</h5>
+			<ul>
+				<li><strong>Low rupture:</strong> <span class="math inline">\( \sigma \ll 1 \Rightarrow \pi \)</span> is stable and measurable</li>
+				<li><strong>Moderate rupture:</strong> <span class="math inline">\( \sigma \sim 0.3 \Rightarrow \pi \)</span> is distorted but detectable via ensemble averaging</li>
+				<li><strong>High rupture:</strong> <span class="math inline">\( \sigma \geq 1.0 \Rightarrow \pi \)</span> collapses; coherence fails</li>
+			</ul>
+
+			<p>
+				In rupture calculus, <span class="math inline">\( \pi \)</span> is not assumed — it is <em>diagnosed</em>. Its presence or absence reveals the integrity of phase structure, the volatility of the rupture field, and the recoverability of coherence.
+			</p>
 
             <h4>Interpretation: π as the Boundary of Coherence</h4>
             <p>
