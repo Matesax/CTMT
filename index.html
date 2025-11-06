@@ -8482,6 +8482,143 @@ In this view, π is not merely a number but a coherence invariant marking the th
 It is the last constant to survive when the system moves from order to chaos — the boundary where the universe
 ceases to measure itself smoothly.
 </p>
+
+  <h3 id="sec-terror-kernel-as-a-rupture-operator_2">Terror Kernel Taxonomy</h3>
+  <p>
+    The Terror Kernel framework extends the RMI taxonomy by embedding rupture modulation, ensemble volatility, and coherence drift into each kernel’s operational logic.
+    Classical kernels are reinterpreted as rupture-sensitive observables, where energy, magnetism, and structure emerge from stochastic deformation rather than deterministic geometry.
+    This taxonomy preserves dimensional closure, causal propagation, and modulation-aware integration, while replacing symmetry assumptions with ensemble diagnostics.
+  </p>
+
+  <h4>Structural Terror Energy Kernel (rupture-weighted power density)</h4>
+  <p><strong>Role:</strong> Computes energy density from nonlocal rupture-modulated source fields and ensemble transport kernels.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( p(\mathbf{x},t) = \int_{\Omega_\epsilon} \int_V \int_{\epsilon} \Xi(\mathbf{x},t;\epsilon)\cdot \mathcal{T}(\mathbf{x},t;\mathbf{x}',t';\epsilon)\cdot \mathcal{S}(\mathbf{x}',t';\epsilon)\,d^3x'\,dt'\,d\epsilon \)</span></li>
+    <li><strong>Units:</strong> <span class="math inline">\( \mathrm{W \cdot m^{-3}} \)</span> or <span class="math inline">\( \mathrm{J \cdot m^{-3} \cdot s^{-1}} \)</span></li>
+    <li><strong>Regime:</strong> rupture-driven transport, ensemble decoherence, recursive uncertainty propagation</li>
+    <li>
+      <strong>Assembly:</strong>
+      <ol>
+        <li>Define rupture source field <span class="math inline">\( \mathcal{S}(\mathbf{x}',t';\epsilon) \)</span> with stochastic modulation.</li>
+        <li>Embed rupture field <span class="math inline">\( \Xi \sim \text{LogNormal}(0,\sigma^2) \)</span> into transport kernel.</li>
+        <li>Integrate over energy bin <span class="math inline">\( \epsilon \)</span>, spatial domain <span class="math inline">\( V \)</span>, and time domain <span class="math inline">\( t' \)</span>.</li>
+        <li>Propagate uncertainty via recursive Jacobian and ensemble coverage.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h4>Structural Terror Magnetism Kernel (rupture-normalized field law)</h4>
+  <p><strong>Role:</strong> Computes magnetic flux density from rupture-modulated source fields and ensemble-normalized circulation integrals.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( \mathbf{B}_{\rm terror}(x) = \frac{\rho_\Phi}{\rho_\Xi} \int G(x,x') \left[ \Xi(x')\,\mathbf{u}(x') \times \frac{x - x'}{4\pi |x - x'|^3} \right] d^3x' \)</span></li>
+    <li><strong>Units:</strong> <span class="math inline">\( \mathrm{T} \)</span> (Tesla)</li>
+    <li><strong>Regime:</strong> rupture-modulated circulation, ensemble vorticity, decoherence-weighted flux</li>
+    <li>
+      <strong>Assembly:</strong>
+      <ol>
+        <li>Replace source density <span class="math inline">\( \rho_S \)</span> with rupture field <span class="math inline">\( \Xi(x') \)</span>.</li>
+        <li>Define structural ratio <span class="math inline">\( \rho_\Phi/\rho_\Xi \)</span> for dimensional closure.</li>
+        <li>Embed modulation envelope <span class="math inline">\( M[\gamma,\Theta,Q,\phi,T] \)</span> for dynamic effects.</li>
+        <li>Propagate uncertainty via ensemble Jacobian <span class="math inline">\( \mathbf{J}_B(x) \)</span>.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h4>Terror Dissipative Kernel (rupture-induced collapse)</h4>
+  <p><strong>Role:</strong> Models amplitude loss and phase collapse via rupture-weighted exponential decay.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( K_{\rm diss}^{\rm terror}(\omega) = C_{\rm phys}\,\tilde M(\omega)\,e^{i\Phi/\mathcal{S}_\ast - \gamma(\omega)\cdot \Xi(\omega)} \)</span></li>
+    <li><strong>Units:</strong> observable-dependent; <span class="math inline">\( \gamma \cdot \Xi \)</span> in <span class="math inline">\( \mathrm{s^{-1}} \)</span></li>
+    <li><strong>Regime:</strong> rupture-driven decay, non-Hermitian ensemble dynamics</li>
+    <li>
+      <strong>Assembly:</strong>
+      <ol>
+        <li>Define rupture-weighted decay rate <span class="math inline">\( \gamma(\omega)\cdot \Xi(\omega) \)</span>.</li>
+        <li>Apply analytic continuation <span class="math inline">\( \omega \mapsto \omega + i\epsilon \)</span>.</li>
+        <li>Embed into modulation envelope <span class="math inline">\( M[\cdot] \)</span>.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <h4>Terror Time Kernel (rupture-projected anchor evolution)</h4>
+  <p><strong>Role:</strong> Projects temporal anchors under rupture deformation and propagates ensemble uncertainty through time.</p>
+  <ul>
+    <li><strong>Form:</strong> <span class="math inline">\( T_{\rm terror}(t) = \int \Xi(t') \cdot e^{i\Phi(t,t')/\mathcal{S}_\ast} dt' \)</span></li>
+    <li><strong>Units:</strong> observable-dependent; typically <span class="math inline">\( \mathrm{s^{-1}} \)</span> or <span class="math inline">\( \mathrm{Hz} \)</span></li>
+    <li><strong>Regime:</strong> rupture-modulated time evolution, anchor drift, ensemble delay propagation</li>
+    <li>
+      <strong>Assembly:</strong>
+      <ol>
+        <li>Define rupture field <span class="math inline">\( \Xi(t') \)</span> from ensemble volatility.</li>
+        <li>Construct anchor phase <span class="math inline">\( \Phi(t,t') \)</span> and normalize with <span class="math inline">\( \mathcal{S}_\ast \)</span>.</li>
+        <li>Propagate uncertainty recursively across anchor chain.</li>
+      </ol>
+    </li>
+  </ul>
+
+<h4>Terror Envelope Kernel (rupture-distorted coherence envelope)</h4>
+<p><strong>Role:</strong> Models coherence envelope distortion under rupture bandwidth and ensemble volatility.</p>
+<ul>
+  <li><strong>Form:</strong> <span class="math inline">\( M_{\rm terror}(\omega) = C_{\rm phys} \cdot \exp\left(-\frac{(\omega - \omega_0)^2}{2\sigma^2 \cdot \Xi(\omega)}\right) \)</span></li>
+  <li><strong>Units:</strong> dimensionless (modulation amplitude)</li>
+  <li><strong>Regime:</strong> rupture-broadened coherence, bandwidth drift, ensemble envelope deformation</li>
+  <li>
+    <strong>Assembly:</strong>
+    <ol>
+      <li>Define rupture-weighted bandwidth <span class="math inline">\( \sigma^2 \cdot \Xi(\omega) \)</span>.</li>
+      <li>Center envelope at stationary frequency <span class="math inline">\( \omega_0 \)</span> from impulse kernel.</li>
+      <li>Embed into full kernel modulation envelope <span class="math inline">\( M[\cdot] \)</span>.</li>
+      <li>Propagate uncertainty via envelope curvature tensor <span class="math inline">\( \mathbf{J}_M(\omega) \)</span>.</li>
+    </ol>
+  </li>
+</ul>
+
+<h4>Terror Spectral Kernel (rupture-modulated occupancy distribution)</h4>
+<p><strong>Role:</strong> Computes spectral occupancy under rupture entropy and ensemble spread.</p>
+<ul>
+  <li><strong>Form:</strong> <span class="math inline">\( n_{\rm terror}(\omega,T) = \frac{1}{\exp\left(\frac{\epsilon(\omega)}{k_B T \cdot \Xi(\omega)}\right) \pm 1} \)</span></li>
+  <li><strong>Units:</strong> dimensionless (occupancy per mode)</li>
+  <li><strong>Regime:</strong> rupture-modulated statistics, entropy drift, ensemble temperature deformation</li>
+  <li>
+    <strong>Assembly:</strong>
+    <ol>
+      <li>Define rupture-weighted temperature field <span class="math inline">\( T \cdot \Xi(\omega) \)</span>.</li>
+      <li>Insert into Bose/Fermi distribution formula with energy <span class="math inline">\( \epsilon(\omega) \)</span>.</li>
+      <li>Embed into spectral kernel or energy kernel as occupancy factor.</li>
+      <li>Propagate uncertainty via ensemble entropy tensor <span class="math inline">\( \mathbf{J}_n(\omega) \)</span>.</li>
+    </ol>
+  </li>
+</ul>
+
+<h4>Terror Green Kernel (ensemble-modulated propagator)</h4>
+<p><strong>Role:</strong> Computes rupture-sensitive propagation response via ensemble-modulated Green’s function.</p>
+<ul>
+  <li><strong>Form:</strong> <span class="math inline">\( G_{\rm terror}(x,x';\omega) = \frac{A(\omega)}{D(\omega)} \cdot \Xi(x,\omega) \cdot e^{i\Phi(x,x';\omega)/\mathcal{S}_\ast} \)</span></li>
+  <li><strong>Units:</strong> observable-dependent (e.g., V·m⁻¹ for EM fields)</li>
+  <li><strong>Regime:</strong> rupture-modulated propagation, ensemble drift, causal asymmetry</li>
+  <li>
+    <strong>Assembly:</strong>
+    <ol>
+      <li>Embed rupture field <span class="math inline">\( \Xi(x,\omega) \)</span> into amplitude response.</li>
+      <li>Apply analytic continuation for causal structure: <span class="math inline">\( \omega \mapsto \omega + i\epsilon \) </span>.</li>
+      <li>Normalize with emergent action scale <span class="math inline">\( \mathcal{S}_\ast \)</span> in phase kernel.</li>
+      <li>Propagate uncertainty via ensemble drift tensor <span class="math inline">\( \mathbf{J}_G(x,\omega) \)</span>.</li>
+    </ol>
+  </li>
+</ul>
+
+<hr />
+
+  <h4>Taxonomy Usage Notes</h4>
+  <ul>
+    <li>Begin with a primary kernel (e.g., Energy, Magnetism, Dissipation) and embed rupture modulation via <span class="math inline">\( \Xi(x,t;\omega) \)</span>.</li>
+    <li>Declare analytic continuation and ensemble signature explicitly; document rupture volatility <span class="math inline">\( \sigma \)</span> and modulation envelope <span class="math inline">\( M[\cdot] \)</span>.</li>
+    <li>Use emergent action scale <span class="math inline">\( \mathcal{S}_\ast \)</span> to normalize phase and unify dimensional structure.</li>
+    <li>Propagate uncertainty via recursive Jacobians and ensemble coverage metrics.</li>
+    <li>For orbital systems, combine terror magnetism and energy kernels to model rupture-induced circulation and flux collapse.</li>
+    <li>Perform unit balance in <span class="math inline">\( C_{\rm phys} \)</span> to ensure final observables carry correct SI units.</li>
+    <li>When projecting into time domain, track anchor drift and rupture-induced delay propagation.</li>
+  </ul>
   </article>
 </section>
     <section>
