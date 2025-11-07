@@ -7454,7 +7454,12 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
         <h2 title="Click to toggle" id="sec-terror-kernel-as-a-rupture-operator">Terror Kernel as a Rupture Operator</h2>
         <article style="display:none">
             <p>
-                The <strong>Terror Kernel</strong> is introduced as a rupture operator: a stochastic, non-normal, and non-unitary deformation of the coherent impulse kernel. It models decoherence, instability, and adversarial amplification across physical, informational, and symbolic systems. Where the Recursive Modulation Impulse (RMI) generates structure through synchrony and projection, the Terror Kernel <span class="math inline">\( T[K] \)</span> unravels it — exposing the fragility of coherence under rupture fields.
+                The <strong>Terror Kernel</strong> is introduced as a rupture operator: a stochastic, non-normal, and non-unitary deformation of the coherent impulse kernel. It models decoherence, instability, and adversarial amplification across physical,
+				informational, and symbolic systems. Where the Recursive Modulation Impulse (RMI) generates structure through synchrony and projection, the Terror Kernel <span class="math inline">\( T[K] \)</span> unravels it — exposing the fragility of coherence under rupture fields.
+            </p>
+            <p>
+				In conventional computational frameworks, corrupted or irregular data are often dismissed as chaotic noise, excluded from analysis due to their perceived unpredictability. This rejection reflects a structural limitation: the inability to extract meaningful patterns from rupture-induced discontinuities. In contrast, the CTMT framework is architected as a unified kernel that not only tolerates rupture, but requires it. Its impulse structure is incomplete without the inclusion of rupture-modulated data.
+				Within this paradigm, the concept of “terror” is redefined—not as disruption, but as a generative mechanism for coherence. It serves as a formal approach to chaos integrity, enabling full-spectrum computation across fragmented, unstable, or causally damped domains. Rather than suppressing rupture, CTMT leverages it to reconstruct ensemble stability and synthesize emergent structure. This inversion of traditional rejection logic marks a foundational shift: coherence is no longer a prerequisite, but a product of rupture-aware computation.
             </p>
 
             <h4>Axioms of the Terror Kernel</h4>
@@ -8370,7 +8375,7 @@ F = Xi * np.exp(1j * Phi / Sstar) * np.exp(-eps)   # regulated per-realization f
             </p>
 
             <h5>Monte Carlo Sampling (JS)</h5>
-<pre><code class="language-html">&lt;script&gt;
+<pre><code class="language-js">&lt;script&gt;
 function generateTerrorCSV(samples = 10000) {
     const omegaMean = 2.42e15, omegaStd = 1.0e13;
     const sigma = 0.3;  // rupture volatility
@@ -8416,7 +8421,7 @@ function generateTerrorCSV(samples = 10000) {
 </code></pre>
 
             <h5>Monte Carlo Sampling (Python)</h5>
-<pre><code class="language-html">import numpy as np
+<pre><code class="language-python">import numpy as np
 import pandas as pd
 
 # Number of samples
@@ -8484,6 +8489,322 @@ print("CSV saved as terror_kernel.csv")
             <p>
                 This duality enables a unified treatment of signal, noise, and emergence — where modulation is not merely a tool of synthesis, but a lens for understanding the limits of form itself.
             </p>
+
+			<h4>Synthetic Kernel Assembly and Rupture Diagnostics</h4>
+
+			<p>
+				This section presents a synthetic demonstration of recursive kernel assembly using both the classical RMI impulse law and its rupture-modulated Terror Kernel counterpart.
+				We simulate a simplified system with three frequency modes and track how coherence builds across recursive steps, how rupture fields deform the structure, and how coherence gain is diagnosed.
+			</p>
+
+			<p>
+				The goal is to:
+			<ul>
+				<li>Assemble the RMI kernel step-by-step using a fixed modulation envelope and phase kernel.</li>
+				<li>Inject rupture fields and imaginary regulators to compute the Terror Kernel ensemble response.</li>
+				<li>Compare coherence metrics between the two kernels using magnitude, rupture ratio, and Lyapunov diagnostics.</li>
+			</ul>
+			</p>
+
+			<p>
+			We use synthetic data:
+			<ul>
+				<li>Frequency modes: <span class="math inline">\( \omega = \{1, 2, 3\} \)</span></li>
+				<li>Modulation envelope: <span class="math inline">\( M(\omega) = 1 \)</span></li>
+				<li>Phase kernel: <span class="math inline">\( \Phi(t,\omega) = \omega t \)</span></li>
+				<li>Action scale: <span class="math inline">\( \mathcal{S}_\ast = 1 \)</span></li>
+				<li>Rupture field: <span class="math inline">\( \Xi(\omega) \sim \mathrm{LogNormal}(0, 0.3^2) \)</span></li>
+				<li>Imaginary regulator: <span class="math inline">\( \epsilon(\omega) \sim \mathcal{N}(0.01, 0.005^2) \)</span></li>
+			</ul>
+			</p>
+
+			<p>
+			We compute:
+			<ul>
+				<li>Recursive kernel accumulation for RMI and Terror formulations.</li>
+				<li>Final kernel magnitudes and rupture-modulated phase structure.</li>
+				<li>Coherence gain metric: <span class="math inline">\( \Gamma = \frac{|K_{\mathrm{terror}}|}{|K_{\mathrm{RMI}}|} \)</span></li>
+			</ul>
+			</p>
+
+			<p>
+				This synthetic setup is designed to clearly visualize how rupture fields deform coherent propagation, and how ensemble diagnostics can detect amplification, damping, or recovery.
+			</p>
+
+			<h5>Step 1: RMI Kernel Initialization</h5>
+			<p>
+				Let modulation envelope <span class="math inline">\( M(\omega) = 1 \)</span>, phase kernel <span class="math inline">\( \Phi(t,\omega) = \omega t \)</span>, and action scale <span class="math inline">\( \mathcal{S}_\ast = 1 \)</span>. We define:
+			</p>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{RMI}}^{(0)}(t) = 0
+				\quad\text{(initial state)}
+				\]
+
+			</div>
+
+			<h5>Step 2: Recursive RMI Assembly (First 3 Modes)</h5>
+			<p>Let <span class="math inline">\( \omega = \{1, 2, 3\} \)</span> and <span class="math inline">\( t = 1 \)</span>. We compute:</p>
+
+			<div class="math display">
+
+				\[
+				K_{\mathrm{RMI}}^{(1)}(t) = K^{(0)} + M(1) \cdot e^{i \cdot 1} = 0 + e^{i} \approx 0.540 + 0.841i
+				\]
+
+				\[
+				K_{\mathrm{RMI}}^{(2)}(t) = K^{(1)} + M(2) \cdot e^{i \cdot 2} \approx (0.540 + 0.841i) + (-0.416 + 0.909i) = 0.124 + 1.750i
+				\]
+
+				\[
+				K_{\mathrm{RMI}}^{(3)}(t) = K^{(2)} + M(3) \cdot e^{i \cdot 3} \approx (0.124 + 1.750i) + (-0.990 + 0.141i) = -0.866 + 1.891i
+				\]
+
+			</div>
+
+			<h5>Step 3: RMI Summary Expression</h5>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{RMI}}(t) = \sum_{\omega=1}^{3} M(\omega) \cdot e^{i \omega t}
+				\quad\text{with result: } K_{\mathrm{RMI}}(1) \approx -0.866 + 1.891i
+				\]
+
+			</div>
+
+			<h5>Step 4: Terror Kernel Injection</h5>
+			<p>
+				Let rupture field <span class="math inline">\( \Xi(\omega) \sim \mathrm{LogNormal}(0, 0.3^2) \)</span> and regulator <span class="math inline">\( \epsilon(\omega) \sim \mathcal{N}(0.01, 0.005^2) \)</span>. Sample:
+			</p>
+			<ul>
+				<li><span class="math inline">\( \Xi = \{1.05, 0.90, 1.20\} \)</span></li>
+				<li><span class="math inline">\( \epsilon = \{0.01, 0.015, 0.005\} \)</span></li>
+			</ul>
+
+			<h5>Step 5: Terror Kernel Assembly (First 3 Modes)</h5>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{terror}}^{(1)} = \Xi(1) \cdot e^{i \cdot 1 - 0.01} \approx 1.05 \cdot e^{i - 0.01} \approx 0.534 + 0.831i
+				\]
+
+				\[
+				K_{\mathrm{terror}}^{(2)} = K^{(1)} + \Xi(2) \cdot e^{i \cdot 2 - 0.015} \approx (0.534 + 0.831i) + 0.90 \cdot e^{i \cdot 2 - 0.015} \approx 0.134 + 1.720i
+				\]
+
+				\[
+				K_{\mathrm{terror}}^{(3)} = K^{(2)} + \Xi(3) \cdot e^{i \cdot 3 - 0.005} \approx (0.134 + 1.720i) + 1.20 \cdot e^{i \cdot 3 - 0.005} \approx -1.052 + 1.860i
+				\]
+
+			</div>
+
+			<h5>Step 6: Terror Summary Expression</h5>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{terror}}(t) = \sum_{\omega=1}^{3} \Xi(\omega) \cdot e^{i \omega t - \epsilon(\omega)}
+				\quad\text{with result: } K_{\mathrm{terror}}(1) \approx -1.052 + 1.860i
+				\]
+
+			</div>
+
+			<h5>Step 7: Coherence Gain Computation</h5>
+			<p>
+				Define coherence gain metric:
+				<span class="math inline">\( \Gamma = \frac{|K_{\mathrm{terror}}|}{|K_{\mathrm{RMI}}|} \)</span>.
+				Compute magnitudes:
+			</p>
+			<div class="math display">
+
+				\[
+				|K_{\mathrm{RMI}}| = \sqrt{(-0.866)^2 + (1.891)^2} \approx 2.079
+				\quad
+				|K_{\mathrm{terror}}| = \sqrt{(-1.052)^2 + (1.860)^2} \approx 2.129
+				\]
+
+				\[
+				\Gamma \approx \frac{2.129}{2.079} \approx 1.024
+				\quad\text{(slight amplification)}
+				\]
+
+			</div>
+
+			<h5>Conclusion</h5>
+			<p>
+				The recursive kernel assembly shows how coherence builds across frequency modes. The Terror Kernel introduces rupture modulation and damping, but in this synthetic case, coherence is slightly amplified. This framework supports regime classification and rupture diagnostics.
+			</p>
+
+			<h4>Full Kernel Structure and Visual Substitution: RMI to Terror</h4>
+
+			<p>
+				This section presents the complete symbolic form of the recursive impulse kernel, followed by its rupture-modulated counterpart. All symbols are explicitly defined, and synthetic values are substituted to demonstrate how the Terror Kernel reassembles coherence from the RMI base. Ensemble diagnostics quantify coherence gain and falsifiability. This pairing formalizes the structural duality between modulation and rupture within the kernel ontology.
+			</p>
+
+			<h5>1. Full Symbolic RMI Kernel</h5>
+			<p>
+				The classical recursive impulse kernel is defined as:
+			</p>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{RMI}}(x,t) = C_{\mathrm{phys}} \cdot \sum_{\omega=1}^{N} M(\omega) \cdot e^{\,i\Phi(x,t;\omega)/\mathcal{S}_\ast}
+				\]
+
+			</div>
+			<ul>
+				<li><span class="math inline">\( C_{\mathrm{phys}} \)</span>: physical scaling constant</li>
+				<li><span class="math inline">\( M(\omega) \)</span>: modulation envelope</li>
+				<li><span class="math inline">\( \Phi(x,t;\omega) \)</span>: phase kernel (e.g., <span class="math inline">\( \omega t + \alpha \omega^2 \)</span>)</li>
+				<li><span class="math inline">\( \mathcal{S}_\ast \)</span>: action scale (e.g., Planck-like)</li>
+			</ul>
+
+			<h5>2. Full Symbolic Terror Kernel</h5>
+			<p>
+				The rupture-modulated ensemble kernel becomes:
+			</p>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{terror}}(x,t) = \mathbb{E}_{\Xi,\epsilon} \left[ C_{\mathrm{phys}} \cdot \sum_{\omega=1}^{N} \Xi(x,\omega,t) \cdot M(\omega) \cdot e^{\,i\Phi(x,t;\omega)/\mathcal{S}_\ast - \epsilon(x,\omega,t)} \right]
+				\]
+
+			</div>
+			<p><em>All results are dimensionless up to <span class="math inline">\( C_{\mathrm{phys}} \)</span>, which preserves physical units across rupture transformation.</em></p>
+			<ul>
+				<li><span class="math inline">\( \Xi(x,\omega,t) \)</span>: rupture field (multiplicative)</li>
+				<li><span class="math inline">\( \epsilon(x,\omega,t) \)</span>: imaginary regulator (causal damping)</li>
+				<li><span class="math inline">\( \mathbb{E}_{\Xi,\epsilon}[\cdot] \)</span>: ensemble expectation over rupture realizations</li>
+			</ul>
+
+			<h5>3. Visual Substitution: Synthetic Values</h5>
+			<p>
+				Let <span class="math inline">\( N = 3 \)</span>, <span class="math inline">\( t = 1 \)</span>, and define:
+			</p>
+			<ul>
+				<li><span class="math inline">\( M(\omega) = 1 \)</span></li>
+				<li><span class="math inline">\( \Phi(x,t;\omega) = \omega t \)</span></li>
+				<li><span class="math inline">\( \mathcal{S}_\ast = 1 \)</span></li>
+				<li><span class="math inline">\( \Xi = \{1.05, 0.90, 1.20\} \)</span></li>
+				<li><span class="math inline">\( \epsilon = \{0.01, 0.015, 0.005\} \)</span></li>
+			</ul>
+
+			<h5>4. Final Computation: Terror Kernel Evaluation</h5>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{terror}}(x,1) = C_{\mathrm{phys}} \cdot \left[
+				1.05 \cdot e^{i \cdot 1 - 0.01} +
+				0.90 \cdot e^{i \cdot 2 - 0.015} +
+				1.20 \cdot e^{i \cdot 3 - 0.005}
+				\right]
+				\]
+
+			</div>
+			<p>Numerically:</p>
+			<div class="math display">
+
+				\[
+				K_{\mathrm{terror}}(x,1) \approx C_{\mathrm{phys}} \cdot \left[
+				(0.534 + 0.831i) + (-0.400 + 0.873i) + (-1.186 + 0.169i)
+				\right] = C_{\mathrm{phys}} \cdot (-1.052 + 1.873i)
+				\]
+
+			</div>
+
+			<h5>5. Coherence Gain Metric</h5>
+			<p>
+				Compare with RMI kernel <span class="math inline">\( K_{\mathrm{RMI}}(x,1) \approx -0.866 + 1.891i \)</span>. Compute:
+			</p>
+			<div class="math display">
+
+				\[
+				\Gamma(x) = \frac{|K_{\mathrm{terror}}(x,t)|}{|K_{\mathrm{RMI}}(x,t)|}
+				= \frac{\sqrt{(-1.052)^2 + (1.873)^2}}{\sqrt{(-0.866)^2 + (1.891)^2}} \approx \frac{2.129}{2.079} \approx 1.024
+				\]
+
+			</div>
+			<p>
+				This shows a slight amplification due to rupture stabilization. The coherence is not preserved — it is reassembled from filtered structure.
+			</p>
+
+			<h5>6. Ensemble Stability Diagnostic</h5>
+			<p>
+				To validate coherence emergence, compute rupture ratio:
+			</p>
+			<div class="math display">
+
+			\[
+			R(t) = \frac{\mathrm{Var}[T^{(n)}(t)]}{|\mathbb{E}[T^{(n)}(t)]|}, \quad T^{(n)} = \Xi^{(n)} \cdot e^{-\epsilon^{(n)}}
+			\]
+
+			</div>
+			<p><em><span class="math inline">\( R(t) \)</span> is dimensionless; small values <span class="math inline">\( R(t) < 0.1 \)</span> indicate coherent ensembles.</em></p>
+			<ul>
+			<li><span class="math inline">\( T^{(n)} = \{1.0395, 0.8866, 1.1940\} \)</span></li>
+			<li><span class="math inline">\( \mathbb{E}[T^{(n)}] \approx 1.04 \)</span></li>
+			<li><span class="math inline">\( \mathrm{Var}[T^{(n)}] \approx 0.023 \)</span></li>
+			</ul>
+			<div class="math display">
+
+				\[
+				R(t) \approx \frac{0.023}{1.04} \approx 0.022
+				\]
+
+			</div>
+			<p>
+				This low rupture ratio confirms that the ensemble is tightly clustered around a coherent mean — coherence has re-emerged from rupture.
+			</p>
+
+			<h5>7. Ontological Bridge</h5>
+			<p>
+				This reciprocal behavior (rupture → coherence) formalizes the ontological bridge between modulation (RMI) and rupture (Terror), demonstrating that coherence can be a derived invariant rather than a pre-imposed condition.
+			</p>
+
+			<h5>Conclusion</h5>
+			<p>
+				The full kernel structure shows how rupture fields and regulators deform the impulse law while preserving phase symmetry. Visual substitution makes the transformation explicit. The coherence gain metric <span class="math inline">\( \Gamma \)</span> and rupture ratio <span class="math inline">\( R(t) \)</span> jointly demonstrate that coherence not only survives rupture — it reassembles with greater ensemble stability.
+			</p>
+			<p><em>Future work should focuse to generalize this reconstruction using higher-order ensemble averages, demonstrating that <span class="math inline">\( \Gamma > 1 \)</span> implies positive Lyapunov damping in the mean-field limit.</em></p>
+
+<pre><code class="language-python">import numpy as np
+
+# Parameters
+N = 10000  # ensemble size
+omega = np.array([1, 2, 3])  # frequency components
+t = 1
+S_star = 1
+C_phys = 1
+
+# Synthetic rupture fields and regulators
+Xi = np.random.normal(loc=1.0, scale=0.1, size=(N, len(omega)))  # rupture field
+epsilon = np.random.normal(loc=0.01, scale=0.005, size=(N, len(omega)))  # regulator
+
+# Phase kernel
+Phi = np.outer(np.ones(N), omega * t)  # shape (N, len(omega))
+
+# Terror kernel realizations
+K_terror = C_phys * np.sum(Xi * np.exp(1j * Phi - epsilon), axis=1)
+
+# RMI kernel (no rupture)
+K_rmi = C_phys * np.sum(np.exp(1j * Phi), axis=1)
+
+# Coherence gain Γ
+Gamma = np.mean(np.abs(K_terror)) / np.mean(np.abs(K_rmi))
+
+# Rupture ratio R(t)
+T_n = np.sum(Xi * np.exp(-epsilon), axis=1)
+R_t = np.var(T_n) / np.abs(np.mean(T_n))
+
+# Lyapunov exponent estimate (log divergence over time)
+delta_K = np.abs(K_terror - K_rmi)
+Lambda = np.mean(np.log(delta_K + 1e-8)) / t  # avoid log(0)
+
+# Output summary
+print(f"Coherence gain Γ ≈ {Gamma:.4f}")
+print(f"Rupture ratio R(t) ≈ {R_t:.4f}")
+print(f"Estimated Lyapunov exponent Λ ≈ {Lambda:.4f}")
+</code></pre>
 
             <h3 id="sec-terror-kernel-as-a-rupture-operator_1">π as a Coherence Invariant in Rupture Calculus</h3>
 
@@ -33281,6 +33602,11 @@ H, detH, sp.simplify(prefactor)
                 such as temporal frequency vs angular frequency, or surface flux vs volumetric balance.
                 This section provides a compact derivation and a practical rule set to eliminate ambiguity.
             </p>
+            <p>
+				Recursive modulation impulse (RMI) and rupture-aware ensemble propagation (Terror Kernel) reveal that <span class="math inline">\(\pi\)</span>-factors are not merely geometric or spectral artifacts.
+				They emerge from structural invariants in the kernel impulse law, preserved across recursive phase accumulation, ensemble filtering, and causal damping.
+				These invariants ensure that <span class="math inline">\(\pi\)</span>-scaling remains dimensionally and geometrically valid even under rupture deformation.
+            </p>
 
             <h4>Spectral Domain — Why <span class="math inline">\(2\pi\)</span> Appears</h4>
             <p>
@@ -33299,6 +33625,20 @@ H, detH, sp.simplify(prefactor)
                 This ensures compatibility with the Fourier convention <span class="math inline">\(\exp(i\omega t)\)</span>
                 and preserves dimensional consistency across spectral derivations.
             </p>
+
+			<p>
+				In Terror Kernel formulations, angular frequency domains are modulated by rupture bias via the regulator field <span class="math inline">\(\epsilon(\omega)\)</span>. The ensemble expectation of the phase kernel becomes:
+			</p>
+			<div class="math display">
+
+				\[
+				\mathbb{E}\left[e^{i\omega t - \epsilon(\omega)}\right] = e^{i\omega t} \cdot \mathbb{E}[e^{-\epsilon(\omega)}]
+				\]
+
+			</div>
+			<p>
+				This preserves the <span class="math inline">\(\omega = 2\pi\nu\)</span> mapping and the use of <span class="math inline">\(\hbar = h / 2\pi\)</span>, but introduces rupture-dependent phase curvature. The <span class="math inline">\(2\pi\)</span> factor remains structurally invariant under ensemble damping.
+			</p>
 
             <p>
                 <strong>Worked derivation:</strong>
@@ -33323,6 +33663,20 @@ H, detH, sp.simplify(prefactor)
                 the <span class="math inline">\(4\pi\)</span> normalization appears automatically.
             </p>
 
+			<p>
+				In recursive anchor drift models, the impulse kernel projected over solid angle retains the <span class="math inline">\(4\pi\)</span> normalization, but the radial symmetry may be modulated by rupture-filtered acceptance:
+			</p>
+			<div class="math display">
+
+				\[
+				G_{\mathrm{rupture}}(r) = -\frac{1}{4\pi r} \cdot f_{\mathrm{accept}}(r)
+				\]
+
+			</div>
+			<p>
+				Here, <span class="math inline">\(f_{\mathrm{accept}}(r)\)</span> is the ensemble mask derived from rupture diagnostics. The <span class="math inline">\(4\pi\)</span> factor remains a geometric invariant, while the impulse response reflects rupture-induced deformation.
+			</p>
+
             <h4>Cosmological Domain — Why <span class="math inline">\(8\pi\)</span> and <span class="math inline">\(\frac{3}{8\pi}\)</span> Appear</h4>
             <p>
                 In cosmology, the Friedmann equation links the Hubble parameter to energy density:
@@ -33340,6 +33694,36 @@ H, detH, sp.simplify(prefactor)
                 <li><span class="math inline">\(2\)</span> — Einstein curvature normalization</li>
                 <li><span class="math inline">\(3\)</span> — spatial dimensional trace</li>
             </ul>
+
+			<p>
+				In rupture-aware cosmological models, ensemble coherence volume may be projected onto spherical spacetime domains. The critical density expression retains the <span class="math inline">\(8\pi\)</span> factor, but the effective energy density may be modulated by rupture bias:
+			</p>
+			<div class="math display">
+
+				\[
+				\rho_{\mathrm{eff}} = \frac{3H^2}{8\pi G} \cdot \mathbb{E}[e^{-\epsilon}]
+				\]
+
+			</div>
+			<p>
+				This preserves the geometric origin of <span class="math inline">\(8\pi\)</span> while introducing ensemble damping via the regulator field <span class="math inline">\(\epsilon\)</span>.
+			</p>
+
+			<h4>Rupture-Modulated π-Factors in Terror Kernel</h4>
+			<p>
+				In the Terror Kernel framework, <span class="math inline">\(\pi\)</span>-factors remain structurally invariant but are modulated by rupture dynamics, ensemble filtering, and recursive propagation. These effects deform the effective impulse response without altering the geometric or spectral origin of <span class="math inline">\(\pi\)</span>.
+			</p>
+
+			<ul>
+				<li><strong>Phase drift:</strong> Rupture bias <span class="math inline">\(\epsilon\)</span> introduces ensemble phase shift: <span class="math inline">\(\Delta\phi = n\pi + \delta\)</span></li>
+				<li><strong>Impulse deformation:</strong> Recursive anchor drift modifies radial symmetry, but retains <span class="math inline">\(4\pi\)</span> normalization</li>
+				<li><strong>Ensemble projection:</strong> Coherence volume over spherical domains yields <span class="math inline">\(\chi_{\mathrm{ensemble}} \sim \pi^2 L^3\)</span></li>
+				<li><strong>Spectral damping:</strong> Regulator field <span class="math inline">\(\epsilon(\omega)\)</span> affects bandwidth but preserves <span class="math inline">\(\omega = 2\pi\nu\)</span></li>
+			</ul>
+
+			<p>
+				These modulations ensure that <span class="math inline">\(\pi\)</span>-factors remain dimensionally and geometrically grounded, even under rupture-induced deformation. They reflect the resilience of kernel symmetry across ensemble and recursive regimes.
+			</p>
 
             <h4>Summary — When Each <span class="math inline">\(\pi\)</span> Type Is Appropriate</h4>
             <ul>
@@ -33420,6 +33804,9 @@ H, detH, sp.simplify(prefactor)
                 <li>Frequency domain conventions must be explicitly defined (cycles per second vs radians per second) prior to applying Planck’s relation or phase integrals.</li>
                 <li>Spatial integration domains (volume vs surface) must be specified when applying Green functions, Poisson equations, or flux-based derivations.</li>
                 <li>Gravitational normalization conventions (Newtonian vs Einstein field equations) must be clarified when applying cosmological equations or interpreting critical density expressions.</li>
+				<li><strong>Spectral domain:</strong> Adopt angular frequency <span class="math inline">\(\omega\)</span> and reduced Planck constant <span class="math inline">\(\hbar\)</span>; define the action quantum as <span class="math inline">\(S_\ast = \hbar\)</span>. In rupture-aware kernels, regulator bias <span class="math inline">\(\epsilon\)</span> modulates phase curvature but does not alter <span class="math inline">\(\pi\)</span>-scaling.</li>
+				<li><strong>Spatial domain:</strong> Apply <span class="math inline">\(4\pi\)</span> normalization in Green and Poisson equations; specify whether Newtonian or Einstein field conventions are used. Recursive anchor drift may deform symmetry, but <span class="math inline">\(4\pi\)</span> remains invariant.</li>
+				<li><strong>Cosmological domain:</strong> Use the standard Friedmann form <span class="math inline">\(H^2 = \frac{8\pi G}{3} \rho\)</span>; define the critical density as <span class="math inline">\(\rho_c = \frac{3H^2}{8\pi G}\)</span>. Ensemble damping via <span class="math inline">\(\epsilon\)</span> may modulate energy density, but <span class="math inline">\(\pi\)</span>-factors remain structurally fixed.</li>
             </ul>
 
             <p>
@@ -33490,12 +33877,21 @@ H, detH, sp.simplify(prefactor)
                         <td>Anchor: atomic and CMB timing; falsify on inconsistent multi‑baseline speeds.</td>
                     </tr>
 
-                    <tr>
-                        <td><strong>Coherence volume <span class="math inline">\( \chi \)</span></strong></td>
-                        <td><span class="math inline">\( \chi = \dfrac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span></td>
-                        <td>If <span class="math inline">\( M \)</span> <span class="math inline">\( \mathrm{kg} \)</span> \(\Rightarrow\) <span class="math inline">\( \chi \)</span> <span class="math inline">\( \mathrm{m}^3 \)</span>; if <span class="math inline">\( M \)</span> <span class="math inline">\( \mathrm{kg\,s^{-1}} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{m}^3\,\mathrm{s^{-1}} \)</span>.</td>
-                        <td>Anchor: flow/power mapping; falsify if measured <span class="math inline">\( \chi \)</span> violates scale.</td>
-                    </tr>
+					<tr>
+						<td><strong>Coherence volume <span class="math inline">\( \chi \)</span></strong></td>
+						<td>
+						<span class="math inline">\( \chi = \dfrac{M\,v^2}{\Phi\,g\,h\,\rho} \)</span> — effective domain of phase-aligned kernel propagation, rupture-filtered ensemble acceptance, and recursive anchor drift.
+						</td>
+						<td>
+							If <span class="math inline">\( M \in \mathrm{kg} \)</span>, then <span class="math inline">\( \chi \in \mathrm{m}^3 \)</span> (static confinement);<br>
+							If <span class="math inline">\( M \in \mathrm{kg\,s^{-1}} \)</span>, then <span class="math inline">\( \chi \in \mathrm{m}^3\,\mathrm{s^{-1}} \)</span> (dynamic flow);<br>
+							If ensemble-integrated, <span class="math inline">\( \chi \in \mathrm{m}^3\,\mathrm{s} \)</span> (accepted coherence domain).
+						</td>
+						<td>
+							Anchor: flow/power mapping, ensemble acceptance mask, and anchor drift trace.<br>
+							Falsify if measured <span class="math inline">\( \chi \)</span> violates dimensional closure or rupture stability thresholds.
+						</td>
+					</tr>
 
                     <tr>
                         <td><strong>Tuning and impedance density</strong></td>
@@ -33538,6 +33934,72 @@ H, detH, sp.simplify(prefactor)
                         <td><span class="math inline">\( \eta_\rho,\, \chi_T,\, \alpha \)</span> dimensionless \(\Rightarrow\) preserves <span class="math inline">\( \mathrm{J},\ \mathrm{K},\ \mathrm{kg\,m^{-3}} \)</span>.</td>
                         <td>Anchor: radiative equilibrium tests; falsify if energy correction fails to reduce overshoot <span class="math inline">\( &lt;1\% \)</span>.</td>
                     </tr>
+
+					<tr>
+						<td><strong>RMI phase exponent integrity</strong></td>
+						<td>
+							<span class="math inline">\( K_{\mathrm{RMI}}(x,t) = C_{\mathrm{phys}} \cdot \sum_{\omega} M(\omega)\,e^{i\Phi(x,t;\omega)/\mathcal{S}_\ast} \)</span>
+						</td>
+						<td>
+							Imaginary exponent is dimensionless; phase kernel <span class="math inline">\( \Phi \)</span> must have units of action <span class="math inline">\( \mathrm{J \cdot s} \)</span> to match <span class="math inline">\( \mathcal{S}_\ast \)</span>.
+						</td>
+						<td>
+							Anchor: phase normalization check. Falsify if <span class="math inline">\( \Phi/\mathcal{S}_\ast \notin \mathbb{R} \)</span> or violates unit parity.
+						</td>
+					</tr>
+
+					<tr>
+						<td><strong>RMI ensemble stability (non-rupture)</strong></td>
+						<td>
+							<span class="math inline">\( \mathrm{Var}[K_{\mathrm{RMI}}] \ll |\mathbb{E}[K_{\mathrm{RMI}}]| \)</span> under coherent modulation.
+						</td>
+						<td>
+						Dimensionless ratio; ensemble variance must remain bounded for stable propagation.
+						</td>
+						<td>
+						Anchor: ensemble trace. Falsify if variance exceeds coherence threshold or violates linear superposition.
+						</td>
+					</tr>
+
+					<tr>
+						<td><strong>Terror kernel dimensional integrity</strong></td>
+						<td>
+							<span class="math inline">\( T_{\mathrm{terror}}(t) = \mathbb{E}_{\Xi,\epsilon} \left[ \int \Xi(t')\,C_{\mathrm{phys}}(t')\,\tilde{M}(\omega)\,e^{i\Phi(t,t')/\mathcal{S}_\ast - \epsilon(t')} dt' + \eta(t) \right] \)</span>
+						</td>
+						<td>
+							Output units depend on <span class="math inline">\( C_{\mathrm{phys}} \)</span>; typically <span class="math inline">\( \mathrm{s^{-1}} \)</span> or <span class="math inline">\( \mathrm{Hz} \)</span>. All terms reduce to SI via ensemble averaging.
+						</td>
+						<td>
+						Anchor: ensemble unit audit. Falsify if rupture-modulated kernel violates dimensional closure under expectation.
+						</td>
+					</tr>
+
+					<tr>
+						<td><strong>Imaginary regulator field</strong></td>
+						<td>
+							<span class="math inline">\( \epsilon(x,\omega,t) \sim \mathcal{N}(\mu, \sigma^2) \)</span> regulates causal damping in kernel exponent.
+						</td>
+						<td>
+							Dimensionless exponential regulator; affects amplitude but not base units.
+						</td>
+						<td>
+							Anchor: regulator histogram and acceptance threshold. Falsify if <span class="math inline">\( \epsilon \)</span> violates causal bias or ensemble stability.
+						</td>
+					</tr>
+
+					<tr>
+						<td><strong>Rupture ratio and coherence gain</strong></td>
+						<td>
+							<span class="math inline">\( R(t) = \frac{\mathrm{Var}[T^{(n)}(t)]}{|\mathbb{E}[T^{(n)}(t)]|} \)</span>, 
+							<span class="math inline">\( \Gamma = \frac{|T_{\mathrm{terror}}|}{|T_{\mathrm{RMI}}|} \)</span>
+						</td>
+						<td>
+							Both are dimensionless diagnostics derived from ensemble statistics.
+						</td>
+						<td>
+							Anchor: ensemble trace and coherence test. Falsify if <span class="math inline">\( R \gg 1 \)</span> with <span class="math inline">\( \Gamma \ll 1 \)</span>.
+						</td>
+					</tr>
                 </tbody>
             </table>
 
@@ -33603,39 +34065,53 @@ H, detH, sp.simplify(prefactor)
                     </ul>
                 </li>
 
-                <li>
-                    <strong>Coherence volume</strong> —
-                    <span class="math inline">\(\chi = \tfrac{M v^2}{\Phi\,\mathcal{S}_\ast\,\rho}\)</span>
-                    <ul>
-                        <li>
-                            From kinetic energy density
-                            <span class="math inline">\(E/V = \rho v^2\)</span>
-                        </li>
-                        <li>
-                            Include synchrony potential and action scaling
-                            <span class="math inline">\(\Phi\,\mathcal{S}_\ast\)</span>
-                        </li>
-                        <li>
-                            Invert to obtain coherence volume
-                            <span class="math inline">\(\chi = E/(\Phi\,\mathcal{S}_\ast\,\rho)\)</span>
-                        </li>
-                        <li>Substitute <span class="math inline">\(E = M v^2\)</span> for mass-specific form</li>
-                    </ul>
-                </li>
+				<li>
+					<strong>Coherence volume</strong> —
+					<span class="math inline">\(\chi = \tfrac{M v^2}{\Phi\,\mathcal{S}_\ast\,\rho}\)</span>
+					<ul>
+						<li>
+							From kinetic energy density:
+							<span class="math inline">\(E/V = \rho v^2\)</span>
+						</li>
+						<li>
+							Include synchrony potential and action scaling:
+							<span class="math inline">\(\Phi\,\mathcal{S}_\ast\)</span>
+						</li>
+						<li>
+							Invert to obtain coherence volume:
+							<span class="math inline">\(\chi = E/(\Phi\,\mathcal{S}_\ast\,\rho)\)</span>
+						</li>
+						<li>
+							Substitute <span class="math inline">\(E = M v^2\)</span> for mass-specific form
+						</li>
+						<li>
+							Static confinement: <span class="math inline">\(\chi_{\mathrm{static}} \in \mathrm{m}^3\)</span> — phase-aligned domain under bounded modulation
+						</li>
+						<li>
+							Dynamic flow: <span class="math inline">\(\chi_{\mathrm{flow}} \in \mathrm{m}^3\,\mathrm{s}^{-1}\)</span> — recursive anchor propagation volume
+						</li>
+						<li>
+							Ensemble-integrated: <span class="math inline">\(\chi_{\mathrm{ensemble}} = \int \mathbb{I}_{\mathrm{accept}}^{(n)}(x,t)\,d^3x\,dt\)</span> — rupture-filtered coherence domain
+						</li>
+						<li>
+							Falsifiability via unit mismatch, rupture ratio instability, or coherence decay across ensemble
+						</li>
+					</ul>
+				</li>
 
-                <li>
-                    <strong>Tuning and impedance density</strong> —
-                    <span class="math inline">\(\rho_K \in \mathrm{J\,s\,m^{-3}},\quad \rho_K L_K^3 = \mathcal{S}_\ast\)</span>
-                    <ul>
-                        <li>Impedance density = energy–time per unit volume</li>
-                        <li>
-                            Collapse length from synchrony decay:
-                            <span class="math inline">\(L_K = v_{\mathrm{sync}}/\gamma\)</span>
-                        </li>
-                        <li>Integration over coherence volume yields total action</li>
-                        <li>Links static impedance with dynamic coherence</li>
-                    </ul>
-                </li>
+				<li>
+					<strong>Tuning and impedance density</strong> —
+					<span class="math inline">\(\rho_K \in \mathrm{J\,s\,m^{-3}},\quad \rho_K L_K^3 = \mathcal{S}_\ast\)</span>
+					<ul>
+						<li>Impedance density = energy–time per unit volume; governs kernel phase stability and synchrony propagation</li>
+						<li>Collapse length from synchrony decay: <span class="math inline">\(L_K = v_{\mathrm{sync}}/\gamma\)</span>, where <span class="math inline">\(\gamma\)</span> is the synchrony decay rate</li>
+						<li>Integration over coherence volume yields total action: <span class="math inline">\(\int_\chi \rho_K\,d^3x = \mathcal{S}_\ast\)</span></li>
+						<li>Links static impedance with dynamic coherence and recursive anchor drift</li>
+						<li>In Terror Kernel, rupture-modulated impedance: <span class="math inline">\(\rho_K^{(n)} = \Xi^{(n)} \cdot \rho_K \cdot e^{-\epsilon^{(n)}}\)</span> per realization</li>
+						<li>Ensemble expectation: <span class="math inline">\(\bar{\rho}_K = \mathbb{E}[\rho_K^{(n)}]\)</span> defines rupture-weighted impedance field</li>
+						<li>Falsifiability via mismatch between <span class="math inline">\(\bar{\rho}_K\)</span> and observed synchrony collapse or coherence decay</li>
+					</ul>
+				</li>
 
                 <li>
                     <strong>Topological energy</strong> —
@@ -33701,6 +34177,37 @@ H, detH, sp.simplify(prefactor)
                     </ul>
                 </li>
 
+				<li>
+					<strong>RMI phase normalization</strong> —
+					<span class="math inline">\( K_{\mathrm{RMI}} = \sum M(\omega)\,e^{i\Phi/\mathcal{S}_\ast} \)</span>
+					<ul>
+						<li>Phase kernel <span class="math inline">\( \Phi \)</span> must carry units of action <span class="math inline">\( \mathrm{J \cdot s} \)</span></li>
+						<li>Imaginary exponent <span class="math inline">\( i\Phi/\mathcal{S}_\ast \)</span> is dimensionless</li>
+						<li>Falsifiability via unit mismatch or non-real exponent argument</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>RMI ensemble coherence</strong> —
+					<span class="math inline">\( \mathrm{Var}[K_{\mathrm{RMI}}] \ll |\mathbb{E}[K_{\mathrm{RMI}}]| \)</span>
+					<ul>
+						<li>Applies to coherent modulation without rupture</li>
+						<li>Variance must remain bounded across realizations</li>
+						<li>Anchor: ensemble trace and superposition test</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Terror kernel ensemble closure</strong> —
+					<span class="math inline">\( T_{\mathrm{terror}}(t) = \mathbb{E}_{\Xi,\epsilon} \left[ \int \Xi(t')\,C_{\mathrm{phys}}(t')\,\tilde{M}(\omega)\,e^{i\Phi/\mathcal{S}_\ast - \epsilon(t')} dt' + \eta(t) \right] \)</span>
+					<ul>
+						<li>Extends RMI impulse law with rupture field and imaginary regulator</li>
+						<li>All terms preserve SI closure under ensemble expectation</li>
+						<li>Regulator <span class="math inline">\( \epsilon \)</span> is dimensionless; rupture field <span class="math inline">\( \Xi \)</span> is multiplicative</li>
+						<li>Output units governed by <span class="math inline">\( C_{\mathrm{phys}} \)</span>; typically <span class="math inline">\( \mathrm{s^{-1}} \)</span></li>
+						<li>Falsifiability via rupture ratio <span class="math inline">\( R \)</span> and coherence gain <span class="math inline">\( \Gamma \)</span></li>
+					</ul>
+				</li>
             </ul>
 
             <h3 id="sec-37-dimensional-check_dimax">Kernel Dimensional Axiom</h3>
@@ -34023,27 +34530,29 @@ H, detH, sp.simplify(prefactor)
 
             <!-- SYMBOLS -->
             <h3 id="sec-37-dimensional-check_5">Symbol mapping and aliases</h3>
-            <ul>
-                <li>
-                    <strong>Dimensionless:</strong>
-                    <span class="math inline">\( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q \)</span>
-                </li>
-                <li>
-                    <strong>Unit‑anchored:</strong>
-                    <span class="math inline">\( L_Z\ \mathrm{m},\ L_0\ \mathrm{m},\ v_{\mathrm{sync}}\ \mathrm{m\,s^{-1}},\ \gamma\ \mathrm{s^{-1}},\ L_K\ \mathrm{m}, \)</span>
-                    <br />
-                    <span class="math inline">\( \chi\ \mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s^{-1}},\ \rho\ \mathrm{kg\,m^{-3}},\ \rho_K\ \mathrm{J\,s\,m^{-3}},\ \Theta\ \mathrm{m^{-1}\,s^{-1}},\ h,\ \mathcal{E}_*,\ b\ \mathrm{J\,m^{-2}}, \)</span>
-                    <br />
-                    <span class="math inline">\( \chi_T,\ \eta_\rho,\ \alpha \) (feedback / correction coefficients)</span>
-                </li>
-                <li>
-                    <strong>Aliases:</strong>
-                    <span class="math inline">\( \Phi \Leftrightarrow \)</span> geometric/topological modulation factor;
-                    <span class="math inline">\( m_{\mathrm{orb}} \Leftrightarrow \mathcal{S}_\ast \nu_{\mathrm{sync}} / c^2 \)</span> (orbital mass from synchrony);
-                    tuning density <span class="math inline">\( \rho \)</span> \(\Leftrightarrow\) impedance density <span class="math inline">\( \rho_K \)</span>;
-                    coherence length <span class="math inline">\( L_Z \)</span> \(\Leftrightarrow\) kernel length <span class="math inline">\( L_K \)</span>.
-                </li>
-            </ul>
+			<ul>
+				<li>
+					<strong>Dimensionless:</strong>
+					<span class="math inline">\( \rho_{\mathrm{topo}},\ \Phi,\ \Xi(\kappa,\xi),\ \Upsilon(\eta),\ \delta_p,\ Q,\ \epsilon,\ R,\ \Gamma \)</span>
+				</li>
+				<li>
+					<strong>Unit‑anchored:</strong>
+					<span class="math inline">\( L_Z\ \mathrm{m},\ L_0\ \mathrm{m},\ v_{\mathrm{sync}}\ \mathrm{m\,s^{-1}},\ \gamma\ \mathrm{s^{-1}},\ L_K\ \mathrm{m}, \)</span>
+					<br />
+					<span class="math inline">\( \chi\ \mathrm{m}^3\ \text{or}\ \mathrm{m}^3\mathrm{s^{-1}},\ \rho\ \mathrm{kg\,m^{-3}},\ \rho_K\ \mathrm{J\,s\,m^{-3}},\ \Theta\ \mathrm{m^{-1}\,s^{-1}},\ h,\ \mathcal{E}_*,\ b\ \mathrm{J\,m^{-2}}, \)</span>
+					<br />
+					<span class="math inline">\( \chi_T,\ \eta_\rho,\ \alpha,\ \Lambda\ \mathrm{s^{-1}},\ \mathbf{J}_G\ \mathrm{m\,s^{-1}} \)</span>
+				</li>
+				<li>
+					<strong>Aliases:</strong>
+					<span class="math inline">\( \Phi \Leftrightarrow \)</span> geometric/topological modulation factor;
+					<span class="math inline">\( m_{\mathrm{orb}} \Leftrightarrow \mathcal{S}_\ast \nu_{\mathrm{sync}} / c^2 \)</span> (orbital mass from synchrony);
+					tuning density <span class="math inline">\( \rho \)</span> \(\Leftrightarrow\) impedance density <span class="math inline">\( \rho_K \)</span>;
+					coherence length <span class="math inline">\( L_Z \)</span> \(\Leftrightarrow\) kernel length <span class="math inline">\( L_K \)</span>;
+					rupture ratio <span class="math inline">\( R \)</span> \(\Leftrightarrow\) ensemble instability index;
+					coherence gain <span class="math inline">\( \Gamma \)</span> \(\Leftrightarrow\) rupture-normalized amplitude ratio.
+				</li>
+			</ul>
 
             <!-- DIMENSIONAL BRIDGES -->
             <h3 id="sec-37-dimensional-check_6">Dimensional bridges</h3>
@@ -34051,19 +34560,25 @@ H, detH, sp.simplify(prefactor)
                 Each bridge expresses a kernel construct in SI‑anchored form, ensuring that dimensionless ratios
                 map consistently into measurable observables without introducing free constants.
             </p>
-            <ul>
-                <li><strong>Coherence scaling:</strong> <span class="math inline">\( L_Z = L_0\,\delta_p^{1/3} \)</span> \(\Rightarrow\) <span class="math inline">\( \mathrm{m} \)</span></li>
-                <li><strong>Action bridge:</strong> <span class="math inline">\( \rho_K\,L_K^3 \Rightarrow \mathrm{J\,s} \)</span></li>
-                <li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \Rightarrow \mathrm{m} \)</span></li>
-                <li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \Rightarrow \mathrm{J} \)</span></li>
-                <li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \Rightarrow \mathrm{J} \)</span></li>
-                <li><strong>Burn-propagation factor:</strong> <span class="math inline">\( \beta_{\mathrm{burn}} = \dfrac{\dot{m}_f h_c}{\rho L_Z^3 \gamma} \)</span> — dimensionless; unity at steady-state energy equilibrium.</li>
-                <li><strong>Thermal bridge:</strong> <span class="math inline">\( E_{\mathrm{th}} = \rho c_p \Delta T V \Rightarrow \mathrm{J} \)</span>, consistent with kernel law via <span class="math inline">\( \rho c_p \sim \rho \Phi L_Z^3 \gamma / \Delta T \)</span>.</li>
-                <li>
-                    <strong>Thermal feedback bridge:</strong>
-                    <span class="math inline">\( E' = E(1 - \alpha),\ T_c' = \chi_T T_c \)</span> \(\Rightarrow\) dimensional preservation <span class="math inline">\( \mathrm{J},\ \mathrm{K} \)</span>
-                </li>
-            </ul>
+			<ul>
+				<li><strong>Coherence scaling:</strong> <span class="math inline">\( L_Z = L_0\,\delta_p^{1/3} \Rightarrow \mathrm{m} \)</span></li>
+				<li><strong>Action bridge:</strong> <span class="math inline">\( \rho_K\,L_K^3 \Rightarrow \mathrm{J\,s} \)</span></li>
+				<li><strong>Distance bridge:</strong> <span class="math inline">\( D = v_{\mathrm{sync}} / \gamma \Rightarrow \mathrm{m} \)</span></li>
+				<li><strong>Topological energy:</strong> <span class="math inline">\( E_{\mathrm{top}} = b\,\rho_{\mathrm{topo}}\,|Q|\,L_Z^2\,\Phi \Rightarrow \mathrm{J} \)</span></li>
+				<li><strong>Spectroscopic energy:</strong> <span class="math inline">\( E = \hbar\,\omega \Rightarrow \mathrm{J} \)</span></li>
+				<li><strong>Burn-propagation factor:</strong> <span class="math inline">\( \beta_{\mathrm{burn}} = \dfrac{\dot{m}_f h_c}{\rho L_Z^3 \gamma} \)</span> — dimensionless; unity at steady-state energy equilibrium.</li>
+				<li><strong>Thermal bridge:</strong> <span class="math inline">\( E_{\mathrm{th}} = \rho c_p \Delta T V \Rightarrow \mathrm{J} \)</span>, consistent with kernel law via <span class="math inline">\( \rho c_p \sim \rho \Phi L_Z^3 \gamma / \Delta T \)</span>.</li>
+				<li><strong>Thermal feedback bridge:</strong> <span class="math inline">\( E' = E(1 - \alpha),\ T_c' = \chi_T T_c \Rightarrow \mathrm{J},\ \mathrm{K} \)</span></li>
+				<li><strong>Rupture ratio bridge:</strong> <span class="math inline">\( R = \mathrm{Var}[K^{(n)}] / |\mathbb{E}[K^{(n)}]| \Rightarrow \text{dimensionless} \)</span></li>
+				<li><strong>Coherence gain bridge:</strong> <span class="math inline">\( \Gamma = |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \Rightarrow \text{dimensionless} \)</span></li>
+				<li><strong>Ensemble coherence volume:</strong> <span class="math inline">\( \chi_{\mathrm{ensemble}} = \int \mathbb{I}_{\mathrm{accept}}^{(n)}\,d^3x\,dt \Rightarrow \mathrm{m}^3\,\mathrm{s} \)</span></li>
+				<li><strong>Regulator damping bridge:</strong> <span class="math inline">\( e^{-\epsilon} \Rightarrow \text{dimensionless amplitude decay} \)</span></li>
+				<li><strong>Anchor drift bridge:</strong> <span class="math inline">\( \mathbf{J}_G = \nabla a_k \Rightarrow \mathrm{m\,s^{-1}} \)</span> or <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span> depending on formulation</li>
+				<li><strong>Synchrony collapse bridge:</strong> <span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \Rightarrow \mathrm{m} \)</span> — coherence length from synchrony decay</li>
+				<li><strong>Tensor anisotropy bridge:</strong> <span class="math inline">\( \mathcal{A}_{ij} = \partial_i \partial_j \Phi \Rightarrow \mathrm{m^{-2}} \)</span> — rupture-induced modulation curvature</li>
+				<li><strong>Spectral impedance bridge:</strong> <span class="math inline">\( Z(\omega) = \rho_K / \omega \Rightarrow \mathrm{J\,m^{-3}} \)</span> — frequency-resolved impedance density</li>
+				<li><strong>Ensemble drift bridge:</strong> <span class="math inline">\( \Delta a_k^{(n)} = a_{k+1}^{(n)} - a_k^{(n)} \Rightarrow \mathrm{m} \)</span> — rupture-modulated anchor displacement</li>
+			</ul>
 
             <h5>Quantum–Classical Transition bridge</h5>
             <p>
@@ -34100,6 +34615,17 @@ H, detH, sp.simplify(prefactor)
                 <figcaption><a href="#eq-37_3">Equation (37.3)</a></figcaption>
             </figure>
 
+			<p>
+				In rupture-modulated regimes, coherence length may also be expressed as:
+			</p>
+			<figure class="equation" id="eq-37_1b">
+				<div class="math display">\( L_Z = \dfrac{v_{\mathrm{sync}}}{\gamma} \)</div>
+				<figcaption><a href="#eq-37_1b">Equation (37.1b)</a> — synchrony collapse form</figcaption>
+			</figure>
+			<p>
+				This form links coherence length to synchrony velocity and decay rate, and is consistent with ensemble drift under Terror Kernel propagation.
+			</p>
+
             <h4>Additional scaling bridges</h4>
             <p>
                 Beyond the core bridges, the following mappings ensure closure across magnetism, orbital mechanics, and relativistic regimes:
@@ -34108,6 +34634,12 @@ H, detH, sp.simplify(prefactor)
                 <li><strong>Magnetism bridge:</strong> <span class="math inline">\( [\mathbf{B}] = (\rho_\Phi/\rho_S)[u]/[r^2] \Rightarrow \mathrm{T} \)</span></li>
                 <li><strong>Orbital bridge:</strong> <span class="math inline">\( E = \tfrac{1}{2} m \Delta v^2 \Rightarrow \mathrm{J} \)</span></li>
                 <li><strong>Relativistic bridge:</strong> <span class="math inline">\( E = \gamma m c^2 \Rightarrow \mathrm{J} \)</span></li>
+				<li><strong>Rupture ratio bridge:</strong> <span class="math inline">\( R = \mathrm{Var}[K^{(n)}] / |\mathbb{E}[K^{(n)}]| \Rightarrow \text{dimensionless} \)</span></li>
+				<li><strong>Coherence gain bridge:</strong> <span class="math inline">\( \Gamma = |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \Rightarrow \text{dimensionless} \)</span></li>
+				<li><strong>Ensemble coherence volume:</strong> <span class="math inline">\( \chi_{\mathrm{ensemble}} = \int \mathbb{I}_{\mathrm{accept}}^{(n)}\,d^3x\,dt \Rightarrow \mathrm{m}^3\,\mathrm{s} \)</span></li>
+				<li><strong>Anchor drift bridge:</strong> <span class="math inline">\( \mathbf{J}_G = \nabla a_k \Rightarrow \mathrm{m\,s^{-1}} \)</span></li>
+				<li><strong>Spectral impedance bridge:</strong> <span class="math inline">\( Z(\omega) = \rho_K / \omega \Rightarrow \mathrm{J\,m^{-3}} \)</span></li>
+				<li><strong>Tensor anisotropy bridge:</strong> <span class="math inline">\( \mathcal{A}_{ij} = \partial_i \partial_j \Phi \Rightarrow \mathrm{m^{-2}} \)</span></li>
             </ul>
 
             <h4>Extended alias mapping</h4>
@@ -34118,6 +34650,10 @@ H, detH, sp.simplify(prefactor)
                 <li><span class="math inline">\( \rho_\Phi/\rho_S \Leftrightarrow \mu_0 \)</span> (vacuum permeability)</li>
                 <li>Synchrony frequency ↔ inertial mass (orbital closure)</li>
                 <li><span class="math inline">\( \mathcal{S}_\ast \Leftrightarrow h \)</span> (action quantum ↔ Planck constant)</li>
+				<li><span class="math inline">\( R \Leftrightarrow \)</span> rupture ratio ↔ ensemble instability index</li>
+				<li><span class="math inline">\( \Gamma \Leftrightarrow \)</span> coherence gain ↔ rupture-normalized amplitude ratio</li>
+				<li><span class="math inline">\( \mathbf{J}_G \Leftrightarrow \)</span> anchor drift tensor ↔ recursive propagation velocity</li>
+				<li><span class="math inline">\( \mathcal{A}_{ij} \Leftrightarrow \)</span> modulation curvature ↔ rupture-induced anisotropy</li>
             </ul>
 
             <!-- NORMALIZATION BRIDGES -->
@@ -34141,6 +34677,22 @@ H, detH, sp.simplify(prefactor)
                 while the normalized forms remain dimensionless and directly comparable across frames.
             </p>
 
+			<p>
+				Additional normalized quantities include:
+			</p>
+			<div class="math display">
+
+			\[
+			  \tilde{\chi} = \dfrac{\chi}{\chi_0},\quad
+			  \tilde{R} = \dfrac{R}{R_0},\quad
+			  \tilde{\Gamma} = \dfrac{\Gamma}{\Gamma_0}
+			  \]
+
+			</div>
+			<p>
+				These normalized forms allow comparison of rupture-modulated coherence domains across frames and regimes.
+			</p>
+
             <!-- MEASUREMENT -->
             <h3 id="sec-37-dimensional-check_7">Measurement protocols</h3>
             <ul>
@@ -34150,6 +34702,12 @@ H, detH, sp.simplify(prefactor)
                 <li><strong>Tuning vs. impedance:</strong> densitometry for <span class="math inline">\( \rho \)</span>; impedance spectroscopy for <span class="math inline">\( \rho_K \)</span>.</li>
                 <li><strong>Coherence metrics:</strong> measure <span class="math inline">\( L_Z \)</span> via decay; <span class="math inline">\( \gamma \)</span> via FWHM; compute <span class="math inline">\( L_K = v_{\mathrm{sync}} / \gamma \)</span>.</li>
                 <li><strong>Magnetism:</strong> map <span class="math inline">\( \mathbf{B}(x) \)</span> vs. source <span class="math inline">\( \mathbf{S}(x) \)</span>; fit <span class="math inline">\( \mu_{\mathrm{eff}} \)</span> from <span class="math inline">\( G(k,\omega) \)</span> and verify Maxwell closure.</li>
+				<li><strong>Rupture diagnostics:</strong> compute <span class="math inline">\( R(t) = \mathrm{Var}[K^{(n)}]/|\mathbb{E}[K^{(n)}]| \)</span>; track <span class="math inline">\( \Gamma = |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \)</span>; validate ensemble convergence.</li>
+				<li><strong>Regulator bias:</strong> histogram <span class="math inline">\( \epsilon(x,t) \)</span>; verify causal damping <span class="math inline">\( \mu > 0 \)</span>; reject realizations with negative bias or instability.</li>
+				<li><strong>Ensemble coherence volume:</strong> apply acceptance mask <span class="math inline">\( \mathbb{I}_{\mathrm{accept}}^{(n)} \)</span>; integrate over <span class="math inline">\( x,t \)</span> to compute <span class="math inline">\( \chi_{\mathrm{ensemble}} \)</span>.</li>
+				<li><strong>Anchor drift:</strong> track recursive anchor positions <span class="math inline">\( a_k^{(n)} \)</span>; compute drift tensor <span class="math inline">\( \mathbf{J}_G = \nabla a_k \)</span>; validate propagation continuity.</li>
+				<li><strong>Spectral impedance:</strong> measure <span class="math inline">\( \rho_K(\omega) \)</span> via frequency-resolved spectroscopy; compute <span class="math inline">\( Z(\omega) = \rho_K / \omega \)</span>.</li>
+				<li><strong>Tensor anisotropy:</strong> fit curvature tensor <span class="math inline">\( \mathcal{A}_{ij} = \partial_i \partial_j \Phi \)</span> from spatial phase maps; validate rupture-induced modulation geometry.</li>
             </ul>
             <p>
                 Each protocol relies only on directly measurable observables and kernel ratios; no hidden calibration constants are introduced.
@@ -34203,6 +34761,20 @@ H, detH, sp.simplify(prefactor)
                         <td><span class="math inline">\( \leq 1\% \)</span> vs. multi-baseline timing</td>
                         <td>Inconsistent speed across frequency bands</td>
                     </tr>
+					<tr>
+						<td>Rupture ensemble (coherence)</td>
+						<td><span class="math inline">\( K^{(n)}(x,t) \)</span> realizations; regulator <span class="math inline">\( \epsilon \)</span> histogram</td>
+						<td><span class="math inline">\( R = \mathrm{Var}[K^{(n)}]/|\mathbb{E}[K^{(n)}]|,\quad \Gamma = |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \)</span></td>
+						<td><span class="math inline">\( R \leq 0.2,\quad \Gamma \in [0.9,1.1] \)</span> for stable ensemble</td>
+						<td>Amplification instability or coherence collapse across accepted realizations</td>
+					</tr>
+					<tr>
+						<td>Anchor drift (recursive)</td>
+						<td>Anchor chain <span class="math inline">\( a_k^{(n)} \)</span>; drift tensor <span class="math inline">\( \mathbf{J}_G \)</span></td>
+						<td><span class="math inline">\( \Delta a_k^{(n)} = a_{k+1}^{(n)} - a_k^{(n)} \)</span>; continuity of <span class="math inline">\( \mathbf{J}_G \)</span></td>
+						<td>Drift smoothness <span class="math inline">\( \|\nabla \mathbf{J}_G\| \leq 10^{-3} \)</span></td>
+						<td>Discontinuity or reversal in anchor propagation</td>
+					</tr>
                 </tbody>
             </table>
 
@@ -34227,6 +34799,61 @@ H, detH, sp.simplify(prefactor)
                 This function encodes the system’s spectral response, governs magnetic and acoustic field propagation, and
                 enables extraction of effective permeability <span class="math inline">\(\mu_{\mathrm{eff}}\)</span> from experimental data.
             </p>
+
+			<h3 id="sec-37-dimensional-check_ru">Rupture Fields and Ensemble Diagnostics</h3>
+
+			<p>
+				The introduction of rupture-modulated kernels requires dimensional validation of ensemble-based constructs, including rupture fields, regulator damping, and coherence diagnostics. These elements extend the classical RMI framework by introducing stochastic modulation and causal filtering, while preserving SI closure under expectation.
+			</p>
+
+			<ul>
+				<li>
+					<strong>Rupture field <span class="math inline">\( \Xi(x,\omega,t) \)</span></strong> —
+					<span class="math inline">\( \Xi \in \mathbb{R}^+ \)</span>, typically dimensionless unless scaled to physical observables (e.g., stress, strain, energy density).
+					<ul>
+						<li>Acts as multiplicative amplitude modulator in Terror Kernel</li>
+						<li>Falsifiability via ensemble divergence or non-physical amplification</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Imaginary regulator <span class="math inline">\( \epsilon(x,\omega,t) \)</span></strong> —
+					<span class="math inline">\( \epsilon \sim \mathcal{N}(\mu, \sigma^2) \)</span>, dimensionless
+					<ul>
+						<li>Introduces causal damping in kernel exponent</li>
+						<li>Bias <span class="math inline">\( \mu > 0 \)</span> ensures forward-time propagation</li>
+						<li>Falsifiability via negative bias or ensemble instability</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Acceptance mask <span class="math inline">\( \mathbb{I}_{\mathrm{accept}}^{(n)}(x,t) \in \{0,1\} \)</span></strong>
+					<ul>
+						<li>Binary indicator for rupture-filtered realization validity</li>
+						<li>Used in ensemble coherence volume and rupture diagnostics</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Rupture ratio <span class="math inline">\( R(t) \)</span> and Lyapunov exponent <span class="math inline">\( \Lambda \)</span></strong>
+					<ul>
+						<li><span class="math inline">\( R(t) = \mathrm{Var}[K^{(n)}(t)] / |\mathbb{E}[K^{(n)}(t)]| \)</span> — dimensionless rupture amplification</li>
+						<li><span class="math inline">\( \Lambda = \lim_{t \to \infty} \tfrac{1}{t} \log \tfrac{\|\delta K(t)\|}{\|\delta K(0)\|} \)</span> — ensemble divergence rate</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Anchor drift tensor <span class="math inline">\( \mathbf{J}_G = \nabla a_k \)</span></strong>
+					<ul>
+						<li>Tracks recursive anchor propagation under rupture</li>
+						<li>Units: <span class="math inline">\( \mathrm{m\,s^{-1}} \)</span> or <span class="math inline">\( \mathrm{m\,s^{-2}} \)</span></li>
+					</ul>
+				</li>
+			</ul>
+
+			<p>
+				All rupture-aware constructs preserve dimensional closure under ensemble expectation. They extend the falsifiability framework by introducing statistical thresholds, causal constraints, and recursive diagnostics.
+			</p>
 
             <!-- UNIT PARITY AUDIT -->
             <h3 id="sec-37-dimensional-check_u1">Unit parity audit</h3>
@@ -34264,11 +34891,52 @@ H, detH, sp.simplify(prefactor)
                         <td><span class="math inline">\( [v_{\mathrm{sync}}]/[\gamma] \Rightarrow \mathrm{m} \)</span></td>
                         <td>Closed</td>
                     </tr>
+					<tr>
+						<td>RMI kernel (phase law)</td>
+						<td><span class="math inline">\( [K_{\mathrm{RMI}}] = \text{amplitude} \)</span></td>
+						<td><span class="math inline">\( [C_{\mathrm{phys}}][M(\omega)]\,e^{i\Phi/\mathcal{S}_\ast} \Rightarrow \text{amplitude} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Terror kernel (ensemble law)</td>
+						<td><span class="math inline">\( [K_{\mathrm{terror}}] = \text{amplitude} \)</span></td>
+						<td><span class="math inline">\( \mathbb{E}_{\Xi,\epsilon}[C_{\mathrm{phys}}\,\Xi\,M\,e^{i\Phi/\mathcal{S}_\ast - \epsilon}] \Rightarrow \text{amplitude} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Impedance density</td>
+						<td><span class="math inline">\( [\rho_K] = \mathrm{J\,s\,m^{-3}} \)</span></td>
+						<td><span class="math inline">\( [E][t]/[V] \Rightarrow \mathrm{J\,s\,m^{-3}} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Rupture ratio</td>
+						<td><span class="math inline">\( [R] = 1 \)</span></td>
+						<td><span class="math inline">\( \mathrm{Var}[K^{(n)}]/|\mathbb{E}[K^{(n)}]| \Rightarrow \text{dimensionless} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Coherence gain</td>
+						<td><span class="math inline">\( [\Gamma] = 1 \)</span></td>
+						<td><span class="math inline">\( |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \Rightarrow \text{dimensionless} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Anchor drift tensor</td>
+						<td><span class="math inline">\( [\mathbf{J}_G] = \mathrm{m\,s^{-1}} \)</span></td>
+						<td><span class="math inline">\( \nabla a_k \Rightarrow \mathrm{m\,s^{-1}} \)</span></td>
+						<td>Closed</td>
+					</tr>
+					<tr>
+						<td>Ensemble coherence volume</td>
+						<td><span class="math inline">\( [\chi_{\mathrm{ensemble}}] = \mathrm{m}^3\,\mathrm{s} \)</span></td>
+						<td><span class="math inline">\( \int \mathbb{I}_{\mathrm{accept}}^{(n)}\,d^3x\,dt \Rightarrow \mathrm{m}^3\,\mathrm{s} \)</span></td>
+						<td>Closed</td>
+					</tr>
                 </tbody>
             </table>
 
             <ul>
-
                 <li>
                     <strong>Magnetism kernel</strong> — <span class="math inline">\( [\mathbf{B}] = \mathrm{T} \)</span> vs. <span class="math inline">\( (\rho_\Phi/\rho_S)[u]/[r^2] \)</span>
                     <ul>
@@ -34314,7 +34982,70 @@ H, detH, sp.simplify(prefactor)
                         <li>Inverse scaling yields decoherence rate: <span class="math inline">\( \gamma_\phi \sim v_{\mathrm{sync}}/L_Z \)</span></li>
                     </ul>
                 </li>
+				<li>
+					<strong>RMI kernel (phase law)</strong> —
+					<span class="math inline">\( K_{\mathrm{RMI}} = C_{\mathrm{phys}}\,M(\omega)\,e^{i\Phi/\mathcal{S}_\ast} \)</span>
+					<ul>
+						<li>Phase exponent is dimensionless: <span class="math inline">\( \Phi/\mathcal{S}_\ast \in \mathbb{R} \)</span></li>
+						<li>Modulation envelope <span class="math inline">\( M(\omega) \)</span> carries amplitude units</li>
+						<li>Parity preserved across all terms</li>
+					</ul>
+				</li>
 
+				<li>
+					<strong>Terror kernel (ensemble law)</strong> —
+					<span class="math inline">\( K_{\mathrm{terror}} = \mathbb{E}_{\Xi,\epsilon}[C_{\mathrm{phys}}\,\Xi\,M\,e^{i\Phi/\mathcal{S}_\ast - \epsilon}] \)</span>
+					<ul>
+						<li>Rupture field <span class="math inline">\( \Xi \)</span> and regulator <span class="math inline">\( \epsilon \)</span> are dimensionless</li>
+						<li>Expectation preserves unit parity across ensemble</li>
+						<li>Amplitude units match RMI kernel</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Impedance density</strong> —
+					<span class="math inline">\( \rho_K = E\,t/V \Rightarrow \mathrm{J\,s\,m^{-3}} \)</span>
+					<ul>
+						<li>Energy per volume per time</li>
+						<li>Used in tuning and synchrony collapse diagnostics</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Rupture ratio</strong> —
+					<span class="math inline">\( R = \mathrm{Var}[K^{(n)}]/|\mathbb{E}[K^{(n)}]| \Rightarrow \text{dimensionless} \)</span>
+					<ul>
+						<li>Ensemble diagnostic for coherence stability</li>
+						<li>Fails if variance exceeds threshold</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Coherence gain</strong> —
+					<span class="math inline">\( \Gamma = |K_{\mathrm{terror}}| / |K_{\mathrm{RMI}}| \Rightarrow \text{dimensionless} \)</span>
+					<ul>
+						<li>Compares rupture-modulated amplitude to classical kernel</li>
+						<li>Used in falsifiability and ensemble acceptance</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Anchor drift tensor</strong> —
+					<span class="math inline">\( \mathbf{J}_G = \nabla a_k \Rightarrow \mathrm{m\,s^{-1}} \)</span>
+					<ul>
+						<li>Tracks recursive propagation velocity</li>
+						<li>Fails if discontinuous or non-causal</li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Ensemble coherence volume</strong> —
+					<span class="math inline">\( \chi_{\mathrm{ensemble}} = \int \mathbb{I}_{\mathrm{accept}}^{(n)}\,d^3x\,dt \Rightarrow \mathrm{m}^3\,\mathrm{s} \)</span>
+					<ul>
+						<li>Integrated volume of accepted realizations</li>
+						<li>Used in rupture diagnostics and kernel scaling</li>
+					</ul>
+				</li>
             </ul>
 
             <!-- UNCERTAINTY / DECOHERENCE BRIDGE -->
