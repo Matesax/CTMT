@@ -34390,6 +34390,916 @@ print("Uncertainty variance:", uncertainty_propagation(
         </article>
     </section>
     <section>
+        <h2 title="Click to toggle" id="sec-888-native-calculus">CTMT Native Calculus — Symbolic Translation and Computational Grammar</h2>
+        <article style="display:none">
+			<p>
+				This section defines the <strong>CTMT-native calculus</strong>: a complete symbolic and computational framework that replaces traditional integrals, tensor contractions, and uncertainty propagation with ensemble-based operators. It translates all key symbols from the <em>Recursive Modulation Impulse (RMI)</em> and <em>Terror Kernel</em> into executable CTMT primitives, enabling faster computation, rupture-aware modeling, and dimensional clarity.
+			</p>
+
+			<p>
+				The goal is twofold: <strong>(1)</strong> to reduce computational footprint by replacing symbolic evaluation with coherence-weighted ensemble filtering, and <strong>(2)</strong> to enhance human learning by making each operator intuitive, traceable, and pedagogically sound. All inline math is wrapped as <span class="math inline">\(d\omega\)</span> and all operators preserve dimensional closure via <span class="math inline">\(C_{\mathrm{phys}}\)</span>.
+			</p>
+
+			<h4>1. CTMT-native Trigonometry</h4>
+
+			<p>
+				CTMT-native trigonometry reformulates classical trigonometric functions as rupture-aware modulation operators. Instead of relying on symbolic identities, it defines sine, cosine, and tangent as filtered, ensemble-evaluated phase components with coherence typing and dimensional closure.
+			</p>
+
+			<h5>1.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Function</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(\sin(\Phi)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
+						<td>Filtered imaginary phase component</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\cos(\Phi)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Re}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
+						<td>Filtered real phase component</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\tan(\Phi)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}/\mathrm{Re}\)</span> of filtered modulation</td>
+						<td>Phase slope ratio</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\sin^2 + \cos^2\)</span></td>
+						<td><span class="math inline">\(|\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})|^2 = 1\)</span></td>
+						<td>Unit-norm filtered modulation</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\delta_\Phi[\sin(\Phi)]\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}[\delta_\Phi(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
+						<td>Phase drift of sine component</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>1.2 Coherence Typing and Volatility Filtering</h5>
+
+			<p>
+				Trigonometric functions are coherence-typed after rupture filtering. Ensemble members are assigned to terror rounds based on volatility:
+			</p>
+
+			<div class="math">
+
+				\[
+				\sin(\Phi_i) \in \mathcal{C}^{(r)} \quad \text{if } \sigma_{\Phi_i} &lt; \tau_r
+				\]
+
+			</div>
+
+			<p>
+				Volatility filtering is applied before ensemble averaging:
+			</p>
+
+			<div class="math">
+
+				\[
+				\mathcal{E}[\mathcal{R}_\tau[\sin(\Phi_i)]] = \mathcal{E}[\sin(\Phi_i) \cdot \mathbf{1}[\sigma_{\Phi_i} &lt; \tau]]
+				\]
+
+			</div>
+
+			<h5>1.3 Modulation Tree Structure</h5>
+
+			<p>
+				Trigonometric functions are not primitive — they emerge from nested modulation and rupture filters:
+			</p>
+
+			<div class="math">
+
+				\[
+				\sin(\Phi) = \mathrm{Im}\left[\mathcal{R}_\tau\left(e^{i\Phi/\mathcal{S}_\ast}\right)\right] \in \mathcal{C}^{(r)}
+				\]
+
+			</div>
+
+			<p>
+				This structure ensures that all trigonometric evaluations inherit rupture filtering, coherence typing, and dimensional closure.
+			</p>
+
+			<h5>1.4 Dimensional Anchoring</h5>
+
+			<p>
+				Trigonometric functions are dimensionless, but when used in modulation products they inherit rupture amplitude and coherence weight:
+			</p>
+
+			<div class="math">
+
+				\[
+				O_k = \mathcal{E}[\Xi_i \cdot \sin(\Phi_i) \cdot w_i]
+				\]
+
+			</div>
+
+			<h5>1.5 Diagnostic Use Cases</h5>
+
+			<ul>
+				<li><strong>Phase drift tracking:</strong> Use <span class="math inline">\(\delta_\Phi[\sin(\Phi)]\)</span> to monitor decoherence across terror rounds.</li>
+				<li><strong>Rupture envelope modeling:</strong> Use <span class="math inline">\(\cos(\Phi)\)</span> to shape spatial coherence fields.</li>
+				<li><strong>Collapse detection:</strong> Use volatility of <span class="math inline">\(\tan(\Phi)\)</span> to identify rupture thresholds.</li>
+			</ul>
+
+			<h5>1.6 Python Implementation</h5>
+
+<pre><code class="language-python"># CTMT-native sine and cosine with rupture filtering
+sin_phi = np.imag(np.exp(1j * Phi / S_star))
+cos_phi = np.real(np.exp(1j * Phi / S_star))
+sigma_phi = np.abs(Phi)
+mask = sigma_phi &lt; tau
+
+# Filtered ensemble averages
+E_sin = np.mean(sin_phi[mask])
+E_cos = np.mean(cos_phi[mask])
+
+# Coherence typing (terror round r)
+tau_r = 0.15
+C_r = sin_phi[sigma_phi &lt; tau_r]
+
+# Phase drift of sine
+dPhi = 0.01
+drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * Phi / S_star))) / dPhi
+</code></pre>
+
+			<p>
+				This formulation allows trigonometric functions to be used in rupture-aware kernels, modulation products, and phase diagnostics — all within the CTMT-native framework.
+			</p>
+
+			<h4>2. Operator Definitions and Symbol Mapping</h4>
+
+			<p>
+				CTMT-native calculus defines a set of operators that replace symbolic integration, tensor contraction, and analytic uncertainty propagation. These operators are used throughout ensemble construction, rupture filtering, and observable evaluation.
+			</p>
+
+			<ul>
+				<li><strong><span class="math inline">\(\mathcal{E}[\cdot]\)</span></strong> — ensemble expectation (replaces integrals)</li>
+				<li><strong><span class="math inline">\(\mathcal{R}_\tau[\cdot]\)</span></strong> — rupture filter (prunes incoherent members)</li>
+				<li><strong><span class="math inline">\(\delta_\Phi[\cdot]\)</span></strong> — phase drift operator (tracks decoherence)</li>
+				<li><strong><span class="math inline">\(\otimes_{\mathrm{mod}}\)</span></strong> — modulation product (kernel × measurement)</li>
+				<li><strong><span class="math inline">\(\mathcal{C}^{(r)}\)</span></strong> — coherence class typing (round-based diagnostics)</li>
+			</ul>
+
+			<p>
+				The following table maps legacy symbols from RMI and Terror Kernel frameworks to their CTMT-native equivalents, with units and computational roles:
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Meaning</th>
+						<th>Units</th>
+						<th>Anchor / Measurement</th>
+						<th>CTMT-native Role</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(x,x'\)</span></td>
+						<td>Source / target coordinates</td>
+						<td><span class="math inline">\(\mathrm{m},\mathrm{s}\)</span></td>
+						<td>Position/time of measurement</td>
+						<td>Arguments of <span class="math inline">\(\Phi(x,x')\)</span>, <span class="math inline">\(\Xi(x,x')\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\omega\)</span></td>
+						<td>Spectral label</td>
+						<td><span class="math inline">\(\mathrm{rad \cdot s^{-1}}\)</span></td>
+						<td>Mode label or frequency anchor</td>
+						<td>Input to phase field <span class="math inline">\(\Phi(\omega)\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(K(x,x')\)</span></td>
+						<td>Kernel field</td>
+						<td>varies</td>
+						<td>Modulated ensemble kernel</td>
+						<td>Constructed from <span class="math inline">\(\Xi_i, \Phi_i, w_i\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mathcal{S}_\ast\)</span></td>
+						<td>Action scale</td>
+						<td><span class="math inline">\(\mathrm{J \cdot s}\)</span></td>
+						<td>Phase normalization</td>
+						<td>Divisor in <span class="math inline">\(e^{i\Phi/\mathcal{S}_\ast}\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\Xi_i\)</span></td>
+						<td>Rupture amplitude</td>
+						<td>amplitude</td>
+						<td>Local coherence strength</td>
+						<td>Modulates kernel contribution</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\Phi_i\)</span></td>
+						<td>Phase field</td>
+						<td><span class="math inline">\(\mathrm{rad}\)</span></td>
+						<td>Geometric or spectral delay</td>
+						<td>Argument of modulation exponent</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(w_i\)</span></td>
+						<td>Coherence weight</td>
+						<td>—</td>
+						<td>Ensemble weighting</td>
+						<td>Used in expectation <span class="math inline">\(\mathcal{E}[\cdot]\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\tau\)</span></td>
+						<td>Rupture threshold</td>
+						<td>—</td>
+						<td>Collapse filter level</td>
+						<td>Used in <span class="math inline">\(\mathcal{R}_\tau[\cdot]\)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\sigma_i\)</span></td>
+						<td>Volatility / uncertainty</td>
+						<td>—</td>
+						<td>Local rupture metric</td>
+						<td>Used in filtering and diagnostics</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				These mappings ensure that every CTMT-native computation is dimensionally valid, physically interpretable, and executable across rupture regimes. They also allow symbolic expressions to be rewritten as ensemble evaluations, enabling faster and more scalable computation.
+			</p>
+
+			<h4>3. Integral Replacement Logic</h4>
+
+			<p>
+				CTMT replaces symbolic integrals with ensemble expectations. This avoids antiderivatives, supports rupture filtering, and enables scalable computation. All integrals are rewritten using the ensemble operator <span class="math inline">\(\mathcal{E}[\cdot]\)</span> and dimensional prefactor <span class="math inline">\(C_{\mathrm{phys}}\)</span>.
+			</p>
+
+			<div class="math">
+
+				\[
+				\iint f(x,x')\,dx\,dx' \;\mapsto\; C_{\mathrm{phys}} \cdot \mathcal{E}[f(\Xi_i,\Phi_i;x_i,x'_i)]
+				\]
+
+			</div>
+
+			<p>
+				Spectral integrals become ensemble sums over sampled modes:
+			</p>
+
+			<div class="math">
+
+				\[
+				\int A(\omega)\,e^{i\Phi(\omega)/\mathcal{S}_\ast}\,d\omega
+				\;\mapsto\;
+				\mathcal{E}[A(\omega_i)\,e^{i\Phi(\omega_i)/\mathcal{S}_\ast}]
+				\]
+
+			</div>
+
+			<p>
+				Uncertainty propagation is rewritten using ensemble gradients and covariances:
+			</p>
+
+			<div class="math">
+
+				\[
+				\sigma_O^2 = J_{\mathrm{ens}}^\top\,\mathrm{Cov}_{\mathrm{ens}}\,J_{\mathrm{ens}},
+				\quad
+				J_{\mathrm{ens}} = \mathcal{E}\left[\nabla_\mathbf{x} O(\Xi_i, \Phi_i)\right]
+				\]
+
+			</div>
+
+			<h5>4.1 Spectral Integral via Ensemble</h5>
+
+			<div class="math">
+
+				\[
+				I = \int A(\omega)\,e^{iS(\omega)/\mathcal{S}_\ast}\,d\omega
+				\;\approx\;
+				\mathcal{E}[A(\omega_i)\,e^{iS(\omega_i)/\mathcal{S}_\ast}]
+				\]
+
+			</div>
+
+<pre><code class="language-python">import numpy as np
+def A(k): return np.exp(-0.5*(k-k0)**2/sigma_k**2)
+def S(k): return S0 + 0.5*s2*(k-k0)**2
+
+k_grid = np.linspace(k0-Delta, k0+Delta, 2000)
+p = np.abs(A(k_grid)); p /= p.sum()
+k_i = np.random.choice(k_grid, size=1000, p=p)
+
+terms = A(k_i) * np.exp(1j*S(k_i)/S_star)
+mask = np.abs(terms) > tau  # rupture filter ℛτ
+I = C_phys * np.mean(terms[mask])
+</code></pre>
+
+			<h5>4.2 Double Integral Forward Map</h5>
+
+			<div class="math">
+
+				\[
+				O = \iint L(x,x')K(x,x')\,dx\,dx'
+				\;\approx\;
+				C_{\mathrm{phys}} \cdot \mathcal{E}[L(x_i,x'_i)\,\Xi_i\,e^{i\Phi_i/\mathcal{S}_\ast}]
+				\]
+
+			</div>
+
+<pre><code class="language-python">N = 3000
+x, xp = np.random.normal(0,1,N), np.random.normal(0,1,N)
+Xi = np.exp(-(x**2 + xp**2))
+Phi = np.sin(x) - np.cos(xp)
+
+terms = Xi * np.exp(1j * Phi / S_star)
+mask = np.abs(terms) > tau
+O = C_phys * np.mean(terms[mask])
+</code></pre>
+
+				<h5>4.3 Nonlinear and Time-dependent Forward Map</h4>
+
+				<p>
+					CTMT supports nonlinear and time-dependent forward maps by extending ensemble-based operators to iterative inversion and dynamic filtering. This allows rupture-aware observables to be recovered even when the forward physics is nonlinear or evolving in time.
+				</p>
+
+				<h5>8.1 Nonlinear Forward Maps and Iterative Inversion</h5>
+
+				<p>
+					If the forward map is nonlinear, <span class="math inline">\(\mathbf{O} = \mathcal{F}[\kappa]\)</span>, CTMT replaces symbolic inversion with ensemble-based regularized optimization:
+				</p>
+
+				<div class="math">
+
+					\[
+					\widehat{\kappa} = \arg\min_\kappa\;
+					\|\mathcal{F}[\kappa] - \mathbf{O}\|_2^{2}
+					+ \lambda\,\mathcal{R}[\kappa]
+					\]
+
+				</div>
+
+				<p>
+					This is solved iteratively using ensemble Jacobians:
+				</p>
+
+				<div class="math">
+
+					\[
+					\mathbf{J}_n\,\delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],
+					\qquad
+					\kappa_{n+1} = \kappa_n + \delta\kappa
+					\]
+
+				</div>
+
+				<p>
+					Where <span class="math inline">\(\mathbf{J}_n = \mathcal{E}[\nabla_\kappa \mathcal{F}(\Xi_i,\Phi_i)]\)</span> is the ensemble Jacobian. Regularization is applied via:
+				</p>
+
+				<div class="math">
+
+					\[
+					\delta\kappa = \mathbf{J}_n^\top(\mathbf{J}_n\mathbf{J}_n^\top + \lambda\,\mathbf{R}^\top\mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\kappa_n])
+					\]
+
+				</div>
+
+				<p>
+					This avoids symbolic Fréchet derivatives and enables inversion via adjoint ensemble filtering and iterative solvers (e.g. LSQR, CG).
+				</p>
+
+				<h5>4.4 Time-dependent (Non-stationary) Inversion</h5>
+
+				<p>
+					For evolving kernels <span class="math inline">\(K(x,x',t)\)</span>, CTMT supports two inversion strategies:
+				</p>
+
+				<ol>
+					<li>
+						<strong>Sliding-window stationary inversion:</strong><br>
+						Apply static inversion within short windows <span class="math inline">\([t-\Delta t/2,\,t+\Delta t/2]\)</span> where stationarity holds. Ensemble the results:
+						<div class="math">
+
+							\[
+							K(t) = \mathcal{E}_t[K(x,x',t)]
+							\]
+
+						</div>
+					</li>
+					<li>
+						<strong>Dynamic state-space inversion:</strong><br>
+						Model kernel evolution with a linear dynamical prior:
+						<div class="math">
+
+							\[
+							\kappa_{t+1} = \mathbf{M}\,\kappa_t + \mathbf{w}_t,
+							\qquad
+							O_t = \mathbf{A}_t \kappa_t + \varepsilon_t
+							\]
+
+						</div>
+						Estimate recursively using ensemble Kalman filters or sequential variational updates. Regularization appears as process noise covariance:
+						<div class="math">
+
+							\[
+							\mathrm{Cov}[\mathbf{w}_t] = \lambda\,\mathbf{Q}_t
+							\]
+
+						</div>
+					</li>
+				</ol>
+
+				<p>
+					These strategies allow CTMT to handle non-stationary rupture fields, evolving observables, and dynamic coherence classes — all within the ensemble framework.
+				</p>
+
+				<h5>4.5 Uncertainty Propagation via Ensemble</h5>
+
+				<div class="math">
+
+					\[
+					\sigma_O^2 = J_{\mathrm{ens}}^\top\,\mathrm{Cov}_{\mathrm{ens}}\,J_{\mathrm{ens}}
+					\]
+
+				</div>
+
+<pre><code class="language-python">def observable(Xi, Phi): return np.real(Xi * np.exp(1j * Phi / S_star))
+J = np.gradient(observable(Xi, Phi))
+Cov = np.cov(np.vstack([Xi, Phi]))
+sigma_O2 = J.T @ Cov @ J
+</code></pre>
+
+				<h5>4.6 Rupture Filtering with ℛτ</h5>
+
+				<div class="math">
+
+					\[
+					\mathcal{R}_\tau[f] = f \cdot \mathbf{1}[\sigma_f &lt; \tau]
+					\]
+
+				</div>
+
+<pre><code class="language-python">def rupture_filter(f, sigma, tau):
+    return f * (sigma &lt; tau)
+
+sigma_f = np.abs(Phi)  # volatility proxy
+filtered_terms = rupture_filter(terms, sigma_f, tau)
+O_filtered = C_phys * np.mean(filtered_terms)
+</code></pre>
+
+				<h5>4.7 Phase Drift Operator δΦ</h5>
+
+				<div class="math">
+
+					\[
+					\delta_\Phi[f] = \frac{f(\Phi + \Delta\Phi) - f(\Phi)}{\Delta\Phi}
+					\]
+
+				</div>
+
+<pre><code class="language-python">def phase_drift(f, Phi, dPhi):
+    return (f(Phi + dPhi) - f(Phi)) / dPhi
+
+def f(Phi): return np.real(np.exp(1j * Phi / S_star))
+dPhi = 0.01
+drift = phase_drift(f, Phi, dPhi)
+</code></pre>
+
+				<h4>5. Compact Native Reference Formulas</h4>
+
+				<p>
+					These formulas summarize the CTMT-native grammar for forward maps, rupture filtering, phase drift, and uncertainty propagation. All expressions are dimensionally closed and executable.
+				</p>
+
+				<div class="math">
+
+					\[
+					\begin{aligned}
+					&\textbf{Forward map:} && O_k = \mathcal{E}[\mathcal{R}_\tau(L_k \otimes_{\mathrm{mod}} K)] \\[1ex]
+					&\textbf{Rupture filter:} && \mathcal{R}_\tau[f] = f \cdot \mathbf{1}[\sigma_f &lt; \tau] \\[1ex]
+					&\textbf{Phase drift:} && \delta_\Phi[f] = \frac{f(\Phi+\Delta\Phi) - f(\Phi)}{\Delta\Phi} \\[1ex]
+					&\textbf{Uncertainty:} && \sigma_O^2 = J_{\mathrm{ens}}^\top \mathrm{Cov}_{\mathrm{ens}} J_{\mathrm{ens}} \\[1ex]
+					&\textbf{Nonlinear inversion:} && \widehat{\kappa} = \arg\min_\kappa \|\mathcal{F}[\kappa] - \mathbf{O}\|_2^2 + \lambda \mathcal{R}[\kappa] \\[1ex]
+					&\textbf{Gauss–Newton step:} && \mathbf{J}_n \delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],\quad \kappa_{n+1} = \kappa_n + \delta\kappa \\[1ex]
+					&\textbf{Regularized update:} && \delta\kappa = \mathbf{J}_n^\top(\mathbf{J}_n \mathbf{J}_n^\top + \lambda \mathbf{R}^\top \mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\kappa_n]) \\[1ex]
+					&\textbf{Time-dependent kernel:} && O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \varepsilon_k(t) \\[1ex]
+					&\textbf{Sliding-window ensemble:} && K(t) = \mathcal{E}_t[K(x,x',t)] \\[1ex]
+					&\textbf{Dynamic prior:} && \kappa_{t+1} = \mathbf{M} \kappa_t + \mathbf{w}_t,\quad O_t = \mathbf{A}_t \kappa_t + \varepsilon_t
+					\end{aligned}
+					\]
+
+				</div>
+
+				<h4>6. Final Python Snippet — Unified Diagnostic</h4>
+
+				<p>
+					This unified Python snippet demonstrates how CTMT-native integrals are computed in practice — from ensemble generation to rupture filtering, forward map evaluation, phase drift, and uncertainty propagation. Each function reflects a distinct operator defined earlier, and together they form a complete diagnostic pipeline.
+				</p>
+
+<pre><code class="language-python">import numpy as np
+
+# Parameters
+N = 3000
+S_star = 1.0
+tau = 0.2
+C_phys = 1.0
+
+# Ensemble generation
+x = np.random.normal(0, 1, N)
+xp = np.random.normal(0, 1, N)
+Xi = np.exp(-(x**2 + xp**2))                     # Rupture amplitude
+Phi = np.sin(x) - np.cos(xp)                     # Phase field
+terms = Xi * np.exp(1j * Phi / S_star)           # Modulated kernel
+
+# Rupture filter ℛτ
+sigma_f = np.abs(Phi)
+mask = sigma_f &lt; tau
+filtered = terms[mask]
+
+# Forward map
+O = C_phys * np.mean(filtered)
+
+# Phase drift δΦ
+dPhi = 0.01
+drift = (np.exp(1j * (Phi + dPhi) / S_star) - np.exp(1j * Phi / S_star)) / dPhi
+
+# Uncertainty propagation
+def observable(Xi, Phi): return np.real(Xi * np.exp(1j * Phi / S_star))
+J = np.gradient(observable(Xi, Phi))
+Cov = np.cov(np.vstack([Xi, Phi]))
+sigma_O2 = J.T @ Cov @ J
+</code></pre>
+
+			<p>
+				This diagnostic can be adapted to any kernel geometry, rupture regime, or observable type. It replaces symbolic integration and tensor contraction with ensemble filtering and coherence-weighted evaluation — dramatically reducing computational cost while preserving physical meaning.
+			</p>
+
+			<h4>7. Learning and Usability Notes</h4>
+
+			<ul>
+				<li><strong>Modular design:</strong> Each operator (e.g. <span class="math inline">\(\mathcal{E}\)</span>, <span class="math inline">\(\mathcal{R}_\tau\)</span>, <span class="math inline">\(\delta_\Phi\)</span>) is defined independently and can be composed as needed.</li>
+				<li><strong>Symbolic clarity:</strong> All symbols are mapped with units, roles, and computational meaning — no speculative translation required.</li>
+				<li><strong>Executable examples:</strong> Every formula is paired with runnable Python code, enabling immediate experimentation and validation.</li>
+				<li><strong>Dimensional closure:</strong> All expressions preserve physical units via <span class="math inline">\(C_{\mathrm{phys}}\)</span>, ensuring consistency across domains.</li>
+				<li><strong>Pedagogical accessibility:</strong> The framework is designed to be teachable — from undergraduate physics to advanced rupture modeling.</li>
+			</ul>
+
+			<h4>8. Summary Table — CTMT-native vs. Legacy Computation</h4>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Aspect</th>
+						<th>Legacy Method</th>
+						<th>CTMT-native</th>
+						<th>Learning Guidance</th>
+						<th>Computational Complexity Native</th>
+						<th>Computational Complexity Legacy</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Integral Evaluation</td>
+						<td>Symbolic antiderivatives or quadrature</td>
+						<td><span class="math inline">\(\mathcal{E}[\cdot]\)</span> ensemble expectation</td>
+						<td>Focus on ensemble sampling and rupture pruning</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^3)\)</span></td>
+					</tr>
+					<tr>
+						<td>Tensor Contraction</td>
+						<td>Index summation and symbolic algebra</td>
+						<td>Scalar anchors + kernel modulation</td>
+						<td>Extract physical scalars, avoid index gymnastics</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^2\text{–}n^4)\)</span></td>
+					</tr>
+					<tr>
+						<td>Uncertainty Propagation</td>
+						<td>Linearized Jacobians and error bars</td>
+						<td><span class="math inline">\(\mathrm{Cov}_{\mathrm{ens}}\)</span> ensemble covariance</td>
+						<td>Use ensemble gradients and rupture metrics</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^2)\)</span></td>
+					</tr>
+					<tr>
+						<td>Nonlinear Inversion</td>
+						<td>Symbolic Fréchet derivatives</td>
+						<td>Ensemble Jacobians + iterative updates</td>
+						<td>Apply Gauss–Newton with ensemble filtering</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span> per iteration</td>
+						<td><span class="math inline">\(\mathcal{O}(n^3)\)</span> per iteration</td>
+					</tr>
+					<tr>
+						<td>Time-dependent Kernels</td>
+						<td>Symbolic PDEs or dynamic priors</td>
+						<td>Sliding-window or state-space ensemble</td>
+						<td>Track coherence over time, ensemble each window</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span> per window</td>
+						<td><span class="math inline">\(\mathcal{O}(n \cdot T)\)</span></td>
+					</tr>
+					<tr>
+						<td>Phase Sensitivity</td>
+						<td>Stationary phase or asymptotics</td>
+						<td><span class="math inline">\(\delta_\Phi[\cdot]\)</span> phase drift operator</td>
+						<td>Use numerical drift to track decoherence</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^2)\)</span></td>
+					</tr>
+					<tr>
+						<td>Collapse Modeling</td>
+						<td>Singularities or discontinuities</td>
+						<td><span class="math inline">\(\mathcal{R}_\tau[\cdot]\)</span> rupture filter</td>
+						<td>Filter ensemble by volatility or coherence</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^2)\)</span></td>
+					</tr>
+					<tr>
+						<td>Dimensional Consistency</td>
+						<td>Manual unit tracking</td>
+						<td><span class="math inline">\(C_{\mathrm{phys}}\)</span> prefactor ensures closure</td>
+						<td>Declare physical units once, reuse everywhere</td>
+						<td><span class="math inline">\(\mathcal{O}(1)\)</span></td>
+						<td>Prone to errors and manual checks</td>
+					</tr>
+					<tr>
+						<td>Computational Cost</td>
+						<td>High for symbolic, nonlinear, or dynamic cases</td>
+						<td>Low via ensemble filtering and parallelism</td>
+						<td>Use vectorized sampling and rupture pruning</td>
+						<td><span class="math inline">\(\mathcal{O}(n)\)</span></td>
+						<td><span class="math inline">\(\mathcal{O}(n^3)\)</span></td>
+					</tr>
+					<tr>
+						<td>Learning Curve</td>
+						<td>Steep: symbolic algebra, tensor calculus</td>
+						<td>Shallow: modular operators, executable examples</td>
+						<td>Learn by composing operators and running code</td>
+						<td>Hours/days</td>
+						<td>Weeks/months</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>9. CTMT-native Exponential and Logarithmic Functions</h4>
+
+			<p>
+				CTMT reformulates exponential and logarithmic functions as coherence-weighted modulation operators. These are used in kernel growth, rupture decay, and entropy diagnostics.
+			</p>
+
+			<h5>9.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Function</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(\exp(\Xi)\)</span></td>
+						<td><span class="math inline">\(e^{\Xi/\Xi_\ast}\)</span></td>
+						<td>Normalized rupture growth</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\log(\Xi)\)</span></td>
+						<td><span class="math inline">\(\log(\Xi/\Xi_\ast)\)</span></td>
+						<td>Relative rupture entropy</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\exp(i\Phi)\)</span></td>
+						<td><span class="math inline">\(e^{i\Phi/\mathcal{S}_\ast}\)</span></td>
+						<td>Phase modulation kernel</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\log|K|\)</span></td>
+						<td><span class="math inline">\(\log|\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}|\)</span></td>
+						<td>Kernel magnitude entropy</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>9.2 Ensemble Evaluation</h5>
+
+			<div class="math">
+
+			\[
+			\mathcal{E}[\exp(\Xi_i)] = \mathcal{E}[e^{\Xi_i/\Xi_\ast}],
+			\quad
+			\mathcal{E}[\log(\Xi_i)] = \mathcal{E}[\log(\Xi_i/\Xi_\ast)]
+			\]
+
+			</div>
+
+			<h5>9.3 Python Implementation</h5>
+
+<pre><code class="language-python"># CTMT-native exponential and logarithmic
+Xi_star = 1.0
+exp_Xi = np.exp(Xi / Xi_star)
+log_Xi = np.log(Xi / Xi_star)
+
+# Ensemble averages
+E_exp = np.mean(exp_Xi)
+E_log = np.mean(log_Xi)
+</code></pre>
+
+			<h4>10. CTMT-native Hyperbolic Functions</h4>
+
+			<p>
+				Hyperbolic functions are used in CTMT to model rupture envelopes, coherence decay, and modulation curvature. They are defined via exponential modulation and evaluated over ensemble fields.
+			</p>
+
+			<h5>10.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Function</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(\sinh(\Xi)\)</span></td>
+						<td><span class="math inline">\(\frac{e^{\Xi/\Xi_\ast} - e^{-\Xi/\Xi_\ast}}{2}\)</span></td>
+						<td>Rupture envelope growth</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\cosh(\Xi)\)</span></td>
+						<td><span class="math inline">\(\frac{e^{\Xi/\Xi_\ast} + e^{-\Xi/\Xi_\ast}}{2}\)</span></td>
+						<td>Symmetric coherence spread</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\tanh(\Xi)\)</span></td>
+						<td><span class="math inline">\(\frac{\sinh(\Xi)}{\cosh(\Xi)}\)</span></td>
+						<td>Normalized rupture curvature</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>10.2 Python Implementation</h5>
+
+<pre><code class="language-python"># CTMT-native hyperbolic functions
+sinh_Xi = 0.5 * (np.exp(Xi / Xi_star) - np.exp(-Xi / Xi_star))
+cosh_Xi = 0.5 * (np.exp(Xi / Xi_star) + np.exp(-Xi / Xi_star))
+tanh_Xi = sinh_Xi / cosh_Xi
+</code></pre>
+
+			<h4>11. CTMT-native Probability Distributions</h4>
+
+			<p>
+				CTMT defines probability distributions as rupture-weighted ensemble densities. These are used for sampling, filtering, and coherence diagnostics. All distributions are dimensionally closed and evaluated over ensemble fields.
+			</p>
+
+			<h5>11.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Distribution</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Gaussian</td>
+						<td><span class="math inline">\(p(x) = \frac{1}{Z} e^{-(x - \mu)^2 / 2\sigma^2}\)</span></td>
+						<td>Coherence-weighted rupture spread</td>
+					</tr>
+					<tr>
+						<td>Laplace</td>
+						<td><span class="math inline">\(p(x) = \frac{1}{2b} e^{-|x - \mu| / b}\)</span></td>
+						<td>Sharp rupture decay</td>
+					</tr>
+					<tr>
+						<td>Uniform</td>
+						<td><span class="math inline">\(p(x) = \frac{1}{b - a}\)</span> for <span class="math inline">\(x \in [a,b]\)</span></td>
+						<td>Flat coherence window</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>11.2 Python Sampling</h5>
+
+<pre><code class="language-python"># Gaussian rupture ensemble
+mu, sigma = 0.0, 1.0
+x_i = np.random.normal(mu, sigma, size=3000)
+
+# Laplace rupture ensemble
+b = 1.0
+x_lap = np.random.laplace(mu, b, size=3000)
+
+# Uniform coherence window
+x_uni = np.random.uniform(-1, 1, size=3000)
+</code></pre>
+
+			<h4>12. CTMT-native Entropy and Divergence</h4>
+
+			<p>
+				Entropy and divergence are used to measure rupture uncertainty, coherence spread, and ensemble drift. CTMT defines them using ensemble expectations and avoids symbolic integration.
+			</p>
+
+			<h5>12.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Measure</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Entropy</td>
+						<td><span class="math inline">\(H[p] = -\mathcal{E}[\log p(x_i)]\)</span></td>
+						<td>Rupture uncertainty</td>
+					</tr>
+					<tr>
+						<td>Kullback–Leibler divergence</td>
+						<td><span class="math inline">\(D_{\mathrm{KL}}(p \| q) = \mathcal{E}[p(x_i) \log(p(x_i)/q(x_i))]\)</span></td>
+						<td>Coherence drift between ensembles</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>12.2 Python Implementation</h5>
+
+<pre><code class="language-python"># Entropy of rupture ensemble
+p = np.abs(Xi); p /= p.sum()
+entropy = -np.sum(p * np.log(p + 1e-12))
+
+# KL divergence between two ensembles
+q = np.abs(Phi); q /= q.sum()
+kl_div = np.sum(p * np.log((p + 1e-12) / (q + 1e-12)))
+</code></pre>
+
+			<h4>13. CTMT-native Vector Calculus Operators</h4>
+
+			<p>
+				CTMT replaces symbolic vector calculus with ensemble-based spatial diagnostics. These operators are used to track rupture gradients, coherence flux, and modulation curvature.
+			</p>
+
+			<h5>13.1 Native Definitions</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Operator</th>
+						<th>CTMT-native Form</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Gradient</td>
+						<td><span class="math inline">\(\nabla f(x_i) = \delta_x[f]\)</span></td>
+						<td>Spatial rupture slope</td>
+					</tr>
+					<tr>
+						<td>Divergence</td>
+						<td><span class="math inline">\(\nabla \cdot \mathbf{F}(x_i) = \delta_x[F_x] + \delta_y[F_y] + \delta_z[F_z]\)</span></td>
+						<td>Coherence flux</td>
+					</tr>
+					<tr>
+						<td>Curl</td>
+						<td><span class="math inline">\(\nabla \times \mathbf{F}(x_i)\)</span> via ensemble cross-drift</td>
+						<td>Modulation rotation</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>13.2 Python Implementation</h5>
+
+<pre><code class="language-python"># Gradient of rupture field
+grad_Xi = np.gradient(Xi)
+
+# Divergence of vector field
+Fx = np.sin(x); Fy = np.cos(xp)
+div_F = np.gradient(Fx)[0] + np.gradient(Fy)[0]
+
+# Curl (2D proxy)
+curl_F = np.gradient(Fy)[0] - np.gradient(Fx)[0]
+</code></pre>
+
+			<p>
+				Together, these features make CTMT-native calculus not just a computational tool, but a learning engine — one that enables rupture-aware modeling, symbolic clarity, and scalable uncertainty propagation across physics, engineering, and applied mathematics.
+			</p>
+        </article>
+    </section>
+    <section>
         <h2 title="Click to toggle" id="sec-37-dimensional-check">Dimensional Check</h2>
         <article style="display:none">
 
