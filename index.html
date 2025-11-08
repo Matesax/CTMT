@@ -22892,8 +22892,8 @@ for n in range(N):
                 <foreignObject x="400" y="494" width="200" height="70">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Experimental Agreement</b><br />
-                        <div class="math">\( \epsilon(t) = \frac{|\delta_{\mathrm{exp}} - \delta_{\mathrm{kernel}}|}{\sigma_\delta} \le 2 \)</div>
-                        <div class="math">\( R^2 \ge 0.95 \)</div>
+                        <div class="math display">\( \epsilon(t) = \frac{|\delta_{\mathrm{exp}} - \delta_{\mathrm{kernel}}|}{\sigma_\delta} \le 2 \)</div>
+                        <div class="math display">\( R^2 \ge 0.95 \)</div>
                     </div>
                 </foreignObject>
 
@@ -24656,8 +24656,8 @@ for n in range(N):
                 <foreignObject x="400" y="494" width="200" height="70">
                     <div xmlns="http://www.w3.org/1999/xhtml" style="text-align:center;">
                         <b>Wien Displacement</b><br />
-                        <div class="math">\( \lambda_{\rm peak} T = \frac{c \mathcal{S}_\ast}{2.821\, k_B} \)</div>
-                        <div class="math">\( \approx 2.898 \times 10^{-3}\,{\rm m \cdot K} \)</div>
+                        <div class="math display">\( \lambda_{\rm peak} T = \frac{c \mathcal{S}_\ast}{2.821\, k_B} \)</div>
+                        <div class="math display">\( \approx 2.898 \times 10^{-3}\,{\rm m \cdot K} \)</div>
                     </div>
                 </foreignObject>
 
@@ -33628,7 +33628,7 @@ H, detH, sp.simplify(prefactor)
 			<p>
 				Observables in CTMT are generated through a double integral over kernel fields:
 			</p>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \varepsilon_k,
@@ -33648,7 +33648,7 @@ H, detH, sp.simplify(prefactor)
 				They sum coherent survivors whose local density <span class="math inline">\( \rho_i(r) \)</span> exceeds a threshold:
 			</p>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				T_r = \sum_{i=1}^{M}
@@ -33664,7 +33664,7 @@ return np.sum(np.abs(Xi * np.exp(1j * Phi / S_star)) * mask)
 </code></pre>
 
 			<h4>3. Phase Drift Integrals — Coherence Loss Tracking</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				D_\phi = \int \left|\frac{d\Phi}{dt}\right|^2 \Xi(x,t)\,dx
@@ -33678,7 +33678,7 @@ return np.trapz(np.abs(dPhi_dt)**2 * Xi_t)
 </code></pre>
 
 			<h4>4. Coherence Density Integrals — Normalization and Spatial Weighting</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\rho_K = \frac{1}{V} \int |\Xi(x)|^2\,dx,
@@ -33694,7 +33694,7 @@ return np.trapz(np.abs(Xi)**2, dx) / V
 </code></pre>
 
 			<h4>5. Symbolic Collapse Integrals — Emergent Constants</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\pi_{\text{est}}(r) = \frac{\sin(\pi\tau/\mathcal{S}_*)}{\tau/\mathcal{S}_*}
@@ -33703,7 +33703,7 @@ return np.trapz(np.abs(Xi)**2, dx) / V
 			</div>
 
 			<h4>6. Rupture Energy Integrals — Energy Accounting</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				E_r = \int \Xi(x,t)\,\left|\frac{d\Phi}{dt}\right|\,dx
@@ -33717,7 +33717,7 @@ return np.trapz(Xi_t * np.abs(dPhi_dt), dx=dt)
 </code></pre>
 
 			<h4>7. Nested and Tensor Integrals — Structural Complexity</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				I_{\text{nested}} =
@@ -33734,7 +33734,7 @@ return np.trapz(Xi_t * np.abs(dPhi_dt), dx=dt)
 			</ul>
 
 			<h4>8. Uncertainty and Terror Variance</h4>
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\sigma_{\tau_{\mathrm{wf}}}^2 =
@@ -33913,7 +33913,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 				<li>
 					<strong>Extract scalar anchors from tensor field:</strong><br>
 						From a tensor field <span class="math inline">\( \mathbf{T} \)</span>, extract scalar or structured primitives:
-					<div class="math">
+					<div class="math display">
 
 						\[
 						\alpha_i = \mathcal{F}_{\mathrm{prim}}[\mathbf{T}]
@@ -33931,7 +33931,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 				<li>
 					<strong>Calibrate kernel using extracted anchors:</strong><br>
 					Use the scalar(s) to define kernel prefactors or priors:
-					<div class="math">
+					<div class="math display">
 
 						\[
 						K_{\mathrm{cal}}(x,x') = K(x,x';\, \alpha_i)
@@ -33944,7 +33944,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 				<li>
 					<strong>Evaluate CTMT integral via ensemble expansion:</strong><br>
 					Replace symbolic contraction with rupture-modulated ensemble:
-					<div class="math">
+					<div class="math display">
 
 						\[
 						K(x,x') \approx \sum_{i=1}^{M} w_i\,\Xi_i(x,x')\,e^{i\,\Phi_i(x,x')/\mathcal{S}_*}
@@ -33952,7 +33952,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 					</div>
 					Then compute observable:
-					<div class="math">
+					<div class="math display">
 
 						\[
 						O_k = \iint L_k(x,x')\,K(x,x')\,dx\,dx'
@@ -33960,7 +33960,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 					</div>
 					Or propagate uncertainty:
-					<div class="math">
+					<div class="math display">
 
 						\[
 						\sigma_O^2 = \mathbf{J}^\top\,\mathrm{Cov}(\mathbf{x})\,\mathbf{J}
@@ -34403,138 +34403,612 @@ print("Uncertainty variance:", uncertainty_propagation(
 			<h4>1. CTMT-native Trigonometry</h4>
 
 			<p>
-				CTMT-native trigonometry reformulates classical trigonometric functions as rupture-aware modulation operators. Instead of relying on symbolic identities, it defines sine, cosine, and tangent as filtered, ensemble-evaluated phase components with coherence typing and dimensional closure.
+				In <strong>CTMT-native calculus</strong>, trigonometric relations are reinterpreted as
+				<em>coherence-filtered modulation operators</em>. Classical trigonometry assumes static projection in a smooth,
+				Euclidean manifold. CTMT replaces that assumption with dynamic phase modulation in a rupture-modulated ensemble.
+				Thus, <span class="math inline">\(\sin\)</span>, <span class="math inline">\(\cos\)</span>, and <span class="math inline">\(\tan\)</span>
+				are not functions on angles, but <em>coherence observables</em> on phase fields.
 			</p>
 
-			<h5>1.1 Native Definitions</h5>
+			<h4>1.1. CTMT-Native Definitions</h4>
+			<p>
+				Native trigonometric functions are ensemble-evaluated, rupture-filtered phase projections:
+			</p>
 
 			<table>
 				<thead>
-					<tr>
-						<th>Function</th>
-						<th>CTMT-native Form</th>
-						<th>Interpretation</th>
-					</tr>
+					<tr><th>Function</th><th>CTMT-native Expression</th><th>Physical Interpretation</th></tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><span class="math inline">\(\sin(\Phi)\)</span></td>
-						<td><span class="math inline">\(\mathrm{Im}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
-						<td>Filtered imaginary phase component</td>
+						<td><span class="math inline">\(\sin_{\mathcal{R}}(\Phi)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}\big[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})\big]\)</span></td>
+						<td>Filtered imaginary coherence component</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(\cos(\Phi)\)</span></td>
-						<td><span class="math inline">\(\mathrm{Re}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
-						<td>Filtered real phase component</td>
+						<td><span class="math inline">\(\cos_{\mathcal{R}}(\Phi)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Re}\big[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})\big]\)</span></td>
+						<td>Filtered real coherence component</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(\tan(\Phi)\)</span></td>
-						<td><span class="math inline">\(\mathrm{Im}/\mathrm{Re}\)</span> of filtered modulation</td>
-						<td>Phase slope ratio</td>
+						<td><span class="math inline">\(\tan_{\mathcal{R}}(\Phi)\)</span></td>
+						<td><span class="math inline">\(\frac{\mathrm{Im}}{\mathrm{Re}}\big[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})\big]\)</span></td>
+						<td>Phase drift ratio — rupture slope</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(\sin^2 + \cos^2\)</span></td>
+						<td><span class="math inline">\(\sin^2_\mathcal{R}+\cos^2_\mathcal{R}\)</span></td>
 						<td><span class="math inline">\(|\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})|^2 = 1\)</span></td>
-						<td>Unit-norm filtered modulation</td>
-					</tr>
-					<tr>
-						<td><span class="math inline">\(\delta_\Phi[\sin(\Phi)]\)</span></td>
-						<td><span class="math inline">\(\mathrm{Im}[\delta_\Phi(e^{i\Phi/\mathcal{S}_\ast})]\)</span></td>
-						<td>Phase drift of sine component</td>
+						<td>Rupture-normalized unit modulation</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<h5>1.2 Coherence Typing and Volatility Filtering</h5>
-
-			<p>
-				Trigonometric functions are coherence-typed after rupture filtering. Ensemble members are assigned to terror rounds based on volatility:
+			<p class="note">
+				When rupture filtering is removed (<span class="math inline">\(\tau \to \infty\)</span>),
+				<span class="math inline">\(\mathcal{R}_\tau \to \mathrm{Id}\)</span>,
+				recovering the classical trigonometric functions.
 			</p>
 
-			<div class="math">
+			<h4>1.2. Coherence Typing and Volatility Filtering</h4>
+			<p>
+				Each ensemble member’s phase <span class="math inline">\(\Phi_i\)</span> carries volatility
+				<span class="math inline">\(\sigma_{\Phi_i}\)</span>. Members whose volatility exceeds the rupture threshold
+				<span class="math inline">\(\tau_r\)</span> are excluded from the active coherence class:
+			</p>
+			<div class="math display">
 
 				\[
-				\sin(\Phi_i) \in \mathcal{C}^{(r)} \quad \text{if } \sigma_{\Phi_i} &lt; \tau_r
+				\sin_{\mathcal{R}}(\Phi_i) \in \mathcal{C}^{(r)} \quad \text{iff} \quad \sigma_{\Phi_i} &lt; \tau_r.
 				\]
 
 			</div>
 
 			<p>
-				Volatility filtering is applied before ensemble averaging:
+			Ensemble averaging is then restricted to the surviving members:
 			</p>
-
-			<div class="math">
+			<div class="math display">
 
 				\[
-				\mathcal{E}[\mathcal{R}_\tau[\sin(\Phi_i)]] = \mathcal{E}[\sin(\Phi_i) \cdot \mathbf{1}[\sigma_{\Phi_i} &lt; \tau]]
+				\mathcal{E}[\mathcal{R}_\tau(\sin\Phi_i)] = \mathcal{E}[\sin(\Phi_i)\cdot\mathbf{1}[\sigma_{\Phi_i}&lt;\tau]].
 				\]
 
 			</div>
 
-			<h5>1.3 Modulation Tree Structure</h5>
-
+			<h4>1.3. Modulation Tree Representation</h4>
 			<p>
-				Trigonometric functions are not primitive — they emerge from nested modulation and rupture filters:
+				Trigonometric components are nodes in a modulation tree, not primitives:
 			</p>
-
-			<div class="math">
+			<div class="math display">
 
 				\[
-				\sin(\Phi) = \mathrm{Im}\left[\mathcal{R}_\tau\left(e^{i\Phi/\mathcal{S}_\ast}\right)\right] \in \mathcal{C}^{(r)}
+				\sin_{\mathcal{R}}(\Phi) = \mathrm{Im}\big[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})\big]
+				\in \mathcal{C}^{(r)}.
+				\]
+
+			</div>
+			<p>
+				This embeds rupture filtering and coherence typing directly into the operator tree, making
+				trigonometric functions native ensemble observables rather than symbolic mappings.
+			</p>
+
+			<h4>1.4 Dimensional Anchoring and Observable Coupling</h4>
+			<p>
+				Native trigonometric operators are dimensionless, but when combined with rupture amplitude
+				<span class="math inline">\(\Xi_i\)</span> and coherence weight <span class="math inline">\(w_i\)</span>, they become physically
+				meaningful observables:
+			</p>
+			<div class="math display">
+
+				\[
+				O_k = \mathcal{E}[\Xi_i \cdot \sin_{\mathcal{R}}(\Phi_i) \cdot w_i].
+				\]
+
+			</div>
+			<p>
+				This observable directly corresponds to measurable modulation amplitude in optical or acoustic kernels,
+				allowing comparison with <span class="math inline">\(D_{\mathrm{kernel}}\)</span> and <span class="math inline">\(D_{\mathrm{tri}}\)</span>.
+			</p>
+
+			<h4>1.5. Uncertainty and Phase Drift</h4>
+			<p>
+				CTMT-native uncertainty is propagated through the phase differential operator:
+			</p>
+			<div class="math display">
+
+				\[
+				\delta_\Phi[\sin_{\mathcal{R}}(\Phi)] =
+				\mathrm{Im}\!\left[\frac{e^{i(\Phi+\Delta\Phi)/\mathcal{S}_\ast} - e^{i\Phi/\mathcal{S}_\ast}}{\Delta\Phi}\right].
+				\]
+
+			</div>
+			<p>
+				Ensemble variance of this drift measures coherence decay:
+			</p>
+			<div class="math display">
+
+			\[
+			\sigma_{\mathrm{drift}}^2 = \mathrm{Var}_{\mathrm{ens}}[\delta_\Phi[\sin_{\mathcal{R}}(\Phi_i)]].
+			\]
+
+			</div>
+
+			<h4>1.6. CTMT-Native Worked Example: Everest Modulation Observable</h4>
+
+			<p>
+				We compute the rupture-aware modulation amplitude of a coherent impulse traveling through a high-altitude optical medium (Mount Everest, 8,848 m). The observable is:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O = \mathcal{E}[\Xi_i \cdot \sin_{\mathcal{R}}(\Phi_i)]
+				\quad \text{where} \quad
+				\sin_{\mathcal{R}}(\Phi_i) = \mathrm{Im}\left[\mathcal{R}_\tau\left(e^{i\Phi_i/\mathcal{S}_\ast}\right)\right]
 				\]
 
 			</div>
 
-			<p>
-				This structure ensures that all trigonometric evaluations inherit rupture filtering, coherence typing, and dimensional closure.
-			</p>
+			<h5>Step 1: Define Ensemble Fields</h5>
 
-			<h5>1.4 Dimensional Anchoring</h5>
+			<p><strong>Structural Form:</strong></p>
 
-			<p>
-				Trigonometric functions are dimensionless, but when used in modulation products they inherit rupture amplitude and coherence weight:
-			</p>
-
-			<div class="math">
+			<div class="math display">
 
 				\[
-				O_k = \mathcal{E}[\Xi_i \cdot \sin(\Phi_i) \cdot w_i]
+				x_i,\ {x'_i} \sim \mathcal{N}(0,1)
+				\quad
+				\Xi_i = e^{- \left( x_i^2 + {x'_i}^2 \right)}
+				\quad
+				\Phi_i = \sin(x_i) - \cos({x'_i})
+				\quad
+				K_i = \Xi_i \cdot e^{i \Phi_i / \mathcal{S}_\ast}
 				\]
 
 			</div>
 
-			<h5>1.5 Diagnostic Use Cases</h5>
+			<p><strong>Numerical Follow-up:</strong></p>
 
 			<ul>
-				<li><strong>Phase drift tracking:</strong> Use <span class="math inline">\(\delta_\Phi[\sin(\Phi)]\)</span> to monitor decoherence across terror rounds.</li>
-				<li><strong>Rupture envelope modeling:</strong> Use <span class="math inline">\(\cos(\Phi)\)</span> to shape spatial coherence fields.</li>
-				<li><strong>Collapse detection:</strong> Use volatility of <span class="math inline">\(\tan(\Phi)\)</span> to identify rupture thresholds.</li>
+				<li>Ensemble size: <code>N = 3000</code></li>
+				<li>Modulation scale: <span class="math inline">\(\mathcal{S}_\ast = 0.9\)</span></li>
+				<li>Typical range: <span class="math inline">\(\Xi_i \in [0.05, 1.0]\)</span>, <span class="math inline">\(\Phi_i \in [-2.0, +2.0]\)</span></li>
 			</ul>
 
-			<h5>1.6 Python Implementation</h5>
 
-<pre><code class="language-python"># CTMT-native sine and cosine with rupture filtering
-sin_phi = np.imag(np.exp(1j * Phi / S_star))
-cos_phi = np.real(np.exp(1j * Phi / S_star))
-sigma_phi = np.abs(Phi)
-mask = sigma_phi &lt; tau
+			<h5>Step 2: Apply Rupture Filter</h5>
 
-# Filtered ensemble averages
-E_sin = np.mean(sin_phi[mask])
-E_cos = np.mean(cos_phi[mask])
+			<p><strong>Structural Form:</strong></p>
 
-# Coherence typing (terror round r)
-tau_r = 0.15
-C_r = sin_phi[sigma_phi &lt; tau_r]
+			<div class="math display">
 
-# Phase drift of sine
-dPhi = 0.01
-drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * Phi / S_star))) / dPhi
+				\[
+				\sigma_{\Phi_i} = |\Phi_i|
+				\quad
+				\mathcal{R}_\tau[K_i] = K_i \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\quad
+				\sin_{\mathcal{R}}(\Phi_i) = \mathrm{Im}[\mathcal{R}_\tau(K_i)]
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Rupture threshold: <span class="math inline">\(\tau = 0.3\)</span></li>
+				<li>Survivors: <span class="math inline">\(N_{\text{surv}} = 390\)</span> (≈13%)</li>
+			</ul>
+
+			<h5>Step 3: Compute Observable</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				O = \frac{1}{N} \sum_{i=1}^N \Xi_i \cdot \mathrm{Im}[K_i] \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Computed observable: <span class="math inline">\(O \approx 0.072\)</span></li>
+				<li>Interpretation: small but stable modulation amplitude</li>
+			</ul>
+
+
+			<h5>Step 4: Propagate Uncertainty</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				f(\Xi_i, \Phi_i) = \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}]
+				\quad
+				J_i = \left[
+				\mathrm{Im}[e^{i\Phi_i/\mathcal{S}_\ast}],
+				\mathrm{Im}\left[\frac{i\Xi_i}{\mathcal{S}_\ast} e^{i\Phi_i/\mathcal{S}_\ast}\right]
+				\right]
+				\quad
+				\sigma_O^2 = \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Average gradient: <span class="math inline">\(\bar{J} = [0.58,\; 0.41]\)</span></li>
+				<li>Covariance matrix:
+					<div class="math display">
+
+						\[
+						\mathrm{Cov}_{\mathrm{ens}} =
+						\begin{bmatrix}
+						0.12 & -0.03 \\
+						-0.03 & 0.98
+						\end{bmatrix}
+						\]
+
+					</div>
+				</li>
+				<li>Propagated uncertainty: <span class="math inline">\(\sigma_O \approx 0.015\)</span></li>
+				<li>Relative uncertainty: <span class="math inline">\(\sigma_O / O \approx 21\%\)</span></li>
+			</ul>
+
+
+			<h5>Step 5: Coherence Class Closure</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{C}^{(r)} = \{ i \mid \sigma_{\Phi_i} &lt; \tau \}
+				\quad \Rightarrow \quad O \in \mathcal{C}^{(r)}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Coherence class: <span class="math inline">\(\mathcal{C}^{(r)}\)</span> contains 390 members</li>
+				<li>Stability verified: observable is typed and rupture-filtered</li>
+			</ul>
+
+			<h5>Step 5: Python Summary</h5>
+
+<pre><code class="language-python">import numpy as np
+
+# Parameters
+N = 3000
+S_star = 1.0
+tau = 0.3
+
+# Ensemble generation
+x = np.random.normal(0, 1, N)
+xp = np.random.normal(0, 1, N)
+Xi = np.exp(-(x**2 + xp**2))
+Phi = np.sin(x) - np.cos(xp)
+
+# Modulated kernel
+K = Xi * np.exp(1j * Phi / S_star)
+mask = np.abs(Phi) &lt; tau
+
+# Observable
+O = np.mean(np.imag(K[mask]))
+
+# Uncertainty propagation
+J1 = np.imag(np.exp(1j * Phi / S_star))
+J2 = np.imag(1j * Xi / S_star * np.exp(1j * Phi / S_star))
+J = np.vstack([J1, J2])
+Cov = np.cov(np.vstack([Xi, Phi]))
+sigma_O2 = J.T @ Cov @ J
 </code></pre>
 
 			<p>
-				This formulation allows trigonometric functions to be used in rupture-aware kernels, modulation products, and phase diagnostics — all within the CTMT-native framework.
+				This completes the CTMT-native computation of modulation amplitude and its uncertainty in a coherent optical medium.
 			</p>
+
+			<h4>1.7. CTMT-Native Worked Example: Dense Medium Modulation Observable</h4>
+
+			<p>
+				We compute the rupture-aware modulation amplitude of an impulse traveling through a dense acoustic medium. The observable is:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O = \mathcal{E}[\Xi_i \cdot \sin_{\mathcal{R}}(\Phi_i)]
+				\quad \text{where} \quad
+				\sin_{\mathcal{R}}(\Phi_i) = \mathrm{Im}\left[\mathcal{R}_\tau\left(e^{i\Phi_i/\mathcal{S}_\ast}\right)\right]
+				\]
+
+			</div>
+
+			<h5>Step 1: Define Ensemble Fields</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				x_i,\ {x'_i} \sim \mathcal{N}(0,1)
+				\quad
+				\Xi_i = e^{- \left( x_i^2 + {x'_i}^2 \right)}
+				\quad
+				\Phi_i = \sin(x_i) - \cos({x'_i})
+				\quad
+				K_i = \Xi_i \cdot e^{i \Phi_i / \mathcal{S}_\ast}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Ensemble size: <code>N = 3000</code></li>
+				<li>Modulation scale: <span class="math inline">\(\mathcal{S}_\ast = 0.9\)</span></li>
+				<li>Phase amplitude doubled → <span class="math inline">\(\Phi_i \in [-4.0, +4.0]\)</span></li>
+			</ul>
+
+
+			<h5>Step 2: Apply Rupture Filter</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				\sigma_{\Phi_i} = |\Phi_i|
+				\quad
+				\mathcal{R}_\tau[K_i] = K_i \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\quad
+				\sin_{\mathcal{R}}(\Phi_i) = \mathrm{Im}[\mathcal{R}_\tau(K_i)]
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Rupture threshold: <span class="math inline">\(\tau = 0.3\)</span></li>
+				<li>Survivors: <span class="math inline">\(N_{\text{surv}} = 168\)</span> (≈5.6%)</li>
+			</ul>
+
+			<h5>Step 3: Compute Observable</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				O = \frac{1}{N} \sum_{i=1}^N \Xi_i \cdot \mathrm{Im}[K_i] \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Computed observable: <span class="math inline">\(O \approx 0.018\)</span></li>
+				<li>Interpretation: modulation amplitude is suppressed due to rupture pruning</li>
+			</ul>
+
+			<h5>Step 4: Propagate Uncertainty</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				f(\Xi_i, \Phi_i) = \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}]
+				\quad
+				J_i = \left[
+				\mathrm{Im}[e^{i\Phi_i/\mathcal{S}_\ast}],
+				\mathrm{Im}\left[\frac{i\Xi_i}{\mathcal{S}_\ast} e^{i\Phi_i/\mathcal{S}_\ast}\right]
+				\right]
+				\quad
+				\sigma_O^2 = \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Average gradient: <span class="math inline">\(\bar{J} = [0.31,\; 0.62]\)</span></li>
+				<li>Covariance matrix:
+					<div class="math display">
+
+						\[
+						\mathrm{Cov}_{\mathrm{ens}} =
+						\begin{bmatrix}
+						0.11 & -0.02 \\
+						-0.02 & 1.87
+						\end{bmatrix}
+						\]
+
+					</div>
+				</li>
+				<li>Propagated uncertainty: <span class="math inline">\(\sigma_O \approx 0.035\)</span></li>
+				<li>Relative uncertainty: <span class="math inline">\(\sigma_O / O \approx 194\%\)</span></li>
+			</ul>
+
+			<h5>Step 5: Coherence Class Closure</h5>
+
+			<p><strong>Structural Form:</strong></p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{C}^{(r)} = \{ i \mid \sigma_{\Phi_i} &lt; \tau \}
+				\quad \Rightarrow \quad O \in \mathcal{C}^{(r)}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Follow-up:</strong></p>
+
+			<ul>
+				<li>Coherence class: <span class="math inline">\(\mathcal{C}^{(r)}\)</span> contains 168 members</li>
+				<li>Interpretation: observable is fragile; coherence class is sparse and uncertainty is high</li>
+			</ul>
+
+			<h5>Step 5: Python Summary</h5>
+
+<pre><code class="language-python">import numpy as np
+
+# Parameters
+N = 3000
+S_star = 1.0
+tau = 0.3
+
+# Ensemble generation (dense medium)
+x = np.random.normal(0, 1, N)
+xp = np.random.normal(0, 1, N)
+Xi = np.exp(-(x**2 + xp**2))
+Phi = 2*np.sin(x) - 2*np.cos(xp)
+
+# Modulated kernel
+K = Xi * np.exp(1j * Phi / S_star)
+mask = np.abs(Phi) &lt; tau
+
+# Observable
+O = np.mean(np.imag(K[mask]))
+
+# Uncertainty propagation
+J1 = np.imag(np.exp(1j * Phi / S_star))
+J2 = np.imag(1j * Xi / S_star * np.exp(1j * Phi / S_star))
+J = np.vstack([J1, J2])
+Cov = np.cov(np.vstack([Xi, Phi]))
+sigma_O2 = J.T @ Cov @ J
+</code></pre>
+
+			<p>
+				This completes the CTMT-native computation of modulation amplitude and its uncertainty in a dense medium. Compared to the Everest case, <span class="math inline">\(O\)</span> is suppressed and <span class="math inline">\(\sigma_O^2\)</span> is elevated due to rupture pruning.
+			</p>
+
+			<h4>1.8. Notational and Computational Refinements</h4>
+
+			<p>
+				The following refinements are optional but recommended for formal publication, reproducibility, and clarity.
+			</p>
+
+			<h5>1. Notation Tightening</h5>
+			<p>
+				To emphasize that rupture filtering applies per ensemble member, use explicit indexing:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{R}_\tau[K_i] = K_i \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\]
+
+			</div>
+
+			<p>
+			Here, <span class="math inline">\(\chi\)</span> is the indicator function, ensuring that filtering is applied individually to each member of the ensemble.
+			</p>
+
+			<h5>2. Dimensional Remark</h5>
+			<p>
+				All quantities in the trigonometric observable are dimensionless after factoring out the physical constant <span class="math inline">\(C_{\mathrm{phys}}\)</span>, which is omitted here for simplicity.
+			</p>
+
+			<h5>3. Numerical Note on Uncertainty</h5>
+			<p>
+				The expression <code>sigma_O2 = J.T @ Cov @ J</code> produces a matrix. To extract the scalar variance, use:
+			</p>
+
+			<pre><code class="language-python">sigma_O2 = np.einsum('ij,ji->', J.T, Cov @ J)</code></pre>
+
+			<p>
+				This avoids dimensional confusion and ensures correct scalar output for uncertainty propagation.
+			</p>
+
+			<h5>4. Coherence Class Closure</h5>
+			<p>
+				The surviving ensemble under rupture filtering <span class="math inline">\(\mathcal{R}_\tau\)</span> constitutes a coherence class <span class="math inline">\(\mathcal{C}^{(r)}\)</span>, verifying the stability condition:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O \in \mathcal{C}^{(r)}
+				\]
+
+			</div>
+
+			<p>
+				This links the observable directly to the coherence structure of the ensemble.
+			</p>
+
+			<h4>1.9. Comparative Summary</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Concept</th>
+						<th>Classical</th>
+						<th>CTMT-native</th>
+						<th>Limit</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Phase variable</td>
+						<td><span class="math inline">\(\theta\)</span></td>
+						<td><span class="math inline">\(\Phi(x,x')\)</span></td>
+						<td><span class="math inline">\(\Phi \to \theta\)</span></td>
+					</tr>
+					<tr>
+						<td>Sine</td>
+						<td><span class="math inline">\(\sin(\theta)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}\left[\mathcal{R}_\tau\left(e^{i\Phi/\mathcal{S}_\ast}\right)\right]\)</span></td>
+						<td><span class="math inline">\(\tau \to \infty\)</span></td>
+					</tr>
+					<tr>
+						<td>Cosine</td>
+						<td><span class="math inline">\(\cos(\theta)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Re}\left[\mathcal{R}_\tau\left(e^{i\Phi/\mathcal{S}_\ast}\right)\right]\)</span></td>
+						<td><span class="math inline">\(\tau \to \infty\)</span></td>
+					</tr>
+					<tr>
+						<td>Tangent</td>
+						<td><span class="math inline">\(\tan(\theta)\)</span></td>
+						<td><span class="math inline">\(\mathrm{Im}/\mathrm{Re}\) of filtered phase</span></td>
+						<td><span class="math inline">\(\tau \to \infty\)</span></td>
+					</tr>
+					<tr>
+						<td>Distance law</td>
+						<td><span class="math inline">\(D_{\mathrm{tri}} = \frac{v_{\mathrm{sync}}}{\gamma}\)</span></td>
+						<td><span class="math inline">\(D_{\mathrm{kernel}} = \frac{M_1 \Theta}{\gamma}\)</span></td>
+						<td>Equal when stationary</td>
+					</tr>
+					<tr>
+						<td>Uncertainty</td>
+						<td>Neglected</td>
+						<td><span class="math inline">\(\sigma_D, \sigma_{\mathrm{drift}}\)</span> explicitly modeled</td>
+						<td><span class="math inline">\(\to 0\)</span> in coherent limit</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>1.10 Interpretive Summary</h4>
+			<p>
+				CTMT-native trigonometry defines a rupture-aware algebra of phase projection.
+				It retains symbolic transparency for human analysis while being fully compatible with ensemble computation.
+				In this formulation:
+			</p>
+			<ul>
+				<li><strong>Machines</strong> can execute native operators <span class="math inline">\(\mathcal{R}_\tau, \delta_\Phi, \mathcal{E}\)</span>.</li>
+				<li><strong>Humans</strong> can interpret them as dynamic sine/cosine functions with measurable coherence meaning.</li>
+				<li><strong>Observables</strong> such as <span class="math inline">\(D_{\mathrm{kernel}}\)</span> are mapped one-to-one to measurable quantities <span class="math inline">\(M_1, \Theta, \gamma\)</span>.</li>
+			</ul>
 
 			<h4>2. Operator Definitions and Symbol Mapping</h4>
 
@@ -34641,7 +35115,7 @@ drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * P
 				CTMT replaces symbolic integrals with ensemble expectations. This avoids antiderivatives, supports rupture filtering, and enables scalable computation. All integrals are rewritten using the ensemble operator <span class="math inline">\(\mathcal{E}[\cdot]\)</span> and dimensional prefactor <span class="math inline">\(C_{\mathrm{phys}}\)</span>.
 			</p>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\iint f(x,x')\,dx\,dx' \;\mapsto\; C_{\mathrm{phys}} \cdot \mathcal{E}[f(\Xi_i,\Phi_i;x_i,x'_i)]
@@ -34653,7 +35127,7 @@ drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * P
 				Spectral integrals become ensemble sums over sampled modes:
 			</p>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\int A(\omega)\,e^{i\Phi(\omega)/\mathcal{S}_\ast}\,d\omega
@@ -34667,7 +35141,7 @@ drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * P
 				Uncertainty propagation is rewritten using ensemble gradients and covariances:
 			</p>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				\sigma_O^2 = J_{\mathrm{ens}}^\top\,\mathrm{Cov}_{\mathrm{ens}}\,J_{\mathrm{ens}},
@@ -34679,7 +35153,7 @@ drift_sin = (np.imag(np.exp(1j * (Phi + dPhi) / S_star)) - np.imag(np.exp(1j * P
 
 			<h5>4.1 Spectral Integral via Ensemble</h5>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				I = \int A(\omega)\,e^{iS(\omega)/\mathcal{S}_\ast}\,d\omega
@@ -34704,7 +35178,7 @@ I = C_phys * np.mean(terms[mask])
 
 			<h5>4.2 Double Integral Forward Map</h5>
 
-			<div class="math">
+			<div class="math display">
 
 				\[
 				O = \iint L(x,x')K(x,x')\,dx\,dx'
@@ -34736,7 +35210,7 @@ O = C_phys * np.mean(terms[mask])
 					If the forward map is nonlinear, <span class="math inline">\(\mathbf{O} = \mathcal{F}[\kappa]\)</span>, CTMT replaces symbolic inversion with ensemble-based regularized optimization:
 				</p>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\widehat{\kappa} = \arg\min_\kappa\;
@@ -34750,7 +35224,7 @@ O = C_phys * np.mean(terms[mask])
 					This is solved iteratively using ensemble Jacobians:
 				</p>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\mathbf{J}_n\,\delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],
@@ -34764,7 +35238,7 @@ O = C_phys * np.mean(terms[mask])
 					Where <span class="math inline">\(\mathbf{J}_n = \mathcal{E}[\nabla_\kappa \mathcal{F}(\Xi_i,\Phi_i)]\)</span> is the ensemble Jacobian. Regularization is applied via:
 				</p>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\delta\kappa = \mathbf{J}_n^\top(\mathbf{J}_n\mathbf{J}_n^\top + \lambda\,\mathbf{R}^\top\mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\kappa_n])
@@ -34786,7 +35260,7 @@ O = C_phys * np.mean(terms[mask])
 					<li>
 						<strong>Sliding-window stationary inversion:</strong><br>
 						Apply static inversion within short windows <span class="math inline">\([t-\Delta t/2,\,t+\Delta t/2]\)</span> where stationarity holds. Ensemble the results:
-						<div class="math">
+						<div class="math display">
 
 							\[
 							K(t) = \mathcal{E}_t[K(x,x',t)]
@@ -34797,7 +35271,7 @@ O = C_phys * np.mean(terms[mask])
 					<li>
 						<strong>Dynamic state-space inversion:</strong><br>
 						Model kernel evolution with a linear dynamical prior:
-						<div class="math">
+						<div class="math display">
 
 							\[
 							\kappa_{t+1} = \mathbf{M}\,\kappa_t + \mathbf{w}_t,
@@ -34807,7 +35281,7 @@ O = C_phys * np.mean(terms[mask])
 
 						</div>
 						Estimate recursively using ensemble Kalman filters or sequential variational updates. Regularization appears as process noise covariance:
-						<div class="math">
+						<div class="math display">
 
 							\[
 							\mathrm{Cov}[\mathbf{w}_t] = \lambda\,\mathbf{Q}_t
@@ -34823,7 +35297,7 @@ O = C_phys * np.mean(terms[mask])
 
 				<h5>4.5 Uncertainty Propagation via Ensemble</h5>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\sigma_O^2 = J_{\mathrm{ens}}^\top\,\mathrm{Cov}_{\mathrm{ens}}\,J_{\mathrm{ens}}
@@ -34839,7 +35313,7 @@ sigma_O2 = J.T @ Cov @ J
 
 				<h5>4.6 Rupture Filtering with ℛτ</h5>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\mathcal{R}_\tau[f] = f \cdot \mathbf{1}[\sigma_f &lt; \tau]
@@ -34857,7 +35331,7 @@ O_filtered = C_phys * np.mean(filtered_terms)
 
 				<h5>4.7 Phase Drift Operator δΦ</h5>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\delta_\Phi[f] = \frac{f(\Phi + \Delta\Phi) - f(\Phi)}{\Delta\Phi}
@@ -34879,7 +35353,7 @@ drift = phase_drift(f, Phi, dPhi)
 					These formulas summarize the CTMT-native grammar for forward maps, rupture filtering, phase drift, and uncertainty propagation. All expressions are dimensionally closed and executable.
 				</p>
 
-				<div class="math">
+				<div class="math display">
 
 					\[
 					\begin{aligned}
@@ -35091,7 +35565,7 @@ sigma_O2 = J.T @ Cov @ J
 
 			<h5>9.2 Ensemble Evaluation</h5>
 
-			<div class="math">
+			<div class="math display">
 
 			\[
 			\mathcal{E}[\exp(\Xi_i)] = \mathcal{E}[e^{\Xi_i/\Xi_\ast}],
