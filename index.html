@@ -33604,6 +33604,375 @@ H, detH, sp.simplify(prefactor)
                     </tr>
                 </tbody>
             </table>
+
+			<h3 id="sec-geometry-formalism_10">Integral Calculations in CTMT</h3>
+			<p>
+				CTMT replaces analytic integration with <em>ensemble-weighted evaluation</em>.
+				Instead of symbolic antiderivatives, it computes integrals as coherence-weighted sums
+				over rupture-modulated kernels. Beyond the observable forward map, CTMT introduces
+				a hierarchy of <strong>state integrals</strong> — measures of coherence, drift, and rupture energy —
+				which define the internal thermodynamics of the modulation system.
+			</p>
+
+			<h4>Overview and Notation</h4>
+			<ul>
+				<li><strong><span class="math inline">\(K(x,x')\)</span></strong> — kernel field (target of integration)</li>
+				<li><strong><span class="math inline">\(L_k(x,x')\)</span></strong> — measurement kernel for observable <span class="math inline">\(O_k\)</span></li>
+				<li><strong><span class="math inline">\( \Xi_i(x,x') \)</span>, <span class="math inline">\( \Phi_i(x,x') \)</span></strong> — rupture amplitude and phase fields</li>
+				<li><strong><span class="math inline">\( w_i \)</span></strong> — coherence weight per ensemble member</li>
+				<li><strong><span class="math inline">\( \mathcal{S}_* \)</span></strong> — regulatory (action) scale</li>
+				<li><strong><span class="math inline">\( C_{\mathrm{phys}} \)</span></strong> — physical prefactor restoring SI consistency</li>
+			</ul>
+
+			<h4>1. Forward Map Integral</h4>
+			<p>
+				Observables in CTMT are generated through a double integral over kernel fields:
+			</p>
+			<div class="math">
+
+				\[
+				O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \varepsilon_k,
+				\quad
+				K(x,x') \approx \sum_{i=1}^{M} w_i\,\Xi_i(x,x')\,e^{i\,\Phi_i(x,x')/\mathcal{S}_*}.
+				\]
+
+			</div>
+
+			<p>
+				Efficient evaluation uses spectral convolution, adaptive quadrature, or MLMC ensembles with recursive pruning.
+			</p>
+
+			<h4>2. Terror Integrals — Collapse Filtering</h4>
+			<p>
+				Terror integrals quantify ensemble collapse and serve as internal convergence diagnostics.
+				They sum coherent survivors whose local density <span class="math inline">\( \rho_i(r) \)</span> exceeds a threshold:
+			</p>
+
+			<div class="math">
+
+				\[
+				T_r = \sum_{i=1}^{M}
+				\left|\Xi_i\,e^{i\Phi_i/\mathcal{S}_*}\right|\,
+				\mathbf{1}[\rho_i(r) > \rho_{\min}]
+				\]
+
+			</div>
+
+<pre><code class="language-python">def terror_integral(Xi, Phi, rho, rho_min, S_star):
+mask = (rho > rho_min)
+return np.sum(np.abs(Xi * np.exp(1j * Phi / S_star)) * mask)
+</code></pre>
+
+			<h4>3. Phase Drift Integrals — Coherence Loss Tracking</h4>
+			<div class="math">
+
+				\[
+				D_\phi = \int \left|\frac{d\Phi}{dt}\right|^2 \Xi(x,t)\,dx
+				\]
+
+			</div>
+
+<pre><code class="language-python">def phase_drift_integral(Phi_t, Xi_t, dt):
+dPhi_dt = np.gradient(Phi_t, dt)
+return np.trapz(np.abs(dPhi_dt)**2 * Xi_t)
+</code></pre>
+
+			<h4>4. Coherence Density Integrals — Normalization and Spatial Weighting</h4>
+			<div class="math">
+
+				\[
+				\rho_K = \frac{1}{V} \int |\Xi(x)|^2\,dx,
+				\quad
+				\rho_K L_K^3 = \text{coherence volume}
+				\]
+
+			</div>
+
+<pre><code class="language-python">def coherence_density(Xi, dx):
+V = Xi.size * dx
+return np.trapz(np.abs(Xi)**2, dx) / V
+</code></pre>
+
+			<h4>5. Symbolic Collapse Integrals — Emergent Constants</h4>
+			<div class="math">
+
+				\[
+				\pi_{\text{est}}(r) = \frac{\sin(\pi\tau/\mathcal{S}_*)}{\tau/\mathcal{S}_*}
+				\]
+
+			</div>
+
+			<h4>6. Rupture Energy Integrals — Energy Accounting</h4>
+			<div class="math">
+
+				\[
+				E_r = \int \Xi(x,t)\,\left|\frac{d\Phi}{dt}\right|\,dx
+				\]
+
+			</div>
+
+<pre><code class="language-python">def rupture_energy(Xi_t, Phi_t, dt):
+dPhi_dt = np.gradient(Phi_t, dt)
+return np.trapz(Xi_t * np.abs(dPhi_dt), dx=dt)
+</code></pre>
+
+			<h4>7. Nested and Tensor Integrals — Structural Complexity</h4>
+			<div class="math">
+
+				\[
+				I_{\text{nested}} =
+				\int f_1(x)
+				\left(\int f_2(x',x)K(x',x)\,dx'\right)\!dx
+				\]
+
+			</div>
+
+			<ul>
+				<li>Recursive pruning and coherence thresholding after each level</li>
+				<li>Low-rank SVD decomposition of <span class="math inline">\(K(x,x')\)</span></li>
+				<li>Multilevel Monte Carlo for variance reduction</li>
+			</ul>
+
+			<h4>8. Uncertainty and Terror Variance</h4>
+			<div class="math">
+
+				\[
+				\sigma_{\tau_{\mathrm{wf}}}^2 =
+				\mathbf{J}^\top\,\mathrm{Cov}(\mathbf{x})\,\mathbf{J}
+				\]
+
+			</div>
+
+<pre><code class="language-python">def uncertainty_propagation(J, Cov):
+return J @ Cov @ J.T
+</code></pre>
+
+			<h4>9. Regime Selection Guidelines</h4>
+			<ul>
+				<li><strong>Weak rupture:</strong> use FFT convolution, linear response</li>
+				<li><strong>Moderate rupture:</strong> MLMC with dynamic pruning</li>
+				<li><strong>Strong rupture:</strong> stochastic regularization, limited nested depth</li>
+			</ul>
+
+			<h4>10. Final Python Snippet — Unified Diagnostic</h4>
+<pre><code class="language-python">import numpy as np
+
+def Xi(x, xp): return np.exp(-(x**2 + xp**2))
+def Phi(x, xp): return np.sin(x) - np.cos(xp)
+
+def forward_map_integral(N=64, S_star=0.5):
+    x = np.linspace(-2, 2, N)
+    xp = np.linspace(-2, 2, N)
+    X, XP = np.meshgrid(x, xp, indexing='ij')
+    K = Xi(X, XP) * np.exp(1j * Phi(X, XP) / S_star)
+    return K.mean()
+
+def terror_integral(Xi, Phi, rho, rho_min, S_star):
+    mask = (rho > rho_min)
+    return np.sum(np.abs(Xi * np.exp(1j * Phi / S_star)) * mask)
+
+def uncertainty_propagation(J, Cov):
+    return J @ Cov @ J.T
+
+print("Forward map integral:", forward_map_integral())
+print("Terror integral:", terror_integral(Xi=np.ones((64,64)), Phi=np.ones((64,64)), rho=np.ones((64,64)), rho_min=0.5, S_star=0.5))
+print("Uncertainty variance:", uncertainty_propagation(
+    J=np.array([0.8, 0.4, 0.2]),
+    Cov=np.array([
+        [0.04, 0.01, 0.00],
+        [0.01, 0.09, 0.02],
+        [0.00, 0.02, 0.16]
+    ])
+))
+</code></pre>
+			<p>
+				This unified Python snippet demonstrates how CTMT integrals can be computed in practice — from forward map evaluation to terror filtering and uncertainty propagation. Each function reflects a distinct integral type defined earlier, and together they form a complete diagnostic pipeline for rupture-aware ensemble analysis.
+			</p>
+
+			<h4>11. Integration Strategy and Optimization Notes</h4>
+			<ul>
+				<li><strong>Vectorization:</strong> Use NumPy broadcasting and meshgrid operations to avoid explicit loops.</li>
+				<li><strong>GPU acceleration:</strong> Replace NumPy with CuPy or JAX for large ensembles and real-time rupture filtering.</li>
+				<li><strong>Adaptive sampling:</strong> Weight ensemble members by <span class="math inline">\( w_i \propto |\Xi_i| \)</span> to prioritize coherent regions.</li>
+				<li><strong>Recursive pruning:</strong> Apply coherence thresholds after each terror round to reduce computational load.</li>
+				<li><strong>Low-rank decomposition:</strong> Use SVD or tensor factorization for nested kernel collapse.</li>
+				<li><strong>Multilevel Monte Carlo:</strong> Apply coarse-to-fine sampling for variance reduction in nested or high-dimensional integrals.</li>
+			</ul>
+
+			<h4>12. Validation and Benchmarking</h4>
+			<ul>
+				<li><strong>Analytic kernel tests:</strong> Compare CTMT integrals against known Gaussian or harmonic integrals.</li>
+				<li><strong>Symbolic recovery:</strong> Verify convergence to <span class="math inline">\( \pi \)</span>, <span class="math inline">\( \alpha \)</span>, or other constants in smooth limits.</li>
+				<li><strong>Error bounds:</strong> Apply Hoeffding or Chernoff bounds to ensemble estimators.</li>
+				<li><strong>Resampling diagnostics:</strong> Use bootstrap or unscented transforms to test robustness under rupture variance.</li>
+			</ul>
+
+			<h4>13. Governance and Reproducibility</h4>
+			<p class="note">
+				CTMT simulations can inform experimental design, rupture modeling, and coherence safety protocols.
+				To ensure reproducibility and ethical deployment:
+			</p>
+			<ul>
+				<li>Publish ensemble seeds, coherence thresholds, and pruning parameters.</li>
+				<li>Log all terror integrals, drift metrics, and rupture energy diagnostics.</li>
+				<li>Use versioned kernels and rupture operators for traceability.</li>
+				<li>Include symbolic collapse tests in all coherence-sensitive publications.</li>
+			</ul>
+
+			<h4>14. Summary Table</h4>
+			<table>
+				<thead>
+					<tr>
+						<th>Integral Type</th>
+						<th>Purpose</th>
+						<th>Applicable Regime</th>
+						<th>Acceleration Techniques</th>
+						<th>CTMT Complexity</th>
+						<th>Classical Complexity</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Forward Map</strong></td>
+						<td>Compute observables from rupture kernels</td>
+						<td>All regimes</td>
+						<td>FFT, MLMC, pruning</td>
+						<td><span class="math inline">\( O(N \log N) \)</span></td>
+						<td><span class="math inline">\( O(N^2) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Terror Integral</strong></td>
+						<td>Collapse filtering and survivor pruning</td>
+						<td>Moderate to strong rupture</td>
+						<td>Threshold masking, coherence density</td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+						<td>Not defined in classical models</td>
+					</tr>
+					<tr>
+						<td><strong>Phase Drift</strong></td>
+						<td>Track coherence loss over time</td>
+						<td>Strong rupture</td>
+						<td>Discrete gradient, trapz integration</td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Coherence Density</strong></td>
+						<td>Normalize ensemble weighting</td>
+						<td>All regimes</td>
+						<td>Trapz, adaptive volume scaling</td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Symbolic Collapse</strong></td>
+						<td>Recover constants (π, α) from coherence</td>
+						<td>Weak rupture / smooth limit</td>
+						<td>Phase regularization</td>
+						<td><span class="math inline">\( O(1) \)</span> (analytic)</td>
+						<td><span class="math inline">\( O(N) \)</span> (symbolic)</td>
+					</tr>
+					<tr>
+						<td><strong>Rupture Energy</strong></td>
+						<td>Quantify energy exchange during collapse</td>
+						<td>Strong rupture</td>
+						<td>Gradient + trapz</td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+						<td><span class="math inline">\( O(N) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Nested Kernel</strong></td>
+						<td>Parameterize one kernel with another</td>
+						<td>Moderate to strong rupture</td>
+						<td>MLMC, SVD, pruning</td>
+						<td><span class="math inline">\( O(N \cdot r) \)</span></td>
+						<td><span class="math inline">\( O(N^3) \)</span></td>
+					</tr>
+					<tr>
+						<td><strong>Uncertainty Propagation</strong></td>
+						<td>Propagate variance through observables</td>
+						<td>All regimes</td>
+						<td>Jacobian contraction or ensemble resampling</td>
+						<td><span class="math inline">\( O(d^2) \)</span> (for <span class="math inline">\( d \)</span>-dimensional state)</td>
+						<td><span class="math inline">\( O(d^2) \)</span></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				This table summarizes the full CTMT integral taxonomy, showing how rupture-aware filtering and ensemble modulation yield substantial computational savings compared to classical symbolic or tensor-based methods. Each integral type is matched to its regime, acceleration strategy, and complexity class — enabling precise implementation and optimization.
+			</p>
+
+			<h4>15. From Legacy Tensor to CTMT Integral</h4>
+
+			<p>
+				Legacy tensor systems (e.g. stress, curvature, field tensors) can be converted into CTMT-native integrals through a three-step process: scalar extraction, kernel calibration, and ensemble evaluation. This enables faster, rupture-resilient computation of observables and uncertainty propagation.
+			</p>
+
+			<ol>
+				<li>
+					<strong>Extract scalar anchors from tensor field:</strong><br>
+						From a tensor field <span class="math inline">\( \mathbf{T} \)</span>, extract scalar or structured primitives:
+					<div class="math">
+
+						\[
+						\alpha_i = \mathcal{F}_{\mathrm{prim}}[\mathbf{T}]
+						\]
+
+					</div>
+					Examples:
+					<ul>
+						<li><span class="math inline">\( \sigma_{ij} \rightarrow P = \frac{1}{3} \mathrm{Tr}(\sigma) \)</span></li>
+						<li><span class="math inline">\( R_{ij} \rightarrow R = g^{ij} R_{ij} \)</span></li>
+						<li><span class="math inline">\( F_{\mu\nu} \rightarrow u = \frac{1}{2}(\mathbf{E}^2 + \mathbf{B}^2) \)</span></li>
+					</ul>
+				</li>
+
+				<li>
+					<strong>Calibrate kernel using extracted anchors:</strong><br>
+					Use the scalar(s) to define kernel prefactors or priors:
+					<div class="math">
+
+						\[
+						K_{\mathrm{cal}}(x,x') = K(x,x';\, \alpha_i)
+						\]
+
+					</div>
+					This ensures dimensional consistency and physical interpretability.
+				</li>
+
+				<li>
+					<strong>Evaluate CTMT integral via ensemble expansion:</strong><br>
+					Replace symbolic contraction with rupture-modulated ensemble:
+					<div class="math">
+
+						\[
+						K(x,x') \approx \sum_{i=1}^{M} w_i\,\Xi_i(x,x')\,e^{i\,\Phi_i(x,x')/\mathcal{S}_*}
+						\]
+
+					</div>
+					Then compute observable:
+					<div class="math">
+
+						\[
+						O_k = \iint L_k(x,x')\,K(x,x')\,dx\,dx'
+						\]
+
+					</div>
+					Or propagate uncertainty:
+					<div class="math">
+
+						\[
+						\sigma_O^2 = \mathbf{J}^\top\,\mathrm{Cov}(\mathbf{x})\,\mathbf{J}
+						\]
+
+					</div>
+				</li>
+			</ol>
+
+			<p>
+				This transition replaces symbolic tensor contraction with ensemble filtering, enabling faster computation, native rupture modeling, and scalable uncertainty propagation. It allows Einstein-class tensors, field theories, and continuum mechanics to operate within CTMT’s integral framework without loss of physical meaning.
+			</p>
         </article>
     </section>
     <section>
