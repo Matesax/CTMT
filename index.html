@@ -34526,9 +34526,9 @@ print("Uncertainty variance:", uncertainty_propagation(
 			</p>
 			<div class="math display">
 
-			\[
-			\sigma_{\mathrm{drift}}^2 = \mathrm{Var}_{\mathrm{ens}}[\delta_\Phi[\sin_{\mathcal{R}}(\Phi_i)]].
-			\]
+				\[
+				\sigma_{\mathrm{drift}}^2 = \mathrm{Var}_{\mathrm{ens}}[\delta_\Phi[\sin_{\mathcal{R}}(\Phi_i)]].
+				\]
 
 			</div>
 
@@ -34568,12 +34568,22 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Ensemble size: <code>N = 3000</code></li>
-				<li>Modulation scale: <span class="math inline">\(\mathcal{S}_\ast = 0.9\)</span></li>
-				<li>Typical range: <span class="math inline">\(\Xi_i \in [0.05, 1.0]\)</span>, <span class="math inline">\(\Phi_i \in [-2.0, +2.0]\)</span></li>
-			</ul>
+			<div class="math display">
 
+				\[
+				\begin{aligned}
+				&N = 3000 \\
+				&\mathcal{S}_\ast = 0.9 \\
+				&\Xi_i \in [0.05,\ 1.0] \\
+				&\Phi_i \in [-2.0,\ +2.0]
+				\end{aligned}
+				\]
+
+			</div>
+
+			<p>
+				Each sample encodes a rupture-weighted impulse with modulated phase. The kernel \( K_i \) carries both amplitude and phase information.
+			</p>
 
 			<h5>Step 2: Apply Rupture Filter</h5>
 
@@ -34593,10 +34603,20 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Rupture threshold: <span class="math inline">\(\tau = 0.3\)</span></li>
-				<li>Survivors: <span class="math inline">\(N_{\text{surv}} = 390\)</span> (≈13%)</li>
-			</ul>
+			<div class="math display">
+
+				\[
+				\begin{aligned}
+				&\tau = 0.3 \\
+				&N_{\text{surv}} = 390 \quad (\approx 13\%)
+				\end{aligned}
+				\]
+
+			</div>
+
+			<p>
+				Only samples with low phase volatility survive the rupture filter. These define the coherent subensemble.
+			</p>
 
 			<h5>Step 3: Compute Observable</h5>
 
@@ -34612,11 +34632,17 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Computed observable: <span class="math inline">\(O \approx 0.072\)</span></li>
-				<li>Interpretation: small but stable modulation amplitude</li>
-			</ul>
+			<div class="math display">
 
+				\[
+				O \approx 0.072
+				\]
+
+			</div>
+
+			<p>
+				The observable is computed over the full ensemble but only includes rupture-filtered contributions. This ensures normalization and comparability across thresholds.
+			</p>
 
 			<h5>Step 4: Propagate Uncertainty</h5>
 
@@ -34625,39 +34651,41 @@ print("Uncertainty variance:", uncertainty_propagation(
 			<div class="math display">
 
 				\[
-				f(\Xi_i, \Phi_i) = \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}]
-				\quad
-				J_i = \left[
+				\begin{aligned}
+				f(\Xi_i, \Phi_i) &= \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}] \\
+				J_i &= \left[
 				\mathrm{Im}[e^{i\Phi_i/\mathcal{S}_\ast}],
 				\mathrm{Im}\left[\frac{i\Xi_i}{\mathcal{S}_\ast} e^{i\Phi_i/\mathcal{S}_\ast}\right]
-				\right]
-				\quad
-				\sigma_O^2 = \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\right] \\
+				\sigma_O^2 &= \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\end{aligned}
 				\]
 
 			</div>
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Average gradient: <span class="math inline">\(\bar{J} = [0.58,\; 0.41]\)</span></li>
-				<li>Covariance matrix:
-					<div class="math display">
+			<div class="math display">
 
-						\[
-						\mathrm{Cov}_{\mathrm{ens}} =
-						\begin{bmatrix}
-						0.12 & -0.03 \\
-						-0.03 & 0.98
-						\end{bmatrix}
-						\]
+				\[
+				\bar{J} = \begin{bmatrix} 0.58 \\ 0.41 \end{bmatrix}
+				\quad
+				\mathrm{Cov}_{\mathrm{ens}} =
+				\begin{bmatrix}
+				0.12 & -0.03 \\
+				-0.03 & 0.98
+				\end{bmatrix}
+				\quad
+				\sigma_O \approx 0.015
+				\quad
+				\frac{\sigma_O}{O} \approx 21\%
+				\]
 
-					</div>
-				</li>
-				<li>Propagated uncertainty: <span class="math inline">\(\sigma_O \approx 0.015\)</span></li>
-				<li>Relative uncertainty: <span class="math inline">\(\sigma_O / O \approx 21\%\)</span></li>
-			</ul>
+			</div>
 
+			<p>
+				The observable is moderately stable. The rupture filter reduces variance, but ensemble volatility remains significant.
+			</p>
 
 			<h5>Step 5: Coherence Class Closure</h5>
 
@@ -34674,10 +34702,54 @@ print("Uncertainty variance:", uncertainty_propagation(
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
+			<div class="math display">
+
+				\[
+				\mathcal{C}^{(r)} = 390 \quad \text{(coherent survivors)}
+				\]
+
+			</div>
+
+			<p>
+				The observable is now typed and closed under the rupture-filtered coherence class. It is a valid CTMT-native quantity.
+			</p>
+
 			<ul>
 				<li>Coherence class: <span class="math inline">\(\mathcal{C}^{(r)}\)</span> contains 390 members</li>
 				<li>Stability verified: observable is typed and rupture-filtered</li>
 			</ul>
+
+			<p>
+				The observable <span class="math inline">\( O = \mathcal{E}[\Xi_i \cdot \sin_{\mathcal{R}}(\Phi_i)] \)</span> is not a symbolic function evaluation, but a coherence-filtered modulation amplitude. It is typed by rupture threshold <span class="math inline">\(\tau\)</span>, anchored by modulation scale <span class="math inline">\(\mathcal{S}_\ast\)</span>, and closed under coherence class <span class="math inline">\(\mathcal{C}^{(r)}\)</span>.
+			</p>
+
+			<p>
+				This protocol generalizes to any CTMT-native observable of the form:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O_k = \mathcal{E}[\Xi_i \cdot \mathcal{F}_{\mathcal{R}}(\Phi_i) \cdot w_i]
+				\]
+
+			</div>
+
+			<p>
+				where <span class="math inline">\(\mathcal{F}_{\mathcal{R}}\)</span> is a rupture-filtered modulation operator (e.g., <span class="math inline">\(\sin_{\mathcal{R}}, \cos_{\mathcal{R}}, \tan_{\mathcal{R}}\)</span>), and <span class="math inline">\(w_i\)</span> is a coherence weight or coupling factor. This structure supports optical, acoustic, and structural observables — all computed natively within the CTMT framework.
+			</p>
+
+			<p>
+				To apply this protocol:
+			</p>
+
+			<ol>
+				<li>Define ensemble fields <span class="math inline">\(\Xi_i, \Phi_i\)</span> from physical or simulated sources.</li>
+				<li>Apply rupture filtering via volatility threshold <span class="math inline">\(\tau\)</span>.</li>
+				<li>Compute the observable over the surviving coherence class <span class="math inline">\(\mathcal{C}^{(r)}\)</span>.</li>
+				<li>Propagate uncertainty using ensemble Jacobians and covariance structure.</li>
+				<li>Verify closure and typing: ensure <span class="math inline">\(O_k \in \mathcal{C}^{(r)}\)</span>.</li>
+			</ol>
 
 			<h5>Step 5: Python Summary</h5>
 
@@ -34711,6 +34783,140 @@ sigma_O2 = J.T @ Cov @ J
 
 			<p>
 				This completes the CTMT-native computation of modulation amplitude and its uncertainty in a coherent optical medium.
+			</p>
+
+			<p><strong>Ensemble Fields:</strong></p>
+			<div class="math display">
+
+				\[
+				x_i,\ {x'_i} \sim \mathcal{N}(0,1)
+				\quad
+				\Xi_i = e^{- \left( x_i^2 + {x'_i}^2 \right)}
+				\quad
+				\Phi_i = \sin(x_i) - \cos({x'_i})
+				\quad
+				K_i = \Xi_i \cdot e^{i \Phi_i / \mathcal{S}_\ast}
+				\]
+
+			</div>
+
+			<p><strong>Rupture Filter:</strong></p>
+			<div class="math display">
+
+				\[
+				\sigma_{\Phi_i} = |\Phi_i|
+				\quad
+				\mathcal{R}_\tau[K_i] = K_i \cdot \chi(\sigma_{\Phi_i} &lt \tau)
+				\quad
+				\sin_{\mathcal{R}}(\Phi_i) = \mathrm{Im}[\mathcal{R}_\tau(K_i)]
+				\]
+
+			</div>
+
+			<h5>First-Round Sample Computation</h5>
+
+			<p><strong>Input:</strong></p>
+			<div class="math display">
+
+				\[
+				x_1 = 0.6,\quad x'_1 = -1.2,\quad \mathcal{S}_\ast = 0.9,\quad \tau = 0.3
+				\]
+
+			</div>
+
+			<p><strong>Derived:</strong></p>
+			<div class="math display">
+
+				\[
+				\Xi_1 = e^{-(0.6^2 + (-1.2)^2)} = e^{-1.8} \approx 0.165
+				\]
+
+				\[
+				\Phi_1 = \sin(0.6) - \cos(-1.2) \approx 0.564 - 0.362 = 0.202
+				\]
+
+				\[
+				\sigma_{\Phi_1} = |\Phi_1| = 0.202 &lt; \tau \Rightarrow \text{survives}
+				\]
+
+				\[
+				K_1 = 0.165 \cdot e^{i \cdot 0.202 / 0.9} \approx 0.165 \cdot (\cos(0.224) + i \sin(0.224)) \approx 0.165 \cdot (0.975 + i \cdot 0.222)
+				\]
+
+				\[
+				\Rightarrow \mathrm{Im}[K_1] \approx 0.165 \cdot 0.222 \approx 0.0366
+				\]
+
+			</div>
+
+			<p><strong>Contribution to observable:</strong> \( \Xi_1 \cdot \sin_{\mathcal{R}}(\Phi_1) \approx 0.0366 \)</p>
+
+			<h5>Recursive Ensemble Aggregation</h5>
+
+			<p><strong>General Form:</strong></p>
+			<div class="math display">
+
+				\[
+				O = \frac{1}{N} \sum_{i=1}^N \Xi_i \cdot \mathrm{Im}[K_i] \cdot \chi(\sigma_{\Phi_i} &lt; \tau)
+				\]
+
+			</div>
+
+			<p><strong>Uncertainty Propagation:</strong></p>
+			<div class="math display">
+
+				\[
+				J_i = \left[
+				\mathrm{Im}[e^{i\Phi_i/\mathcal{S}_\ast}],
+				\mathrm{Im}\left[\frac{i\Xi_i}{\mathcal{S}_\ast} e^{i\Phi_i/\mathcal{S}_\ast}\right]
+				\right]
+				\quad
+				\sigma_O^2 = \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\]
+
+			</div>
+
+			<p><strong>Numerical Summary:</strong></p>
+			<div class="math display">
+
+				\[
+				\begin{aligned}
+				&N = 3000,\quad N_{\text{surv}} = 390 \\
+				&O \approx 0.072,\quad \sigma_O \approx 0.015,\quad \frac{\sigma_O}{O} \approx 21\%
+				\end{aligned}
+				\]
+
+			</div>
+
+			<h5>Final Closure</h5>
+
+			<p>
+				The observable is coherence-typed and rupture-filtered:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O \in \mathcal{C}^{(r)} = \{ i \mid \sigma_{\Phi_i} &lt; \tau \}
+				\quad \text{with} \quad |\mathcal{C}^{(r)}| = 390
+				\]
+
+			</div>
+
+			<p>
+				This completes the CTMT-native computation. The modulation observable is:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\boxed{O = 0.072 \pm 0.015 \quad \text{(rupture-typed, coherence-filtered)}}
+				\]
+
+			</div>
+
+			<p>
+				This result is now ready for comparison with other CTMT-native observables (e.g., tuning density, kernel distance, or π-coherence ratios), and can be embedded into higher-order modulation trees or recursive coherence models.
 			</p>
 
 			<h4>1.7. CTMT-Native Worked Example: Dense Medium Modulation Observable</h4>
@@ -34749,12 +34955,22 @@ sigma_O2 = J.T @ Cov @ J
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Ensemble size: <code>N = 3000</code></li>
-				<li>Modulation scale: <span class="math inline">\(\mathcal{S}_\ast = 0.9\)</span></li>
-				<li>Phase amplitude doubled → <span class="math inline">\(\Phi_i \in [-4.0, +4.0]\)</span></li>
-			</ul>
+			<div class="math display">
 
+				\[
+				\begin{aligned}
+				&N = 3000 \\
+				&\mathcal{S}_\ast = 0.9 \\
+				&\Xi_i \in [0.05,\ 1.0] \\
+				&\Phi_i \in [-4.0,\ +4.0] \quad \text{(amplitude doubled)}
+				\end{aligned}
+				\]
+
+			</div>
+
+			<p>
+			Each sample encodes a rupture-weighted impulse with modulated phase. The kernel \( K_i \) carries both amplitude and phase information.
+			</p>
 
 			<h5>Step 2: Apply Rupture Filter</h5>
 
@@ -34774,10 +34990,20 @@ sigma_O2 = J.T @ Cov @ J
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Rupture threshold: <span class="math inline">\(\tau = 0.3\)</span></li>
-				<li>Survivors: <span class="math inline">\(N_{\text{surv}} = 168\)</span> (≈5.6%)</li>
-			</ul>
+			<div class="math display">
+
+				\[
+				\begin{aligned}
+				&\tau = 0.3 \\
+				&N_{\text{surv}} = 168 \quad (\approx 5.6\%)
+				\end{aligned}
+				\]
+
+			</div>
+
+			<p>
+				Only samples with low phase volatility survive the rupture filter. These define the coherent subensemble.
+			</p>
 
 			<h5>Step 3: Compute Observable</h5>
 
@@ -34793,10 +35019,17 @@ sigma_O2 = J.T @ Cov @ J
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Computed observable: <span class="math inline">\(O \approx 0.018\)</span></li>
-				<li>Interpretation: modulation amplitude is suppressed due to rupture pruning</li>
-			</ul>
+			<div class="math display">
+
+				\[
+				O \approx 0.018
+				\]
+
+			</div>
+
+			<p>
+				The observable is computed over the full ensemble but only includes rupture-filtered contributions. This ensures normalization and comparability across thresholds.
+			</p>
 
 			<h5>Step 4: Propagate Uncertainty</h5>
 
@@ -34805,38 +35038,41 @@ sigma_O2 = J.T @ Cov @ J
 			<div class="math display">
 
 				\[
-				f(\Xi_i, \Phi_i) = \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}]
-				\quad
-				J_i = \left[
+				\begin{aligned}
+				f(\Xi_i, \Phi_i) &= \mathrm{Im}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}] \\
+				J_i &= \left[
 				\mathrm{Im}[e^{i\Phi_i/\mathcal{S}_\ast}],
 				\mathrm{Im}\left[\frac{i\Xi_i}{\mathcal{S}_\ast} e^{i\Phi_i/\mathcal{S}_\ast}\right]
-				\right]
-				\quad
-				\sigma_O^2 = \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\right] \\
+				\sigma_O^2 &= \frac{1}{N_{\text{surv}}} \cdot \bar{J}^\top \cdot \mathrm{Cov}_{\mathrm{ens}} \cdot \bar{J}
+				\end{aligned}
 				\]
 
 			</div>
 
 			<p><strong>Numerical Follow-up:</strong></p>
 
-			<ul>
-				<li>Average gradient: <span class="math inline">\(\bar{J} = [0.31,\; 0.62]\)</span></li>
-				<li>Covariance matrix:
-					<div class="math display">
+			<div class="math display">
 
-						\[
-						\mathrm{Cov}_{\mathrm{ens}} =
-						\begin{bmatrix}
-						0.11 & -0.02 \\
-						-0.02 & 1.87
-						\end{bmatrix}
-						\]
+				\[
+				\bar{J} = \begin{bmatrix} 0.31 \\ 0.62 \end{bmatrix}
+				\quad
+				\mathrm{Cov}_{\mathrm{ens}} =
+				\begin{bmatrix}
+				0.11 & -0.02 \\
+				-0.02 & 1.87
+				\end{bmatrix}
+				\quad
+				\sigma_O \approx 0.035
+				\quad
+				\frac{\sigma_O}{O} \approx 194\%
+				\]
 
-					</div>
-				</li>
-				<li>Propagated uncertainty: <span class="math inline">\(\sigma_O \approx 0.035\)</span></li>
-				<li>Relative uncertainty: <span class="math inline">\(\sigma_O / O \approx 194\%\)</span></li>
-			</ul>
+			</div>
+
+			<p>
+				The observable is fragile. Sparse coherence and high phase volatility amplify ensemble uncertainty.
+			</p>
 
 			<h5>Step 5: Coherence Class Closure</h5>
 
@@ -34852,6 +35088,18 @@ sigma_O2 = J.T @ Cov @ J
 			</div>
 
 			<p><strong>Numerical Follow-up:</strong></p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{C}^{(r)} = 168 \quad \text{(coherent survivors)}
+				\]
+
+			</div>
+
+			<p>
+				The observable is now typed and closed under the rupture-filtered coherence class. It is a valid CTMT-native quantity.
+			</p>
 
 			<ul>
 				<li>Coherence class: <span class="math inline">\(\mathcal{C}^{(r)}\)</span> contains 168 members</li>
@@ -35175,6 +35423,52 @@ terms = A(k_i) * np.exp(1j*S(k_i)/S_star)
 mask = np.abs(terms) > tau  # rupture filter ℛτ
 I = C_phys * np.mean(terms[mask])
 </code></pre>
+
+			<h5>Dimensional Prefactor: <span class="math inline">\( C_{\mathrm{phys}} \)</span></h5>
+
+			<p>
+				The prefactor <span class="math inline">\( C_{\mathrm{phys}} \)</span> serves as a dimensional anchor in CTMT-native calculus. It ensures that ensemble-evaluated expressions are physically valid, unit-consistent, and interpretable across domains. Unlike symbolic constants, <span class="math inline">\( C_{\mathrm{phys}} \)</span> is not decorative — it enforces closure and trust.
+			</p>
+
+			<h5>What It Does</h5>
+
+			<ul>
+				<li><strong>Unit closure:</strong> Balances physical dimensions across rupture-modulated expressions.</li>
+				<li><strong>Syntax validation:</strong> Flags incoherent or mismatched units in ensemble observables.</li>
+				<li><strong>Domain portability:</strong> Adapts to optics, acoustics, structural physics, and thermodynamics via unit substitution.</li>
+				<li><strong>Executable trust:</strong> Ensures that computed observables carry correct SI units and can be compared across systems.</li>
+			</ul>
+
+			<h5>How It’s Used</h5>
+
+			<p>
+				In every CTMT-native observable, <span class="math inline">\( C_{\mathrm{phys}} \)</span> appears as the final multiplier:
+			</p>
+
+			<div class="math display">
+
+				\[
+				O = C_{\mathrm{phys}} \cdot \mathcal{E}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}]
+				\]
+
+			</div>
+
+			<p>
+				This guarantees that the output <span class="math inline">\( O \)</span> is dimensionally valid — even when rupture filtering, nonlinear modulation, or ensemble uncertainty are involved.
+			</p>
+
+			<h5>Academic Use</h5>
+
+			<ul>
+				<li><strong>Validation tool:</strong> Academics can use <span class="math inline">\( C_{\mathrm{phys}} \)</span> to check unit consistency in legacy formulas and rupture observables.</li>
+				<li><strong>Cross-domain modeling:</strong> Enables symbolic expressions to be reused across disciplines with correct physical interpretation.</li>
+				<li><strong>Executable clarity:</strong> Makes ensemble code readable, trustworthy, and dimensionally anchored.</li>
+				<li><strong>Pedagogical aid:</strong> Helps students and researchers learn unit logic by embedding it directly into computation.</li>
+			</ul>
+
+			<p>
+				In CTMT-native calculus, <span class="math inline">\( C_{\mathrm{phys}} \)</span> is more than a constant — it’s a validator, translator, and trust mechanism. It turns symbolic expressions into physically meaningful diagnostics.
+			</p>
 
 			<h5>4.2 Double Integral Forward Map</h5>
 
