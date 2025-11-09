@@ -16694,6 +16694,356 @@ for n in range(N):
                 Coupling factors <span class="math inline">\(\lambda\)</span> and efficiencies <span class="math inline">\(\beta\)</span> are defendable observables derived from transfer‑function estimates or cross‑spectral coherence, and are bounded in
                 <span class="math inline">\([0,1]\)</span> to avoid free tuning.
             </p>
+
+			<h3 id="sec-50-orbital-mechanics_15">CTMT Planetary Mass Paths — Structural, Elemental, and Ensemble-Based Computation</h3>
+
+			<p>
+				This section summarizes all CTMT-native pathways for computing planetary mass, including structural dynamics, elemental inversion, and ensemble coherence integration. Each path is rupture-aware, dimensionally consistent, and executable. Together they form a unified framework for predicting planetary mass from observables, spectral anchors, and ensemble kernels.
+			</p>
+
+			<h4>1. Overview of Mass Paths</h4>
+
+			<table>
+				<thead>
+					<tr><th>Path</th><th>Input</th><th>Output</th><th>Use Case</th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Structural Rhythm</strong></td>
+						<td>Orbital primitives: <span class="math inline">\(v, a, e, R, \lambda\)</span></td>
+						<td>Central mass <span class="math inline">\(M = \mu_d^{*2} a^3 / G\)</span></td>
+						<td>Planet/star mass from satellite motion or internal modal rhythm</td>
+					</tr>
+					<tr>
+						<td><strong>Elemental Inversion</strong></td>
+						<td>Kernel vector <span class="math inline">\(\vec{K} = (\rho, u, \Phi, \kappa, D)\)</span></td>
+						<td>Atomic number <span class="math inline">\(\hat{Z}\)</span>, mass number <span class="math inline">\(\hat{A}\)</span>, molar mass <span class="math inline">\(M_{\text{mol}}\)</span></td>
+						<td>Planetary composition, elemental prediction, isotope modeling</td>
+					</tr>
+					<tr>
+						<td><strong>Coherence Density Integration</strong></td>
+						<td>Ensemble kernel field <span class="math inline">\(\Xi(x), \Phi(x)\)</span></td>
+						<td>Mass via <span class="math inline">\(M = \int_V \rho(x)\,dV\)</span></td>
+						<td>Bulk planetary mass from CTMT coherence volume</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>2. Structural Rhythm Path</h4>
+
+			<p>
+				Compute mean motion from orbital primitives:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\mu_d' = \frac{v}{a},\quad
+				\mu_d'' = \frac{\mu_d'}{1 - e^2},\quad
+				\mu_d^* = \mu_d''(1 + \lambda R)
+				\]
+
+			</div>
+
+			<p>
+				Then compute mass:
+			</p>
+
+			<div class="math display">
+
+				\[
+				M = \frac{(\mu_d^*)^2 a^3}{G}
+				\]
+
+			</div>
+
+			<p>
+				Units: <span class="math inline">\([M] = \mathrm{kg}\)</span>. This yields the mass sourcing the dynamics — central mass for orbital motion, or enclosed mass for internal modal rhythm. Use mission data (e.g. Juno, Cassini) to extract <span class="math inline">\(\mu_d^*\)</span>.
+			</p>
+
+			<h4>3. Elemental Inversion Path</h4>
+
+			<p>
+				Invert kernel observables to atomic number <span class="math inline">\(\hat{Z}\)</span>, then compute atomic and molar mass:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\hat{Z} = \arg\min_Z (\vec{K}_{\text{obs}} - f(Z))^\top W (\vec{K}_{\text{obs}} - f(Z)) + \lambda R(Z)
+				\]
+
+			</div>
+
+			<p>
+				Use SEMF to compute binding energy:
+			</p>
+
+			<div class="math display">
+
+				\[
+				B(A,Z) = a_v A - a_s A^{2/3} - a_c \frac{Z(Z-1)}{A^{1/3}} - a_{\text{sym}} \frac{(A - 2Z)^2}{A} + \delta(A,Z)
+				\]
+
+			</div>
+
+			<p>
+				Then atomic mass:
+			</p>
+
+			<div class="math display">
+
+				\[
+				m_{\text{atom}} = Z m_p + (A - Z) m_n - \frac{B(A,Z)}{c^2} - Z m_e
+				\]
+
+			</div>
+
+			<p>
+				And molar mass:
+			</p>
+
+			<div class="math display">
+
+				\[
+				M_{\text{mol}} = N_A \cdot m_{\text{atom}}
+				\]
+
+			</div>
+
+			<p>
+				Units: <span class="math inline">\([M_{\text{mol}}] = \mathrm{g/mol}\)</span>. This path predicts planetary composition and mass per mole of constituent elements. Use ensemble sampling to estimate uncertainty.
+			</p>
+
+			<h4>4. Coherence Density Integration Path</h4>
+
+			<p>
+				Compute coherence-filtered density:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\rho(x) = C_{\text{phys}} \cdot \mathcal{E}[\Xi(x) \cdot g(\Phi(x))]
+				\]
+
+			</div>
+
+			<p>
+				Units: <span class="math inline">\([\rho] = \mathrm{kg/m^3}\)</span>. Integrate over coherence volume:
+			</p>
+
+			<div class="math display">
+
+				\[
+				M = \int_{V_{\text{coh}}} \rho(x)\,dV
+				\]
+
+			</div>
+
+			<p>
+				Or use radial profile:
+			</p>
+
+			<div class="math display">
+
+				\[
+				M = 4\pi \int_0^{R_{\text{coh}}} \rho_0(\mu_d^*) \cdot \tilde{h}(r/R_{\text{coh}}; \vec{\theta}) \cdot r^2\,dr
+				\]
+
+			</div>
+
+			<p>
+				Example profile:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\tilde{h}(\xi) = \frac{1}{1 + \alpha \xi^\beta},\quad \xi = \frac{r}{R_{\text{coh}}}
+				\]
+
+			</div>
+
+			<p>
+				Calibrate <span class="math inline">\(\alpha, \beta\)</span> from planetary data. This path yields total planetary mass from ensemble coherence structure. Use <span class="math inline">\(\rho_0(\mu_d^*)\)</span> from modal rhythm or elemental inversion.
+			</p>
+
+			<h4>A. Summary of Mass Laws</h4>
+
+			<h5>1. Structural Mass Law</h5>
+			<p>
+				Measure orbital rhythm <span class="math inline">\(v\)</span>, scale <span class="math inline">\(a\)</span>, eccentricity <span class="math inline">\(e\)</span>, rupture ratio <span class="math inline">\(R\)</span>, and coupling <span class="math inline">\(\lambda\)</span>. Define clocks:
+			</p>
+			<div class="math display">
+
+				\[
+				\mu_d' = \frac{v}{a},\quad
+				\mu_d'' = \frac{\mu_d'}{1 - e^2},\quad
+				\mu_d^* = \mu_d''(1 + \lambda R)
+				\]
+
+			</div>
+			<p>
+				Recover mass:
+			</p>
+			<div class="math display">
+
+				\[
+				M = \frac{(\mu_d^*)^2 a^3}{G}
+				\]
+
+			</div>
+			<p>
+				Units: <span class="math inline">\([\mu_d^*] = \mathrm{s^{-1}},\quad [M] = \mathrm{kg}\)</span>. Rupture enters as multiplicative correction <span class="math inline">\((1 + \lambda R)\)</span>.
+			</p>
+
+			<h5>2. Elemental / Molar Mass Law</h5>
+			<p>
+				Measure lock frequency <span class="math inline">\(\omega_{\text{lock}}\)</span> and use action scale <span class="math inline">\(S_*\)</span>:
+			</p>
+			<div class="math display">
+
+				\[
+				E = S_* \omega_{\text{lock}},\quad
+				m = \frac{E}{c^2} = \frac{S_* \omega_{\text{lock}}}{c^2}
+				\]
+
+			</div>
+			<p>
+				Apply rupture and binding corrections:
+			</p>
+			<div class="math display">
+
+				\[
+				m_{\text{atom}} = \frac{S_* \omega_{\text{lock}}}{c^2} (1 + \lambda_{\text{el}} R_{\text{el}}) \Phi_{\text{bind}},\quad
+				M_{\text{mol}} = N_A \cdot m_{\text{atom}}
+				\]
+
+			</div>
+			<p>
+				Units: <span class="math inline">\([M_{\text{mol}}] = \mathrm{g/mol}\)</span>. Binding factor <span class="math inline">\(\Phi_{\text{bind}} \in (0,1]\)</span> encodes coherence loss from structure.
+			</p>
+
+			<h4>B. Derivation and Justification</h4>
+
+			<h5>B.1 Structural Path</h5>
+			<ul>
+				<li><strong>Physical idea:</strong> Mean motion <span class="math inline">\(\mu_d^*\)</span> links orbital rhythm to gravitating mass.</li>
+				<li><strong>Clock construction:</strong> Use <span class="math inline">\(v, a, e, R, \lambda\)</span> to build <span class="math inline">\(\mu_d^*\)</span>.</li>
+				<li><strong>Mass recovery:</strong> <span class="math inline">\(M = (\mu_d^*)^2 a^3 / G\)</span></li>
+				<li><strong>Interpretation:</strong> Central mass if <span class="math inline">\(v, a\)</span> are orbital; enclosed mass if internal modal rhythm.</li>
+				<li><strong>Units check:</strong> <span class="math inline">\([\mu_d^*]^2 a^3 / G = \mathrm{kg}\)</span></li>
+			</ul>
+
+<pre><code>import numpy as np
+
+G = 6.67430e-11  # m^3 kg^-1 s^-2
+
+def structural_mass_from_primitives(v, a, e, R, lam):
+mu_p = v / a
+mu_pp = mu_p / (1 - e**2)
+mu_star = mu_pp * (1 + lam * R)
+M = (mu_star**2) * (a**3) / G
+return M, mu_star
+
+# Example: orbit like Earth around Sun (illustrative -> returns solar mass)
+v = 30e3            # m/s
+a = 1.496e11        # m (1 AU)
+e = 0.0167
+R = 0.01            # small rupture/pseudospectral effect
+lam = 0.05
+M_est, mu_star = structural_mass_from_primitives(v, a, e, R, lam)
+print("mu_star (s^-1) =", mu_star)
+print("Structural mass estimate (kg) =", M_est)
+</code></pre>
+
+			<h5>B.2 Elemental Path</h5>
+			<ul>
+				<li><strong>Physical idea:</strong> Rhythm lock maps to energy via <span class="math inline">\(S_*\)</span>, then to mass.</li>
+				<li><strong>Primitive formula:</strong> <span class="math inline">\(m_0 = S_* \omega_{\text{lock}} / c^2\)</span></li>
+				<li><strong>Rupture correction:</strong> <span class="math inline">\(m' = m_0 (1 + \lambda_{\text{el}} R_{\text{el}})\)</span></li>
+				<li><strong>Binding correction:</strong> <span class="math inline">\(m_{\text{atom}} = m' \Phi_{\text{bind}}\)</span></li>
+				<li><strong>Molar mass:</strong> <span class="math inline">\(M_{\text{mol}} = N_A \cdot m_{\text{atom}}\)</span></li>
+			</ul>
+
+<pre><code>import numpy as np
+
+c = 299792458.0      # m/s
+hbar = 1.054571817e-34  # J·s
+N_A = 6.02214076e23
+
+def elemental_mass_from_lock(omega_lock, S_star=hbar, R_el=0.0, lam_el=0.0, Phi_bind=1.0):
+m0 = (S_star * omega_lock) / (c**2)
+m_atom = m0 * (1 + lam_el * R_el) * Phi_bind
+M_mol = N_A * m_atom
+return m_atom, M_mol
+
+# Example: pick an anchor lock frequency (illustrative)
+omega_lock = 1.0e20  # rad/s (toy value: choose based on spectral anchor)
+m_atom, M_mol = elemental_mass_from_lock(omega_lock, S_star=hbar, R_el=0.02, lam_el=0.01, Phi_bind=0.999)
+print("Atomic mass (kg) =", m_atom)
+print("Molar mass (kg/mol) =", M_mol)
+print("Atomic mass in u (approx) =", m_atom / 1.66053906660e-27)
+</code></pre>
+
+			<h4>C. Uncertainty Propagation</h4>
+
+			<h5>C.1 Structural Path</h5>
+			<p>
+				Define vector <span class="math inline">\(\vec{x} = (v, a, e, R, \lambda)\)</span>. Map:
+			</p>
+			<div class="math display">
+
+				\[
+				M(\vec{x}) = \frac{(\mu_d^*(\vec{x}))^2 a^3}{G}
+				\]
+
+			</div>
+			<p>
+				Linearized variance:
+			</p>
+			<div class="math display">
+
+				\[
+				\sigma_M^2 \approx \nabla_{\vec{x}} M^\top \cdot \text{Cov}(\vec{x}) \cdot \nabla_{\vec{x}} M
+				\]
+
+			</div>
+
+			<h5>C.2 Elemental Path</h5>
+			<p>
+				Define vector <span class="math inline">\(\vec{y} = (\omega_{\text{lock}}, S_*, R_{\text{el}}, \lambda_{\text{el}}, \Phi_{\text{bind}})\)</span>. Map:
+			</p>
+			<div class="math display">
+
+				\[
+				m_{\text{atom}}(\vec{y}) = \frac{S_* \omega_{\text{lock}}}{c^2} (1 + \lambda_{\text{el}} R_{\text{el}}) \Phi_{\text{bind}}
+				\]
+
+			</div>
+			<p>
+				Linearized variance:
+			</p>
+			<div class="math display">
+
+				\[
+				\sigma_m^2 \approx \nabla_{\vec{y}} m^\top \cdot \text{Cov}(\vec{y}) \cdot \nabla_{\vec{y}} m
+				\]
+
+			</div>
+
+			<h4>D. Remarks on Binding Factor</h4>
+			<p>
+				<span class="math inline">\(\Phi_{\text{bind}}\)</span> is not a free parameter. It is a measurable structure factor derived from spectral splitting, isotope binding energy, or CTMT anchor fits. When <span class="math inline">\(\lambda R \to 0\)</span> and <span class="math inline">\(\Phi_{\text{bind}} \to 1\)</span>, you recover pure RMI emergence.
+			</p>
+
+			<h4>E. Falsifiability and Execution</h4>
+			<ul>
+				<li>All paths are executable and falsifiable.</li>
+				<li>If observables cannot be reconstructed from rhythm, the model fails.</li>
+				<li>Use ensemble sampling, bootstrap diagnostics, and anchor calibration to validate predictions.</li>
+			</ul>
         </article>
     </section>
 
@@ -31285,6 +31635,237 @@ zscore = (median - Xi_crit) / std
                 <li><a href="https://sciencenotes.org/what-are-the-radioactive-elements/" target="_blank">Science Notes: Radioactive Elements</a></li>
                 <li><a href="https://physics.nist.gov/cgi-bin/cuu/Value?hbar" target="_blank">NIST CODATA: Planck Constant</a></li>
             </ul>
+
+			<h3 id="sec-35-elemental-rhythm-prediction_5">CTMT Elemental Inversion and Mass Mapping Protocol</h3>
+
+			<p>
+				This protocol reconstructs atomic identity and planetary mass from rupture-aware kernel observables. It avoids symbolic assumptions and derives all quantities from coherence survival, modulation geometry, and ensemble filtering. Every step is falsifiable, dimensionally closed, and executable.
+			</p>
+
+			<h4>1. Kernel Observable Vector</h4>
+			<p>
+				Define the observable kernel vector:
+				<span class="math inline">\(\vec{K} = (\rho, u, \Phi, \kappa, D)\)</span>
+			</p>
+			<ul>
+				<li><strong><span class="math inline">\(\rho\)</span></strong>: coherence density <span class="math inline">\([\mathrm{kg/m^3}]\)</span></li>
+				<li><strong><span class="math inline">\(u\)</span></strong>: modal energy <span class="math inline">\([\mathrm{J/m^3}]\)</span></li>
+				<li><strong><span class="math inline">\(\Phi\)</span></strong>: phase irregularity <span class="math inline">\([\mathrm{dimensionless}]\)</span></li>
+				<li><strong><span class="math inline">\(\kappa\)</span></strong>: nuclear coupling strength <span class="math inline">\([\mathrm{dimensionless}]\)</span></li>
+				<li><strong><span class="math inline">\(D\)</span></strong>: decoherence drag <span class="math inline">\([\mathrm{m/s}]\)</span></li>
+			</ul>
+
+			<div class="math display">
+
+				\[
+				\rho(x) = C_{\text{phys}} \cdot \mathcal{E}[\Xi(x) \cdot g(\Phi(x))], \quad
+				D = \frac{v_{\text{sync}}}{\Gamma}
+				\]
+
+			</div>
+
+			<h4>2. Forward Model</h4>
+			<p>
+				Predict kernel observables from atomic number <span class="math inline">\(Z\)</span> and mass number <span class="math inline">\(A\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+				f(Z, A) = \left[
+				\begin{array}{l}
+				\rho = c_\rho \cdot A \\
+				u = c_u \cdot \frac{\Omega(Z)}{k(\Omega(Z))} \\
+				\Phi = c_\Phi \cdot R^{-1}(\Omega(Z)) \\
+				\kappa = c_\kappa \cdot Z \\
+				D = c_D \cdot \frac{v_{\text{sync}}(Z)}{\Gamma(Z)}
+				\end{array}
+				\right]
+				\]
+
+			</div>
+
+			<p>
+				Calibration constants <span class="math inline">\(c_\rho,\dots,c_D\)</span> are fit from anchor elements. Functions <span class="math inline">\(\Omega(Z), k(\Omega), R^{-1}(\Omega)\)</span> are analytic or interpolated.
+			</p>
+
+			<h4>3. Stability Index</h4>
+			<p>
+				A rupture-aware diagnostic:
+			</p>
+			<div class="math display">
+
+				\[
+				S(\vec{K}) = \frac{\kappa \cdot \rho}{D(1 + |\Phi|)}
+				\]
+
+			</div>
+
+			<p>
+				Higher <span class="math inline">\(S\)</span> implies greater coherence and structural stability.
+			</p>
+
+			<h4>4. Inversion Protocol</h4>
+			<p>
+				Given observed <span class="math inline">\(\vec{K}_{\text{obs}}\)</span> and covariance <span class="math inline">\(C_{\text{obs}}\)</span>, solve:
+			</p>
+			<div class="math display">
+
+				\[
+				\hat{Z} = \arg\min_{Z \in \mathbb{Z}^+} (\vec{K}_{\text{obs}} - f(Z))^\top W (\vec{K}_{\text{obs}} - f(Z)) + \lambda R(Z)
+				\]
+
+			</div>
+			<p>
+				where <span class="math inline">\(W = C_{\text{obs}}^{-1}\)</span> and <span class="math inline">\(R(Z)\)</span> is a regularizer (e.g., valley-of-stability).
+			</p>
+
+			<h4>5. Atomic Mass via SEMF</h4>
+			<div class="math display">
+
+				\[
+				B(A,Z) = a_v A - a_s A^{2/3} - a_c \frac{Z(Z-1)}{A^{1/3}} - a_{\text{sym}} \frac{(A - 2Z)^2}{A} + \delta(A,Z)
+				\]
+
+			</div>
+			<div class="math display">
+
+				\[
+				m_{\text{atom}} = Z m_p + (A - Z) m_n - \frac{B(A,Z)}{c^2} - Z m_e
+				\]
+
+			</div>
+			<div class="math display">
+
+				\[
+				M_{\text{mol}} = N_A \cdot m_{\text{atom}}
+				\]
+
+			</div>
+
+			<h4>6. Python Implementation</h4>
+
+<pre><code># ctmt_elemental_inversion.py  (paste into your notebook)
+import numpy as np
+import pandas as pd
+
+# Physical constants
+m_p = 1.67262192369e-27
+m_n = 1.67492749804e-27
+m_e = 9.1093837015e-31
+MeV_to_J = 1.602176634e-13
+N_A = 6.02214076e23
+c_light = 299792458.0
+
+# SEMF coefficients (MeV)
+a_v = 15.8
+a_s = 18.3
+a_c = 0.714
+a_sym = 23.2
+a_pair = 12.0
+
+def semf_binding_energy(A, Z):
+    vol = a_v * A
+    surf = a_s * A**(2/3)
+    coul = a_c * Z*(Z-1) / A**(1/3) if A>0 else 0.0
+    asym = a_sym * (A - 2*Z)**2 / A
+    if A % 2 == 1:
+        pair = 0.0
+    else:
+        pair = a_pair / np.sqrt(A) * (1.0 if (Z%2==0) else -1.0)
+    BE_MeV = vol - surf - coul - asym + pair
+    return BE_MeV
+
+def atomic_mass_from_AZ(A, Z):
+    BE_J = semf_binding_energy(A, Z) * MeV_to_J
+    mass_kg = Z*m_p + (A-Z)*m_n - BE_J / (c_light**2) - Z*m_e
+    return mass_kg
+
+# Simple forward model (calibration dictionary)
+def forward_map_kernel(Z, A=None, calib=None):
+    if calib is None:
+        calib = dict(c_rho=0.08, c_u=0.005, c_Phi=1.0, c_kappa=0.02, c_D=0.4)
+    if A is None:
+        A = int(round(2.0*Z))
+        A = max(1, A)
+    A_amp = A
+    Omega = 1e15 * (1.0 + 0.01 * Z)
+    k_of_Omega = 2*np.pi * Omega / 3e8
+    rho = calib['c_rho'] * A_amp
+    u = calib['c_u'] * (Omega / (k_of_Omega + 1e-30))
+    Phi = calib['c_Phi'] * 1.0/(1.0 + 0.005*Z)
+    kappa = calib['c_kappa'] * Z
+    v_sync = 1e3 * (1.0 + 0.05*Z)
+    Gamma = 1.0 + 0.02 * Z
+    D = calib['c_D'] * v_sync / Gamma
+    return np.array([rho, u, Phi, kappa, D])
+
+# Example: synthetic observed element (Carbon Z=6, A=12)
+Z_true = 6
+A_true = 12
+calib = dict(c_rho=0.08, c_u=0.005, c_Phi=1.0, c_kappa=0.02, c_D=0.4)
+obs_clean = forward_map_kernel(Z_true, A=A_true, calib=calib)
+
+# Add noise
+np.random.seed(1)
+noise_scale = np.array([0.005, 0.2, 0.01, 0.005, 10.0])
+obs = obs_clean * (1.0 + noise_scale * np.random.randn(5))
+
+# Inversion grid search
+Z_candidates = np.arange(1, 31)
+A_guess = {Z:int(round(2.0*Z)) for Z in Z_candidates}
+W_diag = np.array([1.0/0.01, 1.0/1.0, 1.0/0.001, 1.0/0.01, 1.0/100.0])
+
+records = []
+for Zc in Z_candidates:
+    Ac = A_guess[Zc]
+    pred = forward_map_kernel(Zc, A=Ac, calib=calib)
+    diff = obs - pred
+    score = diff @ (W_diag * diff)
+    stability = (pred[3] * pred[0]) / (pred[4] * (1.0 + np.abs(pred[2])))
+    records.append({'Z':Zc,'A':Ac,'score':score,'stability':stability,'pred':pred})
+
+df = pd.DataFrame(records).sort_values('score').reset_index(drop=True)
+best = df.iloc[0]
+Z_hat = int(best['Z']); A_hat = int(best['A'])
+mass_atom_kg = atomic_mass_from_AZ(A_hat, Z_hat)
+molar_mass_g_per_mol = mass_atom_kg * N_A * 1e3
+
+print("obs (noisy) vecK:", np.round(obs,6))
+print("true vecK (clean):", np.round(obs_clean,6))
+print("\nTop candidates:\n", df[['Z','A','score','stability']].head(5))
+print(f"\nInversion result: Z_hat={Z_hat}, A_hat={A_hat}")
+print(f"Predicted molar mass ≈ {molar_mass_g_per_mol:.6f} g/mol")
+</code></pre>
+
+			<h4>7. Falsification Criteria</h4>
+			<ul>
+				<li>Residual score below threshold</li>
+				<li>Stability index within expected band</li>
+				<li>Predicted molar mass within physical bounds</li>
+				<li>Bootstrap diagnostics stable</li>
+			</ul>
+
+			<h4>8. Ontological Implication</h4>
+			<p>
+				This protocol reconstructs elemental identity from rhythm observables. It does not assume mass, charge, or composition—it derives them from coherence survival. If the kernel fails to reproduce observables, the model is falsified.
+			</p>
+
+			<h4>9. Acceptance Criteria</h4>
+			<ul>
+				<li>Residual below threshold</li>
+				<li>Stability index in expected band</li>
+				<li>Predicted molar mass within physical bounds</li>
+				<li>ESS and bootstrap diagnostics stable</li>
+			</ul>
+
+			<h4>10. Final Notes</h4>
+			<ul>
+				<li>Replace SEMF with measured isotope masses for high-precision applications</li>
+				<li>Calibrate forward model from anchor elements</li>
+				<li>Use Bayesian priors or ML scores if desired</li>
+				<li>Publish anchors, code, and blind benchmarks for high-leverage claims</li>
+			</ul>
         </article>
     </section>
     <section>
