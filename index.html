@@ -36398,6 +36398,184 @@ sigma_O2 = J.T @ Cov @ J
 				</tbody>
 			</table>
 
+			<table>
+				<thead>
+					<tr>
+						<th><span class="math inline">Input Layer</span></th>
+						<th><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">Filtering</span></th>
+						<th><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">Modulation</span></th>
+						<th><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">Expectation</span></th>
+						<th><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">Uncertainty</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<span class="math inline">\( \Xi_i \)</span>: rupture amplitude<br>
+							<span class="math inline">\( \Phi_i \)</span>: phase field<br>
+							<span class="math inline">\( w_i \)</span>: coherence weight<br>
+							<span class="math inline">\( \sigma_i \)</span>: volatility<br>
+							<span class="math inline">\( \tau \)</span>: rupture threshold
+						</td>
+						<td>
+							<span class="math inline">\( \mathcal{R}_\tau[\cdot] \)</span>: rupture filter<br>
+							<span class="math inline">\( \sigma_i &lt; \tau \)</span>: ensemble selection
+						</td>
+						<td>
+							<span class="math inline">\( e^{i\Phi_i/\mathcal{S}_\ast} \)</span>: phase kernel<br>
+							<span class="math inline">\( \Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast} \)</span>: modulated term
+						</td>
+						<td>
+							<span class="math inline">\( \mathcal{E}[\cdot] \)</span>: ensemble average<br>
+							<span class="math inline">\( C_{\mathrm{phys}} \)</span>: dimensional prefactor<br>
+							<span class="math inline">\( O = C_{\mathrm{phys}} \cdot \mathcal{E}[\Xi_i e^{i\Phi_i/\mathcal{S}_\ast}] \)</span>
+						</td>
+						<td>
+							<span class="math inline">\( J_{\mathrm{ens}} = \mathcal{E}[\nabla_x O] \)</span><br>
+							<span class="math inline">\( \sigma_O^2 = J^\top \mathrm{Cov} J \)</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Classical Tensor Concept</th>
+						<th>CTMT-native Equivalent</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( T^{\mu\nu}g_{\mu\nu} \)</span></td>
+						<td><span class="math inline">\( \mathcal{E}[T_i \cdot G_i] \)</span></td>
+						<td>Coherence-weighted contraction</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \nabla_\mu \phi \)</span></td>
+						<td><span class="math inline">\( \mathcal{E}[\nabla_x \phi(\Xi_i, \Phi_i)] \)</span></td>
+						<td>Phase-aware ensemble gradient</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \sqrt{-g} \, d^4x \)</span></td>
+						<td><span class="math inline">\( C_{\mathrm{phys}} \)</span></td>
+						<td>Dimensional closure prefactor</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( F^{\mu\nu} \)</span>: field tensor</td>
+						<td><span class="math inline">\( \Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast} \)</span></td>
+						<td>Modulated rupture field</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Symbolic Integral</th>
+						<th>CTMT-native Replacement</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( \int f(x)\,dx \)</span></td>
+						<td><span class="math inline">\( \mathcal{E}[f(\Xi_i, \Phi_i)] \)</span></td>
+						<td>Ensemble expectation over rupture field</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \iint K(x,x')\,dx\,dx' \)</span></td>
+						<td><span class="math inline">\( C_{\mathrm{phys}} \cdot \mathcal{E}[K_i] \)</span></td>
+						<td>Dimensionally anchored kernel average</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \int A(\omega)\,e^{i\Phi(\omega)/\mathcal{S}_\ast}\,d\omega \)</span></td>
+						<td><span class="math inline">\( \mathcal{E}[A(\omega_i)\,e^{i\Phi(\omega_i)/\mathcal{S}_\ast}] \)</span></td>
+						<td>Spectral ensemble modulation</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Operator</th>
+						<th>Input Units</th>
+						<th>Output Units</th>
+						<th>Anchored By</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( \mathcal{E}[\Xi_i \cdot e^{i\Phi_i/\mathcal{S}_\ast}] \)</span></td>
+						<td>amplitude × phase</td>
+						<td>amplitude</td>
+						<td><span class="math inline">\( C_{\mathrm{phys}} \)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( J_{\mathrm{ens}} \)</span></td>
+						<td>gradient</td>
+						<td>unitless vector</td>
+						<td>ensemble structure</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \sigma_O^2 \)</span></td>
+						<td>observable variance</td>
+						<td>squared units</td>
+						<td>covariance matrix</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Symbolic Layer</th>
+						<th>CTMT-native Transformation</th>
+						<th>Physical Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( \sin(\theta) \)</span></td>
+						<td><span class="math inline">\( \mathrm{Im}\left[e^{i\Phi/\mathcal{S}_\ast}\right] \)</span></td>
+						<td>Phase projection from modulation field</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \theta \)</span>: angle</td>
+						<td><span class="math inline">\( \Phi(x,x') \)</span>: phase field</td>
+						<td>Geometric or spectral delay between ensemble points</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \sin^2 + \cos^2 = 1 \)</span></td>
+						<td><span class="math inline">\( |\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})|^2 = 1 \)</span></td>
+						<td>Unit coherence constraint under rupture filtering</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \lim_{\tau \to \infty} \mathcal{R}_\tau[\cdot] \)</span></td>
+						<td><span class="math inline">\( \Rightarrow \sin(\theta), \cos(\theta) \)</span></td>
+						<td>Classical trigonometry recovered in coherence limit</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( \tan(\theta) \)</span></td>
+						<td><span class="math inline">\( \frac{\mathrm{Im}}{\mathrm{Re}}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})] \)</span></td>
+						<td>Phase drift ratio — rupture slope</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<ul>
+				<li><strong>Symbolic Expression:</strong> <span class="math inline">\( \sin(\theta) \)</span>
+					<ul>
+						<li><strong>Phase Field:</strong> <span class="math inline">\( \Phi(x,x') \)</span></li>
+						<li><strong>Modulated Kernel:</strong> <span class="math inline">\( e^{i\Phi/\mathcal{S}_\ast} \)</span></li>
+						<li><strong>Filtered Observable:</strong> <span class="math inline">\( \mathrm{Im}[\mathcal{R}_\tau(e^{i\Phi/\mathcal{S}_\ast})] \)</span></li>
+						<li><strong>Collapse Limit:</strong> <span class="math inline">\( \tau \to \infty \Rightarrow \sin(\theta) \)</span></li>
+					</ul>
+				</li>
+			</ul>
+
 			<h4>9. CTMT-native Exponential and Logarithmic Functions</h4>
 
 			<p>
