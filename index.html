@@ -36824,6 +36824,431 @@ curl_F = np.gradient(Fy)[0] - np.gradient(Fx)[0]
 			<p>
 				Together, these features make CTMT-native calculus not just a computational tool, but a learning engine — one that enables rupture-aware modeling, symbolic clarity, and scalable uncertainty propagation across physics, engineering, and applied mathematics.
 			</p>
+
+			<h3 id="sec-888-native-calculus_1">CTMT Native Language — Full Computation Demo</h3>
+			<p>Enter CTMT-native code below. Click “Run CTMT Code” to parse, compute, and propagate uncertainty.</p>
+
+<textarea id="ctmt-code" rows="20" style="width:100%; font-family:monospace;">
+# === CTMT Native Language — Example Computation ===
+# You can define inputs with uncertainty, constants, derived expressions, and print outputs.
+# Use ± to specify uncertainty, and write formulas using +, -, *, /, ^, sin(), cos(), etc.
+
+# --- Inputs with uncertainty ---
+input v = 30e3 ± 100       # velocity [m/s]
+input a = 1.496e11 ± 1e9   # orbital radius [m]
+input e = 0.0167 ± 0.0001  # eccentricity (dimensionless)
+input R = 0.01 ± 0.002     # rupture ratio
+input λ = 0.05 ± 0.01      # rupture coupling factor
+
+# --- Constants ---
+const G = 6.67430e-11      # gravitational constant [m³/kg/s²]
+
+# --- Derived expressions ---
+μ_d'  = v / a                     # base mean motion
+μ_d'' = μ_d' / (1 - e^2)          # corrected for eccentricity
+μ_d*  = μ_d'' * (1 + λ * R)       # corrected for rupture coupling
+
+# --- Structural mass computation ---
+M = μ_d*^2 * a^3 / G              # mass from orbital dynamics
+
+# --- Output results ---
+print "Mean motion μ_d* (s⁻¹):", μ_d*
+print "Structural mass M (kg):", M
+
+# === Collapse Geometry ===
+
+# --- Observables ---
+input M1 = 0.380 ± 0.005          # hop length [m]
+input Θ  = 4.30e14 ± 0.05e14      # synchrony frequency [s⁻¹]
+input γ  = 1.00e13 ± 0.05e13      # collapse rate [s⁻¹]
+
+# --- Collapse kernel geometry ---
+v_sync   = M1 * Θ
+D_kernel = v_sync / γ
+
+# --- Trigonometric closure ---
+input ρ = 1.03 ± 0.01             # density factor
+input δ = 0.02 ± 0.002            # damping correction
+β = 0.5                           # fixed coefficient
+f = 1 - β * ρ * δ
+D_corr = D_kernel * f
+
+# --- Output geometry ---
+print "Synchrony velocity v_sync (m/s):", v_sync
+print "Kernel distance D_kernel (m):", D_kernel
+print "Medium-corrected distance D_corr (m):", D_corr
+
+# === Try it yourself ===
+# You can add your own inputs and formulas below:
+# input x = 10 ± 1
+# input y = 5 ± 0.5
+# z = sqrt(x^2 + y^2)
+# print "Result z:", z
+</textarea>
+
+			<button onclick="runCTMT()">Run CTMT Code</button>
+			<pre id="ctmt-output" style="background:#f4f4f4; padding:1em; margin-top:1em;"></pre>
+
+			<script src="https://shamansir.github.io/pegjs-fn/vendor/pegjs-fn/pegjs-fn.js"></script>
+			<script>
+				(function() {
+					// --- PEG Grammar (no top-level "#" comment lines inside this literal) -----
+					const grammar = String.raw`
+				start = _ stmts:(statement _)* { return stmts.map(([s]) => s); }
+
+				statement = inputStmt / constStmt / assignStmt / printStmt
+
+				inputStmt
+				  = "input" _ name:identifier _ "=" _ val:uncertain { return {type:"input", name, val}; }
+
+				constStmt
+				  = "const" _ name:identifier _ "=" _ val:expression { return {type:"const", name, expr:val}; }
+
+				assignStmt
+				  = name:identifier _ "=" _ expr:expression { return {type:"assign", name, expr}; }
+
+				printStmt
+				  = "print" _ first:(stringLiteral / expression)
+					rest:(_ "," _ (stringLiteral / expression))* {
+					  const args = [first].concat(rest.map(r => r[3]));
+					  return {type:"print", args};
+					}
+
+				stringLiteral
+				  = '"' chars:([^"]*) '"' { return chars.join(""); }
+
+				uncertain
+				  = val:number _ "±" _ sigma:number { return {type:"uncertain", mean:val.value, sigma:sigma.value}; }
+				  / val:number { return {type:"uncertain", mean:val.value, sigma:0}; }
+
+				expression
+				  = head:additive { return head; }
+
+				additive
+				  = head:multiplicative tail:(_ op:("+" / "-") _ t:multiplicative { return [op, t]; })*
+					{ return tail.reduce((acc,[op,t]) => ({type:"binop", op, left:acc, right:t}), head); }
+
+				multiplicative
+				  = head:exponent tail:(_ op:("*" / "/") _ f:exponent { return [op, f]; })*
+					{ return tail.reduce((acc,[op,f]) => ({type:"binop", op, left:acc, right:f}), head); }
+
+				exponent
+				  = base:factor tail:(_ "^" _ exp:exponent)?
+					{ return tail ? {type:"binop", op:"^", left:base, right:tail[3]} : base; }
+
+				factor
+				  = funcCall
+				  / variable
+				  / number
+				  / "(" _ expr:expression _ ")" { return expr; }
+
+				funcCall
+				  = name:funcName _ "(" _ arg:expression _ ")" { return {type:"func", name, arg}; }
+
+				funcName = "sin" / "cos" / "tan" / "sqrt"
+
+				variable
+				  = name:identifier { return {type:"var", name}; }
+
+				identifier
+				  = base:[a-zA-Z_'\u0370-\u03FF] rest:[a-zA-Z0-9_'\u0370-\u03FF\*]* {
+					  return base + rest.join('');
+					}
+
+				number
+				  = $([0-9]+ ("." [0-9]+)? ([eE][+-]?[0-9]+)?) { return {type:"num", value:parseFloat(text())}; }
+
+				_ = (Whitespace / Comment)*
+				Whitespace = [ \t\r\n]
+				Comment = "#" (![\r\n] .)* [\r\n]?
+				`;
+
+					const parser = PEG.buildParser(grammar);
+
+					// --- Evaluator --------------------------------------------------------------
+					function evaluate(ast, env, opts = {}) {
+						const TRACE = !!opts.trace;
+
+						function normalizeName(name) {
+							return String(name).normalize("NFC").trim();
+						}
+
+						function isFiniteNumber(x) {
+							return typeof x === 'number' && isFinite(x);
+						}
+
+						function ensureResult(res, expr) {
+							if (!res || typeof res.mean === 'undefined' || typeof res.sigma === 'undefined') {
+								console.error("ensureResult failed for expr:", expr, "raw:", res);
+								throw new Error("Evaluation bug: expression produced invalid result");
+							}
+							if (res.mean === null) res.mean = NaN;
+							if (res.sigma === null) res.sigma = NaN;
+							return res;
+						}
+
+						function safePow(base, exp) {
+							if (!isFiniteNumber(base) || !isFiniteNumber(exp)) return {
+								mean: NaN,
+								dBase: NaN,
+								dExp: NaN
+							};
+							if (base === 0) {
+								if (exp <= 0) return {
+									mean: NaN,
+									dBase: NaN,
+									dExp: NaN
+								};
+								return {
+									mean: 0,
+									dBase: 0,
+									dExp: 0
+								};
+							}
+							const isIntExp = Math.abs(exp - Math.round(exp)) < 1e-12;
+							if (base < 0 && !isIntExp) return {
+								mean: NaN,
+								dBase: NaN,
+								dExp: NaN
+							};
+							const mean = Math.pow(base, exp);
+							const dBase = exp * Math.pow(base, exp - 1);
+							const dExp = Math.abs(base) > 0 ? mean * Math.log(Math.abs(base)) : 0;
+							return {
+								mean,
+								dBase,
+								dExp
+							};
+						}
+
+						function randn() {
+							let u = 0,
+								v = 0;
+							while (u === 0) u = Math.random();
+							while (v === 0) v = Math.random();
+							return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+						}
+
+						function evalExpr(expr) {
+							if (!expr || typeof expr !== 'object' || typeof expr.type === 'undefined') {
+								if (TRACE) console.warn("evalExpr got invalid node:", expr);
+								return {
+									mean: NaN,
+									sigma: NaN
+								};
+							}
+
+							if (expr.type === "num") return ensureResult({
+								mean: expr.value,
+								sigma: 0
+							}, expr);
+							if (expr.type === "uncertain") return ensureResult({
+								mean: expr.mean,
+								sigma: expr.sigma
+							}, expr);
+							if (expr.type === "var") {
+								const name = normalizeName(expr.name);
+								if (!(name in env)) throw new Error("Undefined variable: " + name);
+								const val = env[name];
+								return ensureResult(val, expr);
+							}
+
+							if (expr.type === "func") {
+								const x = evalExpr(expr.arg);
+								if (!isFiniteNumber(x.mean)) return ensureResult({
+									mean: NaN,
+									sigma: NaN
+								}, expr);
+								switch (expr.name) {
+									case "sin":
+										return ensureResult({
+											mean: Math.sin(x.mean),
+											sigma: Math.abs(Math.cos(x.mean)) * (x.sigma || 0)
+										}, expr);
+									case "cos":
+										return ensureResult({
+											mean: Math.cos(x.mean),
+											sigma: Math.abs(-Math.sin(x.mean)) * (x.sigma || 0)
+										}, expr);
+									case "tan": {
+										const c = Math.cos(x.mean);
+										if (Math.abs(c) < 1e-12) return ensureResult({
+											mean: NaN,
+											sigma: NaN
+										}, expr);
+										return ensureResult({
+											mean: Math.tan(x.mean),
+											sigma: Math.abs(1 / (c * c)) * (x.sigma || 0)
+										}, expr);
+									}
+									case "sqrt": {
+										if (x.mean < 0) return ensureResult({
+											mean: NaN,
+											sigma: NaN
+										}, expr);
+										const m = Math.sqrt(x.mean);
+										const df = 0.5 / Math.sqrt(x.mean);
+										return ensureResult({
+											mean: m,
+											sigma: Math.abs(df) * (x.sigma || 0)
+										}, expr);
+									}
+								}
+								return ensureResult({
+									mean: NaN,
+									sigma: NaN
+								}, expr);
+							}
+
+							if (expr.type === "binop") {
+								const l = evalExpr(expr.left);
+								const r = evalExpr(expr.right);
+								if (TRACE) console.log("BINOP", expr.op, "left:", l, "right:", r, "node:", expr);
+
+								if (!isFiniteNumber(l.mean) || !isFiniteNumber(r.mean)) {
+									return ensureResult({
+										mean: NaN,
+										sigma: NaN
+									}, expr);
+								}
+
+								switch (expr.op) {
+									case "+":
+									case "-": {
+										const mean = expr.op === "+" ? l.mean + r.mean : l.mean - r.mean;
+										const sigma = Math.sqrt((l.sigma || 0) ** 2 + (r.sigma || 0) ** 2);
+										return ensureResult({
+											mean,
+											sigma
+										}, expr);
+									}
+									case "*": {
+										const mean = l.mean * r.mean;
+										const sigma = Math.sqrt(((r.mean) * (l.sigma || 0)) ** 2 + ((l.mean) * (r.sigma || 0)) ** 2);
+										return ensureResult({
+											mean,
+											sigma
+										}, expr);
+									}
+									case "/": {
+										if (r.mean === 0) return ensureResult({
+											mean: NaN,
+											sigma: NaN
+										}, expr);
+										const mean = l.mean / r.mean;
+										const sigma = Math.sqrt(((1 / r.mean) * (l.sigma || 0)) ** 2 + ((-l.mean / (r.mean * r.mean)) * (r.sigma || 0)) ** 2);
+										return ensureResult({
+											mean,
+											sigma
+										}, expr);
+									}
+									case "^": {
+										const base = l.mean,
+											exp = r.mean;
+										const p = safePow(base, exp);
+										if (!isFiniteNumber(p.mean)) {
+											// Monte Carlo fallback
+											const K = 512;
+											const sBase = l.sigma || 0,
+												sExp = r.sigma || 0;
+											if (sBase === 0 && sExp === 0) return ensureResult({
+												mean: NaN,
+												sigma: NaN
+											}, expr);
+											const samples = [];
+											for (let i = 0; i < K; ++i) {
+												const b = base + sBase * randn();
+												const e = exp + sExp * randn();
+												let val = NaN;
+												try {
+													val = Math.pow(b, e);
+												} catch (err) {
+													val = NaN;
+												}
+												if (isFiniteNumber(val)) samples.push(val);
+											}
+											if (samples.length === 0) return ensureResult({
+												mean: NaN,
+												sigma: NaN
+											}, expr);
+											const mean = samples.reduce((a, b) => a + b, 0) / samples.length;
+											const sigma = Math.sqrt(samples.reduce((a, b) => a + (b - mean) ** 2, 0) / samples.length);
+											return ensureResult({
+												mean,
+												sigma
+											}, expr);
+										}
+										const sBase = l.sigma || 0,
+											sExp = r.sigma || 0;
+										const sigma = Math.sqrt((p.dBase * sBase) ** 2 + (p.dExp * sExp) ** 2);
+										return ensureResult({
+											mean: p.mean,
+											sigma
+										}, expr);
+									}
+									default:
+										return ensureResult({
+											mean: NaN,
+											sigma: NaN
+										}, expr);
+								}
+							}
+
+							return ensureResult({
+								mean: NaN,
+								sigma: NaN
+							}, expr);
+						}
+
+						// run statements
+						const output = [];
+						for (const stmt of ast) {
+							if (!stmt) continue;
+							switch (stmt.type) {
+								case "input":
+									env[normalizeName(stmt.name)] = evalExpr(stmt.val);
+									break;
+								case "const":
+									env[normalizeName(stmt.name)] = evalExpr(stmt.expr);
+									break;
+								case "assign":
+									env[normalizeName(stmt.name)] = evalExpr(stmt.expr);
+									break;
+								case "print": {
+									const parts = stmt.args.map(a => {
+										if (typeof a === "string") return a;
+										const v = evalExpr(a);
+										const meanStr = isFiniteNumber(v.mean) ? v.mean.toPrecision(6) : "NaN";
+										const sigStr = isFiniteNumber(v.sigma) ? v.sigma.toPrecision(3) : "NaN";
+										return `${meanStr} ± ${sigStr}`;
+									});
+									output.push(parts.join(" "));
+									break;
+								}
+							}
+						}
+						if (TRACE) console.log("ENV snapshot:", Object.fromEntries(Object.entries(env).map(([k, v]) => [k, {
+							mean: v.mean,
+							sigma: v.sigma
+						}])));
+						return output.join("\n");
+					}
+
+					// --- Runner -----------------------------------------------------------------
+					window.runCTMT = function() {
+						const code = document.getElementById("ctmt-code").value;
+						const output = document.getElementById("ctmt-output");
+						try {
+							const ast = parser.parse(code);
+							const result = evaluate(ast, {});
+							output.textContent = result;
+						} catch (err) {
+							output.textContent = "Error: " + err.message;
+							console.error(err);
+						}
+					};
+				})();
+			</script>
         </article>
     </section>
     <section>
