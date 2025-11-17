@@ -10645,7 +10645,7 @@ for n in range(N):
     <ul>
       <li><strong>Unit declaration:</strong> State all prefactors <span class="math inline">\( C_{\mathrm{phys}} \)</span>, rate terms, and dimensional roles.</li>
       <li><strong>Closure proof:</strong> Show <span class="math inline">\( \Phi/S_\ast \)</span> and other exponents are unitless; tabulate expected units.</li>
-      <li><strong>Residuum report:</strong> Provide <span class="math inline">\( \varepsilon_{\mathrm{dim}} \)</span> per operator; threshold <span class="math inline">\(10^{-12}\)</span>.</li>
+      <li><strong>Residuum report:</strong> Provide <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span> per operator; threshold <span class="math inline">\(10^{-12}\)</span>.</li>
       <li><strong>Uncertainty trace:</strong> List input means/sigmas, Jacobian contributions, and acceptance bands.</li>
       <li><strong>Reproducibility:</strong> Include ensemble size, kernel count, thresholds, penalties, variance and ESS per kernel.</li>
     </ul>
@@ -10659,7 +10659,7 @@ To illustrate how the redundancy operator computes reliability-weighted aggregat
 <div class="math display">
 
 \[
-O_{\mathrm{red}} = \sum_{k=1}^K \tilde{r}_k O_k, \quad \tilde{r}_k = \frac{r_k}{\sum_j r_j}, \quad r_k = \frac{\text{surv}_k}{\mathrm{Var}(O_k) + \epsilon}
+O_{\mathrm{red}} = \sum_{k=1}^K \tilde{r}_k O_k, \quad \tilde{r}_k = \frac{r_k}{\sum_j r_j}, \quad r_k = \frac{\text{surv}_k}{\mathrm{Var}(O_k) + \varepsilon}
 \]
 
 </div>
