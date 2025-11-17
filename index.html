@@ -9732,7 +9732,7 @@ for n in range(N):
       ensemble, rupture, modulation, and phase operators.
     </p>
 
-    <h4>Axioms of Redundancy & Rigidity</h4>
+    <h4>Axioms of Redundancy &amp; Rigidity</h4>
     <ol>
       <li>
         <strong>(RR1) Ensemble Expectation:</strong> Observables are defined as weighted ensemble averages.<br>
@@ -10630,7 +10630,6 @@ for n in range(N):
 </ul>
 <p>This constitutes the complete measurement protocol for Rigidity and Redundancy axioms.</p>
 
-
     <h4>Observables and acquisition</h4>
     <ul>
       <li><strong>Curvature index:</strong> <span class="math inline">\( \Phi(r,t) \)</span> from spherical‑harmonic curvature analysis.</li>
@@ -10649,6 +10648,156 @@ for n in range(N):
       <li><strong>Uncertainty trace:</strong> List input means/sigmas, Jacobian contributions, and acceptance bands.</li>
       <li><strong>Reproducibility:</strong> Include ensemble size, kernel count, thresholds, penalties, variance and ESS per kernel.</li>
     </ul>
+
+<h4>Interpretation of <span class="math inline">\( \epsilon \)</span> vs <span class="math inline">\( \varepsilon \)</span> in CTMT Dimensional Closure</h4>
+
+<p>
+CTMT employs two visually similar but functionally distinct epsilon symbols. This distinction is deliberate and grounded in the Kernel Dimensional Axiom.
+</p>
+
+<h5>1. Dimensional Residuum — <span class="math inline">\( \epsilon \)</span> (epsilon)</h5>
+
+<p>
+The quantity:
+</p>
+
+<div class="math display">
+
+\[
+\epsilon_{\mathrm{dim}} = \left\| \frac{[Q_k]_{\mathrm{pred}} - [Q_k]_{\mathrm{SI}}}{[Q_k]_{\mathrm{SI}}} \right\|
+\]
+
+</div>
+
+<p>
+uses the classical <span class="math inline">\( \epsilon \)</span>, because:
+</p>
+
+<ul>
+  <li><span class="math inline">\( \epsilon \)</span> measures epistemic mismatch between predicted and SI units,</li>
+  <li><span class="math inline">\( \epsilon \)</span> expresses the closure accuracy of the kernel projection,</li>
+  <li><span class="math inline">\( \epsilon \)</span> is tied to the action invariant <span class="math inline">\( S_\ast = E \nu \)</span>, whose preservation ensures the kernel’s dimensional self-consistency.</li>
+</ul>
+
+<p>
+Thus, <span class="math inline">\( \epsilon \)</span> belongs entirely to the dimensional layer of CTMT: it never enters stability operators, rupture models, or redundancy weights.
+</p>
+
+<h5>2. Stabilization Constant — <span class="math inline">\( \varepsilon \)</span> (varepsilon)</h5>
+
+<p>
+In contrast, all redundancy, rigidity, and collapse-index expressions use the rounder <span class="math inline">\( \varepsilon \)</span>, e.g.:
+</p>
+
+<div class="math display">
+
+\[
+\tilde{r}_k = \frac{\text{surv}_k}{\mathrm{Var}(O_k) + \varepsilon}, \qquad
+\kappa_{\mathrm{rupt}} = \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \varepsilon}
+\]
+
+</div>
+
+<p>
+This <span class="math inline">\( \varepsilon \)</span> is:
+</p>
+
+<ul>
+  <li>a regularization constant,</li>
+  <li>purely numerical,</li>
+  <li>dimensionless,</li>
+  <li>never part of the physical or SI-based dimensional structure,</li>
+  <li>not compared to units or action invariants.</li>
+</ul>
+
+<p>
+It appears only where CTMT must:
+</p>
+
+<ul>
+  <li>avoid division by zero,</li>
+  <li>stabilize redundancy variances,</li>
+  <li>regulate collapse indices under rupture.</li>
+</ul>
+
+<h5>3. Why the Distinction Matters</h5>
+
+<p>
+The Kernel Dimensional Axiom states that dimensional closure depends only on action invariance:
+</p>
+
+<div class="math display">
+
+\[
+[S_\ast]_A = [S_\ast]_B
+\]
+
+</div>
+
+<p>
+This determines whether <span class="math inline">\( \epsilon_{\mathrm{dim}} \to 0 \)</span>.
+</p>
+
+<p>
+Meanwhile, the numerical stability of operators under stochastic or ruptured ensembles is orthogonal to this structure, and so requires a separate symbol <span class="math inline">\( \varepsilon \)</span>.
+</p>
+
+<p>
+Thus CTMT enforces:
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Symbol</th>
+      <th>Domain</th>
+      <th>Interpretation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dimensional mismatch</td>
+      <td><span class="math inline">\( \epsilon \)</span></td>
+      <td>Physical / SI</td>
+      <td>“How far from unit-closed?”</td>
+    </tr>
+    <tr>
+      <td>Stabilization / regularization</td>
+      <td><span class="math inline">\( \varepsilon \)</span></td>
+      <td>Numerical / algorithmic</td>
+      <td>“Prevent singularity under rupture”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+The separation ensures that:
+</p>
+
+<ul>
+  <li>Physical laws and dimensional closure remain falsifiable via <span class="math inline">\( \epsilon \)</span>,</li>
+  <li>Stability operators remain robust via <span class="math inline">\( \varepsilon \)</span>,</li>
+  <li>No ambiguity exists between dimensional and numerical contributions.</li>
+</ul>
+
+<h5>4. Final Closure Condition</h5>
+
+<p>
+A kernel law is dimensionally admissible only if:
+</p>
+
+<div class="math display">
+
+\[
+\epsilon_{\mathrm{dim}} &lt; 10^{-12}
+\]
+
+</div>
+
+<p>
+regardless of the value of any <span class="math inline">\( \varepsilon \)</span> used in redundancy or rigidity. Stability regularizers never “fix” or “hide” dimensional inconsistencies.
+</p>
 
 <h4>Worked Example: Redundancy Operator</h4>
 
@@ -10801,6 +10950,157 @@ O_rig = rigidity[f]
 This syntax is supported in the CTMT-native scripting language and can be executed in notebooks or browser-based playgrounds. All dimensional closure and uncertainty propagation are handled automatically.
 </p>
 
+<h4>Worked Example: Computing the Stabilizer <span class="math inline">\( \varepsilon \)</span></h4>
+
+<p>
+CTMT enforces a strict dimensional closure condition:
+</p>
+
+<div class="math display">
+
+
+\[
+\epsilon_{\mathrm{dim}} &lt; 10^{-12}
+\]
+
+
+</div>
+
+<p>
+This sets the maximum allowable mismatch between predicted and SI units. Any stabilizer <span class="math inline">\( \varepsilon \)</span> must respect this bound and never mask dimensional errors.
+</p>
+
+<h5>Step 1 — Choose a scale reference <span class="math inline">\( s_O \)</span></h5>
+
+<p>
+This is a representative variance scale from your ensemble. You may choose:
+</p>
+
+<ul>
+  <li><strong>Option A:</strong> <span class="math inline">\( s_O = \min_k \mathrm{Var}(O_k) \)</span></li>
+  <li><strong>Option B (robust):</strong> <span class="math inline">\( s_O = \mathrm{quantile}_q(\mathrm{Var}(O_k)), \quad q \in [0.05, 0.20] \)</span></li>
+</ul>
+
+<p>
+Assume we have three kernel variances:
+</p>
+
+<div class="math display">
+
+\[
+\mathrm{Var}(O_1) = 0.04, \quad \mathrm{Var}(O_2) = 0.01, \quad \mathrm{Var}(O_3) = 0.09
+\]
+
+</div>
+
+<p>
+Using Option A:
+</p>
+
+<div class="math display">
+
+\[
+s_O = \min(0.04, 0.01, 0.09) = 0.01
+\]
+
+</div>
+
+<h4>Step 2 — Apply a safety factor <span class="math inline">\( \beta \)</span></h4>
+
+<p>
+This is a small dimensionless constant controlling regularization strength. Choose:
+</p>
+
+<div class="math display">
+
+\[
+\beta = 10^{-4}
+\]
+
+</div>
+
+<h4>Step 3 — Compute the stabilizer <span class="math inline">\( \varepsilon \)</span></h4>
+
+<p>
+Assume the dimensional residuum is:
+</p>
+
+<div class="math display">
+
+\[
+\epsilon_{\mathrm{dim}} = 3 \times 10^{-13}
+\]
+
+</div>
+
+<p>
+Then the stabilizer is:
+</p>
+
+<div class="math display">
+
+\[
+\varepsilon = \beta \cdot \epsilon_{\mathrm{dim}} \cdot s_O = 10^{-4} \cdot 3 \times 10^{-13} \cdot 0.01 = 3 \times 10^{-19}
+\]
+
+</div>
+
+<p>
+This value is:
+</p>
+
+<ul>
+  <li>Dimensionally consistent with <span class="math inline">\( \mathrm{Var}(O_k) \)</span></li>
+  <li>Numerically negligible but nonzero</li>
+  <li>Derived from <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span>, so it never masks dimensional errors</li>
+</ul>
+
+<h5>Summary</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span></td>
+      <td>Closure tolerance (must be <span class="math inline">\( 10^{-12} \)</span>)</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( s_O \)</span></td>
+      <td>Ensemble variance scale</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \beta \)</span></td>
+      <td>Safety factor (regularization strength)</td>
+    </tr>
+    <tr>
+      <td><span class="math inline">\( \varepsilon \)</span></td>
+      <td>Computed stabilizer: <span class="math inline">\( \beta \cdot \epsilon_{\mathrm{dim}} \cdot s_O \)</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+This computed <span class="math inline">\( \varepsilon \)</span> is then used in expressions like:
+</p>
+
+<div class="math display">
+
+\[
+\tilde{r}_k = \frac{\text{surv}_k}{\mathrm{Var}(O_k) + \varepsilon}, \qquad
+\kappa_{\mathrm{rupt}} = \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \varepsilon}
+\]
+
+</div>
+
+<p>
+ensuring numerical stability without violating dimensional closure.
+</p>
+
     <h4>Summary</h4>
     <ul>
       <li><strong>Dimensional closure</strong> is enforced by unitless exponents and SI‑carrying prefactors.</li>
@@ -10854,307 +11154,448 @@ This syntax is supported in the CTMT-native scripting language and can be execut
 <pre><code class="language-python">#!/usr/bin/env python3
 """
 Runnable implementation of CTMT operator calculus:
-- RMI ensemble constructor (toy)
-- Terror deformation (multiplicative & additive)
-- Redundancy aggregation (reliability weights)
-- Rigidity weighting (wrapped-phase penalty)
-- Diagnostics: ESS, survival fractions, variances, inequality check
-- Small uncertainty propagation sketch (Jacobian-on-ensemble)
+ - RMI ensemble construction (toy + "Everest" and "Dense medium" examples)
+ - Terror deformation (lognormal multiplicative + Cauchy additive)
+ - Redundancy aggregation (reliability weights)
+ - Rigidity penalty (wrapped 2π distance)
+ - Uncertainty propagation (Jacobian-on-ensemble + ensemble cov)
+ - Dimensional closure residuum test (simple, explicit check)
+ - Reporting / diagnostics printed to stdout
 
-Requirements: numpy (matplotlib optional)
+Requires: numpy (>=1.17)
 """
 
-from __future__ import annotations
 import numpy as np
-from typing import Tuple, Dict
+from math import pi, sin, cos
+import sys
 
-# Optional plotting
-try:
-    import matplotlib.pyplot as plt
-    _HAS_PLOT = True
-except Exception:
-    _HAS_PLOT = False
+np.set_printoptions(precision=6, suppress=True)
 
-# ----------------------------
-# Reproducibility / units note
-# ----------------------------
-# All toy numbers are dimensionless unless C_phys / physical scales are explicitly applied.
-# For publication runs: include C_phys, S_star units, and convert outputs to SI units as required.
-
-SEED = 2025
-np.random.seed(SEED)
-
-# ----------------------------
-# Parameters (toy demo)
-# ----------------------------
-N = 2000          # ensemble size per kernel
-K = 3             # number of redundant kernels
-S_star = 1.0      # modulation scale (dimensionless demo)
-tau = 0.6         # volatility threshold (coherence proxy)
-rigidity_lambda = 1.5  # rigidity penalty strength
-sigma_terror = 0.40     # multiplicative lognormal sigma for terror
-shock_scale = 0.02      # additive shock scale
-
-# Small regularizer for variance denominators
-EPS = 1e-12
-
-# ----------------------------
-# Helper operators (concrete)
-# ----------------------------
-def rmi_constructor(K: int, N: int, seed: int = None) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """
-    Build toy RMI ensembles for K kernels, each with N members.
-    Returns Xi (KxN), Phi (KxN), w (KxN normalized).
-    """
-    if seed is not None:
-        rng = np.random.RandomState(seed)
-    else:
-        rng = np.random
-
-    # base samples (toy: normal)
-    x = rng.normal(0, 1.0, size=(K, N))
-    xp = rng.normal(0, 1.0, size=(K, N))
-
-    # let each kernel differ slightly (toy heterogeneity)
-    kernel_scale = 1.0 + 0.1 * np.arange(K)[:, None]  # shape (K,1)
-
-    Xi = np.exp(-(x**2 + xp**2) * kernel_scale)
-    Phi = (np.sin(x) - np.cos(xp)) * (1.0 + 0.2 * np.arange(K)[:, None])
-    w = np.ones((K, N)) / float(N)
-    return Xi, Phi, w
-
-def apply_terror(Xi: np.ndarray, Phi: np.ndarray, sigma: float, shock_scale: float, rng: np.random.RandomState):
-    """
-    Terror deformation: multiplicative lognormal distortion + additive Cauchy-like shocks
-    Returns Xi_terror, complex_terms_with_shock
-    """
-    K, N = Xi.shape
-    mult = rng.lognormal(mean=0.0, sigma=sigma, size=(K, N))
-    Xi_terror = Xi * mult
-    # additive shocks (Cauchy-like heavy tails)
-    shocks = rng.standard_cauchy(size=(K, N)) * shock_scale
-    return Xi_terror, shocks
-
-def phase_distance_to_2pi(phi: np.ndarray) -> np.ndarray:
-    """
-    Wrapped absolute distance to nearest multiple of 2π.
-    phi expected dimensionless (phase / S_star).
-    """
-    mod = ((phi + np.pi) % (2 * np.pi)) - np.pi
+# -----------------------------
+# Utilities
+# -----------------------------
+def wrapped_distance_2pi(phi):
+    """Wrapped absolute distance to nearest multiple of 2π (phi in radians)."""
+    # map to (-pi, pi]
+    mod = ((phi + pi) % (2*pi)) - pi
     return np.abs(mod)
 
-def ensemble_expectation(w: np.ndarray, terms: np.ndarray) -> np.ndarray:
-    """
-    Weighted sum across ensemble axis for each kernel.
-    w.shape == terms.shape == (K,N)
-    returns shape (K,) complex
-    """
-    return (w * terms).sum(axis=1)
+def effective_sample_size(weights):
+    """ESS for weights (must sum to 1 ideally)."""
+    w = np.asarray(weights)
+    s = w.sum()
+    if s == 0:
+        return 0.0
+    w = w / s
+    return 1.0 / np.sum(w**2)
 
-def effective_sample_size(w: np.ndarray) -> np.ndarray:
-    """
-    Compute ESS per kernel: ESS = 1 / sum(w_i^2)
-    w is (K,N) with row sums equal to 1 (per-kernel normalized).
-    """
-    return 1.0 / np.sum(w**2, axis=1)
+def ensure_seed(seed=42):
+    np.random.seed(seed)
 
-# ----------------------------
-# Core pipeline implementations
-# ----------------------------
-def compute_RMI_observable(Xi: np.ndarray, Phi: np.ndarray, w: np.ndarray, S_star: float):
+# -----------------------------
+# Core CTMT primitives (numpy)
+# -----------------------------
+def rmi_construct(N, scale=1.0, kernel_id=0):
+    """
+    Construct toy RMI ensemble fields per kernel.
+    Returns dictionaries with Xi, Phi, w (weights).
+    kernel_id controls slight perturbation between kernels.
+    """
+    # sample coordinates (toy)
+    x = np.random.normal(0, 1.0, size=N)
+    xp = np.random.normal(0, 1.0, size=N)
+    # amplitude envelope (slightly kernel-dependent)
+    Xi = np.exp(-(x**2 + xp**2) * (1.0 + 0.05 * kernel_id) / scale)
+    # phase field: allow kernel-dependent modulation amplitude
+    Phi = (np.sin(x) - np.cos(xp)) * (1.0 + 0.15 * kernel_id)
+    # uniform weights to start
+    w = np.ones_like(Xi) / float(N)
+    # volatility proxy (abs phase for toy)
+    sigma = np.abs(Phi)
+    return dict(Xi=Xi, Phi=Phi, w=w, sigma=sigma, x=x, xp=xp)
+
+def apply_rupture_filter(ensemble, tau, ensure_survivor=True):
+    """Apply rupture mask by thresholding coherence proxy C_i = Xi*cos(Phi/S*)."""
+    S_star = ensemble.get('S_star', 1.0)
+    C = ensemble['Xi'] * np.cos(ensemble['Phi'] / S_star)
+    mask = (C > tau)
+    if ensure_survivor and mask.sum() == 0:
+        # keep the largest-proxy one
+        idx = np.argmax(C)
+        mask[idx] = True
+    # renormalize weights on survivors
+    w = np.zeros_like(ensemble['w'])
+    surv = mask.nonzero()[0]
+    if surv.size > 0:
+        w_surv = ensemble['w'][surv]
+        w[surv] = w_surv / np.sum(w_surv)
+    ensemble2 = ensemble.copy()
+    ensemble2['mask'] = mask
+    ensemble2['w_surv'] = w
+    ensemble2['survival_fraction'] = mask.mean()
+    return ensemble2
+
+def rmi_observable(ensemble, S_star=1.0):
+    """Compute RMI observable for given ensemble dict (complex)"""
+    Xi = ensemble['Xi']
+    Phi = ensemble['Phi']
+    w = ensemble.get('w_surv', ensemble['w'])
     terms = Xi * np.exp(1j * Phi / S_star)
-    O = ensemble_expectation(w, terms)
-    return O, terms
+    return np.sum(w * terms)
 
-def compute_terror_observable(Xi: np.ndarray, Phi: np.ndarray, w: np.ndarray,
-                              sigma_terror: float, shock_scale: float, S_star: float, rng):
-    Xi_terror, shocks = apply_terror(Xi, Phi, sigma_terror, shock_scale, rng)
-    terms = Xi_terror * np.exp(1j * Phi / S_star) + shocks
-    O = ensemble_expectation(w, terms)
-    return O, terms, Xi_terror, shocks
+def terror_deform(ensemble, sigma_terror=0.4, shock_scale=0.02):
+    """Apply multiplicative lognormal and additive Cauchy-like shocks to Xi/terms."""
+    Xi = ensemble['Xi'].copy()
+    # multiplicative lognormal
+    mult = np.random.lognormal(mean=0.0, sigma=sigma_terror, size=Xi.shape)
+    Xi_terror = Xi * mult
+    # additive shocks (Cauchy-like heavy tail scaled)
+    shocks = np.random.standard_cauchy(size=Xi.shape) * shock_scale
+    ensemble_t = ensemble.copy()
+    ensemble_t['Xi'] = Xi_terror
+    ensemble_t['shocks'] = shocks
+    return ensemble_t
 
-def redundancy_aggregate(RMI_terms: np.ndarray, w: np.ndarray, threshold: float):
+def compute_terror_observable(ensemble, S_star=1.0):
+    Xi = ensemble['Xi']
+    Phi = ensemble['Phi']
+    shocks = ensemble.get('shocks', np.zeros_like(Xi))
+    w = ensemble.get('w_surv', ensemble['w'])
+    terms = Xi * np.exp(1j * Phi / S_star) + shocks
+    return np.sum(w * terms)
+
+# -----------------------------
+# Redundancy & Rigidity
+# -----------------------------
+def compute_redundancy(Oks, survival_fractions, vars_k, epsilon=1e-12):
     """
-    RMI_terms: complex array (K,N) containing Xi * exp(i Phi / S*)
-    w: (K,N) original weights (normalized per row)
-    threshold: prune threshold on coherence proxy (real part)
-    returns: Redundancy_output (complex scalar), per-kernel diagnostics
+    Oks: array of complex per-kernel observables
+    survival_fractions: per-kernel survival fractions
+    vars_k: per-kernel variance (real) of real(O_k) or magnitude
+    returns aggregated complex O_red and normalized reliability weights
     """
-    K, N = RMI_terms.shape
-    coherence_proxy = RMI_terms.real  # proxy = Xi cos(Phi/S*)
-    masks = coherence_proxy > threshold
-    # ensure at least one survivor per kernel
-    for k in range(K):
-        if masks[k].sum() == 0:
-            masks[k, np.argmax(coherence_proxy[k])] = True
+    surv = np.asarray(survival_fractions)
+    var = np.asarray(vars_k)
+    # reliability r_k = surv_k / (Var_k + eps)
+    r = surv / (var + epsilon)
+    if np.all(r == 0):
+        r = np.ones_like(r)
+    r_norm = r / r.sum()
+    O_red = np.sum(r_norm * Oks)
+    return O_red, r_norm, r
 
-    weights_surv = np.zeros_like(w)
-    survival_fraction = masks.sum(axis=1) / float(N)
-    for k in range(K):
-        surv_idx = masks[k]
-        ws = w[k, surv_idx]
-        # renormalize on survivors
-        if ws.sum() &lt;= 0:
-            # fallback: uniform survivors
-            idx = np.where(surv_idx)[0]
-            ws = np.ones_like(idx) / float(len(idx))
-            weights_surv[k, surv_idx] = ws
-        else:
-            weights_surv[k, surv_idx] = ws / ws.sum()
-
-    survivor_obs = ensemble_expectation(weights_surv, RMI_terms)
-    # per-kernel variance on real part of survivor-weighted terms
-    kernel_variance = np.array([
-        np.var((weights_surv[k] * RMI_terms.real[k])[masks[k]]) if masks[k].sum() > 1 else 1e-9
-        for k in range(K)
-    ])
-    # reliability and normalized reliability weights
-    reliability = survival_fraction / (kernel_variance + EPS)
-    rel_weights = reliability / (np.sum(reliability) + EPS)
-    Redundancy_output = np.sum(rel_weights[:, None].flatten() * survivor_obs.flatten())
-    # For clarity: rel_weights shape (K,), survivor_obs (K,) -> weighted sum
-    Redundancy_output = (rel_weights * survivor_obs).sum()
-    return {
-        "O_red": Redundancy_output,
-        "survival_fraction": survival_fraction,
-        "kernel_variance": kernel_variance,
-        "rel_weights": rel_weights,
-        "survivor_obs": survivor_obs,
-        "weights_surv": weights_surv,
-        "masks": masks
-    }
-
-def rigidity_observable(Xi: np.ndarray, Phi: np.ndarray, w: np.ndarray, S_star: float, rigidity_lambda: float):
-    deviation = phase_distance_to_2pi(Phi / S_star)
-    rigid_w = np.exp(-rigidity_lambda * deviation)
-    # apply rigidity weight multiplicatively into terms
+def compute_rigidity_per_kernel(ensemble, S_star=1.0, lambda_rig=1.5):
+    """Compute rigidity-weighted observable per kernel."""
+    Xi = ensemble['Xi']
+    Phi = ensemble['Phi']
+    w = ensemble.get('w_surv', ensemble['w'])
+    deviation = wrapped_distance_2pi(Phi / S_star)
+    rigid_w = np.exp(-lambda_rig * deviation)
     terms = Xi * rigid_w * np.exp(1j * Phi / S_star)
-    O_rig = ensemble_expectation(w, terms)
-    return O_rig, rigid_w, terms
+    return np.sum(w * terms), rigid_w
 
-# ----------------------------
-# Uncertainty sketch: Jacobian-on-ensemble
-# ----------------------------
-def uncertainty_propagation_imagpart(Xi: np.ndarray, Phi: np.ndarray, mask: np.ndarray = None, S_star: float = 1.0):
+# -----------------------------
+# Uncertainty propagation
+# -----------------------------
+def ensemble_cov(Xvecs):
     """
-    Sketch of uncertainty propagation for observable O = E[ Im(Xi * exp(i Phi / S*)) ].
-    We'll compute per-ensemble gradient and an empirical covariance.
-    This is illustrative, not a full Bayesian treatment.
-    Returns sigma_O per kernel (real-valued)
+    Xvecs: (m, n) array where m variables and n samples (rows=vars, cols=samples)
+    returns covariance matrix (m x m) computed across samples (unbiased)
     """
-    K, N = Xi.shape
-    if mask is None:
-        mask = np.ones_like(Xi, dtype=bool)
-    sigma_O = np.zeros(K)
+    arr = np.asarray(Xvecs)
+    if arr.ndim != 2:
+        raise ValueError("Xvecs must be 2D (m variables x n samples)")
+    return np.cov(arr, bias=False)
+
+def jacobian_on_ensemble_numeric(func, ensemble, var_names=('Xi','Phi'), eps=1e-6):
+    """
+    Compute ensemble-average Jacobian for observable func(ensemble) w.r.t Xi and Phi numerically.
+    func should accept an ensemble dict and return scalar (real) observable (or real part).
+    Returns J = [dO/dXi_mean, dO/dPhi_mean] (vector)
+    """
+    # baseline
+    base = func(ensemble)
+    # perturb Xi mean (uniform small perturbation)
+    J = []
+    for name in var_names:
+        arr = ensemble[name]
+        perturb = np.zeros_like(arr)
+        # perturb mean by eps relative to typical scale
+        delta = eps * (np.std(arr) + 1e-12)
+        perturb[:] = delta
+        ens_p = ensemble.copy()
+        ens_p[name] = arr + perturb
+        val_p = func(ens_p)
+        deriv = (val_p - base) / (delta * arr.size)  # approximate derivative per-sample mean
+        J.append(deriv)
+    return np.array(J)
+
+def propagate_uncertainty(J_vec, Cov_mat):
+    """
+    Simple quadratic form propagation: sigma^2 = J^T Cov J
+    J_vec: shape (m,)
+    Cov_mat: (m,m)
+    """
+    J = np.asarray(J_vec)
+    C = np.asarray(Cov_mat)
+    return float(J @ C @ J)
+
+# -----------------------------
+# Dimensional closure check (simple)
+# -----------------------------
+def dimensional_residuum(operator_units, expected_units):
+    """
+    Simple residuum calculator: if strings equal -> residuum 0; else 1.
+    In real publication use symbolic unit algebra (e.g., pint).
+    Here we provide a numeric residuum for demonstration:
+    """
+    if operator_units == expected_units:
+        return 0.0
+    # crude numeric residuum: detect shared tokens
+    set_op = set(operator_units.replace(' ', '').split('/'))
+    set_exp = set(expected_units.replace(' ', '').split('/'))
+    shared = len(set_op.intersection(set_exp))
+    total = max(1, len(set_op.union(set_exp)))
+    # residuum in [0,1]
+    return 1.0 - (shared / total)
+
+# -----------------------------
+# Reporting helper
+# -----------------------------
+def report_summary(title, data_dict):
+    print("\n" + "="*60)
+    print(title)
+    print("="*60)
+    for k, v in data_dict.items():
+        print(f"{k:30s} : {v}")
+    print("="*60 + "\n")
+
+# -----------------------------
+# Worked demos
+# -----------------------------
+def demo_redundancy_rigidity(N=3000, K=3, seed=42):
+    ensure_seed(seed)
+    S_star = 0.9
+    tau = 0.3
+    lambda_rig = 1.5
+
+    # Build K kernels ensembles
+    ensembles = []
     for k in range(K):
-        idx = mask[k]
-        if idx.sum() == 0:
-            sigma_O[k] = 0.0
-            continue
-        Xi_k = Xi[k, idx]
-        Phi_k = Phi[k, idx]
-        # f = Im[ Xi * exp(i Phi / S*) ]
-        # partials:
-        df_dXi = np.imag(np.exp(1j * Phi_k / S_star))
-        df_dPhi = np.imag(1j * Xi_k / S_star * np.exp(1j * Phi_k / S_star))
-        # empirical cov of (Xi, Phi)
-        X = np.vstack([Xi_k, Phi_k])
-        Cov = np.cov(X)
-        # stack average gradient
-        J = np.array([df_dXi.mean(), df_dPhi.mean()])
-        # propagate: J^T Cov J (scalar)
-        sigma2 = J.T @ Cov @ J
-        sigma_O[k] = np.sqrt(np.abs(sigma2))
-    return sigma_O
+        e = rmi_construct(N=N, scale=1.0, kernel_id=k)
+        e['S_star'] = S_star
+        ensembles.append(e)
 
-# ----------------------------
-# Run a demo
-# ----------------------------
-def run_demo():
-    print("CTMT Chapter B — Computational Kernel Demo")
-    print("Seed:", SEED)
-    Xi, Phi, w = rmi_constructor(K=K, N=N, seed=SEED)
+    # Compute RMI observables before pruning
+    O_rmi = np.array([rmi_observable(e, S_star=S_star) for e in ensembles])
 
-    # 1) Baseline RMI
-    O_rmi, RMI_terms = compute_RMI_observable(Xi, Phi, w, S_star)
-    print("\nRMI per-kernel (real):", np.round(O_rmi.real, 5))
-    ess_rmi = effective_sample_size(w)
-    print("ESS per kernel:", np.round(ess_rmi, 1))
+    # Terror deformation on copies
+    ensembles_terror = [terror_deform(e, sigma_terror=0.4, shock_scale=0.02) for e in ensembles]
+    O_terror = np.array([compute_terror_observable(e, S_star=S_star) for e in ensembles_terror])
 
-    # 2) Terror deformation (stress-test)
-    rng = np.random.RandomState(SEED + 1)
-    O_ter, Terror_terms, Xi_ter, shocks = compute_terror_observable(
-        Xi, Phi, w, sigma_terror, shock_scale, S_star, rng
-    )
-    print("\nTerror per-kernel (real):", np.round(O_ter.real, 5))
+    # Apply rupture filter & compute per-kernel RMI after pruning
+    ensembles_pruned = [apply_rupture_filter(e, tau=tau) for e in ensembles]
+    O_rmi_pruned = np.array([rmi_observable(e, S_star=S_star) for e in ensembles_pruned])
 
-    # 3) Redundancy aggregation
-    red = redundancy_aggregate(RMI_terms, w, threshold=0.1)
-    O_red = red["O_red"]
-    print("\nRedundancy aggregate (complex):", np.round(O_red, 5))
-    print("Survival fraction per kernel:", np.round(red["survival_fraction"], 3))
-    print("Per-kernel variance (real survivor-weighted):", np.round(red["kernel_variance"], 5))
-    print("Reliability weights per kernel:", np.round(red["rel_weights"], 3))
+    # Compute per-kernel variances of real parts (on survivors)
+    vars_k = []
+    survival_fracs = []
+    for e in ensembles_pruned:
+        mask = e['mask']
+        survival_fracs.append(e['survival_fraction'])
+        if mask.sum() > 1:
+            vals = (e['w_surv'] * (e['Xi'] * np.cos(e['Phi']/S_star)))[mask]
+            vars_k.append(np.var(vals))
+        else:
+            vars_k.append(1e-9)
 
-    # 4) Rigidity observable
-    O_rig, rigid_w, Rigidity_terms = rigidity_observable(Xi, Phi, w, S_star, rigidity_lambda)
-    print("\nRigidity per-kernel (real):", np.round(O_rig.real, 5))
+    # Redundancy aggregate
+    O_red, rel_weights, r_raw = compute_redundancy(O_rmi_pruned, survival_fracs, vars_k)
 
-    # 5) Cross-check inequality
-    # For demonstration, compute simple scalar sigma estimates using uncertainty_propagation_imagpart
-    mask = red["masks"]
-    sigma_red = uncertainty_propagation_imagpart(Xi, Phi, mask=mask, S_star=S_star).mean()
-    sigma_rig = uncertainty_propagation_imagpart(Xi * np.exp(-rigidity_lambda * phase_distance_to_2pi(Phi / S_star)),
-                                                 Phi, mask=None, S_star=S_star).mean()
-    lhs = np.abs(O_red - O_rig)
-    rhs = 2.0 * np.sqrt(sigma_red**2 + sigma_rig**2 + EPS)
-    print("\nCross-check inequality: |O_red - O_rig| &lt;= 2 sqrt(sigma_red^2 + sigma_rig^2)")
-    print("LHS:", np.round(np.abs(lhs), 6), " RHS:", np.round(rhs, 6))
-    passed = np.abs(lhs) &lt;= rhs
-    print("Inequality passed:", bool(passed))
+    # Rigidity per kernel
+    O_rig_k = []
+    rigid_weights = []
+    for e in ensembles_pruned:
+        orig, rw = compute_rigidity_per_kernel(e, S_star=S_star, lambda_rig=lambda_rig)
+        O_rig_k.append(orig)
+        rigid_weights.append(rw)
+    O_rig_k = np.array(O_rig_k)
+    O_rig_mean = O_rig_k.mean()
 
-    # 6) Terror impact measure
-    delta_ter = np.abs(O_ter - O_rmi)
-    print("\nTerror impact (per kernel abs diff):", np.round(delta_ter, 6))
+    # Compute uncertainties (toy)
+    # Ensemble covariance of [Xi_mean, Phi_mean] across kernels (m=2, n=K)
+    Xi_means = np.array([e['Xi'].mean() for e in ensembles_pruned])
+    Phi_means = np.array([e['Phi'].mean() for e in ensembles_pruned])
+    Cov_ens = np.cov(np.vstack([Xi_means, Phi_means]), bias=False)
 
-    # 7) ESS and final reporting template
-    ess_surv = effective_sample_size(red["weights_surv"])
-    print("\nReporting:")
-    print(f"Ensemble size N = {N}, kernels K = {K}, seed = {SEED}")
-    print("Mean RMI real:", np.round(O_rmi.real.mean(), 6))
-    print("Mean Terror real:", np.round(O_ter.real.mean(), 6))
-    print("Redundancy magnitude:", np.round(np.abs(O_red), 6))
-    print("Rigidity mean real:", np.round(O_rig.real.mean(), 6))
-    print("Mean survival fraction:", np.round(red["survival_fraction"].mean(), 4))
-    print("ESS (RMI mean):", np.round(ess_rmi.mean(), 1))
-    print("ESS (post-prune mean):", np.round(ess_surv.mean(), 1))
-    print("\nDiagnostics dictionary keys available for deeper inspection: red.keys()")
+    # Jacobian: approximate ensemble-average gradient of real observable w.r.t Xi_mean & Phi_mean
+    def obs_real_mean(ens):
+        return float(np.real(rmi_observable(ens, S_star=ens.get('S_star', S_star))))
+    # For demonstration compute Jacobian numerically per-kernel and average
+    J_list = []
+    for e in ensembles_pruned:
+        J = jacobian_on_ensemble_numeric(lambda E: np.real(rmi_observable(E, S_star=S_star)), e)
+        J_list.append(J)
+    J_ens = np.mean(np.vstack(J_list), axis=0)
 
-    # Optional plots (phase histograms and survival)
-    if _HAS_PLOT:
-        fig, axes = plt.subplots(2, K, figsize=(4 * K, 6))
-        for k in range(K):
-            axes[0, k].hist(Phi[k] / S_star, bins=60)
-            axes[0, k].set_title(f"Kernel {k} phase (Phi/S*)")
-            axes[1, k].hist(Phi[k][red["masks"][k]] / S_star, bins=40)
-            axes[1, k].set_title(f"Kernel {k} phase survivors")
-        plt.tight_layout()
-        plt.show()
+    sigma_ens2 = propagate_uncertainty(J_ens, Cov_ens)
+    # rupture uncertainty estimate (toy: use variance of mask volatility)
+    sigma_rupt2 = np.mean([np.var(e['sigma']) for e in ensembles_pruned])
+    # stability uncertainty
+    sigma_red2 = np.sum(rel_weights**2 * np.array(vars_k))
+    sigma_rig2 = (lambda_rig**2) * np.mean([np.mean(wt**2) for wt in rigid_weights])
+    sigma_stab2 = sigma_red2 + sigma_rig2
+
+    sigma_total2 = sigma_ens2 + sigma_rupt2 + sigma_stab2
+
+    # Cross-check inequality
+    sigma_red = np.sqrt(sigma_red2)
+    sigma_rig = np.sqrt(sigma_rig2)
+    lhs = abs(O_red.real - O_rig_mean.real)
+    rhs = 2.0 * np.sqrt(sigma_red2 + sigma_rig2)
+    consistency = lhs &lt;= rhs
+
+    # Residuum check (toy unit strings)
+    # e.g., RMI observable expects "amplitude" unit; here we assume amplitude matches
+    resid_RMI = dimensional_residuum("amplitude", "amplitude")
+    resid_red = dimensional_residuum("amplitude", "amplitude")
+    resid_rig = dimensional_residuum("amplitude", "amplitude")
+
+    # ESS per kernel
+    ess_k = [effective_sample_size(e['w_surv']) for e in ensembles_pruned]
+
+    # Print report
+    report_summary("CTMT Demo — Redundancy & Rigidity (toy)", {
+        "N (per kernel)": N,
+        "K (kernels)": K,
+        "S_*": S_star,
+        "tau (prune)": tau,
+        "lambda_rig": lambda_rig,
+        "O_RMI_real_per_kernel": np.real(O_rmi),
+        "O_RMI_pruned_real_per_kernel": np.real(O_rmi_pruned),
+        "O_Terror_real_per_kernel": np.real(O_terror),
+        "O_red_real": float(np.real(O_red)),
+        "O_rig_mean_real": float(np.real(O_rig_mean)),
+        "rel_weights": rel_weights,
+        "survival_fractions": survival_fracs,
+        "vars_k": vars_k,
+        "ESS_per_kernel": ess_k,
+        "sigma_ens (est)": np.sqrt(sigma_ens2),
+        "sigma_rupt (est)": np.sqrt(sigma_rupt2),
+        "sigma_red (est)": sigma_red,
+        "sigma_rig (est)": sigma_rig,
+        "sigma_total (est)": np.sqrt(sigma_total2),
+        "residuum_RMI": resid_RMI,
+        "cross_path_consistency_lhs": lhs,
+        "cross_path_consistency_rhs": rhs,
+        "consistency_pass": consistency
+    })
 
     return {
-        "O_rmi": O_rmi,
-        "O_ter": O_ter,
-        "O_red": O_red,
-        "O_rig": O_rig,
-        "red": red,
-        "Xi": Xi,
-        "Phi": Phi,
-        "w": w
+        'ensembles_pruned': ensembles_pruned,
+        'O_red': O_red,
+        'O_rig_mean': O_rig_mean,
+        'sigma_total2': sigma_total2
     }
+
+# -----------------------------
+# Physical worked examples (Everest + Dense medium D calculation)
+# -----------------------------
+def physical_kernel_distance_examples():
+    # Provided numeric constants from user's examples
+    # Everest (optical envelope) numbers
+    M1_e = 1.0e-3        # m (given)
+    Theta_e = 5.0e14    # s^-1
+    gamma_e = 2.44e12   # s^-1
+
+    v_sync_e = M1_e * Theta_e
+    D_e = v_sync_e / gamma_e
+
+    # Uncertainty fractions provided
+    sigma_M1_frac = 0.02
+    sigma_Theta_frac = 0.005
+    sigma_gamma_frac = 0.05
+
+    # Compute sigma_D via propagation formula:
+    # sigma_D^2 = (Theta/gamma * sigma_M1)^2 + (M1/gamma * sigma_Theta)^2 + (M1*Theta/gamma^2 * sigma_gamma)^2
+    sigma_M1 = sigma_M1_frac * M1_e
+    sigma_Theta = sigma_Theta_frac * Theta_e
+    sigma_gamma = sigma_gamma_frac * gamma_e
+
+    sigma_D2 = (Theta_e/gamma_e * sigma_M1)**2 + (M1_e/gamma_e * sigma_Theta)**2 + ((M1_e*Theta_e)/(gamma_e**2) * sigma_gamma)**2
+    sigma_D = np.sqrt(sigma_D2)
+
+    # Dense medium (underwater acoustics) numbers
+    M1_d = 5.0e-2
+    Theta_d = 5.0e3
+    gamma_d = 1.08e2
+    delta = 0.02
+    rho = 1.03
+    beta = 0.5
+
+    v_sync_d = M1_d * Theta_d
+    D_d = v_sync_d / gamma_d
+
+    # medium correction f = 1 - beta * rho * delta
+    f = 1.0 - beta * rho * delta
+    D_d_prime = f * D_d
+
+    # uncertainties (given)
+    sigma_M1_frac_d = 0.03
+    sigma_Theta_frac_d = 0.01
+    sigma_gamma_frac_d = 0.10
+
+    sigma_M1_d = sigma_M1_frac_d * M1_d
+    sigma_Theta_d = sigma_Theta_frac_d * Theta_d
+    sigma_gamma_d = sigma_gamma_frac_d * gamma_d
+
+    sigma_D2_d = (Theta_d/gamma_d * sigma_M1_d)**2 + (M1_d/gamma_d * sigma_Theta_d)**2 + ((M1_d*Theta_d)/(gamma_d**2) * sigma_gamma_d)**2
+    sigma_D_d = np.sqrt(sigma_D2_d)
+    sigma_Dp = f * sigma_D_d  # scale uncertainty with correction
+
+    report_summary("Physical Kernel Distance Examples (Everest & Dense medium)", {
+        "Everest M1 (m)": M1_e,
+        "Everest Theta (s^-1)": Theta_e,
+        "Everest gamma (s^-1)": gamma_e,
+        "Everest v_sync (m/s)": v_sync_e,
+        "Everest D (m)": D_e,
+        "Everest sigma_D (m)": sigma_D,
+        "Dense M1 (m)": M1_d,
+        "Dense Theta (s^-1)": Theta_d,
+        "Dense gamma (s^-1)": gamma_d,
+        "Dense v_sync (m/s)": v_sync_d,
+        "Dense D (m)": D_d,
+        "Medium correction f": f,
+        "Dense D' (m)": D_d_prime,
+        "Dense sigma_D (m)": sigma_D_d,
+        "Dense sigma_D' (m)": sigma_Dp
+    })
+
+    return {
+        'Everest': (D_e, sigma_D),
+        'Dense': (D_d_prime, sigma_Dp)
+    }
+
+# -----------------------------
+# Main entry
+# -----------------------------
+def main():
+    print("CTMT — full single-file demo\n")
+    # Demo A: redundancy & rigidity toy ensembles
+    outputs = demo_redundancy_rigidity(N=3000, K=3, seed=12345)
+
+    # Demo B: physical kernel distances
+    phys = physical_kernel_distance_examples()
+
+    # Final note
+    print("NOTE: this script is a demonstration. For publication-quality pipelines:")
+    print("- replace toy ensembles with measured Xi, Phi fields")
+    print("- replace residuum() with a units library (e.g., pint) and symbolic checking")
+    print("- compute Jacobians analytically where possible or use adjoint methods for scale")
+    print("- publish seeds, N, K, tau_r, lambda_rig, C_phys and full diagnostics\n")
 
 if __name__ == "__main__":
-    out = run_demo()
-    # out contains detailed arrays for further programmatic analysis
+    main()
 
 # Example (typical toy) outputs you should see when running:
 # RMI per-kernel (real): [0.11055 0.12785 0.08983]
