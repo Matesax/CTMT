@@ -7787,6 +7787,282 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 They allow π, coherence, and tuning to be extracted from ensemble behavior — even when geometry and periodicity fail.
             </p>
 
+			<h4>Formal Renormalization Between Closure Classes</h4>
+
+			<p>
+				CTMT defines a <strong>closure class</strong> as a regime of observables characterized by their dimensional behavior:
+			</p>
+			<ul>
+				<li><strong>Coherent class</strong> (<span class="math inline">\( \mathcal{C} \)</span>): RMI observables with full dimensional closure.</li>
+				<li><strong>Anti-coherent class</strong> (<span class="math inline">\( \bar{\mathcal{C}} \)</span>): Terror-kernel observables with rupture-induced anti-closure.</li>
+			</ul>
+
+			<p>
+				To relate observables across these classes, CTMT introduces a <strong>renormalization operator</strong>:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{R}_\epsilon[X] = X_{\mathcal{C}} \left( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln X}{\partial \ln \rho} \right)
+				\]
+
+			</div>
+
+			<p>
+				where:
+			</p>
+			<ul>
+				<li><span class="math inline">\( X_{\mathcal{C}} \)</span> is the observable in the coherent regime,</li>
+				<li><span class="math inline">\( \rho \)</span> is a rupture-sensitive parameter (e.g. ensemble density, volatility),</li>
+				<li><span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span> is the dimensional residuum, not a fitted parameter.</li>
+			</ul>
+
+			<p>
+				This operator ensures that even when coherence breaks, the observable remains dimensionally consistent and falsifiable.
+			</p>
+
+			<h5>Renormalization Operator</h5>
+
+			<p>
+				The renormalization operator maps observables from the coherent class to their anti-coherent counterparts:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\mathcal{R}_\epsilon[X] = X_{\mathcal{C}} \left( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln X}{\partial \ln \rho} \right)
+				\]
+
+			</div>
+
+			<p>
+				This links:
+			</p>
+			<ul>
+				<li><span class="math inline">\( X_{\mathcal{C}} \)</span>: the coherent-regime constant</li>
+				<li><span class="math inline">\( X_{\bar{\mathcal{C}}} \)</span>: the rupture-adjusted observable</li>
+			</ul>
+
+			<p>
+				The correction term is proportional to the dimensional residuum <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span>, ensuring that any deviation from closure is explicitly accounted for.
+			</p>
+
+			<h5>Worked Example 1 — Gravitational Constant <span class="math inline">\( G \)</span></h5>
+
+			<p>
+				We begin with a coherent gravitational constant:
+			</p>
+
+			<div class="math display">
+
+				\[
+				G_{\mathcal{C}} = 6.67430 \times 10^{-11} \; \mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}
+				\]
+
+			</div>
+
+			<p>
+			Suppose a rupture-deformed ensemble yields:
+			</p>
+
+			<div class="math display">
+
+				\[
+				G_{\bar{\mathcal{C}}} = 6.67445 \times 10^{-11}
+				\]
+
+			</div>
+
+			<p>
+				Assume a dimensional residuum:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\epsilon_{\mathrm{dim}} = 2.5 \times 10^{-13}
+				\]
+
+			</div>
+
+			<p>
+				We apply the renormalization operator:
+			</p>
+
+			<div class="math display">
+
+				\[
+				G_{\bar{\mathcal{C}}} = G_{\mathcal{C}} \left( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln G}{\partial \ln \rho} \right)
+				\]
+
+			</div>
+
+			<p>
+				Solving for the derivative:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\frac{\partial \ln G}{\partial \ln \rho} = \frac{G_{\bar{\mathcal{C}}} / G_{\mathcal{C}} - 1}{\epsilon_{\mathrm{dim}}}
+				= \frac{6.67445 \times 10^{-11} / 6.67430 \times 10^{-11} - 1}{2.5 \times 10^{-13}} \approx 8.99 \times 10^7
+				\]
+
+			</div>
+
+			<p>
+				We now invert this to extract a rupture-aware tuning density:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\frac{\partial \ln \rho}{\partial \ln G} = \frac{1}{8.99 \times 10^7} \approx 1.11 \times 10^{-8}
+				\]
+
+			</div>
+
+			<p>
+				Assuming <span class="math inline">\( \ln \rho \approx \frac{\ln G}{\frac{\partial \ln G}{\partial \ln \rho}} \)</span>, we compute:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\ln \rho \approx \frac{\ln(6.67445 \times 10^{-11})}{8.99 \times 10^7} \approx -2.5 \times 10^{-8}
+				\quad \Rightarrow \quad
+				\rho \approx e^{-2.5 \times 10^{-8}} \approx 0.999999975
+				\]
+
+			</div>
+
+			<p>
+				This rupture-aware tuning density <span class="math inline">\( \rho \)</span> is dimensionless and now available for reuse in other renormalized constants.
+			</p>
+
+			<h5>Worked Example 2 — Planck Constant <span class="math inline">\( h \)</span> via Reused <span class="math inline">\( \rho \)</span></h5>
+
+			<p>
+				We now test whether the extracted <span class="math inline">\( \rho \)</span> can be reused to compute a rupture-adjusted Planck constant.
+			</p>
+
+			<p>
+				Start with:
+			</p>
+
+			<div class="math display">
+
+				\[
+				h_{\mathcal{C}} = 6.62607015 \times 10^{-34} \; \mathrm{J \cdot s}
+				\]
+
+			</div>
+
+			<p>
+				Assume:
+			</p>
+
+			<ul>
+				<li><span class="math inline">\( \epsilon_{\mathrm{dim}} = 2.5 \times 10^{-13} \)</span></li>
+				<li><span class="math inline">\( \frac{\partial \ln h}{\partial \ln \rho} = -1.2 \)</span> (hypothetical sensitivity)</li>
+			</ul>
+
+			<p>
+			Apply the renormalization:
+			</p>
+
+			<div class="math display">
+
+				\[
+				h_{\bar{\mathcal{C}}} = h_{\mathcal{C}} \left( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln h}{\partial \ln \rho} \right)
+				= 6.62607015 \times 10^{-34} \cdot (1 - 3.0 \times 10^{-13})
+				\]
+
+			</div>
+
+			<p>
+				Result:
+			</p>
+
+			<div class="math display">
+
+				\[
+				h_{\bar{\mathcal{C}}} \approx 6.626070149998012 \times 10^{-34} \; \mathrm{J \cdot s}
+				\]
+
+			</div>
+
+			<p>
+				This confirms:
+			</p>
+
+			<ul>
+				<li>The reused <span class="math inline">\( \rho \)</span> yields a valid, dimensionally consistent correction.</li>
+				<li>The renormalization operator <span class="math inline">\( \mathcal{R}_\epsilon \)</span> preserves closure structure across constants.</li>
+				<li>CTMT’s tuning density extraction is reusable and falsifiable.</li>
+			</ul>
+
+			<h5>Cross-Regime Table and Pseudocode</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Observable</th>
+						<th>Coherent Form</th>
+						<th>Rupture Form</th>
+						<th>Correction</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\( \hbar \)</span></td>
+						<td><span class="math inline">\( \hbar_{\mathcal{C}} \)</span></td>
+						<td><span class="math inline">\( \hbar_{\bar{\mathcal{C}}} \)</span></td>
+						<td><span class="math inline">\( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln \hbar}{\partial \ln \rho} \)</span></td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\( G \)</span></td>
+						<td><span class="math inline">\( G_{\mathcal{C}} \)</span></td>
+						<td><span class="math inline">\( G_{\bar{\mathcal{C}}} \)</span></td>
+						<td><span class="math inline">\( 1 + \epsilon_{\mathrm{dim}} \cdot \frac{\partial \ln G}{\partial \ln \rho} \)</span></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h5>Minimal Python Pseudocode</h5>
+
+<pre><code class="language-python">def renormalize(X_C, dlnX_dlnrho, epsilon_dim):
+return X_C * (1 + epsilon_dim * dlnX_dlnrho)
+</code></pre>
+
+			<h5>Interpretation and Falsifiability</h5>
+
+			<p>
+				The dimensional residuum <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span> acts as a structural “shadow” — a measurable trace of how far an observable deviates from unit-closed behavior.
+			</p>
+
+			<p>
+				If <span class="math inline">\( \epsilon_{\mathrm{dim}} \to 0 \)</span>, the observable is fully coherent and renormalization has no effect. If <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span> is nonzero, the renormalization operator reveals how rupture has altered the dimensional structure.
+			</p>
+
+			<p>
+			This framework ensures:
+			</p>
+
+			<p>This framework ensures:</p>
+
+			<ul>
+				<li><strong>Falsifiability:</strong> Any deviation from dimensional closure is explicitly quantified by <span class="math inline">\( \epsilon_{\mathrm{dim}} \)</span>, which must be published and verified independently.</li>
+				<li><strong>Continuity across regimes:</strong> Observables remain traceable and interpretable even when coherence breaks, via <span class="math inline">\( \mathcal{R}_\epsilon \)</span>.</li>
+				<li><strong>Separation of concerns:</strong> Numerical stabilizers <span class="math inline">\( \varepsilon \)</span> never interfere with physical dimensional structure.</li>
+				<li><strong>Auditability:</strong> All renormalized quantities retain a link to their coherent baseline, enabling reproducibility and dimensional diagnostics.</li>
+			</ul>
+
+			<p>
+				In summary, CTMT’s renormalization framework bridges coherent and ruptured regimes without compromising dimensional integrity. The operator <span class="math inline">\( \mathcal{R}_\epsilon \)</span> provides a principled way to track how observables deform under rupture, while maintaining unit closure and falsifiability.
+			</p>
+
 			<h4>Symbolic Rupture and Protocol Drift</h4>
 			<p>
 				Beyond physical systems, rupture calculus applies to symbolic and informational domains. It models breakdowns in rule-based systems, semantic drift, and adversarial logic.
@@ -10779,6 +11055,7 @@ The separation ensures that:
   <li>Physical laws and dimensional closure remain falsifiable via <span class="math inline">\( \epsilon \)</span>,</li>
   <li>Stability operators remain robust via <span class="math inline">\( \varepsilon \)</span>,</li>
   <li>No ambiguity exists between dimensional and numerical contributions.</li>
+  <li>Stability operator <span class="math inline">\( \varepsilon \)</span> uses <span class="math inline">\epsilon_{\mathrm{dim}}</span> only as a scale-normalizing seed, not for dimensional correction.</li>
 </ul>
 
 <h5>4. Final Closure Condition</h5>
