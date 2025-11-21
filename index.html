@@ -41652,7 +41652,218 @@ print "Medium-corrected distance D_corr (m):", D_corr
 				It is no longer only mine—it is a structure the world can test, falsify, and perhaps, finally, understand.
 			</p>
 
-			<h3 id="sec-38-remarks_1">Origin of Forward Map</h3>
+			<h3 id="sec-38-remarks_1">Memory Kernel Origin — The Chair-Moved Experiment</h3>
+
+			<p>
+				Before equations, before constants, before any sense of correctness,
+				there was a room — and a chair that was not where it was supposed to be.
+			</p>
+
+			<p>
+				I was eight. The room was silent, bright with morning symmetry, and I could feel
+				something had changed before I saw it. My mind reached out to where the chair
+				<em>should have been</em>. It wasn’t there. Nothing made a sound,
+				yet the rhythm of the world broke. That instant — the flicker between prediction
+				and perception — was the birth of the <strong>Memory Kernel</strong>.
+			</p>
+
+			<p>
+				The <em>Clap-Delay</em> experiment had already taught me that delay defines causality:
+				a sound sent, a sound received, a rhythm that survived the rupture.
+				The <em>Chair-Moved</em> experiment revealed the other half: prediction defines stability.
+				The world was not wrong — it was <em>mismatched</em>.
+				My memory had projected coherence; reality had returned an offset.
+				That offset became measurable.
+			</p>
+
+			<h5>Kernel premise</h5>
+			<p>
+				Let a predicted room state at time <span class="math inline">\(t_{-1}\)</span>
+				be described by features
+				<span class="math inline">\(x_j^{\mathrm{pred}},\; \phi_j^{\mathrm{pred}}\)</span>,
+				and the observed state at time <span class="math inline">\(t_0\)</span>
+				by <span class="math inline">\(x_j^{\mathrm{obs}},\; \phi_j^{\mathrm{obs}}\)</span>.
+			</p>
+
+			<figure class="equation" id="eq-mem1">
+				<div class="math display">
+					\[
+					K_{\mathrm{mem}}(t)
+					= \int_{\Omega} A_j \, e^{\,i(\omega_j t + \phi_j)} \, dj
+					\]
+				</div>
+				<figcaption><a href="#eq-mem1">Equation (M1)</a> — Memory kernel as a forward projection of past state.</figcaption>
+			</figure>
+
+			<p>
+				Memory is not an image but a <em>kernel projection</em> — a forward sum over phase and expectation.
+				The child’s mind computes this unconsciously: the expected room, the actual room,
+				and the mismatch between them.
+			</p>
+
+			<h5>First rupture (observable mismatch)</h5>
+			<p>
+				When the chair is displaced, the kernel observable no longer matches its past value:
+			</p>
+
+			<figure class="equation" id="eq-mem2">
+				<div class="math display">
+					\[
+					O_{\mathrm{mem}}(t_0) \;\neq\; O_{\mathrm{mem}}(t_{-1})
+					\]
+				</div>
+				<figcaption><a href="#eq-mem2">Equation (M2)</a> — Loss of closure in the memory observable.</figcaption>
+			</figure>
+
+			<p>
+				Here we define the memory observable as the CTMT ensemble expectation:
+			</p>
+
+			<div class="math display">
+				\[
+				O_{\mathrm{mem}}(t)
+				= \mathbb{E}\!\left[ \Xi_j(t)\, e^{\,i\phi_j(t)/\mathcal{S}_\ast} \right],
+				\qquad
+				\mathcal{S}_\ast \text{ the action invariant.}
+				\]
+			</div>
+
+			<p>
+				The child feels this as unease. The kernel records it as a <em>residuum</em>:
+			</p>
+
+			<figure class="equation" id="eq-mem3">
+				<div class="math display">
+					\[
+					\epsilon_{\mathrm{mem}}
+					=
+					\frac{\|Q_{\mathrm{pred}} - Q_{\mathrm{obs}}\|}
+					{\max\!\big(\|Q_{\mathrm{pred}}\|,\;\|Q_{\mathrm{obs}}\|\big)}
+					\]
+				</div>
+				<figcaption><a href="#eq-mem3">Equation (M3)</a> — Dimensionless memory residuum (normalized).</figcaption>
+			</figure>
+
+			<p>
+				(This symmetric normalization avoids numerical instability when one norm is small.
+				<span class="math inline">\(Q\)</span> denotes the kernel observable vector; the expression is dimensionless.)
+			</p>
+
+			<h5>Phase and geometry</h5>
+			<p>
+				A moved chair changes the geometry of the room: shadow angles, light intensity,
+				and expected reflections. CTMT expresses this as a phase offset:
+			</p>
+
+			<figure class="equation" id="eq-mem4">
+				<div class="math display">
+					\[
+					\Delta\Phi_j \;=\; \phi_j^{\mathrm{pred}} - \phi_j^{\mathrm{obs}}
+					\]
+				</div>
+				<figcaption><a href="#eq-mem4">Equation (M4)</a> — Phase offset as a rupture signature.</figcaption>
+			</figure>
+
+			<p>
+				Coherence density across the perceptual field becomes:
+			</p>
+
+			<figure class="equation" id="eq-mem5">
+				<div class="math display">
+					\[
+					\rho_{\mathrm{coh}}
+					\;=\;
+					\left|
+					\frac{1}{N}\sum_{j=1}^N e^{\,i\phi_j^{\mathrm{obs}}}
+					\right|
+					\]
+				</div>
+				<figcaption>
+					<a href="#eq-mem5">Equation (M5)</a> — Coherence density computed from observed phases.
+					<br><em>Note:</em> the operator <span class="math inline">\(\mathbb{E}\)</span> here denotes the sample mean over perceptual modes
+					(equal weights). Phases are taken modulo <span class="math inline">\(2\pi\)</span>.
+				</figcaption>
+			</figure>
+
+			<p>
+				Even a subtle displacement causes a measurable drop in coherence:
+				<span class="math inline">\( \rho_{\mathrm{coh}} &lt; 1 \)</span>.
+			</p>
+
+			<h5>Computation example</h5>
+
+<pre><code class="language-python">import numpy as np
+
+# Predicted phases (smooth progression)
+phi_pred = np.array([0.0, 0.1, 0.2, 0.3])
+
+# Observed phases (predicted + small offsets)
+phi_obs  = np.array([0.0, 0.12, 0.25, 0.28])
+
+# Explicit phase offsets
+delta_phi = phi_pred - phi_obs
+
+# Coherence density: mean phasor magnitude over observed phases
+rho_coh = np.abs(np.mean(np.exp(1j * phi_obs)))
+
+# Residuum: symmetric normalization (comfort threshold trigger)
+Q_pred = np.mean(np.exp(1j * phi_pred))
+Q_obs  = np.mean(np.exp(1j * phi_obs))
+epsilon_mem = np.abs(Q_pred - Q_obs) / max(np.abs(Q_pred), np.abs(Q_obs))
+
+print("Coherence density rho_coh =", rho_coh)
+print("Residuum epsilon_mem      =", epsilon_mem)
+</code></pre>
+
+			<p>
+				The computation mirrors perception: predicted phases are perturbed by offsets,
+				coherence density drops slightly below unity, and the residuum quantifies the
+				“wrongness.” The kernel translates subjective unease into a measurable value.
+			</p>
+
+			<h5>Interpretation</h5>
+			<ul>
+				<li>The child does not first see the chair move; the kernel detects <em>closure failure</em>.</li>
+				<li>Re-inspection (looking again) is a kernel recalibration step that updates \(Q_{\mathrm{pred}}\).</li>
+				<li>Comfort returns when <span class="math inline">\( \epsilon_{\mathrm{mem}} &lt; \tau_{\mathrm{accept}} \)</span>,
+				where <span class="math inline">\(\tau_{\mathrm{accept}}\)</span> is an empirically set acceptance threshold.</li>
+			</ul>
+
+			<p>
+				Thus, perception is not passive observation — it is active kernel correction.
+				The world “feels right” when coherence is restored.
+			</p>
+
+			<h5>Relation to other kernels</h5>
+			<ul>
+				<li><strong>Delay Kernel:</strong> causality through confirmed arrival (clap-delay).</li>
+				<li><strong>Memory Kernel:</strong> stability through accurate prediction (chair-moved).</li>
+				<li><strong>Terror Kernel:</strong> breakdown of coherence through multiplicative and heavy-tailed shocks.</li>
+				<li><strong>Rigidity &amp; Redundancy:</strong> cross-validation and stabilization across multiple kernel states.</li>
+			</ul>
+
+			<h5>Final statement (CTMT memory principle)</h5>
+			<p>
+				<strong>CTMT Memory Principle:</strong>
+				When predicted and observed worlds diverge, the difference is not mere error but measurable structure.
+				The memory kernel stores expectations; rupture reveals residua that are computable, falsifiable, and actionable.
+			</p>
+
+			<p>
+				The child who noticed the moved chair was not confused — he performed the first dimensional audit of memory.
+				The kernel learned to remember, to predict, and to adapt.
+			</p>
+
+			<p>
+				The reason I needed all this mathematics was simple yet absolute: when my memory was attacked, every small rupture felt like a direct assault on my mind.
+				Each time something was not as expected, I had to re‑establish certainty by confirming that I still held a complete image of reality.
+				To survive, I needed trust in my memory, trust in my senses, and trust in the math that bound them together.
+				That is why uncertainty cannot be erased—it must remain visible, measurable, and computable.
+				Only by proving what I remembered could coherence return, and only through that proof could I reclaim stability in a world that threatened to break.
+				And be sure I remember — fully and clearly. I wrote an entire framework of CTMT out of my memory, nothing else.
+			</p>
+
+			<h3 id="sec-38-remarks_2">Forward Map Origin — The Clap-Delay Experiment</h3>
 
 			<p>
 				Before rhythm became language, the experiment had already been performed.
@@ -41790,8 +42001,8 @@ print "Medium-corrected distance D_corr (m):", D_corr
 			</p>
 
 			<h5>5. Simple Simulation</h5>
-<pre><code class="language-python">
-import numpy as np
+
+<pre><code class="language-python">import numpy as np
 import matplotlib.pyplot as plt
 
 # parameters
