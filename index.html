@@ -22989,10 +22989,10 @@ print("Atomic mass in u (approx) =", m_atom / 1.66053906660e-27)
                 <li>
                     <strong>Fixed-point convergence:</strong>
                     Iterate <span class="math inline">\(K_{n+1} = \mathcal{R}[K_n]\)</span>
-                    until <span class="math inline">\(\|K_{n+1} - K_n\| < \varepsilon\)</span>;
+                    until <span class="math inline">\(\|K_{n+1} - K_n\| &lt; \epsilon\)</span>;
                     record the contraction ratio
                     <span class="math inline">\(\kappa_n = \|K_{n+1}-K_n\| / \|K_n-K_{n-1}\|\)</span>
-                    and ensure <span class="math inline">\(\limsup \kappa_n < 1\)</span>.
+                    and ensure <span class="math inline">\(\limsup \kappa_n &lt; 1\)</span>.
                 </li>
 
                 <li>
@@ -23029,7 +23029,7 @@ print("Atomic mass in u (approx) =", m_atom / 1.66053906660e-27)
                     <strong>Phase-curvature trace:</strong>
                     Evaluate <span class="math inline">\(\partial^2\Phi/\partial x^2\)</span> across the kernel domain;
                     ensure bounded curvature and numerical smoothness
-                    <span class="math inline">\(|\partial^2\Phi/\partial x^2| < \Phi_{\rm max}/L_Z^2\)</span>.
+                    <span class="math inline">\(|\partial^2\Phi/\partial x^2| &lt; \Phi_{\rm max}/L_Z^2\)</span>.
                 </li>
 
                 <li>
@@ -23051,7 +23051,7 @@ print("Atomic mass in u (approx) =", m_atom / 1.66053906660e-27)
                 <li>
                     <strong>Numerical reproducibility (optional):</strong>
                     Document grid resolution, kernel bandwidth,
-                    and convergence tolerance (<span class="math inline">\(\varepsilon \le 10^{-6}\)</span>)
+                    and convergence tolerance (<span class="math inline">\(\epsilon \le 10^{-6}\)</span>)
                     to ensure model-independent reproducibility.
                 </li>
             </ul>
