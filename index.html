@@ -39266,16 +39266,16 @@ drift = phase_drift(f, Phi, dPhi)
 
 					\[
 					\begin{aligned}
-					&\textbf{Forward map:} && O_k = \mathcal{E}[\mathcal{R}_\tau(L_k \otimes_{\mathrm{mod}} K)] \\[1ex]
-					&\textbf{Rupture filter:} && \mathcal{R}_\tau[f] = f \cdot \mathbf{1}[\sigma_f &lt; \tau] \\[1ex]
-					&\textbf{Phase drift:} && \delta_\Phi[f] = \frac{f(\Phi+\Delta\Phi) - f(\Phi)}{\Delta\Phi} \\[1ex]
-					&\textbf{Uncertainty:} && \sigma_O^2 = J_{\mathrm{ens}}^\top \mathrm{Cov}_{\mathrm{ens}} J_{\mathrm{ens}} \\[1ex]
-					&\textbf{Nonlinear inversion:} && \widehat{\kappa} = \arg\min_\kappa \|\mathcal{F}[\kappa] - \mathbf{O}\|_2^2 + \lambda \mathcal{R}[\kappa] \\[1ex]
-					&\textbf{Gauss–Newton step:} && \mathbf{J}_n \delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],\quad \kappa_{n+1} = \kappa_n + \delta\kappa \\[1ex]
-					&\textbf{Regularized update:} && \delta\kappa = \mathbf{J}_n^\top(\mathbf{J}_n \mathbf{J}_n^\top + \lambda \mathbf{R}^\top \mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\kappa_n]) \\[1ex]
-					&\textbf{Time-dependent kernel:} && O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \epsilon_k(t) \\[1ex]
-					&\textbf{Sliding-window ensemble:} && K(t) = \mathcal{E}_t[K(x,x',t)] \\[1ex]
-					&\textbf{Dynamic prior:} && \kappa_{t+1} = \mathbf{M} \kappa_t + \mathbf{w}_t,\quad O_t = \mathbf{A}_t \kappa_t + \epsilon_t
+						&amp;\textbf{Forward map:} &amp;&amp; O_k = \mathcal{E}[\mathcal{R}_\tau(L_k \otimes_{\mathrm{mod}} K)] \\[1ex]
+						&amp;\textbf{Rupture filter:} &amp;&amp; \mathcal{R}_\tau[f] = f \cdot \mathbf{1}[\sigma_f \le \tau] \\[1ex]
+						&amp;\textbf{Phase drift:} &amp;&amp; \delta_\Phi[f] = \frac{f(\Phi+\Delta\Phi) - f(\Phi)}{\Delta\Phi} \\[1ex]
+						&amp;\textbf{Uncertainty:} &amp;&amp; \mathrm{Var}[O] = J_{\mathrm{ens}}^\top \mathrm{Cov}_{\mathrm{ens}} J_{\mathrm{ens}} \\[1ex]
+						&amp;\textbf{Nonlinear inversion:} &amp;&amp; \widehat{\mathbf{\kappa}} = \arg\min_{\mathbf{\kappa}} \|\mathcal{F}[\mathbf{\kappa}] - \mathbf{O}\|_2^2 + \lambda \mathcal{R}[\mathbf{\kappa}] \\[1ex]
+						&amp;\textbf{Gauss–Newton step:} &amp;&amp; \mathbf{J}_n \,\delta\mathbf{\kappa} = \mathbf{O} - \mathcal{F}[\mathbf{\kappa}_n],\quad \mathbf{\kappa}_{n+1} = \mathbf{\kappa}_n + \delta\mathbf{\kappa} \\[1ex]
+						&amp;\textbf{Regularized update:} &amp;&amp; \delta\mathbf{\kappa} = \mathbf{J}_n^\top(\mathbf{J}_n \mathbf{J}_n^\top + \lambda \mathbf{R}^\top \mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\mathbf{\kappa}_n]) \\[1ex]
+						&amp;\textbf{Time-dependent kernel:} &amp;&amp; O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \epsilon_k(t) \\[1ex]
+						&amp;\textbf{Sliding-window ensemble:} &amp;&amp; K(t) = \mathcal{E}_t[K(x,x',t)] \quad (\text{ensemble average over local windows}) \\[1ex]
+						&amp;\textbf{Dynamic prior:} &amp;&amp; \mathbf{\kappa}_{t+1} = \mathbf{M}\mathbf{\kappa}_t + \mathbf{w}_t,\quad \mathbf{O}_t = \mathbf{A}_t \mathbf{\kappa}_t + \epsilon_t
 					\end{aligned}
 					\]
 
@@ -40739,7 +40739,7 @@ print "Medium-corrected distance D_corr (m):", D_corr
 
 			<p>
 				Within the Terror Kernel, the dimensional residuum acts as a controlled anti-closure term:
-				<span class="math inline">\(\varepsilon_{\mathrm{dim}}(x) \sim R(x)\)</span>,
+				<span class="math inline">\(\epsilon_{\mathrm{dim}}(x) \sim R(x)\)</span>,
 				where <span class="math inline">\(R(x)\)</span> is the local rupture ratio.
 				Thus, <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> quantifies how much
 				of the coherent kernel survives under rupture deformation.
