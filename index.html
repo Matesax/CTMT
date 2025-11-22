@@ -42052,6 +42052,399 @@ plt.show()
 				the kernel entered the world: rhythm preceding metric, coherence preceding geometry.
 			</p>
 
+			<h3 id="sec-38-remarks_3">Re-projection (Magnetism) Origin — The No-Clap Experiment</h3>
+
+			<p>
+				The <em>Clap–Delay</em> experiment established causality through confirmation.
+				The <em>Chair-Moved</em> experiment introduced the Memory Kernel — coherence through prediction.
+				The <strong>No-Clap</strong> experiment now asks:
+				can coherence survive and re-project even when no explicit send/receive pair occurs?
+				If so, such persistence reveals a hidden <em>invariant layer</em> —
+				a substrate where prior coherence continues to exist as a measurable field.
+			</p>
+
+			<h4>Intuitive premise</h4>
+			<p>
+				Imagine the sender once clapped, the receiver confirmed arrival,
+				and later no new clap is sent.
+				Yet distributed probes record correlations aligned with the earlier kernel.
+				These correlations are not echoes;
+				they are re-projections of the confirmed kernel onto a latent invariant structure.
+				In physical terms, this is analogous to a persistent field (like magnetostatic memory)
+				that can be sensed without new driving impulses.
+			</p>
+
+			<h4>1. Premise and definitions</h4>
+			<p>
+				Let the confirmed kernel from the prior clap be
+				<div class="math display">
+					\[
+						K_{\mathrm{ref}}(\tau)
+							= \mathbb{E}\!\left[
+								\Xi_i\, e^{\,i \Phi_i / \mathcal{S}_\ast}
+							\right]_{\tau},
+						\qquad \tau = \Delta t_{\mathrm{confirmed}} .
+					\]
+				</div>
+				Define a probe ensemble at later time
+				<span class="math inline">\(t_1 > t_0\)</span>
+				with measurements
+				<span class="math inline">\(\{ m_p(t_1) \}_{p=1}^{P}\)</span>.
+				No active send event occurs at <span class="math inline">\(t_1\)</span> —
+				this defines the <em>no-clap</em> condition.
+			</p>
+
+			<p>
+				Hypothesis:
+				a hidden invariant layer exists if and only if the probe ensemble
+				retains a coherent projection of
+				<span class="math inline">\(K_{\mathrm{ref}}\)</span>
+				within a tolerance
+				<span class="math inline">\(\tau_{\mathrm{inv}}\)</span>:
+				<div class="math display">
+					\[
+						\exists\,\mathcal{P}:\;
+						\big\|
+						\mathcal{P}\{ m_p(t_1) \}
+						- \mathcal{R}\{ K_{\mathrm{ref}} \}
+						\big\|
+						&lt; \tau_{\mathrm{inv}} .
+					\]
+				</div>
+				Here,
+				<span class="math inline">\(\mathcal{P}\)</span> is the probe readout operator,
+				<span class="math inline">\(\mathcal{R}\)</span> the re-projection operator,
+				and
+				<span class="math inline">\(\tau_{\mathrm{inv}}\)</span>
+				the invariant tolerance threshold.
+			</p>
+
+			<h4>2. Layer model — hidden invariant field</h4>
+			<p>
+				The environment is represented as two interacting layers:
+			</p>
+			<ol>
+				<li><strong>Active layer:</strong> explicit send/receive processes (<em>clap–echo</em>).</li>
+				<li><strong>Invariant layer:</strong> a latent substrate that retains and re-projects coherence even without active driving.</li>
+			</ol>
+
+			<p>
+				Let the invariant field be
+			<div class="math display">
+				\[
+				F(x,t)
+				= \alpha(x,t)\, \mathcal{R}\{ K_{\mathrm{ref}} \}(x)
+				+ \eta(x,t) + \zeta(x,t) ,
+				\]
+			</div>
+				where:
+			</p>
+			<ul>
+				<li><span class="math inline">\(\alpha(x,t)\)</span> — re-projection gain or attenuation (real scalar).</li>
+				<li><span class="math inline">\(\eta(x,t)\)</span> — slow multiplicative deformation (e.g. log-normal noise).</li>
+				<li><span class="math inline">\(\zeta(x,t)\)</span> — additive heavy-tailed shock (Cauchy-like, from Terror Kernel).</li>
+			</ul>
+
+			<h4>3. Detectability condition</h4>
+			<p>
+				Each probe measures
+				<span class="math inline">\(m_p(t) = \mathcal{O}_p[F(x_p,t)] + n_p\)</span>,
+				where
+				<span class="math inline">\(n_p\)</span> is instrument noise
+				and
+				<span class="math inline">\(\mathcal{O}_p\)</span> the sensor operator.
+			</p>
+			<p>
+				The invariant layer is detected when the ensemble-averaged residual to the
+				re-projected reference is below the threshold:
+				<div class="math display">
+					\[
+						\epsilon_{\mathrm{inv}}
+						=
+						\frac{
+							\big\|
+							\mathbb{E}_p\!\left[
+							\mathcal{O}_p^{-1}\{ m_p(t) \}
+							\right]
+							- \mathcal{R}\{ K_{\mathrm{ref}} \}
+							\big\|
+						}{
+							\max\!\left(
+							\|\mathcal{R}\{ K_{\mathrm{ref}} \}\|,
+							\|\mathbb{E}_p[\mathcal{O}_p^{-1}\{ m_p \}]\|
+							\right)
+						}
+						&lt; \tau_{\mathrm{inv}} .
+					\]
+				</div>
+				The symmetric normalization stabilizes numerical evaluation,
+				mirroring the Memory-Kernel residuum form.
+			</p>
+
+			<h4>4. Re-projection operator</h4>
+			<p>
+				The operator
+				<span class="math inline">\(\mathcal{R}\)</span>
+				maps the reference kernel onto the invariant layer’s spatial or spectral coordinates:
+				<div class="math display">
+					\[
+					\mathcal{R}\{ K \}(x)
+					= G(x) \ast_x K(\tau)\big|_{\tau \mapsto \tau(x)} ,
+					\]
+				</div>
+				where
+				<span class="math inline">\(G(x)\)</span>
+				is a Green-like spatial kernel,
+				<span class="math inline">\(\tau(x)\)</span> is the local effective delay map,
+				and
+				<span class="math inline">\(\ast_x\)</span> denotes convolution over space.
+			</p>
+
+			<h4>5. Re-projection survival and rupture logic</h4>
+			<p>
+				Re-projection persists provided:
+				<div class="math display">
+					\[
+					\forall x:\quad
+					\alpha(x,t)\,(1 - \delta_{\eta}(x,t))
+					> \gamma_{\mathrm{min}} ,
+					\]
+				</div>
+				where
+				<span class="math inline">\(\delta_{\eta}\)</span>
+				is fractional multiplicative loss
+				and
+				<span class="math inline">\(\gamma_{\mathrm{min}}\)</span>
+				is the minimal detectable gain.
+				Terror shocks
+				<span class="math inline">\(\zeta\)</span>
+				may transiently mask coherence but, if sparse and zero-mean, do not alter the invariant expectation.
+			</p>
+
+			<h4>6. Analogy to persistent fields</h4>
+			<p>
+				The invariant layer mathematically resembles magnetostatic persistence:
+				once established, its structure remains measurable without new excitation.
+				CTMT does not re-explain magnetism —
+				the analogy is structural:
+			</p>
+			<ul>
+				<li>Both phenomena exhibit persistence of phase-aligned structure without active drive.</li>
+				<li>CTMT quantifies persistence via
+					<span class="math inline">\((\alpha,\eta,\zeta)\)</span>,
+					detectability through
+					<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span>,
+					and projection dynamics through
+					<span class="math inline">\(\mathcal{R}\)</span>.
+				</li>
+				<li>
+					If probe measurements reproduce
+					<span class="math inline">\(\mathcal{R}\{K_{\mathrm{ref}}\}\)</span>
+					absent new driving,
+					the invariant-layer hypothesis gains empirical support.
+				</li>
+			</ul>
+
+			<h4>7. Experimental and falsifiability protocol</h4>
+
+			<h5>Setup</h5>
+			<ol>
+				<li>Perform a confirmed clap experiment to obtain
+					<span class="math inline">\(K_{\mathrm{ref}}(\tau)\)</span>
+					and its uncertainty
+					<span class="math inline">\(\sigma_K\)</span>.
+				</li>
+				<li>At later time
+					<span class="math inline">\(t_1\)</span>,
+					ensure no new clap or stimulus is produced.
+				</li>
+				<li>Deploy
+					<span class="math inline">\(P\)</span> probes recording
+					<span class="math inline">\(m_p(t)\)</span>
+					over windows matching plausible re-projection delays
+					<span class="math inline">\(\tau(x_p)\)</span>.
+				</li>
+				<li>Record instrument noise
+					<span class="math inline">\(n_p\)</span>
+					and calibrate each
+					<span class="math inline">\(\mathcal{O}_p\)</span>.
+				</li>
+			</ol>
+
+			<h5>Analysis</h5>
+			<ol>
+				<li>Compute
+					<span class="math inline">\(\mathcal{R}\{K_{\mathrm{ref}}\}\)</span>
+					for the probe geometry.
+				</li>
+				<li>Invert sensor operators:
+					<span class="math inline">\(\tilde m_p = \mathcal{O}_p^{-1}\{m_p\}\)</span>.
+				</li>
+				<li>Form the ensemble mean
+					<span class="math inline">\(\bar M = \mathbb{E}_p[\tilde m_p]\)</span>
+					and compute
+					<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span>.
+				</li>
+				<li>
+					Combine uncertainties:
+					<div class="math display">
+						\[
+						\sigma_{\mathrm{inv}}^2
+						= \sigma_K^2
+						+ \mathbb{E}_p[\sigma_{n_p}^2]
+						+ \mathrm{Var}_p(\tilde m_p) .
+						\]
+					</div>
+				</li>
+				<li>
+					Detection rule:
+					<span class="math inline">\(\epsilon_{\mathrm{inv}} &lt; \tau_{\mathrm{inv}}\)</span>
+					and
+					<span class="math inline">\(\epsilon_{\mathrm{inv}} &lt; c\,\sigma_{\mathrm{inv}}\)</span>
+					for confidence factor
+					<span class="math inline">\(c \ge 3\)</span>.
+				</li>
+			</ol>
+
+			<h5>Falsifiability tests</h5>
+			<ul>
+				<li><strong>Null test:</strong> randomize probe geometry or sample times far outside the delay window — residuum should fail detection.</li>
+				<li><strong>Robustness test:</strong> apply synthetic multiplicative or heavy-tailed perturbations to the reference and confirm the predicted degradation.</li>
+				<li><strong>Reproducibility:</strong> independent probe arrays must yield consistent
+				<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span>
+				within uncertainties.
+				</li>
+			</ul>
+
+			<h4>8. Toy simulation (Python)</h4>
+			<p>
+				The example below synthesizes a reference kernel, inserts a latent invariant,
+				probes it, and computes
+				<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span>.
+				Detection occurs when
+				<code>epsilon_inv</code> is smaller than both
+				<code>sigma_inv</code> and the declared threshold
+				<code>tau_inv</code>.
+			</p>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+"""
+CTMT Invariant Layer — Monte Carlo Parameter Sweep
+--------------------------------------------------
+Simulates re-projection persistence for the No-Clap experiment.
+"""
+import numpy as np
+
+def make_reference_kernel(N=512):
+	x = np.linspace(0, 1, N)
+	tau = 0.12
+	phi = 2*np.pi*5*x
+	Xi  = np.exp(-5*(x-0.5)**2)
+	K   = Xi * np.exp(1j*(phi + 2*np.pi*tau))
+	return x, K
+
+def reproject(K, x_K, x_probe):
+	return np.interp(x_probe, x_K, K.real) + 1j*np.interp(x_probe, x_K, K.imag)
+
+def invariant_residuum(M_bar, R_ref):
+	num = np.linalg.norm(M_bar - np.mean(R_ref))
+	den = max(np.linalg.norm(M_bar), np.linalg.norm(np.mean(R_ref)))
+	return num / (den + 1e-18)
+
+def run_trial(alpha, eta_sigma, zeta_scale, sigma_noise, x_ref, K_ref, P=20):
+	probe_x = np.linspace(0, 1, P)
+	R = reproject(K_ref, x_ref, probe_x)
+	eta = 1.0 + eta_sigma * np.random.randn(P)
+	zeta = np.random.standard_cauchy(P) * zeta_scale
+	F_probe = alpha * R * eta + zeta
+	m_p = F_probe + sigma_noise*(np.random.randn(P) + 1j*np.random.randn(P))
+	M_bar = np.mean(m_p)
+	R_full = reproject(K_ref, x_ref, probe_x)
+	e_inv = invariant_residuum(M_bar, R_full)
+	sigma_inv = np.sqrt(0.01**2 + sigma_noise**2 + np.var(m_p))
+	return e_inv, sigma_inv
+
+def sweep():
+	x_ref, K_ref = make_reference_kernel()
+	alpha_vals = np.linspace(0.2, 1.0, 10)
+	eta_vals   = np.linspace(0.0, 0.2, 10)
+	zeta_vals  = np.linspace(0.0, 0.05, 10)
+	sigma_noise = 0.02
+	tau_inv = 0.35
+	trials = 500
+	for a in alpha_vals:
+		for e_s in eta_vals:
+			for z_s in zeta_vals:
+				eps, det = [], 0
+				for _ in range(trials):
+					e, s = run_trial(a, e_s, z_s, sigma_noise, x_ref, K_ref)
+					eps.append(e)
+					if e < tau_inv: det += 1
+				print(f"α={a:.2f}, η={e_s:.2f}, ζ={z_s:.3f} "
+					  f"=> det_prob={det/trials:.3f}, eps_mean={np.mean(eps):.3f}")
+
+if __name__ == "__main__":
+	sweep()
+</code></pre>
+
+			<h4>9. Dimensional closure and reporting</h4>
+			<p>
+				All phase arguments remain dimensionless
+				<span class="math inline">\((\Phi / \mathcal{S}_\ast)\)</span>.
+				Probe readouts
+				<span class="math inline">\(\mathcal{O}_p\)</span>
+				include calibration factors ensuring
+				<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span> is unitless.
+			</p>
+
+			<ul>
+				<li>Reference kernel and uncertainty:
+					<span class="math inline">\((K_{\mathrm{ref}}, \sigma_K)\)</span>
+				</li>
+				<li>Probe calibration and noise:
+					<span class="math inline">\((\mathcal{O}_p, \sigma_{n_p})\)</span>
+				</li>
+				<li>Re-projection parameters:
+					<span class="math inline">\((\alpha,\eta,\zeta)\)</span>
+				</li>
+				<li>Residuum and uncertainty:
+					<span class="math inline">\((\epsilon_{\mathrm{inv}}, \sigma_{\mathrm{inv}})\)</span>
+				</li>
+				<li>Acceptance threshold and confidence:
+					<span class="math inline">\((\tau_{\mathrm{inv}}, c)\)</span>
+				</li>
+			</ul>
+
+			<h4>10. Practical notes</h4>
+			<ul>
+				<li><strong>Spatial sampling:</strong> larger probe ensembles improve SNR and isolate invariant coherence.</li>
+				<li><strong>Time windows:</strong> probe over intervals matching plausible delay maps
+					<span class="math inline">\(\tau(x)\)</span>.
+				</li>
+				<li><strong>Null controls:</strong> randomize probe positions or shift sampling windows to verify nulls.</li>
+				<li><strong>Model selection:</strong> compare alternative
+					<span class="math inline">\(\mathcal{R}\)</span>
+					kernels using AIC/Bayesian evidence.
+				</li>
+			</ul>
+
+			<h4>11. Closing remarks</h4>
+			<p>
+				The <em>No-Clap</em> experiment formalizes the persistence of coherence:
+				once a causal kernel is confirmed,
+				its structure may re-project as an invariant layer even in absence of new driving.
+				CTMT provides the full operator suite —
+				the re-projection
+				<span class="math inline">\(\mathcal{R}\)</span>,
+				the detectability residuum
+				<span class="math inline">\(\epsilon_{\mathrm{inv}}\)</span>,
+				and the falsification thresholds —
+				to test this persistence empirically.
+				If validated, the invariant layer forms a conceptual bridge
+				between confirmed causal kernels and field-like persistence,
+				remaining fully within CTMT’s dimensional closure and coherence framework.
+			</p>
+
 		</article>
 	</section>
     <section>
