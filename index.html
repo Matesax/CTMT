@@ -3327,7 +3327,7 @@ def ctmt_experiment(N, routes, W, delta):
                     </tr>
 
                     <tr>
-                        <td><span class="math inline">\(\varepsilon_k\)</span></td>
+                        <td><span class="math inline">\(\epsilon_k\)</span></td>
                         <td>Measurement/model noise/error term</td>
                         <td><span class="math inline">\(\text{same units as observed quantity}\)</span></td>
                         <td>Measured instrument uncertainty</td>
@@ -4777,7 +4777,7 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
             <figure class="equation" id="eq-8_2">
                 <div class="math display">
                     \begin{equation}
-                    O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \varepsilon_k,
+                    O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \epsilon_k,
                     \qquad k=1,\dots,N,
                     \end{equation}
                 </div>
@@ -4787,7 +4787,7 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
             <p>
                 where <span class="math inline">\(L_k\)</span> are known linear sensing kernels
                 (e.g. line‑integral sampling, modal projection, or instrument response functions),
-                and <span class="math inline">\(\varepsilon_k\)</span> denotes measurement noise.
+                and <span class="math inline">\(\epsilon_k\)</span> denotes measurement noise.
             </p>
 
             <p>
@@ -4812,7 +4812,7 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
             <figure class="equation" id="eq-8_4">
                 <div class="math display">
                     \begin{equation}
-                    \mathbf{O} = \mathbf{A}\,\kappa + \varepsilon,
+                    \mathbf{O} = \mathbf{A}\,\kappa + \epsilon,
                     \qquad
                     A_{kj} = \iint L_k(x,x')\,b_j(x,x')\,dx\,dx'.
                     \end{equation}
@@ -4880,105 +4880,520 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
                 Solve this equation with coordinate descent, FISTA, or ADMM.
             </p>
 
-            <h4>Nonlinear Forward Maps and Iterative Inversion</h4>
+			<h4>Noise Term and Forward-Map Protocol</h4>
 
-            <p>
-                If the forward physics is nonlinear
-                (e.g. <span class="math inline">\(\mathbf{O} = \mathcal{F}[\kappa]\)</span> with
-                <span class="math inline">\(\mathcal{F}\)</span> nonlinear),
-                solve the regularized nonlinear least‑squares:
-            </p>
+			<p>
+				In every forward operator of CTMT, the observable vector 
+				<span class="math inline">\(\mathbf{O}\)</span> 
+				represents not only the deterministic kernel response but also stochastic perturbations
+				and measurement uncertainties. 
+				These effects are collectively modeled by an additive noise term 
+				<span class="math inline">\(\mathbf{\epsilon}\)</span>.
+				The distinction between this noise term and the physical constants of nature
+				(such as the vacuum permittivity 
+				<span class="math inline">\(\varepsilon_0\)</span>) 
+				is essential: 
+				<span class="math inline">\(\mathbf{\epsilon}\)</span> 
+				denotes randomness or experimental imperfection, 
+				whereas 
+				<span class="math inline">\(\varepsilon_0\)</span> 
+				remains a fixed universal constant independent of instrumentation.
+			</p>
 
-            <figure class="equation" id="eq-8_8">
-                <div class="math display">
-                    \begin{equation}
-                    \widehat{\kappa} = \arg\min_\kappa\;
-                    \|\mathcal{F}[\kappa] - \mathbf{O}\|_2^{2}
-                    + \lambda \mathcal{R}[\kappa],
-                    \end{equation}
-                </div>
-                <figcaption><a href="#eq-8_8">Equation (8.8)</a></figcaption>
-            </figure>
+			<table>
+				<thead>
+					<tr>
+						<th>Symbol</th>
+						<th>Role</th>
+						<th>Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><span class="math inline">\(\epsilon_k\)</span></td>
+						<td>Noise component of observable <span class="math inline">\(O_k\)</span></td>
+						<td>Random measurement error, sensor perturbation, or residual model mismatch</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\mathbf{\epsilon}\)</span></td>
+						<td>Noise vector</td>
+						<td>Aggregated stochastic uncertainty across all observables</td>
+					</tr>
+					<tr>
+						<td><span class="math inline">\(\varepsilon_0\)</span></td>
+						<td>Vacuum permittivity constant</td>
+						<td>Physical constant; <em>not</em> related to experimental noise</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <p>
-                using iterative Gauss–Newton or Levenberg–Marquardt steps.
-                At iterate <span class="math inline">\(n\)</span>:
-            </p>
+			<h5>Mathematical formulation</h5>
+			<p>
+				The general forward model is expressed as
+			</p>
 
-            <figure class="equation" id="eq-8_9">
-                <div class="math display">
+			<div class="math display">
+				\[
+				\mathbf{O} = \mathbf{A}\mathbf{\kappa} + \mathbf{\epsilon},
+				\]
+			</div>
 
+			<p>
+				where 
+				<span class="math inline">\(\mathbf{A}\)</span> 
+				is the forward operator (kernel projection), 
+				<span class="math inline">\(\mathbf{\kappa}\)</span> 
+				the parameter or state vector, and 
+				<span class="math inline">\(\mathbf{\epsilon}\)</span> 
+				represents additive noise.
+				The empirical residual,
+			</p>
 
-                    \[
-                    \mathbf{J}_n \,\delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],
-                    \qquad
-                    \kappa_{n+1} = \kappa_n + \delta\kappa,
-                    \]
+			<div class="math display">
+				\[
+				\mathbf{r} = \mathbf{O} - \mathbf{A}\mathbf{\kappa},
+				\]
+			</div>
 
+			<p>
+				provides a direct estimator of the realized noise field. 
+				Statistical analysis of 
+				<span class="math inline">\(\mathbf{r}\)</span> 
+				(its variance, temporal autocorrelation, and spectral density)
+				yields diagnostic information about experimental stability
+				and guides the selection of regularization strength
+				in the inverse problem.
+			</p>
 
-                </div>
-                <figcaption><a href="#eq-8_9">Equation (8.9)</a></figcaption>
-            </figure>
+			<h5>Protocol for noise characterization</h5>
+			<ol>
+				<li>
+					<strong>Residual extraction:</strong> 
+					Compute the difference between measured and modeled observables
+					<span class="math inline">\(\mathbf{r} = \mathbf{O} - \mathbf{A}\mathbf{\kappa}\)</span>.
+				</li>
+				<li>
+					<strong>Statistical analysis:</strong> 
+					Evaluate 
+					<span class="math inline">\(\mathrm{Var}[\mathbf{r}]\)</span>, 
+					the power spectral density, and temporal autocorrelation.  
+					This establishes the noise bandwidth and amplitude distribution.
+				</li>
+				<li>
+					<strong>Regularization calibration:</strong> 
+					Adjust the stabilizing term 
+					<span class="math inline">\(\varepsilon\)</span> 
+					in the inversion scheme such that the normalized residual satisfies 
+					<span class="math inline">\(\|\mathbf{r}\|^2 / N \approx \sigma_{\epsilon}^2\)</span>,
+					ensuring neither over-fitting nor excessive smoothing.
+				</li>
+				<li>
+					<strong>Closure verification:</strong> 
+					Report the <em>dimensional residuum</em> 
+					<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> 
+					to confirm that noise analysis and forward mapping remain
+					unit-consistent within the declared measurement domain.
+				</li>
+			</ol>
 
-            <p>
-                where <span class="math inline">\(\mathbf{J}_n\)</span> is the Jacobian (Fréchet derivative) of
-                <span class="math inline">\(\mathcal{F}\)</span> at <span class="math inline">\(\kappa_n\)</span>.
-                Regularize each linearized step with
-                <span class="math inline">\(\lambda \mathbf{R}^\top\mathbf{R}\)</span>.
-                Compute
-                <span class="math inline">\(\mathbf{J}_n^\top(\mathbf{J}_n\mathbf{J}_n^\top + \lambda\mathbf{R}^\top\mathbf{R})^{-1}\)</span>
-                using iterative solvers (LSQR, conjugate gradients) and adjoint methods
-                to evaluate Jacobian–vector products efficiently in high dimensions.
-            </p>
-            <h3 id="sec-8_3-time-dependent-inversion">Time‑dependent (Non‑stationary) Inversion</h3>
+			<h5>CTMT interpretation</h5>
+			<p>
+				Within CTMT, the noise field 
+				<span class="math inline">\(\mathbf{\epsilon}\)</span> 
+				represents a micro-rupture in the forward map — 
+				a local deviation from perfect coherence.
+				Its variance 
+				<span class="math inline">\(\mathrm{Var}[\mathbf{r}]\)</span> 
+				quantifies the degree of decoherence in the measurement channel.  
+				When this quantity remains bounded and stationary,
+				the forward map is considered coherent;  
+				when it grows without bound or exhibits heavy-tailed statistics,
+				rupture dominates and the mapping becomes unstable.
+			</p>
 
-            <figure class="equation" id="eq-8_10">
-                <div class="math display">
+			<p>
+				This explicit treatment of noise aligns with CTMT’s core philosophy:
+				uncertainty is not discarded as error but incorporated as a measurable 
+				structural feature of the kernel projection.  
+				Every residual carries information about the degree to which coherence survives 
+				under perturbation, allowing the Forward Map to remain both 
+				<em>falsifiable</em> and <em>dimensionally closed</em>.
+			</p>
 
+			<h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2b">Nonlinear and Time-Dependent Forward Maps</h3>
 
-                    \[
-                    O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \varepsilon_k(t).
-                    \]
+			<p>
+				In realistic CTMT applications, the forward operator 
+				<span class="math inline">\(\mathcal{F}\)</span> 
+				is often nonlinear and time-dependent. 
+				The objective is to estimate the hidden kernel parameters 
+				<span class="math inline">\(\mathbf{\kappa}\)</span> 
+				from noisy observables 
+				<span class="math inline">\(\mathbf{O}\)</span> 
+				under the general model:
+			</p>
 
+			<div class="math display">
 
-                </div>
-                <figcaption><a href="#eq-8_10">Equation (8.10)</a></figcaption>
-            </figure>
+				\[
+					\mathbf{O} = \mathcal{F}[\mathbf{\kappa}] + \mathbf{\epsilon},
+					\qquad 
+					\mathbf{\epsilon} \sim \mathcal{N}(\mathbf{0},\,\mathbf{C}_\epsilon),
+				\]
 
-            <p>
-                For non‑stationary kernels <span class="math inline">\(K(x,x',t)\)</span> the forward map extends naturally.
-                Two practical inversion strategies are:
-            </p>
+			</div>
 
-            <ol>
-                <li>
-                    <strong>Sliding‑window stationary inversion:</strong>
-                    Apply the static inversion within short time windows
-                    <span class="math inline">\([t-\Delta t/2,\,t+\Delta t/2]\)</span> where stationarity holds.
-                    Ensemble the results to form <span class="math inline">\(K(t)\)</span>.
-                </li>
-                <li>
-                    <strong>Dynamic state‑space (sequential) inversion:</strong>
-                    Model evolution with a linear dynamical prior:
-                    <figure class="equation" id="eq-8_11">
-                        <div class="math display">
+			<p>
+				where 
+				<span class="math inline">\(\mathbf{\epsilon}\)</span> 
+				represents additive measurement noise with covariance 
+				<span class="math inline">\(\mathbf{C}_\epsilon\)</span>.
+				The inverse problem seeks the posterior estimate via minimization of a regularized misfit functional:
+			</p>
 
+			<figure class="equation" id="eq-8_8">
+				<div class="math display">
 
-                            \[
-                            \kappa_{t+1} = \mathbf{M}\,\kappa_t + \mathbf{w}_t,
-                            \qquad
-                            O_t = \mathbf{A}_t \kappa_t + \varepsilon_t,
-                            \]
+				\[
+					\widehat{\mathbf{\kappa}}
+					=
+					\arg\min_{\mathbf{\kappa}}
+					\Big\{
+					\|\mathcal{F}[\mathbf{\kappa}] - \mathbf{O}\|_{\mathbf{C}_\epsilon^{-1}}^{2}
+					+ 
+					\lambda\,\mathcal{R}[\mathbf{\kappa}]
+					\Big\},
+				\]
 
+				</div>
+				<figcaption><a href="#eq-8_8">Equation (8.8)</a></figcaption>
+			</figure>
 
-                        </div>
-                        <figcaption><a href="#eq-8_11">Equation (8.11)</a></figcaption>
-                    </figure>
-                    Perform recursive estimation via Kalman / extended‑Kalman filters or sequential variational updates.
-                    Regularization appears as process noise covariances; temporal smoothness is enforced by
-                    <span class="math inline">\(\mathbf{M}\)</span> (e.g. <span class="math inline">\(\mathbf{M}=I\)</span> with small process noise imposes slow variation).
-                </li>
-            </ol>
+			<p>
+				Here 
+				<span class="math inline">\(\mathcal{R}[\mathbf{\kappa}]\)</span> 
+				is a stabilizing functional (e.g. Tikhonov, total variation, or entropy-based prior),
+				and 
+				<span class="math inline">\(\lambda\)</span> 
+				is the regularization weight balancing data fidelity and prior smoothness.
+			</p>
+
+			<h5>Iterative Solution</h5>
+			<p>
+				Nonlinear problems are solved iteratively by Gauss–Newton or Levenberg–Marquardt schemes:
+			</p>
+
+			<figure class="equation" id="eq-8_9">
+				<div class="math display">
+
+					\[
+						(\mathbf{J}_n^{\top}\mathbf{C}_\epsilon^{-1}\mathbf{J}_n
+							+ \lambda \mathbf{R}^{\top}\mathbf{R})\,\delta\mathbf{\kappa}_n
+						=
+						\mathbf{J}_n^{\top}\mathbf{C}_\epsilon^{-1}
+						(\mathbf{O}-\mathcal{F}[\mathbf{\kappa}_n]),
+						\qquad
+						\mathbf{\kappa}_{n+1}
+						= 
+						\mathbf{\kappa}_n + \delta\mathbf{\kappa}_n.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-8_9">Equation (8.9)</a></figcaption>
+			</figure>
+
+			<p>
+				where 
+				<span class="math inline">\(\mathbf{J}_n = \partial \mathcal{F}/\partial \mathbf{\kappa}\big|_{\mathbf{\kappa}_n}\)</span> 
+				is the Jacobian (Fréchet derivative).
+				Large-scale implementations employ iterative Krylov solvers (e.g. LSQR, conjugate gradients)
+				and adjoint formulations to compute 
+				<span class="math inline">\(\mathbf{J}_n^{\top}\mathbf{v}\)</span> 
+				efficiently without storing the full Jacobian.
+			</p>
+
+			<p>
+				The posterior covariance under the <em>linearized Gaussian approximation</em> is:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathbf{C}_{\mathbf{\kappa}}
+					=
+					(\mathbf{J}^{\top}\mathbf{C}_\epsilon^{-1}\mathbf{J}
+					+ \lambda \mathbf{R}^{\top}\mathbf{R})^{-1},
+				\]
+
+			</div>
+
+			<p>
+				providing approximate uncertainty bounds and confidence intervals for each parameter.
+				Model adequacy is verified by the normalized 
+				<span class="math inline">\(\chi^2\)</span> 
+				misfit statistic:
+			</p>
+
+			<div class="math display">
+
+				\[
+				\chi^2 = 
+				\frac{\|\mathbf{O}-\mathcal{F}[\widehat{\mathbf{\kappa}}]\|_{\mathbf{C}_\epsilon^{-1}}^{2}}
+				{N_{\mathrm{obs}}-N_{\mathrm{par}}}
+				\approx 1,
+				\]
+
+			</div>
+
+			<p>
+				where 
+				<span class="math inline">\(\chi^2 \approx 1\)</span> 
+				indicates that the residual variance matches the assumed noise variance —
+				a standard internal consistency check in inverse theory.
+			</p>
+
+			<p>
+				Note on notation: In CTMT, <span class="math inline">\(\chi\)</span> denotes the 
+				coherence volume ratio used in cohesion maps. In inverse theory, 
+				<span class="math inline">\(\chi^2\)</span> refers to the statistical misfit test, 
+				verifying that residual variance matches the assumed noise covariance. 
+				These symbols are unrelated; the former is a physical kernel parameter, 
+				the latter a diagnostic statistic. 
+			</p>
+
+			<h4>Time-Dependent (Non-Stationary) Inversion</h4>
+
+			<p>
+				When the kernel evolves in time 
+				<span class="math inline">\(K(x,x',t)\)</span>, 
+				the forward model becomes explicitly non-stationary:
+			</p>
+
+			<div class="math display">
+				\[
+				O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \epsilon_k(t),
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(\epsilon_k(t)\)</span> represents additive measurement noise.
+				Two complementary strategies are commonly used to recover 
+				<span class="math inline">\(K(t)\)</span> 
+				from such data.
+			</p>
+
+			<h5>1. Sliding-Window Stationary Approximation</h5>
+
+			<p>
+				The signal is divided into short, possibly overlapping time windows 
+				<span class="math inline">\([t-\Delta t/2,\,t+\Delta t/2]\)</span> 
+				within which the kernel is assumed approximately stationary.
+				Within each window the static inversion is applied, producing local kernel estimates 
+				<span class="math inline">\(K(t_i)\)</span>.
+			</p>
+
+			<p>
+				Prior to inversion, tapering functions such as Hann or Tukey windows are applied 
+				<em>directly to the data</em> to minimize spectral leakage and edge artifacts.
+				The resulting estimates from overlapping windows are merged to reconstruct a continuous
+				kernel trajectory.
+			</p>
+
+			<ul>
+				<li>Choose <span class="math inline">\(\Delta t\)</span> consistent with the kernel correlation time.</li>
+				<li>Use overlapping windows with smooth tapering to enhance temporal continuity.</li>
+				<li>Average overlapping estimates via inverse-variance weighting.</li>
+				<li>Adapt window length dynamically near rapid transitions or rupture events.</li>
+				<li>Monitor residual norms to verify the local-stationarity assumption.</li>
+			</ul>
+
+			<h5>2. Dynamic State-Space (Sequential) Inversion</h5>
+
+			<p>
+				Alternatively, model the kernel parameters as a stochastic dynamic process evolving through time:
+			</p>
+
+			<div class="math display">
+				\[
+				\kappa_{t+1} = M_t \kappa_t + w_t,
+				\qquad
+				O_t = A_t \kappa_t + \epsilon_t,
+				\]
+			</div>
+
+			<p>
+				where process noise 
+				<span class="math inline">\(w_t \sim \mathcal{N}(0,Q_t)\)</span> 
+				and measurement noise 
+				<span class="math inline">\(\epsilon_t \sim \mathcal{N}(0,R_t)\)</span> 
+				have known or estimated covariances.
+				Recursive estimation is performed with Kalman, extended-Kalman, or ensemble filters,
+				which propagate both the posterior mean and covariance:
+			</p>
+
+			<div class="math display">
+				\[
+				C_{\kappa,t}
+				=
+				(J_t^{\top} C_{\epsilon,t}^{-1} J_t + \lambda R^{\top}R)^{-1},
+				\]
+			</div>
+
+			<p>
+				under the <em>linearized Gaussian approximation</em>.
+				The normalized misfit statistic
+			</p>
+
+			<div class="math display">
+				\[
+				\chi^2 =
+				\frac{\|O_t - \mathcal{F}[\widehat{\kappa}_t]\|_{C_{\epsilon,t}^{-1}}^2}
+				   {N_{\text{obs}} - N_{\text{par}}}
+				\approx 1
+				\]
+			</div>
+
+			<p>
+				confirms that the residual variance matches the assumed noise variance,
+				ensuring statistical consistency of the model.
+			</p>
+
+			<h5>3. Coherence Diagnostics</h5>
+
+			<p>
+				Temporal coherence can be monitored using the dimensional residuum and rupture ratio:
+			</p>
+
+			<div class="math display">
+				\[
+				\epsilon_{\text{dim}}(t)
+				=
+				\frac{\|K_{\text{pred}}(t) - K_{\text{SI}}(t)\|}
+				   {\|K_{\text{SI}}(t)\|},
+				\qquad
+				R(t)
+				=
+				\frac{\mathrm{Var}[T[K](t)]}
+				   {|\mathbb{E}[T[K](t)]|}.
+				\]
+			</div>
+
+			<p>
+				Coherence holds as long as 
+				<span class="math inline">\(\epsilon_{\text{dim}}(t) < \theta_{\text{coh}}\)</span> 
+				and <span class="math inline">\(R(t)\)</span> remains bounded.
+				Divergence in either metric signals rupture or model breakdown.
+			</p>
+
+			<h5>4. Summary Protocol</h5>
+
+			<ol>
+				<li>Define the time-dependent forward model 
+					<span class="math inline">\(\mathcal{F}[\kappa,t]\)</span> 
+					and quantify all uncertainty sources.</li>
+				<li>Perform either sliding-window inversion with data tapering 
+					or sequential dynamic filtering depending on temporal scale.</li>
+				<li>Propagate noise covariances 
+					<span class="math inline">\(C_{\epsilon,t}\)</span>, 
+					<span class="math inline">\(Q_t\)</span>, 
+					<span class="math inline">\(R_t\)</span> 
+				through each update step.</li>
+				<li>Evaluate convergence with the 
+					<span class="math inline">\(\chi^2\)</span> consistency test 
+					and monitor coherence via 
+					<span class="math inline">\(\epsilon_{\text{dim}}\)</span> 
+					and <span class="math inline">\(R(t)\)</span>.</li>
+				<li>Report posterior means, uncertainties, and rupture indicators for reproducibility.</li>
+			</ol>
+
+			<p>
+				This framework provides a rigorous, uncertainty-aware extension of CTMT inversion to nonlinear,
+				time-varying systems, maintaining dimensional closure and interpretive coherence
+				even when stationarity assumptions fail.
+			</p>
+
+			<h4>Sliding-Window Nonlinear Inversion Setup</h4>
+
+			<p>
+				The nonlinear forward problem 
+				<span class="math inline">\(\mathbf{O} = \mathcal{F}[\kappa] + \epsilon\)</span> 
+				can be embedded within the time-windowed framework to handle 
+				non-stationary kernels and evolving dynamics.
+				Within each window 
+				<span class="math inline">\([t_i-\Delta t/2,\,t_i+\Delta t/2]\)</span>, 
+				the physics is treated as locally stationary while nonlinear dependencies are preserved.
+			</p>
+
+			<div class="math display">
+				\[
+					\widehat{\kappa}(t_i)
+					=
+					\arg\min_{\kappa}
+					\big\|
+					\mathcal{F}_{t_i}[\kappa]
+					- \mathbf{O}(t_i)
+					\big\|_2^2
+					+ \lambda\,\mathcal{R}[\kappa],
+				\]
+			</div>
+
+			<p>
+				where 
+				<span class="math inline">\(\mathcal{F}_{t_i}\)</span> 
+				is the local forward operator restricted to the data segment,
+				and tapering (Hann or Tukey) is applied to the observations before inversion
+				to reduce spectral leakage.
+			</p>
+
+			<h5>Iterative Procedure</h5>
+			<ol>
+				<li>
+					Apply data tapering within each window and construct 
+					<span class="math inline">\(\mathcal{F}_{t_i}\)</span>.
+				</li>
+				<li>
+					Linearize around the current iterate 
+					<span class="math inline">\(\kappa_n(t_i)\)</span> 
+					using its Jacobian 
+					<span class="math inline">\(J_{t_i,n}\)</span>,
+					and solve the Gauss–Newton or Levenberg–Marquardt update:
+					<div class="math display">
+						\[
+						(J_{t_i,n}^{\top}J_{t_i,n} + \lambda R^{\top}R)\,\delta\kappa
+						= J_{t_i,n}^{\top}\!
+						\big(\mathbf{O}(t_i) - \mathcal{F}_{t_i}[\kappa_n(t_i)]\big).
+						\]
+					</div>
+				</li>
+				<li>
+					Update 
+					<span class="math inline">\(\kappa_{n+1}(t_i) = \kappa_n(t_i) + \delta\kappa\)</span>
+					and monitor convergence through the normalized misfit 
+					<span class="math inline">\(\chi^2(t_i) \approx 1\)</span>.
+				</li>
+				<li>
+					Propagate posterior uncertainty under the linearized Gaussian approximation:
+					<div class="math display">
+						\[
+						C_{\kappa,t_i}
+						=
+						(J_{t_i}^{\top}C_{\epsilon,t_i}^{-1}J_{t_i} + \lambda R^{\top}R)^{-1}.
+						\]
+					</div>
+				</li>
+				<li>
+					Combine overlapping window estimates by inverse-variance weighting to
+					form a continuous nonlinear kernel trajectory 
+					<span class="math inline">\(\widehat{K}(t)\)</span>.
+				</li>
+			</ol>
+
+			<p>
+				This approach maintains the full nonlinear physics within each window while 
+				accommodating slow temporal evolution, ensuring that 
+				both dynamic and rupture-related behavior remain resolvable under
+				CTMT’s coherence and uncertainty constraints.
+			</p>
 
             <h4>Self-Referential Forward Map of the Chronotopic Kernel</h4>
 
@@ -5071,10 +5486,10 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
 
                 <!-- Linear System -->
                 <rect x="770" y="420" width="190" height="64" fill="#f2dff5" class="impulse_node">
-                    <title>Linear System: Maps observables into linear form O = Aκ + ε</title>
+                    <title>Linear System: Maps observables into linear form O = Aκ + ϵ</title>
                 </rect>
                 <text x="865" y="450" class="impulse_label">Linear System</text>
-                <text x="865" y="468" class="impulse_sub">O = Aκ + ε</text>
+                <text x="865" y="468" class="impulse_sub">O = Aκ + ϵ</text>
 
                 <!-- Anchoring -->
                 <rect x="240" y="240" width="190" height="64" fill="#fffbe0" class="impulse_node">
@@ -5257,17 +5672,17 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
 
                 <!-- Matrix Assembly -->
                 <rect x="650" y="460" width="180" height="60" fill="#f2dff5" class="collapse_node">
-                    <title>Matrix Assembly: Constructs algebraic form Aκ + ε from projected basis</title>
+                    <title>Matrix Assembly: Constructs algebraic form Aκ + ϵ from projected basis</title>
                 </rect>
                 <text x="740" y="490" class="collapse_label">Matrix Assembly</text>
-                <text x="740" y="508" class="collapse_sub">Aκ + ε</text>
+                <text x="740" y="508" class="collapse_sub">Aκ + ϵ</text>
 
                 <!-- Linear System -->
                 <rect x="870" y="460" width="180" height="60" fill="#e6f7ff" class="collapse_node">
-                    <title>Linear System: Final observable form O = Aκ + ε</title>
+                    <title>Linear System: Final observable form O = Aκ + ϵ</title>
                 </rect>
                 <text x="960" y="490" class="collapse_label">Linear System</text>
-                <text x="960" y="508" class="collapse_sub">O = Aκ + ε</text>
+                <text x="960" y="508" class="collapse_sub">O = Aκ + ϵ</text>
 
                 <!-- Inversion Methods -->
                 <rect x="870" y="340" width="180" height="60" fill="#ffe8e8" class="collapse_node">
@@ -5431,6 +5846,63 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
                 dimensional coherence and empirical validity.
             </p>
 
+			<h4>Forward Map Perspective on Kernel Computations</h4>
+
+			<p>
+				In classical inverse problems, the observable data <span class="math inline">\(\mathbf{O}\)</span> 
+				are often preprocessed, filtered, or even discarded when they appear inconsistent. 
+				The CTMT Forward Map framework adopts a different perspective: 
+				<em>observables are preserved intact</em>, and all adjustments are made in the kernel parameters 
+				<span class="math inline">\(\mathbf{\kappa}\)</span>.
+			</p>
+
+			<p>
+				Each computation involving <span class="math inline">\(\mathbf{\kappa}\)</span> serves a specific role:
+			</p>
+
+			<ul>
+				<li>
+					<strong>Forward projection:</strong> 
+					<span class="math inline">\(\mathcal{F}[\mathbf{\kappa}]\)</span> maps kernel parameters into observable space. 
+					This ensures that the kernel is judged only by its ability to reproduce the measured data.
+				</li>
+				<li>
+					<strong>Residual evaluation:</strong> 
+					The difference <span class="math inline">\(\mathbf{O}-\mathcal{F}[\mathbf{\kappa}]\)</span> 
+					quantifies the mismatch. This residual is interpreted as noise 
+					<span class="math inline">\(\epsilon\)</span>, not as a flaw in the data.
+				</li>
+				<li>
+					<strong>Regularization:</strong> 
+					Terms such as <span class="math inline">\(\lambda \mathcal{R}[\mathbf{\kappa}]\)</span> 
+					enforce smoothness, stability, or sparsity in the kernel trajectory. 
+					They do not alter the observables; they constrain the admissible kernel space.
+				</li>
+				<li>
+					<strong>Iterative updates:</strong> 
+					Gauss–Newton or state‑space recursions adjust <span class="math inline">\(\mathbf{\kappa}\)</span> 
+					until the forward projection closes on the observables within expected noise bounds.
+				</li>
+				<li>
+					<strong>Uncertainty quantification:</strong> 
+					Posterior covariance <span class="math inline">\(\mathbf{C}_{\mathbf{\kappa}}\)</span> 
+					describes confidence in the kernel parameters, while diagnostics 
+					(<span class="math inline">\(\chi^2\)</span>, <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>, <span class="math inline">\(R(t)\)</span>) 
+					verify coherence and rupture thresholds.
+				</li>
+			</ul>
+
+			<p>
+				The change of perspective is therefore clear in academic terms: 
+				rather than <em>modifying the data</em> to fit a model, CTMT modifies the 
+				<em>kernel</em> to achieve closure with the data. 
+				Observables remain the immutable anchor, while kernel computations 
+				provide the degrees of freedom through which smoothness, stability, 
+				and coherence are enforced. This inversion philosophy reframes 
+				the forward map as a process of <em>kernel tuning under uncertainty</em>, 
+				not data alteration.
+			</p>
+
             <h4>Hyperparameter and Model Selection</h4>
             <p>
                 Choose <span class="math inline">\(\lambda\)</span> (and <span class="math inline">\(\alpha\)</span> for sparsity) via:
@@ -5445,7 +5917,7 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
             <h4>Uncertainty Quantification</h4>
             <p>
                 Under additive Gaussian noise
-                <span class="math inline">\(\varepsilon \sim \mathcal{N}(0,\sigma^2 I)\)</span>
+                <span class="math inline">\(\epsilon \sim \mathcal{N}(0,\sigma^2 I)\)</span>
                 and quadratic regularization, the posterior covariance at
                 <span class="math inline">\(\widehat{\kappa}\)</span> (Tikhonov) is approximated by:
             </p>
@@ -5488,52 +5960,56 @@ print(&quot;phase factor e^{iπs/4}:&quot;, phase_factor)
                 <li>Hold‑out predictive checks: withhold subset of observables and predict them using the inferred kernel</li>
             </ul>
 
-            <h4>Practical computational recipe (pseudocode)</h4>
-<pre><code># Linear Tikhonov inversion (discrete)
-Input: A (N x M), O (N), R (p x M), sigma_noise (or noise estimate)
-Choose lambda via L-curve or GCV
-Solve: (A^T A + lambda R^T R) k = A^T O
-Use iterative solver (LSQR or CG) with preconditioning
-Compute Cov approx = sigma^2 * inv(A^T A + lambda R^T R)
-Bootstrap residuals to estimate non-Gaussian errors
+			<h4>Practical Computational Recipe (pseudocode)</h4>
 
-# Nonlinear Gauss-Newton with Tikhonov
-Input: forward F(k), Jacobian J(k) (via adjoint), O
+<pre><code># Linear Tikhonov inversion (discrete, weighted by noise covariance)
+Input: A (N x M), O (N), R (p x M), C_epsilon (noise covariance)
+Choose lambda via L-curve, GCV, or discrepancy principle
+Form normal equations: (A^T C_epsilon^{-1} A + lambda R^T R) k = A^T C_epsilon^{-1} O
+Solve with iterative solver (LSQR or CG) and preconditioning
+Approximate posterior covariance: Cov ≈ (A^T C_epsilon^{-1} A + lambda R^T R)^{-1}
+Bootstrap residuals to assess non-Gaussian error structure
+
+# Nonlinear Gauss-Newton with Tikhonov regularization
+Input: forward F(k), Jacobian J(k) (via adjoint), O, C_epsilon
 Initialize k0
 for n in 0..N_iter:
-    Evaluate r = O - F(k_n)
-    Form linear system: (J^T J + lambda R^T R) delta = J^T r
+    Evaluate residual r = O - F(k_n)
+    Form linear system: (J^T C_epsilon^{-1} J + lambda R^T R) delta = J^T C_epsilon^{-1} r
     Solve for delta (LSQR / preconditioned CG)
-    k_{n+1} = k_n + step * delta
-    check convergence (norm delta small or reduced residual)
+    Update: k_{n+1} = k_n + step * delta
+    Check convergence (norm delta small or reduced residual)
 end
-Estimate Cov via Gauss-Newton Hessian approx</code></pre>
+Estimate posterior covariance via Gauss-Newton Hessian approximation
+</code></pre>
 
-            <p>
-                Choose a basis for <span class="math inline">\(K\)</span> that reflects physics:
-                Spherical harmonics <span class="math inline">\(\times\)</span> radial B‑splines for planetary/stellar kernels.
-            </p>
+			<p>
+				Choose a basis for <span class="math inline">\(K\)</span> that reflects physics:
+				spherical harmonics × radial B‑splines for planetary/stellar kernels.
+			</p>
 
-            <ul>
-                <li>Localized wavelets for turbulent or intermittent kernels.</li>
-                <li>Divergence‑free vector wavelets if kernel enforces solenoidal constraints.</li>
-                <li>Include explicit priors: positivity, smoothness, symmetry, conservation constraints (e.g. zero net current), and band‑limiting consistent with data resolution.</li>
-            </ul>
+			<ul>
+				<li>Localized wavelets for turbulent or intermittent kernels.</li>
+				<li>Divergence‑free vector wavelets if kernel enforces solenoidal constraints.</li>
+				<li>Include explicit priors: positivity, smoothness, symmetry, conservation constraints (e.g. zero net current), and band‑limiting consistent with data resolution.</li>
+			</ul>
 
-            <h4>Handling Nonlinearity and Strong Coupling</h4>
-            <p>When the kernel couples nonlinearly to observables (e.g. self‑consistent magnetohydrodynamic feedback), use:</p>
-            <ul>
-                <li>Reduced‑space inversion: estimate low‑dimensional control parameters (e.g. amplitudes of leading modes) instead of full‑field inversion.</li>
-                <li>Adjoint‑based gradient computation for efficient Gauss–Newton steps.</li>
-                <li>Sequential assimilation (variational or ensemble Kalman) to incorporate model dynamics and data streams.</li>
-            </ul>
+			<h4>Handling Nonlinearity and Strong Coupling</h4>
+			<p>
+			When the kernel couples nonlinearly to observables (e.g. self‑consistent magnetohydrodynamic feedback), use:
+			</p>
+			<ul>
+				<li>Reduced‑space inversion: estimate low‑dimensional control parameters (e.g. amplitudes of leading modes) instead of full‑field inversion.</li>
+				<li>Adjoint‑based gradient computation for efficient Gauss–Newton steps.</li>
+				<li>Sequential assimilation (variational or ensemble Kalman) to incorporate model dynamics and data streams.</li>
+			</ul>
 
-            <h4>Before Deploying on Real Data</h4>
-            <ul>
-                <li>Validate the inversion pipeline on synthetic data with known ground truth and realistic noise/interpolation gaps.</li>
-                <li>Perform parameter‑recovery experiments across a grid of SNR, sampling density, and regularization choices.</li>
-                <li>Document failure modes (e.g. aliasing, false peaks) and thresholds for reliable recovery.</li>
-            </ul>
+			<h4>Before Deploying on Real Data</h4>
+			<ul>
+				<li>Validate the inversion pipeline on synthetic data with known ground truth and realistic noise/interpolation gaps.</li>
+				<li>Perform parameter‑recovery experiments across a grid of SNR, sampling density, and regularization choices.</li>
+				<li>Document failure modes (e.g. aliasing, false peaks) and thresholds for reliable recovery.</li>
+			</ul>
 
             <h4>Summary</h4>
             <p>
@@ -7580,7 +8056,7 @@ sigma_kernel = (M1 * Theta)**2 / gamma * t
                 Hence kernel phase‑composition automatically yields Lorentz group closure.
             </p>
 
-            <h4>Relation to the SR Constant \(c\)</h4>
+            <h4>Relation to the SR Constant <span class="math inline">\(c\)</span></h4>
             <p>
                 In the kernel, <span class="math inline">\(c\)</span> is the maximal pacing speed of coherence rhythms—the rate at which phase information can propagate.
                 This coincides with the invariant light speed in special relativity.
@@ -8378,7 +8854,7 @@ print("Mass-weighted rupture index =", Xi_mass)
 				(i) the coherence threshold <span class="math inline">\(\theta_{\mathrm{coh}}\)</span> is
 				published and tied to instrument resolution,
 				(ii) outputs remain invariant under stabilizer sweeps
-				<span class="math inline">\(\varepsilon \in [10^{-12},10^{-6}]\)</span>,
+				<span class="math inline">\(\epsilon \in [10^{-12},10^{-6}]\)</span>,
 				and (iii) the same <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>
 				renormalizes multiple constants (e.g. <span class="math inline">\(G,h\)</span>)
 				without breaking unit closure.
@@ -36770,7 +37246,7 @@ H, detH, sp.simplify(prefactor)
 			<div class="math display">
 
 				\[
-				O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \varepsilon_k,
+				O_k = \mathcal{F}_k[K] = \iint L_k(x,x')\,K(x,x')\,dx\,dx' + \epsilon_k,
 				\quad
 				K(x,x') \approx \sum_{i=1}^{M} w_i\,\Xi_i(x,x')\,e^{i\,\Phi_i(x,x')/\mathcal{S}_*}.
 				\]
@@ -38709,7 +39185,7 @@ O = C_phys * np.mean(terms[mask])
 							\[
 							\kappa_{t+1} = \mathbf{M}\,\kappa_t + \mathbf{w}_t,
 							\qquad
-							O_t = \mathbf{A}_t \kappa_t + \varepsilon_t
+							O_t = \mathbf{A}_t \kappa_t + \epsilon_t
 							\]
 
 						</div>
@@ -38797,9 +39273,9 @@ drift = phase_drift(f, Phi, dPhi)
 					&\textbf{Nonlinear inversion:} && \widehat{\kappa} = \arg\min_\kappa \|\mathcal{F}[\kappa] - \mathbf{O}\|_2^2 + \lambda \mathcal{R}[\kappa] \\[1ex]
 					&\textbf{Gauss–Newton step:} && \mathbf{J}_n \delta\kappa = \mathbf{O} - \mathcal{F}[\kappa_n],\quad \kappa_{n+1} = \kappa_n + \delta\kappa \\[1ex]
 					&\textbf{Regularized update:} && \delta\kappa = \mathbf{J}_n^\top(\mathbf{J}_n \mathbf{J}_n^\top + \lambda \mathbf{R}^\top \mathbf{R})^{-1}(\mathbf{O} - \mathcal{F}[\kappa_n]) \\[1ex]
-					&\textbf{Time-dependent kernel:} && O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \varepsilon_k(t) \\[1ex]
+					&\textbf{Time-dependent kernel:} && O_k(t) = \mathcal{F}_k[K(\cdot,\cdot,t)] + \epsilon_k(t) \\[1ex]
 					&\textbf{Sliding-window ensemble:} && K(t) = \mathcal{E}_t[K(x,x',t)] \\[1ex]
-					&\textbf{Dynamic prior:} && \kappa_{t+1} = \mathbf{M} \kappa_t + \mathbf{w}_t,\quad O_t = \mathbf{A}_t \kappa_t + \varepsilon_t
+					&\textbf{Dynamic prior:} && \kappa_{t+1} = \mathbf{M} \kappa_t + \mathbf{w}_t,\quad O_t = \mathbf{A}_t \kappa_t + \epsilon_t
 					\end{aligned}
 					\]
 
