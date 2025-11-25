@@ -6156,6 +6156,389 @@ Estimate covariance from Gauss–Newton Hessian
 				falsifiable, transparent, and physically defensible.
 			</p>
 
+			<h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2c">Generalized Inversion &amp; Compression Frameworks</h3>
+
+			<p>
+				This subsection formalizes four operational frameworks that extend CTMT from
+				kernel ontology to experimentally verifiable computation.
+				Each framework originates from the kernel’s forward–inverse duality and the requirement
+				that all derived quantities preserve the action invariant
+				<span class="math inline">\(\mathcal{S}_\ast = E/\nu\)</span>.
+				Together they form the <strong>Minimal Operational CTMT Stack</strong>:
+			</p>
+
+			<ul>
+				<li><strong>RIP</strong> — Reciprocal Inversion Principle</li>
+				<li><strong>ICM</strong> — Information Compression Metric</li>
+				<li><strong>MKP</strong> — Minimal Kernel Predictor</li>
+				<li><strong><span class="math inline">\(\Phi_{\mathrm{inv}}\)</span></strong> — Invariant Flux Law</li>
+			</ul>
+
+			<h4>Reciprocal Inversion Principle (RIP)</h4>
+
+			<h5>Premise and Formulation</h5>
+			<p>
+				RIP defines the kernel reconstruction operator from noisy observables.
+				Given forward map <span class="math inline">\(\mathbf{A}\)</span>, noise covariance
+				<span class="math inline">\(\mathbf{C}_\epsilon\)</span>, and regularizer
+				<span class="math inline">\(\mathbf{R}\)</span>,
+				the reciprocal operator is:
+			</p>
+
+			<div class="math display">
+				\[
+					\widehat{\mathbf{\kappa}}_{\mathrm{rec}}
+					= \mathcal{F}^\ast[\mathbf{O}],
+					\qquad
+					\mathcal{F}^\ast \approx
+					(\mathbf{A}^\top \mathbf{C}_\epsilon^{-1} \mathbf{A} + \lambda \mathbf{R}^\top \mathbf{R})^{-1}
+					\mathbf{A}^\top \mathbf{C}_\epsilon^{-1}.
+				\]
+			</div>
+
+			<p>
+				This formulation generalizes the regularized pseudo-inverse to rupture-tolerant CTMT environments.
+			</p>
+
+			<h5>Dimensional Closure</h5>
+			<p>
+				Since <span class="math inline">\([\mathbf{A}^\top \mathbf{C}_\epsilon^{-1} \mathbf{A}] = [\mathbf{A}^{-1}]\)</span>,
+				the reconstructed kernel satisfies:
+			</p>
+
+			<div class="math display">
+				\[
+					[\widehat{\mathbf{\kappa}}_{\mathrm{rec}}] = [\mathbf{A}^{-1}\mathbf{O}],
+				\]
+			</div>
+
+			<p>
+				demonstrating dimensional consistency from observation to kernel space.
+			</p>
+
+			<h5>Uncertainty Propagation</h5>
+			<div class="math display">
+				\[
+					\mathbf{C}_{\mathbf{\kappa}}^{\mathrm{lin}}
+					=
+					(\mathbf{A}^\top \mathbf{C}_\epsilon^{-1} \mathbf{A} + \lambda \mathbf{R}^\top \mathbf{R})^{-1},
+					\qquad
+					\mathbf{C}_{\mathbf{\kappa}}^{\mathrm{nonlin}}
+					=
+					(\mathbf{J}^\top \mathbf{C}_\epsilon^{-1} \mathbf{J} + \lambda \mathbf{R}^\top \mathbf{R})^{-1},
+				\]
+			</div>
+
+			<p>
+				The first form applies to linear RIP; the second replaces <span class="math inline">\(\mathbf{A}\)</span> by the Jacobian
+				<span class="math inline">\(\mathbf{J} = \partial \mathcal{F}/\partial \mathbf{\kappa}\)</span>
+				in nonlinear cases. Diagonal entries of <span class="math inline">\(\mathbf{C}_{\mathbf{\kappa}}\)</span>
+				provide parameter-wise confidence intervals under the linearized Gaussian approximation.
+			</p>
+
+			<h5>Measurement Protocol</h5>
+			<ol>
+				<li>Estimate noise covariance <span class="math inline">\(\mathbf{C}_\epsilon\)</span> from calibration runs.</li>
+				<li>Construct forward model <span class="math inline">\(\mathbf{A}\)</span> using known geometry or physics.</li>
+				<li>Select <span class="math inline">\(\lambda\)</span> using L-curve or discrepancy principle.</li>
+				<li>Compute <span class="math inline">\(\widehat{\mathbf{\kappa}}_{\mathrm{rec}}\)</span> and evaluate residual norms.</li>
+			</ol>
+
+			<h5>Falsifiability Criteria</h5>
+			<ul>
+				<li>Reconstruction stability under independent datasets (cross-validation).</li>
+				<li>Normalized residual <span class="math inline">\(\chi^{2} \approx 1\)</span> indicates consistency with noise variance.</li>
+				<li>Dimensional residual <span class="math inline">\(\epsilon_{\mathrm{dim}} &lt; 10^{-12}\)</span>.</li>
+			</ul>
+
+			<h5>Physical Interpretation</h5>
+			<p>
+				RIP expresses reconstruction as reciprocal transport of coherence—each observable contributes
+				inversely weighted evidence toward the kernel field—forming the computational foundation of CTMT.
+			</p>
+
+			<h4>Information Compression Metric (ICM)</h4>
+
+			<h5>Premise and Definition</h5>
+			<p>
+				The ICM measures how much kernel information survives projection into the observable domain:
+			</p>
+
+			<div class="math display">
+				\[
+					C_{\mathrm{info}} =
+					\frac{I(\mathcal{F}[\mathbf{\kappa}];\, \mathbf{O})}
+					{I(\mathbf{O};\, \mathbf{O})},
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(I(\cdot;\cdot)\)</span> is mutual information.
+				<span class="math inline">\(C_{\mathrm{info}} = 1\)</span> denotes full coherence;
+				<span class="math inline">\(C_{\mathrm{info}}\!\to\!0\)</span> implies rupture.
+			</p>
+
+			<h5>Computation</h5>
+			<ul>
+				<li>Estimate spectral entropy or compression ratio of observables and predictions.</li>
+				<li>Compute mutual information using kernel-density or time-delay estimators.</li>
+				<li>Autoencoder latent-space KL divergence may serve as a proxy for numerical stability.</li>
+			</ul>
+
+			<h5>Uncertainty Estimate</h5>
+			<div class="math display">
+				\[
+					\sigma_{C_{\mathrm{info}}}^2 \approx
+					\frac{\mathrm{Var}[I(\mathcal{F}[\mathbf{\kappa}];\mathbf{O})]}
+					{I(\mathbf{O};\mathbf{O})^2}.
+				\]
+			</div>
+
+			<p>
+				Bootstrap or block-resampling provides robust error bounds under non-stationary conditions.
+			</p>
+
+			<h5>Falsifiability</h5>
+			<ul>
+				<li>Phase randomization should collapse <span class="math inline">\(C_{\mathrm{info}}\)</span> to near zero.</li>
+				<li>Independent sensors must yield statistically consistent values.</li>
+			</ul>
+
+			<h5>Physical Interpretation</h5>
+			<p>
+				<span class="math inline">\(C_{\mathrm{info}}\)</span> quantifies coherence survival through rupture and projection.
+				It complements the χ-volume and provides an information-theoretic measure of kernel robustness.
+			</p>
+
+			<h4>Minimal Kernel Predictor (MKP)</h4>
+
+			<h5>Premise and Definition</h5>
+			<p>
+				The MKP defines a one-parameter adaptive forecast that fuses model prediction with direct observation:
+			</p>
+
+			<div class="math display">
+				\[
+					\widehat{\mathbf{O}}_{t+1}
+					= \mathcal{F}[\mathbf{\kappa}_t]
+					+ \alpha\, (\mathbf{O}_t - \mathcal{F}[\mathbf{\kappa}_t]).
+				\]
+			</div>
+
+			<h5>Adaptive χ-Calibration</h5>
+			<p>
+				The adaptive gain <span class="math inline">\(\alpha\)</span> is defined from relative χ-coherence:
+			</p>
+
+			<div class="math display">
+				\[
+					\alpha =
+					\frac{\chi_{\mathrm{meas}}}
+					{\chi_{\mathrm{pred}} + \chi_{\mathrm{meas}}}.
+				\]
+			</div>
+
+			<h5>Uncertainty Propagation</h5>
+			<div class="math display">
+				\[
+					\sigma^2_{\widehat{\mathbf{O}}_{t+1}} =
+					\alpha^2\, \sigma_{\mathbf{O}}^2 +
+					(1-\alpha)^2\, \sigma_{\mathcal{F}[\mathbf{\kappa}_t]}^2.
+				\]
+			</div>
+
+			<h5>Falsifiability</h5>
+			<ul>
+				<li>Compare <span class="math inline">\(\widehat{\mathbf{O}}_{t+1}\)</span> with measured <span class="math inline">\(\mathbf{O}_{t+1}\)</span>.</li>
+				<li>Residuals must lie within the predicted uncertainty band.</li>
+				<li><span class="math inline">\(\alpha \in [0,1]\)</span> for stability.</li>
+			</ul>
+
+			<h5>Physical Interpretation</h5>
+			<p>
+				MKP describes kernel dynamics as minimal recursive self-correction,
+				bridging forward projection, rupture resilience, and χ-based calibration.
+			</p>
+
+			<h4>Invariant Flux Law (<span class="math inline">\(\Phi_{\mathrm{inv}}\)</span>)</h4>
+
+			<h5>Premise and Definition</h5>
+			<p>
+				The invariant flux expresses coherence transport through measurable delay,
+				synchrony, and coherence density:
+			</p>
+
+			<div class="math display">
+				\[
+					\Phi_{\mathrm{inv}}
+					= v_{\mathrm{sync}}\,
+					\mathbb{E}[\Delta t]\,
+					\rho_{\mathrm{coh}},
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(v_{\mathrm{sync}}\)</span> is synchrony velocity,
+				<span class="math inline">\(\Delta t\)</span> is the measurable delay,
+				and <span class="math inline">\(\rho_{\mathrm{coh}}\)</span> is coherence density.
+			</p>
+
+			<h5>Dimensional Closure</h5>
+			<div class="math display">
+				\[
+					[\Phi_{\mathrm{inv}}]
+					= [v][t][\rho]
+					= \mathrm{m\,s^{-1} \cdot s \cdot m^{-3}}
+					= \mathrm{m^{-2}},
+				\]
+			</div>
+
+			<h5>Uncertainty Propagation</h5>
+			<div class="math display">
+				\[
+					\frac{\sigma_{\Phi}^2}{\Phi_{\mathrm{inv}}^2}
+					= \left(\frac{\sigma_v}{v_{\mathrm{sync}}}\right)^2
+					+ \left(\frac{\sigma_{\Delta t}}{\Delta t}\right)^2
+					+ \left(\frac{\sigma_\rho}{\rho_{\mathrm{coh}}}\right)^2.
+				\]
+			</div>
+
+			<h5>Measurement Protocol</h5>
+			<ol>
+				<li>Measure delays <span class="math inline">\(\Delta t\)</span> using correlated clap or pulse experiments.</li>
+				<li>Estimate <span class="math inline">\(v_{\mathrm{sync}}\)</span> from wavefront tracking.</li>
+				<li>Compute <span class="math inline">\(\rho_{\mathrm{coh}}\)</span> from ensemble phase statistics.</li>
+				<li>Form <span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> and repeat under controlled rupture.</li>
+			</ol>
+
+			<h5>Falsifiability Criteria</h5>
+			<ul>
+				<li>Controlled rupture must reduce <span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> predictably.</li>
+				<li>Independent sensors should yield statistically consistent flux values.</li>
+			</ul>
+
+			<h5>Physical Interpretation</h5>
+			<p>
+				<span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> quantifies the macroscopic transport of coherence,
+				connecting delay, synchrony, and ensemble density as a measurable physical flux.
+			</p>
+
+			<h4>Python Demonstration</h4>
+
+			<p>
+				The following code illustrates all four frameworks on synthetic data, updated for explicit noise covariance,
+				posterior uncertainty, χ² diagnostics, and MKP uncertainty propagation. Replace kernels and observables with
+				real measurements to run validation experiments.
+			</p>
+
+<pre><code class="language-python">import numpy as np
+from numpy.linalg import inv
+
+# --- Forward map and synthetic data ---
+np.random.seed(42)
+A = np.array([[1.0, 0.5],
+              [0.3, 1.2]])
+kappa_true = np.array([0.8, -0.4])
+
+sigma_noise = 0.02
+Ceps = np.eye(2) * sigma_noise**2
+O = A @ kappa_true + np.random.multivariate_normal(mean=np.zeros(2), cov=Ceps)
+
+# --- Regularization ---
+lambda_reg = 1e-2
+R = np.eye(2)
+
+# --- RIP: reciprocal operator and reconstruction ---
+F_star = inv(A.T @ inv(Ceps) @ A + lambda_reg * R.T @ R) @ (A.T @ inv(Ceps))
+kappa_rec = F_star @ O
+
+# --- Posterior covariance (linear) ---
+C_kappa_lin = inv(A.T @ inv(Ceps) @ A + lambda_reg * R.T @ R)
+std_kappa = np.sqrt(np.diag(C_kappa_lin))
+
+# --- χ² normalized residual diagnostic ---
+res = O - A @ kappa_rec
+chi2 = (res.T @ inv(Ceps) @ res) / (O.size - kappa_rec.size)
+
+# --- ICM proxy: spectral entropy-based compression (simple surrogate) ---
+def entropy_power(x):
+    p = np.abs(x)**2
+    p_sum = p.sum()
+    if p_sum == 0:
+        return 0.0
+    p /= p_sum
+    return -np.sum(p * np.log(p + 1e-12))
+
+E_pred = entropy_power(A @ kappa_rec)
+E_obs  = entropy_power(O)
+C_info = 1.0 - E_pred / (E_obs + 1e-12)
+
+# --- MKP update with χ-coherence calibration and uncertainty propagation ---
+# Placeholder χ-coherence measures (replace with CTMT χ-estimates):
+chi_meas = 0.8
+chi_pred = 0.6
+alpha = chi_meas / (chi_pred + chi_meas + 1e-12)  # bounded in [0,1]
+
+O_pred = A @ kappa_rec
+O_next = A @ kappa_true + np.random.multivariate_normal(np.zeros(2), Ceps)
+O_mkp = O_pred + alpha * (O - O_pred)
+
+# Uncertainty of prediction: Var[\hat O] = alpha^2 Var[O] + (1-alpha)^2 Var[F[kappa]]
+C_O = Ceps  # measurement covariance
+C_Fk = A @ C_kappa_lin @ A.T  # propagated model prediction covariance
+C_Ohat = alpha**2 * C_O + (1 - alpha)**2 * C_Fk
+std_Ohat = np.sqrt(np.diag(C_Ohat))
+
+# --- Invariant flux ---
+Delta_t = 0.12  # s
+rho_coh = 0.94  # coherence density (dimensionless surrogate)
+v_sync = 343.0  # m/s (speed of sound)
+Phi_inv = v_sync * Delta_t * rho_coh
+
+# Flux relative uncertainty from component uncertainties (example values)
+sigma_v = 1.0
+sigma_dt = 0.005
+sigma_rho = 0.02
+rel_var_phi = (sigma_v / v_sync)**2 + (sigma_dt / Delta_t)**2 + (sigma_rho / rho_coh)**2
+sigma_phi = abs(Phi_inv) * np.sqrt(rel_var_phi)
+
+# --- Reporting ---
+print("RIP κ_rec =", kappa_rec)
+print("Posterior std(κ) =", std_kappa)
+print("χ² normalized residual =", chi2)
+
+print("ICM C_info =", C_info)
+
+print("MKP prediction =", O_mkp)
+print("MKP std per component =", std_Ohat)
+
+print("Invariant flux Φ_inv =", Phi_inv)
+print("Invariant flux uncertainty σ_Φ =", sigma_phi)
+</code></pre>
+
+			<h4>Summary</h4>
+			<p>
+				The four systems—RIP, ICM, MKP, and
+				<span class="math inline">\(\Phi_{\mathrm{inv}}\)</span>—constitute the operational
+				core of CTMT. Each framework is dimensionally closed, falsifiable, and
+				grounded in measurable observables, completing the transition from kernel
+				ontology to applied computation.
+			</p>
+
+			<h4>Notation Glossary</h4>
+			<ul>
+				<li><span class="math inline">\(\mathbf{\kappa}\)</span> — kernel parameter vector</li>
+				<li><span class="math inline">\(\mathbf{O}\)</span> — observable vector</li>
+				<li><span class="math inline">\(\mathbf{A}\)</span> — forward operator (linearized)</li>
+				<li><span class="math inline">\(\mathbf{J}\)</span> — Jacobian of nonlinear forward map</li>
+				<li><span class="math inline">\(\mathbf{C}_\epsilon\)</span> — noise covariance</li>
+				<li><span class="math inline">\(\mathbf{R}\)</span> — regularization operator</li>
+				<li><span class="math inline">\(\chi\)</span> — CTMT coherence volume</li>
+				<li><span class="math inline">\(\chi^{2}\)</span> — normalized residual diagnostic (≈ 1 for valid noise model)</li>
+				<li><span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> — dimensional residual</li>
+				<li><span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> — invariant flux law</li>
+			</ul>
+
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_3">Green Kernel (Spectral)</h3>
             <p>
                 The Green kernel defines the spectral response of a system to localized impulse excitation.
