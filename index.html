@@ -6539,6 +6539,391 @@ print("Invariant flux uncertainty σ_Φ =", sigma_phi)
 				<li><span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> — invariant flux law</li>
 			</ul>
 
+			<h4>Kernel-Origin Operational Formalism</h4>
+
+			<p>
+				The kernel-origin formalism binds all CTMT operational constructs—RIP, ICM,
+				MKP, and <span class="math inline">\(\Phi_{\mathrm{inv}}\)</span>—to a single geometric
+				reference: the <em>anchor–topology pair</em> \((\mathrm{Anch},\mathrm{Topo})\).
+				Every computation is performed on a declared kernel
+				<span class="math inline">\(K(x,x';t)\)</span> that connects anchor coordinates
+				<span class="math inline">\(x\in\mathrm{Anch}\)</span> to topology coordinates
+				<span class="math inline">\(x'\in\mathrm{Topo}\)</span>.
+				This ensures all operators are unit-consistent, physically anchored, and
+				falsifiable within one geometry. It also bounds operational Forward Map systems
+				together with the <a href="#sec-terror-kernel-as-a-rupture-operator">Terror Kernel</a>.
+			</p>
+
+			<h5>Notation, Spaces, Measures &amp; Units</h5>
+			<ul>
+				<li>
+					<strong>Kernel domain:</strong>
+					<span class="math inline">\(K:\mathrm{Anch}\times\mathrm{Topo}\times\mathbb{R}\to\mathbb{C}\)</span>;
+					units of response per excitation
+					<span class="math inline">\([\!K\!]=[\!O\!]/[\!\kappa\!]\)</span>.
+				</li>
+				<li>
+					<strong>Anchor geometry:</strong> coordinates
+					<span class="math inline">\(x\in\mathrm{Anch}\subset\mathbb{R}^3\)</span> (sensor/boundary positions).
+				</li>
+				<li>
+					<strong>Topology field:</strong> coordinates
+					<span class="math inline">\(x'\in\mathrm{Topo}\)</span> (source or internal kernel support).
+				</li>
+				<li>
+					<strong>Noise model:</strong>
+					<span class="math inline"> \(\mathbf{\epsilon}\sim\mathcal{N}(\mathbf{0},\mathbf{C}_\epsilon)\)</span>,
+					with <span class="math inline"> \([\mathbf{C}_\epsilon]=[O]^2\)</span>.
+				</li>
+				<li>
+					<strong>Regularization:</strong>
+					<span class="math inline"> \(\lambda\|\mathbf{R}\mathbf{\kappa}\|^2\)</span>
+					chosen so the penalty term and data misfit are commensurate in units.
+				</li>
+				<li>
+					<strong>Action invariant:</strong>
+					<span class="math inline"> \(\mathcal{S}_\ast=E/\nu\)</span>,
+					which fixes units of oscillatory phases (J·s) and guarantees exponent dimensionless arguments.
+				</li>
+			</ul>
+
+			<h5>Representative Kernel Geometry (acoustic cavity)</h5>
+			<p>
+				For illustration, in an acoustic cavity of length <span class="math inline">\(L\)</span> with microphones at
+				<span class="math inline">\(x_1,x_2\)</span> and a point source at <span class="math inline">\(x'\)</span>, a physically consistent Green's kernel is:
+			</p>
+
+			<div class="math display">
+				\[
+					K(x,x';t) =
+					\frac{1}{4\pi|x-x'|}
+					\exp\!\left[\frac{i\omega\big(t - |x-x'|/v\big)}{\mathcal{S}_\ast}\right],
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(v\)</span> is sound speed and <span class="math inline">\(\mathcal{S}_\ast\)</span> ensures the exponent is unitless.
+				All CTMT operators act on this same kernel: RIP reconstructs \(\kappa\) from pressures,
+				ICM measures information retention, MKP predicts next snapshots, and
+				<span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> quantifies coherent flux through boundaries.
+			</p>
+			<h5>RIP — Reciprocal Inversion Operator</h5>
+			<p>
+				<strong>Variational definition:</strong>
+				<span class="math inline">
+					\(\widehat{\mathbf{\kappa}}
+					=\arg\min_{\mathbf{\kappa}}
+					\big\|\mathcal{F}[\mathbf{\kappa}]-\mathbf{O}\big\|_{\mathbf{C}_\epsilon^{-1}}^{2}
+					+\lambda\|\mathbf{R}\mathbf{\kappa}\|^{2}\).
+				</span>
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathcal{F}^\ast \approx
+					(\mathbf{J}^\top\mathbf{C}_\epsilon^{-1}\mathbf{J}
+					+ \lambda \mathbf{R}^\top\mathbf{R})^{-1}
+					\mathbf{J}^\top\mathbf{C}_\epsilon^{-1},
+				\]
+
+			</div>
+
+			<p>
+				<strong>Posterior covariance:</strong>
+				<span class="math inline">
+					\(\mathbf{C}_{\mathbf{\kappa}}
+					= (\mathbf{J}^\top\mathbf{C}_\epsilon^{-1}\mathbf{J}+\lambda\mathbf{R}^\top\mathbf{R})^{-1}\).
+				</span>
+				Predicted observation covariance (linearized):
+				<span class="math inline">
+					\(\mathbf{C}_{\mathbf{O}}^{\mathrm{pred}}
+					= \mathbf{J}\mathbf{C}_{\mathbf{\kappa}}\mathbf{J}^\top + \mathbf{C}_\epsilon\).
+				</span>
+			</p>
+
+			<p>
+				<strong>Terror variant:</strong> apply a rupture filter to attenuate corrupted channels:
+				<span class="math inline">\(\mathbf{J}_{\mathrm{ter}} = \mathcal{R}_\tau[\mathbf{J}]\)</span>,
+				where <span class="math inline">\(\mathcal{R}_\tau\)</span> zeroes rows with coherence density
+				<span class="math inline">\(\rho_{\mathrm{coh}}(x,x')\lt\eta\)</span>.
+			</p>
+
+			<h5>ICM — Information Compression Metric</h5>
+			<p>
+				<strong>Definition:</strong>
+				<span class="math inline">
+					\(C_{\mathrm{info}}
+					= \dfrac{I\big(\mathcal{F}[\mathbf{\kappa}];\,\mathbf{O}\big)}{I(\mathbf{O};\,\mathbf{O})}\,,
+					\)
+				</span>
+				where <span class="math inline">\(I(\cdot;\cdot)\)</span> is mutual information estimated in the same Anch–Topo geometry.
+			</p>
+
+			<p>
+				<strong>Terror ICM:</strong> compute information after rupture masking:
+				<span class="math inline">
+					\(C_{\mathrm{info}}^{\mathrm{ter}}
+					= C_{\mathrm{info}}\big(\mathcal{R}_\tau[\mathcal{F}[\mathbf{\kappa}]],\,
+					\mathcal{R}_\tau[\mathbf{O}]\big)\).
+				</span>
+			</p>
+
+			<h5>MKP — Minimal Kernel Predictor</h5>
+			<p>
+				<strong>Update (one-step):</strong>
+				<span class="math inline">
+					\(\widehat{\mathbf{O}}_{t+1}
+					= \mathcal{F}[\mathbf{\kappa}_t]
+					+ \alpha(\mathbf{O}_t - \mathcal{F}[\mathbf{\kappa}_t])\),
+				</span>
+				with coherence-calibrated gain
+				<span class="math inline">
+					\(\alpha = \dfrac{\chi_{\mathrm{meas}}}{\chi_{\mathrm{pred}}+\chi_{\mathrm{meas}}}\).
+				</span>
+			</p>
+
+			<p>
+				<strong>Predictive covariance:</strong>
+				<span class="math inline">
+					\(\mathbf{C}_{\widehat{\mathbf{O}}}
+					= \alpha^2 \mathbf{C}_\epsilon
+					+ (1-\alpha)^2 \mathbf{J}\mathbf{C}_{\mathbf{\kappa}}\mathbf{J}^\top\).
+				</span>
+				Apply the rupture mask to inputs before computing <span class="math inline">\(\alpha\)</span> for a Terror-aware MKP.
+			</p>
+
+			<h5><span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> — Invariant Flux Law</h5>
+			<p>
+				For the declared geometry, flux of coherence is:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\Phi_{\mathrm{inv}}
+					= v_{\mathrm{sync}}\;\mathbb{E}[\Delta t]\;\rho_{\mathrm{coh}},
+					\qquad
+					[\Phi_{\mathrm{inv}}]=\mathrm{m^{-2}}.
+				\]
+
+			</div>
+
+			<p>
+				Under rupture apply
+				<span class="math inline">
+					\(\rho_{\mathrm{coh}}\mapsto\rho_{\mathrm{coh}}^{\mathrm{ter}}
+					= \rho_{\mathrm{coh}}\cdot\mathbf{1}[\rho_{\mathrm{coh}}\ge\eta]\),
+				</span>
+				producing a monotonic decrease of <span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> with rupture severity.
+			</p>
+
+			<h5>Dimensional residuum & stabilization symbols</h5>
+			<p>
+				To avoid symbol collision and make tests explicit:
+			</p>
+			<ul>
+				<li>
+					<strong>Dimensional residuum (closure test):</strong>
+					<span class="math inline">\(\epsilon_{\mathrm{dim}}(Q)
+					= \big\|[Q]_{\mathrm{pred}} - [Q]_{\mathrm{SI}}\big\| / \big\|[Q]_{\mathrm{SI}}\big\|\)</span>,
+					required <span class="math inline">\(\epsilon_{\mathrm{dim}} \lt 10^{-12}\)</span> for publication-grade closure.
+				</li>
+				<li>
+					<strong>Stabilization penalty (regularizer scale):</strong>
+					use <span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span> as a small, dimensionless floor inside inversion formulas
+					(e.g. add <span class="math inline">\(\varepsilon_{\mathrm{stab}} I\)</span> to make matrices well-conditioned).
+				</li>
+			</ul>
+
+			<h5>Worked Example: Terror RIP forward step</h5>
+			<p>
+				In a two-microphone cavity, dropping a high-variance channel via mask <span class="math inline">\(W_\tau\)</span>
+				yields masked residuals and Jacobian:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathbf{r}_{\mathrm{ter}} = \mathbf{W}_\tau(\mathbf{O}-\mathcal{F}[\mathbf{\kappa}]),
+					\qquad
+					\mathbf{J}_{\mathrm{ter}} = \mathbf{W}_\tau \mathbf{J}.
+				\]
+
+			</div>
+
+			<p>
+				The masked Gauss–Newton update satisfies:
+			</p>
+
+			<div class="math display">
+
+				\[
+					(\mathbf{J}_{\mathrm{ter}}^\top\mathbf{C}_\epsilon^{-1}\mathbf{J}_{\mathrm{ter}}
+					+\lambda\mathbf{R}^\top\mathbf{R})\,\delta\mathbf{\kappa}
+					= \mathbf{J}_{\mathrm{ter}}^\top\mathbf{C}_\epsilon^{-1}\mathbf{r}_{\mathrm{ter}},
+					\quad
+					\mathbf{\kappa}_{+}=\mathbf{\kappa}+\delta\mathbf{\kappa}.
+				\]
+
+			</div>
+
+			<p>
+				The Terror posterior covariance <span class="math inline">\(\mathbf{C}_{\mathbf{\kappa}}^{\mathrm{ter}}\)</span>
+				propagates to predicted observables and sets the rupture-limited confidence interval.
+			</p>
+
+			<h5>Interpretive Summary</h5>
+			<ul>
+				<li><strong>RIP</strong> reconstructs the kernel field from <span class="math inline">\(\mathrm{Anch}\to\mathrm{Topo}\)</span> data.</li>
+				<li><strong>ICM</strong> measures how much of kernel coherence survives projection.</li>
+				<li><strong>MKP</strong> provides minimal adaptive prediction under uncertainty.</li>
+				<li><strong><span class="math inline">\(\Phi_{\mathrm{inv}}\)</span></strong> quantifies coherent transport as a flux.</li>
+				<li><strong>Terror operators</strong> introduce rupture‑aware masking while preserving dimensional closure.</li>
+			</ul>
+
+			<h5>Practical Recommendations</h5>
+			<ul>
+				<li>Always declare the anchor and topology spaces explicitly at the start of an experiment.</li>
+				<li>Use <span class="math inline">\(\varepsilon_{\mathrm{stab}} \gt 0\)</span> (small, dimensionless) when inverting nearly singular matrices.</li>
+				<li>Report <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> for all published observables and include seeds, thresholds, and channel masks.</li>
+				<li>Cross‑validate RIP reconstructions across independent anchor subsets to detect hidden rupture channels.</li>
+			</ul>
+
+			<h4>Python Demonstration (Kernel-Origin with Terror variants)</h4>
+
+			<p>
+				This snippet implements the full kernel-origin operational stack on synthetic data:
+				RIP (with uncertainty), ICM (compression proxy), MKP (prediction with uncertainty),
+				and <span class="math inline">\(\Phi_{\mathrm{inv}}\)</span> (flux), plus Terror rupture-aware variants via a channel mask.
+				<strong>Numerical safeguards:</strong> all matrix inversions include a small jitter term
+				<span class="math inline">\(\epsilon_{\mathrm{stab}}\)</span> to ensure stability:
+				<code>inv(M + eps_stab*np.eye(M.shape[0]))</code>.
+			</p>
+
+<pre><code class="language-python">import numpy as np
+from numpy.linalg import inv
+
+np.random.seed(7)
+
+# --- Geometry and kernel-origin setup ---
+A = np.array([[1.0, 0.5, -0.2],
+              [0.3, 1.2,  0.1],
+              [-0.1, 0.2, 0.9]])     # forward/Jacobian at current iterate
+p = A.shape[1]                       # number of kernel parameters
+n = A.shape[0]                       # number of observables
+
+kappa_true = np.array([0.8, -0.4, 0.3])
+sigma_noise = 0.03
+Ceps = np.eye(n) * sigma_noise**2
+O = A @ kappa_true + np.random.multivariate_normal(mean=np.zeros(n), cov=Ceps)
+
+# Regularization and numerical safeguard
+lambda_reg = 5e-3
+R = np.eye(p)
+eps_stab = 1e-8   # jitter for stability
+
+# --- RIP: reciprocal operator, reconstruction, and posterior covariance ---
+M = A.T @ inv(Ceps) @ A + lambda_reg * R.T @ R
+F_star = inv(M + eps_stab*np.eye(p)) @ (A.T @ inv(Ceps))
+kappa_rec = F_star @ O
+
+C_kappa = inv(M + eps_stab*np.eye(p))
+std_kappa = np.sqrt(np.diag(C_kappa))
+
+# χ² normalized residual diagnostic
+res = O - A @ kappa_rec
+chi2 = (res.T @ inv(Ceps) @ res) / (n - p)
+
+# Predicted observable covariance (linearized)
+C_O_pred = A @ C_kappa @ A.T + Ceps
+std_O_pred = np.sqrt(np.diag(C_O_pred))
+
+# --- ICM proxy: entropy-based compression surrogate ---
+def entropy_power(x):
+    pwr = np.abs(x)**2
+    s = pwr.sum()
+    if s == 0:
+        return 0.0
+    p = pwr / s
+    return -np.sum(p * np.log(p + 1e-12))
+
+E_pred = entropy_power(A @ kappa_rec)
+E_obs  = entropy_power(O)
+C_info = 1.0 - E_pred / (E_obs + 1e-12)
+
+# --- MKP: coherence-calibrated adaptive prediction + uncertainty ---
+chi_meas = 0.8
+chi_pred = 0.6
+alpha = chi_meas / (chi_pred + chi_meas + 1e-12)  # in [0,1]
+
+O_pred = A @ kappa_rec
+O_mkp = O_pred + alpha * (O - O_pred)
+
+C_Ohat = alpha**2 * Ceps + (1 - alpha)**2 * (A @ C_kappa @ A.T)
+std_Ohat = np.sqrt(np.diag(C_Ohat))
+
+# --- Invariant flux (Φ_inv) with uncertainty example values ---
+Delta_t = 0.12   # s
+rho_coh = 0.94   # dimensionless coherence density
+v_sync  = 343.0  # m/s
+Phi_inv = v_sync * Delta_t * rho_coh
+
+sigma_v = 1.0
+sigma_dt = 0.005
+sigma_rho = 0.02
+rel_var_phi = (sigma_v / v_sync)**2 + (sigma_dt / Delta_t)**2 + (sigma_rho / rho_coh)**2
+sigma_phi = abs(Phi_inv) * np.sqrt(rel_var_phi)
+
+# --- Terror variants: rupture-aware mask on channels ---
+channel_variances = np.diag(Ceps)
+worst_idx = int(np.argmax(channel_variances))
+W_tau = np.eye(n)
+W_tau[worst_idx, worst_idx] = 0.0  # mask out ruptured channel
+
+res_ter = W_tau @ (O - O_pred)
+A_ter   = W_tau @ A
+Ceps_ter = W_tau @ Ceps @ W_tau
+
+M_ter = A_ter.T @ inv(Ceps + eps_stab*np.eye(n)) @ A_ter + lambda_reg * R.T @ R
+F_star_ter = inv(M_ter + eps_stab*np.eye(p)) @ (A_ter.T @ inv(Ceps + eps_stab*np.eye(n)))
+kappa_ter = F_star_ter @ (W_tau @ O)
+
+C_kappa_ter = inv(M_ter + eps_stab*np.eye(p))
+std_kappa_ter = np.sqrt(np.diag(C_kappa_ter))
+
+E_pred_ter = entropy_power(W_tau @ (A @ kappa_ter))
+E_obs_ter  = entropy_power(W_tau @ O)
+C_info_ter = 1.0 - E_pred_ter / (E_obs_ter + 1e-12)
+
+alpha_ter = alpha
+O_pred_ter = W_tau @ (A @ kappa_ter)
+O_mkp_ter  = O_pred_ter + alpha_ter * (W_tau @ (O - A @ kappa_ter))
+
+C_Ohat_ter = alpha_ter**2 * Ceps_ter + (1 - alpha_ter)**2 * (A_ter @ C_kappa_ter @ A_ter.T)
+std_Ohat_ter = np.sqrt(np.diag(C_Ohat_ter))
+
+# --- Reporting ---
+print("RIP κ_rec =", kappa_rec)
+print("Posterior std(κ) =", std_kappa)
+print("χ² normalized residual =", chi2)
+
+print("ICM C_info =", C_info)
+print("MKP prediction =", O_mkp)
+print("MKP std per channel =", std_Ohat)
+
+print("Invariant flux Φ_inv =", Phi_inv)
+print("Invariant flux uncertainty σ_Φ =", sigma_phi)
+
+print("\\n--- Terror variants ---")
+print("Masked channel index =", worst_idx)
+print("Terror RIP κ_rec =", kappa_ter)
+print("Terror posterior std(κ) =", std_kappa_ter)
+print("Terror ICM C_info =", C_info_ter)
+print("Terror MKP prediction =", O_mkp_ter)
+print("Terror MKP std per channel =", std_Ohat_ter)
+</code></pre>
+
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_3">Green Kernel (Spectral)</h3>
             <p>
                 The Green kernel defines the spectral response of a system to localized impulse excitation.
