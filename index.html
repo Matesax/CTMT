@@ -6802,7 +6802,7 @@ print("Invariant flux uncertainty σ_Φ =", sigma_phi)
 			</p>
 
 <pre><code class="language-python">import numpy as np
-from numpy.linalg import inv
+from numpy.linalg import inv, cholesky
 
 np.random.seed(7)
 
@@ -6831,9 +6831,12 @@ kappa_rec = F_star @ O
 C_kappa = inv(M + eps_stab*np.eye(p))
 std_kappa = np.sqrt(np.diag(C_kappa))
 
-# χ² normalized residual diagnostic
+# χ² normalized residual diagnostic (guard DOF)
 res = O - A @ kappa_rec
-chi2 = (res.T @ inv(Ceps) @ res) / (n - p)
+if n > p:
+    chi2 = (res.T @ inv(Ceps) @ res) / (n - p)
+else:
+    chi2 = np.nan  # undefined; use CV or hat-matrix trace in practice
 
 # Predicted observable covariance (linearized)
 C_O_pred = A @ C_kappa @ A.T + Ceps
@@ -6842,11 +6845,8 @@ std_O_pred = np.sqrt(np.diag(C_O_pred))
 # --- ICM proxy: entropy-based compression surrogate ---
 def entropy_power(x):
     pwr = np.abs(x)**2
-    s = pwr.sum()
-    if s == 0:
-        return 0.0
-    p = pwr / s
-    return -np.sum(p * np.log(p + 1e-12))
+    p = np.clip(pwr / (pwr.sum() + 1e-12), 1e-12, 1.0)
+    return -np.sum(p * np.log(p))
 
 E_pred = entropy_power(A @ kappa_rec)
 E_obs  = entropy_power(O)
@@ -6867,7 +6867,7 @@ std_Ohat = np.sqrt(np.diag(C_Ohat))
 Delta_t = 0.12   # s
 rho_coh = 0.94   # dimensionless coherence density
 v_sync  = 343.0  # m/s
-Phi_inv = v_sync * Delta_t * rho_coh
+Phi_inv = v_sync * Delta_t * rho_coh  # note: units = m; normalize by area/density for m^-2
 
 sigma_v = 1.0
 sigma_dt = 0.005
@@ -6875,31 +6875,33 @@ sigma_rho = 0.02
 rel_var_phi = (sigma_v / v_sync)**2 + (sigma_dt / Delta_t)**2 + (sigma_rho / rho_coh)**2
 sigma_phi = abs(Phi_inv) * np.sqrt(rel_var_phi)
 
-# --- Terror variants: rupture-aware mask on channels ---
-channel_variances = np.diag(Ceps)
-worst_idx = int(np.argmax(channel_variances))
-W_tau = np.eye(n)
-W_tau[worst_idx, worst_idx] = 0.0  # mask out ruptured channel
+# --- Terror variants: rupture-aware mask on channels (residual-driven) ---
+residual = O - A @ kappa_rec
+worst_idx = int(np.argmax(np.abs(residual)))
+W_tau = np.eye(n); W_tau[worst_idx, worst_idx] = 0.0
 
-res_ter = W_tau @ (O - O_pred)
-A_ter   = W_tau @ A
+A_ter = W_tau @ A
+O_ter = W_tau @ O
 Ceps_ter = W_tau @ Ceps @ W_tau
 
-M_ter = A_ter.T @ inv(Ceps + eps_stab*np.eye(n)) @ A_ter + lambda_reg * R.T @ R
-F_star_ter = inv(M_ter + eps_stab*np.eye(p)) @ (A_ter.T @ inv(Ceps + eps_stab*np.eye(n)))
-kappa_ter = F_star_ter @ (W_tau @ O)
+# Pre-whitened metric
+W = cholesky(inv(Ceps_ter + eps_stab*np.eye(n)))
+Jw_ter = W @ A_ter
+rw_ter = W @ (O_ter - A_ter @ kappa_rec)
 
+M_ter = Jw_ter.T @ Jw_ter + lambda_reg * R.T @ R
+delta_kappa = inv(M_ter + eps_stab*np.eye(p)) @ (Jw_ter.T @ rw_ter)
+kappa_ter = kappa_rec + delta_kappa
 C_kappa_ter = inv(M_ter + eps_stab*np.eye(p))
 std_kappa_ter = np.sqrt(np.diag(C_kappa_ter))
 
-E_pred_ter = entropy_power(W_tau @ (A @ kappa_ter))
-E_obs_ter  = entropy_power(W_tau @ O)
-C_info_ter = 1.0 - E_pred_ter / (E_obs_ter + 1e-12)
+# Terror-aware MKP gain (placeholder χ; replace with estimator)
+chi_meas_ter = 0.7
+chi_pred_ter = 0.5
+alpha_ter = chi_meas_ter / (chi_pred_ter + chi_meas_ter + 1e-12)
 
-alpha_ter = alpha
-O_pred_ter = W_tau @ (A @ kappa_ter)
-O_mkp_ter  = O_pred_ter + alpha_ter * (W_tau @ (O - A @ kappa_ter))
-
+O_pred_ter = A_ter @ kappa_ter
+O_mkp_ter  = O_pred_ter + alpha_ter * (O_ter - O_pred_ter)
 C_Ohat_ter = alpha_ter**2 * Ceps_ter + (1 - alpha_ter)**2 * (A_ter @ C_kappa_ter @ A_ter.T)
 std_Ohat_ter = np.sqrt(np.diag(C_Ohat_ter))
 
@@ -6919,7 +6921,7 @@ print("\\n--- Terror variants ---")
 print("Masked channel index =", worst_idx)
 print("Terror RIP κ_rec =", kappa_ter)
 print("Terror posterior std(κ) =", std_kappa_ter)
-print("Terror ICM C_info =", C_info_ter)
+print("Terror ICM C_info =", 1.0 - entropy_power(W_tau @ (A @ kappa_ter)) / (entropy_power(O_ter) + 1e-12))
 print("Terror MKP prediction =", O_mkp_ter)
 print("Terror MKP std per channel =", std_Ohat_ter)
 </code></pre>
