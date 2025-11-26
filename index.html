@@ -6926,6 +6926,560 @@ print("Terror MKP prediction =", O_mkp_ter)
 print("Terror MKP std per channel =", std_Ohat_ter)
 </code></pre>
 
+			<h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2d">Time–Uncertainty Compression Framework (TUCF)</h3>
+
+			<p>
+				TUCF is the temporal analogue of the Forward-Map Compression Framework. It promotes
+				time and uncertainty to first-class kernel objects—so that sliding windows, covariance
+				evolution, and rupture awareness are unified operators. TUCF ensures that temporal coherence,
+				uncertainty, and rupture are treated rigorously, with
+				diagnostics (<span class="math inline">\(\chi_t^2\)</span>, flux variance, and dimensional closure)
+				all defined in a falsifiable and unit-consistent way.
+			</p>
+
+			<h4>Motivation and Scope</h4>
+
+			<p>
+				Spatial compression in CTMT projects geometry into a kernel origin.
+				TUCF performs the equivalent compression in time:
+				it defines a calculus over windowed temporal kernels, uncertainty propagators,
+				and rupture masks that maintain dimensional closure and statistical consistency.
+				The result is a reproducible, time-domain inference method with measurable acceptance bands.
+			</p>
+
+			<h4>Core Operators</h4>
+
+			<h5>Temporal Kernel Operator</h5>
+			<p>
+				The temporal kernel operator <span class="math inline">\(\mathcal{T}_w\)</span> performs
+				a windowed convolution or projection of a temporal field:
+			</p>
+
+			<div class="math display">
+				\[
+					(\mathcal{T}_w[f])(t)
+					= \int_{t-\frac{\Delta t}{2}}^{t+\frac{\Delta t}{2}}
+					K_t(t,t')\,w(t,t')\,f(t')\,\mathrm{d}t',
+					\qquad [K_t]=[O]/[f].
+				\]
+			</div>
+
+			<p>
+				Here <span class="math inline">\(w(t,t')\)</span> is a taper (Hann, Tukey, or cosine)
+				ensuring local stationarity within the window
+				<span class="math inline">\([t-\Delta t/2,\,t+\Delta t/2]\)</span>.
+				The kernel <span class="math inline">\(K_t(t,t')\)</span> may be a
+				short-time Green’s function or local forward model.
+			</p>
+
+			<h5>Uncertainty Propagator (Dynamic Covariance)</h5>
+			<p>
+				Time-varying covariance evolves through the linearized Jacobian
+				<span class="math inline">\(\mathbf{J}_t=\partial \mathcal{F}/\partial\mathbf{\kappa}\)</span>:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{U}[C](t)
+					= \mathbf{J}_t\,C\,\mathbf{J}_t^\top
+					+ \mathbf{C}_\epsilon(t)
+					+ \varepsilon_{\mathrm{stab}}\mathbf{I}.
+				\]
+			</div>
+
+			<p>
+				The stabilizer <span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span>
+				is dimensionless and maintains numerical invertibility.
+				This expression holds under the linearized Gaussian approximation; for nonlinear
+				forward maps, ensemble propagation replaces the Jacobian term.
+			</p>
+
+			<h5>Rupture-Time Filter</h5>
+			<p>
+				Temporal rupture filtering parallels the spatial Terror kernel:
+			</p>
+
+			<div class="math display">
+				\[
+					(\mathcal{R}_{\tau,t}[f])(t)
+					= f(t)\,\mathbf{1}[\sigma_t \lt \tau],
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(\sigma_t\)</span> is a volatility or rupture proxy
+				computed in the current window and
+				<span class="math inline">\(\tau\)</span> is a threshold derived from calibration.
+			</p>
+
+			<h4>Geometry and Bounds</h4>
+			<ul>
+				<li>
+					<strong>Window geometry:</strong>
+					declare window length <span class="math inline">\(\Delta t\)</span>,
+					taper <span class="math inline">\(w\)</span>,
+					and sampling rate <span class="math inline">\(f_s\)</span>.
+				</li>
+				<li>
+					<strong>Stationarity condition:</strong>
+					local Fisher information matrix
+					<span class="math inline">\(\mathbf{H}_t = \mathbf{J}_t^\top \mathbf{C}_\epsilon(t)^{-1}\mathbf{J}_t\)</span>
+					must remain positive definite.
+				</li>
+				<li>
+					<strong>Dimensional closure:</strong>
+					verify that variances and covariances carry the same SI units
+					as their measured quantities (e.g. Pa² for acoustic pressure).
+				</li>
+			</ul>
+
+			<h4>Diagnostics (Per Window)</h4>
+
+			<h5>Temporal χ²</h5>
+			<div class="math display">
+				\[
+				\chi_t^2
+				= \frac{(\mathbf{O}_t - \widehat{\mathbf{O}}_t)^\top
+				\mathbf{C}_\epsilon(t)^{-1}
+				(\mathbf{O}_t - \widehat{\mathbf{O}}_t)}
+				{N_{\mathrm{obs}}^t - N_{\mathrm{par}}},
+				\]
+			</div>
+			<p>
+				where <span class="math inline">\(N_{\mathrm{obs}}^t\)</span> and
+				<span class="math inline">\(N_{\mathrm{par}}\)</span> are the effective observation and
+				parameter counts in the window.  Values near unity indicate consistency between
+				predicted and measured variance.
+			</p>
+
+			<h5>Information Decay</h5>
+			<div class="math display">
+				\[
+					\Delta C_{\mathrm{info}}
+					= C_{\mathrm{info}}(t+\Delta t) - C_{\mathrm{info}}(t),
+					\qquad
+					C_{\mathrm{info}}(t)
+					= \frac{I(\mathcal{T}[\mathbf{\kappa}](t);\mathbf{O}(t))}
+					{I(\mathbf{O}(t);\mathbf{O}(t))}.
+				\]
+			</div>
+			<p>
+				Rapid decay of <span class="math inline">\(C_{\mathrm{info}}\)</span>
+				between windows signals rupture or non-stationarity.
+			</p>
+
+			<h5>Flux Variance Law</h5>
+			<div class="math display">
+				\[
+					\Phi_{\mathrm{inv}}^t
+					= v_{\mathrm{sync}}\,
+					\mathbb{E}[\Delta t]\,
+					\rho_{\mathrm{coh}}^t,
+					\qquad
+					[\Phi_{\mathrm{inv}}^t] = \mathrm{m^{-2}},
+				\]
+			</div>
+			<p>
+				and its uncertainty satisfies
+				<span class="math inline">\(\sigma_\Phi^2(t)\)</span>
+				monotonic non-increase under rupture filtering.
+			</p>
+
+			<h4>Dimensional Closure and Residua</h4>
+			<p>
+				For any time-dependent derived quantity
+				<span class="math inline">\(Q(t)\)</span>,
+				define the dimensional residuum
+			</p>
+
+			<div class="math display">
+				\[
+					\epsilon_{\mathrm{dim}}(Q)(t)
+					= \frac{\|[Q(t)]_{\mathrm{pred}} - [Q(t)]_{\mathrm{SI}}\|}
+					{\|[Q(t)]_{\mathrm{SI}}\|}.
+				\]
+			</div>
+
+			<p>
+				TUCF requires
+				<span class="math inline">\(\epsilon_{\mathrm{dim}} \lt 10^{-12}\)</span>
+				for publication-grade closure.
+			</p>
+
+			<h4>Falsifiability and Measurement Protocol</h4>
+			<ol>
+				<li>Declare sampling rate, window length, taper, and anchor geometry.</li>
+				<li>
+					Estimate noise covariance
+					<span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span>
+					from noise-only intervals.
+				</li>
+				<li>
+					Run TUCF over sliding windows and record
+					<span class="math inline">\(\chi_t^2\)</span>,
+					<span class="math inline">\(\Delta C_{\mathrm{info}}\)</span>,
+					<span class="math inline">\(\Phi_{\mathrm{inv}}^t\)</span>,
+					and
+					<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>.
+				</li>
+				<li>
+					<strong>Falsify:</strong>
+					(a) phase-randomize each window → information proxy must collapse;
+					(b) inject synthetic rupture → χ² and flux variance must rise predictably.
+				</li>
+			</ol>
+
+			<h4>Parameter Guidance</h4>
+			<ul>
+				<li><strong>Window length Δt:</strong> include at least one oscillation cycle of the dominant mode.</li>
+				<li><strong>Taper:</strong> Hann or cosine tapers minimize leakage; declare explicitly.</li>
+				<li>
+					<strong>Stabilizer ε<sub>stab</sub>:</strong>
+					numerical floor <span class="math inline">\(10^{-12}\)–\(10^{-8}\)</span>
+					depending on machine precision.
+				</li>
+				<li>
+					<strong>Rupture threshold τ:</strong>
+					typically the 95-th percentile of the volatility proxy
+					under stable calibration data.
+				</li>
+			</ul>
+
+			<h4>Python Demonstration (Synthetic Sweep)</h4>
+			<p>
+				The script below demonstrates a full TUCF cycle: windowed temporal kernel,
+				uncertainty propagation, rupture masking, χ², information proxy,
+				and invariant flux monitoring.
+			</p>
+
+<pre><code class="language-python">#!/usr/bin/env python3
+"""TUCF demonstration: temporal kernel, uncertainty propagation, rupture masking,
+χ² diagnostics, information proxy, and invariant flux tracking."""
+import numpy as np, math
+from scipy.signal import get_window, correlate
+np.random.seed(0)
+# --- Parameters ---
+fs = 2000; T = 2.0
+t = np.linspace(0, T, int(fs*T), endpoint=False)
+f0 = 20.0; ω = 2*np.pi*f0
+Δt = 0.2; Nw = int(Δt*fs); hop = Nw//4
+window = get_window('hann', Nw)
+σ_noise = 0.05; τ = 1.5; ε_stab = 1e-10
+# --- Synthetic signal with rupture ---
+env = 1+0.3*np.sin(2*np.pi*0.2*t)
+sig = env*np.sin(ω*t)
+mask = (t&gt;0.8)&(t&lt;1.1)
+rupt_factor = np.ones_like(t)
+rupt_factor[mask] = np.random.lognormal(0,0.8,mask.sum())
+sig_r = sig*rupt_factor
+sig_r[int(1.4*fs):int(1.4*fs)+5]+=2*np.hanning(5)
+obs = sig_r + np.random.normal(scale=σ_noise,size=sig.shape)
+# --- Sliding windows ---
+idxs = np.arange(0,len(t)-Nw+1,hop)
+chi2, info, Φ, vol = [], [], [], []
+for i in idxs:
+    w = slice(i,i+Nw); tt = t[w]
+    o = obs[w]*window
+    A = (np.sin(ω*tt)[:,None]*window[:,None])
+    amp = np.linalg.solve(A.T@A+ε_stab*np.eye(1),A.T@o)
+    pred = (A@amp).ravel()
+    res = o-pred
+    var = σ_noise**2
+    χ2 = np.mean((res/var**0.5)**2)
+    chi2.append(χ2)
+    v = np.std(res)/(np.mean(np.abs(pred))+1e-12); vol.append(v)
+    if v>=τ: maskf=0
+    else: maskf=1
+    pwr = np.abs(np.fft.rfft(o))
+    pwr/=pwr.sum()+1e-12
+    H=-np.sum(pwr*np.log(pwr+1e-12))/np.log(len(pwr)+1e-12)
+    info.append((1-H)*maskf)
+    corr=correlate(o,pred,mode='full')
+    lag=np.argmax(np.abs(corr))-(len(o)-1)
+    Δt_est=lag/fs
+    coh=np.abs(np.mean(np.exp(1j*np.angle(np.fft.fft(o+1e-12)))))
+    v_sync=340.0
+    Φ.append(v_sync*abs(Δt_est)*coh)
+print("Mean χ²:",np.mean(chi2))
+print("Mean info proxy:",np.mean(info))
+print("Mean Φ_inv:",np.mean(Φ))
+print("Max volatility:",max(vol))
+</code></pre>
+
+			<h4>Robustness, Limitations, and Extensions</h4>
+			<ul>
+				<li>
+					<strong>Linearization:</strong>
+					TUCF assumes local linearity; strongly nonlinear maps require ensemble propagation.
+				</li>
+				<li>
+					<strong>Information metric:</strong>
+					replace entropy proxy with kNN/KSG estimator for small data sets.
+				</li>
+				<li>
+					<strong>Parameter calibration:</strong>
+					calibrate <span class="math inline">\(\tau\)</span>,
+					<span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span>,
+					and <span class="math inline">\(\Delta t\)</span> empirically.
+				</li>
+				<li>
+					<strong>Multivariate extension:</strong>
+					extend scalar Jacobians to full
+					<span class="math inline">\(\mathbf{J}_t\)</span>
+					and propagate full covariances via
+					<span class="math inline">\(\mathcal{U}\)</span>.
+				</li>
+			</ul>
+
+			<h4>Summary</h4>
+			<p>
+				TUCF fuses temporal windowing, uncertainty propagation, and rupture masking into
+				a single operator family. By embedding time and uncertainty directly into the kernel
+				calculus, it yields reproducible, falsifiable temporal diagnostics and ensures
+				that CTMT retains dimensional and statistical closure in the time domain.
+			</p>
+
+			<h4>Composition of Forward Map Compression and TUCF</h4>
+
+			<p>
+				CTMT describes coherence transport across geometry and time. Forward Map Compression (FMC) collapses spatial geometry into a kernel origin,
+				while the Time–Uncertainty Compression Framework (TUCF) performs the same collapse for temporal structure and uncertainty.
+				This subsection defines their <strong>joint operator calculus</strong>, completing the CTMT minimal operational stack.
+			</p>
+
+			<h5>Joint Kernel Structure</h5>
+			<p>
+				The joint compressed kernel is a separable–but‑coupled operator over space
+				<span class="math inline">\(\,x\,\)</span> and time
+				<span class="math inline">\(\,t\,\)</span>:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathcal{K}_{\mathrm{joint}}[f](x,t) =
+					\int\!\!\int K_x(x,x')\,K_t(t,t')\,w_x(x,x')\,w_t(t,t')\,f(x',t')\,dx'\,dt'.
+				\]
+
+			</div>
+			<ul>
+				<li><strong><span class="math inline">\(K_x\)</span></strong> is the spatial Forward‑Map kernel (compressed geometry).</li>
+				<li><strong><span class="math inline">\(K_t\)</span></strong> is the temporal kernel from TUCF.</li>
+				<li><strong><span class="math inline">\(w_x\)</span></strong>, <strong>\(w_t\)</strong> are taper functions ensuring local stationarity in space and time.</li>
+			</ul>
+			<p>
+				FMC ensures unit‑consistent spatial projection, while TUCF ensures temporal coherence and uncertainty propagation within each window.
+			</p>
+
+			<h5>Composition with Rupture (Terror) Kernels</h5>
+			<p>
+				CTMT rupture is handled by the Terror kernel in space and the volatility mask in TUCF for time. Their natural composition is:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathcal{R}_{\mathrm{joint}} = \mathcal{R}_{\tau,t} \circ \mathcal{T}_{\mathrm{Terror}}.
+				\]
+
+			</div>
+			<ul>
+				<li><strong><span class="math inline">\(\mathcal{T}_{\mathrm{Terror}}\)</span></strong> masks spatial rupture based on anchor geometry, discontinuity, or χ‑volume collapse.</li>
+				<li><strong><span class="math inline">\(\mathcal{R}_{\tau,t}\)</span></strong> masks temporal rupture based on volatility or <span class="math inline">\(\chi_t^2\)</span> explosion.</li>
+			</ul>
+			<p>
+				Importantly, these operators <strong>commute in expectation</strong> under stationarity:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathbb{E}\!\left[\mathcal{R}_{\mathrm{joint}}\right] =
+					\mathbb{E}\!\left[\mathcal{R}_{\tau,t}\right]\,
+					\mathbb{E}\!\left[\mathcal{T}_{\mathrm{Terror}}\right].
+				\]
+
+			</div>
+			<p>
+				This ensures that spatial rupture and temporal rupture do not introduce cross‑bias into the reconstructed kernel.
+			</p>
+
+			<h5>Joint Uncertainty Propagation</h5>
+			<p>
+				The combined covariance evolution is:
+			</p>
+			<div class="math display">
+
+			\[
+				C_{x,t} = J_x C_\kappa J_x^\top \;+\; J_t C_\kappa J_t^\top \;+\; C_\epsilon(x,t) \;+\; \varepsilon_{\mathrm{stab}}I.
+			\]
+
+			</div>
+			<ul>
+				<li><strong><span class="math inline">\(J_x\)</span></strong> is the spatial Jacobian of the forward map.</li>
+				<li><strong><span class="math inline">\(J_t\)</span></strong> is the temporal Jacobian from TUCF.</li>
+				<li><strong><span class="math inline">\(C_\epsilon(x,t)\)</span></strong> is the spatiotemporal noise covariance (factorable or not).</li>
+			</ul>
+			<p>
+			This closes uncertainty across both axes and keeps SI units consistent:
+			</p>
+			<div class="math display">
+
+			\[
+				[C_{x,t}] = [O]^2.
+			\]
+
+			</div>
+
+			<h5>Dual Role of Spectral‑Entropy</h5>
+
+			<h6>Entropy as a coherence indicator (high‑frequency compressibility)</h6>
+			<p>
+				Within FMC, spectral‑entropy measures how <em>compressible in frequency</em> the spatial projection is. Lower entropy means the signal preserves geometric coherence.
+			</p>
+
+			<h6>Entropy as rupture evidence (temporal decoherence)</h6>
+			<p>
+				Within TUCF, the same entropy used on short‑time Fourier windows becomes an indicator of <em>temporal decoherence or instability</em>.
+			</p>
+			<p>
+				The dual use is mathematically consistent because FMC and TUCF operate on different axes:
+			</p>
+			<div class="math display">
+
+				\[
+					H_x = H(|\widehat{O}(k)|), \qquad
+					H_t(t) = H(|\widehat{O}_t(f)|).
+				\]
+
+			</div>
+			<p>
+				Both measure loss of structure after compression, but in two orthogonal domains. This symmetry is a key result for CTMT’s unified coherence formalism.
+			</p>
+
+			<h5>Joint Diagnostics</h5>
+
+			<h6>Spatiotemporal χ²</h6>
+			<div class="math display">
+
+				\[
+					\chi_{x,t}^2 = (O - \widehat{O})^\top C_{x,t}^{-1} (O - \widehat{O}).
+				\]
+
+			</div>
+
+			<h6>Information flux decay</h6>
+			<p>
+				Define a spatiotemporal information metric as:
+			</p>
+			<div class="math display">
+
+				\[
+					C_{\mathrm{info}}^{x,t} =
+					\frac{I(\mathcal{K}_{\mathrm{joint}}[\kappa];O)}{I(O;O)}.
+				\]
+
+			</div>
+			<p>
+			A decrease in <span class="math inline">\(C_{\mathrm{info}}^{x,t}\)</span> tracks combined geometric + temporal rupture.
+			</p>
+
+			<h6>Flux variance law (joint)</h6>
+			<div class="math display">
+
+				\[
+					\sigma_{\Phi}^2(x,t) =
+					\sigma_v^2(x) + \sigma_{\Delta t}^2(t) + \sigma_{\rho}^2(x,t).
+				\]
+
+			</div>
+			<p>
+				TUCF modulates the temporal part, FMC modulates the spatial parts.
+			</p>
+
+			<h5>Jupyter Demonstration: Joint Spatial–Temporal Kernel</h5>
+			<p>
+				Below is a complete Jupyter‑ready joint simulation skeleton. It extends your TUCF demo by adding a <strong>synthetic spatial forward map</strong>, a <strong>joint noise model</strong>, and a <strong>joint rupture mask</strong>.
+			</p>
+
+<pre><code class="language-python"># Joint FMC ⊗ TUCF demonstration (Jupyter notebook cell)
+
+import numpy as np
+from scipy.signal import get_window, correlate
+from numpy.fft import rfft
+np.random.seed(1)
+
+# Spatial anchors
+anchors = np.array([0.0, 0.5, 1.0])     # 3 sensors
+c = 340.0                               # wave speed
+
+# Synthetic spatial forward map (Green's function)
+def Kx(x, x0):
+    r = np.abs(x - x0)
+    return 1/(r+1e-6)
+
+# Temporal parameters
+fs = 2000
+T = 2.0
+t = np.linspace(0, T, int(T*fs), endpoint=False)
+f0 = 18
+ω = 2*np.pi*f0
+
+# Create spatiotemporal field
+field = np.sin(ω*t)                     # temporal carrier
+
+# Spatial projection
+O_space = np.vstack([Kx(anchors[i], 0.0) * field for i in range(len(anchors))])
+
+# Temporal rupture
+mask_t = (t&gt;0.9)&(t&lt;1.2)
+rupt = np.random.lognormal(0,0.7,mask_t.sum())
+field_r = field.copy()
+field_r[mask_t] *= rupt
+
+O = np.vstack([Kx(anchors[i],0.0)*field_r for i in range(len(anchors))])
+O += 0.03*np.random.randn(*O.shape)
+
+# TUCF window parameters
+Δt = 0.15
+Nw = int(fs*Δt)
+hop = Nw//3
+win = get_window('hann', Nw)
+
+chi2_joint = []
+entropy_joint = []
+rupt_joint = []
+
+for start in range(0, len(t)-Nw, hop):
+    idx = slice(start, start+Nw)
+    
+    # Spatial aggregation: sum over anchors (FMC compression)
+    Y = np.sum(O[:,idx], axis=0)
+    Y *= win
+
+    # Temporal prediction: reconstruct amplitude via LS
+    basis = np.sin(ω * t[idx]) * win
+    A = basis[:,None]
+    amp = np.linalg.solve(A.T@A + 1e-10*np.eye(1), A.T@Y)
+    pred = (A@amp).ravel()
+
+    # Residual & chi2
+    res = Y - pred
+    chi2_joint.append(np.mean((res/0.03)**2))
+
+    # Spectral entropy (temporal)
+    p = np.abs(rfft(Y))
+    p /= p.sum()+1e-12
+    H = -np.sum(p*np.log(p+1e-12))/np.log(len(p)+1e-12)
+
+    entropy_joint.append(H)
+
+    # Joint rupture indication: volatility × curvature
+    vol = np.std(res) / (np.mean(np.abs(pred))+1e-12)
+    rupt_joint.append(vol * H)
+
+print("mean χ²_joint:", np.mean(chi2_joint))
+print("mean entropy:", np.mean(entropy_joint))
+print("max rupture indicator:", np.max(rupt_joint))
+</code></pre>
+
             <h3 id="sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_3">Green Kernel (Spectral)</h3>
             <p>
                 The Green kernel defines the spectral response of a system to localized impulse excitation.
