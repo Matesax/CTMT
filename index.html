@@ -14106,6 +14106,562 @@ Inequality (|O_red-O_rig| &lt;= 2 sqrt(...)): pass/fail
       <li>Conservative pruning: document sensitivity of results to <code>threshold</code> and <code>rigidity_lambda</code>.</li>
       <li>When using terror deformation models for real systems, bound multiplicative deformation and shocks with domain expertise.</li>
     </ul>
+
+			<h3 id="sec-terror-kernel-as-a-rupture-operator_5">Coherence–Rupture Stability Compression (CRSC)</h3>
+
+			<p>
+				<strong>Purpose:</strong>
+				CRSC extends CTMT into the domain of rupture, coherence, and recovery. 
+				It formalizes rupture as a measurable, compressible operator rather than an ad-hoc mask. 
+				Through the <em>coherence kernel</em>, <em>rupture manifold</em>, and <em>uncertainty law</em>, 
+				CRSC unifies instability geometry, uncertainty propagation, and recoverability under a single operator calculus. 
+				It completes the CTMT triad: <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2c"><em>FMC</em> (spatial)</a>, <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2d"><em>TUCF</em> (temporal/uncertainty)</a>, and <em>CRSC</em> (rupture/coherence).
+			</p>
+
+			<h4>Motivation and scope</h4>
+			<p>
+				Traditional rupture models treat instability as external noise or as thresholded attenuation. 
+				CRSC makes rupture an intrinsic, measurable field: a deformation of the forward operator itself. 
+				Its goals are:
+			</p>
+			<ul>
+				<li>To represent coherence as a dimensionless multiplicative kernel.</li>
+				<li>To define rupture geometry via local curvature and Fisher spectra.</li>
+				<li>To propagate rupture uncertainty consistently through inversion.</li>
+				<li>To provide falsifiable recovery and forecasting diagnostics.</li>
+			</ul>
+
+			<h4>Core operators and definitions</h4>
+
+			<h5>Rupture Manifold</h5>
+
+			<p>
+				The rupture manifold is the geometric locus of directions in parameter space 
+				where the forward map loses curvature, identifiability, or stability. 
+				Whereas the scalar rupture indicator 
+				<span class="math inline">\(r(x,t)\)</span> summarizes collapse magnitude,
+				the rupture manifold describes <em>where</em> in kernel space collapse propagates.
+			</p>
+
+			<p>
+				For a local forward map with Jacobian 
+				<span class="math inline">\(\mathbf{J}(x,t)\)</span>
+				and Fisher curvature
+			</p>
+
+			<div class="math display">
+				\[
+					\mathbf{H}(x,t)
+					= \mathbf{J}(x,t)^{\top}\, \mathbf{C}_{\epsilon}^{-1}\, \mathbf{J}(x,t),
+				\]
+			</div>
+
+			<p>
+				rupture corresponds to loss of rank or near-degeneracy of 
+				<span class="math inline">\(\mathbf{H}\)</span>. 
+				Therefore the rupture manifold is the <em>nullspace bundle</em> of 
+				<span class="math inline">\(\mathbf{H}\)</span>:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{M}_{\mathrm{rupt}}(x,t)
+					= \ker \mathbf{H}(x,t)
+					= \{v \in \mathbb{R}^p \mid \mathbf{H}(x,t) v = 0 \}.
+				\]
+			</div>
+
+			<p>
+				In practice exact nullspaces are rare; instead, near-null directions 
+				(eigenvalues below a stability threshold <span class="math inline">\(\lambda_{\mathrm{crit}}\)</span>)
+				define an <em>approximate rupture manifold</em>:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{M}_{\mathrm{rupt}}(x,t;\lambda_{\mathrm{crit}})
+					= \mathrm{span}\{\, v_i \mid \lambda_i \lt \lambda_{\mathrm{crit}} \,\},
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(\mathbf{H} = V \Lambda V^\top\)</span> 
+				is the eigen-decomposition.
+				This manifold gives the precise geometry of instability:
+				directions in kernel space that cannot be stably inferred, reconstructed, 
+				or propagated under local noise.
+			</p>
+
+			<h5>Interpretation</h5>
+			<ul>
+				<li>
+					<strong>Dimensional meaning:</strong> 
+					<span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span> identifies 
+					kernel configurations that produce indistinguishable observables under the 
+					declared noise model.
+				</li>
+				<li>
+					<strong>Coherence link:</strong> 
+					Directions in <span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span>
+					correspond to coherence attenuation 
+					<span class="math inline">\(K_{\mathrm{coh}}\to 0\)</span>.
+				</li>
+				<li>
+					<strong>Identifiability boundary:</strong> 
+					Recovery is impossible along this manifold; 
+					viable recovery exists only on the orthogonal complement.
+				</li>
+				<li>
+					<strong>Rupture forecasting:</strong>
+					Growth of <span class="math inline">\(\dim \mathcal{M}_{\mathrm{rupt}}\)</span> 
+					is an early-warning indicator of rupture expansion.
+				</li>
+			</ul>
+
+			<h5>Python example: computing the rupture manifold</h5>
+
+<pre><code class="language-python"># Compute rupture manifold basis from Fisher curvature H
+eigvals_H, eigvecs_H = np.linalg.eigh(H)
+
+lambda_crit = 0.5
+rupture_mask = eigvals_H &lt; lambda_crit
+
+# Columns of M_rupt span the rupture manifold
+M_rupt = eigvecs_H[:, rupture_mask]
+
+print("Rupture manifold dimension:", M_rupt.shape[1])
+print("Basis vectors:\n", M_rupt)
+</code></pre>
+
+			<p>
+				Directions in <span class="math inline">\(M_{\mathrm{rupt}}\)</span> correspond to 
+				instability modes; they are the geometric “fault lines” of the forward map.
+				CRSC uses these directions to define rupture volatility, coherence kernels,
+				uncertainty inflation, and recovery bounds in a fully consistent manner.
+			</p>
+
+			<h5>Jacobian and Fisher curvature</h5>
+			<p>
+				For a local forward map 
+				<span class="math inline">\(\mathbf{O}(x,t) = \mathcal{F}[\mathbf{\kappa}](x,t)\)</span> 
+				with Jacobian 
+				<span class="math inline">\(\mathbf{J}(x,t) = \partial \mathbf{O} / \partial \mathbf{\kappa}\)</span>, 
+				define the Fisher–information curvature:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathbf{H}(x,t) = \mathbf{J}(x,t)^{\!\top}\,\mathbf{C}_\epsilon^{-1}\,\mathbf{J}(x,t),
+				\]
+
+			</div>
+			<p>
+				where <span class="math inline">\(\mathbf{C}_\epsilon\)</span> is the noise covariance. 
+				Small eigenvalues of <span class="math inline">\(\mathbf{H}\)</span> identify directions of rupture.
+			</p>
+
+			<h5>Rupture volatility and coherence kernel</h5>
+			<p>
+				Define a scalar rupture indicator <span class="math inline">\(r(x,t)\)</span> and volatility 
+			<span class="math inline">\(\sigma_{\mathrm{rupt}}(x,t)\)</span>:
+			</p>
+			<div class="math display">
+
+				\[
+					r(x,t) = \frac{\lambda_{\mathrm{crit}}}{\lambda_{\min}(x,t)}, 
+					\qquad
+					\sigma_{\mathrm{rupt}}(x,t) = g(r(x,t)),
+					\qquad [\sigma_{\mathrm{rupt}}]=1.
+				\]
+
+			</div>
+			<p>
+				A practical choice is <span class="math inline">\(g(r)=\log(1+r)\)</span>, giving smooth scaling even for large rupture ratios.  
+				The coherence kernel is a dimensionless attenuation field:
+			</p>
+			<div class="math display">
+
+				\[
+					K_{\mathrm{coh}}(x,t)
+					= \exp\!\Big(-\frac{\sigma_{\mathrm{rupt}}(x,t)}{\sigma_0}\Big),
+					\qquad [K_{\mathrm{coh}}]=1,
+				\]
+
+			</div>
+			<p>
+				where <span class="math inline">\(\sigma_0\)</span> is a calibrated stability scale.  
+				Every forward operator is then coherence‑weighted:
+				<span class="math inline">\(\mathcal{F} \mapsto K_{\mathrm{coh}}\!\circ\!\mathcal{F}\)</span>.
+			</p>
+
+			<h5>Stability compression operator</h5>
+			<p>
+				Coherence acts on both input and output sides of the forward operator:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathcal{S}_{\mathrm{comp}}[\mathcal{F}](x,t)
+					= K_{\mathrm{coh}}(x,t)\,\mathcal{F}\,K_{\mathrm{coh}}(x,t).
+				\]
+
+			</div>
+
+			<h5>Rupture uncertainty propagator</h5>
+			<p>
+				Rupture inflates the kernel covariance by a local additive term:
+			</p>
+			<div class="math display">
+
+				\[
+					C_{\kappa}^{\mathrm{rupt}}
+					= K_{\mathrm{coh}}\,C_{\kappa}\,K_{\mathrm{coh}}^{\!\top}
+					+ Q_{\mathrm{rupt}},
+					\qquad
+					Q_{\mathrm{rupt}} = \gamma_{\mathrm{rupt}}\;\mathrm{diag}(\sigma_{\mathrm{rupt}}^2),
+				\]
+
+			</div>
+			<p>
+				where <span class="math inline">\(C_{\kappa}\)</span> is the prior covariance and 
+				<span class="math inline">\(\gamma_{\mathrm{rupt}}\)</span> is a scaling constant determined by calibration.
+			</p>
+
+			<h5>Posterior uncertainty law</h5>
+			<p>
+				Under the linearized Gaussian approximation, the posterior covariance becomes:
+			</p>
+			<div class="math display">
+
+				\[
+					C_{\kappa,\mathrm{post}}^{\mathrm{rupt}}
+					= \big(\mathbf{J}^\top C_\epsilon^{-1}\mathbf{J}
+					+ R^\top R + Q_{\mathrm{rupt}}^{-1}\big)^{-1}.
+				\]
+
+			</div>
+			<p>
+				This expression embeds rupture uncertainty as an additive precision term, ensuring closed uncertainty propagation.
+			</p>
+
+			<h5>Energy and stability consistency</h5>
+			<p>
+				To preserve physical validity, CRSC enforces energy non‑expansiveness:
+			</p>
+			<div class="math display">
+
+				\[
+					\mathbb{E}\big[\|K_{\mathrm{coh}}\mathbf{O}\|^2\big]
+					\le \mathbb{E}\big[\|\mathbf{O}\|^2\big],
+					\qquad
+					\mathrm{Var}[K_{\mathrm{coh}}] \propto \mathrm{Var}[\sigma_{\mathrm{rupt}}].
+				\]
+
+			</div>
+
+			<h4>Rupture dynamics and forecasting</h4>
+			<p>
+				Temporal evolution of rupture volatility is modeled phenomenologically by:
+			</p>
+			<div class="math display">
+
+				\[
+					\partial_t \sigma_{\mathrm{rupt}}(x,t)
+					= a_1\,\partial_t(1-C_{\mathrm{info}}(x,t))
+					+ a_2\,\partial_t(\|H(x,t)\|_F^{-1})
+					+ a_3\,\partial_t(\chi_{\mathrm{vol}}(x,t)),
+				\]
+
+			</div>
+			<p>
+				where <span class="math inline">\(a_i\)</span> are calibration coefficients, 
+				<span class="math inline">\(C_{\mathrm{info}}\)</span> the local information compression metric, 
+				and <span class="math inline">\(\chi_{\mathrm{vol}}\)</span> the coherence volume from FMC.
+			</p>
+
+			<h4>4. Rupture flux and complementarity</h4>
+			<p>
+				Define a rupture flux that measures the effective rupture throughput:
+			</p>
+			<div class="math display">
+
+				\[
+					\Phi_{\mathrm{rupt}}(x,t)
+					= \big(1 - C_{\mathrm{info}}(x,t)\big)\;
+					v_{\mathrm{sync}}(x,t)\;
+					\mathbb{E}[\Delta t(x,t)],
+					\qquad [\Phi_{\mathrm{rupt}}]=\mathrm{m^{-2}}.
+				\]
+
+			</div>
+			<p>
+				In stable conditions <span class="math inline">\(C_{\mathrm{info}}\approx 1\)</span>, the flux vanishes;
+				during rupture it rises in proportion to lost information density.
+			</p>
+
+			<h4>5. Dimensional closure</h4>
+			<p>
+				All CRSC quantities are dimensionally closed. The dimensional residuum test is:
+			</p>
+			<div class="math display">
+
+				\[
+					\epsilon_{\mathrm{dim}}(Q)
+					= \frac{\|[Q]_{\mathrm{pred}} - [Q]_{\mathrm{SI}}\|}
+					{\|[Q]_{\mathrm{SI}}\|},
+					\qquad
+					\epsilon_{\mathrm{dim}} \lt 10^{-12}\ \text{for full closure}.
+				\]
+
+			</div>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Quantity</th>
+						<th>Symbol</th>
+						<th>Units</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Coherence kernel</td>
+						<td><span class="math inline">\(K_{\mathrm{coh}}\)</span></td>
+						<td><span class="math inline">1</span></td>
+						<td>Dimensionless attenuation</td>
+					</tr>
+					<tr>
+						<td>Rupture volatility</td>
+						<td><span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span></td>
+						<td><span class="math inline">1</span></td>
+						<td>Local instability magnitude</td>
+					</tr>
+					<tr>
+						<td>Rupture covariance</td>
+						<td><span class="math inline">\(Q_{\mathrm{rupt}}\)</span></td>
+						<td>Same as <span class="math inline">\(C_\kappa\)</span></td>
+						<td>Added uncertainty</td>
+					</tr>
+					<tr>
+						<td>Rupture flux</td>
+						<td><span class="math inline">\(\Phi_{\mathrm{rupt}}\)</span></td>
+						<td><span class="math inline">\(\mathrm{m^{-2}}\)</span></td>
+						<td>Rupture energy throughput</td>
+					</tr>
+					<tr>
+						<td>Recovery norm</td>
+						<td><span class="math inline">\(\|\mathcal{F}^{-1}_{\mathrm{rec}}\|\)</span></td>
+						<td><span class="math inline">1</span></td>
+						<td>Invertibility magnitude</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<h4>Falsifiability and measurement protocol</h4>
+			<ol>
+				<li>Declare geometry, sampling rate, and <span class="math inline">\(C_\epsilon\)</span>.</li>
+				<li>Calibrate <span class="math inline">\(\sigma_0\)</span> from baseline (stable) runs.</li>
+				<li>Compute <span class="math inline">\(\mathbf{H}(x,t)\)</span> and its eigen‑spectrum.</li>
+				<li>Derive <span class="math inline">\(\sigma_{\mathrm{rupt}}, K_{\mathrm{coh}}, Q_{\mathrm{rupt}}, \Phi_{\mathrm{rupt}}\)</span>.</li>
+				<li>Attempt recovery; verify the bound <span class="math inline">\(\|\mathcal{F}^{-1}_{\mathrm{rec}}\|<\kappa_{\max}\)</span>.</li>
+			</ol>
+
+			<h5>Quantitative falsification tests</h5>
+			<ul>
+				<li>
+					<strong>Phase randomization:</strong> destroys coherence → 
+					<span class="math inline">\(C_{\mathrm{info}}\downarrow\)</span>, 
+					<span class="math inline">\(K_{\mathrm{coh}}\downarrow\)</span>, 
+					<span class="math inline">\(\Phi_{\mathrm{rupt}}\uparrow\)</span>.
+				</li>
+				<li>
+					<strong>Injected shock:</strong> raises 
+					<span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span>, inflates 
+					<span class="math inline">\(Q_{\mathrm{rupt}}\)</span>, and increases residual variance.
+				</li>
+				<li>
+					<strong>Recovery test:</strong> if 
+					<span class="math inline">\(\|\mathcal{F}^{-1}_{\mathrm{rec}}\|>\kappa_{\max}\)</span>, rupture is empirically irrecoverable.
+				</li>
+			</ul>
+
+			<h4>Coupling to FMC and TUCF</h4>
+			<p>
+				CRSC interacts directly with both companion frameworks:
+			</p>
+			<ul>
+				<li>
+					<strong>FMC coupling:</strong> modify the forward operator as 
+					<span class="math inline">\(\mathcal{F} \mapsto K_{\mathrm{coh}}\!\circ\!\mathcal{F}\)</span>,
+					ensuring spatial kernels are coherence‑weighted.
+				</li>
+				<li>
+					<strong>TUCF coupling:</strong> propagate rupture uncertainty through time via
+					<span class="math inline">\(C_\epsilon(t) \mapsto C_\epsilon(t) + Q_{\mathrm{rupt}}(t)\)</span>,
+					and modulate temporal kernels by <span class="math inline">\(K_{\mathrm{coh}}(t)\)</span>.
+				</li>
+			</ul>
+
+			<h4>Python demonstration (CRSC)</h4>
+
+<pre><code class="language-python"># CRSC demo: coherence kernel, rupture manifold, uncertainty propagation, forecasting, recovery
+import numpy as np
+from numpy.linalg import inv, eigvals, norm
+np.random.seed(2)
+
+# --- simple linear forward model (A ~ Jacobian) ---
+A = np.array([[1.0, 0.4, -0.2, 0.0],
+              [0.3, 1.1,  0.05, 0.1],
+              [-0.1,0.2,  0.9, 0.05],
+              [0.0, 0.0,  0.2, 1.0]])   # 4 observables, 4 kernel params
+p, n = A.shape[1], A.shape[0]
+
+# true kernel parameters and noise
+kappa_true = np.array([0.7, -0.3, 0.25, 0.1])
+sigma_noise = 0.02
+Ceps = np.eye(n) * sigma_noise**2
+
+# observed signal (before rupture)
+O_clean = A @ kappa_true
+O = O_clean + np.random.multivariate_normal(np.zeros(n), Ceps)
+
+# --- impose a localized rupture on channel 1 and 2 (multiplicative LN) ---
+rupt_idx = [0,1]
+rupt_scale = 1.2
+rupt_factor = np.ones(n)
+rupt_factor[rupt_idx] = np.random.lognormal(mean=0.0, sigma=0.8, size=len(rupt_idx))
+O_rupt = O * rupt_factor
+
+# --- compute local Hessian / Fisher H = J^T Ceps^{-1} J ---
+H = A.T @ inv(Ceps) @ A
+eig_H = np.sort(np.real(eigvals(H)))
+lambda_min = eig_H[0]
+
+# --- rupture indicator and volatility ---
+lambda_crit = 0.5
+r = lambda_crit / (lambda_min + 1e-12)
+sigma0 = 1.0
+sigma_rupt = np.log1p(r) * np.ones(n)
+sigma_rupt[rupt_idx] *= rupt_scale
+
+# --- coherence kernel (dimensionless) ---
+K_coh = np.exp(-sigma_rupt / sigma0)
+
+# --- rupture-modified covariance ---
+gamma_rupt = 1.0
+Q_rupt = gamma_rupt * np.diag(sigma_rupt**2)
+C_kappa_prior = np.eye(p) * 0.05
+C_kappa_rupt = (K_coh[:,None] * C_kappa_prior) * K_coh[None,:] + Q_rupt[:p,:p]
+
+# --- RIP reconstruction with rupture weighting ---
+W = np.diag(K_coh)
+A_ter = W @ A
+O_ter = W @ O_rupt
+eps_stab = 1e-8
+lhs = A_ter.T @ inv(Ceps + eps_stab*np.eye(n)) @ A_ter + eps_stab*np.eye(p)
+rhs = A_ter.T @ inv(Ceps + eps_stab*np.eye(n)) @ O_ter
+kappa_rec = inv(lhs) @ rhs
+
+# --- predicted observable & residuals ---
+O_rec = A @ kappa_rec
+res = O_rupt - O_rec
+
+# --- rupture flux (simple proxy) ---
+v_sync = 340.0
+Delta_t = 0.12
+def spectral_entropy(x):
+    P = np.abs(np.fft.rfft(x))**2
+    P = P / (P.sum() + 1e-12)
+    return -np.sum(P * np.log(P + 1e-12))
+info_clean = spectral_entropy(O_clean)
+info_rupt  = spectral_entropy(O_rupt)
+C_info = 1.0 - (info_rupt / (info_clean + 1e-12))
+Phi_rupt = (1.0 - C_info) * v_sync * Delta_t
+
+# --- rupture forecast (finite-difference proxy) ---
+H_norm = norm(H, ord='fro')
+a1, a2 = 0.7, 0.3
+d_info_dt = (info_rupt - info_clean) / 0.01
+d_Hinv_dt = 0.0  # placeholder
+sigma_rupt_dot = a1 * (-d_info_dt) + a2 * d_Hinv_dt
+sigma_rupt_forecast = sigma_rupt + 0.01 * sigma_rupt_dot
+
+# --- recovery / invertibility check ---
+F = A_ter.copy()
+reg = 1e-6
+F_inv = inv(F.T @ F + reg*np.eye(p)) @ F.T
+recov_norm = norm(F_inv, ord=2)
+kappa_max = 1e4
+recoverable = recov_norm &lt; kappa_max
+
+# --- Reporting ---
+print("=== CRSC demo results ===")
+print("rupture indices:", rupt_idx)
+print("rupture factors:", np.round(rupt_factor, 4))
+print("lambda_min(H) =", np.round(lambda_min, 6))
+print("sigma_rupt =", np.round(sigma_rupt, 4))
+print("K_coh =", np.round(K_coh, 4))
+print("kappa_rec =", np.round(kappa_rec, 4))
+print("residual norm ||res|| =", np.round(norm(res), 6))
+print("C_info =", np.round(C_info, 6))
+print("Phi_rupt =", np.round(Phi_rupt, 6))
+print("sigma_rupt forecast =", np.round(sigma_rupt_forecast, 6))
+print("regularized inverse norm =", np.round(recov_norm, 6))
+print("recoverable?", recoverable)
+</code></pre>
+
+			<h4>Robustness, limitations and calibration</h4>
+			<ul>
+				<li>
+					<strong>Linearity:</strong> CRSC relies on local linearization of the forward map. 
+					For strongly nonlinear rupture dynamics (e.g. turbulence, chaotic coherence collapse), 
+					replace Jacobian-based propagation with ensemble or particle methods (EnKF, Monte Carlo). 
+					This preserves uncertainty closure beyond first order.
+				</li>
+				<li>
+					<strong>Calibration:</strong> Parameters 
+					<span class="math inline">\(\sigma_0, \lambda_{\mathrm{crit}}, \gamma_{\mathrm{rupt}}\)</span> 
+					must be calibrated from controlled baseline and rupture runs. 
+					Report sensitivity analyses to show robustness of results.
+				</li>
+				<li>
+					<strong>Forecast coefficients:</strong> Coefficients 
+					<span class="math inline">\(a_i\)</span> in the rupture evolution law 
+					should be estimated via regression on historical rupture events or synthetic datasets. 
+					Explicitly report confidence intervals and error bounds.
+				</li>
+				<li>
+					<strong>Stabilizer:</strong> Numerical stabilizer 
+					<span class="math inline">\(\varepsilon_{\mathrm{stab}}=10^{-12}\)–\(10^{-8}\)</span> 
+					is required for matrix inversions. 
+					Choose values consistent with floating‑point precision and physical units; 
+					document the choice in all experiments.
+				</li>
+				<li>
+					<strong>Acceptance bands:</strong> Define acceptance bands for 
+					<span class="math inline">\(\lambda_{\min}, K_{\mathrm{coh}}, \Phi_{\mathrm{rupt}}, \|\mathcal{F}^{-1}_{\mathrm{rec}}\|\)</span>. 
+					These bands act as robustness thresholds; results outside them must be flagged as unstable or unrecoverable.
+				</li>
+
+				<li>
+					<strong>Dimensional closure:</strong> Always compute 
+					<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> for reported quantities. 
+					If closure fails (<span class="math inline">\(\epsilon_{\mathrm{dim}}>10^{-12}\)</span>), 
+					explicitly state missing prefactors or approximations.
+				</li>
+			</ul>
+
+			<h4>Interpretive summary</h4>
+			<p>
+				CRSC promotes rupture from a qualitative symptom to a quantitative operator. 
+				The coherence kernel <span class="math inline">\(K_{\mathrm{coh}}\)</span> compresses structural integrity; 
+				the rupture manifold <span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span> encodes instability geometry; 
+				the uncertainty and flux laws provide measurable falsifiable quantities. 
+				In combination with TUCF and FMC, CRSC establishes a triad of CTMT compressions:
+				<em>geometry</em>, <em>time–uncertainty</em>, and <em>rupture–coherence</em> — 
+				all dimensionally closed, testable, and computationally operational.
+			</p>
         </article>
     </section>
     <section>
