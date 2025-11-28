@@ -30348,6 +30348,323 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				CTMT’s collapse system is not a patchwork of formulas —
 				it is <em>one kernel seed recursively unfolding into all observables and effects</em>.
 			</p>
+
+			<h3 id="sec-21-collapse-prediction-via-recursive-kernel-geometry_3">CTMT Manifold Geometry at the Near-Null Boundary</h3>
+
+			<p>
+				The CTMT formalism concentrates at the <em>near-null boundary</em>, where the Fisher information curvature matrix
+				acquires near-zero eigenvalues. In that regime:
+			</p>
+			<ul>
+				<li>An observed direction is selected as a dominant projection (measurement locking).</li>
+				<li>Orthogonal directions define the <em>rupture manifold</em> with inflated uncertainty.</li>
+				<li>Terror perturbations deform curvature and act as multiplicative/additive operators.</li>
+				<li>Redundancy and rigidity operate as native stabilizers that restore closure.</li>
+			</ul>
+			<p>
+				This chapter gathers the complete near-null CTMT toolkit, defines all dimensional and numerical stabilizers,
+				provides pseudocode for reproducible tests, and demonstrates how canonical physical theories
+				appear as coordinate restrictions—<em>limit geometries</em>—of the unified CTMT manifold.
+			</p>
+
+			<h4>Notation &amp; Dimensional Conventions</h4>
+			<ul>
+				<li>
+					<strong>Kernel expectation:</strong>
+					<span class="math inline">\(O = \mathcal{E}[\Xi\,e^{i\Phi/S_\ast}]\)</span>;
+					<span class="math inline">\(S_\ast\)</span> is the reference action scale (J·s).
+				</li>
+				<li>
+					<strong>Internal parameters:</strong>
+					<span class="math inline">\(\Theta \in \mathcal{M}_\Theta\)</span>, a finite-dimensional differentiable manifold.
+				</li>
+				<li>
+					<strong>Jacobian:</strong>
+					<span class="math inline">\(J = \partial O/\partial\Theta\)</span> (units <span class="math inline">\([O]/[\Theta]\)</span>).
+				</li>
+				<li>
+					<strong>Ensemble covariance:</strong>
+					<span class="math inline">\(\mathrm{Cov} = \mathrm{Cov}_{\mathrm{ens}}\)</span> (units <span class="math inline">\([O]^2\)</span>).
+				</li>
+				<li>
+					<strong>Fisher curvature:</strong>
+					<span class="math inline">\(H = J^\top \mathrm{Cov}^{-1} J\)</span>, unitless after pre-whitening.
+				</li>
+				<li>
+					<strong>Dimensional residuum:</strong> (closure test)
+					<div class="math display">
+
+						\[
+							\epsilon_{\mathrm{dim}}(Q)
+							= \frac{\|[Q]_{\mathrm{pred}} - [Q]_{\mathrm{SI}}\|}
+							{\|[Q]_{\mathrm{SI}}\|},
+							\qquad
+							\varepsilon_{\mathrm{stab}} \in [10^{-12},10^{-8}],
+						\]
+
+					</div>
+					where <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> checks unit closure and
+					<span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span> acts as numerical stabilizer.
+				</li>
+				<li><strong>Rupture threshold:</strong>
+				<span class="math inline">\(\tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>
+				with <span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
+				</li>
+			</ul>
+
+			<h4>Core CTMT Near-Null Toolkit</h4>
+
+			<h5>(A) Kernel Seed (State)</h5>
+			<div class="math display">
+				\[
+					O(\Theta)
+					= \mathcal{E}\!\big[\Xi(\Theta)\,e^{i\Phi(\Theta)/S_\ast}\big],
+					\qquad
+					\Theta \in \mathcal{M}_\Theta.
+				\]
+			</div>
+
+			<h5>(B) TUCF — Uncertainty Propagation</h5>
+			<p>Linearized propagation within a temporal window:</p>
+			<div class="math display">
+				\[
+					\sigma_O^2(t)
+					= J_t^\top \mathrm{Cov}_t J_t
+					+ \mathbf{C}_\epsilon(t)
+					+ \varepsilon_{\mathrm{stab}}\mathbf{I}.
+				\]
+			</div>
+			<p>
+				Here <span class="math inline">\(J_t = \partial O / \partial\Theta\)</span> in the active time window,
+				and <span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span> is the observation-noise covariance.
+				For strong nonlinearity, replace the Jacobian formulation with an ensemble propagation step.
+			</p>
+
+			<h5>(C) Fisher Curvature and Rupture Manifold</h5>
+			<div class="math display">
+				\[
+					H(t) = J_t^\top \mathbf{C}_\epsilon(t)^{-1} J_t,
+					\qquad
+					\mathcal{M}_{\mathrm{rupt}}(t)
+					= \ker H(t)
+					= \{\,v : H v \approx 0\,\}.
+				\]
+			</div>
+			<p>
+				Eigen-decomposition <span class="math inline">\(H = V\Lambda V^\top\)</span>
+				identifies soft eigenmodes <span class="math inline">(\(\lambda_i \lt \tau_\lambda\))</span>,
+				which span the rupture manifold.
+			</p>
+
+			<h5>(D) Terror Kernel (Bounded Perturbations)</h5>
+			<div class="math display">
+				\[
+					O_{\mathrm{ter}}
+					= \mathcal{E}\!\big[
+					\Xi\,\eta\,e^{i\Phi/S_\ast} + \zeta
+					\big],
+					\qquad
+					\mathbb{E}[\eta^2] \lt C_\eta,\;
+					\mathbb{E}[\zeta^2] \lt \infty.
+				\]
+			</div>
+			<p>
+				<span class="math inline">\(\eta\)</span> represents multiplicative log-normal deformation;
+				<span class="math inline">\(\zeta\)</span> represents additive α-stable (often Cauchy) shock.
+				Finite energy conditions guarantee TUCF stability.
+			</p>
+
+			<h5>(E) Stabilizers — Rigidity &amp; Redundancy</h5>
+			<div class="math display">
+				\[
+					O_{\mathrm{red}}
+					= \sum_{k=1}^{K} \tilde r_k O_k,
+					\qquad
+					O_{\mathrm{rig}}
+					= \mathcal{E}\!\left[
+					\Xi\,
+					e^{-\lambda_{\mathrm{rig}} d_{2\pi}(\Phi/S_\ast)}\,
+					e^{i\Phi/S_\ast}
+					\right].
+				\]
+			</div>
+
+			<p>
+				Reliability weights <span class="math inline">\(\tilde r_k\)</span> are normalized 
+				(<span class="math inline">\(\sum \tilde r_k=1\)</span>);
+				<span class="math inline">\(\lambda_{\mathrm{rig}}\)</span> sets the phase‑lock tolerance.
+				Both operators preserve dimensional closure and provide variance stabilization.
+			</p>
+
+			<h4>Measurement &amp; Falsifiability Protocol</h4>
+			<ol>
+				<li><strong>Declare geometry:</strong> anchors, topology, units, and physical constants.</li>
+				<li><strong>Windowing:</strong> choose TUCF window <span class="math inline">\(\Delta t\)</span> covering ≥1 dominant cycle.</li>
+				<li><strong>Estimate noise:</strong> compute <span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span> from baseline intervals.</li>
+				<li><strong>Estimate Jacobian:</strong> small controlled perturbations <span class="math inline">\(\delta\Theta\)</span> to form <span class="math inline">\(J_t\)</span>.</li>
+				<li><strong>Compute Fisher:</strong> <span class="math inline">\(H(t)=J_t^\top \mathbf{C}_\epsilon^{-1}J_t\)</span> and eigen‑decompose.</li>
+				<li><strong>Rupture test:</strong> flag <span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span> if <span class="math inline">\(\lambda_{\min}(H)<\tau_\lambda\)</span>.</li>
+				<li><strong>Terror probe:</strong> inject known multiplicative/additive perturbations; measure recovery envelope.</li>
+				<li><strong>Stabilizer tests:</strong> apply redundancy/rigidity and verify variance reduction and phase re‑locking.</li>
+				<li><strong>Dimensional audit:</strong> require <span class="math inline">\(\epsilon_{\mathrm{dim}} \lt 10^{-12}\)</span> for formal closure (or document relaxation).</li>
+				<li><strong>Reporting:</strong> publish raw windows, Jacobians, eigenpairs, and CI for <span class="math inline">\(\lambda_{\min}\)</span> (bootstrap preferred).</li>
+			</ol>
+
+			<h4>Practical Decision Rules</h4>
+			<ul>
+				<li>
+					<strong>Rupture trigger:</strong>
+					<span class="math inline">\(\lambda_{\min}(H) \lt \tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>, 
+					<span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
+				</li>
+				<li>
+					<strong>Variance collapse:</strong>
+					<span class="math inline">\(r_{\mathrm{var}} = \mathrm{Var}_{\mathrm{locked}}/\mathrm{Var}_{\mathrm{free}} \lt 0.5\)</span>.
+				</li>
+				<li>
+					<strong>Cross‑covariance reduction:</strong>
+					<span class="math inline">\(r_{\mathrm{cov}} = |\mathrm{Cov}_{\mathrm{locked,orth}}| / |\mathrm{Cov}_{\mathrm{free}}| \lt 0.3\)</span>.
+				</li>
+				<li>
+					<strong>Terror detection:</strong>
+					heavy‑tailed residuals (empirical tail index <span class="math inline">\(&lt; 2\)</span>) or rising 
+					<span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span>.
+				</li>
+				<li>
+					<strong>Stabilizer acceptance:</strong>
+					redundancy must reduce <span class="math inline">\(\sigma_O\)</span>;
+					rigidity must cut circular variance by <span class="math inline">\(&gt; 20\%\)</span>.
+				</li>
+			</ul>
+
+			<h4>Pseudocode Appendix — Reproducible Tests</h4>
+			<p>
+				Illustrative pseudocode for TUCF propagation, rupture manifold extraction,
+				terror-response testing, and stabilizer evaluation.
+			</p>
+
+<pre><code class="language-python"># Estimate Jacobian & Fisher curvature (windowed)
+Yw = prewhiten(O_windows, Ceps)
+Yc = Yw - Yw.mean(axis=0)
+Thetac = Theta_pert - Theta_pert.mean(axis=0)
+J_t = np.linalg.lstsq(Thetac, Yc, rcond=None)[0]
+H_t = J_t.T @ J_t
+eigvals, eigvecs = np.linalg.eigh(H_t)
+M_rupt = eigvecs[:, eigvals &lt; tau_lambda]
+</code></pre>
+
+<pre><code class="language-python"># TUCF variance propagation
+Cov_pred = J_t @ Cov_theta @ J_t.T
+sigma_O2 = np.diag(Cov_pred + Ceps + epsilon_stab*np.eye(Cov_pred.shape[0]))
+</code></pre>
+
+<pre><code class="language-python"># Terror perturbation experiment
+for eta, zeta in shocks:
+    O_shocked = apply_multiplicative(O, eta) + zeta
+    H_s, sigma_s = run_tucf(O_shocked)
+    record_response(H_s, sigma_s)
+check_recovery_curves()
+</code></pre>
+
+<pre><code class="language-python"># Redundancy & Rigidity evaluation
+r_k = surv_k / (Var_k + epsilon_dim)
+r_norm = r_k / r_k.sum()
+O_red = sum(r_norm[k]*O_k for k in range(K))
+sigma_red2 = sum((r_norm[k]**2)*Var_k for k in range(K))
+# Rigidity:
+# O_rig = E[Xi * exp(-lambda_rig*d_{2pi}(Phi/S_ast)) * exp(i Phi/S_ast)]
+</code></pre>
+
+			<h4>From CTMT to Legacy Physics — Limit Mappings</h4>
+
+			<h5>Quantum Mechanics (Phase-Rigid Limit)</h5>
+			<p>
+				For <span class="math inline">\(d_{2\pi}(\Phi/S_\ast)\!\approx\!0\)</span> and unitary evolution,
+				define <span class="math inline">\(\psi(\Theta)=\Xi(\Theta)e^{i\Phi(\Theta)/S_\ast}\)</span>.
+				Then <span class="math inline">\(iS_\ast\,\partial_t\psi = H_{\mathrm{eff}}\psi\)</span>;
+				measurement collapse corresponds to rank loss in <span class="math inline">\(\ker H\)</span>.
+			</p>
+
+			<h5>Classical Mechanics (Small‑Phase Expansion)</h5>
+			<div class="math display">
+
+				\[
+					e^{i\Phi/S_\ast}\approx
+					1 + i\frac{\Phi}{S_\ast} - \frac{\Phi^2}{2S_\ast^2}+\cdots,
+					\qquad
+					O \approx \mathcal{E}[\Xi]
+					+ i\mathcal{E}[\Xi\Phi/S_\ast]
+					+ \mathcal{O}\!\big((\Phi/S_\ast)^2\big).
+				\]
+
+			</div>
+
+			<h5>Optics &amp; Wave Mechanics (Stationary Phase)</h5>
+			<p>
+				With <span class="math inline">\(\Phi=\omega\tau(x)\)</span>,
+				the stationary‑phase condition <span class="math inline">\(\partial_\omega\arg M[\omega]=0\)</span>
+				recovers Fermat and interference laws.
+				Fringe loss marks rupture of delay coherence 
+				(<span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span> opens).
+			</p>
+
+			<h5>Statistical Physics (Ensemble Limit)</h5>
+			<p>
+				Let <span class="math inline">\(\Xi=e^{-E/kT}\)</span>;
+				then <span class="math inline">\(O=\tfrac{1}{Z}\sum e^{-E/kT}\)</span>,
+				curvature rank loss maps to phase transitions,
+				and terror kernels capture quenched disorder.
+			</p>
+
+			<h4>Empirical Checklist for Publication</h4>
+			<ol>
+				<li>Declared anchor/topology geometry and all physical prefactors <span class="math inline">\(C_{\mathrm{phys}}\)</span>.</li>
+				<li>Sampling rates, window length <span class="math inline">\(\Delta t\)</span>, and taper function.</li>
+				<li>Raw windows, prewhitening transform, and estimated <span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span>.</li>
+				<li>Jacobian estimation protocol and resulting <span class="math inline">\(J_t\)</span>.</li>
+				<li>Eigenpairs of <span class="math inline">\(H(t)\)</span> with bootstrap CI for <span class="math inline">\(\lambda_{\min}\)</span>.</li>
+				<li>Terror injection parameters <span class="math inline">\((\eta,\zeta)\)</span> and recovery envelopes.</li>
+				<li>Redundancy/rigidity settings with variance and phase improvements.</li>
+				<li>Dimensional residuum table <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> for all quantities.</li>
+				<li>Registered thresholds and raw CSVs enabling full re‑analysis.</li>
+			</ol>
+
+			<h4>Remarks, Limitations &amp; Recommended Extensions</h4>
+			<ul>
+				<li><strong>Nonlinearity:</strong> use ensemble methods (EnKF, particle filters) when Jacobian linearization fails.</li>
+				<li><strong>Heavy tails:</strong> for α‑stable residuals replace second‑moment TUCF with robust estimators.</li>
+				<li><strong>Spatial extension:</strong> generalize to kernels <span class="math inline">\(K(x,t;x',t')\)</span> in spatiotemporal manifolds.</li>
+				<li>
+					<strong>Calibration:</strong> empirically estimate 
+					<span class="math inline">\(\alpha, \lambda_{\mathrm{rig}}, \gamma_{\mathrm{rupt}}, \varepsilon_{\mathrm{stab}}\)</span>
+					and publish sensitivity analyses.
+				</li>
+			</ul>
+
+			<h4>Concluding Statement — CTMT as Parent Geometry</h4>
+			<div class="math display">
+
+				\[
+					\boxed{
+						\text{Observable} = \mathcal{E}[\Xi e^{i\Phi/S_\ast}],\quad
+						\text{Dynamics} = J\text{-geometry},\quad
+						\text{Collapse} = \ker H\;(\text{near-null manifold}).
+					}
+				\]
+
+			</div>
+			<p>
+				At the near‑null boundary CTMT provides a single, unit‑closed, falsifiable manifold where
+				measurement locking, rupture, terror perturbations, and stabilizers
+				(redundancy / rigidity) are intrinsic operators.
+				Legacy systems appear as coordinate or asymptotic limits of this geometry.
+				Section offers executable pseudocode for reproducing its predictions in practice.
+			</p>
+			<p style="font-size:0.9em; color:#555;">
+				<em>Author’s note:</em>
+				Default thresholds (<span class="math inline">\(\alpha,\tau_\lambda,\varepsilon_{\mathrm{stab}}\)</span>) are conservative;
+				recalibrate empirically for each domain and document sensitivity curves.
+			</p>
         </article>
     </section>
     <section>
