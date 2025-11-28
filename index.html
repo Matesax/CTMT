@@ -17306,306 +17306,370 @@ def rupture_flag(s, lambda_crit_scale=0.2):
     </section>
     <section>
         <h2 title="Click to toggle" id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap">
-            Adimensional Projection of Light via Kernel Coherence Collapse
+			Adimensional Projection of Light via Kernel Rupture Manifold
         </h2>
         <article style="display:none">
-            <p>
-                We model light not as a wave propagating through spacetime, but as a rendered rupture of charge–phase coherence
-                projected along the locally resolved X–axis of the kernel. Let <span class="math inline">\(\phi\)</span> denote the kernel phase field
-                and <span class="math inline">\(q\)</span> the charge coordinate; the charge–phase gradient is:
-            </p>
+			<p>
+				In CTMT, light is not treated as a transported wave in spacetime but as the
+				<strong>rupture‑manifold projection</strong> of charge–phase coherence collapse.
+				Let the kernel phase field be <span class="math inline">\(\phi\)</span> and the charge coordinate 
+				<span class="math inline">\(q\)</span>.
+				The charge–phase gradient defines the observable kernel direction:
+			</p>
 
-            <figure class="equation" id="eq-12_1">
-                <div class="math display">
+			<figure id="eq-12_1" class="equation">
+				<div class="math display">
 
+					\[
+						\theta_X \equiv \frac{\partial \phi}{\partial q}.
+					\]
 
-                    \[
-                    \theta_X \equiv \frac{\partial \phi}{\partial q}.
-                    \]
+				</div>
+				<figcaption>Equation (12.1)</figcaption>
+			</figure>
 
+			<p>
+				A rupture in <span class="math inline">\(\theta_X\)</span> corresponds to a 
+				<em>Fisher‑rank drop</em> in the coherence metric, rendering light an 
+				<em>adimensional observable</em>.
+				Because the projection is expressed in the rescaled coordinate
+				<span class="math inline">\(X' = \alpha X\)</span> (with 
+				<span class="math inline">\(\alpha\)</span> the kernel attenuation factor),
+				the observable becomes <em>scale‑free</em>:
+				light appears where coherence fails, not as a geometric transport.
+			</p>
 
-                </div>
-                <figcaption><a href="#eq-12_1">Equation (12.1)</a></figcaption>
-            </figure>
+			<p>
+				The kernel base length
+				<span class="math inline">\(L_0 = (\mathcal{S}_\ast/\rho)^{1/3}\)</span>
+				defines the intrinsic coherence scale.  
+				The adimensional propagation law reads:
+			</p>
 
-            <p>
-                A rupture in <span class="math inline">\(\theta_X\)</span> triggers an X–projection of coherence loss. Because the projection is expressed
-                in the adimensional coordinate <span class="math inline">\(X'=\alpha X\)</span> (with <span class="math inline">\(\alpha\)</span> the kernel attenuation),
-                the observable is scale–free: light is rendered where coherence fails, rather than transported as a geometric wave.
-            </p>
+			<figure id="eq-12_2" class="equation">
+				<div class="math display">
 
-            <p>
-                We adopt the kernel base length <span class="math inline">\(L_0=(\mathcal{S}_\ast/\rho)^{1/3}\)</span> and the intrinsic length scale
-                <span class="math inline">\(\Theta=L_0\)</span>. The adimensional propagation coordinate is:
-            </p>
+					\[
+						X' = \alpha X, \qquad
+						\gamma(X') = e^{-X'}.
+					\]
 
-            <figure class="equation" id="eq-12_2">
-                <div class="math display">
+				</div>
+				<figcaption>Equation (12.2)</figcaption>
+			</figure>
 
+			<p>
+				Collapse occurs at <span class="math inline">\(\gamma = 1/e\)</span>, i.e. 
+				<span class="math inline">\(X' = 1\)</span>, independent of frequency or units.
+				Variance redistribution ensures coherence variance collapses along X
+				while redistributing into orthogonal Y / Z channels.
+				The local coherence density <span class="math inline">\(\rho_c\)</span> modulates both effective spread
+				and rupture intensity:
+			</p>
 
-                    \[
-                    X'=\alpha X, \qquad \gamma(X')=e^{-X'},
-                    \]
+			<figure id="eq-12_3" class="equation">
+				<div class="math display">
 
+					\[
+						\lambda_{\mathrm{eff}} \propto \frac{1}{\rho_c},
+						\qquad
+						I_{\mathrm{rupture}} \propto \frac{E}{L_Z\,\rho_c}.
+					\]
 
-                </div>
-                <figcaption><a href="#eq-12_2">Equation (12.2)</a></figcaption>
-            </figure>
+				</div>
+				<figcaption>Equation (12.3)</figcaption>
+			</figure>
 
-            <p>
-                The coherence rupture (at <span class="math inline">\(\gamma=1/e\)</span>) occurs at <span class="math inline">\(X'=1\)</span>,
-                independent of units or frequency. The local coherence density <span class="math inline">\(\rho_c\)</span> modulates the effective spread
-                <span class="math inline">\(\lambda_{\mathrm{eff}}\)</span> and observed intensity <span class="math inline">\(I_{\mathrm{rupture}}\)</span> via:
-            </p>
+			<h4>Consequences</h4>
+			<ul>
+				<li>
+					<strong>Local X‑projection:</strong> Light is rendered by rupture along 
+					<span class="math inline">\(\theta_X\)</span>, producing omnidirectional observability without geometric propagation.
+				</li>
+				<li>
+					<strong>Scale invariance:</strong> The rupture law 
+					<span class="math inline">\(\gamma(X') = e^{-X'}\)</span> overlays coherence‑decay curves
+					across spectra when rescaled by <span class="math inline">\(\alpha\)</span>.
+				</li>
+				<li>
+					<strong>Ontological split:</strong> Light is an adimensional rupture (collapse);
+					sound remains a dimensional ripple (transport).
+				</li>
+			</ul>
 
-            <figure class="equation" id="eq-12_3">
-                <div class="math display">
+			<h4>Operational Falsifiers</h4>
+			<p>CTMT falsifies the light‑rupture hypothesis if any of the following hold:</p>
+			<ul>
+				<li>No Fisher drop – verified emission without rank loss in <span class="math inline">\(H\)</span>.</li>
+				<li>Directional asymmetry – anisotropy &gt; <span class="math inline">\(\epsilon_{\mathrm{dir}}\)</span> beyond local X‑axis resolution.</li>
+				<li>Vacuum‑speed variability – timing residuals &gt; <span class="math inline">\(\epsilon_c\)</span> after propagation corrections.</li>
+				<li>Propagation mismatch – time‑of‑flight deviates from adimensional rendering by more than <span class="math inline">\(\epsilon_t\)</span>.</li>
+			</ul>
 
+			<h3 id="sec-12-validation">Dimensional Projection Validation via Electromagnetic Wave Structure</h3>
 
-                    \[
-                    \lambda_{\mathrm{eff}} \propto \frac{1}{\rho_c}, \qquad
-                    I_{\mathrm{rupture}} \propto \frac{E}{L_Z \,\rho_c},
-                    \]
+			<p>
+				Light’s observable structure arises from kernel‑resolved axes:
+				charge–phase tension (X), spin–phase modulation (Y),
+				and mass–phase drift (Z).
+				Collapse renders these as a triad:
+				X‑projection → electric field,
+				Y‑modulation → magnetic field,
+				Z‑pacing → propagation rhythm.
+			</p>
 
+			<figure id="eq-12_4" class="equation">
+				<div class="math display">
 
-                </div>
-                <figcaption><a href="#eq-12_3">Equation (12.3)</a></figcaption>
-            </figure>
+					\[
+						L_Z
+						= L_0 \!\left(\frac{G m_p^2}{k_e e^2}\right)^{\!\gamma^\ast},
+						\qquad
+						\gamma^\ast \approx 0.343.
+					\]
 
-            <p>
-                where <span class="math inline">\(L_Z\)</span> is the Z–axis coherence length obtained from kernel primitives.
-            </p>
+				</div>
+				<figcaption>Equation (12.4)</figcaption>
+			</figure>
 
-            <h4>Consequences</h4>
-            <ul>
-                <li><strong>Local X–projection:</strong> Light is always X–projected, but X is locally resolved by <span class="math inline">\(\theta_X\)</span>, yielding omnidirectional observability without assuming geometric propagation.</li>
-                <li><strong>Scale invariance:</strong> The rupture law <span class="math inline">\(\gamma(X')=e^{-X'}\)</span> produces a parameter–free overlay of measured coherence decay curves across bands when distances are rescaled by <span class="math inline">\(\alpha\)</span>, within experimental uncertainties.</li>
-                <li><strong>Ontological split:</strong> Light is an adimensional rupture (coherence collapse), whereas sound is a medium–bound ripple (dimensional transport).</li>
-            </ul>
+			<p>
+				With <span class="math inline">\(G,\,m_p,\,k_e,\,e\)</span> the gravitational, proton‑mass,
+				Coulomb, and elementary‑charge constants, respectively,
+				this yields
+				<span class="math inline">\(L_Z \approx 8.55\times10^{-16}\,\mathrm{m}\)</span>,
+				consistent with coherence scales for visible rupture
+				(e.g. <span class="math inline">\(\lambda=532\,\mathrm{nm},\,E\approx2.33\,\mathrm{eV}\)</span>).
+			</p>
 
-            <h4>Operational Falsifiers</h4>
-            <p>The principle is refuted if any of the following are observed beyond stated thresholds:</p>
-            <ul>
-                <li><strong>Charge–phase decoupling:</strong> A verified coherence rupture emitting light with no concomitant anomaly in <span class="math inline">\(\theta_X\)</span> above a calibrated noise floor.</li>
-                <li><strong>Directional asymmetry:</strong> A reproducible anisotropy in observability not explained by local X–axis resolution, exceeding a fractional contrast <span class="math inline">\(\epsilon_{\mathrm{dir}}\)</span> set by instrument systematics.</li>
-                <li><strong>Vacuum speed variability:</strong> A medium–dependent variation in apparent light speed in vacuum, i.e. residuals in one–way or two–way timing exceeding <span class="math inline">\(\epsilon_c\)</span> after Doppler/gravitational corrections.</li>
-                <li><strong>Propagation delay mismatch:</strong> Time–of–flight residuals from a coherence event inconsistent with adimensional rendering by more than <span class="math inline">\(\epsilon_t\)</span> relative to the kernel timing model.</li>
-            </ul>
+			<h4>Robustness Checks</h4>
+			<ul>
+				<li>Electric field aligns with X‑projection.</li>
+				<li>Magnetic field reflects Y‑modulation.</li>
+				<li>Propagation matches Z‑drift.</li>
+				<li><span class="math inline">\(L_Z\)</span> remains sub‑wavelength across spectra.</li>
+			</ul>
 
-            <h3 id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap_1">
-                Dimensional Projection Validation via Electromagnetic Wave Structure
-            </h3>
+			<p>
+				Hence, the rupture manifold explains not only collapse but
+				also <em>renders the electromagnetic wave structure from first principles</em>:
+				light is the final observable rupture in coherence space,
+				its wave behavior the rhythmic collapse across X, Y, Z.
+			</p>
 
-            <p>
-                We propose that the observable structure of light arises from kernel‑resolved dimensional axes:
-                charge–phase tension (X), spin–phase modulation (Y), and mass–phase drift (Z).
-                Light is rendered as an adimensional rupture projected along the locally resolved X‑axis,
-                with transverse modulation in Y and propagation governed by Z‑axis coherence pacing.
-            </p>
+			<h4>Rupture Computation Across Spectra</h4>
 
-            <p>
-                To validate this, we compute the Z‑axis coherence length using the calibrated formula:
-            </p>
+			<table>
+				<thead>
+					<tr>
+						<th>Spectrum Region</th>
+						<th>Wavelength <span class="math inline">\((\lambda)\)</span></th>
+						<th>Photon Energy <span class="math inline">\((E)\)</span></th>
+						<th>Kernel Interpretation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><strong>Radio / Microwave</strong></td>
+						<td><span class="math inline">\(\gt 10^{-2}\,\mathrm{m}\)</span></td>
+						<td><span class="math inline">\(\lt 10^{-5}\,\mathrm{eV}\)</span></td>
+						<td>Low‑frequency X rupture; coherence spreads across macro Z‑scale.</td>
+					</tr>
+					<tr>
+						<td><strong>Infrared (IR)</strong></td>
+						<td><span class="math inline">\(10^{-6}\!-\!10^{-4}\,\mathrm{m}\)</span></td>
+						<td><span class="math inline">\(10^{-3}\!-\!10^{-1}\,\mathrm{eV}\)</span></td>
+						<td>Thermal‑scale rupture; Z‑axis drift dominates.</td>
+					</tr>
+					<tr>
+						<td><strong>Visible Light</strong></td>
+						<td><span class="math inline">\(400\!-\!700\,\mathrm{nm}\)</span></td>
+						<td><span class="math inline">\(1.65\!-\!3.1\,\mathrm{eV}\)</span></td>
+						<td>Mid‑scale rupture; X‑axis projection tightly tuned to coherence collapse.</td>
+					</tr>
+					<tr>
+						<td><strong>Ultraviolet (UV)</strong></td>
+						<td><span class="math inline">\(10^{-8}\!-\!4\times10^{-7}\,\mathrm{m}\)</span></td>
+						<td><span class="math inline">\(3.1\!-\!100\,\mathrm{eV}\)</span></td>
+						<td>High‑frequency rupture; X‑projection sharpens, coherence length shortens.</td>
+					</tr>
+					<tr>
+						<td><strong>X‑rays / Gamma</strong></td>
+						<td><span class="math inline">\(\lt 10^{-10}\,\mathrm{m}\)</span></td>
+						<td><span class="math inline">\(\gt 10^{3}\,\mathrm{eV}\)</span></td>
+						<td>Extreme rupture; coherence collapse approaches kernel stiffness limit.</td>
+					</tr>
+				</tbody>
+			</table>
 
-            <figure class="equation" id="eq-12_4">
-                <div class="math display">
+			<h4>Rupture Projection in Coherence‑Variable Topology</h4>
 
+			<p>
+				Define light as a rendered rupture of charge‑phase coherence projected along X.
+				The propagation of this rupture depends on the local coherence density 
+				<span class="math inline">\(\rho_c\)</span>, which modulates the dimensional stiffness of the topology.
+			</p>
 
-                    \[
-                    L_Z = L_0 \cdot \left( \frac{G m_p^{2}}{k_e e^{2}}\right)^{\gamma^\ast}
-                    \quad \text{with}\quad \gamma^\ast \approx 0.343
-                    \]
+			<figure id="eq-12_5" class="equation">
+				<div class="math display">
+					\[
+						L_Z
+						= L_0\!\left(\frac{G m_p^2}{k_e e^2}\right)^{\!\gamma^\ast},
+						\qquad
+						\gamma^\ast\!\approx\!0.343.
+					\]
+				</div>
+				<figcaption>Equation (12.5)</figcaption>
+			</figure>
 
+			<p>
+				In low-coherence environments <span class="math inline">(\( \rho_c\!\to\!0 \))</span>,
+				the rupture projection becomes maximally extended:
+			</p>
 
-                </div>
-                <figcaption><a href="#eq-12_4">Equation (12.4)</a></figcaption>
-            </figure>
+			<figure id="eq-12_6" class="equation">
+				<div class="math display">
+					\[
+						\lambda_{\mathrm{eff}} \propto \frac{1}{\rho_c},
+						\qquad
+						I_{\mathrm{rupture}} \propto \frac{E}{L_Z\,\rho_c}.
+					\]
+				</div>
+				<figcaption>Equation (12.6)</figcaption>
+			</figure>
+			<p>
+				Here <span class="math inline">\(\lambda_{\mathrm{eff}}\)</span> is the effective rupture spread
+				and <span class="math inline">\(I_{\mathrm{rupture}}\)</span> the observable intensity.
+				As <span class="math inline">\(\rho_c\)</span> decreases, ruptures spread farther
+				and appear brighter owing to minimal coherence damping.
+			</p>
 
-            <p>
-                where <span class="math inline">\(L_0\)</span> is the base coherence unit, and constants
-                <span class="math inline">\(G, m_p, k_e, e\)</span> are gravitational constant, proton mass, Coulomb constant, and elementary charge respectively.
-                This yields <span class="math inline">\(L_Z \approx 8.55 \times 10^{-16}\ \mathrm{m}\)</span>,
-                matching the coherence scale required for visible light rupture (e.g., green light at
-                <span class="math inline">\(\lambda = 532\ \mathrm{nm}\)</span>, <span class="math inline">\(E \approx 2.33\ \mathrm{eV}\)</span>).
-            </p>
+			<h5>Dimensional Closure</h5>
+			<ul>
+				<li>
+					<strong>Coherence density:</strong> 
+					<span class="math inline">\(\rho_c\)</span> has units 
+					<span class="math inline">\(\mathrm{J}/\mathrm{m}^3\)</span> (energy density).
+				</li>
+				<li>
+					<strong>Coherence length:</strong> 
+					<span class="math inline">\(L_Z\)</span> in 
+					<span class="math inline">\(\mathrm{m}\)</span> (geometric anchor).
+				</li>
+				<li>
+					<strong>Intensity scaling:</strong> 
+					<span class="math inline">\(I_{\mathrm{rupture}} \propto E/(L_Z\rho_c)\)</span>
+					gives <span class="math inline">\(\mathrm{J}/(\mathrm{m}\cdot \mathrm{J}/\mathrm{m}^3) = \mathrm{m}^2\)</span>,
+					an area‑like projection factor that recovers intensity when multiplied by detector gain.
+				</li>
+				<li>
+					<strong>Spread scaling:</strong> 
+					<span class="math inline">\(\lambda_{\mathrm{eff}} \propto 1/\rho_c\)</span>
+					ensures inverse‑density dependence, matching longer reach in low‑
+					<span class="math inline">\(\rho_c\)</span> regimes.
+				</li>
+			</ul>
 
-            <h4>Robustness Checks</h4>
-            <ul>
-                <li>The electric field vector aligns with X‑axis projection.</li>
-                <li>The magnetic field vector reflects Y‑axis modulation.</li>
-                <li>The propagation direction matches Z‑axis drift.</li>
-                <li>The computed coherence length <span class="math inline">\(L_Z\)</span> remains sub‑wavelength across spectra.</li>
-            </ul>
+			<h5>Mirror Projection and Shadow Formation</h5>
+			<p>
+				A rupture propagating along X carries structural information from the Y / Z
+				coherence channels.  
+				Upon a reflective boundary, the mirror acts as a phase‑preserving modulation interface,
+				re‑projecting the X‑component toward the observer while maintaining Y/Z coherence
+				in‑plane.  
+				Thus depth inversion occurs along X while lateral orientation is preserved.  
+				A shadow is a modulation echo: when an X‑directed rupture is obstructed by a
+				highly coherent object, it collapses, creating a local coherence distortion perceived
+				as a shadow whose Y/Z signature reflects the blocker’s topology.
+			</p>
 
-            <p>
-                This confirms that the kernel’s dimensional logic not only resolves space but also renders electromagnetic wave structure from first principles.
-                Light is thus the final observable rupture in coherence space, and its wave behavior is a direct consequence of rhythm collapse across X, Y, and Z.
-            </p>
+			<h5>Validation Criteria</h5>
+			<ul>
+				<li>
+					<strong>Vacuum coherence:</strong> distant sources retain interferometric visibility at low 
+					<span class="math inline">\(\rho_c\)</span>.
+				</li>
+				<li>
+					<strong>Dense‑media decoherence:</strong> increased medium density reduces 
+					<span class="math inline">\(\lambda_{\mathrm{eff}}\)</span>,
+					consistent with <span class="math inline">\(1/\rho_c\)</span> scaling.
+				</li>
+				<li>
+					<strong>Shadow sharpness:</strong> edge contrast rises with local 
+					<span class="math inline">\(\rho_c\)</span>, indicating stronger rupture resistance.
+				</li>
+			</ul>
 
-            <table class="mce-item-table">
-                <thead>
-                    <tr>
-                        <th><strong>Spectrum Region</strong></th>
-                        <th><strong>Wavelength <span class="math inline">\((\lambda)\)</span></strong></th>
-                        <th><strong>Photon Energy <span class="math inline">\((E)\)</span></strong></th>
-                        <th><strong>Kernel Interpretation</strong></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Radio / Microwave</strong></td>
-                        <td><span class="math inline">\(&gt;10^{-2}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(&lt;10^{-5}\;\mathrm{eV}\)</span></td>
-                        <td>Low-frequency X rupture; coherence spreads across macro Z-scale</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Infrared (IR)</strong></td>
-                        <td><span class="math inline">\(10^{-6}\text{–}10^{-4}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(10^{-3}\text{–}10^{-1}\;\mathrm{eV}\)</span></td>
-                        <td>Thermal-scale rupture; Z-axis drift dominates</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Visible Light</strong></td>
-                        <td><span class="math inline">\(400\text{–}700\;\mathrm{nm}\)</span></td>
-                        <td><span class="math inline">\(1.65\text{–}3.1\;\mathrm{eV}\)</span></td>
-                        <td>Mid-scale rupture; X-axis projection tightly tuned to coherence collapse</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ultraviolet (UV)</strong></td>
-                        <td><span class="math inline">\(10^{-8}\text{–}4 \times 10^{-7}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(3.1\text{–}100\;\mathrm{eV}\)</span></td>
-                        <td>High-frequency rupture; X-axis projection sharpens, coherence length shortens</td>
-                    </tr>
-                    <tr>
-                        <td><strong>X-rays / Gamma</strong></td>
-                        <td><span class="math inline">\(&lt;10^{-10}\;\mathrm{m}\)</span></td>
-                        <td><span class="math inline">\(&gt;10^{3}\;\mathrm{eV}\)</span></td>
-                        <td>Extreme rupture; coherence collapse approaches kernel stiffness limit</td>
-                    </tr>
-                </tbody>
-            </table>
+			<h5>Falsifiability Protocol</h5>
+			<ul>
+				<li>Verify <span class="math inline">\(\lambda_{\mathrm{eff}} \propto 1/\rho_c\)</span> by controlled‑density interferometry.</li>
+				<li>Test mirror phase preservation via heterodyne reflection; Y/Z coherence loss falsifies re‑projection.</li>
+				<li>Map coherent shadows under structured illumination; absence of Y/Z imprint falsifies the rupture‑collapse model.</li>
+			</ul>
 
-            <h4 id="sec-12-rupture-projection-in-coherence-variable-topology">Rupture projection in coherence‑variable topology</h4>
+			<h5>Consistency with Kernel Energy Law</h5>
+			<ul>
+				<li><strong>Anchor separation:</strong> 
+				<span class="math inline">\(L_Z\)</span> defines the dimensional anchor;
+				synchrony enters via dimensionless phases 
+				(<span class="math inline">\(\Phi\)</span>, 
+				<span class="math inline">\(\Delta\mathcal{S}_\ast\)</span>).
+				</li>
+				<li><strong>Energy linkage:</strong> Enhanced rupture reach at low 
+				<span class="math inline">\(\rho_c\)</span>
+				matches the kernel‑stiffness law for vacuum wave speed,
+				reinforcing coherence‑based optical rendering.
+				</li>
+			</ul>
 
-            <p>
-                We define light as a rendered rupture of charge‑phase coherence projected along the X‑axis. The propagation of this rupture is governed by the local coherence density
-                <span class="math inline">\(\rho_c\)</span>, which modulates the dimensional stiffness of the topology. Let
-                <span class="math inline">\(\rho_c\)</span> be the coherence density of the medium, and let
-                <span class="math inline">\(L_Z\)</span> be the kernel‑derived coherence length:
-            </p>
+			<h5>Illustrative Schema</h5>
+			<p>Axis-aligned rupture projection and mirror re-projection schematic:</p>
 
-            <figure class="equation" id="eq-12_5">
-                <div class="math display">
+			<svg width="360" height="140" viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rupture projection schematic">
+				<!-- Axes -->
+				<line x1="20" y1="120" x2="340" y2="120" stroke="#333" stroke-width="1"/>
+				<line x1="20" y1="120" x2="20" y2="20" stroke="#333" stroke-width="1"/>
+				<text x="342" y="124" font-size="10">X</text>
+				<text x="16" y="16" font-size="10">Z</text>
+				<text x="20" y="132" font-size="10">Y</text>
 
+				<!-- Rupture wavefront -->
+				<path d="M70 100 Q 90 80,110 100 T150 100 T190 100 T230 100" fill="none" stroke="#1f77b4" stroke-width="2"/>
+				<circle cx="70" cy="100" r="3" fill="#1f77b4"/>
+				<text x="60" y="85" font-size="9" fill="#1f77b4">rupture</text>
 
-                    \[
-                    L_Z = L_0 \cdot \left( \frac{G m_p^{2}}{k_e e^{2}}\right)^{\gamma^\ast}
-                    \quad \text{with}\quad \gamma^\ast \approx 0.343
-                    \]
+				<!-- Mirror plane -->
+				<line x1="250" y1="30" x2="250" y2="120" stroke="#888" stroke-width="3"/>
+				<text x="255" y="42" font-size="9" fill="#888">mirror</text>
 
+				<!-- Reprojection arrow -->
+				<defs>
+				<marker id="repro-arrow" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
+					<path d="M0,0 L8,3 L0,6Z" fill="#d62728"/>
+				</marker>
+				</defs>
+				<line x1="250" y1="80" x2="210" y2="80" stroke="#d62728" stroke-width="2" marker-end="url(#repro-arrow)"/>
+				<text x="185" y="66" font-size="9" fill="#d62728">X-reprojection</text>
 
-                </div>
-                <figcaption><a href="#eq-12.5">Equation (12.5)</a></figcaption>
-            </figure>
+				<!-- Shadow region -->
+				<rect x="266" y="95" width="70" height="20" fill="#000" opacity="0.15"/>
+				<text x="272" y="92" font-size="9" fill="#333">shadow echo</text>
+			</svg>
 
-            <p>
-                In low‑coherence environments (e.g., vacuum, \(\rho_c \to 0\)), the rupture projection becomes maximally extended:
-            </p>
-
-            <figure class="equation" id="eq-12_6">
-                <div class="math display">
-
-
-                    \[
-                    \lambda_{\text{eff}} \propto \frac{1}{\rho_c}
-                    \quad \text{and} \quad
-                    I_{\text{rupture}} \propto \frac{E}{L_Z \cdot \rho_c}
-                    \]
-
-
-                </div>
-                <figcaption><a href="#eq-12.6">Equation (12.6)</a></figcaption>
-            </figure>
-
-            <p>
-                Here \(\lambda_{\text{eff}}\) is the effective spread of the rupture and \(I_{\text{rupture}}\) is the observable intensity. As \(\rho_c\) decreases, ruptures spread farther and appear brighter due to minimal coherence damping.
-            </p>
-
-            <h5>Dimensional closure</h5>
-            <ul>
-                <li><strong>Coherence density:</strong> <span class="math inline">\(\rho_c\)</span> carries units of J/m\(^3\) (or N/m\(^2\) for stress‑like coherence), consistent with energy density.</li>
-                <li><strong>Coherence length:</strong> <span class="math inline">\(L_Z\)</span> has units m (length anchor).</li>
-                <li><strong>Intensity scaling:</strong> <span class="math inline">\(I_{\text{rupture}} \propto E/(L_Z \rho_c)\)</span> yields J/(m·J/m\(^3\)) = m\(^2\), which serves as an area‑like effective projection factor; multiplying by a power‑per‑area detector gain recovers physical intensity units.</li>
-                <li><strong>Spread scaling:</strong> <span class="math inline">\(\lambda_{\text{eff}} \propto 1/\rho_c\)</span> preserves inverse‑density dependence, consistent with increased propagation reach in low‑\(\rho_c\) regimes.</li>
-            </ul>
-
-            <h5>Mirror projection and shadow formation</h5>
-            <p>
-                As a rupture event propagating along X, it carries encoded structural information from the Y and Z coherence channels. Upon a reflective boundary, the mirror acts as a phase‑preserving modulation interface that reprojects the X‑component toward the observer while preserving Y and Z coherence within the surface plane. This explains depth inversion along X with lateral (Y) and vertical (Z) orientation preserved. A shadow is an active modulation response: when an X‑directed rupture is obstructed by a highly coherent object, the rupture collapses (cannot reproject or penetrate), creating a local coherence distortion rendered as a shadow. The shadow encodes the Y/Z imprint of the blocker while suppressing the X‑projection, producing a measurable modulation echo shaped by \(\rho_c\) and topology.
-            </p>
-
-            <h5>Validation criteria</h5>
-            <ul>
-                <li><strong>Vacuum coherence:</strong> Distant astrophysical sources exhibit coherence over astronomical baselines; interferometric visibility remains high at low \(\rho_c\).</li>
-                <li><strong>Dense‑media decoherence:</strong> Increasing medium density reduces \(\lambda_{\text{eff}}\) and raises scattering; measured coherence length contracts with \(\rho_c\).</li>
-                <li><strong>Shadow sharpness:</strong> Shadow edge contrast increases with local \(\rho_c\), consistent with stronger rupture resistance and reduced X‑projection.</li>
-            </ul>
-
-            <h5>Falsifiability protocol</h5>
-            <ul>
-                <li><strong>Coherence vs. density:</strong> Measure interferometric visibility as a function of controlled medium density. Failure of \(\lambda_{\text{eff}} \propto 1/\rho_c\) scaling falsifies the model.</li>
-                <li><strong>Mirror phase preservation:</strong> Test phase‑preserving reflection by heterodyne detection pre/post reflection. Loss of Y/Z coherence channels inconsistent with boundary re‑projection would falsify the mirror claim.</li>
-                <li><strong>Shadow modulation echo:</strong> Map shadow field gradients with coherent illumination; absence of Y/Z coherence imprint (beyond geometric umbra/penumbra) falsifies the rupture‑collapse interpretation.</li>
-            </ul>
-
-            <h5>Consistency with kernel energy law</h5>
-            <ul>
-                <li><strong>Anchor separation:</strong> <span class="math inline">\(L_Z\)</span> is the dimensional anchor; synchrony and geometry enter via dimensionless factors (e.g., <span class="math inline">\(\Phi\)</span>, <span class="math inline">\(\Delta \mathcal{S}_\ast\)</span>).</li>
-                <li><strong>Energy linkage:</strong> Increased rupture reach at low \(\rho_c\) coincides with the kernel stiffness result for vacuum wave speed, where elastic‑to‑inertial ratio yields invariant propagation, reinforcing coherence‑dependent rendering.</li>
-            </ul>
-
-            <h5>Illustrative schema</h5>
-            <p>Axis‑aligned rupture projection and boundary re‑projection (schematic):</p>
-            <svg width="360" height="140" viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rupture projection schematic">
-                <!-- Axes -->
-                <line x1="20" y1="120" x2="340" y2="120" stroke="#333" stroke-width="1" />
-                <line x1="20" y1="120" x2="20" y2="20" stroke="#333" stroke-width="1" />
-                <text x="342" y="124" font-size="10" fill="#333">X</text>
-                <text x="16" y="16" font-size="10" fill="#333">Z</text>
-                <text x="20" y="132" font-size="10" fill="#333">Y</text>
-
-                <!-- Rupture wavefront -->
-                <path d="M70 100 Q 90 80, 110 100 T 150 100 T 190 100 T 230 100" fill="none" stroke="#1f77b4" stroke-width="2" />
-                <circle cx="70" cy="100" r="3" fill="#1f77b4" />
-                <text x="60" y="85" font-size="9" fill="#1f77b4">rupture</text>
-
-                <!-- Mirror plane -->
-                <line x1="250" y1="30" x2="250" y2="120" stroke="#888" stroke-width="3" />
-                <text x="255" y="42" font-size="9" fill="#888">mirror</text>
-
-                <!-- Reprojection arrow -->
-                <line x1="250" y1="80" x2="210" y2="80" stroke="#d62728" stroke-width="2" marker-end="url(#mirror_arrow)" />
-                <text x="190" y="66" font-size="9" fill="#d62728">X‑reprojection</text>
-
-                <!-- Shadow region -->
-                <rect x="266" y="95" width="70" height="20" fill="#000" opacity="0.15" />
-                <text x="272" y="92" font-size="9" fill="#333">shadow echo</text>
-
-                <!-- Arrow marker -->
-                <defs>
-                    <marker id="mirror_arrow" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
-                        <path d="M0,0 L8,3 L0,6 Z" fill="#d62728" />
-                    </marker>
-                </defs>
-            </svg>
-
-            <h5>Conclusion</h5>
-            <p>
-                Light, as a rupture of charge‑phase coherence, is governed by the local coherence density and the kernel‑derived coherence length. Low <span class="math inline">\(\rho_c\)</span> environments enable maximal projection and high apparent brightness via reduced damping; reflective boundaries act as phase‑preserving modulation interfaces; shadows are modulation echoes of rupture interruption rather than mere absences. The framework is dimensionally closed, operationally testable, and falsifiable. Its consistency with the kernel energy law and vacuum stiffness results supports a coherence‑centric rendering of optical phenomena without invoking traditional ray‑only optics.
-            </p>
+			<h5>Conclusion</h5>
+			<p>
+				Light, as a rupture of charge–phase coherence, is governed by the local
+				coherence density <span class="math inline">\(\rho_c\)</span> and the kernel‑derived
+				coherence length <span class="math inline">\(L_Z\)</span>.
+				Low‑<span class="math inline">\(\rho_c\)</span> environments yield maximal projection and high brightness;
+				reflective boundaries act as phase‑preserving modulation interfaces;
+				shadows are modulation echoes of rupture interruption rather than absences.
+				The formulation is dimensionally closed, operationally testable,
+				and falsifiable — consistent with the kernel‑energy law and
+				vacuum‑stiffness invariance — offering a coherence‑centric rendering of
+				optical phenomena beyond traditional ray optics.
+			</p>
         </article>
     </section>
-
     <section>
         <h2 title="Click to toggle" id="sec-50-orbital-mechanics">Orbital Mechanics</h2>
         <article style="display:none">
