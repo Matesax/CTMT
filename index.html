@@ -4212,6 +4212,201 @@ def ctmt_experiment(N, routes, W, delta):
 				Every stage is a deterministic consequence of the kernel seed; no external laws or arbitrary constants
 				are introduced. This establishes CTMT as a closed and falsifiable physical framework.
 			</p>
+
+			<h4>Dual-Overdetermination of the Invariant Speed: Twelve Independent Anchor Routes</h4>
+
+			<p>
+				CTMT does not assume the invariant speed of light <span class="math inline">\(c\)</span>.
+				Instead, <strong>twelve derivation routes</strong> — across geometry, variational mechanics,
+				spectral stationarity, field linearization, and operational metrology — independently converge to the same constant.
+				This provides <em>cross-formal overdetermination</em>: even if one route is questioned,
+				the remaining anchors force the same invariant speed.
+			</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Route</th>
+						<th>Formalism</th>
+						<th>Key relation</th>
+						<th>Regime</th>
+						<th>Independence</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+
+				<tbody>
+				<!-- ========================================================= -->
+				<!-- GEOMETRY CLASS ANCHORS -->
+				<!-- ========================================================= -->
+
+				<tr style="background:#f0f7ff;">
+					<td colspan="6"><strong>Geometry Anchors (Fisher / Rupture / Curvature)</strong></td>
+				</tr>
+
+				<tr>
+					<td><strong>Rupture curvature (H)</strong></td>
+					<td>Curvature metric</td>
+					<td><span class="math inline">\(c^2=(H^{-1})_{qq}\Rightarrow\omega^2=c^2 k^2\)</span></td>
+					<td>Soft-axis limit</td>
+					<td>High</td>
+					<td>Structural</td>
+				</tr>
+
+				<tr>
+					<td><strong>Fisher inverse</strong></td>
+					<td>Information geometry</td>
+					<td><span class="math inline">\(c^2=(F^{-1})_{qq}\)</span></td>
+					<td>Full-rank regime</td>
+					<td>Very high</td>
+					<td>Structural</td>
+				</tr>
+
+				<tr>
+				<td><strong>Fisher pseudoinverse</strong></td>
+				<td>Rank-deficient Fisher</td>
+				<td><span class="math inline">\(c^2=(F^{+})_{qq}\)</span></td>
+				<td>Near-null transport</td>
+				<td>Very high</td>
+				<td>Structural</td>
+				</tr>
+
+				<tr>
+					<td><strong>Null-projector transport</strong></td>
+					<td>Rupture manifold</td>
+					<td><span class="math inline">\(\Pi_{\rm null}=I-F F^{+}\Rightarrow c\)</span></td>
+					<td>Collapse regime</td>
+					<td>High</td>
+					<td>Structural</td>
+				</tr>
+
+				<!-- ========================================================= -->
+				<!-- VARIATIONAL CLASS ANCHORS -->
+				<!-- ========================================================= -->
+
+				<tr style="background:#f9f0ff;">
+					<td colspan="6"><strong>Variational Anchors (Lagrangian / Stiffness)</strong></td>
+				</tr>
+
+				<tr>
+					<td><strong>Kernel stiffness</strong></td>
+					<td>Lagrangian</td>
+					<td><span class="math inline">\(v=\sqrt{B/A}=c\)</span></td>
+					<td>Linearized field</td>
+					<td>Very high</td>
+					<td>Structural</td>
+				</tr>
+
+				<tr>
+					<td><strong>Dimensional closure</strong></td>
+					<td>Unit analysis</td>
+					<td><span class="math inline">\([B/A]=\mathrm{m^2s^{-2}}\Rightarrow[v]=\mathrm{m\,s^{-1}}\)</span></td>
+					<td>Consistency domain</td>
+					<td>Medium</td>
+					<td>Structural</td>
+				</tr>
+
+				<!-- ========================================================= -->
+				<!-- SPECTRAL CLASS ANCHORS -->
+				<!-- ========================================================= -->
+
+				<tr style="background:#fff6e8;">
+					<td colspan="6"><strong>Spectral Anchors (Stationarity / Dispersion / Wien-Planck)</strong></td>
+				</tr>
+
+				<tr>
+					<td><strong>Kernel dispersion</strong></td>
+					<td>Stationary phase</td>
+					<td><span class="math inline">\(\omega^2=c^2k^2\)</span> (collapse Gaussian)</td>
+					<td>Spectral</td>
+					<td>High</td>
+					<td>Structural</td>
+				</tr>
+
+				<tr>
+				<td><strong>Wave-packet propagation</strong></td>
+				<td>Group velocity</td>
+				<td><span class="math inline">\(v_g=\partial\omega/\partial k=c\)</span></td>
+				<td>Envelope dynamics</td>
+				<td>High</td>
+				<td>Structural</td>
+				</tr>
+
+				<tr>
+					<td><strong>Spectral displacement</strong></td>
+					<td>Kernel Wien law</td>
+					<td>
+					<span class="math inline">
+						\(\lambda_{\rm peak}T=\dfrac{c\,S_\ast}{x_\ast k_B}\)
+					</span>
+					</td>
+					<td>Thermal/optical</td>
+					<td>Medium</td>
+					<td>Hybrid</td>
+				</tr>
+
+				<!-- ========================================================= -->
+				<!-- ELECTROMAGNETIC CLASS ANCHORS -->
+				<!-- ========================================================= -->
+
+				<tr style="background:#eefaf1;">
+					<td colspan="6"><strong>Field Anchors (EM linearization / Kernel→Maxwell)</strong></td>
+				</tr>
+
+				<tr>
+					<td><strong>EM linearization</strong></td>
+					<td>Curvature gauge</td>
+					<td><span class="math inline">\(\partial_t^2E=c^2\partial_q^2E\)</span>, <span class="math inline">\(\partial_t^2B=c^2\partial_q^2B\)</span></td>
+					<td>Field theory</td>
+					<td>High</td>
+					<td>Structural</td>
+				</tr>
+
+				<tr>
+					<td><strong>Kernel→Maxwell mapping</strong></td>
+					<td>Field components</td>
+					<td>
+						<span class="math inline">
+							\(E=\partial_q\phi,\,B=\partial_s\phi\Rightarrow\omega=ck\)
+						</span>
+					</td>
+					<td>Gauge sector</td>
+					<td>High</td>
+					<td>Structural</td>
+				</tr>
+
+				<!-- ========================================================= -->
+				<!-- OPERATIONAL ANCHOR -->
+				<!-- ========================================================= -->
+
+				<tr style="background:#faeef1;">
+					<td colspan="6"><strong>Operational Anchor (Metrology)</strong></td>
+				</tr>
+
+				<tr>
+					<td><strong>Synchronization speed</strong></td>
+					<td>Metrology</td>
+					<td><span class="math inline">\(v_{\rm sync}=M_1\nu_{\rm sync}\)</span></td>
+					<td>Low-<span class="math inline">\(k\)</span> regime</td>
+					<td>Very high</td>
+					<td>Empirical</td>
+				</tr>
+
+				</tbody>
+			</table>
+
+			<p style="font-size:0.9em; opacity:0.8;">
+				Cross-references: 
+				<a href="#sec-0-decisive_core"><em>Decisive Core</em></a>,
+				<a href="#sec-12-adimensional-projection-of-light-via-kernel-coherence-collap"><em>Light as Adimensional Rupture</em></a>,
+				<a href="#sec-18-vacuum-wave-speed-from-kernel-stiffness"><em>Vacuum Wave Speed</em></a>,
+				and <a href="#sec-0-decisive_core_1"><em>Single Kernel Seed Computation Series</em></a>.
+			</p>
+
+			<p style="font-weight:bold; text-align:center; margin-top:1em;">
+				Twelve routes; four anchor classes; one constant.  
+				CTMT renders the speed of light a <strong>dual-overdetermined invariant</strong> of kernel geometry.
+			</p>
         </article>
     </section>
     <section>
