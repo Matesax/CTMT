@@ -2626,8 +2626,52 @@ def ctmt_experiment(N, routes, W, delta):
 				<em>Dimensional closure:</em> since <span class="math inline">\([H_{qq}] = \mathrm{s^2/m^2}\), it follows that \([c] = \mathrm{m/s}\)</span>.
 			</p>
 
+			<p>
+				<strong>Fisher anchor (information‑geometric stiffness)</strong>: Building on <a href="#eq-0a_27">Eq. 0a.27</a>–<a href="#eq-0a_24">0a.24</a>, the Fisher metric induced by the kernel provides an independent derivation of the same invariant speed:
+			</p>
+
+			<figure class="equation" id="eq-3_12F">
+				<div class="math display">
+
+					\[
+						F = J^{\!\top}\,\Sigma_\theta^{-1}\,J,
+						\qquad
+						c^{2} \equiv (F^{-1})_{qq},
+						\qquad
+						\partial_t^{\,2}\phi = c^{2}\,\partial_q^{\,2}\phi.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-3_12F">Equation (3.12F) — Fisher‑metric derivation of the wave law and invariant speed.</a></figcaption>
+			</figure>
+
+			<p>
+				In rank‑deficient regimes (rupture onset), replace <span class="math inline">\(F^{-1}\)</span> by the Moore–Penrose pseudoinverse <span class="math inline">\(F^{+}\)</span>:
+			</p>
+
+			<figure class="equation" id="eq-3_12G">
+				<div class="math display">
+
+					\[
+						F \succeq 0,
+						\quad
+						c^{2} \equiv (F^{+})_{qq}
+						\quad\Rightarrow\quad
+						\omega^{2}=c^{2}k^{2},
+						\qquad
+						v_{\mathrm{ph}}=v_{\mathrm{g}}=c.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-3_12G">Equation (3.12G) — Pseudoinverse stiffness preserves dispersion and speed at rupture.</a></figcaption>
+			</figure>
+
+			<p>
+				<em>Dimensional closure:</em> <span class="math inline">\([F_{qq}] = \mathrm{s^2/m^2}\)</span> implies <span class="math inline">\([c] = \mathrm{m/s}\)</span>, matching the curvature‑based anchor while remaining information‑geometric and coordinate‑free.
+			</p>
+
+			<h6>Similarly, the kernel predicts an emergent synchronization (maximal causal) speed:</h6>
             <p>
-                Similarly, the kernel predicts an emergent synchronization (maximal causal) speed:
                 <figure class="equation" id="eq-3_11">
                     <div class="math display">
                         \begin{equation} v_{\rm sync}= M_1\,\nu_{\rm sync}, \end{equation}
@@ -3921,7 +3965,220 @@ def ctmt_experiment(N, routes, W, delta):
 				defining an observational horizon. This removes singularities by interpreting them as coherence‑loss limits.
 			</p>
 
-			<h4>Step 12 — Final Synthesis</h4>
+			<h4>Step 12 — Fisher geometry and unified dynamics</h4>
+
+			<figure class="equation" id="eq-0a_27">
+				<div class="math display">
+
+					\[
+						O(\theta)
+						= \mathcal{E}\!\left[\Xi(\theta)\,e^{\,i\phi(\theta)/S_\ast}\right]
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_27">Equation (0a.27) — Observable kernel expectation.</a></figcaption>
+			</figure>
+
+			<p>
+				<span class="math inline">\(\Xi\)</span>: amplitude field (coherence density).
+				<span class="math inline">\(\phi\)</span>: phase potential (action-valued).
+				<span class="math inline">\(S_\ast\)</span>: reference action scale (phase stiffness).
+				Differentiation generates all intrinsic geometry on the observable manifold.
+			</p>
+
+			<figure class="equation" id="eq-0a_28">
+				<div class="math display">
+
+					\[
+						J = \frac{\partial O}{\partial\theta}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_28">Equation (0a.28) — Kernel sensitivity (Jacobian).</a></figcaption>
+			</figure>
+
+			<figure class="equation" id="eq-0a_29">
+				<div class="math display">
+
+					\[
+						\Sigma_O = J\,\Sigma_\theta\,J^{\!\top}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_29">Equation (0a.29) — Covariance propagation from parameter space to observables.</a></figcaption>
+			</figure>
+
+			<figure class="equation" id="eq-0a_19">
+			<div class="math display">
+
+				\[
+					F = J^{\!\top}\,\Sigma_\theta^{-1}\,J,
+					\qquad
+					ds^{2} = d\theta^{\,i}\,F_{ij}(\theta)\,d\theta^{\,j}
+				\]
+
+			</div>
+			<figcaption><a href="#eq-0a_19">Equation (0a.19) — Fisher metric and induced line element on parameter space.</a></figcaption>
+			</figure>
+
+			<p>
+				The Fisher information matrix <span class="math inline">\(F\)</span> is induced by the kernel via sensitivity
+				<span class="math inline">\(J\)</span> and parameter covariance <span class="math inline">\(\Sigma_\theta\)</span>,
+				defining an intrinsic Riemannian geometry measured by <span class="math inline">\(ds^{2}\)</span>.
+			</p>
+
+			<figure class="equation" id="eq-0a_20">
+				<div class="math display">
+
+					\[
+						\ddot{\theta}^{\,i}
+						+ \Gamma^{i}_{\;jk}\,\dot{\theta}^{\,j}\dot{\theta}^{\,k}
+						= 0,
+						\qquad
+						\Gamma^{i}_{\;jk}
+						= \tfrac{1}{2}F^{i\ell}
+						\left(
+						\partial_j F_{\ell k}
+						+ \partial_k F_{\ell j}
+						- \partial_\ell F_{jk}
+						\right)
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_20">Equation (0a.20) — Geodesic equation derived from the Fisher metric.</a></figcaption>
+			</figure>
+
+			<figure class="equation" id="eq-0a_21">
+				<div class="math display">
+
+					\[
+						\mathcal{A}[\theta]
+						= \int \sqrt{\dot{\theta}^{\,i} F_{ij}(\theta) \dot{\theta}^{\,j}}\,dt,
+						\qquad
+						\delta \mathcal{A}=0
+						\;\Rightarrow\;
+						\text{geodesics}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_21">Equation (0a.21) — Variational origin of Fisher geodesics.</a></figcaption>
+			</figure>
+
+			<p>
+				Wave‑like transport follows flows where the quadratic form
+				<span class="math inline">\(\dot{\theta}^{\,i}F_{ij}\dot{\theta}^{\,j}\)</span> is stationary or near‑null,
+				aligning motion with softened directions of <span class="math inline">\(F^{-1}\)</span>.
+			</p>
+
+			<figure class="equation" id="eq-0a_22">
+				<div class="math display">
+
+					\[
+						\lambda_{\min}(F)\!\to\!0
+						\;\Rightarrow\;
+						\mathrm{rank}(F)\downarrow
+						\;\Rightarrow\;
+						\mathcal{M}_{\mathrm{null}}=\ker F
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_22">Equation (0a.22) — Collapse as Fisher rank deficiency and null (rupture) manifold formation.</a></figcaption>
+			</figure>
+
+			<p>
+				Emission, decoherence, measurement, and resonance are geometric rank‑loss events:
+				the observable manifold projects onto <span class="math inline">\(\mathcal{M}_{\mathrm{null}}\)</span> when Fisher eigenvalues soften.
+			</p>
+
+			<figure class="equation" id="eq-0a_23">
+				<div class="math display">
+
+					\[
+						\lambda(\hat{v})
+						= \frac{\hat{v}^{\!\top}F\,\hat{v}}{\hat{v}^{\!\top}\hat{v}},
+						\qquad
+						\lambda_{\min}(F)
+						= \min_{\|\hat{v}\|=1}\lambda(\hat{v}),
+						\qquad
+						\lambda_{\min}(F) \lt \varepsilon
+						\;\Rightarrow\;
+						\text{near‑null regime}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_23">Equation (0a.23) — Rayleigh quotient criterion and rupture threshold.</a></figcaption>
+			</figure>
+
+			<p>
+				A chosen threshold <span class="math inline">\(\varepsilon\)</span> identifies onset of rupture dynamics; effective equations decouple along softened eigenvectors.
+			</p>
+
+			<figure class="equation" id="eq-0a_24">
+				<div class="math display">
+
+					\[
+						c^{2} \equiv (F^{-1})_{qq}
+						\;\Rightarrow\;
+						\partial_{t}^{\,2}\phi
+						= c^{2}\,\partial_{q}^{\,2}\phi
+						\;\Rightarrow\;
+						\omega^{2}=c^{2}k^{2},
+						\qquad
+						v_{\mathrm{ph}}=v_{\mathrm{g}}=c
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_24">Equation (0a.24) — Invariant speed from the inverse Fisher component along the soft axis.</a></figcaption>
+			</figure>
+
+			<p>
+				The universal wave speed <span class="math inline">\(c\)</span> is fixed by inverse Fisher curvature along the softened direction
+				<span class="math inline">\(q\)</span>, with <span class="math inline">\(q\)</span> aligned to the principal near‑null eigenvector of
+				<span class="math inline">\(F\)</span>.
+			</p>
+
+			<figure class="equation" id="eq-0a_25">
+				<div class="math display">
+
+					\[
+						F \succeq 0,\qquad
+						F^{+} = \text{Moore–Penrose pseudoinverse of }F,
+						\qquad
+						c^{2} \equiv (F^{+})_{qq}\quad\text{in rank-deficient regimes}.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_25">Equation (0a.25) — Pseudoinverse stiffness for softened Fisher directions.</a></figcaption>
+			</figure>
+
+			<p>
+				In the near‑null regime, <span class="math inline">\(F\)</span> is positive semidefinite and may be rank‑deficient.
+				The Moore–Penrose pseudoinverse <span class="math inline">\(F^{+}\)</span> defines effective stiffness along softened axes,
+				ensuring well‑posed dispersion and invariant speed even as <span class="math inline">\(\lambda_{\min}(F)\to 0\)</span>.
+			</p>
+
+			<figure class="equation" id="eq-0a_26">
+				<div class="math display">
+
+					\[
+						q = \arg\min_{\|v\|=1}\, v^{\!\top} F\, v,
+						\qquad
+						\Pi_{\mathrm{null}} = I - F F^{+},
+						\qquad
+						\Pi_{\mathrm{null}}^{2}=\Pi_{\mathrm{null}}.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_26">Equation (0a.26) — Soft-axis alignment and projection onto the null manifold.</a></figcaption>
+			</figure>
+
+			<p>
+				The coordinate <span class="math inline">\(q\)</span> aligns with the principal near‑null eigenvector of
+				<span class="math inline">\(F\)</span>. The projector <span class="math inline">\(\Pi_{\mathrm{null}}\)</span> isolates rupture dynamics
+				on <span class="math inline">\(\mathcal{M}_{\mathrm{null}}\)</span>, providing consistent linearization and transport along softened modes.
+			</p>
+
+			<h4>Step 13 — Final Synthesis</h4>
 
 			<div class="math display">
 
@@ -4382,6 +4639,44 @@ def ctmt_experiment(N, routes, W, delta):
 
 			<p>
 				This follows from the CTMT wave law under <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2d">TUCF stationarity</a> and small-phase linearisation:
+			</p>
+
+			<p>
+				<strong>Fisher anchor (information‑geometric stiffness)</strong>: Building on <a href="#eq-0a_27">Eq. 0a.27</a>–<a href="#eq-0a_24">0a.24</a>, the Fisher metric induced by the kernel provides an independent derivation of the same invariant speed:
+			</p>
+
+			<div class="math display">
+
+				\[
+					F = J^{\!\top}\,\Sigma_\theta^{-1}\,J,
+					\qquad
+					c^{2} \equiv (F^{-1})_{qq},
+					\qquad
+					\partial_t^{\,2}\phi = c^{2}\,\partial_q^{\,2}\phi.
+				\]
+
+			</div>
+
+			<p>
+				In rank‑deficient regimes (rupture onset), replace <span class="math inline">\(F^{-1}\)</span> by the Moore–Penrose pseudoinverse <span class="math inline">\(F^{+}\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+					F \succeq 0,
+					\quad
+					c^{2} \equiv (F^{+})_{qq}
+					\quad\Rightarrow\quad
+					\omega^{2}=c^{2}k^{2},
+					\qquad
+					v_{\mathrm{ph}}=v_{\mathrm{g}}=c.
+				\]
+
+			</div>
+
+			<p>
+				<em>Dimensional closure:</em> <span class="math inline">\([F_{qq}] = \mathrm{s^2/m^2}\)</span> implies <span class="math inline">\([c] = \mathrm{m/s}\)</span>, matching the curvature‑based anchor while remaining information‑geometric and coordinate‑free.
 			</p>
 
             <h4>Algebraic factorization rules and explicit <span class="math inline">\(C_{\rm phys}\)</span> template</h4>
