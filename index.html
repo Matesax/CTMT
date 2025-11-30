@@ -6199,6 +6199,10 @@ plt.show()
 
 			<p>
 				Combined with the <a href="#sec-23-planck-kernel-from-blackbody-data">Planck kernel recursion</a>, we now have redundant independent derivations.
+				CTMT is therefore unique: it derives the Planck scale twice — once from blackbody spectra,
+				and once from void geometry itself. This dual derivation confirms that the action quantum
+				is not an arbitrary constant but an inevitable consequence of both thermodynamic recursion
+				and null manifold stability.
 			</p>
 
 			<h4>Three independent estimators of <span class="math inline">\(S_\ast\)</span></h4>
@@ -6316,6 +6320,18 @@ S_fish = c_measured / np.sqrt(H_unit_inv[qq_index, qq_index])
 				Pairwise z-scores
 				<span class="math inline">\(z_{ij}=\frac{|S_{\ast,i}-S_{\ast,j}|}{\sqrt{\sigma_i^2+\sigma_j^2}}\)</span>
 				test consistency. If all <span class="math inline">\(z_{ij}\lesssim 2\)</span>, CTMT’s claim is supported.
+			</p>
+
+			<p>
+				<strong>Implementation notes:</strong> For the phase anchor, calibration ensures that
+				<span class="math inline">\(\omega_{\mathrm{meas}}\)</span> corresponds to
+				<span class="math inline">\(\dot{\Phi}\)</span> rather than the observable
+				<span class="math inline">\(\dot{\phi}\)</span>. For the Fisher anchor, inversion of
+				<span class="math inline">\(H_{\mathrm{unit}}\)</span> is performed via truncated SVD,
+				with truncation level reported to control conditioning near rupture. Bootstrap resampling
+				of ensembles and time windows is applied to all three anchors to produce comparable
+				confidence intervals. Fusion of estimates uses inverse-variance weighting, with
+				outlier-robust alternatives (e.g. Huber-weighted) available if one anchor is biased.
 			</p>
 
 			<h4>Error budget and robustness checks</h4>
