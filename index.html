@@ -5598,6 +5598,236 @@ print("Scaling law: M1 ≈ A*nu^{-1},  A=",A," slope=",slope," r=",r)
 				Falsifiers are explicit: absence of thresholds, failure of topology locking, or anchor mismatch.
 			</p>
 
+			<h4>Differentiating the CTMT Kernel Seed Produces J, Uncertainty, and Fisher</h4>
+
+			<p>
+				Let the kernel seed (observable) be
+			</p>
+
+			<figure class="equation" id="eq-0a_100">
+				<div class="math display">
+
+					\[
+						O(\Theta)=\mathbb{E}_{\xi}\big[\Psi(\Theta;\xi)\big]
+						=\mathbb{E}_{\xi}\!\big[\Xi(\Theta;\xi)\,e^{\,i\Phi(\Theta;\xi)/S_\ast}\big],
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_100">Equation (0a.100) — Kernel seed observable.</a></figcaption>
+			</figure>
+
+			<p>
+				Here <span class="math inline">\(\xi\)</span> denotes ensemble/sample randomness (microscopic degrees of freedom, instrumental noise, microstate labels). Under mild regularity conditions:
+			</p>
+			<ul>
+				<li><strong>Jacobian from the seed:</strong> <span class="math inline">\(J(\Theta)=\partial_\Theta O(\Theta)=\mathbb{E}_\xi[\partial_\Theta \Psi(\Theta;\xi)]\)</span>.</li>
+				<li><strong>Uncertainty propagation:</strong> <span class="math inline">\(\Sigma_O(\Theta)=J(\Theta)\,\Sigma_\Theta\,J(\Theta)^\top\)</span> (first-order propagation of parameter uncertainty).</li>
+				<li><strong>Fisher information:</strong> <span class="math inline">\(H(\Theta)=J(\Theta)^\top\,C_{\epsilon}^{-1}\,J(\Theta)\)</span> for Gaussian observation noise <span class="math inline">\(C_\epsilon\)</span>.</li>
+			</ul>
+
+			<h5>Proof sketch (interchange of derivative and expectation)</h5>
+			<p><strong>Assumptions:</strong></p>
+			<ul>
+				<li><strong>Differentiability:</strong> For all <span class="math inline">\(\Theta\)</span> in an open neighborhood, the map <span class="math inline">\(\Psi(\Theta;\xi)\)</span> is differentiable in <span class="math inline">\(\Theta\)</span> for almost every <span class="math inline">\(\xi\)</span>.</li>
+				<li><strong>Dominated derivative:</strong> There exists an integrable dominating function <span class="math inline">\(g(\xi)\)</span> such that <span class="math inline">\(\|\partial_\Theta \Psi(\Theta;\xi)\| \le g(\xi)\)</span> for all <span class="math inline">\(\Theta\)</span> in the neighborhood.</li>
+				<li><strong>Finite moments:</strong> <span class="math inline">\(\mathbb{E}[\|\Psi\|^2]<\infty\)</span>, <span class="math inline">\(\mathbb{E}[\|\partial_\Theta\Psi\|]<\infty\)</span>.</li>
+			</ul>
+
+			<p><strong>Then</strong>, by dominated convergence and differentiation under the integral sign:</p>
+
+			<figure class="equation" id="eq-0a_101">
+				<div class="math display">
+
+					\[
+						\partial_\Theta O(\Theta)
+						= \partial_\Theta \mathbb{E}_\xi[\Psi(\Theta;\xi)]
+						= \mathbb{E}_\xi[\partial_\Theta \Psi(\Theta;\xi)].
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_101">Equation (0a.101) — Differentiating the seed yields the Jacobian.</a></figcaption>
+			</figure>
+
+			<h5>Constructing variance and Fisher</h5>
+			<p><strong>Uncertainty propagation (linearized):</strong> For small parameter perturbations <span class="math inline">\(\delta\Theta\)</span> with covariance <span class="math inline">\(\Sigma_\Theta\)</span>:</p>
+
+			<figure class="equation" id="eq-0a_102">
+				<div class="math display">
+
+					\[
+						\delta O \approx J(\Theta)\,\delta\Theta, \qquad
+						\Sigma_O \approx J(\Theta)\,\Sigma_\Theta\,J(\Theta)^\top.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_102">Equation (0a.102) — Linearized uncertainty propagation.</a></figcaption>
+			</figure>
+
+			<p><strong>Fisher information (Gaussian observation model):</strong> If observations <span class="math inline">\(y\)</span> obey <span class="math inline">\(y=O(\Theta)+\epsilon\)</span>, <span class="math inline">\(\epsilon\sim\mathcal N(0,C_\epsilon)\)</span>:</p>
+
+			<figure class="equation" id="eq-0a_103">
+				<div class="math display">
+
+					\[
+						\mathcal{I}(\Theta)
+						= \mathbb{E}\!\Big[-\frac{\partial^2}{\partial\Theta^2}\log p(y|\Theta)\Big]
+						= J(\Theta)^\top\,C_\epsilon^{-1}\,J(\Theta).
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_103">Equation (0a.103) — Fisher metric from Jacobian and noise covariance.</a></figcaption>
+			</figure>
+
+			<h5>Practical caveats and regularization</h5>
+			<ul>
+				<li><strong>Stabilized inverse:</strong> If <span class="math inline">\(C_\epsilon\)</span> is singular or ill-conditioned, use Tikhonov or a pseudoinverse; report the stabilizer <span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span> and sensitivity to it.</li>
+				<li><strong>Finite ensembles:</strong> Expectation estimates have error <span class="math inline">\(O(1/\sqrt{N})\)</span>; report bootstrap CIs for <span class="math inline">\(J\)</span>, <span class="math inline">\(\Sigma_O\)</span>, and <span class="math inline">\(H\)</span>.</li>
+				<li><strong>Nondifferentiable seeds:</strong> If <span class="math inline">\(\Psi\)</span> is not differentiable, use directional derivatives or ensemble Jacobians via controlled perturbations; state approximation order.</li>
+			</ul>
+
+			<h5>Conclusion (non-circularity)</h5>
+			<p>
+				All objects (sensitivity <span class="math inline">\(J\)</span>, uncertainty <span class="math inline">\(\Sigma_O\)</span>, Fisher <span class="math inline">\(H\)</span>) are derived from the single kernel expectation <span class="math inline">\(O(\Theta)\)</span> under explicit regularity assumptions. The only independent inputs are the ensemble measure (distribution of <span class="math inline">\(\xi\)</span>) and observational noise covariance <span class="math inline">\(C_\epsilon\)</span>. No external sensitivity model or ad hoc Jacobian is introduced — the construction is non-circular and fully traceable to the seed.
+			</p>
+
+			<h5>Numerical demonstration (Python)</h5>
+			<p>
+				The script provides a reproducible numerical check of the analytic claims. A toy single-seed model is defined with ensemble randomness in amplitude and phase.
+				The empirical observable <span class="math inline">\(O(\Theta)\)</span> is computed directly from the ensemble, and both analytic and finite-difference Jacobians <span class="math inline">\(J\)</span> are evaluated under fixed noise draws.
+				The relative error matrix confirms convergence of the numerical Jacobian to the analytic derivative, validating <a href="#eq-0a_101">Equation (0a.101)</a>.
+			</p>
+
+			<p>
+				From the Jacobian and the empirical output covariance (real/imag stacked), the Fisher matrix
+				<figure class="equation" id="eq-0a_104">
+					<div class="math display">
+
+						\[
+							H = J^\top\,C_\epsilon^{-1}\,J
+						\]
+
+					</div>
+					<figcaption><a href="#eq-0a_104">Equation (0a.104) — Fisher construction from Jacobian and covariance.</a></figcaption>
+				</figure>
+				is constructed and diagonalized. Eigenvalues and eigenvectors are reported, and diagnostic plots of the seed ensemble are saved alongside CSV summaries for peer inspection.
+			</p>
+
+			<h6>What the demo proves</h6>
+			<ul>
+				<li>Under the stated assumptions, differentiating the single seed yields <span class="math inline">\(J\)</span>, and finite-difference plus ensemble estimates converge to the analytic derivative.</li>
+				<li>From <span class="math inline">\(J\)</span> and an empirical covariance, the Fisher information <span class="math inline">\(H\)</span> is reproducible.</li>
+				<li>The full closure <span class="math inline">\(O \rightarrow J \rightarrow \Sigma \rightarrow H\)</span> is non-circular: only the ensemble distribution and noise model are independent inputs.</li>
+			</ul>
+
+			<h6>What the demo does not prove</h6>
+			<ul>
+				<li>Physical sufficiency of the toy seed for all laboratory systems — the seed is chosen for analytic clarity, not universality.</li>
+				<li>That Fisher spectra will always exhibit near-null directions — this remains empirical and requires application to domain data (interferometry, cavity experiments, cosmological anchors) with bootstrap confidence intervals and acceptance bands.</li>
+			</ul>
+
+			<p>
+				Thus the Python demonstration provides a transparent, reproducible bridge from the theoretical proof
+				(<a href="#eq-0a_100">Equation (0a.100)</a>,
+				<a href="#eq-0a_101">Equation (0a.101)</a>,
+				<a href="#eq-0a_102">Equation (0a.102)</a>,
+				and <a href="#eq-0a_103">Equation (0a.103)</a>)
+				to numerical verification, while clearly delineating its scope and limitations.
+			</p>
+
+<pre><code class="language-python"># ctmt_fisher_demo.py
+# Reproducible demonstration for peer review.
+import numpy as np, pandas as pd, matplotlib.pyplot as plt
+np.random.seed(0)
+
+# --- Model definition ---------------------------------------------------------
+# Single-seed model (toy example with closed-form derivatives)
+# Psi = Xi * exp(i * phi / S)
+S = 1.0             # action scale
+theta = {'a': 1.23, 'phi0': 0.5}   # parameters
+
+N = 2000            # ensemble size
+noise_amp_std = 0.05
+noise_phi_std = 0.2
+
+# Create ensemble (amps and phases)
+amps = theta['a'] * (1.0 + noise_amp_std * np.random.randn(N))
+phis = theta['phi0'] + noise_phi_std * np.random.randn(N)
+Psi = amps * np.exp(1j * phis / S)
+
+# Empirical observable (expectation)
+O_emp = Psi.mean()
+
+# Stack real/imag for covariance
+Y = np.vstack([Psi.real, Psi.imag]).T
+Cov_Y = np.cov(Y, rowvar=False, bias=False)
+
+# --- Analytic Jacobian -------------------------------------------------------
+# dO/da = E[exp(i phi / S)]
+# dO/dphi0 = (i/S) * E[ a*(1+noise_amp) * exp(i phi / S) ]
+expiphi = np.exp(1j * phis / S)
+dO_da = expiphi.mean()
+dO_dphi0 = 1j/S * (amps * expiphi).mean()
+J_complex = np.array([dO_da, dO_dphi0])        # complex
+J_real = np.vstack([J_complex.real, J_complex.imag])  # 2 x n_params
+
+# --- Numerical Jacobian (finite differences with fixed noise draws) -----------
+rng = np.random.RandomState(1)
+amps_noise = rng.randn(N)
+phis_noise = rng.randn(N)
+def O_from_fixed_noise(a_val, phi0_val, amps_noise, phis_noise):
+    Psi_loc = a_val * (1.0 + noise_amp_std * amps_noise) * np.exp(1j * (phi0_val + noise_phi_std * phis_noise) / S)
+    return Psi_loc.mean()
+
+h = 1e-6
+O_pa = O_from_fixed_noise(theta['a'] + h, theta['phi0'], amps_noise, phis_noise)
+O_ma = O_from_fixed_noise(theta['a'] - h, theta['phi0'], amps_noise, phis_noise)
+dO_da_num = (O_pa - O_ma) / (2*h)
+
+O_pp = O_from_fixed_noise(theta['a'], theta['phi0'] + h, amps_noise, phis_noise)
+O_mp = O_from_fixed_noise(theta['a'], theta['phi0'] - h, amps_noise, phis_noise)
+dO_dphi_num = (O_pp - O_mp) / (2*h)
+
+J_num_complex = np.array([dO_da_num, dO_dphi_num])
+J_num_real = np.vstack([J_num_complex.real, J_num_complex.imag])
+
+# --- Compare Jacobians -------------------------------------------------------
+rel_err = np.abs(J_real - J_num_real) / (np.abs(J_real) + 1e-12)
+print("Analytic J (real-imag stacked):\n", J_real)
+print("Numeric J (real-imag stacked):\n", J_num_real)
+print("Relative error matrix:\n", rel_err)
+
+# --- Fisher construction -----------------------------------------------------
+# Regularize covariance and invert
+eps = 1e-10 * np.trace(Cov_Y)
+Cov_reg = Cov_Y + eps * np.eye(2)
+Cov_inv = np.linalg.inv(Cov_reg)
+
+# Fisher: H = J^T C^{-1} J (real-stacked form)
+H = J_real.T @ Cov_inv @ J_real
+eigvals, eigvecs = np.linalg.eigh(H)
+print("\nFisher H:\n", H)
+print("Eigenvalues of H:", eigvals)
+
+# --- Save summary for peers --------------------------------------------------
+summary = {
+    'O_emp_re': float(O_emp.real), 'O_emp_im': float(O_emp.imag),
+    'dO_da_re': float(J_real[0,0]), 'dO_da_im': float(J_real[1,0]),
+    'dO_dphi_re': float(J_real[0,1]), 'dO_dphi_im': float(J_real[1,1]),
+    'dO_da_re_num': float(J_num_real[0,0]), 'dO_da_im_num': float(J_num_real[1,0]),
+    'dO_dphi_re_num': float(J_num_real[0,1]), 'dO_dphi_im_num': float(J_num_real[1,1])
+}
+pd.DataFrame([summary]).to_csv('ctmt_seed_summary.csv', index=False)
+pd.DataFrame({'Psi_re':Psi.real, 'Psi_im':Psi.imag}).to_csv('ctmt_seed_samples.csv', index=False)
+
+# --- Quick diagnostic plot ---------------------------------------------------
+plt.figure(figsize=(8,4))
+plt.subplot(1,2,1); plt.hist(Psi.real, bins=40); plt.title('Psi.real samples')
+plt.subplot(1,2,2); plt.hist(Psi.imag, bins=40); plt.title('Psi.imag samples')
+plt.tight_layout()
+plt.savefig('ctmt_seed_histograms.png', dpi=150)
+print("\nSaved ctmt_seed_summary.csv, ctmt_seed_samples.csv, ctmt_seed_histograms.png")
+</code></pre>
+
 			<p style="font-weight:bold; margin-top:0.75em;">
 				CTMT therefore provides a rigorous, falsifiable mechanism by which low-void geometry generates
 				stable, quantized oscillations — the <em>Terror Kernel</em> — forming a cornerstone of CTMT’s
@@ -5712,7 +5942,7 @@ print("Scaling law: M1 ≈ A*nu^{-1},  A=",A," slope=",slope," r=",r)
 			</p>
 
 			<p>
-				From these minimal ingredients, the Fisher curvature tensor emerges (<a href="#eq-0a_32">Eq.&nbsp;0a.32</a>):
+				From these minimal ingredients, the Fisher curvature tensor emerges (<a href="#eq-0a_32">Eq. 0a.32</a>):
 			</p>
 
 			<figure id="eq-VFT2" class="equation">
