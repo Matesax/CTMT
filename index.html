@@ -7542,6 +7542,330 @@ for name, nu0, hmax, N in scenarios:
 				<li><strong>Mechanism:</strong> Redshift is a secondary consequence of null-manifold geometry; the “metric curvature” of GR is replaced by Fisher stiffening in CTMT.</li>
 				<li><strong>Evidence:</strong> This multi-scenario comparison is a strong evidential pillar: CTMT is a formally independent derivation of weak-field gravitational redshift.</li>
 			</ul>
+
+			<h3 id="sec-0-decisive_core_14">Experimental Proof Routes for CTMT</h3>
+
+			<h4>A. High-impact, medium-effort — Rotating Orthogonal Cavity Array (Lab)</h4>
+			<p><strong>Rationale:</strong> Rotating optical cavity experiments are respected isotropy tests. CTMT predicts that the Dilation Index (DI) computed from Fisher soft-axis reproduces GR redshift, with small deviations (nonlinear DI, rupture thresholds) visible under controlled coherence perturbations.</p>
+
+			<p><strong>Protocol:</strong></p>
+			<ul>
+				<li>Use two high-finesse orthogonal cavities (as in cavity Michelson–Morley tests).</li>
+				<li>Record beat frequency vs. orientation and rotation rate; acquire environmental data (temperature, vibration).</li>
+				<li>Compute <span class="math inline">\(DI(h)\)</span> or orientation <span class="math inline">\(DI(\theta)\)</span> from cavity mode persistence (phase coherence time).</li>
+				<li>Estimate <span class="math inline">\(J,\Sigma,H\)</span> in matching time windows.</li>
+			</ul>
+
+			<figure class="equation" id="eq-0a_111">
+				<div class="math display">
+
+					\[
+						DI(h) = 1 - \alpha h, \quad \alpha = g/c^2.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_111">Equation (0a.111) — Linear DI prediction under GR.</a></figcaption>
+			</figure>
+
+			<p><strong>Test:</strong> Fit linear DI vs. alternative nonlinear forms. Report bootstrap CI on <span class="math inline">\(\alpha\)</span>. Inject controlled coherence perturbations (scatterer, variable temperature) to test CRSC and <span class="math inline">\(S_{\mathrm{mod}}\)</span> sensitivity.</p>
+
+			<p><strong>Deliverables:</strong> Plots of measured <span class="math inline">\(\nu(h)\)</span> vs. GR prediction and CTMT fit; Fisher eigenvalue spectra vs. orientation/rotation; rupture flags and <span class="math inline">\(S_{\mathrm{mod}}\)</span> over time.</p>
+
+			<h4>B. Low-cost, high-replicability — Rupture Manifold Lab Suite</h4>
+			<p><strong>Rationale:</strong> Inexpensive, reproducible, ideal for student labs. Demonstrates universality across domains (LED oscillator, pendulum, magnetometer, two-mic clap).</p>
+
+			<p><strong>Protocol:</strong></p>
+			<ul>
+				<li>Acquire <span class="math inline">\(N \geq 50–200\)</span> repeated trials in each mode (locked vs. unlocked).</li>
+				<li>Apply small controlled perturbations (<span class="math inline">\(\pm \delta\)</span> in geometry, supply, placement) to estimate local Jacobian via regression.</li>
+				<li>Prewhiten features, compute empirical covariance <span class="math inline">\(\Sigma\)</span>, then <span class="math inline">\(H = J^\top \Sigma_\epsilon^{-1} J\)</span>.</li>
+			</ul>
+
+			<figure class="equation" id="eq-0a_112">
+				<div class="math display">
+
+					\[
+						\text{rupture} = \min_i \lambda_i \lt \alpha \cdot \mathrm{median}(\lambda_i), \quad \alpha \in [0.1,0.3].
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_112">Equation (0a.112) — Rupture flag criterion in lab suite.</a></figcaption>
+			</figure>
+
+			<p><strong>Deliverables:</strong> Eigen-decomposition of <span class="math inline">\(H\)</span>; rupture flags; <span class="math inline">\(S_{\mathrm{mod}}\)</span> and CRSC per trial block. Universality demonstrated by reproducibility across devices.</p>
+
+			<h4>C. Archival Re-analysis — GPS/Atomic Clock Networks, LIGO, Magnetometer Arrays</h4>
+			<p><strong>Rationale:</strong> CTMT predicts null-manifold soft directions and DI effects in high-precision timing networks and coherent detector arrays.</p>
+
+			<p><strong>Protocol:</strong></p>
+			<ul>
+				<li>Apply pipeline to public GPS/clock data: estimate <span class="math inline">\(J\)</span> vs. environmental controls, compute <span class="math inline">\(H\)</span> eigen-spectrum.</li>
+				<li>CTMT predicts near-null modes corresponding to propagation axes and rupture episodes.</li>
+				<li>Re-analyze LIGO strain channels in short stationary windows: compute <span class="math inline">\(J\)</span> from calibration lines, form <span class="math inline">\(H\)</span>, test near-null modes opening/closing around events.</li>
+			</ul>
+
+			<figure class="equation" id="eq-0a_113">
+				<div class="math display">
+
+					\[
+						\lambda_{\min}(H) \rightarrow 0 \quad \text{near rupture events}.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_113">Equation (0a.113) — Near-null Fisher mode prediction in archival data.</a></figcaption>
+			</figure>
+
+			<p><strong>Deliverables:</strong> Fisher spectra from GPS/clock networks; rupture manifold signatures in LIGO strain; magnetometer array coherence collapse during geomagnetic storms.</p>
+
+			<h4>Interpretation</h4>
+			<p>
+				Each experiment provides an independent falsifiable check. CTMT is proven if the seed→Jacobian→Fisher closure holds and at least one of the falsifiable signatures (DI deviation, rupture flag, near-null Fisher mode, anchor invariance) is confirmed with statistical rigor. Failure of one diagnostic only falsifies that probe, not the entire framework.
+			</p>
+
+			<h4>Concrete Diagnostics, Decision Rules, and Thresholds</h4>
+
+			<h5>A. Jacobian & Fisher</h5>
+			<p>Estimate Jacobian by regression of whitened outputs on controlled perturbations:</p>
+
+			<figure class="equation" id="eq-0a_114">
+				<div class="math display">
+
+					\[
+						Y_w = \mathrm{prewhiten}(Y), \quad
+						J = \arg\min_B \|Y_w - \Theta B^\top\|_F, \quad
+						H = J^\top C_\epsilon^{-1} J.
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_114">Equation (0a.114) — Jacobian regression and Fisher construction.</a></figcaption>
+			</figure>
+
+			<p>Use SVD for stability; always report stabilizer <span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span>.</p>
+
+			<h5>B. Rupture Flag</h5>
+
+			<figure class="equation" id="eq-0a_115">
+				<div class="math display">
+
+					\[
+						\text{rupture} = \min_i s_i \lt \alpha \cdot \mathrm{median}(s_i), \quad \alpha \in [0.1,0.3].
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_115">Equation (0a.115) — Rupture flag condition.</a></figcaption>
+			</figure>
+
+			<p>Require bootstrap probability <span class="math inline">\(p_{\mathrm{boot}}\geq 0.95\)</span> for strong flag.</p>
+
+			<h5>C. Modulation Stability and CRSC</h5>
+
+			<figure class="equation" id="eq-0a_116">
+				<div class="math display">
+
+				\[
+					S_{\mathrm{mod}} = \omega^2 \gamma^2 \cdot 
+					\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)}.
+				\]
+
+				</div>
+				<figcaption><a href="#eq-0a_116">Equation (0a.116 — Modulation stability index.)</a></figcaption>
+			</figure>
+
+			<figure class="equation" id="eq-0a_117">
+				<div class="math display">
+
+				\[
+					CRSC = \rho_c \cdot 
+					\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)} \cdot \omega^2 \gamma^2.
+				\]
+
+				</div>
+				<figcaption><a href="#eq-0a_117">Equation (0a.117) — Coherence‑rupture stability coefficient.</a></figcaption>
+			</figure>
+
+			<p>Decision thresholds: mode stabilized if <span class="math inline">\(S_{\mathrm{mod}}\geq S_\ast=10\)</span>; rupture if <span class="math inline">\(S_{\mathrm{mod}}\leq 1\)</span>. Provide bootstrap CI.</p>
+
+			<h5>D. Anchor Test for Invariant Speed</h5>
+
+			<figure class="equation" id="eq-0a_118">
+				<div class="math display">
+
+				\[
+					v_{\mathrm{sync}} = M_1 \cdot \nu, \quad
+					\delta v = \frac{|v_{\mathrm{sync}}(\mathrm{anchor}) - v_{\mathrm{pooled}}|}{v_{\mathrm{pooled}}}.
+				\]
+
+				</div>
+				<figcaption><a href="#eq-0a_118">Equation (0a.118) — Synchronization speed and anchor consistency.</a></figcaption>
+			</figure>
+
+			<p>Require <span class="math inline">\(\delta v \lt 3\sigma\)</span> for anchor consistency.</p>
+
+			<h4>Ready-to-use Analysis Pipeline (Python Blueprint)</h4>
+			<p>Provide collaborators with a reproducible pipeline: prewhiten data, estimate <span class="math inline">\(J\)</span>, compute <span class="math inline">\(H\)</span>, apply rupture flag and stability indices. Expand with bootstrap and plotting.</p>
+
+<pre><code class="language-python">import numpy as np
+from numpy.linalg import svd, pinv, eig
+from sklearn.linear_model import LinearRegression
+def prewhiten(Y):
+    # mean-center and sphering
+    Yc = Y - Y.mean(axis=0)
+    U,S,Vt = svd(Yc, full_matrices=False)
+    S_inv = np.diag(1.0/(S+1e-12))
+    Yw = U @ S_inv
+    return Yw, (U,S,Vt)
+
+def estimate_J(Y, controls):
+    # Y: trials x features (whitened), controls: trials x K
+    lr = LinearRegression(fit_intercept=False).fit(controls, Y)
+    J = lr.coef_.T  # features x controls
+    return J
+
+def compute_H(J, Ceps):
+    # J: features x controls, Ceps: features x features
+    Ce_inv = pinv(Ceps)  # add stabilizer outside
+    H = J.T @ Ce_inv @ J
+    return H
+
+def rupture_flag(H, alpha=0.2):
+    s = np.real(eig(H)[0])
+    return np.min(s) &lt; alpha * np.median(s), s
+
+def S_mod(omega, gamma, H_perp, H_par):
+    lam_min = np.min(np.real(eig(H_perp)[0]))
+    lam_max = np.max(np.real(eig(H_par)[0]))
+    return (omega**2 / (gamma**2 + 1e-12)) * (lam_min / (lam_max + 1e-12))
+</code></pre>
+
+			<h4>Sample Size &amp; Uncertainty Guidance</h4>
+			<ul>
+				<li>For SNR ~10–50, <span class="math inline">\(N=50–200\)</span> trials give bootstrap CIs narrow enough to detect relative effects <span class="math inline">\(\alpha \sim 10^{-8}–10^{-6}\)</span>.</li>
+				<li>For clocks/cavities, fewer trials with longer accumulation suffice.</li>
+				<li>Always report: <span class="math inline">\(N\)</span>, bootstrap CI, stabilizer <span class="math inline">\(\varepsilon\)</span>, finite difference step <span class="math inline">\(h\)</span>, sensitivity of results to both.</li>
+			</ul>
+
+			<h4>Two “Killer Apps”</h4>
+			<ul>
+				<li><strong>Rupture-aware sensor diagnostics:</strong> Monitor <span class="math inline">\(\lambda_{\min}(H)\)</span> trajectories; flag maintenance when thresholds crossed.</li>
+				<li><strong>Coherence-guided metrology:</strong> Optimize operating point by maximizing CRSC and <span class="math inline">\(S_{\mathrm{mod}}\)</span>; improves clock stability and cavity Q.</li>
+			</ul>
+
+			<h4>Two “Non-obvious” Calculi</h4>
+			<ul>
+				<li><strong>Null-projector model reduction (NPMC):</strong> Use <span class="math inline">\(\Pi_{\mathrm{null}} = I - H H^+\)</span> to reduce models and inflate posterior covariance.</li>
+				<li><strong>Terror-injection design calculus:</strong> Compute perturbation vector that maximizes informativeness about rupture manifold by increasing <span class="math inline">\(\lambda_{\min}\)</span>.</li>
+			</ul>
+
+			<h4>Archival Dataset Targets</h4>
+			<ul>
+				<li>Global atomic clock networks / GPS logs: compute DI across clocks.</li>
+				<li>LIGO strain channels: search for near-null Fisher modes around events.</li>
+				<li>Magnetometer arrays: rupture manifold during geomagnetic storms.</li>
+				<li>CMB Planck/WMAP products: recheck spectral peaks as anchors.</li>
+			</ul>
+
+			<h4>Pitch to Skeptical Academics</h4>
+			<p>Emphasize reproducibility: provide simple experiments (LED oscillator, clap) with exact code and decision rules. Publish methods paper + open-source pipeline + one archival reanalysis. Keep claims conservative: CTMT predicts measurable Fisher geometry and rupture thresholds, falsifiable by statistical tests.</p>
+
+			<h4>Reviewer’s Checklist</h4>
+			<ul>
+				<li>Collect at least <span class="math inline">\(N\geq 100\)</span> trials in two modes.</li>
+				<li>Provide raw CSV + code for <span class="math inline">\(J,\Sigma,H\)</span>.</li>
+				<li>Report stabilizer <span class="math inline">\(\varepsilon\)</span> and sensitivity.</li>
+				<li>Bootstrap CIs (≥1000 resamples) for <span class="math inline">\(\lambda_{\min}, S_{\mathrm{mod}}\)</span>.</li>
+				<li>Claim detection only if <span class="math inline">\(p_{\mathrm{boot}}\geq 0.975\)</span> and reproducible in independent replicate.</li>
+				<li>Compare CTMT vs null model using Bayes factor > 10.</li>
+			</ul>
+
+			<h5>Candidate Experiments and Datasets for Direct DI, J, and H Application</h5>
+
+			<p>
+				This lists concrete experiments and archival datasets where CTMT’s diagnostics can be applied immediately. For each item, compute Dilation Index <span class="math inline">\(DI\)</span>, estimate Jacobian <span class="math inline">\(J\)</span> from controlled perturbations or regression, and construct Fisher <span class="math inline">\(H\)</span> per analysis window. Use rupture flags, <span class="math inline">\(S_{\mathrm{mod}}\)</span>, and CRSC to assess persistence versus collapse.
+			</p>
+
+			<h6>1. Rotating optical cavity beat-frequency runs</h6>
+			<ul>
+				<li><strong>Features:</strong> Orientation- and rotation-resolved beat frequency; environmental logs (temperature, vibration).</li>
+				<li><strong>DI computation:</strong> <span class="math inline">\(DI(\theta)\)</span> from mode persistence (phase coherence time).</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> via controlled thermal/aperture tweaks and small scatterer injections.</li>
+				<li><strong>Fisher:</strong> Construct <span class="math inline">\(H = J^\top C_\epsilon^{-1} J\)</span> per time window; examine eigen spectra vs orientation/rotation.</li>
+			</ul>
+
+			<h6>2. Dual/multi-atomic clock comparison logs (GPS or lab clocks)</h6>
+			<ul>
+				<li><strong>Features:</strong> Clock offset time series; altitude and environmental parameters (temperature, pressure, supply).</li>
+				<li><strong>DI computation:</strong> <span class="math inline">\(DI(h)\)</span> vs altitude and ambient.</li>
+				<li><strong>Jacobian:</strong> Regress offsets on controls to estimate <span class="math inline">\(J\)</span>.</li>
+				<li><strong>Fisher:</strong> Build <span class="math inline">\(H\)</span>; check near-null directions during anomalies or maintenance windows.</li>
+			</ul>
+
+			<h6>3. GPS station timing archives (multi-station networks)</h6>
+			<ul>
+				<li><strong>Features:</strong> Station timing logs, ephemerides, environmental records.</li>
+				<li><strong>DI computation:</strong> Inter-station <span class="math inline">\(DI\)</span> consistency and orientation dependence.</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> from known drivers (satellite geometry, atmospheric models).</li>
+				<li><strong>Fisher:</strong> Track <span class="math inline">\(\lambda_{\min}(H)\)</span> trajectories; raise rupture flags during solar storms/outages.</li>
+			</ul>
+
+			<h6>4. LIGO public strain channels with calibration lines</h6>
+			<ul>
+				<li><strong>Features:</strong> Strain segments in short stationary windows; calibration lines and synthetic perturbations.</li>
+				<li><strong>DI computation:</strong> Coherence-based <span class="math inline">\(DI\)</span> across windows and bands.</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> from response to calibration lines.</li>
+				<li><strong>Fisher:</strong> Construct <span class="math inline">\(H\)</span>; examine near-null opening/closing around events with bootstrap CIs.</li>
+			</ul>
+
+			<h6>5. Global magnetometer arrays (e.g., INTERMAGNET)</h6>
+			<ul>
+				<li><strong>Features:</strong> Multi-station magnetic field time series; geomagnetic indices (Kp, Dst).</li>
+				<li><strong>DI computation:</strong> Station coherence <span class="math inline">\(DI\)</span> during quiet vs storm conditions.</li>
+				<li><strong>Jacobian:</strong> Regress features on indices and local conditions to get <span class="math inline">\(J\)</span>.</li>
+				<li><strong>Fisher:</strong> Compute <span class="math inline">\(H\)</span>; detect rupture during sudden impulses; cross-validate stations.</li>
+			</ul>
+
+			<h6>6. High-Q laser/maser lab stability runs</h6>
+			<ul>
+				<li><strong>Features:</strong> Phase coherence time, line-width, environmental logs.</li>
+				<li><strong>DI computation:</strong> <span class="math inline">\(DI\)</span> from coherence time across operating points.</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> via controlled cavity/feedback perturbations.</li>
+				<li><strong>Fisher:</strong> Use <span class="math inline">\(H\)</span> to identify soft axes; optimize <span class="math inline">\(S_{\mathrm{mod}}\)</span> and CRSC.</li>
+			</ul>
+
+			<h6>7. Precision frequency comb drift datasets</h6>
+			<ul>
+				<li><strong>Features:</strong> Comb line offsets, pump power, temperature, stabilization parameters.</li>
+				<li><strong>DI computation:</strong> <span class="math inline">\(DI\)</span> across operating points and environmental conditions.</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> under controlled temperature and pump changes.</li>
+				<li><strong>Fisher:</strong> Form <span class="math inline">\(H\)</span> to identify soft axes and rupture thresholds.</li>
+			</ul>
+
+			<h6>8. Coupled oscillator arrays (mechanical/electrical)</h6>
+			<ul>
+				<li><strong>Features:</strong> Synchronization metrics, coupling strengths, detuning, environmental perturbations.</li>
+				<li><strong>DI computation:</strong> Synchronization <span class="math inline">\(DI\)</span> vs induced detuning.</li>
+				<li><strong>Jacobian:</strong> Estimate <span class="math inline">\(J\)</span> via small coupling/resonance perturbations.</li>
+				<li><strong>Fisher:</strong> Build <span class="math inline">\(H\)</span>; test rupture manifold under controlled de-tuning.</li>
+			</ul>
+
+			<h4>Analysis and acceptance criteria</h4>
+			<ul>
+				<li><strong>DI fit:</strong> Compare GR linear <span class="math inline">\(DI(h)=1-\alpha h\)</span> with nonlinear alternatives; report bootstrap CI on <span class="math inline">\(\alpha\)</span>.</li>
+				<li><strong>Jacobian agreement:</strong> Analytic/finite-difference vs regression-based <span class="math inline">\(J\)</span> must agree within bootstrap CIs.</li>
+				<li><strong>Fisher stability:</strong> <span class="math inline">\(\lambda_{\min}(H)\)</span> and spectra reproducible across resamples and windows; rupture flag per <a href="#eq-0a_115">Equation (0a.115)</a>.</li>
+				<li><strong>Operating point optimization:</strong> Demonstrate increase in <span class="math inline">\(S_{\mathrm{mod}}\)</span> and CRSC via controlled tuning.</li>
+			</ul>
+
+			<p>
+				Tie this list directly to the protocols in the rotating cavity, rupture manifold lab suite, and archival re-analyses. Prioritize items with existing high-quality data (cavities, clocks, LIGO, magnetometers) to maximize probability of immediate success.
+			</p>
+
+			<h4>Suggested Roadmap (6–12 Months)</h4>
+			<ul>
+				<li><strong>Month 0–1:</strong> Produce lab handout + code for low-cost rupture experiments; replicate in 3 labs.</li>
+				<li><strong>Month 1–3:</strong> Run rotating cavity experiment with coherence perturbations.</li>
+				<li><strong>Month 3–6:</strong> Re-analyze GPS/clock or LIGO data; release preprint with reproducible analysis.</li>
+				<li><strong>Month 6–12:</strong> Release NPMC and terror-injection libraries; show engineering/metrology use-case with measurable improvement.</li>
+			</ul>
         </article>
     </section>
     <section>
