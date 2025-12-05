@@ -3908,6 +3908,181 @@ def ctmt_experiment(N, routes, W, delta):
 				that the universe defined by CTMT is both internally coherent and geometrically self-consistent.
 			</p>
 
+			<h4>Necessity of Oscillatory Action for Metrics and Computability</h4>
+
+			<p>
+				Oscillation is not decorative in CTMT — it is the enabling structure that allows metrics, orthogonality, and computability to exist.  
+				This section demonstrates mathematically that without oscillatory action, a kernel cannot generate a consistent or falsifiable metric, nor sustain reversible computation.  
+				The argument proceeds by formal comparison of non-oscillatory and oscillatory kernels and by showing that phase structure is necessary for (i) orthogonality, (ii) norm preservation, and (iii) non-degenerate Fisher curvature.
+			</p>
+
+			<h5>Formal Setup</h5>
+			<p>Two kernel definitions are contrasted:</p>
+
+			<div class="math display">
+
+				\[
+					\text{(Non-oscillatory)} \quad
+					O_0(\Theta) = \mathbb{E}_{\xi}\!\big[\Xi(\Theta;\xi)\big],
+					\qquad
+					\text{(Oscillatory)} \quad
+					O_\Phi(\Theta) = \mathbb{E}_{\xi}\!\big[\Xi(\Theta;\xi)\,e^{\,i\Phi(\Theta;\xi)/S_\ast}\big].
+				\]
+
+			</div>
+
+			<p>
+				Both are formally continuous and differentiable, yet only the oscillatory kernel supports a stable, invariant Fisher metric:
+			</p>
+
+			<div class="math display">
+
+				\[
+					H(\Theta) = J(\Theta)^\top \Sigma_O^{-1} J(\Theta),
+					\quad J = \partial_\Theta O(\Theta).
+				\]
+
+			</div>
+
+			<p>
+				<strong>Claim (Necessity):</strong>  
+				If the kernel lacks the oscillatory factor <span class="math inline">\(e^{i\Phi/S_\ast}\)</span>, then the operational metric extracted from sensitivity — e.g., Fisher curvature <span class="math inline">\(H = J^\top \Sigma^{-1} J\)</span> — is either degenerate, window-dependent, or non-invariant under composition of measurements.  
+				Oscillatory action is necessary to produce a nontrivial, invariant, and falsifiable geometry.
+			</p>
+
+			<h5>Lemma A — Orthogonality and Invariance Require Phase</h5>
+			<p>
+				Let the inner product of sensitivities be:
+			</p>
+
+			<div class="math display">
+
+				\[
+					G_{ij} = \langle \partial_{\Theta_i}O,\, \partial_{\Theta_j}O\rangle.
+				\]
+
+			</div>
+
+			<p>
+				For real, monotone kernels <span class="math inline">\(O_0\)</span>, the product <span class="math inline">\(\partial_{\Theta_i}O\,\partial_{\Theta_j}O\)</span> accumulates monotonically over the support of the measurement window.
+				Since there is no oscillatory cancellation, <span class="math inline">\(G_{ij}\)</span> depends explicitly on the sampling window, envelope width, and smoothing filter.
+				This makes the induced metric <span class="math inline">\(G\)</span> non-invariant and ill-conditioned.
+			</p>
+
+			<p>
+				For oscillatory kernels <span class="math inline">\(O_\Phi\)</span>, stationary-phase cancellation localizes the integral near critical points where <span class="math inline">\(\nabla_\Theta \Phi = 0\)</span>.
+				The local Hessian <span class="math inline">\(\partial^2_\Theta \Phi\)</span> determines the determinant and inverse of <span class="math inline">\(H\)</span>, rendering it scale-free and instrument-independent.
+				Thus the oscillatory phase produces intrinsic orthogonality and a window-independent metric.
+			</p>
+
+			<p>
+				<em>Consequence:</em>  
+				Without oscillation, metrics depend on arbitrary windowing; with oscillation, they depend only on the phase curvature <span class="math inline">\(\partial^2_\Theta \Phi\)</span>, an invariant of the kernel itself.
+			</p>
+
+			<h5>Lemma B — Unitarity (Norm Preservation) Requires Oscillatory Action</h5>
+			<p>
+				Let <span class="math inline">\(T\)</span> map latent amplitudes to observables:
+			</p>
+
+			<div class="math display">
+
+				\[
+					(Tf)(x) = \int K(x,x')\,f(x')\,dx'.
+				\]
+
+			</div>
+
+			<ul>
+				<li>If <span class="math inline">\(K(x,x') \sim e^{i\Phi(x,x')/S_\ast}M(x,x')\)</span>, then by stationary-phase and Egorov’s theorem, <span class="math inline">\(T\)</span> is approximately unitary on <span class="math inline">\(L^2\)</span>; it preserves norms up to <span class="math inline">\(O(S_\ast^{-1})\)</span> corrections.</li>
+				<li>If <span class="math inline">\(K(x,x') \ge 0\)</span> (no phase), <span class="math inline">\(T\)</span> is a positive smoothing operator (e.g., a heat kernel), contractive and non-invertible.</li>
+			</ul>
+
+			<p>
+				Contractive operators erase information and destroy invertibility; no invariant metric can persist under their evolution.  
+				Oscillatory kernels alone support reversible, norm-preserving dynamics — the mathematical signature of a computable universe.
+			</p>
+
+			<p>
+				<em>Consequence:</em>  
+				Norms and distances retain operational meaning only under oscillatory propagation.  
+				Non-oscillatory kernels collapse information over time and render the system non-computable.
+			</p>
+
+			<h5>Lemma C — Fisher Curvature Needs Phase to Avoid Degeneracy</h5>
+			<p>
+				For the Fisher metric:
+			</p>
+
+			<div class="math display">
+
+				\[
+					H(\Theta) = J^\top \Sigma^{-1} J, \qquad J=\partial_\Theta O,
+				\]
+
+			</div>
+
+			<p>
+				the Jacobian’s singular values encode the curvature spectrum.
+			</p>
+
+			<ul>
+				<li>With oscillation, small parameter shifts modulate phase, creating alternating sensitivity directions; singular values of <span class="math inline">\(J\)</span> remain separated, and curvature is finite.</li>
+				<li>Without oscillation, derivatives follow the monotone envelope of <span class="math inline">\(\Xi\)</span>, so columns of <span class="math inline">\(J\)</span> become collinear; the smallest eigenvalue <span class="math inline">\(\lambda_{\min}(H)\!\to\!0\)</span> as smoothing or support increases.</li>
+			</ul>
+
+			<p>
+				The resulting metric degenerates (rank-deficient, ill-conditioned) and loses falsifiability.  
+				Phase modulation prevents this collapse by introducing alternating curvature and stationary-phase isolation.
+			</p>
+
+			<p>
+				<em>Consequence:</em>  
+				Phase is the only mechanism that maintains identifiable, non-trivial Fisher curvature independent of arbitrary sampling choices.
+			</p>
+
+			<h5>Thought Experiment — The Silent Universe vs. the Coherent Universe</h5>
+			<table>
+				<thead>
+					<tr><th>Property</th><th>Silent (no oscillation)</th><th>Coherent (oscillatory)</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>Expectation</td><td>Finite, monotone averages</td><td>Finite, oscillatory averages (stationary-phase)</td></tr>
+					<tr><td>Operator type</td><td>Contractive / diffusive</td><td>Unitary / reversible</td></tr>
+					<tr><td>Metric behavior</td><td>Window-dependent, degenerate</td><td>Intrinsic, invariant</td></tr>
+					<tr><td>Curvature spectrum</td><td><span class="math inline">\(\lambda_{\min}\!\to\!0\)</span></td><td>Finite, measurable eigenvalues</td></tr>
+					<tr><td>Computability</td><td>Irreversible, information-losing</td><td>Reversible, information-preserving</td></tr>
+				</tbody>
+			</table>
+
+			<h5>Direct Computational Corollary</h5>
+			<p>
+				Perform a simple falsification test: remove the oscillatory factor from the kernel and measure
+				<span class="math inline">\(\lambda_{\min}(H(\Theta))\)</span> and the condition number <span class="math inline">\(\kappa(H)=\lambda_{\max}/\lambda_{\min}\)</span>
+				as the sampling window widens.  
+				Without oscillation, <span class="math inline">\(\lambda_{\min}\!\to\!0\)</span> and <span class="math inline">\(\kappa(H)\!\to\!\infty\)</span>.  
+				Reintroduce phase <span class="math inline">\(e^{i\Phi/S_\ast}\)</span>; stationary-phase localization stabilizes both quantities across instruments.
+				This contrast is empirically testable and falsifiable.
+			</p>
+
+			<h5>Conclusion</h5>
+
+			<p>
+				Oscillatory action is mathematically necessary for an operational, invariant metric and hence for a computable universe.  
+				It provides:
+			</p>
+
+			<ul>
+				<li><strong>Orthogonality</strong> through interference and stationary-phase localization;</li>
+				<li><strong>Norm preservation</strong> through near-unitary evolution operators;</li>
+				<li><strong>Finite, identifiable curvature</strong> through alternating sensitivities in the Jacobian.</li>
+			</ul>
+
+			<p>
+				A universe without oscillation can “exist” in a bare mathematical sense but lacks intrinsic geometry and operational computability.  
+				In CTMT, oscillation is not an embellishment — it is the reason curvature, measurement, and reality itself are coherent and reversible.
+			</p>
+
 			<h4>Lemma (Existence of the CTMT kernel-seed observable)</h4>
 
 			<p>
