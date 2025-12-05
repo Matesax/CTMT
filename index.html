@@ -3754,6 +3754,80 @@ def ctmt_experiment(N, routes, W, delta):
 				</figcaption>
 			</figure>
 
+			<h5>Consistent covariance definitions and dual form of Fisher curvature</h5>
+
+			<h6>Definitions</h6>
+			<ul>
+				<li>
+					<strong>Noise covariance:</strong>
+					<span class="math inline">\(C_\epsilon\)</span> denotes the covariance of measurement noise or injected perturbations affecting the observable.
+					It is extrinsic to the ensemble and assumed positive‑definite.
+				</li>
+				<li>
+					<strong>Observable covariance:</strong>
+					<span class="math inline">\(\Sigma_O\)</span> denotes the empirical covariance of the observable
+					<span class="math inline">\(O(\Theta)\)</span> across ensemble realizations. It captures intrinsic variability of the seed expectation.
+				</li>
+			</ul>
+
+			<h6>Dual form of Fisher curvature</h6>
+
+			<figure class="equation" id="eq-0a_122a">
+				<div class="math display">
+
+					\[
+						H(\Theta) \;=\; J(\Theta)^\top\,\Sigma_O^{-1}\,J(\Theta)
+					\]
+
+				</div>
+				<figcaption>
+					<a href="#eq-0a_122a">Equation (0a.122a)</a> — Fisher curvature using observable covariance
+					<span class="math inline">\(\Sigma_O\)</span>.
+				</figcaption>
+			</figure>
+
+			<figure class="equation" id="eq-0a_122b">
+				<div class="math display">
+
+					\[
+						H(\Theta) \;=\; J(\Theta)^\top\,C_\epsilon^{-1}\,J(\Theta)
+					\]
+
+				</div>
+				<figcaption>
+					<a href="#eq-0a_122b">Equation (0a.122b)</a> — Fisher curvature using noise covariance
+					<span class="math inline">\(C_\epsilon\)</span>.
+				</figcaption>
+			</figure>
+
+			<h6>Usage conditions</h6>
+			<ul>
+				<li>
+					<strong>Use <span class="math inline">\(\Sigma_O\)</span> (intrinsic geometry):</strong>
+					When the ensemble variance of <span class="math inline">\(O(\Theta)\)</span> is measurable and dominates uncertainty,
+					<span class="math inline">\(\Sigma_O\)</span> reflects the intrinsic statistical geometry of the observable manifold.
+					It is the default in CTMT.
+				</li>
+				<li>
+					<strong>Use <span class="math inline">\(C_\epsilon\)</span> (instrumental robustness):</strong>
+					When measurement noise is known and dominant, or when stress‑testing sensitivity to extrinsic perturbations,
+					<span class="math inline">\(C_\epsilon\)</span> provides a conservative, instrument‑anchored Fisher measure.
+				</li>
+				<li>
+					<strong>Interchangeability:</strong>
+					If uncertainty is noise‑dominated and additive, with negligible intrinsic variance, then
+					<span class="math inline">\(\Sigma_O \approx C_\epsilon\)</span>. In that regime,
+					<a href="#eq-0a_122a">Eq. (0a.122a)</a> and <a href="#eq-0a_122b">Eq. (0a.122b)</a> are numerically equivalent.
+				</li>
+			</ul>
+
+			<h6>Consolidated caption</h6>
+			<p>
+				<strong>Fisher curvature from Jacobian and covariance.</strong>
+				By default, <span class="math inline">\(\Sigma_O\)</span> denotes observable covariance; in the noise‑dominated limit, replace
+				<span class="math inline">\(\Sigma_O\)</span> with <span class="math inline">\(C_\epsilon\)</span>.
+			</p>
+
 			<h4>Falsifiability and Non-Circularity</h4>
 
 			<p>
@@ -3819,6 +3893,19 @@ def ctmt_experiment(N, routes, W, delta):
 				the universe described by it <em>exists</em> — internally coherent, curvature-defined, and self-consistent.
 				Should continuity or differentiability fail, CTMT would end, and with it the coherent universe it defines.  
 				No smaller ontology could yield such closure; no larger one is required.
+			</p>
+
+			<p>
+				The kernel’s self-existence extends beyond continuity and differentiability into 
+				<em>dimensional collapse rendering</em>, where the impulse kernel defines coherence scales 
+				along the geometric taxonomies 
+				(<a href="#sec-32-dimensional-collapse-rendering-kernel-formalism">Coll, Mod, Trans, Topo, Anch</a>). 
+				In this way, the ontology of CTMT is not only closed in its seed expectation 
+				(<a href="#eq-0a_119">Eq. 0a.119</a>) but also operationally linked to the 
+				<a href="#sec-geometry-formalism">Geometry Formalism</a>, where sheet, filament, and voxel 
+				structures are fully established. Existence therefore implies measurable collapse lengths 
+				(<span class="math inline">\(L_X,L_Y,L_Z\)</span>) derived directly from the kernel, ensuring 
+				that the universe defined by CTMT is both internally coherent and geometrically self-consistent.
 			</p>
 
 			<h4>Lemma (Existence of the CTMT kernel-seed observable)</h4>
