@@ -19304,9 +19304,9 @@ for n in range(N):
       \tilde r_k
       =
       \frac{
-        \tfrac{\text{surv}_k}{\operatorname{Var}(O_k)+\epsilon}
+        \tfrac{\text{surv}_k}{\operatorname{Var}(O_k)+\varepsilon}
       }{
-        \sum_j \tfrac{\text{surv}_j}{\operatorname{Var}(O_j)+\epsilon}
+        \sum_j \tfrac{\text{surv}_j}{\operatorname{Var}(O_j)+\varepsilon}
       }.
       \]
     </div>
@@ -19556,7 +19556,7 @@ for n in range(N):
       <tr>
         <td>Collapse Index</td>
         <td><span class="math inline">\( \kappa_{\mathrm{rupt}} \)</span></td>
-        <td><span class="math inline">\( \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \epsilon} \)</span></td>
+        <td><span class="math inline">\( \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \varepsilon} \)</span></td>
         <td>Amplification risk under rupture</td>
       </tr>
     </tbody>
@@ -19798,7 +19798,7 @@ for n in range(N):
     </tr>
     <tr>
       <td>Collapse index</td>
-      <td><span class="math inline">\( \kappa_{\mathrm{rupt}} = \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \epsilon} \)</span></td>
+      <td><span class="math inline">\( \kappa_{\mathrm{rupt}} = \frac{\mathcal{R}_{\mathrm{buff}}}{\mathcal{R}_{\mathrm{surv}} + \varepsilon} \)</span></td>
       <td>Amplitude / amplitude</td>
       <td>Unitless</td>
       <td>Ratio of buffer to slope</td>
@@ -19817,7 +19817,7 @@ for n in range(N):
       <td><span class="math inline">\( \epsilon_{\mathrm{dim}} = \left| \frac{\mathrm{units}(O) - \mathrm{expected}(O)}{\mathrm{expected}(O)} \right| \)</span></td>
       <td>Unit mismatch</td>
       <td>Unitless</td>
-      <td>Must satisfy <span class="math inline">\( \epsilon_{\mathrm{dim}} &lt; 10^{-12} \)</span></td>
+      <td>Must satisfy <span class="math inline">\( \epsilon_{\mathrm{dim}} \lt 10^{-12} \)</span></td>
       <td>Closure test</td>
     </tr>
   </tbody>
@@ -19830,7 +19830,7 @@ for n in range(N):
   <li><strong>(C2) Prefactor carriage:</strong> Units enter only through <span class="math inline">\( C_{\mathrm{phys}} \)</span>.</li>
   <li><strong>(C3) Additive separation:</strong> Phase and decay terms never mix units.</li>
   <li><strong>(C4) Observable inheritance:</strong> Output units match kernel prefactors.</li>
-  <li><strong>(C5) Residuum threshold:</strong> <span class="math inline">\( \epsilon_{\mathrm{dim}} < 10^{-12} \)</span>.</li>
+  <li><strong>(C5) Residuum threshold:</strong> <span class="math inline">\( \epsilon_{\mathrm{dim}} \lt 10^{-12} \)</span>.</li>
 </ol>
 
 <h5>Dimensional residuum</h5>
