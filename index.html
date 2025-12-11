@@ -10037,79 +10037,155 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 			<h5>Unified Causality in CTMT</h5>
 
 			<p>
-				CTMT demonstrates that <em>physical causality</em> (finite propagation speed, microcausality of fields) 
-				and <em>statistical causality</em> (hazard rates, extinction dynamics) are not independent assumptions 
-				but emerge from the same Fisher–curvature structure.
+				CTMT identifies two kinds of causal structure that appear disjoint in conventional theory:
+				<br>(A) <em>Physical causality</em> — finite propagation speed, Lorentzian light cones, microcausality of fields.
+				<br>(B) <em>Statistical causality</em> — hazard rates, persistence horizons, extinction events.
 			</p>
-
-			<h6>Relativistic Causality — The Causality Cone</h6>
-			<p>Spacetime causality arises from the phase Hessian:</p>
-
-			<div class="math display">
-
-				\[
-					g_{\mu\nu}(x)=\partial_\mu\partial_\nu \Phi(x), \qquad
-					\mathrm{sig}(g)=(-,+,+,+).
-				\]
-
-			</div>
 
 			<p>
-				Lorentzian signature ensures hyperbolic equations of motion, finite propagation speed, 
-				and vanishing commutators outside the emergent light cone:
+				In CTMT these are not independent axioms. Both arise from a single geometric object:
+				<strong>curvature derived from the oscillatory kernel</strong>. The same Fisher–curvature invariants
+				that shape the light‑cone in spacetime also govern the “survival cone’’ in stochastic dynamics.
 			</p>
 
-			<div class="math display">
+			<h6>A. Relativistic Causality — The Physical Causality Cone</h6>
+			<p>Spacetime structure emerges from the Hessian of the kernel phase:</p>
 
-				\[
-					[\varphi(x),\varphi(y)]=0 \quad \text{if } (x-y)^\mu(x-y)^\nu g_{\mu\nu}(x)>0.
-				\]
+			<figure class="equation" id="eq-0a_214">
+				<div class="math display">
 
-			</div>
+					\[
+						g_{\mu\nu}(x)=\partial_\mu\partial_\nu \Phi(x), \qquad
+						\operatorname{sig}(g)=(-,+,+,+)
+					\]
 
-			<p>
-				Thus the <strong>causality cone</strong> is not postulated but emerges dynamically from oscillatory 
-				suppression outside the quadratic form defined by the kernel phase.
-			</p>
+				</div>
+				<figcaption><a href="#eq-0a_214">Equation (0a.214)</a></figcaption>
+			</figure>
 
-			<h6>Statistical Causality — Hazard and Extinction</h6>
-			<p>The same curvature determinant controls survival probabilities in stochastic sectors:</p>
-
-			<div class="math display">
-
-				\[
-					P_{\mathrm{survival}}(t)=\exp\!\left(-\int_0^t \Gamma(t')\,dt'\right), \qquad
-					\Gamma(t)\approx \frac{(-\dot{\log\det H})_+}{ }+\frac{\sigma_\mu^2}{2\kappa}.
-				\]
-
-			</div>
-
-			<p>
-				Here collapse (<span class="math inline">\(\det H\to 0\)</span>) implies extinction within finite horizon <span class="math inline">\(T\)</span>. 
-				Hazard rates are therefore governed by the same curvature invariants that define the spacetime cone.
-			</p>
-
-			<h6>Unified Driver — Fisher Curvature Invariant</h6>
-			<p>Both forms of causality are projections of a single invariant:</p>
-
-			<div class="math display">
-
-				\[
-					\Lambda=\frac{\rho_\Phi}{\rho_S}.
-				\]
-
-			</div>
-
+			<p>The Lorentzian signature yields the standard causal classification:</p>
 			<ul>
-				<li>In spacetime sectors, <span class="math inline">\(\Lambda\)</span> fixes the metric signature and light‑cone structure.</li>
-				<li>In population/complexity sectors, <span class="math inline">\(\Lambda\)</span> fixes hazard rates and survival probabilities.</li>
+				<li><strong>Timelike:</strong> <span class="math inline">\( g_{\mu\nu}\Delta x^\mu\Delta x^\nu \lt 0 \)</span>. Events can influence each other; propagation allowed.</li>
+				<li><strong>Null:</strong> <span class="math inline">\( g_{\mu\nu}\Delta x^\mu\Delta x^\nu = 0 \)</span>. Boundary of causal influence: the <strong>CTMT causality cone</strong>.</li>
+				<li><strong>Spacelike:</strong> <span class="math inline">\( g_{\mu\nu}\Delta x^\mu\Delta x^\nu \gt 0 \)</span>. No propagation; microcausality holds.</li>
 			</ul>
 
+			<figure class="equation" id="eq-0a_215">
+				<div class="math display">
+
+					\[
+						[\varphi(x),\varphi(y)]=0 \quad \text{whenever } (x-y)^\mu (x-y)^\nu g_{\mu\nu}(x) > 0
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_215">Equation (0a.215)</a></figcaption>
+			</figure>
+
 			<p>
-				Thus CTMT ties together two notions of causality — relativistic locality and statistical persistence — 
-				as manifestations of a single Fisher‑curvature system. The causality cone and hazard horizon are 
-				different faces of the same oscillatory geometry, showing that “cause precedes effect” in both physics 
-				and ecology because the same invariant governs propagation and survival.
+				Thus, propagation speed and locality arise from the oscillatory phase’s second variation.
+				The light cone is not imposed; it is the envelope of stationary paths in the kernel.
+			</p>
+
+			<h6>B. Statistical Causality — The Hazard Cone and Extinction Horizon</h6>
+			<p>
+				The same curvature quantities produce a second kind of causal structure in stochastic or ecological sectors:
+				<em>the hazard cone</em>.
+			</p>
+
+			<p>Let <span class="math inline">\(H\)</span> be the local curvature (or Hessian‑equivalent) of the stochastic generator. Defining the hazard rate:</p>
+
+			<figure class="equation" id="eq-0a_216">
+				<div class="math display">
+
+					\[
+						\Gamma(t) \;\approx\; (-\dot{\log\det H})_+ \;+\; \frac{\sigma_\mu^2}{2\kappa}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_216">Equation (0a.216)</a></figcaption>
+			</figure>
+
+			<p>The survival probability follows:</p>
+
+			<figure class="equation" id="eq-0a_217">
+				<div class="math display">
+
+					\[
+						P_{\mathrm{survival}}(t) = \exp\!\left( -\int_0^t \Gamma(t')\,dt' \right)
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_217">Equation (0a.217)</a></figcaption>
+			</figure>
+
+			<p>
+				Here collapse (<span class="math inline">\( \det H\to 0 \)</span>) plays the role of “approaching the null surface’’:
+				the system reaches its <em>extinction horizon</em>, analogous to crossing the null boundary in spacetime sectors.
+			</p>
+
+			<p>
+				Thus, statistical causality — what can still “survive” from state <span class="math inline">\(x\)</span> —
+				is governed by the decay or preservation of curvature volume.
+			</p>
+
+			<h6>The Unifying Driver — A Single Fisher–Curvature Ratio</h6>
+			<p>Both causal structures arise from the same invariant:</p>
+
+			<figure class="equation" id="eq-0a_218">
+				<div class="math display">
+
+					\[
+						\boxed{\Lambda(x)=\frac{\rho_{\Phi}(x)}{\rho_{S}(x)}}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_218">Equation (0a.218)</a></figcaption>
+			</figure>
+
+			<p>where:</p>
+			<ul>
+				<li><span class="math inline">\( \rho_\Phi \)</span> measures second‑order curvature density of the <em>phase</em> (stiffness of oscillatory geometry).</li>
+				<li><span class="math inline">\( \rho_S \)</span> measures curvature density of the <em>statistical sector</em> (Fisher/entropy curvature volume).</li>
+			</ul>
+
+			<p>This ratio controls how steeply neighboring states decouple or reinforce:</p>
+			<ul>
+				<li><strong>Spacetime regimes:</strong> <span class="math inline">\( \Lambda \)</span> fixes the sign structure and magnitude of the emergent metric <span class="math inline">\( g_{\mu\nu} \)</span>, hence the light cone.</li>
+				<li><strong>Statistical regimes:</strong> <span class="math inline">\( \Lambda \)</span> fixes how rapidly curvature collapses or stabilizes, thus determining hazard and persistence horizons.</li>
+			</ul>
+
+			<h6>Unified Interpretation — One Geometry, Two Projections</h6>
+			<p>
+				What relativity calls “causal separation’’ and what ecological/stochastic theory calls “hazard‑induced fate’’
+				are one and the same phenomenon in CTMT:
+			</p>
+
+			<figure class="equation" id="eq-0a_219">
+				<div class="math display">
+
+					\[
+						\text{Causality} = \text{Fisher curvature gradients controlling propagation of signals or survival of states.}
+					\]
+
+				</div>
+				<figcaption><a href="#eq-0a_219">Equation (0a.219)</a></figcaption>
+			</figure>
+
+			<p>
+				<strong>Physical causality:</strong> Timelike/lightlike/spacelike separation is governed by the sign pattern of
+				<span class="math inline">\( \partial_\mu\partial_\nu\Phi \)</span>.
+				<br>
+				<strong>Statistical causality:</strong> Persistence/extinction is governed by collapse or preservation of curvature volume
+				<span class="math inline">\( \det H \)</span>.
+			</p>
+			<p>
+				The <em>causality cone</em> (spacetime) and the <em>hazard horizon</em> (stochastic dynamics) are two cross‑sections
+				of the same oscillatory geometry. The distinctions arise from which subset of parameters is allowed to vary
+				(time–space vs. state–distribution).
+			</p>
+			<p style="font-weight:600;">
+				Thus CTMT provides a single geometric engine behind all causal processes:
+				<em>flows of curvature determine what can influence what, and what can persist.</em>
 			</p>
         </article>
     </section>
