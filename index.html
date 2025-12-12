@@ -10327,6 +10327,332 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 				\]
 
 			</div>
+
+			<h3 id="sec-0-decisive_core_19">Falsification Definition and Protocol for CTMT</h3>
+			<p>
+				The decisive core of CTMT specifies explicit, empirically testable conditions
+				under which the theory must hold or fail.
+				The kernel observable <span class="math inline">\(K(\Theta;\xi)\)</span></span>
+				defines phase <span class="math inline">\(\Phi(\Theta;\xi)\)</span></span>
+				and Fisher curvature tensor:
+			</p>
+
+			<h4>Primary Objects</h4>
+			<p>
+				CTMT begins with the kernel observable <span class="math inline">\(K(\Theta;\xi)\)</span>,
+				from which both Fisher curvature and induced geometry arise:
+			</p>
+			<div class="math display">
+
+			\[
+				F_{ij}(\Theta)=\mathbb{E}\!\left[(\partial_i\log K)(\partial_j\log K)\right],
+				\qquad
+				g_{\mu\nu}(x)=\partial_\mu\partial_\nu\Phi(x),
+				\qquad
+				V_F=\det F.
+			\]
+
+			</div>
+			<p>
+				Spectral invariants are ordered
+				<span class="math inline">\(\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n>0\)</span> when full rank.
+			</p>
+
+			<h4>Rank-Based Collapse Dynamics</h4>
+			<h5>Modulation Functional</h5>
+			<p>
+				Collapse stability is governed by the modulation strength:
+			</p>
+			<div class="math display">
+
+				\[
+					S_{\mathrm{mod}}(\Theta)
+					=\omega^{2}(\Theta)\,\gamma^{-2}(\Theta)\,
+					\frac{\lambda_{\min}(F_{\perp})}{\lambda_{\max}(F_{\parallel})}.
+				\]
+
+			</div>
+			<ul>
+				<li>Increasing oscillation frequency <span class="math inline">\(\omega\)</span> stabilizes coherence.</li>
+				<li>Increasing damping <span class="math inline">\(\gamma\)</span> destabilizes coherence.</li>
+				<li>Transverse eigenvalue collapse (<span class="math inline">\(\lambda_{\min}\to 0\)</span>) signals instability.</li>
+				<li>Large longitudinal eigenvalue stabilizes coherence.</li>
+			</ul>
+
+			<h5>Collapse Criterion</h5>
+			<div class="math display">
+
+				\[
+					S_{\mathrm{mod}}(\Theta)=0
+					\;\Leftrightarrow\;
+					\lambda_{\min}(F_{\perp})=0
+					\;\text{or}\;
+					\omega=0
+					\;\text{or}\;
+					\gamma\!\to\!\infty.
+				\]
+
+			</div>
+
+			<h5>Adaptive Threshold</h5>
+			<p>
+				Collapse is declared when rank loss coincides with eigenvalue drop below adaptive epsilon:
+			</p>
+			<div class="math display">
+
+				\[
+					\varepsilon
+					=\alpha\,\mathrm{SNR}^{-1}\!\max_i\lambda_i,
+					\qquad
+					\alpha\in[10^{-5},10^{-7}],
+				\]
+
+				\[
+					\lambda_{\min}(F) \lt \varepsilon,\quad
+					\Delta\mathrm{rank}(F) \lt 0
+					\;\Rightarrow\;\text{collapse}.
+				\]
+
+			</div>
+			<p>
+				If collapse is observed without rank loss, CTMT fails.
+			</p>
+
+			<h4>Curvature-Induced Hazard</h4>
+			<p>
+				Coherence loss is quantified by hazard rate <span class="math inline">\(\Gamma(t)\)</span>:
+			</p>
+			<div class="math display">
+
+				\[
+					\Gamma(t)
+					=\frac{1}{\tau}
+					\Bigl[-\frac{d}{dt}\log\!\det F\Bigr]_+
+					+\frac{1}{\tau}\frac{\sigma_\mu^2(t)}{2\kappa(t)},
+					\qquad
+					P(t)=\exp\!\Bigl[-\!\int_0^t\Gamma(s)\,ds\Bigr]
+				\]
+
+			</div>
+			<p>
+				<span class="math inline">\(\tau\)</span> sets the timescale; <span class="math inline">\(\Gamma\)</span> has units <span class="math inline">\(\mathrm{s}^{-1}\)</span>. Survival probability declines as hazard rises.
+			</p>
+
+			<h4>Geometry and Causality</h4>
+			<h5>Lorentz Signature</h5>
+			<div class="math display">
+
+				\[
+					\mathrm{sig}(g)=(-,+,+,+).
+				\]
+
+			</div>
+			<p>
+				One negative eigenvalue and three positive are required. Deviations falsify CTMT.
+			</p>
+
+			<h5>Microcausality</h5>
+			<div class="math display">
+
+				\[
+					C(x,y)=\langle\varphi(x)\varphi(y)\rangle-
+					\langle\varphi(y)\varphi(x)\rangle.
+				\]
+
+			</div>
+			<p>
+				Prediction: <span class="math inline">\(C(x,y)\approx0\)</span> if spacelike
+				(<span class="math inline">\((x-y)^\mu(x-y)^\nu g_{\mu\nu} \gt 0\)</span>).
+				If <span class="math inline">\(|C|\)</span> exceeds tolerance <span class="math inline">\(\delta C\)</span> outside the cone, CTMT fails.
+			</p>
+
+			<h4>Statistical Causality</h4>
+			<p>
+				Curvature decline, hazard rise, and survival drop must occur in order:
+			</p>
+			<div class="math display boxed">
+
+				\[
+					\boxed{
+						\text{Curvature Decline}
+						\;\Rightarrow\;
+						\text{Hazard Rise}
+						\;\Rightarrow\;
+						\text{Survival Drop}
+					}
+				\]
+
+			</div>
+			<p>
+				Ordering reversal beyond lag bounds <span class="math inline">\(\Delta t_\Gamma, \Delta t_P\)</span> falsifies CTMT.
+			</p>
+
+			<h4>Explicit Falsification Conditions</h4>
+			<ul>
+				<li>(F1) Collapse without rank loss → Fail.</li>
+				<li>(F2) Rank loss without collapse → Fail.</li>
+				<li>(F3) Non-Lorentzian metric → Fail.</li>
+				<li>(F4) <span class="math inline">\(|C| \gt \delta C\)</span> outside cone → Fail.</li>
+				<li>(F5) Survival drop while <span class="math inline">\(r^+=0\)</span> → Fail.</li>
+				<li>(F6) Hazard cross before curvature cross by <span class="math inline">\(\gt \Delta t_\Gamma\)</span> → Fail.</li>
+				<li>(F7) Coherence persists with <span class="math inline">\(\omega\to0,\ \gamma\to\infty\)</span> → Fail.</li>
+				<li>(F8) <span class="math inline">\(g\neq0\)</span> when <span class="math inline">\(\partial^2\Phi=0\)</span> → Fail.</li>
+			</ul>
+
+			<h4>Reviewer Protocol (Python-like)</h4>
+<pre><code class="language-python">for t_w in windows:
+    Σ = Cov(X[t in t_w])
+    D = det(Σ)
+    r[t_w] = max(0, -(log(D_next) - log(D)) / Δt)
+    Γ[t_w] = (1/τ) * ( r[t_w] + σ²[t_w] / (2*κ[t_w]) )
+    P[t_w+1] = P[t_w] * exp(-Γ[t_w]*Δt)
+
+# causality ordering
+if P drops before r&gt;0: FAIL
+if hazard_cross &lt; curvature_cross - Δt_Γ: FAIL
+
+# metric sector
+g = hessian_estimate(Phi)
+if signature(eigs(g)) != (-,+,+,+): FAIL
+C = commutator_proxy(data)
+if |C| &gt; δC outside cone(g): FAIL
+
+# collapse sector
+F = fisher_tensor(K)
+if collapse_observed and λ_min(F) &gt;= ε: FAIL
+if λ_min(F) &lt; ε and no_collapse_indicator: FAIL
+</code></pre>
+
+			<h4>Interpretation</h4>
+			<p>
+				Target claim: <em>“A divine agent is necessary to ground coherence, geometry, and collapse.”</em><br>
+				CTMT provides internal mechanisms:
+				coherence → (<span class="math inline">\(\omega,\ \gamma,\)</span> spectral rigidity),
+				geometry → phase curvature,
+				collapse → Fisher rank dynamics.
+			</p>
+			<ul>
+				<li>If any falsifier (F1–F8) holds, CTMT fails and necessity remains possible.</li>
+				<li>If none hold, CTMT is empirically sufficient; the necessity claim becomes redundant.</li>
+			</ul>
+			<p>
+				This does not metaphysically disprove God, but removes explanatory necessity in science.
+			</p>
+
+			<h4>Worked Example — Standard Model Limit Case</h4>
+			<p>
+				To illustrate CTMT’s falsifiability in the Standard Model (SM) sector, we show how
+				SM axioms emerge as boundary conditions on the Fisher system. Each condition is
+				testable; violation falsifies CTMT’s claim of reducibility.
+			</p>
+
+			<h5>SM Reducibility Conditions</h5>
+			<p>
+				Fisher curvature tensor on the statistical manifold of kernel parameters
+			<span class="math inline">\(\Theta\)</span> is
+			</p>
+			<div class="math display">
+
+				\[
+					F_{ij}(\Theta) = \mathbb{E}\!\left[\partial_i \log K(\Theta;\xi)\,\partial_j \log K(\Theta;\xi)\right],
+				\]
+
+			</div>
+			<p>
+				treated as a Riemannian metric on parameter space. Separately, the emergent causal
+				metric is
+			</p>
+			<div class="math display">
+
+				\[
+					g_{\mu\nu} = \partial_\mu \partial_\nu \Phi,
+				\]
+
+			</div>
+			<p>
+				which carries Lorentzian signature. The SM limit corresponds to the following
+				boundary conditions:
+			</p>
+			<div class="math display">
+
+				\[
+					\boxed{
+						\text{SM} \;\equiv\;
+						\Big\{\;\partial_\Theta g_{\mu\nu}=0,\;\partial_\Theta F=0,\;
+						H_\Theta \cong \mathbb{C}^1\oplus\mathbb{C}^2\oplus\mathbb{C}^3,\;
+						\mathrm{rank}(F)=n\;\Big\}
+					}
+				\]
+
+			</div>
+
+			<h5>Interpretation of Conditions</h5>
+			<ul>
+				<li><strong>Spacetime flatness:</strong> <span class="math inline">\(\partial_\Theta F=0,\;\nabla F=0\)</span> ⇒ constant Fisher metric ⇒ local Lorentz invariance.</li>
+				<li><strong>Gauge groups:</strong> Fiber decomposition <span class="math inline">\(H_\Theta \cong \mathbb{C}^1\oplus\mathbb{C}^2\oplus\mathbb{C}^3\)</span> ⇒ local unitary maps preserving curvature ⇒ <span class="math inline">\(U(1)\times SU(2)\times SU(3)\)</span>.</li>
+				<li><strong>Couplings and RG flow:</strong> Ricci-like evolution of Fisher curvature ⇒ <span class="math inline">\(\beta(g)\propto -C_{ij}\,\mathrm{Ric}_{ij}\)</span>, reproducing one-loop signs.</li>
+				<li><strong>Unitarity:</strong> Full rank <span class="math inline">\(F\)</span> ⇒ non-degenerate distinguishability ⇒ unitary fiber evolution. Rank loss ⇒ collapse.</li>
+			</ul>
+
+			<h5>Worked Micro-Example</h5>
+			<p>
+				Consider a one-dimensional Gaussian kernel:
+			</p>
+			<div class="math display">
+
+				\[
+					K(\Theta;\xi) = \exp\!\left(-\tfrac{1}{2}\tfrac{(\xi-\Theta)^2}{\sigma^2}\right).
+				\]
+
+			</div>
+			<p>
+				Its Fisher curvature tensor is
+			</p>
+			<div class="math display">
+
+				\[
+					F(\Theta) = \mathbb{E}\!\left[\left(\partial_\Theta \log K\right)^2\right]
+						= \frac{1}{\sigma^2},
+				\]
+
+			</div>
+			<p>
+				a constant independent of <span class="math inline">\(\Theta\)</span>. Hence <span class="math inline">\(\partial_\Theta F=0\)</span> and <span class="math inline">\(\nabla F=0\)</span>,
+				so the statistical manifold is flat. This parallels local Minkowski kinematics in
+				the SM limit.
+			</p>
+
+			<p>
+				Now let <span class="math inline">\(F=\mathbf{1}_n\)</span> be the identity metric. Curvature-preserving maps satisfy
+				<span class="math inline">\(L^\dagger F L = F\)</span>, i.e. <span class="math inline">\(L^\dagger L = \mathbf{1}_n\)</span>, giving global
+				<span class="math inline">\(U(n)\)</span> invariance. In CTMT, the internal fiber decomposes into irreducible blocks
+				of dimensions <span class="math inline">\(1,2,3\)</span>, corresponding to <span class="math inline">\(U(1)\)</span>, <span class="math inline">\(SU(2)\)</span>, and <span class="math inline">\(SU(3)\)</span> as
+				local fiber symmetries. This decomposition explains why the Standard Model gauge
+				group appears as
+			</p>
+			<div class="math display">
+
+				\[
+					G_{\mathrm{SM}} = U(1)\times SU(2)\times SU(3).
+				\]
+
+			</div>
+
+			<h5>Falsification in SM Sector</h5>
+			<ul>
+				<li>(SM1) If Fisher curvature is not constant when SM flatness is required ⇒ Fail.</li>
+				<li>(SM2) If fiber decomposition does not yield <span class="math inline">\(1,2,3\)</span> irreducible blocks ⇒ Fail.</li>
+				<li>(SM3) If Ricci flow of curvature does not reproduce correct <span class="math inline">\(\beta\)</span>-function signs ⇒ Fail.</li>
+				<li>(SM4) If rank loss occurs in unitary regime ⇒ Fail.</li>
+			</ul>
+
+			<h5>Conclusion</h5>
+			<p>
+				This worked example shows that CTMT reduces to the Standard Model under explicit,
+				testable boundary conditions. If any of the SM falsifiers (SM1–SM4) occur, CTMT’s
+				claim of reducibility fails. If none occur, CTMT provides an empirically sufficient
+				ontology that subsumes SM axioms without invoking external necessity.
+			</p>
         </article>
     </section>
     <section>
