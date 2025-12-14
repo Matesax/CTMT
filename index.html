@@ -37785,6 +37785,260 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
                 description of time as synchrony, unifying laboratory precision
                 measurements with astrophysical and cosmological scales.
             </p>
+
+			<h3 id="sec-19-weak-field-time-from-mass-weighted-phase-synchrony_1">Canonical CTMT Invariant and Worked Physical Examples</h3>
+
+			<p>
+				To render coherence geometry immediately computable,
+				CTMT canonizes a single dimensionless invariant that governs
+				curvature, collapse, and temporal deformation across regimes.
+				This invariant replaces abstract geometric assumptions
+				with a measurable scalar diagnostic.
+				This subsection follows <a href="#sec-0-decisive_core_1">Single Kernel Seed</a>,
+				where Fisher curvature and other important things are properly defined/described.
+			</p>
+
+			<h4>Canonical Fisher–Coherence Invariant</h4>
+
+			<p>Define the CTMT curvature invariant:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\mathcal{I}_{\rm CTMT}
+						=
+						\frac{\ell^2}{\|F\|}
+						\,\|\nabla F\|^2
+						=
+						\left(\frac{\ell\,\|\nabla F\|}{\|F\|}\right)^2
+						\equiv \chi_F^2
+					}
+				\]
+			</div>
+
+			<p>where:</p>
+			<ul>
+				<li><strong><span class="math inline">\(\ell\)</span></strong>: coherence window (time, length, or spectral)</li>
+				<li><strong><span class="math inline">\(F\)</span></strong>: Fisher curvature tensor</li>
+				<li><strong><span class="math inline">\(\|\cdot\|\)</span></strong>: invariant matrix norm</li>
+			</ul>
+
+			<p>This invariant is the <em>control parameter</em> for all CTMT regimes.</p>
+
+			<h4>Regime Classification</h4>
+
+			<div class="math display">
+				\[
+					\begin{cases}
+						\mathcal{I}_{\rm CTMT} \ll 1
+						&amp; \text{Flat regime (SM / classical geometry)} \\
+						\mathcal{I}_{\rm CTMT} \sim 1
+						&amp; \text{Curved coherence geometry} \\
+						\mathcal{I}_{\rm CTMT} \gg 1
+						&amp; \text{Fisher rank instability (collapse)}
+					\end{cases}
+				\]
+			</div>
+
+			<p>
+				No additional axioms are introduced.
+				The invariant is computed directly from data.
+			</p>
+
+			<h4>Worked Example I — Weak-Field Gravity (Clock Redshift)</h4>
+
+			<p>
+				Consider an atomic clock at height <span class="math inline">\(h\)</span> in a weak gravitational field.
+				From the synchrony-time derivation,
+				the kernel time shift is
+				<span class="math inline">\(\tau_{\mathrm{wf}} = \Delta\phi_{\mathrm{mass}} / \bar\omega\)</span>.
+			</p>
+
+			<p>
+			The Fisher curvature gradient induced by the gravitational potential
+			<span class="math inline">\(\Phi = gh\)</span> satisfies:
+			</p>
+
+			<div class="math display">
+				\[
+					\|\nabla F\|
+					\;\propto\;
+					\frac{g}{c^2}\,\|F\|
+				\]
+			</div>
+
+			<p>
+			Substituting into the invariant:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{I}_{\rm CTMT}
+					\approx
+					\left(\frac{\ell\,g}{c^2}\right)^2
+					\ll 1
+				\]
+			</div>
+
+			<p>
+				for laboratory or Earth-bound clocks.
+				Hence Fisher rank remains full and coherence is preserved.
+			</p>
+
+			<p>
+				<strong>Result:</strong>
+				General-relativistic redshift is recovered as a
+				<em>small-curvature, full-rank limit</em> of CTMT.
+			</p>
+
+			<h4>Worked Example II — Quantum Measurement (Interference Collapse)</h4>
+
+			<p>
+				Consider a two-path interferometer with phase difference <span class="math inline">\(\Delta\phi\)</span>.
+				Environmental coupling introduces decoherence, increasing
+				curvature gradients transverse to the interference manifold.
+			</p>
+
+			<p>Empirically, visibility loss occurs when:</p>
+
+			<div class="math display">
+				\[
+					\lambda_{\min}(F) \rightarrow 0
+					\quad\text{with}\quad
+					\|\nabla F_\perp\| \uparrow
+				\]
+			</div>
+
+			<p>The invariant grows as:</p>
+
+			<div class="math display">
+				\[
+					\mathcal{I}_{\rm CTMT}
+					=
+					\frac{\ell^2 \|\nabla F_\perp\|^2}{\|F\|}
+					\;\gg\; 1
+				\]
+			</div>
+
+			<p>
+				forcing Fisher rank reduction.
+				This corresponds to loss of interference fringes
+				and pointer-basis stabilization.
+			</p>
+
+			<p>
+				<strong>Result:</strong>
+				Quantum collapse occurs precisely when
+				<span class="math inline">\(\mathcal{I}_{\rm CTMT}\)</span> exceeds unity —
+				no external collapse postulate required.
+			</p>
+
+			<h4>Worked Example III — Strong Gravity Limit (Near-Horizon)</h4>
+
+			<p>Near a compact object, gravitational gradients satisfy:</p>
+
+			<div class="math display">
+				\[
+					\|\nabla F\|
+					\sim
+					\frac{1}{r_s}\,\|F\|,
+					\qquad
+					r_s = \frac{2GM}{c^2}
+				\]
+			</div>
+
+			<p>The invariant becomes:</p>
+
+			<div class="math display">
+				\[
+					\mathcal{I}_{\rm CTMT}
+					\sim
+					\left(\frac{\ell}{r_s}\right)^2
+				\]
+			</div>
+
+			<p>
+				When the coherence window approaches the curvature radius,
+				Fisher rank instability is unavoidable.
+			</p>
+
+			<p>
+				<strong>Result:</strong>
+				Strong gravity enforces quantum decoherence and
+				rank loss — a concrete gravity–QM interface.
+			</p>
+
+			<h4>Worked Example IV — Cosmological Coherence (CMB-scale)</h4>
+
+			<p>
+				On cosmological scales, Fisher curvature gradients are small
+				but coherence windows <span class="math inline">\(\ell\)</span> are enormous.
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{I}_{\rm CTMT}
+					\sim
+					\ell^2 \frac{\|\nabla F\|^2}{\|F\|}
+					\approx \mathcal{O}(1)
+				\]
+			</div>
+
+			<p>
+				This predicts partial rank thinning without full collapse,
+				consistent with observed large-scale classicality
+				and suppressed quantum interference in cosmology.
+			</p>
+
+			<p>
+				<strong>Result:</strong>
+				Classical spacetime emerges as a marginal-rank regime.
+			</p>
+
+			<h4>Connection to Kernel Time and Synchrony</h4>
+
+			<p>
+				The same invariant governs kernel time deformation.
+				Using
+				<span class="math inline">\(\tau_{\mathrm{wf}} = \Delta\phi_{\mathrm{mass}} / \bar\omega\)</span>,
+				curvature gradients modify phase synchrony as:
+			</p>
+
+			<div class="math display">
+				\[
+					\delta t
+					\sim
+					\frac{1}{\bar\omega}
+					\sqrt{\mathcal{I}_{\rm CTMT}}
+				\]
+			</div>
+
+			<p>Thus:</p>
+
+			<ul>
+				<li>Flat regimes → stable synchrony time</li>
+				<li>Curved regimes → time dilation and drift</li>
+				<li>Rank collapse → time-ordering instability</li>
+			</ul>
+
+			<h4>Summary</h4>
+
+			<p>
+				The invariant <span class="math inline">\(\mathcal{I}_{\rm CTMT}\)</span> provides a
+				single, computable scalar that:
+			</p>
+
+			<ul>
+				<li>Recovers GR redshift in the weak-field limit</li>
+				<li>Predicts quantum collapse via Fisher rank loss</li>
+				<li>Explains gravity-induced decoherence</li>
+				<li>Connects geometry, time, and measurement</li>
+			</ul>
+
+			<p>
+				CTMT therefore replaces abstract axioms with a
+				directly measurable coherence invariant.
+			</p>
         </article>
     </section>
     <section>
