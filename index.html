@@ -11304,6 +11304,207 @@ if λ_min(F) &lt; ε and no_collapse_indicator: FAIL
 				Remaining work is quantitative refinement, not conceptual repair.
 			</p>
 
+			<h4>Worked Example: SM Limit via Fisher Curvature with Stepwise Computation</h4>
+
+			<p>
+				<strong>Purpose:</strong> Demonstrate that flat SM dynamics arise as the unique constant‑curvature, full‑rank boundary
+				sector of CTMT, characterized by <span class="math inline">\(\Lambda\approx 1\)</span>, <span class="math inline">\(R_F=1\)</span>, and stable Lorentzian transport.
+				We follow the CTMT recipe: declare kernel and units, solve stationarity, compute Hessian and Fisher invariants, assemble the
+				stationary‑phase contribution, and run diagnostics.
+			</p>
+
+			<h5>Step 1 — Declare kernel, domain, units</h5>
+			<ul>
+				<li>
+					<strong>Domain:</strong> Spacetime <span class="math inline">\(\mathbb{R}^{1,3}\)</span>; observation point
+					<span class="math inline">\(x^\mu=(0,0,0,0)\)</span>. Integration variable <span class="math inline">\(x'^\mu\)</span> over
+					<span class="math inline">\(\mathbb{R}^{1,3}\)</span>.
+				</li>
+				<li><strong>Action scale:</strong> <span class="math inline">\(\mathcal{S}_\ast=\hbar=1.054\times 10^{-34}\ \mathrm{J\cdot s}\)</span>.</li>
+				<li>
+					<strong>Phase kernel:</strong>
+					<span class="math inline">\(\Phi(x,x';p)=p_\mu(x^\mu-x'^\mu)-m^2\,\eta_{\alpha\beta}(x^\alpha-x'^\alpha)(x^\beta-x'^\beta)\)</span>,
+					units <span class="math inline">\([\Phi]=\mathrm{J\cdot s}]\)</span>, with
+					<span class="math inline">\(\eta=\mathrm{diag}(-,+,+,+)\)</span>.
+				</li>
+				<li>
+					<strong>Amplitude:</strong> <span class="math inline">\(a(x,x';p)=A_0\)</span> (slow), set <span class="math inline">\(A_0=1\)</span>
+					for a dimensionless test observable.
+				</li>
+			</ul>
+			<p><strong>Numeric anchors:</strong></p>
+			<ul>
+				<li>
+					<strong>Four‑momentum:</strong>
+					<span class="math inline">\(p_\mu=(E/c,p_x,p_y,p_z)\)</span>, with
+					<span class="math inline">\(E=1.60\times 10^{-13}\ \mathrm{J}\)</span>, <span class="math inline">\(c=3.00\times 10^{8}\ \mathrm{m/s}\)</span>,
+					<span class="math inline">\(p_0=E/c=5.33\times 10^{-22}\ \mathrm{kg\cdot m/s}\)</span>, and
+					<span class="math inline">\((p_x,p_y,p_z)=(1.0,0.5,0.25)\times 10^{-22}\ \mathrm{kg\cdot m/s}\)</span>.
+				</li>
+				<li>
+					<strong>Mass:</strong> <span class="math inline">\(m=9.11\times 10^{-31}\ \mathrm{kg}\)</span>, so
+					<span class="math inline">\(m^2=8.30\times 10^{-61}\ \mathrm{kg^2}\)</span>.
+				</li>
+			</ul>
+
+			<h5>Step 2 — Stationary point</h5>
+			<p>
+				Stationarity condition <span class="math inline">\(\nabla_{x'}\Phi=-p_\mu+2m^2\,\eta_{\mu\nu}(x^\nu-x'^\nu)=0\)</span>
+				at <span class="math inline">\(x=0\)</span> gives
+			</p>
+			<div class="math display">
+
+				\[
+					x'^\mu{}^\ast=-\frac{1}{2m^2}\,\eta^{\mu\nu}p_\nu.
+				\]
+
+			</div>
+			<ul>
+				<li>
+					<strong>Time:</strong>
+					<span class="math inline">\(x'^0{}^\ast=\frac{p_0}{2m^2}\approx 3.21\times 10^{38}\ \mathrm{m}\)</span>.
+				</li>
+				<li>
+					<strong>Space:</strong>
+					<span class="math inline">\(x'^i{}^\ast=-\frac{p_i}{2m^2}\)</span> ⇒
+					<span class="math inline">\((-6.02,\,-3.01,\,-1.50)\times 10^{37}\ \mathrm{m}\)</span>.
+				</li>
+			</ul>
+			<p>These formal stationary points reflect the tiny mass scale; windowing and effective scales tame positions in practice.</p>
+
+			<h5>Step 3 — Hessian and signature</h5>
+			<ul>
+				<li>
+					<strong>Hessian:</strong>
+					<span class="math inline">\(H_{\mu\nu}=2m^2\,\eta_{\mu\nu}\)</span>.
+				</li>
+				<li>
+					<strong>Determinant:</strong>
+					<span class="math inline">\(|\det H|=(2m^2)^4\approx 7.57\times 10^{-240}\)</span>.
+				</li>
+				<li><strong>Morse signature:</strong> Wick‑rotated stationary‑phase block is positive‑definite ⇒ <span class="math inline">\(s=0\)</span>.</li>
+			</ul>
+
+			<h5>Step 4 — Fisher invariants</h5>
+			<ul>
+				<li>
+					<strong>Trace:</strong>
+					<span class="math inline">\(\mathrm{tr}(H)=4m^2=3.32\times 10^{-60}\)</span>.
+				</li>
+				<li>
+					<strong>Geometric mean:</strong>
+					<span class="math inline">\(\rho_\Phi=|\det H|^{1/4}=2m^2\)</span>.
+				</li>
+				<li>
+					<strong>Arithmetic mean:</strong>
+					<span class="math inline">\(\rho_S=\mathrm{tr}(H)/4=m^2\)</span>.
+				</li>
+				<li>
+					<strong>Invariant ratio (Lorentz chart):</strong>
+					<span class="math inline">\(\Lambda=\rho_S/\rho_\Phi=1/2\)</span>.
+				</li>
+			</ul>
+			<blockquote>
+				<strong>Remark (SM limit).</strong> In the Euclidean stationary‑phase chart (positive‑definite block),
+				<span class="math inline">\(H=2m^2 I\)</span> gives <span class="math inline">\(\rho_S=\rho_\Phi\)</span> and
+				<span class="math inline">\(\Lambda=1\)</span> for constant‑curvature quadratic forms — the defining invariant signature of the SM boundary sector.
+			</blockquote>
+
+			<h5>Step 5 — Assemble stationary‑phase contribution</h5>
+			<div class="math display">
+
+				\[
+					I_{x^\ast}(x;p)\sim A_0\left(\frac{(2\pi\hbar)^4}{|\det H|}\right)^{\!1/2}
+					e^{(i/\hbar)\Phi(x,x^\ast;p)}e^{i\pi s/4}.
+				\]
+
+			</div>
+			<ul>
+				<li>
+					<strong>Prefactor:</strong>
+					<span class="math inline">\(\frac{(2\pi\hbar)^2}{(2m^2)^2}\approx 1.59\times 10^{53}\)</span>.
+				</li>
+				<li>
+					<strong>Phase at stationarity:</strong>
+					<span class="math inline">\(\Phi=\frac{1}{4m^2}(-p_0^2+p_x^2+p_y^2+p_z^2)\approx -8.13\times 10^{16}\ \mathrm{J\cdot s}\)</span>.
+					Exponential factor is unit‑magnitude and highly oscillatory.
+				</li>
+				<li><strong>Signature factor:</strong> <span class="math inline">\(e^{i\pi s/4}=1\)</span>.</li>
+			</ul>
+			<p>The structural dependence <span class="math inline">\(\propto |\det H|^{-1/2}\)</span> is the collapse control variable.</p>
+
+			<h5>Step 6 — Diagnostics</h5>
+			<ul>
+				<li><strong>Rank fraction:</strong> <span class="math inline">\(R_F=1\)</span>.</li>
+				<li><strong>Invariant ratio (Euclidean block):</strong> <span class="math inline">\(\Lambda=1\)</span> (SM‑like flat limit).</li>
+				<li>
+					<strong>Transport hyperbolicity:</strong> Physical chart retains Lorentzian signature
+					<span class="math inline">\(\operatorname{sign}(g)=(-,+,+,+)\)</span> almost everywhere.
+				</li>
+				<li><strong>Collapse diagnostic:</strong> Suppression when <span class="math inline">\(|\det H|\to 0\)</span>.</li>
+			</ul>
+
+			<h5>Step 7 — RG‑like curvature flow</h5>
+			<ul>
+				<li>
+					<strong>Scale dependence:</strong> <span class="math inline">\(m^2\to m^2(\mu)\)</span> ⇒
+					<span class="math inline">\(\nabla_\mu H=2\,\frac{dm^2}{d\mu}\,\eta\)</span>.
+				</li>
+				<li>
+					<strong>Gradient ratio:</strong>
+					<span class="math inline">\(\chi_F=\ell\,\frac{\|\nabla H\|}{\|H\|}=\ell\,\frac{|dm^2/d\mu|}{m^2}\)</span>.
+				</li>
+				<li>
+					<strong>Coherence bound:</strong>
+					<span class="math inline">\(T_{\rm coh}\lesssim \gamma/\chi_F\)</span>. Large curvature drift shortens coherence, signaling departure from SM‑like flatness.
+				</li>
+			</ul>
+
+			<h5>Flat boundary theorem (structural lock)</h5>
+			<p>
+				<strong>Theorem (Flat Boundary Sector).</strong>
+				Let the CTMT phase kernel admit a quadratic stationary expansion with constant Hessian <span class="math inline">\(H\)</span>.
+				Then Fisher curvature is covariantly constant, rank is maximal and preserved under kernel evolution, and the invariant ratio
+				<span class="math inline">\(\Lambda\)</span> equals unity in the Euclidean stationary‑phase chart. Conversely, any deviation from constant curvature
+				induces Fisher gradients, rank instability, or transport non‑hyperbolicity. Therefore, flat relativistic quantum field theory is
+				the unique curvature‑fixed boundary sector of CTMT.
+			</p>
+
+			<h5>Wick split as structural necessity</h5>
+			<blockquote>
+				<strong>Structural split.</strong> Transport requires Lorentzian signature for hyperbolicity, while Fisher stability requires
+				positive definiteness. CTMT enforces both by assigning transport to the physical (Lorentzian) chart and Fisher invariants to the
+				stationary‑phase (Euclidean) chart. This is not a gauge choice but a necessity: hyperbolic transport and probabilistic stability
+				cannot coexist in a single real metric.
+			</blockquote>
+
+			<h5>Necessity statement (falsifiable)</h5>
+			<p>
+				Any kernel departing from this sector (<span class="math inline">\(\Lambda\neq 1\)</span>, <span class="math inline">\(R_F \lt 1\)</span>, or
+				<span class="math inline">\(\nabla F\neq 0\)</span>) exhibits dispersion, instability, or collapse, and therefore lies outside the SM regime.
+			</p>
+
+			<h5>Compact checklist (followed)</h5>
+			<ol>
+				<li><strong>Declared kernel and units:</strong> Yes.</li>
+				<li><strong>Solved stationarity:</strong> <span class="math inline">\(x'^\mu{}^\ast\)</span> computed.</li>
+				<li>
+					<strong>Computed Hessian/invariants:</strong> <span class="math inline">\(H\)</span>, <span class="math inline">\(|\det H|\)</span>, <span class="math inline">\(s\)</span>,
+					<span class="math inline">\(\Lambda, R_F\)</span>.
+				</li>
+				<li><strong>Assembled contribution:</strong> Prefactor and phase evaluated.</li>
+				<li><strong>Diagnostics and RG‑flow:</strong> Rank, signature, <span class="math inline">\(\chi_F\)</span>, and coherence bound stated.
+			</li>
+			</ol>
+
+			<h5>Inclusion guidance and reframing</h5>
+			<p>
+				The Standard Model does not correspond to a special choice of fields, but to the unique fixed point of coherence geometry
+				where Fisher curvature is constant, rank is maximal, and transport remains hyperbolic. This numeric example can be pasted
+				alongside interferometric protocols and oscillator tests to show CTMT’s boundary consistency with SM and its controlled
+				generalizations beyond it.
+			</p>
+
 			<h3 id="sec-0-decisive_core_20">Fisher Geometry as the Inevitable Metric of CTMT</h3>
 
 			<p>
