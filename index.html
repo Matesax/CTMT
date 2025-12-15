@@ -49966,99 +49966,187 @@ print("Saved figure:", fig2_path)
     <section>
         <h2 id="sec-geometry-formalism">Geometry Formalism</h2>
         <article style="display:none">
-            <p>
-                <strong>Purpose:</strong> Formalize the geometric foundations underlying the Kernel Taxonomy so every kernel derivation in the article is traceable from first principles, unit-consistent, and falsifiable.
-            </p>
-            <p>
-                <strong>Audience and conventions:</strong>
-                Target readers are mathematically literate physicists, applied mathematicians, and implementers. Notation conventions: spatial manifold <span class="math inline">\(M\)</span>, spacetime <span class="math inline">\(M\times\mathbb{R}\)</span>, spectral domain <span class="math inline">\(\Omega_\epsilon\)</span>. Indices use Latin <span class="math inline">\(i,j,k\)</span> for spatial components and Greek <span class="math inline">\(\mu,\nu\)</span> where spacetime is needed. Every primary symbol must be annotated with SI units at first use (for example <span class="math inline">\([\Phi]=\mathrm{J\cdot s}\)</span>).
-            </p>
-            <p>
-                <strong>Structure:</strong> each kernel derivation must state active geometry types (Coll, Mod, Trans, Topo, Anch) and reference the primitive objects defined below.
-            </p>
+			<p>
+				<strong>Purpose:</strong> Establish the canonical geometric foundations underlying CTMT so that every kernel
+				derivation is traceable from first principles, dimensionally consistent, and falsifiable.
+			</p>
+			<p>
+				<strong>Audience and conventions:</strong>
+				Target readers are mathematically literate physicists, applied mathematicians, and implementers.
+				Notation conventions: spatial manifold <span class="math inline">\(M\)</span>, spacetime
+				<span class="math inline">\(M\times\mathbb{R}\)</span>, spectral domain
+				<span class="math inline">\(\Omega_\epsilon\)</span>. Indices use Latin
+				<span class="math inline">\(i,j,k\)</span> for spatial components and Greek
+				<span class="math inline">\(\mu,\nu\)</span> for spacetime. Every primary symbol must be annotated with SI units at
+				first use (for example <span class="math inline">\([\Phi]=\mathrm{J\cdot s}\)</span>).
+			</p>
+			<p>
+				<strong>Structure:</strong> Each kernel derivation must state active geometry types (Collapse, Modulation,
+				Transport, Topological, Anchor) and reference the primitive objects defined below.
+			</p>
 
-            <h3 id="sec-geometry-formalism_1">Primitive mathematical objects</h3>
+			<h3 id="sec-geometry-formalism_1">Primitive mathematical objects</h3>
 
-            <h4>Manifolds, domains, and coordinate conventions</h4>
-            <ul>
-                <li>
-                    <strong>Spatial manifold</strong> <span class="math inline">\(M\)</span>: smooth <span class="math inline">\(d\)</span>-dimensional manifold with local charts <span class="math inline">\(x=(x^1,\dots,x^d)\)</span>. Default <span class="math inline">\(d=3\)</span>.
-                </li>
-                <li>
-                    <strong>Spacetime</strong> <span class="math inline">\(M\times\mathbb{R}\)</span> with coordinates <span class="math inline">\((x,t)\)</span>.
-                </li>
-                <li>
-                    <strong>Spectral domain</strong> <span class="math inline">\(\Omega_\epsilon\)</span>: frequency/energy domain with measure <span class="math inline">\(d\epsilon\)</span>.
-                </li>
-                <li>
-                    <strong>Loop and path spaces</strong> <span class="math inline">\(\mathcal{L}M,\mathcal{P}M\)</span> used by topological constructions.
-                </li>
-                <li>
-                    <strong>Regularity:</strong> default <span class="math inline">\(C^\infty\)</span> interior regularity; stationary-phase requires nondegenerate Hessian at loci.
-                </li>
-            </ul>
+			<h4>Manifolds, domains, and coordinate conventions</h4>
+			<ul>
+				<li>
+					<strong>Spatial manifold</strong> <span class="math inline">\(M\)</span>: smooth
+					<span class="math inline">\(d\)</span>-dimensional manifold with local charts
+					<span class="math inline">\(x=(x^1,\dots,x^d)\)</span>. Default <span class="math inline">\(d=3\)</span>.
+				</li>
+				<li>
+					<strong>Spacetime</strong> <span class="math inline">\(M\times\mathbb{R}\)</span> with coordinates
+					<span class="math inline">\((x,t)\)</span>.
+				</li>
+				<li>
+					<strong>Spectral domain</strong> <span class="math inline">\(\Omega_\epsilon\)</span>: frequency/energy domain
+					with measure <span class="math inline">\(d\epsilon\)</span>.
+				</li>
+				<li>
+					<strong>Loop and path spaces</strong> <span class="math inline">\(\mathcal{L}M,\mathcal{P}M\)</span> used by
+					topological constructions.
+				</li>
+				<li>
+					<strong>Regularity:</strong> default <span class="math inline">\(C^\infty\)</span> interior regularity;
+					stationary-phase requires nondegenerate Hessian at loci.
+				</li>
+			</ul>
 
-            <h4>Scalar fields, vector fields, and differential forms</h4>
-            <ul>
-                <li><strong>Scalar</strong> <span class="math inline">\(f:M\to\mathbb{R}\)</span>, annotate <span class="math inline">\([f]\)</span>.</li>
-                <li><strong>Vector</strong> <span class="math inline">\(\mathbf{v}\in\Gamma(TM)\)</span>, components <span class="math inline">\(v^i(x)\)</span>, annotate <span class="math inline">\([\mathbf{v}]\)</span>.</li>
-                <li><strong>Forms</strong> 1-form <span class="math inline">\(A\)</span> (connection), 2-form <span class="math inline">\(F=dA\)</span>; state units where used.</li>
-            </ul>
+			<h4>Scalar fields, vector fields, and differential forms</h4>
+			<ul>
+				<li>
+					<strong>Scalar</strong> <span class="math inline">\(f:M\to\mathbb{R}\)</span>, annotate
+					<span class="math inline">\([f]\)</span>.
+				</li>
+				<li>
+					<strong>Vector</strong> <span class="math inline">\(\mathbf{v}\in\Gamma(TM)\)</span>, components
+					<span class="math inline">\(v^i(x)\)</span>, annotate <span class="math inline">\([\mathbf{v}]\)</span>.
+				</li>
+				<li>
+					<strong>Forms:</strong> 1-form <span class="math inline">\(A\)</span> (connection), 2-form
+					<span class="math inline">\(F=dA\)</span>; state units where used.
+				</li>
+			</ul>
 
-            <h4>Tensors and index rules</h4>
-            <ul>
-                <li>Tensor notation: <span class="math inline">\(T^{i_1\ldots i_r}{}_{j_1\ldots j_s}\)</span>; contraction rules follow index placement.</li>
-                <li>Introduce metric-like object <span class="math inline">\(g\)</span> only when required; otherwise use coordinate-volume elements for inner products.</li>
-            </ul>
+			<h4>Tensors and index rules</h4>
+			<ul>
+				<li>Tensor notation: <span class="math inline">\(T^{i_1\ldots i_r}{}_{j_1\ldots j_s}\)</span>; contraction rules follow index placement.</li>
+				<li>Introduce metric-like object <span class="math inline">\(g\)</span> only when required; otherwise use coordinate-volume elements for inner products.</li>
+			</ul>
 
-            <h4>Distributions and kernels</h4>
-            <ul>
-                <li>Operator kernel <span class="math inline">\(K(x,x')\)</span> maps <span class="math inline">\( (Kf)(x)=\int K(x,x')f(x')\,d\mu(x')\)</span>.</li>
-                <li>Declare kernel regularity: smooth, singular (specify regularization), or oscillatory <span class="math inline">\(e^{(i/\mathcal{S}_\ast)\Phi}\)</span>.</li>
-                <li>Specify support and band-limits for spectral kernels.</li>
-            </ul>
+			<h4>Distributions and kernels</h4>
+			<ul>
+				<li>Operator kernel <span class="math inline">\(K(x,x')\)</span> maps <span class="math inline">\((Kf)(x)=\int K(x,x')f(x')\,d\mu(x')\)</span>.</li>
+				<li>Declare kernel regularity: smooth, singular (specify regularization), or oscillatory <span class="math inline">\(e^{(i/\mathcal{S}_\ast)\Phi}\)</span>.</li>
+				<li>Specify support and band-limits for spectral kernels.</li>
+			</ul>
 
-            <h4>Operators and transforms</h4>
-            <ul>
-                <li>Canonical differential operators: <span class="math inline">\(\nabla,\nabla\cdot,\nabla\times,\Delta\)</span>.</li>
-                <li>Transport operator: Lie derivative <span class="math inline">\(\mathcal{L}_v\)</span>; Green operator <span class="math inline">\(G\)</span>.</li>
-                <li>Integral transforms: Fourier <span class="math inline">\(\mathcal{F}\)</span>, Laplace for causal regularization.</li>
-                <li>Stationary-phase primitives: oscillatory integral asymptotics assume nondegenerate Hessian <span class="math inline">\(H\)</span>.</li>
-            </ul>
+			<h4>Operators and transforms</h4>
+			<ul>
+				<li>Canonical differential operators: <span class="math inline">\(\nabla,\nabla\cdot,\nabla\times,\Delta\)</span>.</li>
+				<li>Transport operator: Lie derivative <span class="math inline">\(\mathcal{L}_v\)</span>; Green operator <span class="math inline">\(G\)</span>.</li>
+				<li>Integral transforms: Fourier <span class="math inline">\(\mathcal{F}\)</span>, Laplace for causal regularization.</li>
+				<li>Stationary-phase primitives: oscillatory integral asymptotics assume nondegenerate Hessian <span class="math inline">\(H\)</span>.</li>
+			</ul>
 
-            <h4>Measures, volume elements, and units bookkeeping</h4>
-            <ul>
-                <li>Spatial volume element <span class="math inline">\(d^dx\)</span> with units <span class="math inline">\(\mathrm{m}^d\)</span>.</li>
-                <li>Spacetime measure <span class="math inline">\(d^dx\,dt\)</span>; spectral measure <span class="math inline">\(d\epsilon\)</span>.</li>
-                <li>Unit balance rule: require <span class="math inline">\([O]=\)</span> integrand units × measure units; solve <span class="math inline">\(C_{\rm phys}\)</span> from anchors.</li>
-                <li>Anchors (e.g., <span class="math inline">\(h,c,\mu_0\)</span>) must be declared with provenance and units.</li>
-            </ul>
+			<h4>Measures, volume elements, and units bookkeeping</h4>
+			<ul>
+				<li>Spatial volume element <span class="math inline">\(d^dx\)</span> with units <span class="math inline">\(\mathrm{m}^d\)</span>.</li>
+				<li>Spacetime measure <span class="math inline">\(d^dx\,dt\)</span>; spectral measure <span class="math inline">\(d\epsilon\)</span>.</li>
+				<li>Unit balance rule: require <span class="math inline">\([O]=\)</span> integrand units × measure units; solve <span class="math inline">\(C_{\rm phys}\)</span> from anchors.</li>
+				<li>Anchors (e.g., <span class="math inline">\(h,c,\mu_0\)</span>) must be declared with provenance and units.</li>
+			</ul>
 
-            <h4>Action scale and stationary-phase primitives</h4>
-            <ul>
-                <li>Emergent action scale <span class="math inline">\(\mathcal{S}_\ast\)</span> (units <span class="math inline">\(\mathrm{J\cdot s}\)</span>); normalize phases as <span class="math inline">\(e^{(i/\mathcal{S}_\ast)\Phi}\)</span>.</li>
-                <li>Phase kernel <span class="math inline">\(\Phi(x,x';\omega)\)</span> with units <span class="math inline">\([\Phi]=\mathrm{J\cdot s}\)</span>.</li>
-                <li>Stationary loci <span class="math inline">\(\Sigma\)</span> defined by <span class="math inline">\(\nabla_{x'}\Phi=0\)</span>; require <span class="math inline">\(\det H\neq 0\)</span>.</li>
-            </ul>
+			<h4>Action scale and stationary-phase primitives</h4>
+			<ul>
+				<li>
+					Emergent action scale <span class="math inline">\(\mathcal{S}_\ast\)</span> (units
+					<span class="math inline">\(\mathrm{J\cdot s}\)</span>); normalize phases as
+					<span class="math inline">\(e^{(i/\mathcal{S}_\ast)\Phi}\)</span>.
+				</li>
+				<li>
+					Phase kernel <span class="math inline">\(\Phi(x,x';\omega)\)</span> with units
+					<span class="math inline">\([\Phi]=\mathrm{J\cdot s}\)</span>.
+				</li>
+				<li>
+					Stationary loci <span class="math inline">\(\Sigma\)</span> defined by
+					<span class="math inline">\(\nabla_{x'}\Phi=0\)</span>; require <span class="math inline">\(\det H\neq 0\)</span>.
+				</li>
+			</ul>
 
+			<h3 id="sec-geometry-formalism_2">Minimal Regularity and Convergence Assumptions</h3>
+			<ul>
+				<li>
+					<strong>Support/decay:</strong> Require compact support or sufficient decay at infinity for all integrands. If not
+					satisfied, state and apply an explicit renormalization rule. For stochastic kernels, specify decay rate of covariance
+					tails.
+				</li>
+				<li>
+					<strong>Singular kernels:</strong> Must include explicit regularization (principal value, matched near‑field model,
+					cutoff, or Fisher‑curvature renormalization). Document chosen scheme and its domain of validity.
+				</li>
+				<li>
+					<strong>Spectral integrals:</strong> Always include causal prescription
+					<span class="math inline">\(\omega\mapsto\omega+i0^+\)</span> when selecting retarded or advanced solutions. Record
+					analytic continuation choices. For collapse diagnostics, specify how seepage terms are treated in analytic
+					continuation.
+				</li>
+				<li>
+					<strong>Anchor covariance:</strong> <span class="math inline">\(\Sigma_{\rm anchor}(x,x')\)</span> must be positive
+					semidefinite. If compressed to diagonal form, state stationarity assumptions explicitly. For coherence analysis,
+					declare whether anchor covariance is treated as static or time‑varying.
+				</li>
+				<li>
+					<strong>Gradient regularity:</strong> Require bounded Fisher curvature gradient
+					<span class="math inline">\(\|\nabla H\|\)</span> in finite windows. If violated, declare collapse horizon
+					<span class="math inline">\(\chi_F\)</span> and apply inequality
+					<span class="math inline">\(T_{\rm coh}\lesssim \gamma/\chi_F\)</span>.
+				</li>
+				<li>
+					<strong>Seepage treatment:</strong> When invariants drift across regimes, document gradient terms explicitly and
+					state whether uniform approximations (Airy, Pearcey) are invoked.
+				</li>
+			</ul>
 
-            <h3 id="sec-geometry-formalism_2">Minimal regularity and convergence assumptions</h3>
-            <ul>
-                <li>Compact support or sufficient decay at infinity for integrands, or explicit renormalization rule.</li>
-                <li>Singular kernels require explicit regularization: principal value, matched near-field model, or cutoff.</li>
-                <li>Spectral integrals include causal prescription <span class="math inline">\(\omega\mapsto\omega+i0^+\)</span> when selecting retarded/advanced solutions.</li>
-                <li>Anchor covariance <span class="math inline">\(\Sigma_{\rm anchor}(x,x')\)</span> positive semidefinite; state stationarity assumptions if compressing to diagonal form.</li>
-            </ul>
-
-            <h3 id="sec-geometry-formalism_3">Short implementation checklist for primitives</h3>
-            <ol>
-                <li>List domains: spatial <span class="math inline">\(M\)</span>, spacetime <span class="math inline">\(M\times\mathbb{R}\)</span>, spectral <span class="math inline">\(\Omega_\epsilon\)</span>.</li>
-                <li>Declare all primary objects with units and domains (e.g., <span class="math inline">\(\Phi:[\mathrm{J\cdot s}],\ \mathcal{S}_\ast:[\mathrm{J\cdot s}]\)</span>).</li>
-                <li>Specify kernel regularity and any near-field regularization rules.</li>
-                <li>Choose causal prescription for spectral integrals and document analytic-continuation choices.</li>
-                <li>Provide anchor list and initial values for <span class="math inline">\(C_{\rm phys}\)</span> determination.</li>
-                <li>State required smoothness and nondegeneracy for stationary-phase analysis.</li>
-            </ol>
+			<h3 id="sec-geometry-formalism_3">Implementation Checklist for Primitives</h3>
+			<ol>
+				<li>
+					<strong>Domains:</strong> List spatial <span class="math inline">\(M\)</span>, spacetime
+					<span class="math inline">\(M\times\mathbb{R}\)</span>, spectral <span class="math inline">\(\Omega_\epsilon\)</span>.
+					For stochastic systems, include ensemble domain <span class="math inline">\(\mathcal{E}\)</span>.
+				</li>
+				<li>
+					<strong>Primary objects:</strong> Declare all with units and domains (e.g.,
+					<span class="math inline">\(\Phi:[\mathrm{J\cdot s}],\ \mathcal{S}_\ast:[\mathrm{J\cdot s}]\)</span>). Include Fisher
+					information matrix <span class="math inline">\(H\)</span> and invariants
+					<span class="math inline">\(\Lambda, R_F, S_{\rm mod}, Q_\phi\)</span>.
+				</li>
+				<li>
+					<strong>Kernel regularity:</strong> Specify smooth/singular/oscillatory type and any near‑field regularization rules.
+					For collapse geometry, state Hessian nondegeneracy assumptions; for modulation geometry, state block decomposition
+					rules.
+				</li>
+				<li>
+					<strong>Causality:</strong> Choose and document causal prescription for spectral integrals; record analytic
+					continuation choices. For transport geometry, verify hyperbolicity signature
+					<span class="math inline">\(\mathrm{sig}(g)=(-,+,+,+)\)</span>.
+				</li>
+				<li>
+					<strong>Anchors:</strong> Provide anchor list and initial values for
+					<span class="math inline">\(C_{\rm phys}\)</span> determination; state provenance and units. Include emergent scales
+					(e.g., coherence time, action scale).
+				</li>
+				<li>
+					<strong>Smoothness/nondegeneracy:</strong> State required differentiability and nondegeneracy conditions for
+					stationary‑phase analysis; include Hessian rank criteria. For seepage analysis, specify gradient bounds and window
+					length <span class="math inline">\(\ell\)</span>.
+				</li>
+				<li>
+					<strong>Diagnostics:</strong> Publish condition numbers, residual norms, and collapse horizon ratios
+					<span class="math inline">\(\chi_F\)</span> for reproducibility. Include sensitivity of stationary loci to anchor
+					perturbations.
+				</li>
+			</ol>
 
             <h3 id="sec-geometry-formalism_4">Collapse geometry</h3>
 
