@@ -12566,9 +12566,9 @@ if λ_min(F) &lt; ε and no_collapse_indicator: FAIL
 			</p>
 			<div class="math display">
 				\[
-					\Re(\mathrm{eig}(J)) < 0 \ \text{for the four protected directions,}
+					\Re(\mathrm{eig}(J)) \lt 0 \ \text{for the four protected directions,}
 					\qquad
-					\Re(\mathrm{eig}(J)) < 0 \ \text{for all non‑protected directions}.
+					\Re(\mathrm{eig}(J)) \lt 0 \ \text{for all non‑protected directions}.
 					\tag{Y10}
 				\]
 			</div>
@@ -13335,6 +13335,185 @@ if __name__ == "__main__":
 				<li>D. Calegari, <em>Ricci Flow</em> notes (Univ. of Chicago). <a href="https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf">link</a>.</li>
 				<li>Recent survey on gradient Ricci solitons in 4D: Cao–Tran (2024). <a href="https://arxiv.org/html/2409.13123v1">arXiv</a>.</li>
 			</ol>
+
+			<h3 id="sec-rate-distortion-geometry">Rate–Distortion Geometry</h3>
+
+			<p>
+				The Chronotopic Theory of Matter and Time (CTMT) identifies curvature not as a primitive geometric postulate,
+				but as an emergent consequence of coherence-preserving compression. This section formalizes that statement
+				using <em>Rate–Distortion Geometry</em>, a framework in which spacetime structure arises from the optimal
+				trade-off between information rate and distortion under finite causal propagation.
+			</p>
+
+			<p>
+				Crucially, this framework explains why CTMT observables—such as gravitational redshift, light bending,
+				and Shapiro delay—are computable directly from the phase Hessian, without invoking Christoffel symbols,
+				Riemann tensors, or stress–energy as primitive inputs (these enter only for extended evolution).
+			</p>
+
+			<h4>Rate–Distortion functional</h4>
+
+			<p>
+				Let <span class="math inline">\(\Theta^\mu\)</span> denote modulation parameters of the kernel
+				(phase, rhythm, coherence coordinates). Define the variational functional
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathcal{J}[\Theta]
+					\;=\;
+					\mathcal{R}[\Theta]
+					\;+\;
+					\lambda\,\mathcal{D}[\Theta],
+				\]
+
+			</div>
+
+			<p>with:</p>
+
+			<ul>
+				<li><strong>Rate:</strong> <span class="math inline">\(\mathcal{R}\)</span> quantifies coherence capacity or synchronization throughput (e.g., proportional to <span class="math inline">\(\operatorname{Tr} F\)</span> or an entropy rate).</li>
+				<li><strong>Distortion:</strong> <span class="math inline">\(\mathcal{D}\)</span> measures loss of phase identity, causal ordering, or coherence survival.</li>
+				<li><strong>Tolerance:</strong> <span class="math inline">\(\lambda\)</span> is a Lagrange multiplier enforcing finite distortion tolerance.</li>
+			</ul>
+
+			<p>
+				Physical trajectories correspond to stationary points
+				<span class="math inline">\(\delta \mathcal{J} = 0\)</span>.
+			</p>
+
+			<h4>Emergence of the metric from the Hessian</h4>
+
+			<p>
+				Expanding <span class="math inline">\(\mathcal{J}\)</span> to second order around a stationary solution
+				<span class="math inline">\(\Theta_0\)</span> yields
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathcal{J}(\Theta_0 + \delta\Theta)
+					\;\approx\;
+					\mathcal{J}(\Theta_0)
+					+ \tfrac12
+					\, g_{\mu\nu}\,
+					\delta\Theta^\mu \delta\Theta^\nu,
+				\]
+
+			</div>
+
+			<p>with the induced metric</p>
+
+			<div class="math display">
+
+				\[
+					g_{\mu\nu}
+					\;=\;
+					\frac{\partial^2 \mathcal{J}}
+					{\partial \Theta^\mu \partial \Theta^\nu}
+					\;=\;
+					\partial_\mu \partial_\nu \Phi,
+				\]
+
+			</div>
+
+			<p>
+				where <span class="math inline">\(\Phi\)</span> is the effective coherence action (phase).
+				For <span class="math inline">\(\Phi = -\log p\)</span>, this Hessian coincides with the Fisher–Rao metric, linking CTMT directly to information geometry.
+			</p>
+
+			<h4>Lorentz–hyperbolic signature (derived, not assumed)</h4>
+
+			<p>
+				Distortion penalizes temporal mis-ordering more severely than spatial dispersion:
+				the effective distortion curvature near optimum takes the form
+			</p>
+
+			<div class="math display">
+
+				\[
+					\mathcal{D}_{\text{quad}}
+					\;\sim\;
+					(\delta \tau)^2
+					\;-\;
+					\sum_{i=1}^{3} (\delta x_i)^2,
+				\]
+
+			</div>
+
+			<p>
+				The Hessian thus has exactly one negative eigenvalue. This is required for stability of recursive forward projection under finite synchronization speed:
+				Euclidean signatures yield diffusive identity loss; multiple timelike directions destroy causal ordering.
+			</p>
+
+			<p>
+				<strong>Theorem (CTMT signature emergence).</strong><br />
+				Any recursive kernel minimizing a rate–distortion functional under finite propagation speed
+				induces a Lorentz–hyperbolic metric. No spacetime postulate is required.
+			</p>
+
+			<h4>Null manifold and transport</h4>
+
+			<p>Define the curvature operator</p>
+
+			<div class="math display">
+
+				\[
+					H \;=\; F^{-1}\,\nabla^2 \Phi,
+				\]
+
+			</div>
+
+			<p>where <span class="math inline">\(F\)</span> is the Fisher information matrix. The tangent space decomposes into:</p>
+
+			<ul>
+				<li><strong>Collapse sector:</strong> <span class="math inline">\(\mathrm{range}(H)\)</span>, directions of growing distortion and rank loss (structural collapse).</li>
+				<li><strong>Transport sector:</strong> the null manifold <span class="math inline">\(\mathcal{N} = \ker H\)</span>, supporting stable causal geodesics.</li>
+			</ul>
+
+			<p>
+				Physical observables correspond to geodesics constrained to <span class="math inline">\(\mathcal{N}\)</span>,
+				explaining why predictions follow directly from the Hessian metric.
+			</p>
+
+			<h4>Direct prediction of classical relativistic tests</h4>
+
+			<p>In the weak-field, slowly varying regime, observables depend only on local metric components:</p>
+
+			<ul>
+				<li><strong>Pound–Rebka redshift:</strong> <span class="math inline">\(\Delta f/f \approx \tfrac12\,\Delta g_{00}\)</span>.</li>
+				<li><strong>Light bending:</strong> geodesic deflection from transverse Hessian gradients.</li>
+				<li><strong>Shapiro delay:</strong> logarithmic phase delay from null-geodesic elongation.</li>
+			</ul>
+
+			<p>
+				Christoffel symbols and Riemann tensors enter only for extended evolution; at leading order the Hessian suffices.
+				This explains agreement of CTMT Hessian predictions with classical tests within experimental uncertainty.
+			</p>
+
+			<h4>Relation to General Relativity</h4>
+
+			<p>
+				General Relativity emerges as a continuum boundary when coherence gradients are smooth, metric rank is fixed to four,
+				and kernel recursion is near equilibrium. In this limit, the Hessian-induced metric evolves slowly, and Einstein-like field equations
+				appear as macroscopic stationarity conditions. Stress–energy functions as effective bookkeeping of coherence redistribution.
+			</p>
+
+			<p>
+				Rate–Distortion Geometry thus explains the origin of Einstein’s equations:
+				curvature is the residual of optimal coherence compression under causal constraints.
+			</p>
+
+			<h4>Summary</h4>
+
+			<ul>
+				<li><strong>Curvature from Hessian:</strong> the metric arises from the second variation of the rate–distortion functional.</li>
+				<li><strong>Forced signature:</strong> Lorentzian signature is required for coherence stability.</li>
+				<li><strong>Null transport:</strong> causal propagation lies on the null manifold of the curvature operator.</li>
+				<li><strong>Classical tests:</strong> redshift, bending, and delay follow directly from the Hessian.</li>
+				<li><strong>GR boundary:</strong> GR appears as the continuum sector of CTMT.</li>
+			</ul>
 		</article>
 	</section>
     <section>
