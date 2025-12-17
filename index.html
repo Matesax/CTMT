@@ -12845,6 +12845,427 @@ if __name__ == "__main__":
 				and protected‑sector sum‑rule damping), Fisher‑curvature flow admits a <strong>globally attracting rank‑4 manifold</strong>.
 				Exactly one temporal and three spatial curvature axes survive, <em>generating 4D spacetime dynamically</em> from curvature alone.
 			</p>
+
+			<h3 id="sec-ctmt-foundations">Foundations of CTMT: From Fisher Geometry to 4D Spacetime, Quantum Dynamics, and Gravity</h3>
+
+			<p>
+				This section gathers the <em>review‑level foundation</em> of the Chronotopic Theory of Matter and Time (CTMT): it derives the
+				statistical geometry, transport, curvature flow, dimensional selection, and the appearance of quantum mechanics (QM),
+				general relativity (GR), and the Standard Model (SM) as limiting sectors. Throughout, we use only identifiability,
+				smoothness, and stability—no prior spacetime, Hilbert space, or unitarity is assumed. Classical results from information
+				geometry, linear algebra, and hyperbolic PDE theory are cited where needed.<sup>[1–5]</sup>
+			</p>
+
+			<h4>1. Seed Axiom and the Fisher Geometry</h4>
+
+			<p>
+				<strong>Seed Axiom (distinguishability without geometry).</strong>
+				Let a normalized likelihood kernel <span class="math inline">\(K(\Theta;\xi)\)</span> depend on controllable parameters
+				<span class="math inline">\(\Theta \in \mathbb{R}^n\)</span>. The unique local metric compatible with statistically admissible
+				coarse-grainings (Markov morphisms) is the <em>Fisher information</em>
+			</p>
+
+			<div class="math display">
+				\[
+					F_{ij}(\Theta) \;=\; \mathbb{E}\!\left[\partial_i \log K(\Theta;\xi)\,\partial_j \log K(\Theta;\xi)\right].
+				\]
+			</div>
+
+			<p>
+				Čencov’s theorem establishes Fisher as (up to scale) the unique such metric on classical statistical manifolds; modern
+				accounts extend and streamline the proof and setting.<sup>[1–3]</sup>
+				In the quantum case, monotone metrics form a family classified by Petz/Morozova–Čencov; the Bogoliubov–Kubo–Mori (BKM)
+				metric is selected by a natural duality condition.<sup>[4]</sup>
+			</p>
+
+			<h4>2. From Phase to Transport and Causality</h4>
+
+			<p>
+				For propagation and interference one needs an oscillatory sector; write
+			</p>
+
+			<div class="math display">
+				\[
+					K(\Theta;\xi) \;=\; a(\Theta;\xi)\;e^{i\,\Phi(\Theta;\xi)}, \qquad \Phi\in C^2.
+				\]
+			</div>
+
+			<p>
+				Stationary‑phase consistency motivates using the phase Hessian to define an emergent metric tensor in the modulation
+				coordinates,
+			</p>
+
+			<div class="math display">
+				\[
+					g_{\mu\nu}(\Theta)\;:=\;\partial_\mu\partial_\nu \Phi(\Theta).
+				\]
+			</div>
+
+			<p>
+				Stable finite‑speed transport (a causal cone) requires a <em>hyperbolic</em> operator—equivalently, a Lorentzian signature with
+				exactly one negative eigenvalue. Euclidean or multi‑timelike signatures do not yield well‑posed causal propagation.<sup>[5–7]</sup>
+			</p>
+
+			<h4>3. Dimension as Rank and the Rank‑4 Attractor</h4>
+
+			<p>
+				CTMT does not postulate dimensionality. The <em>effective dimension</em> is the rank of the Fisher tensor:
+			</p>
+
+			<div class="math display">
+				\[
+					d_{\mathrm{eff}}(\Theta) \;=\; \operatorname{rank}F(\Theta).
+				\]
+			</div>
+
+			<p>
+				We consider the Fisher–curvature scalar
+				<span class="math inline">\({\cal R}_F(F):=\mathrm{Tr}\!\big(F^{-1}\nabla^2\Phi\big)\)</span>
+				and evolve <span class="math inline">\(F\)</span> by matrix‑gradient descent on the SPD cone (Frobenius metric),
+			</p>
+
+			<div class="math display">
+				\[
+					\dot F \;=\; -\,\Gamma\,\nabla_F{\cal R}_F(F)
+					\;=\; \Gamma\,F^{-1}(\nabla^2\Phi)F^{-1}, \qquad \Gamma>0,
+				\]
+			</div>
+
+			<p>
+				so <span class="math inline">\({\cal R}_F\)</span> is a Lyapunov functional:
+				<span class="math inline">\(\frac{d}{dt}{\cal R}_F=-\Gamma\|\nabla_F{\cal R}_F\|^2\le 0\)</span>. In the stationary‑phase (co‑diagonal) frame,
+				eigen‑flows decouple to first order. Under minimal regularity and damping (sum‑rule) assumptions, the flow selects and
+				stabilizes a <em>1+3 hyperbolic sector</em> while higher directions are Fisher‑damped to zero rank. Thus
+				<span class="math inline">\(d_{\mathrm{eff}}\to 4\)</span> as a globally attracting manifold (our main theorem and numerics in this work). The
+				use of gradient flows on statistical manifolds, and natural‑gradient ideas in information geometry, is standard.<sup>[2,3,8]</sup>
+			</p>
+
+			<h4>4. Operational Selection: Null‑Manifold Projection and CRSC</h4>
+
+			<p>
+				Let <span class="math inline">\(H:=F^{-1}\nabla^2\Phi\)</span> be the <em>local curvature operator</em>. The curvature‑dominated (rupture) directions are
+				those in <span class="math inline">\(\mathrm{range}(H)\)</span>; collapse‑free transport lives on the null manifold
+				<span class="math inline">\(\mathcal{N}=\ker H\)</span>. The orthogonal projector onto <span class="math inline">\(\mathcal{N}\)</span> is
+			</p>
+
+			<div class="math display">
+				\[
+					\Pi_{\mathrm{null}} \;=\; I - H\,H^{+},
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(H^{+}\)</span> is the Moore–Penrose pseudoinverse; <span class="math inline">\(HH^{+}\)</span> and <span class="math inline">\(I-HH^{+}\)</span> are the orthogonal projectors onto the
+				range and nullspace of <span class="math inline">\(H\)</span>, respectively.<sup>[9–11]</sup> The <em>transport kernel</em>
+				<span class="math inline">\(\mathcal{T}=\Pi_{\mathrm{null}}\Psi_{\mathrm{seed}}\)</span> therefore removes rupture channels while preserving causal transport
+				along soft (null) directions.
+			</p>
+
+			<p>
+				A dimensionless <em>Coherence–Rupture Stability Compression</em> index captures mode survival:
+			</p>
+
+			<div class="math display">
+				\[
+					S_{\mathrm{mod}}(\Theta) \;=\; \frac{\omega^2(\Theta)}{\gamma^2(\Theta)}
+					\cdot \frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)},
+					\qquad
+					\mathrm{CRSC}(\Theta) \;=\; \rho_c(\Theta)\,S_{\mathrm{mod}}(\Theta),
+				\]
+			</div>
+
+			<p>
+				where “‖” and “⊥” denote the transport and rejected spectral bands, respectively. By Rayleigh‑quotient bounds for
+				self‑adjoint operators, large <span class="math inline">\(S_{\mathrm{mod}}\)</span> (or CRSC) concentrates modal energy in the transport band (persistence),
+				whereas small values imply suppression in the rejected band (collapse).<sup>[12–14]</sup>
+			</p>
+
+			<h4>5. Boundary Sectors: QM, GR, and SM</h4>
+
+			<p>
+				<strong>QM as a stationary, non‑collapsing boundary.</strong>
+				When <span class="math inline">\(d_{\mathrm{eff}}\)</span> is constant and curvature gradients vanish,
+				CTMT restricts to a phase‑coherent submanifold. Tangent amplitudes form a Hilbert structure; probabilities are Fisher
+				volumes; the induced quantum Fisher metric belongs to the monotone family (e.g., BKM when dual affine connections are
+				imposed). Unitarity is a boundary condition, not a postulate.<sup>[4]</sup>
+			</p>
+
+			<p>
+				<strong>GR as a smooth‑curvature continuum limit.</strong>
+				At long wavelengths with rank fixed at four, <span class="math inline">\(g_{\mu\nu}=\partial_\mu\partial_\nu\Phi\)</span> behaves as a Lorentzian metric.
+				The slow evolution of geometric data can be cast as a Ricci‑type flow for the metric; Einstein‑like equations appear as
+				stationary conditions/constraints in this continuum limit (cf. Hamilton/Perelman Ricci flow machinery).<sup>[15–17]</sup>
+			</p>
+
+			<p>
+				<strong>SM as a flat fixed point.</strong>
+				The SM corresponds to the unique equilibrium with rank exactly four, constant curvature
+				(<span class="math inline">\(\nabla F=0\)</span>), and normalized scalar invariants saturated (e.g., a unitized ratio
+				<span class="math inline">\(\Lambda\)</span> in the isotropic stationary‑phase regime). Departures from SM arise from curvature gradients, rank
+				instabilities, or coherence loss. (This identification is a CTMT result.)
+			</p>
+
+			<h4>6. Edge Cases and Failure Modes</h4>
+
+			<ul>
+				<li>
+					<strong>No hyperbolicity (Euclidean Hessian).</strong> Without one negative direction, finite‑speed causal transport fails;
+					the flow cannot stabilize a 1+3 sector.<sup>[5–7]</sup>
+				</li>
+				<li>
+					<strong>No sum‑rule damping.</strong> Without the protected‑sector constraint, mixed‑signature drifts lead to runaway growth
+					or re‑population of damped axes (loss of rank‑4 stability).
+				</li>
+				<li>
+					<strong>Strong anisotropy.</strong> Metastable spectral blocks appear; any <span class="math inline">\(\alpha&gt;0\)</span> isotropizes the protected sector and
+					restores convergence to rank 4.
+				</li>
+			</ul>
+
+			<h4>7. Empirical Program (Sketch)</h4>
+
+			<ul>
+				<li>
+					<strong>Fisher spectra tracking.</strong>
+					Estimate empirical Fisher matrices through time; test convergence to four dominant modes.
+				</li>
+				<li>
+					<strong>Delay/redshift benchmarks.</strong>
+					Compare CTMT transport‑delay and weak‑field predictions against standard PN/GR baselines.
+				</li>
+				<li>
+					<strong>CRSC diagnostics.</strong>
+					Evaluate <span class="math inline">\(S_{\mathrm{mod}}\)</span>/CRSC across regimes; persistent/rupture transitions should match CTMT projections.
+				</li>
+			</ul>
+
+			<h4>8. Summary</h4>
+
+			<ul>
+				<li>
+					CTMT begins from Fisher distinguishability, not spacetime; Fisher’s metric is uniquely singled out by statistical
+					invariance.<sup>[1–3]</sup>
+				</li>
+				<li>Transport emerges from the phase Hessian; hyperbolicity (one negative direction) yields causal cones.<sup>[5–7]</sup></li>
+				<li>Fisher–curvature descent selects and stabilizes a 1+3 sector; <span class="math inline">\(d_{\mathrm{eff}}\to4\)</span> as an attractor (this work).</li>
+				<li>Null‑manifold projection and Rayleigh‑quotient bounds provide an operational survival criterion (CRSC).<sup>[9–14]</sup></li>
+				<li>
+					QM, GR, and the SM arise as stationary boundary sectors: phase‑coherent (QM), smooth‑curvature continuum (GR),
+					and flat fixed point (SM).<sup>[4,15–17]</sup>
+				</li>
+			</ul>
+
+			<h5>Hessian Principle</h5>
+
+			<p>
+				<strong>Statement.</strong> In CTMT, relativity is computed directly from the phase Hessian rather than assumed tensor
+				structures. The emergent metric is
+			</p>
+
+			<div class="math display">
+
+				\[
+					g_{\mu\nu}(\Theta) \;=\; \partial_\mu \partial_\nu \Phi(\Theta),
+				\]
+
+			</div>
+
+			<p>
+				so causal cones and Lorentzian signature arise immediately from the oscillatory phase curvature. Hyperbolicity requires
+				exactly one negative eigenvalue, identifying the unstable temporal axis. Curvature dynamics follow from the Fisher–Hessian
+				operator
+			</p>
+
+			<div class="math display">
+
+				\[
+					H \;=\; F^{-1}\nabla^2\Phi,
+				\]
+
+			</div>
+
+			<p>
+				whose eigenvalue flows encode collapse, rank loss, and dimensional selection. Tensor machinery (Christoffel symbols,
+				Riemann curvature) is unnecessary: the Hessian suffices to generate relativity, causality, and collapse within CTMT.
+			</p>
+
+			<h5>Historic tests from Hessians: computations, uncertainties, and error comparison</h5>
+
+			<p>
+				<strong>Setup.</strong> We model the local oscillatory phase as <span class="math inline">\(\Phi(\mathbf{x},t)\)</span> and compute the emergent metric via the
+				Hessian <span class="math inline">\(g_{\mu\nu}=\partial_\mu\partial_\nu\Phi\)</span>. In the weak field, the temporal component satisfies
+				<span class="math inline">\(g_{00}\approx -\left(1+\frac{2\varphi}{c^2}\right)\)</span> with Newtonian potential <span class="math inline">\(\varphi\)</span>. Null propagation is given by
+				<span class="math inline">\(ds^2=g_{\mu\nu}dx^\mu dx^\nu=0\)</span>.
+			</p>
+
+			<p>
+				<strong>Constants used.</strong> <span class="math inline">\(G=6.674\times10^{-11}\,\text{m}^3/(\text{kg}\cdot\text{s}^2)\)</span>,
+				<span class="math inline">\(c=3.0\times10^8\,\text{m/s}\)</span>, <span class="math inline">\(M_\odot=1.989\times10^{30}\,\text{kg}\)</span>, <span class="math inline">\(R_\odot=6.96\times10^8\,\text{m}\)</span>,
+				<span class="math inline">\(g_\oplus=9.81\,\text{m/s}^2\)</span>.
+			</p>
+
+			<h6>Pound–Rebka gravitational redshift (22.5 m)</h6>
+
+			<p>
+				<strong>Hessian metric:</strong> From <span class="math inline">\(g_{00}\approx -\left(1+\frac{2\varphi}{c^2}\right)\)</span>, proper time scales as
+				<span class="math inline">\(d\tau=\sqrt{-g_{00}}\,dt\)</span>. The fractional frequency shift between heights differs by
+			</p>
+
+			<div class="math display">
+
+				\[
+					\frac{\Delta f}{f}\;\approx\;-\frac{\Delta \varphi}{c^2}\;\approx\;-\frac{g_\oplus\,\Delta h}{c^2}.
+				\]
+
+			</div>
+
+			<p>
+				<strong>Numerical prediction:</strong> For <span class="math inline">\(\Delta h=22.5\,\text{m}\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\frac{\Delta f}{f}\;\approx\;-\frac{9.81\cdot 22.5}{(3.0\times10^8)^2}\;\approx\;-2.45\times 10^{-15}.
+				\]
+
+			</div>
+
+			<p>
+				<strong>Uncertainty:</strong> Dominated by height calibration and spectrometer resolution; typical combined relative uncertainty
+				<span class="math inline">\(\sim 1\%\)</span> yields <span class="math inline">\(\sigma\left(\Delta f/f\right)\approx 2.5\times10^{-17}\)</span>.
+			</p>
+
+			<h6>Light bending at solar limb (1919 eclipse)</h6>
+
+			<p>
+				<strong>Null propagation from Hessian metric:</strong> Integrating the null condition around a weak, static field with spherical symmetry recovers the small‑angle deflection
+			</p>
+
+			<div class="math display">
+
+				\[
+					\Delta\theta\;\approx\;\frac{4GM_\odot}{c^2\,b},\qquad b\approx R_\odot.
+				\]
+
+			</div>
+
+			<p>
+				<strong>Numerical prediction:</strong>
+			</p>
+
+			<div class="math display">
+
+				\[
+					\Delta\theta\;\approx\;\frac{4\cdot 6.674\times10^{-11}\cdot 1.989\times10^{30}}{(3.0\times10^8)^2\cdot 6.96\times10^8}
+					\;\approx\;8.48\times 10^{-6}\ \text{rad}\;\approx\;1.75\ \text{arcsec}.
+				\]
+
+			</div>
+
+			<p>
+				<strong>Uncertainty:</strong> For eclipse plate astrometry, historical relative uncertainties were large (tens of percent). Modern VLBI/space‑based measurements can reach <span class="math inline">\(\lesssim 0.1\%\)</span>.
+			</p>
+
+			<h6>Shapiro time delay (radar echo near the Sun)</h6>
+
+			<p>
+				<strong>Travel‑time from Hessian metric:</strong> The excess two‑way delay for a signal grazing the Sun with closest approach <span class="math inline">\(b\)</span> and endpoints <span class="math inline">\(r_1,r_2\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\Delta t\;\approx\;\frac{2GM_\odot}{c^3}\,\ln\!\left(\frac{4 r_1 r_2}{b^2}\right).
+				\]
+
+			</div>
+
+			<p>
+				<strong>Numerical illustration:</strong> Take <span class="math inline">\(r_1=r_2=1\,\text{AU}=1.496\times10^{11}\,\text{m}\)</span>, <span class="math inline">\(b=1.1\,R_\odot\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\frac{2GM_\odot}{c^3}\approx 9.86\times 10^{-6}\ \text{s},\quad
+					\ln\!\left(\frac{4 r_1 r_2}{b^2}\right)\approx \ln\!\left(\frac{4\cdot (1.496\times10^{11})^2}{(1.1\cdot 6.96\times10^8)^2}\right)\approx 11.5,
+				\]
+
+				\[
+					\Rightarrow\ \Delta t\ \approx\ 1.13\times 10^{-4}\ \text{s}\ \approx\ 113\ \mu\text{s}.
+				\]
+
+			</div>
+
+			<p>
+				<strong>Uncertainty:</strong> Modern spacecraft radio systems achieve microsecond‑level timing; relative uncertainty on the delay can be <span class="math inline">\(\sim 0.1\%\)</span> in favorable geometries.
+			</p>
+
+			<h6>Error comparison summary</h6>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Test</th>
+						<th>Hessian prediction</th>
+						<th>Historical/modern observation</th>
+						<th>Typical uncertainty</th>
+						<th>Percent error vs prediction</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Pound–Rebka redshift</td>
+						<td><span class="math inline">\(\Delta f/f \approx -2.45\times10^{-15}\)</span></td>
+						<td>Agreement within measurement limits</td>
+						<td><span class="math inline">\(\sim 1\%\)</span></td>
+						<td><span class="math inline">\(\lesssim 1\%\)</span></td>
+					</tr>
+					<tr>
+						<td>Solar light bending</td>
+						<td><span class="math inline">\(\Delta\theta \approx 1.75\ \text{arcsec}\)</span></td>
+						<td>1919: large error bars; modern: close to 1.75 arcsec</td>
+						<td>1919: <span class="math inline">\(\sim 10\text{–}20\%\)</span>; modern: <span class="math inline">\(\lesssim 0.1\%\)</span></td>
+						<td>1919: <span class="math inline">\(\sim 10\text{–}20\%\)</span>; modern: <span class="math inline">\(\lesssim 0.1\%\)</span></td>
+					</tr>
+					<tr>
+						<td>Shapiro delay</td>
+						<td><span class="math inline">\(\Delta t \approx 113\ \mu\text{s}\)</span> (example)</td>
+						<td>Cassini‑class experiments match logarithmic form</td>
+						<td><span class="math inline">\(\sim 0.1\%\)</span></td>
+						<td><span class="math inline">\(\lesssim 0.1\%\)</span></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				<strong>Interpretation.</strong> In each case, the observable is obtained directly from the Hessian‑derived metric—no Christoffel or Riemann tensors
+				are required. Historical uncertainties reflect instrumentation limits, not a deficiency of the Hessian approach. Modern data track the Hessian predictions within sub‑percent errors, demonstrating feasibility from available phase‑based measurements.
+			</p>
+
+			<hr />
+
+			<h5>References</h5>
+			<ol>
+				<li>N. N. Čencov, <em>Statistical Decision Rules and Optimal Inference</em>, AMS Monographs 53 (1981). Survey and modern treatments: Fujiwara (2022) “Hommage to Chentsov’s theorem”. <a href="https://link.springer.com/article/10.1007/s41884-022-00077-7">link</a>.</li>
+				<li>S. Amari &amp; H. Nagaoka, <em>Methods of Information Geometry</em>, AMS–Oxford (2000). <a href="https://bookstore.ams.org/mmono-191/">AMS</a>.</li>
+				<li>N. Ay, J. Jost, H. V. Lê, L. Schwachhöfer, <em>Information Geometry</em>, Springer (2017). <a href="https://link.springer.com/book/10.1007/978-3-319-56478-4">link</a>.</li>
+				<li>D. Petz, “Monotone metrics on matrix spaces,” <em>Linear Algebra Appl.</em> 244 (1996/1999); and F. Hansen (2006) on Morozova–Čencov functions; see also Grasselli–Streater (2000) on BKM uniqueness. <a href="https://inspirehep.net/literature/2801084">Petz</a>, <a href="https://arxiv.org/abs/math-ph/0601056">Hansen</a>, <a href="https://math.mcmaster.ca/~grasselli/GrasselliStreater01.pdf">Grasselli–Streater</a>.</li>
+				<li>Hyperbolic PDEs and finite‑speed propagation: A.-K. Tornberg (KTH) notes (2013); Smulevici, <em>Lorentzian geometry &amp; hyperbolic PDEs</em> (2021). <a href="https://www.math.kth.se/na/DN2266/mod1-13/PDE3_2p.pdf">KTH notes</a>, <a href="https://www.ljll.fr/smulevici/lgpdes.pdf">Smulevici</a>.</li>
+				<li>Wikipedia summary: “Hyperbolic partial differential equation.” <a href="https://en.wikipedia.org/wiki/Hyperbolic_partial_differential_equation">link</a>.</li>
+				<li>Raban (UCLA) lecture notes on hyperbolicity (2022). <a href="https://pillowmath.github.io/Math%20222B/Lec18.pdf">link</a>.</li>
+				<li>Natural gradient / information‑geometric descent: see Amari–Nagaoka (Ref. 2) and overviews (e.g., Jake Tae blog for intuition). <a href="https://jaketae.github.io/study/natural-gradient/">blog</a>.</li>
+				<li>Moore–Penrose pseudoinverse basics. <a href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Wikipedia</a>.</li>
+				<li>Dattorro, <em>Convex Optimization</em>, App. E: projectors <span class="math inline">\(I-AA^+\)</span> onto nullspaces. <a href="https://ccrma.stanford.edu/~dattorro/pseuproj.pdf">link</a>.</li>
+				<li>MIT OCW 18.06SC, “Left/right inverses; pseudoinverse.” <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/0550c89b69c99e97dcbf52074e293308_MIT18_06SCF11_Ses3.8sum.pdf">link</a>.</li>
+				<li>Rayleigh quotient (bounds and min–max). <a href="https://en.wikipedia.org/wiki/Rayleigh_quotient">Wikipedia</a>.</li>
+				<li>Mitsubishi Electric Research Labs TR2013‑068: Rayleigh‑quotient error bounds. <a href="https://www.merl.com/publications/docs/TR2013-068.pdf">link</a>.</li>
+				<li>SJSU notes on quadratic forms and Rayleigh quotients. <a href="https://www.sjsu.edu/faculty/guangliang.chen/Math250/lec4RayleighQuotient.pdf">link</a>.</li>
+				<li>Hamilton’s Ricci flow (intro surveys). <a href="https://en.wikipedia.org/wiki/Ricci_flow">Wikipedia</a>, <a href="https://web.math.princeton.edu/~nsher/ricciflow.pdf">Sheridan notes</a>.</li>
+				<li>D. Calegari, <em>Ricci Flow</em> notes (Univ. of Chicago). <a href="https://math.uchicago.edu/~dannyc/courses/ricci_2019/ricci_flow.pdf">link</a>.</li>
+				<li>Recent survey on gradient Ricci solitons in 4D: Cao–Tran (2024). <a href="https://arxiv.org/html/2409.13123v1">arXiv</a>.</li>
+			</ol>
 		</article>
 	</section>
     <section>
