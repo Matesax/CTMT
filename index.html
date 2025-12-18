@@ -422,6 +422,238 @@ def ctmt_experiment(N, routes, W, delta):
 				emergent and measurable. The next stage beyond this thought experiment is empirical validation 
 				through numerical simulation and laboratory analogues.
 			</p>
+
+			<h4>Tuning Law as the Generative Origin of Coherence Geometry</h4>
+
+			<p>
+				This subsection documents the original generative principle of CTMT, formulated independently of
+				information geometry, spacetime postulates, or probabilistic assumptions. All subsequent structures
+				(metric, curvature, Lorentzian signature, Fisher geometry, and GR limits) are shown to arise as
+				consequences of this seed.
+			</p>
+
+			<h5>Seed and Seep-Through Law</h5>
+
+			<p>
+				<strong>Seep-through 1-form.</strong>
+				Let the tuning potential define a differential 1-form
+				<span class="math inline">\(T\)</span> on an abstract chronotopic configuration space.
+				The associated tension 2-form is
+			</p>
+
+			<div class="math display">
+				\[
+					J \;\equiv\; T \wedge dT ,
+				\]
+			</div>
+
+			<p>
+				and the observable field in the projected layer is defined by the Hodge-dual current
+			</p>
+
+			<div class="math display">
+				\[
+					F \;\equiv\; \kappa\,\star J .
+				\]
+			</div>
+
+			<p>
+				Topological conservation is imposed by the closure condition
+			</p>
+
+			<div class="math display">
+				\[
+					d(\star J) = 0 .
+				\]
+			</div>
+
+			<p>
+				<strong>Interpretation.</strong>
+				The tuning law asserts that coherence is preserved through circulation over topology.
+				Observable structure arises from conserved topological currents rather than from
+				postulated spacetime geometry, stress–energy tensors, or probabilistic measures.
+			</p>
+
+			<h5>Emergent Invariants and Calibration Anchors</h5>
+
+			<p>
+				From the chronotopic topology of the tuning law, three invariant quantities arise naturally.
+				These invariants serve as calibration anchors when the theory is matched to empirical units.
+			</p>
+
+			<ul>
+				<li>
+					<strong>Action quantum <span class="math inline">\(S_\ast\)</span>.</strong>
+					The minimal nonzero holonomy of <span class="math inline">\(T\)</span> over a closed cycle <span class="math inline">\(\gamma\)</span>:
+					<div class="math display">
+						\[
+							\oint_\gamma T \;=\; n\,S_\ast,\qquad n\in\mathbb{Z}.
+						\]
+					</div>
+					After calibration, <span class="math inline">\(S_\ast\)</span> plays the operational role of Planck’s constant <span class="math inline">\(\hbar\)</span>.
+				</li>
+
+				<li>
+					<strong>Synchronization speed <span class="math inline">\(v_{\mathrm{sync}}\)</span>.</strong>
+					Disturbances of the tuning potential <span class="math inline">\(\Psi\)</span> propagate according to the hyperbolic operator
+					<div class="math display">
+						\[
+							\nabla^2\Psi - v_{\mathrm{sync}}^{-2}\,\partial_\tau^2\Psi = 0 ,
+						\]
+					</div>
+					identifying <span class="math inline">\(v_{\mathrm{sync}}\)</span> as the characteristic cone speed, calibrating to <span class="math inline">\(c\)</span>
+					in the observational limit.
+				</li>
+
+				<li>
+					<strong>Tuning temperature <span class="math inline">\(\Theta\)</span>.</strong>
+					The intensive quantity conjugate to topological entropy <span class="math inline">\(S_{\mathrm{topo}}\)</span>,
+					<div class="math display">
+						\[
+							\Theta \;\equiv\;
+							\left(\frac{\partial E}{\partial S_{\mathrm{topo}}}\right)_{\rho,\dots},
+						\]
+					</div>
+					reducing to <span class="math inline">\(k_B T\)</span> upon calibration.
+				</li>
+			</ul>
+
+			<p>
+				These three invariants render the ratio <span class="math inline">\(\varepsilon/\Theta\)</span> dimensionless for all modes.
+				For a mode of wavelength <span class="math inline">\(\lambda\)</span>,
+			</p>
+
+			<div class="math display">
+				\[
+					\bar n(\lambda)
+					=
+					\frac{1}{\exp\!\left(\frac{2\pi S_\ast v_{\mathrm{sync}}}{\lambda\,\Theta}\right)-1},
+				\]
+			</div>
+
+			<p>
+				demonstrating that Planck suppression arises from topology rather than from imposed quantization.
+			</p>
+
+			<h5>Phase Hessian and Curvature Operator</h5>
+
+			<p>
+				Let the kernel admit a locally oscillatory representation
+				<span class="math inline">\(K(\Theta;\xi)=a(\Theta;\xi)\,e^{i\Phi(\Theta;\xi)}\)</span>.
+				The metric is induced directly by the phase Hessian
+			</p>
+
+			<div class="math display">
+				\[
+					g_{\mu\nu}(\Theta) \;=\; \partial_\mu \partial_\nu \Phi(\Theta).
+				\]
+			</div>
+
+			<p>
+				Pairing this Hessian with the Fisher information metric (introduced later as a recognition,
+				not an assumption) yields the curvature operator
+			</p>
+
+			<div class="math display">
+				\[
+					H(\Theta) \;=\; F(\Theta)^{-1}\,\nabla^2 \Phi(\Theta).
+				\]
+			</div>
+
+			<p>
+				Transport persists on the null manifold
+				<span class="math inline">\(\mathcal{N}=\ker H\)</span>,
+				while rupture modes occupy
+				<span class="math inline">\(\mathrm{range}(H)\)</span>.
+				The Lorentzian signature of <span class="math inline">\(g\)</span> follows from stability of recursive propagation,
+				with exactly one negative eigenvalue selecting the temporal direction.
+			</p>
+
+			<h5>Terror Kernel (CRSC) and Dimensional Stabilization</h5>
+
+			<p>
+				<strong>Definition.</strong>
+				The Terror Kernel (CRSC) quantifies coherence survival versus collapse:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathrm{CRSC}
+					\;\equiv\;
+					\rho_c \cdot S_{\mathrm{mod}},
+					\qquad
+					S_{\mathrm{mod}}
+					=
+					\frac{\omega^2}{\gamma^2}
+					\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)} .
+				\]
+			</div>
+
+			<p>
+				High CRSC protects null transport directions and stabilizes effective dimensionality.
+				Low CRSC predicts rank loss of the metric, corresponding to irreversible compression
+				and collapse.
+			</p>
+
+			<p>
+				The spectral gap
+			</p>
+
+			<div class="math display">
+				\[
+					\Delta_{\mathrm{spec}}
+					=
+					\lambda_{\min}(H_\perp) - \lambda_{\max}(H_\parallel)
+				\]
+			</div>
+
+			<p>
+				acts as an operational compactification scale: large positive gaps exponentially suppress
+				rupture modes, yielding effective four-dimensional phenomenology without geometric
+				compactification.
+			</p>
+
+			<h5>General Relativity as a Boundary Sector</h5>
+
+			<p>
+				In the smooth, fixed-rank four-dimensional regime, CTMT reduces to Einstein-like stationary
+				conditions. Classical relativistic observables arise directly from the Hessian-induced metric:
+			</p>
+
+			<ul>
+				<li>Gravitational redshift from <span class="math inline">\(g_{00}\)</span>,</li>
+				<li>Light bending from null geodesics,</li>
+				<li>Shapiro delay from logarithmic null elongation,</li>
+				<li>Perihelion precession from weak-field curvature gradients.</li>
+			</ul>
+
+			<p>
+				Stress–energy appears only as an effective continuum bookkeeping of coherence redistribution.
+				The phase Hessian is the generative driver; general relativity is its boundary description.
+			</p>
+
+			<h5>Inevitability of the Fisher Collision</h5>
+
+			<p>
+				If distinguishability of nearby kernel configurations is the physically admissible criterion,
+				the unique monotone Riemannian metric is Fisher (Čencov’s theorem).
+				The closed-current condition <span class="math inline">\(d(\star J)=0\)</span> forbids amplification of distinguishability under
+				coarse projections, enforcing Fisher geometry as a consistency requirement.
+			</p>
+
+			<p>
+				Fisher information therefore enters CTMT as a recognition of invariance, not as a foundational
+				assumption. The tuning law predates and compels it.
+			</p>
+
+			<h5>Conclusion</h5>
+
+			<p>
+				CTMT originates from a single tuning law: seep-through topology, phase curvature, and coherence
+				selection. Fisher geometry, Lorentzian signature, metric curvature, dimensional stabilization,
+				and GR phenomenology arise as unavoidable consequences. The tuning law cannot be reduced to
+				Fisher information; rather, Fisher geometry is the unique invariant compatible with it.
+			</p>
         </article>
     </section>
     <section>
