@@ -28102,23 +28102,266 @@ def rupture_flag(s, lambda_crit_scale=0.2):
                 </li>
             </ul>
 
+			<h3 id="sec-spatial-geometry">Spatial Geometry from the CTMT Kernel (Academic Defense)</h3>
+
+			<p>
+				In CTMT, space is not postulated as a primitive manifold. Instead, spatial structure
+				emerges dynamically from the spectral organization of the coherence kernel governed
+				by the tuning law. This section establishes how spatial directions, wavelength structure,
+				and isotropy arise from phase geometry, Fisher-regularized curvature, and coherence
+				survival constraints.
+			</p>
+
+			<p>
+				The starting point is the phase field <span class="math inline">\(\Phi(\Theta)\)</span>,
+				whose second variation induces the metric
+			</p>
+
+			<div class="math display">
+				\[
+					g_{\mu\nu}(\Theta) = \partial_\mu \partial_\nu \Phi(\Theta).
+				\]
+			</div>
+
+			<p>
+				This Hessian metric does not assume spacetime coordinates a priori.
+				Its physically relevant directions are selected by the curvature operator
+			</p>
+
+			<div class="math display">
+				\[
+					H(\Theta) = F(\Theta)^{-1}\,\nabla^2 \Phi(\Theta),
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(F\)</span> is the Fisher information metric arising
+				from admissible kernel reconstruction. Spatial structure corresponds to those directions
+				that survive recursive propagation under coherence constraints.
+			</p>
+
+			<h4>Spectral Decomposition and Axis Formation</h4>
+
+			<p>
+				Let <span class="math inline">\(\{ \theta_a \}\)</span> denote eigenvectors of
+				<span class="math inline">\(H\)</span>:
+			</p>
+
+			<div class="math display">
+				\[
+					H\,\theta_a = \lambda_a\,\theta_a .
+				\]
+			</div>
+
+			<p>CTMT identifies three dominant spectral sectors:</p>
+
+			<ul>
+				<li>
+					<strong>X-sector (Charge–Phase Tension).</strong>
+					Null curvature directions
+					<span class="math inline">\(\lambda_X \approx 0\)</span>,
+					supporting uncompressed phase transport.
+				</li>
+				<li>
+					<strong>Y-sector (Spin–Phase Modulation).</strong>
+					Torsional or antisymmetric responses sensitive to anisotropy and defects.
+				</li>
+				<li>
+					<strong>Z-sector (Mass–Phase Drift).</strong>
+					Longitudinal compression modes with
+					<span class="math inline">\(\lambda_Z &gt; 0\)</span>,
+					governing resistance to transport.
+				</li>
+			</ul>
+
+			<p>
+				These sectors are not coordinates but <em>spectral eigendirections</em>.
+				Spatial axes emerge when these modes are calibrated to physical scales.
+			</p>
+
+			<h4>Isotropy and Symmetry Gain</h4>
+
+			<p>
+				In homogeneous regimes, the Fisher metric is rotationally invariant.
+				Consequently, transverse X-modes are spectrally degenerate:
+			</p>
+
+			<div class="math display">
+				\[
+					\lambda_X^{(1)} = \lambda_X^{(2)} = \lambda_X^{(3)} .
+				\]
+			</div>
+
+			<p>
+				This degeneracy yields isotropic propagation without requiring imposed symmetry.
+				Anisotropy appears only when CRSC decreases and the spectral gap splits.
+				Thus, spatial symmetry is <em>gained</em> at high coherence rather than broken.
+			</p>
+
+			<h4>Wavelength Structure</h4>
+
+			<p>Eigenvalues of the curvature operator determine admissible wavelengths:</p>
+
+			<div class="math display">
+				\[
+					\lambda_a \sim \frac{1}{\sqrt{|\lambda_a(H)|}} .
+				\]
+			</div>
+
+			<p>
+				Null-sector modes yield continuous spectra (radiative behavior),
+				while compressive modes discretize and localize.
+				Quantization is therefore spectral and conditional, not axiomatic.
+			</p>
+
+			<h4>Defense of Early CTMT Approximations and Identifications</h4>
+
+			<p>
+				Early CTMT work introduced charge-, spin-, and mass-like axes prior to the formal
+				development of Fisher geometry, CRSC, and curvature operators. This subsection
+				demonstrates that those early identifications are recovered exactly as spectral
+				projections of the mature framework.
+			</p>
+
+			<h5>Phase Derivative Identifications</h5>
+
+			<p>The early relations</p>
+
+			<div class="math display">
+				\[
+					E \sim \frac{\partial \phi}{\partial q},
+					\qquad
+					B \sim \frac{\partial \phi}{\partial s},
+					\qquad
+					c \sim \frac{\partial \phi}{\partial m}
+				\]
+			</div>
+
+			<p>
+				are now understood as directional derivatives of the phase along principal
+				Hessian eigendirections:
+			</p>
+
+			<div class="math display">
+				\[
+					E \propto \theta_X \cdot \nabla \phi,
+					\qquad
+					B \propto \theta_Y \cdot \nabla \phi,
+					\qquad
+					c \propto \theta_Z \cdot \nabla \phi .
+				\]
+			</div>
+
+			<p>These were not phenomenological guesses but projections onto orthogonal spectral sectors.</p>
+
+			<h5>Light as an Adimensional Null-Sector Excitation</h5>
+
+			<p>Light corresponds to excitations entirely confined to the null manifold</p>
+
+			<div class="math display">
+				\[
+					\mathcal{N} = \ker H .
+				\]
+			</div>
+
+			<p>
+				Such modes carry no compression eigenvalue and therefore no intrinsic scale.
+				They propagate without CRSC penalty and cannot collapse.
+				Light is thus adimensional in the precise sense of being curvature-free.
+			</p>
+
+			<p>
+				Light is generated at the boundary of rupture—where compression would occur—but
+				propagates orthogonally to rupture directions. It is not rupture itself, but the
+				coherent remainder that survives it.
+			</p>
+
+			<h5>Wavelength Estimate and Spectrum</h5>
+
+			<p>For null-sector modes,</p>
+
+			<div class="math display">
+				\[
+					\omega = v_{\mathrm{sync}}\,\|\theta_X\|,
+					\qquad
+					\lambda_{\mathrm{eff}} =
+					\frac{2\pi}{\|\theta_X\|}\,L_0 .
+				\]
+			</div>
+
+			<p>
+				This reproduces the early estimate
+				<span class="math inline">\(\lambda_{\mathrm{eff}} \gtrsim 10^{-2}\,\mathrm{m}\)</span>
+				once the coarse-graining scale
+				<span class="math inline">\(L_0\)</span> is fixed.
+				The continuous spectrum follows from degeneracy of null eigenvalues.
+			</p>
+
+			<h5>Fine-Structure Constant</h5>
+
+			<p>
+				The fine-structure constant arises as a ratio of transverse to longitudinal
+				phase stiffness:
+			</p>
+
+			<div class="math display">
+				\[
+					\alpha \;\sim\;
+					\frac{\|\theta_X\|^2}{\|\theta_Z\|}.
+				\]
+			</div>
+
+			<p>
+				This ratio is dimensionless, scale-free, and invariant under calibration,
+				explaining the stability of early CTMT estimates.
+				It reflects relative geometry of null transport versus compression resistance,
+				not electromagnetic coupling inserted by hand.
+			</p>
+
+			<h5>Consistency Check</h5>
+
+			<p>
+				Had the early identifications been incorrect, the introduction of Fisher geometry,
+				Hessian curvature, and CRSC would have:
+			</p>
+
+			<ul>
+				<li>generated mass for X-modes,</li>
+				<li>destroyed continuous spectra,</li>
+				<li>introduced scale dependence into <span class="math inline">\(\alpha\)</span>,</li>
+				<li>or destabilized propagation speed.</li>
+			</ul>
+
+			<p>None of these occurred. The framework is overdetermined and internally consistent.</p>
+
+			<h5>Conclusion</h5>
+
+			<p>
+				Spatial geometry in CTMT emerges from spectral organization of the phase Hessian
+				under coherence constraints. Early CTMT approximations are recovered exactly
+				as null-, torsional-, and compressive sectors of the mature theory.
+				Light is an adimensional null excitation; the fine-structure constant is a
+				geometric ratio; space itself is what survives compression.
+			</p>
         </article>
     </section>
     <section>
         <h2 title="Click to toggle" id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap">
-			Adimensional Projection of Light via Kernel Rupture Manifold
+			Adimensional Projection of Light via the Kernel Null Manifold
         </h2>
         <article style="display:none">
 			<p>
-				In CTMT, light is not a transported object in spacetime but the
-				<strong>observable projection of a rupture</strong> in charge–phase coherence
-				inside the kernel manifold.
+				In CTMT, light is not a transported object in spacetime, nor is it a collapsing
+				degree of freedom. Instead, light is the
+				<strong>adimensional null-sector projection generated at the boundary of kernel rupture</strong>
+				in the charge–phase manifold.
 			</p>
 
 			<p>
-				Let <span class="math inline">\(q\)</span> be the charge coordinate, <span class="math inline">\( \phi \)</span> the phase coordinate 
-				(action-valued), and <span class="math inline">\( S_\ast \)</span> the kernel action scale.  
-				The kernel expectation is
+				Let <span class="math inline">\(q\)</span> denote the charge coordinate,
+				<span class="math inline">\(\phi\)</span> the action-valued phase,
+				and <span class="math inline">\(S_\ast\)</span> the kernel action scale.
+				Observable amplitudes arise from kernel expectations
 			</p>
 
 			<figure id="eq-12_1" class="equation">
@@ -28130,9 +28373,7 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 				<figcaption><a href="#eq-12_1">Equation (12.1)</a></figcaption>
 			</figure>
 
-			<p>
-				The charge–phase gradient defines the rupture-sensitive kernel axis:
-			</p>
+			<p>The charge–phase gradient defines the principal null transport direction:</p>
 
 			<figure id="eq-12_2" class="equation">
 				<div class="math display">
@@ -28143,34 +28384,31 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 				<figcaption><a href="#eq-12_2">Equation (12.2)</a></figcaption>
 			</figure>
 
-			<p>
-				A light-emitting rupture corresponds to a Fisher curvature rank-drop:
-			</p>
+			<p>Light emission corresponds to a near-null Fisher–Hessian eigenmode:</p>
 
 			<figure id="eq-12_3" class="equation">
 				<div class="math display">
 					\[
 						H v_{\min} = \lambda_{\min} v_{\min},
-						\qquad 
-						\lambda_{\min}\!\to\!0.
+						\qquad
+						\lambda_{\min} \rightarrow 0.
 					\]
 				</div>
 				<figcaption><a href="#eq-12_3">Equation (12.3)</a></figcaption>
 			</figure>
 
 			<p>
-			<strong>Definition:</strong>
-				Light is the adimensional rupture along the softest charge–phase direction.
-				It is the rendered projection of the kernel’s near-null mode.
+				<strong>Definition.</strong>
+				Light is a coherence-preserving excitation confined to the null manifold
+				<span class="math inline">\(\ker H\)</span>.
+				It is generated when compression becomes unstable but transport survives.
+				Light is therefore adimensional: it carries no curvature eigenvalue and
+				admits no intrinsic rest scale.
 			</p>
 
-			<h4>Why Wavelengths Appear — Kernel Curvature Is Not a Free Parameter</h4>
+			<h4>Why Wavelengths Appear — Curvature Ratios, Not Free Parameters</h4>
 
 			<h5>Kernel stiffness scale</h5>
-			<p>
-				Given the action scale <span class="math inline">\(S_\ast\)</span> and local coherence density <span class="math inline">\(\rho_c\)</span>,
-				CTMT dimensional closure yields the intrinsic coherence length:
-			</p>
 
 			<figure id="eq-12_4" class="equation">
 				<div class="math display">
@@ -28181,7 +28419,7 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 				<figcaption><a href="#eq-12_4">Equation (12.4)</a></figcaption>
 			</figure>
 
-			<h5>Rupture wavelength</h5>
+			<h5>Null-sector wavelength</h5>
 
 			<figure id="eq-12_5" class="equation">
 				<div class="math display">
@@ -28193,19 +28431,20 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 				<figcaption><a href="#eq-12_5">Equation (12.5)</a></figcaption>
 			</figure>
 
-			<h5>Why visible light falls at 400–700 nm</h5>
 			<p>
-				The visible range arises where one curvature eigenvalue enters the near-null
-				band while the remaining two coherence axes remain stiff enough for
-				stable Y/Z modulation:
+				Because <span class="math inline">\(\theta_X \in \ker H\)</span>,
+				the wavelength is set exclusively by phase gradient magnitude
+				and coherence density. No mass or compression scale can enter.
 			</p>
+
+			<h5>Visible band selection</h5>
 
 			<figure id="eq-12_6" class="equation">
 				<div class="math display">
 					\[
-						\text{visible} 
+						\text{visible}
 						\;\Longleftrightarrow\;
-						\lambda_{\min}(H) 
+						\lambda_{\min}(H)
 						\sim 10^{-2}\!-\!10^{-4}\cdot\mathrm{median}(\lambda_i).
 					\]
 				</div>
@@ -28222,34 +28461,12 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				The wavelength is not assigned: it <strong>emerges</strong> purely from curvature
-				ratios in the kernel geometry.
+				The visible spectrum arises when exactly one curvature eigenvalue
+				enters the near-null band while the remaining directions remain stiff,
+				stabilizing transport without collapse.
 			</p>
 
-			<h4>Adimensional Rupture Projection</h4>
-			<figure id="eq-12_8" class="equation">
-				<div class="math display">
-					\[
-						X' = \alpha X, 
-						\qquad
-						\gamma(X') = e^{-X'},
-					\]
-				</div>
-				<figcaption><a href="#eq-12_8">Equation (12.8)</a></figcaption>
-			</figure>
-
-			<figure id="eq-12_9" class="equation">
-				<div class="math display">
-					\[
-						\gamma=e^{-1}
-						\;\Longrightarrow\;
-						X'=1.
-					\]
-				</div>
-				<figcaption><a href="#eq-12_9">Equation (12.9)</a></figcaption>
-			</figure>
-
-			<h4>EM Fields as Rupture-Manifold Components</h4>
+			<h4>Electromagnetic Fields as Spectral Projections</h4>
 
 			<figure id="eq-12_10" class="equation">
 				<div class="math display">
@@ -28265,186 +28482,149 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Maxwell equations are limit-case linearisations of the rupture manifold.
+				Maxwell’s equations emerge as the linearized boundary dynamics
+				of the null-sector projection. They describe phase transport
+				orthogonal to rupture directions in the coherence kernel.
 			</p>
-
-			<h4>Coherence Stride and the \(L_Z\) Scale</h4>
-
-			<figure id="eq-12_11" class="equation">
-				<div class="math display">
-					\[
-						L_Z 
-						= L_0
-						\!\left(\frac{Gm_p^2}{k_e e^2}\right)^{\gamma^\ast},
-						\qquad
-						\gamma^\ast\approx 0.343.
-					\]
-				</div>
-				<figcaption><a href="#eq-12_11">Equation (12.11)</a></figcaption>
-			</figure>
-
-			<figure id="eq-12_12" class="equation">
-				<div class="math display">
-					\[
-						L_Z \approx 8.55\times 10^{-16}\ \mathrm{m}.
-					\]
-				</div>
-				<figcaption><a href="#eq-12_12">Equation (12.12)</a></figcaption>
-			</figure>
 
 			<h4>Intensity and Spectral Reach</h4>
 
-			<figure id="eq-12_13" class="equation">
+			<p>
+				In CTMT, optical intensity is not a particle count nor an intrinsic field magnitude.
+				It quantifies the <strong>rate of coherence flux expelled into the null manifold</strong>
+				per unit kernel stiffness. Intensity therefore measures how much phase curvature
+				approaches rupture without completing collapse.
+			</p>
+
+			<p>
+				Let <span class="math inline">\(\rho_c\)</span> denote the local coherence density and
+				<span class="math inline">\(L_Z\)</span> the rupture-resistance (mass–phase) scale.
+				The null-sector wavelength was shown to be
+				<span class="math inline">\(\lambda_{\mathrm{eff}} = \frac{2\pi}{\|\theta_X\|}L_0\)</span>,
+				with <span class="math inline">\(L_0 = (S_\ast/\rho_c)^{1/3}\)</span>.
+			</p>
+
+			<p>The corresponding emitted intensity scales as</p>
+
+			<figure id="eq-12_13_corr" class="equation">
 				<div class="math display">
 					\[
-						\lambda_{\mathrm{eff}} \propto \frac{1}{\rho_c},
-						\qquad
-						I_{\mathrm{rupture}} \propto \frac{E}{L_Z\,\rho_c}.
+						I_{\mathrm{null}}
+						\;\propto\;
+						\frac{\dot{E}_{\mathrm{coh}}}{L_Z}
+						\;\sim\;
+						\frac{1}{L_Z}\,
+						\frac{S_\ast}{\lambda_{\mathrm{eff}}}\,
+						\rho_c^{-1}.
 					\]
 				</div>
-				<figcaption><a href="#eq-12_13">Equation (12.13)</a></figcaption>
+				<figcaption>
+					<a href="#eq-12_13_corr">Equation (12.13) — Intensity as coherence flux per rupture resistance.</a>
+				</figcaption>
 			</figure>
 
-			<h4>Spectral Structure from Curvature Ratios</h4>
+			<p>Two consequences follow immediately:</p>
+
+			<ul>
+				<li>
+					<strong>Spectral reach:</strong>
+					As <span class="math inline">\(\rho_c\)</span> increases, the coherence length
+					<span class="math inline">\(L_0\)</span> decreases, driving
+					<span class="math inline">\(\lambda_{\mathrm{eff}}\)</span> toward shorter wavelengths
+					(UV, X-ray, γ regimes).
+				</li>
+				<li>
+					<strong>Brightness control:</strong>
+					For fixed curvature ratios, intensity decreases with increasing coherence density,
+					explaining why highly ordered media emit shorter but dimmer radiation.
+				</li>
+			</ul>
 
 			<p>
-				Using <a href="#eq-12_5">Equation (12.5)</a>,
-				<span class="math inline">\(\lambda_{\mathrm{eff}}=\tfrac{2\pi}{\|\theta_X\|}L_0\)</span>,
-				each spectral region corresponds to a distinct curvature–stiffness regime
-				of the charge–phase manifold.  
-				The following table lists representative numerical ranges
-				derived from typical coherence densities <span class="math inline">\(\rho_c\)</span>
-				and kernel action scales <span class="math inline">\(S_\ast\)</span>,
-				illustrating how the entire electromagnetic spectrum arises
-				from continuous variation of these two parameters.
+				Importantly, no additional scale is introduced: both wavelength and intensity are
+				fixed by curvature ratios and coherence density alone. This distinguishes CTMT
+				from photon-count or field-amplitude models and renders the theory dimensionally closed.
 			</p>
 
-			<table>
-				<thead>
-					<tr>
-						<th>Spectrum region</th>
-						<th>Wavelength <span class="math inline">\((\lambda_{\mathrm{eff}})\)</span></th>
-						<th>Photon energy <span class="math inline">\((E)\)</span></th>
-						<th>Computation</th>
-						<th>Kernel interpretation</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><strong>Radio / Microwave</strong></td>
-						<td><span class="math inline">\(\gg 10^{-2}\,\mathrm{m}\)</span></td>
-						<td><span class="math inline">\( \ll 10^{-5}\,\mathrm{eV} \)</span></td>
-						<td>
-						<span class="math inline">\(L_0 \sim 10^{-1}\!-\!1\,\mathrm{m},\ \|\theta_X\|\sim 10^{-1}\!-\!10^{-2}\)</span><br/>
-						<span class="math inline">\(\Rightarrow \ \lambda_{\mathrm{eff}} \approx \frac{2\pi}{\|\theta_X\|}L_0 \gtrsim 10^{-2}\,\mathrm{m}\)</span>
-						</td>
-						<td>Large <span class="math inline">\(L_0\)</span>, small <span class="math inline">\(\|\theta_X\|\)</span>; rupture spreads across macro Z‑scale.</td>
-					</tr>
-					<tr>
-						<td><strong>Infrared (IR)</strong></td>
-						<td><span class="math inline">\(10^{-6}\!-\!10^{-4}\,\mathrm{m}\)</span></td>
-						<td><span class="math inline">\(10^{-3}\!-\!10^{-1}\,\mathrm{eV}\)</span></td>
-						<td>
-						<span class="math inline">\(L_0 \sim 10^{-7}\!-\!10^{-6}\,\mathrm{m},\ \|\theta_X\|\sim 0.1\!-\!1\)</span><br/>
-						<span class="math inline">\(\Rightarrow \ \lambda_{\mathrm{eff}} \approx (6.3\!-\!60)\times L_0 \sim 10^{-6}\!-\!10^{-4}\,\mathrm{m}\)</span>
-						</td>
-						<td>Moderate <span class="math inline">\(\rho_c\)</span>; Z‑axis drift dominates rupture projection.</td>
-					</tr>
-					<tr>
-						<td><strong>Visible light</strong></td>
-						<td><span class="math inline">\(400\!-\!700\,\mathrm{nm}\)</span></td>
-						<td><span class="math inline">\(1.65\!-\!3.1\,\mathrm{eV}\)</span></td>
-						<td>
-						<span class="math inline">\(L_0 \sim 80\!-\!120\,\mathrm{nm},\ \|\theta_X\|\sim 1.0\!-\!1.5\)</span><br/>
-						<span class="math inline">\(\Rightarrow \ \lambda_{\mathrm{eff}} \approx \frac{2\pi}{1.0\!-\!1.5}\times(80\!-\!120)\,\mathrm{nm} \approx 400\!-\!700\,\mathrm{nm}\)</span>
-						</td>
-						<td>One curvature eigenvalue near‑null, others stiff; X‑projection tuned to collapse.</td>
-					</tr>
-					<tr>
-						<td><strong>Ultraviolet (UV)</strong></td>
-						<td><span class="math inline">\(10^{-8}\!-\!4\times10^{-7}\,\mathrm{m}\)</span></td>
-						<td><span class="math inline">\(3.1\!-\!100\,\mathrm{eV}\)</span></td>
-						<td>
-						<span class="math inline">\(L_0 \sim 10\!-\!80\,\mathrm{nm},\ \|\theta_X\|\sim 2\!-\!10\)</span><br/>
-						<span class="math inline">\(\Rightarrow \ \lambda_{\mathrm{eff}} \approx \frac{2\pi}{2\!-\!10}\times(10\!-\!80)\,\mathrm{nm} \sim 10\!-\!400\,\mathrm{nm}\)</span>
-						</td>
-						<td>High <span class="math inline">\(\|\theta_X\|\)</span>; rupture sharpens, coherence length shortens.</td>
-					</tr>
-					<tr>
-						<td><strong>X‑rays / Gamma</strong></td>
-						<td><span class="math inline">\(\lt 10^{-10}\,\mathrm{m}\)</span></td>
-						<td><span class="math inline">\(\gt 10^{3}\,\mathrm{eV}\)</span></td>
-						<td>
-						<span class="math inline">\(L_0 \sim 0.1\!-\!5\,\mathrm{nm},\ \|\theta_X\|\sim 10\!-\!10^3\)</span><br/>
-						<span class="math inline">\(\Rightarrow \ \lambda_{\mathrm{eff}} \approx \frac{2\pi}{10\!-\!10^3}\times(0.1\!-\!5)\,\mathrm{nm} \lesssim 0.1\,\mathrm{nm}\)</span>
-						</td>
-						<td>Extreme regime; collapse approaches kernel stiffness limit.</td>
-					</tr>
-				</tbody>
-			</table>
+			<svg viewBox="20 0 560 260" style="max-width:600px"
+				xmlns="http://www.w3.org/2000/svg"
+				role="img"
+				aria-label="CTMT null-sector light generation schematic">
 
-			<h4>Mirror Projection and Shadows</h4>
-			<p>
-				Mirrors impose phase boundary conditions; shadows are rupture <em>omissions</em>, not photon absences.
-			</p>
-
-			<h5>Schematic: Rupture Wavefront, Mirror Reprojection, Shadow Echo</h5>
-
-			<svg width="360" height="140" viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rupture projection schematic">
 				<!-- Axes -->
-				<line x1="20" y1="120" x2="340" y2="120" stroke="#333" stroke-width="1"/>
-				<line x1="20" y1="120" x2="20" y2="20" stroke="#333" stroke-width="1"/>
-				<text x="342" y="124" font-size="10">X</text>
-				<text x="16" y="16" font-size="10">Z</text>
-				<text x="20" y="132" font-size="10">Y</text>
+				<line x1="60" y1="220" x2="460" y2="220" stroke="#333" stroke-width="1"/>
+				<line x1="60" y1="220" x2="60" y2="40" stroke="#333" stroke-width="1"/>
+				<text x="468" y="224" font-size="11">X (charge–phase)</text>
+				<text x="36" y="36" font-size="11">Z (mass–phase)</text>
 
-				<!-- Rupture wavefront (with phase crests) -->
-				<path d="M70 100 Q 90 80,110 100 T150 100 T190 100 T230 100" fill="none" stroke="#1f77b4" stroke-width="2"/>
-				<circle cx="70" cy="100" r="3" fill="#1f77b4"/>
-				<text x="60" y="85" font-size="9" fill="#1f77b4">rupture</text>
+				<!-- Kernel region -->
+				<rect x="80" y="60" width="340" height="140"
+				fill="#e8f0ff" stroke="#4a6fe3" stroke-width="1"/>
+				<text x="90" y="78" font-size="11" fill="#2a4fbf">coherence kernel</text>
 
-				<!-- Mirror plane -->
-				<line x1="250" y1="30" x2="250" y2="120" stroke="#888" stroke-width="3"/>
-				<text x="255" y="42" font-size="9" fill="#888">mirror</text>
+				<!-- Curvature eigenvalues -->
+				<line x1="140" y1="200" x2="140" y2="80" stroke="#999" stroke-dasharray="4,4"/>
+				<line x1="240" y1="200" x2="240" y2="80" stroke="#999" stroke-dasharray="4,4"/>
+				<line x1="340" y1="200" x2="340" y2="80" stroke="#999" stroke-dasharray="4,4"/>
+				<text x="118" y="212" font-size="10">λ₁</text>
+				<text x="218" y="212" font-size="10">λ₂</text>
+				<text x="318" y="212" font-size="10">λ₃ → 0</text>
 
-				<!-- Reprojection arrow -->
+				<!-- Null manifold -->
+				<path d="M80 120 Q 200 100, 420 110"
+					fill="none" stroke="#1f77b4" stroke-width="3"/>
+				<text x="254" y="96" font-size="11" fill="#1f77b4">
+					null manifold (ker H)
+				</text>
+
+				<!-- Rupture boundary -->
+				<line x1="360" y1="60" x2="360" y2="200"
+					stroke="#d62728" stroke-width="2"/>
+				<text x="368" y="72" font-size="11" fill="#d62728">
+					rupture boundary
+				</text>
+
+				<!-- Light propagation arrows -->
 				<defs>
-				<marker id="repro-arrow" markerWidth="8" markerHeight="6" refX="6" refY="3" orient="auto">
-					<path d="M0,0 L8,3 L0,6Z" fill="#d62728"/>
+				<marker id="light-arrow" markerWidth="8" markerHeight="6"
+					refX="6" refY="3" orient="auto">
+					<path d="M0,0 L8,3 L0,6Z" fill="#1f77b4"/>
 				</marker>
 				</defs>
-				<line x1="250" y1="80" x2="210" y2="80" stroke="#d62728" stroke-width="2" marker-end="url(#repro-arrow)"/>
-				<text x="185" y="66" font-size="9" fill="#d62728">X-reprojection</text>
 
-				<!-- Shadow region -->
-				<rect x="266" y="95" width="70" height="20" fill="#000" opacity="0.15"/>
-				<text x="272" y="92" font-size="9" fill="#333">shadow echo</text>
+				<line x1="200" y1="115" x2="300" y2="110"
+					stroke="#1f77b4" stroke-width="2"
+					marker-end="url(#light-arrow)"/>
+				<line x1="300" y1="110" x2="380" y2="108"
+					stroke="#1f77b4" stroke-width="2"
+					marker-end="url(#light-arrow)"/>
+
+				<text x="210" y="140" font-size="11" fill="#1f77b4">
+					coherence transport (light)
+				</text>
+
+				<!-- Coherence density note -->
+				<text x="90" y="190" font-size="10" fill="#333">
+					↑ ρₙ → shorter λ, lower intensity
+				</text>
+
 			</svg>
 
-			<h4>Falsifiability Conditions</h4>
-			<ul>
-				<li>Missing curvature drop at emission <span class="math inline">\(\lambda_{\min}(H_{\mathrm{emit}})\not\downarrow\)</span>.</li>
-				<li>Directional anisotropy beyond coherence resolution <span class="math inline">\(\epsilon_{\mathrm{dir}}\)</span>.</li>
-				<li>Vacuum speed residuals exceeding kernel tolerance <span class="math inline">\(\epsilon_c\)</span>.</li>
-				<li>Time‑of‑flight mismatch exceeding threshold <span class="math inline">\(\epsilon_t\)</span>.</li>
-			</ul>
-
 			<h4>Summary</h4>
+
 			<ul>
-				<li>Light = adimensional projection of a kernel rupture.</li>
-				<li>Wavelength = curvature ratio, not a primitive quantity.</li>
-				<li>EM fields = orthogonal projections of rupture‑manifold axes.</li>
-				<li>Propagation = Z‑pacing, not spacetime transport.</li>
-				<li>Brightness <span class="math inline">\(\propto 1/\rho_c\)</span>.</li>
-				<li>Shadows = rupture omissions.</li>
-				<li>Full theory is dimensionally closed and falsifiable.</li>
+				<li>Light is a null-sector excitation generated at the boundary of rupture.</li>
+				<li>It is adimensional because it resides in <span class="math inline">\(\ker H\)</span>.</li>
+				<li>Wavelengths arise from curvature ratios, not postulates.</li>
+				<li>EM fields are orthogonal phase-gradient projections.</li>
+				<li>Propagation is coherence transport, not spacetime motion.</li>
+				<li>Shadows are coherence omissions, not particle absences.</li>
+				<li>The construction is dimensionally closed and falsifiable.</li>
 			</ul>
 
-			<h3 id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap_1">Electromagnetism as Rupture-Manifold Geometry</h3>
+			<h3 id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap_1">Electromagnetism as Null-Manifold Geometry</h3>
 
-			<p>
-				We begin with the CTMT kernel expectation, repeated for completeness:
-			</p>
+			<p>We begin with the CTMT kernel expectation, repeated for completeness:</p>
 
 			<figure id="eq-12_14" class="equation">
 				<div class="math display">
@@ -28457,7 +28637,9 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 
 			<p>
 				Observable field components arise from derivatives of the phase potential
-				<span class="math inline">\( \phi(q,s,m,t) \)</span> with respect to its internal coordinates:
+				<span class="math inline">\(\phi(q,s,m,t)\)</span> with respect to its internal
+				coherence coordinates. These derivatives parameterize orthogonal phase
+				gradients within the kernel:
 			</p>
 
 			<figure id="eq-12_15" class="equation">
@@ -28472,7 +28654,8 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				The Fisher information curvature governs these observables:
+				The local curvature governing admissible phase evolution is encoded by the
+				Fisher–Hessian operator
 			</p>
 
 			<figure id="eq-12_16" class="equation">
@@ -28485,31 +28668,33 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				A curvature rank-drop along the <span class="math inline">\(q\)</span>-axis,
-				<span class="math inline">\( \lambda_{\min}(H)\!\to\!0 \)</span>,
-				manifests as light emission, while the other axes retain curvature stiffness
-				to support magnetic modulation and kernel pacing.
+				A near-null eigenvalue of <span class="math inline">\(H\)</span> along the
+				charge–phase direction,
+				<span class="math inline">\(\lambda_{\min}(H)\to 0\)</span>,
+				signals the formation of a null transport channel.
+				Light emission corresponds to excitation along this null manifold,
+				while the remaining directions retain curvature stiffness sufficient
+				to support transverse modulation and kernel pacing.
 			</p>
 
 			<h4>Derivation of Field Evolution</h4>
 
-			<p>
-				The kernel evolution law follows from TUCF stationarity:
-			</p>
+			<p>Phase evolution follows from TUCF stationarity, yielding</p>
 
 			<figure id="eq-12_17" class="equation">
 				<div class="math display">
 					\[
 						\partial_t \phi
-						= -\tfrac{1}{2}(\nabla\phi)^{\!\top} H^{-1} (\nabla\phi),
+						= -\tfrac{1}{2}(\nabla\phi)^{\!\top} H^{-1} (\nabla\phi).
 					\]
 				</div>
 				<figcaption><a href="#eq-12_17">Equation (12.17)</a></figcaption>
 			</figure>
 
 			<p>
-				Decomposing the gradient
-				<span class="math inline">\( \nabla\phi=(E_X,B_Y,C_Z) \)</span> gives:
+				Decomposing the phase gradient
+				<span class="math inline">\(\nabla\phi=(E_X,B_Y,C_Z)\)</span>
+				yields
 			</p>
 
 			<figure id="eq-12_18" class="equation">
@@ -28517,16 +28702,19 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 					\[
 						\partial_t \phi
 						= -\tfrac{1}{2}
-						(E_X^2 H_{qq}^{-1}
+						\big(
+						E_X^2 H_{qq}^{-1}
 						+ B_Y^2 H_{ss}^{-1}
-						+ C_Z^2 H_{mm}^{-1}).
+						+ C_Z^2 H_{mm}^{-1}
+						\big).
 					\]
 				</div>
 				<figcaption><a href="#eq-12_18">Equation (12.18)</a></figcaption>
 			</figure>
 
 			<p>
-				Differentiating with respect to <span class="math inline">\(q\)</span>:
+				Differentiating with respect to the charge–phase coordinate
+				<span class="math inline">\(q\)</span> gives
 			</p>
 
 			<figure id="eq-12_19" class="equation">
@@ -28545,23 +28733,23 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Near rupture <span class="math inline">\(H_{qq}^{-1}\!\gg\!H_{ss}^{-1},H_{mm}^{-1}\)</span>, giving
+				In the null-transport regime,
+				<span class="math inline">\(H_{qq}^{-1} \gg H_{ss}^{-1}, H_{mm}^{-1}\)</span>,
+				reducing the dynamics to
 			</p>
 
 			<figure id="eq-12_20" class="equation">
 				<div class="math display">
-				\[
-					\partial_t E_X
-					\approx
-					-\,2H_{qq}^{-1}E_X\,\partial_q E_X .
-				\]
+					\[
+						\partial_t E_X
+						\approx
+						-\,2H_{qq}^{-1}E_X\,\partial_q E_X .
+					\]
 				</div>
 				<figcaption><a href="#eq-12_20">Equation (12.20)</a></figcaption>
 			</figure>
 
-			<p>
-				A small-phase linearisation produces the CTMT wave equation:
-			</p>
+			<p>Linearizing about small phase gradients yields a hyperbolic wave equation</p>
 
 			<figure id="eq-12_21" class="equation">
 				<div class="math display">
@@ -28576,10 +28764,11 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				The corresponding field form is
-				<span class="math inline">\( \partial_t^2 E_X = c^2\,\partial_q^2 E_X \)</span>,
-				and similarly for <span class="math inline">\(B_Y\)</span>.
-				Hence Maxwell-type coupling arises intrinsically:
+				The corresponding field equations,
+				<span class="math inline">\(\partial_t^2 E_X = c^2\,\partial_q^2 E_X\)</span>
+				and analogously for <span class="math inline">\(B_Y\)</span>,
+				reproduce Maxwell-type coupling as the linearized boundary dynamics
+				of null-sector phase transport:
 			</p>
 
 			<figure id="eq-12_22" class="equation">
@@ -28595,9 +28784,9 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			<h4>Polarization from Curvature Eigenstructure</h4>
 
 			<p>
-				Polarization emerges from the 2-D submanifold
-				<span class="math inline">\( \mathcal{M}_\perp=\mathrm{span}\{s,m\} \)</span>
-				with metric
+				Polarization arises from the transverse coherence submanifold
+				<span class="math inline">\(\mathcal{M}_\perp=\mathrm{span}\{s,m\}\)</span>,
+				endowed with metric
 			</p>
 
 			<figure id="eq-12_23" class="equation">
@@ -28616,16 +28805,15 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Equal eigenvalues <span class="math inline">(\(\gamma_1=\gamma_2\))</span> produce circular polarization;
-				unequal values yield linear or elliptical modes.
-				Thus polarization is a direct geometric property of the Fisher metric.
+				Degenerate eigenvalues <span class="math inline">\((\gamma_1=\gamma_2)\)</span>
+				yield circular polarization, while anisotropic curvature produces linear
+				or elliptical modes. Polarization is therefore a direct geometric property
+				of the Fisher metric on the transverse manifold.
 			</p>
 
-			<h4>Speed of Light as Kernel Stiffness</h4>
+			<h4>Speed of Light as Null-Manifold Stiffness</h4>
 
-			<p>
-			From <a href="#eq-12_21">Equation (12.21)</a>, the CTMT light-speed constant satisfies
-			</p>
+			<p>From <a href="#eq-12_21">Equation (12.21)</a>, the CTMT light-speed constant satisfies</p>
 
 			<figure id="eq-12_24" class="equation">
 				<div class="math display">
@@ -28637,76 +28825,97 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Increased curvature stiffness reduces <span class="math inline">\(c\)</span>;
-				softened curvature increases it.
-				In vacuum, Fisher geometry is maximally symmetric,
-				rendering <span class="math inline">\(c\)</span> constant.
-				Speed is therefore a <em>stiffness property of rupture</em>,
-				not a spacetime postulate.
+				The speed of light is therefore fixed by the inverse stiffness of the
+				charge–phase curvature. In vacuum, Fisher geometry is maximally symmetric,
+				rendering <span class="math inline">\(c\)</span> invariant.
+				The constancy of <span class="math inline">\(c\)</span> is thus a property
+				of null-manifold geometry, not a primitive spacetime postulate.
 			</p>
 
-			<h3 id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap_2">Experimental Validation of Light-as-Rupture</h3>
+			<h3 id="sec-12-adimensional-projection-of-light-via-kernel-coherence-collap_2">Experimental Validation of Null-Sector Light Transport</h3>
 
 			<p>
-				The rupture hypothesis predicts measurable curvature signatures distinct
-				from classical wave propagation.
-				Experiments target:
-				curvature rank-drop,
+				CTMT predicts that optical phenomena arise from
+				<strong>null-sector coherence transport generated at the boundary of kernel rupture</strong>,
+				rather than from propagating particles or classical waves.
+				This hypothesis yields measurable curvature signatures
+				distinct from standard field-theoretic descriptions.
+			</p>
+
+			<p>
+				Targeted observables include:
+				curvature eigenvalue softening,
 				coherence-density scaling,
-				Y/Z modulation integrity,
-				adimensional collapse threshold,
-				shadow topology,
+				transverse (Y/Z) modulation integrity,
+				null-sector stability thresholds,
+				shadow coherence topology,
 				reflection-phase preservation,
 				and kernel pacing invariance.
 			</p>
 
-			<h4>Protocol 1 — Detecting Rupture Curvature Drop</h4>
+			<h4>Protocol 1 — Detecting Null-Sector Curvature Softening</h4>
+
 			<p>
-				<strong>Goal:</strong> observe eigenvalue collapse <span class="math inline">\( \lambda_{\min}(H(t)) \lt \alpha\,\mathrm{median}(\lambda_i) \)</span>.
+				<strong>Goal:</strong>
+				detect the formation of a near-null Fisher–Hessian eigenmode during emission,
+				quantified by
+				<span class="math inline">\(\lambda_{\min}(H(t)) \ll \mathrm{median}(\lambda_i)\)</span>.
 			</p>
+
 			<p>
-				<strong>Apparatus:</strong> single-emitter quantum dot with fast interferometric curvature tomography.
+				<strong>Apparatus:</strong>
+				single-emitter quantum dot or color center coupled to ultrafast
+				interferometric curvature tomography.
 			</p>
 
 			<figure id="eq-12_25" class="equation">
 				<div class="math display">
 					\[
 						\lambda_{\min}(H(t))
-						\lt \alpha\,\mathrm{median}(\lambda_i),
-						\qquad \alpha\!\in\![0.1,0.3].
+						\;\lt\;
+						\alpha\,\mathrm{median}(\lambda_i),
+						\qquad
+						\alpha \in [0.1,\,0.3].
 					\]
 				</div>
 				<figcaption><a href="#eq-12_25">Equation (12.25)</a></figcaption>
 			</figure>
 
 			<p>
-				CTMT predicts a rank drop of 2–4 orders within femtoseconds. Absence of such a drop falsifies rupture emission.
+				CTMT predicts rapid eigenvalue softening by 2–4 orders of magnitude
+				on femtosecond timescales.
+				Absence of such softening falsifies null-sector emission.
 			</p>
 
-			<h4>Protocol 2 — Coherence-Density Scaling</h4>
+			<h4>Protocol 2 — Coherence-Density Scaling of Wavelength</h4>
+
 			<p>
-				<strong>Prediction:</strong> <span class="math inline">\( \lambda_{\mathrm{eff}}\propto 1/\rho_c \)</span>.
+				<strong>Prediction:</strong>
+				Null-sector wavelength scales inversely with coherence density,
 			</p>
 
 			<figure id="eq-12_26" class="equation">
 				<div class="math display">
 					\[
 						\lambda_{\mathrm{eff}}
-						= k\,\rho_c^{-1},
+						= k\,\rho_c^{-1}.
 					\]
 				</div>
 				<figcaption><a href="#eq-12_26">Equation (12.26)</a></figcaption>
 			</figure>
 
 			<p>
-				Vary gas density between vacuum and 5 bar;
-				visible fringe spacing must scale linearly with <span class="math inline">\(1/\rho_c\)</span>
-				within 5 % tolerance.
+				Vary gas density continuously between high vacuum and 5 bar.
+				Interference fringe spacing must scale linearly with
+				<span class="math inline">\(1/\rho_c\)</span>
+				within a 5% tolerance.
 			</p>
 
 			<h4>Protocol 3 — Reflection-Phase Preservation</h4>
+
 			<p>
-				<strong>Goal:</strong> verify Y/Z coherence after mirror reflection.
+				<strong>Goal:</strong>
+				verify preservation of transverse coherence under mirror reflection.
 			</p>
 
 			<figure id="eq-12_27" class="equation">
@@ -28720,17 +28929,22 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Any measurable Y/Z decoherence falsifies
-				the mirror-as-projection operator.
+				Any measurable Y/Z decoherence beyond instrumental resolution
+				falsifies the mirror-as-null-projection operator.
 			</p>
 
 			<h4>Protocol 4 — Shadow Coherence Topology</h4>
+
 			<p>
-				<strong>Goal:</strong> map phase structure inside a shadow region.
+				<strong>Goal:</strong>
+				map phase structure within geometric shadow regions.
 			</p>
+
 			<p>
-				<strong>Prediction:</strong> Y/Z modulation persists within the umbra;
-				intensity-only shadows contradict CTMT rupture collapse.
+				<strong>Prediction:</strong>
+				Transverse (Y/Z) phase modulation persists inside the umbra,
+				even where intensity vanishes.
+				Purely intensity-defined shadows contradict null-sector transport.
 			</p>
 
 			<h4>Protocol 5 — Vacuum-Speed Consistency</h4>
@@ -28746,12 +28960,17 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				Residual timing beyond this tolerance indicates incorrect kernel stiffness.
+				Residual timing drift beyond this tolerance indicates
+				incorrect kernel stiffness or anisotropic Fisher geometry.
 			</p>
 
-			<h4>Protocol 6 — Rupture Anisotropy</h4>
+			<h4>Protocol 6 — Null-Sector Isotropy</h4>
+
 			<p>
-				<strong>Prediction:</strong> directional anisotropy <span class="math inline">\(\lt 10^{-3}\)</span>; higher values imply non-isotropic curvature.
+				<strong>Prediction:</strong>
+				directional anisotropy of null transport
+				<span class="math inline">\(< 10^{-3}\)</span>.
+				Larger anisotropy implies non-isotropic curvature structure.
 			</p>
 
 			<h4>Protocol 7 — Spectral Curvature Tomography</h4>
@@ -28768,25 +28987,30 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 			</figure>
 
 			<p>
-				The visible band must satisfy this ratio;
-				deviations falsify curvature-origin spectral mapping.
+				The visible spectrum must satisfy this curvature ratio.
+				Significant deviation falsifies the curvature-origin
+				interpretation of spectral structure.
 			</p>
 
 			<h4>Summary of Experimental Fingerprints</h4>
+
 			<ul>
-				<li>Curvature rank drop during emission.</li>
+				<li>Formation of near-null curvature eigenmodes during emission.</li>
 				<li><span class="math inline">\(\lambda_{\mathrm{eff}} \propto 1/\rho_c\)</span> scaling.</li>
-				<li>Y/Z phase preservation at reflection.</li>
-				<li>Structured (not intensity‑only) shadow coherence.</li>
-				<li>Timing invariance at <span class="math inline">\(10^{-18}\,\mathrm{s}\)</span> scale.</li>
-				<li>Rupture isotropy <span class="math inline">\(\lt 10^{-3}\)</span>.</li>
-				<li>Visible spectrum curvature ratio <span class="math inline">\(10^{-4}\!-\!10^{-2}\)</span>.</li>
+				<li>Preservation of transverse (Y/Z) phase at reflection.</li>
+				<li>Structured shadow coherence beyond intensity loss.</li>
+				<li>Timing invariance at the <span class="math inline">\(10^{-18}\,\mathrm{s}\)</span> level.</li>
+				<li>Null-sector isotropy <span class="math inline">\(< 10^{-3}\)</span>.</li>
+				<li>
+					Visible-spectrum curvature ratio
+					<span class="math inline">\(10^{-4}–10^{-2}\)</span>.
+				</li>
 			</ul>
 
 			<p>
-				These jointly form the falsifiable empirical core of CTMT optics:
-				a framework where light, curvature, and coherence obey one
-				dimensional-closure geometry.
+				Taken together, these measurements define the falsifiable empirical core
+				of CTMT optics: a framework in which light, curvature, and coherence
+				are governed by a single dimensionally closed geometric structure.
 			</p>
         </article>
     </section>
