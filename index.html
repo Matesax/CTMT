@@ -9544,7 +9544,7 @@ return lam, vec
 			</figure>
 
 			<p>
-				In a time-uniform coherence frame (TUCF),
+				In a <a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2d">Time–Uncertainty Compression Framework (TUCF)</a>,
 				<span class="math inline">\(d\nu \approx 0\)</span>,
 				rendering phase-to-frequency ratio the unique invariant temporal quantity.
 				With <span class="math inline">\(v_{\mathrm{sync}}=c\)</span>,
@@ -55331,309 +55331,445 @@ print("Uncertainty variance:", uncertainty_propagation(
 				This transition replaces symbolic tensor contraction with ensemble filtering, enabling faster computation, native rupture modeling, and scalable uncertainty propagation. It allows Einstein-class tensors, field theories, and continuum mechanics to operate within CTMT’s integral framework without loss of physical meaning.
 			</p>
 
-			<h3 id="sec-geometry-formalism_11">Peer-review formalism</h3>
+			<h3 id="sec-geometry-formalism_11">Peer-review Geometry Formalism</h3>
 
-			<strong>Canonical Fisher Geometry: Invariant Ratio, Normalization, and Rank-Regime Signatures</strong>
+			<strong>
+				Canonical Fisher Geometry:
+				Invariant Ratio, Normalization, and Rank-Regime Signatures
+			</strong>
 
 			<p>
-				This section condenses the CTMT core: start from kernel observables, normalize units, define a single invariant ratio,
-				and project it into collapse, modulation, and transport signatures. It is designed for rapid peer‑review:
-				all quantities are dimensionless, rank‑aware, and operationally testable.
+				This section condenses the geometric core of CTMT into a minimal,
+				reviewer-verifiable formalism.
+				Starting from kernel observables, we fix normalization conventions,
+				define a single invariant curvature ratio,
+				and show how collapse, modulation, and transport arise as distinct
+				projections of the same Fisher geometry.
+				All quantities are dimensionless, rank-aware, and operationally testable.
 			</p>
 
-			<h4>Fisher Geometry and Normalization</h4>
+			<h4>Fisher Geometry from Kernel Observables</h4>
 
 			<p>
-				CTMT observables derive from the kernel expectation:
+				CTMT observables are defined as kernel expectations:
 			</p>
 
 			<figure class="equation" id="eq-0a_222">
 				<div class="math display">
-
 					\[
-						O(\Theta) = \mathbb{E}_\xi\!\left[\Xi(\Theta;\xi)\,e^{i\Phi(\Theta;\xi)/S_\ast}\right]
-						\;\;\Rightarrow\;\;
-						H_{ij}(\Theta)
+						O(\Theta)
+						=
+						\mathbb{E}_\xi\!\left[
+							\Xi(\Theta;\xi)\,
+							e^{i\Phi(\Theta;\xi)/S_\ast}
+						\right]
+						\;\;\Longrightarrow\;\;
+						H_{ij}(\Theta).
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_222">Equation (0a.222)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_222">Equation (0a.222)</a> — Kernel observable and induced geometry.
+				</figcaption>
 			</figure>
 
-			<p>
-				The Fisher information matrix is defined as
-			</p>
+			<p>The Fisher information matrix is defined in the standard way as</p>
 
 			<figure class="equation" id="eq-0a_223">
 				<div class="math display">
-
 					\[
-						H_{ij}(\Theta) \equiv \mathbb{E}\!\left[\partial_i \log p(O|\Theta)\,\partial_j \log p(O|\Theta)\right]
-						\;\simeq\; J^\top \Sigma_O^{-1} J
+						H_{ij}(\Theta)
+						\equiv
+						\mathbb{E}\!\left[
+							\partial_i \log p(O|\Theta)\,
+							\partial_j \log p(O|\Theta)
+						\right]
+						\;\simeq\;
+						J^\top \Sigma_O^{-1} J,
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_223">Equation (0a.223)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_223">Equation (0a.223) — Fisher curvature from Jacobian and covariance.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				with Jacobian <span class="math inline">\( J_{ki}=\partial O_k/\partial \Theta_i \)</span> and observable covariance
-				<span class="math inline">\( \Sigma_O \)</span>. Parameters are standardized to unit variance prior to estimating
-				<span class="math inline">\( J \)</span>, ensuring consistent units:
-				<strong>[<span class="math inline">\( H_{ij} \)</span>] = 1</strong>, and all ratios formed from <span class="math inline">\( H \)</span> are dimensionless.
+				Here
+				<span class="math inline">\(J_{ki}=\partial O_k/\partial\Theta_i\)</span>
+				is the observable Jacobian and
+				<span class="math inline">\(\Sigma_O\)</span>
+				the empirical covariance of observables.
+				All parameters are standardized to unit variance prior to estimation,
+				ensuring unit consistency:
+				<strong>[<span class="math inline">\(H_{ij}\)</span>] = 1</strong>.
+				Consequently, all scalar ratios derived from <span class="math inline">\(H\)</span>
+				are dimensionless and invariant under rescaling.
 			</p>
 
-			<h4>Canonical Invariant (Non‑Circular)</h4>
+			<h4>Canonical Invariant (Non-Circular)</h4>
 
-			<p>Define the rank‑aware Fisher curvature ratio:</p>
+			<p>
+				Define the rank-aware Fisher curvature invariant
+			</p>
 
 			<figure class="equation" id="eq-0a_224">
 				<div class="math display">
-
 					\[
-						\Lambda \equiv \frac{\rho_S}{\rho_\Phi}
+						\Lambda
 						\;\equiv\;
-						\frac{\operatorname{tr}(H)}{p\,|\det H|^{1/r}}, \qquad r=\operatorname{rank}(H)
+						\frac{\rho_S}{\rho_\Phi}
+						\;\equiv\;
+						\frac{\operatorname{tr}(H)}
+							 {p\,|\det H|^{1/r}},
+						\qquad
+						r=\operatorname{rank}(H).
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_224">Equation (0a.224)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_224">Equation (0a.224) — Canonical Fisher curvature ratio.</a>
+				</figcaption>
 			</figure>
 
-			<p>Properties:</p>
+			<p>
+				This ratio has four key properties critical for peer review:
+			</p>
+
 			<ul>
-				<li><strong>Coordinate invariant:</strong> reparameterizations of <span class="math inline">\( \Theta \)</span> leave <span class="math inline">\( \Lambda \)</span> unchanged (cf. entropy invariance, <a href="#eq-0a_213">Eq. 0a.213</a>).</li>
-				<li><strong>Rank‑aware:</strong> explicit dependence on <span class="math inline">\( r \)</span>.</li>
-				<li><strong>Dimensionless:</strong> unit‑closed by construction.</li>
-				<li><strong>Non‑circular:</strong> defined purely from likelihood geometry.</li>
+				<li>
+					<strong>Coordinate invariant:</strong>
+					reparameterizations of <span class="math inline">\(\Theta\)</span>
+					leave <span class="math inline">\(\Lambda\)</span> unchanged
+					(cf. entropy invariance, <a href="#eq-0a_213">Eq.&nbsp;0a.213</a>).
+				</li>
+				<li>
+					<strong>Rank-aware:</strong>
+					explicit dependence on <span class="math inline">\(r\)</span>
+					ensures well-defined behavior under degeneracy.
+				</li>
+				<li>
+					<strong>Dimensionless:</strong>
+					unit-closed by construction.
+				</li>
+				<li>
+					<strong>Non-circular:</strong>
+					defined purely from likelihood geometry,
+					with no reference to collapse, transport, or dynamics.
+				</li>
 			</ul>
 
-			<h4>3. Rank Regimes and Falsification Targets</h4>
+			<p>
+				All subsequent physical statements in CTMT reduce to projections of
+				<span class="math inline">\(\Lambda\)</span> and the spectrum of
+				<span class="math inline">\(H\)</span>.
+			</p>
 
-			<p>Let the rank fraction be <span class="math inline">\( R_F \equiv r/p \)</span>. Experiments must fall into one regime:</p>
+			<h4>Rank Regimes and Falsification Targets</h4>
+
+			<p>
+				Define the rank fraction
+				<span class="math inline">\(R_F \equiv r/p\)</span>.
+				Any empirical system must fall into one of the following regimes:
+			</p>
 
 			<table>
 				<thead>
-					<tr><th>Regime</th><th>Criterion</th><th>Prediction</th></tr>
+					<tr>
+						<th>Regime</th>
+						<th>Criterion</th>
+						<th>Prediction</th>
+					</tr>
 				</thead>
 				<tbody>
-					<tr><td>Flat / SM‑like</td><td><span class="math inline">\( R_F \simeq 1,\;\Lambda\simeq 1 \)</span></td><td>Standard Model boundary sector</td></tr>
-					<tr><td>Curved / coherent</td><td><span class="math inline">\( R_F < 1,\;\Lambda = O(1) \)</span></td><td>Controlled deviations (RG, mixing)</td></tr>
-					<tr><td>Collapse</td><td><span class="math inline">\( R_F \downarrow,\;\Lambda \to 0 \)</span></td><td>Finite‑time loss of coherence (contrast: SM assumes unitarity with <span class="math inline">\( R_F=1 \)</span>)</td></tr>
+					<tr>
+						<td>Flat / SM-like</td>
+						<td><span class="math inline">\(R_F \simeq 1,\;\Lambda \simeq 1\)</span></td>
+						<td>Standard-Model boundary sector</td>
+					</tr>
+					<tr>
+						<td>Curved / coherent</td>
+						<td><span class="math inline">\(R_F &lt; 1,\;\Lambda = O(1)\)</span></td>
+						<td>Controlled deviations (mixing, RG flow, coherence)</td>
+					</tr>
+					<tr>
+						<td>Collapse</td>
+						<td><span class="math inline">\(R_F \downarrow,\;\Lambda \to 0\)</span></td>
+						<td>Finite-time loss of coherence (contrast: SM assumes unitarity with <span class="math inline">\(R_F=1\)</span>)</td>
+					</tr>
 				</tbody>
 			</table>
 
-			<h4>Geometry Projections</h4>
-
-			<h5>Collapse geometry</h5>
 			<p>
-				Stationary‑phase kernels select localized contributions with amplitude
-				<span class="math inline">\( A \propto |\det H|^{-1/2} \)</span>.
-				Fisher rank loss implies visibility collapse.
-				<strong>Test:</strong> measured fringe visibility scales with <span class="math inline">\( |\det H|^{-1/2} \)</span>.
+				These regimes are mutually exclusive and exhaust all possibilities,
+				providing a clean falsification structure.
 			</p>
 
-			<h5>Modulation geometry</h5>
+			<h4>Geometry Projections</h4>
+
+			<h5>Collapse Geometry</h5>
+
 			<p>
-				With phase‑sensitive direction <span class="math inline">\( u_\phi \propto \partial O/\partial \phi \)</span>,
-				define blocks <span class="math inline">\( F_\parallel = u_\phi u_\phi^\top H u_\phi u_\phi^\top \)</span>,
-				<span class="math inline">\( F_\perp = H - F_\parallel \)</span>.
-				Modulation strength:
+				In the stationary-phase approximation, kernel amplitudes scale as
+				<span class="math inline">\(A \propto |\det H|^{-1/2}\)</span>.
+				Fisher rank loss therefore implies visibility collapse.
+			</p>
+
+			<p>
+				<strong>Experimental test:</strong>
+				measured fringe visibility must scale with
+				<span class="math inline">\( |\det H|^{-1/2} \)</span>.
+				Failure of this scaling falsifies CTMT.
+			</p>
+
+			<h5>Modulation Geometry</h5>
+
+			<p>
+				Let <span class="math inline">\(u_\phi \propto \partial O/\partial\phi\)</span>
+				denote the phase-sensitive direction.
+				Define Fisher blocks
+				<span class="math inline">\(F_\parallel = u_\phi u_\phi^\top H u_\phi u_\phi^\top\)</span>
+				and
+				<span class="math inline">\(F_\perp = H - F_\parallel\)</span>.
+				The modulation strength is
 			</p>
 
 			<figure class="equation" id="eq-0a_225">
 				<div class="math display">
-
 					\[
-						S_{\mathrm{mod}} = \frac{\operatorname{tr}(F_\perp)}{\lambda_{\max}(F_\parallel)},
-						\qquad \text{linewidth} \;\propto\; S_{\mathrm{mod}}^{-1}
+						S_{\mathrm{mod}}
+						=
+						\frac{\operatorname{tr}(F_\perp)}
+							 {\lambda_{\max}(F_\parallel)},
+						\qquad
+						\text{linewidth} \propto S_{\mathrm{mod}}^{-1}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_225">Equation (0a.225)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_225">Equation (0a.225) — Modulation strength.</a>
+				</figcaption>
 			</figure>
 
-			<h5>Transport geometry (coherence cone)</h5>
-			<p>
-				Effective metric from phase Hessian:
-			</p>
+			<h5>Transport Geometry (Coherence Cone)</h5>
+
+			<p>The effective transport metric arises from the phase Hessian:</p>
 
 			<figure class="equation" id="eq-0a_226">
 				<div class="math display">
-
 					\[
-						g_{\mu\nu}(x) = \partial_\mu\partial_\nu \Phi(x)
-						\;\sim\; P_\mu^{\;i} H_{ij} P_\nu^{\;j}
+						g_{\mu\nu}(x)
+						=
+						\partial_\mu\partial_\nu\Phi(x)
+						\;\sim\;
+						P_\mu^{\;i} H_{ij} P_\nu^{\;j},
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_226">Equation (0a.226)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_226">Equation (0a.226) — Transport metric from Fisher curvature.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				with projection <span class="math inline">\( P \)</span> from parameter space to observables.
-				Hyperbolicity requires <span class="math inline">\( \operatorname{sig}(g)=(-,+,+,+) \)</span> iff
-				<span class="math inline">\( H \)</span> has one dominant negative mode (after Wick rotation).
-				Curvature‑preserving diffeomorphisms reduce to unitary subgroups (Appendix A.2),
-				recovering <span class="math inline">\( U(1)\times SU(2)\times SU(3) \)</span>.
+				Hyperbolicity requires Lorentzian signature
+				<span class="math inline">\((-,+,+,+)\)</span>,
+				which occurs iff the Fisher spectrum contains one dominant negative mode
+				(after Wick rotation).
+				Curvature-preserving diffeomorphisms reduce to unitary subgroups
+				(Appendix A.2), recovering
+				<span class="math inline">\(U(1)\times SU(2)\times SU(3)\)</span>.
 			</p>
 
 			<h4>Proper Time and Horizon Bounds</h4>
 
-			<p>Kernel proper time:</p>
+			<p>Define kernel proper time as</p>
 
 			<figure class="equation" id="eq-0a_227">
 				<div class="math display">
-
 					\[
-						\tau(t) = \int_0^t \lambda_{\max}(F_\parallel(t'))\,dt',
-						\qquad \tau/t \;\;\text{dimensionless (dilation index)}
+						\tau(t)
+						=
+						\int_0^t \lambda_{\max}(F_\parallel(t'))\,dt',
+						\qquad
+						\tau/t\;\text{dimensionless}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_227">Equation (0a.227)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_227">Equation (0a.227) — Kernel proper time.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Curvature gradient ratio:
-				<span class="math inline">\( \chi_F = \ell_\parallel \|\nabla H\|/\|H\| \)</span>.
-				Coherence time bound:
+				Define the curvature-gradient ratio
+				<span class="math inline">\(\chi_F = \ell_\parallel \|\nabla H\|/\|H\|\)</span>.
+				The coherence-time bound is
 			</p>
 
 			<figure class="equation" id="eq-0a_228">
 				<div class="math display">
-
 					\[
-						T_{\mathrm{coh}} \;\lesssim\; \frac{1}{\gamma\,\chi_F}
-						\quad (\text{up to } O(1)\;\text{window constants})
+						T_{\mathrm{coh}}
+						\;\lesssim\;
+						\frac{1}{\gamma\,\chi_F}
+						\quad
+						(\text{up to } O(1)\ \text{window constants}).
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_228">Equation (0a.228)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_228">Equation (0a.228) — Coherence horizon bound.</a>
+				</figcaption>
 			</figure>
 
-			<h4>Numerical Stability</h4>
+			<h4>Numerical Stability and Implementation</h4>
 
 			<ul>
-				<li><strong>Regularization:</strong> truncated SVD for <span class="math inline">\( H^+ \)</span> with cutoff <span class="math inline">\( \varepsilon \)</span>.</li>
-				<li><strong>Phase extraction:</strong> Hilbert/quadrature <span class="math inline">\( \phi = \arctan(Q/I) \)</span>.</li>
-				<li><strong>Gradients:</strong> adjacent‑window finite differences.</li>
+				<li><strong>Regularization:</strong> truncated SVD for <span class="math inline">\(H^+\)</span> with cutoff <span class="math inline">\(\varepsilon\)</span>.</li>
+				<li><strong>Phase extraction:</strong> Hilbert/quadrature methods, <span class="math inline">\(\phi=\arctan(Q/I)\)</span>.</li>
+				<li><strong>Gradients:</strong> adjacent-window finite differences.</li>
 				<li><strong>Norms:</strong> spectral norm used consistently.</li>
 			</ul>
 
-			<h4>Cross‑Scale Checks</h4>
+			<h4>Cross-Scale Validation</h4>
 
 			<ul>
-				<li><strong>Lab resonator:</strong> linewidth <span class="math inline">\( \Delta\omega \propto \lambda_{\max}(F_\parallel)^{-1/2} \)</span>, phase noise <span class="math inline">\( \sigma_\phi^2 \ge (F_\parallel)^{-1} \)</span>.</li>
-				<li><strong>Stochastic extinction:</strong> survival <span class="math inline">\( P(t) = \exp\!\left(-\int_0^t \Gamma(t')\,dt'\right) \)</span>, with <span class="math inline">\( \Gamma \sim (-\dot{\log\det H})_+ \)</span>.</li>
+				<li>
+					<strong>Laboratory resonators:</strong>
+					<span class="math inline">\(\Delta\omega \propto \lambda_{\max}(F_\parallel)^{-1/2}\)</span>,
+					<span class="math inline">\(\sigma_\phi^2 \ge (F_\parallel)^{-1}\)</span>.
+				</li>
+				<li>
+					<strong>Stochastic extinction:</strong>
+					<span class="math inline">\(P(t)=\exp(-\int_0^t\Gamma(t')dt')\)</span>,
+					with <span class="math inline">\(\Gamma\sim(-\dot{\log\det H})_+\)</span>.
+				</li>
 			</ul>
 
 			<p>
-				These checks demonstrate CTMT’s predictions are falsifiable across both laboratory and ecological scales,
-				using the same invariant ratio <span class="math inline">\( \Lambda \)</span>.
+				The same invariant
+				<span class="math inline">\(\Lambda\)</span>
+				governs laboratory, mesoscopic, and ecological systems.
 			</p>
 
 			<h4>Summary</h4>
 
 			<p>
-				One invariant (<span class="math inline">\( \Lambda \)</span>), one geometry (Fisher curvature), three projections (collapse, modulation, transport).
-				All quantities are unit‑closed and dimensionless, with explicit rank‑awareness and falsifiable bounds.
-				This provides a rapid, reviewer‑ready overview of CTMT’s machinery.
+				CTMT reduces physical behavior to one invariant
+				(<span class="math inline">\(\Lambda\)</span>),
+				one geometry (Fisher curvature),
+				and three projections (collapse, modulation, transport).
+				All quantities are unit-closed, rank-aware, and falsifiable.
 			</p>
 
 			<figure class="equation" id="eq-0a_229">
 				<div class="math display">
-
 					\[
-						\text{CTMT Ontology} =
-						\{\Lambda,\; H,\; R_F\}
-						\;\;\Rightarrow\;\;
-						\{\text{Collapse},\;\text{Modulation},\;\text{Transport}\}
+						\text{CTMT Ontology}
+						=
+						\{\Lambda,\;H,\;R_F\}
+						\;\Longrightarrow\;
+						\{\text{Collapse},\;\text{Modulation},\;\text{Transport}\}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_229">Equation (0a.229)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_229">Equation (0a.229)</a>
+				</figcaption>
 			</figure>
 
 			<figure class="equation" id="eq-0a_230">
 				<div class="math display">
-
 					\[
-						\Psi_{\mathrm{seed}} \;\;\Rightarrow\;\; H_{ij} \;\;\Rightarrow\;\;
-						\{\text{Curvature},\;\text{Collapse},\;\text{Relativity}\}
+						\Psi_{\mathrm{seed}}
+						\;\Longrightarrow\;
+						H_{ij}
+						\;\Longrightarrow\;
+						\{\text{Curvature},\;\text{Collapse},\;\text{Relativity}\}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_230">Equation (0a.230)</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_230">Equation (0a.230)</a>
+				</figcaption>
 			</figure>
 
 			<p style="font-weight:600;">
-				Thus CTMT reduces causality, collapse, and coherence to pure geometry and logic:
-				invariant Fisher curvature flows determine what can propagate, what can persist, and what must collapse.
+				CTMT therefore reduces causality, collapse, and coherence
+				to invariant information geometry:
+				Fisher curvature flows determine what can propagate,
+				what can persist, and what must collapse.
 			</p>
 
 			<hr />
 
-			<h4>Collapse Geometry: Fisher Rank, Curvature, and Finite-Time Coherence Loss</h4>
+			<h4>Collapse Geometry: Fisher Rank, Curvature Thinning, and Finite-Time Coherence Loss</h4>
 
 			<p>
-				Collapse geometry in CTMT is not postulated as an external measurement axiom.
-				It emerges as a <strong>rank instability of the Fisher curvature</strong> associated
-				with a local kernel model of observables.
-				This section canonizes collapse as a geometric, testable, and finite-time phenomenon
-				governed entirely by likelihood curvature.
+				In CTMT, collapse is not introduced as a measurement postulate
+				or observer-dependent axiom.
+				It emerges as a <strong>rank instability of Fisher curvature</strong>
+				associated with a local kernel model of observables.
+				This section formalizes collapse as a geometric, testable,
+				and finite-time phenomenon governed entirely by likelihood curvature.
 			</p>
 
 			<h5>Canonical Objects and Normalization</h5>
 
 			<p>
-				Let <span class="math inline">\(O(t;\Theta)\)</span> denote an observable time series
+				Let <span class="math inline">\(O(t;\Theta)\)</span> denote a measured observable time series
 				generated by a kernel model with parameters
 				<span class="math inline">\(\Theta \in \mathbb{R}^p\)</span>.
-				Parameters are standardized to unit variance before differentiation.
+				Parameters are standardized to unit variance prior to differentiation,
+				ensuring dimensionless curvature.
 			</p>
 
-			<div class="math display">
-				\[
-					H_{ij}(\Theta)
-					=
-					\mathbb{E}\!\left[
-					\partial_i \log p(O|\Theta)\;
-					\partial_j \log p(O|\Theta)
-					\right]
-					\;\simeq\;
-					J^\top \Sigma_O^{-1} J ,
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						H_{ij}(\Theta)
+						=
+						\mathbb{E}\!\left[
+							\partial_i \log p(O|\Theta)\,
+							\partial_j \log p(O|\Theta)
+						\right]
+						\;\simeq\;
+						J^\top \Sigma_O^{-1} J,
+					\]
+				</div>
+			</figure>
 
 			<p>
-				where <span class="math inline">\(J_{ki}=\partial O_k/\partial\Theta_i\)</span>
-				and <span class="math inline">\(\Sigma_O\)</span> is the observable covariance.
-				After normalization, <span class="math inline">\(H\)</span> is dimensionless.
+				Here
+				<span class="math inline">\(J_{ki}=\partial O_k/\partial\Theta_i\)</span>
+				and
+				<span class="math inline">\(\Sigma_O\)</span>
+				is the empirical covariance of observables.
+				After normalization,
+				<span class="math inline">\(H\)</span> is dimensionless and
+				admits a well-defined spectrum and rank.
 			</p>
 
-			<h5>Collapse Invariant (Canonical)</h5>
+			<h5>Collapse Curvature Invariant (Canonical)</h5>
 
 			<p>
-				We define the <strong>collapse curvature invariant</strong> as
+				Define the <strong>collapse curvature invariant</strong>
 			</p>
 
-			<div class="math display">
-				\[
-					\boxed{
-					\Lambda_{\mathrm{coll}}
-					=
-					\frac{|\det H|^{1/r}}{\mathrm{tr}(H)/p}
-					}
-					\qquad
-					r = \mathrm{rank}(H).
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\boxed{
+						\Lambda_{\mathrm{coll}}
+						=
+						\frac{|\det H|^{1/r}}
+							 {\operatorname{tr}(H)/p}
+						},
+						\qquad
+						r=\operatorname{rank}(H).
+					\]
+				</div>
+			</figure>
 
 			<p>
-				This ratio compares the geometric mean curvature (sensitive to rank loss)
-				to the arithmetic mean curvature (statistical scale).
-				It is coordinate-invariant, dimensionless, and explicitly rank-aware.
+				This invariant compares the geometric mean curvature
+				(sensitive to rank loss)
+				with the arithmetic mean curvature
+				(statistical scale).
+				It is coordinate-invariant, dimensionless,
+				and explicitly rank-aware.
 			</p>
 
 			<h5>Rank Regimes and Collapse Criterion</h5>
@@ -55641,7 +55777,7 @@ print("Uncertainty variance:", uncertainty_propagation(
 			<p>
 				Define the <strong>rank fraction</strong>
 				<span class="math inline">\(R_F = r/p\)</span>.
-				CTMT predicts three distinct regimes:
+				CTMT predicts three mutually exclusive regimes:
 			</p>
 
 			<table>
@@ -55655,85 +55791,108 @@ print("Uncertainty variance:", uncertainty_propagation(
 				<tbody>
 					<tr>
 						<td>Stable coherence</td>
-						<td><span class="math inline">\(R_F \approx 1,\;\Lambda_{\mathrm{coll}} \sim 1\)</span></td>
-						<td>No collapse; oscillations persist</td>
+						<td>
+							<span class="math inline">\(R_F \approx 1,\;\Lambda_{\mathrm{coll}} = O(1)\)</span>
+						</td>
+						<td>Persistent oscillations, no collapse</td>
 					</tr>
 					<tr>
 						<td>Critical curvature</td>
-						<td><span class="math inline">\(R_F < 1,\;\Lambda_{\mathrm{coll}} \ll 1\)</span></td>
-						<td>High collapse susceptibility</td>
+						<td>
+							<span class="math inline">\(R_F \lt 1,\;\Lambda_{\mathrm{coll}} \ll 1\)</span>
+						</td>
+						<td>High susceptibility to collapse</td>
 					</tr>
 					<tr>
 						<td>Collapse</td>
-						<td><span class="math inline">\(\det H \to 0\)</span></td>
-						<td>Finite-time coherence loss</td>
+						<td>
+							<span class="math inline">\(\det H \to 0\)</span>
+						</td>
+						<td>Finite-time loss of coherence</td>
 					</tr>
 				</tbody>
 			</table>
 
 			<p>
 				<strong>Falsification rule:</strong>
-				if collapse is observed while <span class="math inline">\(\det H\)</span>
-				remains bounded away from zero, CTMT fails.
+				if collapse is observed while
+				<span class="math inline">\(\det H\)</span>
+				remains bounded away from zero,
+				CTMT is falsified.
 			</p>
 
 			<h5>Stationary-Phase Collapse Mechanism</h5>
 
 			<p>
-				Kernel amplitudes admit a stationary-phase approximation
+				Kernel amplitudes admit a stationary-phase approximation:
 			</p>
 
-			<div class="math display">
-				\[
-					\Psi \;\sim\; \int e^{i\Phi(\Theta)} d\Theta
-					\;\propto\;
-					|\det H|^{-1/2}.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\Psi
+						\;\sim\;
+						\int e^{i\Phi(\Theta)}\,d\Theta
+						\;\propto\;
+						|\det H|^{-1/2}.
+					\]
+				</div>
+			</figure>
 
 			<p>
-				As Fisher rank decreases, amplitudes diverge or localize,
-				producing effective projection onto a reduced subspace.
-				Collapse is therefore a geometric consequence of curvature thinning,
-				not an external axiom.
+				As Fisher rank decreases,
+				the determinant shrinks and the stationary contribution
+				localizes onto a lower-dimensional subspace.
+				Collapse therefore arises as a geometric consequence
+				of curvature thinning,
+				not as an externally imposed projection rule.
 			</p>
 
 			<h5>Modulation Strength and Collapse Onset</h5>
 
 			<p>
-				Let <span class="math inline">\(u_\phi \propto \partial O/\partial\phi\)</span>
+				Let
+				<span class="math inline">\(u_\phi \propto \partial O/\partial\phi\)</span>
 				denote the phase-sensitive direction.
 				Decompose Fisher curvature into longitudinal and transverse blocks:
 			</p>
 
-			<div class="math display">
-				\[
-					F_{\parallel}
-					=
-					u_\phi u_\phi^\top H u_\phi u_\phi^\top,
-					\qquad
-					F_{\perp}
-					=
-					H - F_{\parallel}.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						F_{\parallel}
+						=
+						u_\phi u_\phi^\top H u_\phi u_\phi^\top,
+						\qquad
+						F_{\perp}
+						=
+						H - F_{\parallel}.
+					\]
+				</div>
+			</figure>
 
 			<p>
 				Define the <strong>modulation strength</strong>
 			</p>
 
-			<div class="math display">
-				\[
-					S_{\mathrm{mod}}
-					=
-					\omega^2 \gamma^2
-					\frac{\lambda_{\min}(F_{\perp})}{\lambda_{\max}(F_{\parallel})}.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						S_{\mathrm{mod}}
+						=
+						\frac{\omega^2}{\gamma^2}
+						\frac{\lambda_{\min}(F_{\perp})}
+							 {\lambda_{\max}(F_{\parallel})}.
+					\]
+				</div>
+			</figure>
 
 			<p>
-				Large <span class="math inline">\(S_{\mathrm{mod}}\)</span> predicts persistent coherence;
-				<span class="math inline">\(S_{\mathrm{mod}}\to 0\)</span> predicts imminent collapse.
+				Large
+				<span class="math inline">\(S_{\mathrm{mod}}\)</span>
+				implies persistent coherence;
+				<span class="math inline">\(S_{\mathrm{mod}}\to 0\)</span>
+				signals imminent collapse.
 			</p>
 
 			<h5>Finite-Time Collapse Horizon</h5>
@@ -55742,127 +55901,183 @@ print("Uncertainty variance:", uncertainty_propagation(
 				Define the curvature-gradient ratio
 			</p>
 
-			<div class="math display">
-				\[
-					\chi_F
-					=
-					\frac{\ell\,\|\nabla H\|}{\|H\|},
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\chi_F
+						=
+						\frac{\ell\,\|\nabla H\|}
+							 {\|H\|},
+					\]
+				</div>
+			</figure>
 
 			<p>
-				where <span class="math inline">\(\ell\)</span> is the coherence window.
+				where <span class="math inline">\(\ell\)</span>
+				is the coherence window.
 				CTMT predicts a finite collapse horizon:
 			</p>
 
-			<div class="math display">
-				\[
-					\boxed{
-					T_{\mathrm{coh}}
-					\;\lesssim\;
-					\frac{1}{\gamma\,\chi_F}
-					}
-					\quad
-					(\text{up to order-one window constants}).
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\boxed{
+						T_{\mathrm{coh}}
+						\;\lesssim\;
+						\frac{1}{\gamma\,\chi_F}
+						}
+						\quad
+						(\text{up to } O(1)\ \text{window constants}).
+					\]
+				</div>
+			</figure>
 
 			<p>
-				This inequality is directly testable by comparing predicted and observed
+				This bound is directly testable
+				by comparing predicted and observed
 				phase decorrelation times.
 			</p>
 
-			<h5>Proper Time Slowdown Near Collapse</h5>
+			<h5>Proper-Time Slowdown Near Collapse</h5>
 
 			<p>
-				Collapse geometry induces a coherence-defined proper time
+				Collapse geometry induces a coherence-defined proper time:
 			</p>
 
-			<div class="math display">
-				\[
-					\tau(t)
-					=
-					\int_0^t
-					\sqrt{\lambda_{\max}(F_{\parallel}(t'))}\,dt'.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\tau(t)
+						=
+						\int_0^t
+						\sqrt{\lambda_{\max}(F_{\parallel}(t'))}\,dt'.
+					\]
+				</div>
+			</figure>
 
 			<p>
-				As rank thins,
-				<span class="math inline">\(\lambda_{\max}(F_{\parallel})\)</span> grows,
-				slowing <span class="math inline">\(\tau\)</span> relative to coordinate time.
-				This predicts redshift-like effects without metric postulates.
+				As Fisher rank thins,
+				<span class="math inline">\(\lambda_{\max}(F_{\parallel})\)</span>
+				increases,
+				slowing
+				<span class="math inline">\(\tau\)</span>
+				relative to coordinate time.
+				This produces redshift-like behavior
+				without invoking spacetime metric postulates.
 			</p>
 
 			<h5>Null-Projection Diagnostic</h5>
 
 			<p>
-				Define the pseudoinverse using truncated SVD with cutoff <span class="math inline">\(\varepsilon\)</span>:
+				Define the pseudoinverse via truncated SVD
+				with cutoff
+				<span class="math inline">\(\varepsilon\)</span>:
 			</p>
 
-			<div class="math display">
-				\[
-					\Pi_{\mathrm{null}}
-					=
-					I - H H^{+}.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						\Pi_{\mathrm{null}}
+						=
+						I - H H^{+}.
+					\]
+				</div>
+			</figure>
 
 			<p>
-				For a normalized kernel seed <span class="math inline">\(\Psi_{\mathrm{seed}}\)</span>,
+				For a normalized kernel seed
+				<span class="math inline">\(\Psi_{\mathrm{seed}}\)</span>,
 				define the null residual
 			</p>
 
-			<div class="math display">
-				\[
-					r_{\mathrm{null}}
-					=
-					\frac{\|\Pi_{\mathrm{null}}\Psi_{\mathrm{seed}} - \Psi_{\mathrm{seed}}\|}
-					{\|\Psi_{\mathrm{seed}}\|}.
-				\]
-			</div>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						r_{\mathrm{null}}
+						=
+						\frac{
+							\|\Pi_{\mathrm{null}}\Psi_{\mathrm{seed}}
+							-
+							\Psi_{\mathrm{seed}}\|
+						}{
+							\|\Psi_{\mathrm{seed}}\|
+						}.
+					\]
+				</div>
+			</figure>
 
 			<p>
-				Large <span class="math inline">\(r_{\mathrm{null}}\)</span> signals strong curvature
-				pressure toward collapse directions.
+				Large
+				<span class="math inline">\(r_{\mathrm{null}}\)</span>
+				signals strong curvature pressure
+				toward collapse directions.
 			</p>
 
 			<h5>Worked Examples</h5>
 
 			<h6>Example A: Stable Oscillator (Mains Hum)</h6>
 			<ul>
-				<li>Measured: <span class="math inline">\(\omega \approx 2\pi \cdot 50\,\mathrm{Hz}\)</span>, small <span class="math inline">\(\gamma\)</span></li>
-				<li>Observed: full-rank <span class="math inline">\(H\)</span>, <span class="math inline">\(\Lambda_{\mathrm{coll}}\sim 1\)</span></li>
-				<li>Prediction: no collapse, long coherence time</li>
+				<li>
+					Measured:
+					<span class="math inline">\(\omega \approx 2\pi \cdot 50\,\mathrm{Hz}\)</span>,
+					small
+					<span class="math inline">\(\gamma\)</span>
+				</li>
+				<li>
+					Observed:
+					full-rank
+					<span class="math inline">\(H\)</span>,
+					<span class="math inline">\(\Lambda_{\mathrm{coll}} = O(1)\)</span>
+				</li>
+				<li>
+					Prediction:
+					no collapse; long coherence time
+				</li>
 			</ul>
 
 			<h6>Example B: Load-Modulated Motor</h6>
 			<ul>
-				<li>Observed: drifting phase, increasing <span class="math inline">\(\chi_F\)</span></li>
-				<li>Measured: declining <span class="math inline">\(\det H\)</span></li>
-				<li>Prediction: finite-time loss of phase coherence</li>
+				<li>
+					Observed:
+					drifting phase,
+					increasing
+					<span class="math inline">\(\chi_F\)</span>
+				</li>
+				<li>
+					Measured:
+					declining
+					<span class="math inline">\(\det H\)</span>
+				</li>
+				<li>
+					Prediction:
+					finite-time loss of phase coherence
+				</li>
 			</ul>
 
-			<h6>Example C: Survival Data (Non-Quantum)</h6>
+			<h6>Example C: Survival and Reliability Data</h6>
+
 			<p>
-				In population extinction or reliability data,
-				hazard rate satisfies
+				In extinction and reliability datasets,
+				the hazard rate satisfies
 				<span class="math inline">\(\Gamma(t)\sim(-\dot{\log\det H})_+\)</span>,
-				demonstrating collapse geometry beyond quantum systems.
+				demonstrating collapse geometry
+				far beyond quantum systems.
 			</p>
 
 			<h5>Falsifiability Summary</h5>
 
 			<ul>
-				<li><strong>F1:</strong> Collapse without rank loss → CTMT falsified</li>
-				<li><strong>F2:</strong> Rank loss without coherence degradation → CTMT falsified</li>
-				<li><strong>F3:</strong> Violation of collapse horizon bound → CTMT falsified</li>
+				<li><strong>F1:</strong> Collapse without Fisher rank loss → CTMT falsified.</li>
+				<li><strong>F2:</strong> Fisher rank loss without coherence degradation → CTMT falsified.</li>
+				<li><strong>F3:</strong> Violation of the collapse-horizon bound → CTMT falsified.</li>
 			</ul>
 
-			<p>
-				Collapse in CTMT is therefore a geometric inevitability under curvature thinning,
-				not an interpretive postulate.
-				The theory stands or falls on measurable Fisher-rank dynamics.
+			<p style="font-weight:600;">
+				Collapse in CTMT is therefore a geometric inevitability
+				under Fisher curvature thinning,
+				not an interpretive assumption.
+				The theory stands or falls
+				on measurable rank dynamics of likelihood geometry.
 			</p>
 
 			<h4>Modulation Geometry: Oscillatory Support, Curvature Partitioning, and Coherence Persistence</h4>
