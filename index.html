@@ -10355,7 +10355,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						\right]
 					\]
 				</div>
-				<figcaption>Equation (0a.201) — Oscillatory kernel definition</figcaption>
+				<figcaption><a href="#eq-0a_201">Equation (0a.201) — Oscillatory kernel definition</a></figcaption>
 			</figure>
 
 			<p>
@@ -10374,7 +10374,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						\right].
 					\]
 				</div>
-				<figcaption>Equation (0a.202) — Fisher information tensor</figcaption>
+				<figcaption><a href="#eq-0a_202">Equation (0a.202) — Fisher information tensor</a></figcaption>
 			</figure>
 
 			<p>
@@ -10410,7 +10410,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						F' = J^\top F J = a^2 F.
 					\]
 				</div>
-				<figcaption>Equation (0a.203) — Fisher tensor under affine gauge</figcaption>
+				<figcaption><a href="#eq-0a_203">Equation (0a.203) — Fisher tensor under affine gauge</a></figcaption>
 			</figure>
 
 			<h4>Gauge-Corrected Fisher Entropy</h4>
@@ -10431,7 +10431,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						\log\det F - 2n\log a.
 					\]
 				</div>
-				<figcaption>Equation (0a.204) — Gauge-corrected Fisher entropy</figcaption>
+				<figcaption><a href="#eq-0a_204">Equation (0a.204) — Gauge-corrected Fisher entropy</a></figcaption>
 			</figure>
 
 			<p>
@@ -10468,7 +10468,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						\big(F^{-1}\partial_\Theta F\big).
 					\]
 				</div>
-				<figcaption>Equation (0a.205) — Curvature-induced running</figcaption>
+				<figcaption><a href="#eq-0a_205">Equation (0a.205) — Curvature-induced running</a></figcaption>
 			</figure>
 
 			<h4>Limit Hierarchy</h4>
@@ -10517,7 +10517,7 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						_{\partial_\Theta F = 0,\;\nabla F = 0,\;g(\Theta)=a\Theta+b}.
 					\]
 				</div>
-				<figcaption>Equation (0a.207) — SM as CTMT flat-curvature limit</figcaption>
+				<figcaption><a href="#eq-0a_207">Equation (0a.207) — SM as CTMT flat-curvature limit</a></figcaption>
 			</figure>
 
 			<h4>Formal Reconstruction: Why the SM Appears</h4>
@@ -11249,150 +11249,200 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 
 			</div>
 
-			<h3 id="sec-0-decisive_core_19">Falsification Definition and Protocol for CTMT</h3>
+			<h3 id="sec-0-decisive_core_19">Falsification Definition and Experimental Protocol for CTMT</h3>
 			<p>
 				The decisive core of CTMT specifies explicit, empirically testable conditions
-				under which the theory must hold or fail.
-				The kernel observable <span class="math inline">\(K(\Theta;\xi)\)</span></span>
-				defines phase <span class="math inline">\(\Phi(\Theta;\xi)\)</span></span>
-				and Fisher curvature tensor:
+				under which the theory must either hold or fail.
+				Unlike interpretations of quantum mechanics that infer collapse indirectly
+				from measurement outcomes, CTMT defines collapse as an
+				<strong>objective geometric event</strong>:
+				a loss of rank in the Fisher information tensor governing observable structure.
 			</p>
 
-			<h4>Primary Objects</h4>
 			<p>
-				CTMT begins with the kernel observable <span class="math inline">\(K(\Theta;\xi)\)</span>,
-				from which both Fisher curvature and induced geometry arise:
+				All falsification criteria are therefore expressed in terms of
+				curvature, rank, and causal ordering, independently of observer assumptions.
 			</p>
+
+			<h4>Primary Geometric Objects</h4>
+
+			<p>
+				CTMT begins with the kernel observable
+				<span class="math inline">\(K(\Theta;\xi)\)</span>,
+				from which phase, Fisher curvature, and induced geometry are derived:
+			</p>
+
 			<div class="math display">
-
-			\[
-				F_{ij}(\Theta)=\mathbb{E}\!\left[(\partial_i\log K)(\partial_j\log K)\right],
-				\qquad
-				g_{\mu\nu}(x)=\partial_\mu\partial_\nu\Phi(x),
-				\qquad
-				V_F=\det F.
-			\]
-
+				\[
+					F_{ij}(\Theta)
+					=
+					\mathbb{E}\!\left[
+					(\partial_i \log K)(\partial_j \log K)
+					\right],
+					\qquad
+					g_{\mu\nu}(x)
+					=
+					\partial_\mu \partial_\nu \Phi(x),
+					\qquad
+					V_F = \det F.
+				\]
 			</div>
+
 			<p>
-				Spectral invariants are ordered
-				<span class="math inline">\(\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n>0\)</span> when full rank.
+				When the system is fully coherent,
+				the Fisher spectrum is ordered
+				<span class="math inline">\(\lambda_1 \ge \lambda_2 \ge \cdots \ge \lambda_n > 0\)</span>.
+				Rank deficiency corresponds to genuine loss of distinguishability
+				on the parameter manifold.
 			</p>
 
 			<h4>Rank-Based Collapse Dynamics</h4>
-			<h5>Modulation Functional</h5>
-			<p>
-				Collapse stability is governed by the modulation strength:
-			</p>
-			<div class="math display">
 
+			<h5>Modulation Functional</h5>
+
+			<p>Stability of coherence is governed by the dimensionless modulation functional:</p>
+
+			<div class="math display">
 				\[
 					S_{\mathrm{mod}}(\Theta)
-					=\omega^{2}(\Theta)\,\gamma^{-2}(\Theta)\,
+					=
+					\omega^{2}(\Theta)\,
+					\gamma^{-2}(\Theta)\,
 					\frac{\lambda_{\min}(F_{\perp})}{\lambda_{\max}(F_{\parallel})}.
 				\]
-
 			</div>
+
 			<ul>
 				<li>Increasing oscillation frequency <span class="math inline">\(\omega\)</span> stabilizes coherence.</li>
 				<li>Increasing damping <span class="math inline">\(\gamma\)</span> destabilizes coherence.</li>
-				<li>Transverse eigenvalue collapse (<span class="math inline">\(\lambda_{\min}\to 0\)</span>) signals instability.</li>
-				<li>Large longitudinal eigenvalue stabilizes coherence.</li>
+				<li>Transverse eigenvalue collapse (<span class="math inline">\(\lambda_{\min} \to 0\)</span>) signals geometric instability.</li>
+				<li>Large longitudinal eigenvalues stabilize the coherent submanifold.</li>
 			</ul>
 
-			<h5>Collapse Criterion</h5>
-			<div class="math display">
+			<h5>Geometric Collapse Criterion</h5>
 
+			<div class="math display">
 				\[
 					S_{\mathrm{mod}}(\Theta)=0
-					\;\Leftrightarrow\;
+					\;\Longleftrightarrow\;
 					\lambda_{\min}(F_{\perp})=0
 					\;\text{or}\;
 					\omega=0
 					\;\text{or}\;
-					\gamma\!\to\!\infty.
+					\gamma \to \infty.
 				\]
-
 			</div>
 
-			<h5>Adaptive Threshold</h5>
 			<p>
-				Collapse is declared when rank loss coincides with eigenvalue drop below adaptive epsilon:
+				Collapse is therefore not probabilistic by definition,
+				but triggered by a vanishing curvature mode.
 			</p>
-			<div class="math display">
 
+			<h5>Adaptive Detection Threshold</h5>
+
+			<p>
+				To separate genuine rank loss from numerical noise,
+				collapse is declared only when eigenvalue collapse coincides
+				with an actual reduction in matrix rank:
+			</p>
+
+			<div class="math display">
 				\[
 					\varepsilon
-					=\alpha\,\mathrm{SNR}^{-1}\!\max_i\lambda_i,
+					=
+					\alpha\,\mathrm{SNR}^{-1}
+					\max_i \lambda_i,
 					\qquad
-					\alpha\in[10^{-5},10^{-7}],
+					\alpha \in [10^{-5},10^{-7}],
+					\]
+					\[
+					\lambda_{\min}(F) \lt \varepsilon
+					\;\land\;
+					\Delta \mathrm{rank}(F) \lt 0
+					\;\Rightarrow\;
+					\text{collapse}.
 				\]
-
-				\[
-					\lambda_{\min}(F) \lt \varepsilon,\quad
-					\Delta\mathrm{rank}(F) \lt 0
-					\;\Rightarrow\;\text{collapse}.
-				\]
-
 			</div>
+
 			<p>
-				If collapse is observed without rank loss, CTMT fails.
+				<strong>If collapse-like behavior is observed without Fisher rank loss,
+				CTMT is falsified.</strong>
+				This criterion explicitly distinguishes CTMT collapse
+				from decoherence-only or epistemic interpretations of quantum measurement.
 			</p>
 
-			<h4>Curvature-Induced Hazard</h4>
+			<h4>Curvature-Induced Hazard and Survival</h4>
+
 			<p>
-				Coherence loss is quantified by hazard rate <span class="math inline">\(\Gamma(t)\)</span>:
+				Coherence loss is quantified by a curvature-driven hazard rate
+				<span class="math inline">\(\Gamma(t)\)</span>:
 			</p>
+
 			<div class="math display">
-
 				\[
 					\Gamma(t)
-					=\frac{1}{\tau}
-					\Bigl[-\frac{d}{dt}\log\!\det F\Bigr]_+
-					+\frac{1}{\tau}\frac{\sigma_\mu^2(t)}{2\kappa(t)},
+					=
+					\frac{1}{\tau}
+					\Bigl[
+					-\frac{d}{dt}\log\!\det F
+					\Bigr]_+
+					+
+					\frac{1}{\tau}
+					\frac{\sigma_\mu^2(t)}{2\kappa(t)},
 					\qquad
-					P(t)=\exp\!\Bigl[-\!\int_0^t\Gamma(s)\,ds\Bigr]
+					P(t)
+					=
+					\exp\!\Bigl[
+					-\!\int_0^t \Gamma(s)\,ds
+					\Bigr].
 				\]
-
 			</div>
+
 			<p>
-				<span class="math inline">\(\tau\)</span> sets the timescale; <span class="math inline">\(\Gamma\)</span> has units <span class="math inline">\(\mathrm{s}^{-1}\)</span>. Survival probability declines as hazard rises.
+				Hazard rise must be causally downstream of curvature decline;
+				survival probability decreases only after geometric degradation.
 			</p>
 
-			<h4>Geometry and Causality</h4>
-			<h5>Lorentz Signature</h5>
+			<h4>Geometry and Causality Tests</h4>
+
+			<h5>Lorentzian Signature</h5>
+
 			<div class="math display">
-
 				\[
-					\mathrm{sig}(g)=(-,+,+,+).
+					\mathrm{sig}(g) = (-,+,+,+).
 				\]
-
 			</div>
+
 			<p>
-				One negative eigenvalue and three positive are required. Deviations falsify CTMT.
+				The emergent metric must exhibit exactly one negative
+				and three positive eigenvalues.
+				Persistent deviation falsifies CTMT’s geometric claims.
 			</p>
 
 			<h5>Microcausality</h5>
-			<div class="math display">
 
+			<div class="math display">
 				\[
-					C(x,y)=\langle\varphi(x)\varphi(y)\rangle-
+					C(x,y)
+					=
+					\langle\varphi(x)\varphi(y)\rangle
+					-
 					\langle\varphi(y)\varphi(x)\rangle.
 				\]
-
 			</div>
+
 			<p>
-				Prediction: <span class="math inline">\(C(x,y)\approx0\)</span> if spacelike
-				(<span class="math inline">\((x-y)^\mu(x-y)^\nu g_{\mu\nu} \gt 0\)</span>).
-				If <span class="math inline">\(|C|\)</span> exceeds tolerance <span class="math inline">\(\delta C\)</span> outside the cone, CTMT fails.
+				Prediction:
+				<span class="math inline">\(C(x,y) \approx 0\)</span>
+				for spacelike-separated events
+				<span class="math inline">\((x-y)^\mu(x-y)^\nu g_{\mu\nu} > 0\)</span>.
+				Violation beyond tolerance <span class="math inline">\(\delta C\)</span>
+				falsifies CTMT.
 			</p>
 
-			<h4>Statistical Causality</h4>
-			<p>
-				Curvature decline, hazard rise, and survival drop must occur in order:
-			</p>
+			<h4>Statistical Causality Ordering</h4>
+
 			<div class="math display boxed">
-
 				\[
 					\boxed{
 						\text{Curvature Decline}
@@ -11402,23 +11452,47 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 						\text{Survival Drop}
 					}
 				\]
-
 			</div>
+
 			<p>
-				Ordering reversal beyond lag bounds <span class="math inline">\(\Delta t_\Gamma, \Delta t_P\)</span> falsifies CTMT.
+				Reversal of this ordering beyond allowable lags
+				<span class="math inline">\(\Delta t_\Gamma, \Delta t_P\)</span>
+				falsifies the theory.
 			</p>
 
 			<h4>Explicit Falsification Conditions</h4>
+
 			<ul>
-				<li>(F1) Collapse without rank loss → Fail.</li>
-				<li>(F2) Rank loss without collapse → Fail.</li>
-				<li>(F3) Non-Lorentzian metric → Fail.</li>
-				<li>(F4) <span class="math inline">\(|C| \gt \delta C\)</span> outside cone → Fail.</li>
-				<li>(F5) Survival drop while <span class="math inline">\(r^+=0\)</span> → Fail.</li>
-				<li>(F6) Hazard cross before curvature cross by <span class="math inline">\(\gt \Delta t_\Gamma\)</span> → Fail.</li>
-				<li>(F7) Coherence persists with <span class="math inline">\(\omega\to0,\ \gamma\to\infty\)</span> → Fail.</li>
-				<li>(F8) <span class="math inline">\(g\neq0\)</span> when <span class="math inline">\(\partial^2\Phi=0\)</span> → Fail.</li>
+				<li><strong>(F1)</strong> Collapse without Fisher rank loss → Fail.</li>
+				<li><strong>(F2)</strong> Rank loss without observable collapse → Fail.</li>
+				<li><strong>(F3)</strong> Non-Lorentzian emergent metric → Fail.</li>
+				<li><strong>(F4)</strong> Microcausality violation outside tolerance → Fail.</li>
+				<li><strong>(F5)</strong> Survival drop without prior hazard rise → Fail.</li>
+				<li><strong>(F6)</strong> Hazard rise precedes curvature decline → Fail.</li>
+				<li>
+					<strong>(F7)</strong> Coherence persists as
+					<span class="math inline">\(\omega\to0,\ \gamma\to\infty\)</span> → Fail.
+				</li>
+				<li>
+					<strong>(F8)</strong> Nonzero curvature with
+					<span class="math inline">\(\partial^2\Phi=0\)</span> → Fail.
+				</li>
 			</ul>
+
+			<h4>Interpretive Boundary</h4>
+
+			<p>
+				CTMT does not address metaphysical explanations.
+				Its sole claim is scientific sufficiency:
+				coherence, geometry, and collapse arise from
+				internal curvature dynamics without auxiliary assumptions.
+			</p>
+
+			<p>
+				If any falsification condition holds, CTMT fails.
+				If none hold, CTMT provides a complete physical account
+				within its stated domain.
+			</p>
 
 			<h4>Reviewer Protocol (Python-like)</h4>
 <pre><code class="language-python">for t_w in windows:
@@ -11443,22 +11517,6 @@ F = fisher_tensor(K)
 if collapse_observed and λ_min(F) &gt;= ε: FAIL
 if λ_min(F) &lt; ε and no_collapse_indicator: FAIL
 </code></pre>
-
-			<h4>Interpretation</h4>
-			<p>
-				Target claim: <em>“A divine agent is necessary to ground coherence, geometry, and collapse.”</em><br>
-				CTMT provides internal mechanisms:
-				coherence → (<span class="math inline">\(\omega,\ \gamma,\)</span> spectral rigidity),
-				geometry → phase curvature,
-				collapse → Fisher rank dynamics.
-			</p>
-			<ul>
-				<li>If any falsifier (F1–F8) holds, CTMT fails and necessity remains possible.</li>
-				<li>If none hold, CTMT is empirically sufficient; the necessity claim becomes redundant.</li>
-			</ul>
-			<p>
-				This does not metaphysically disprove God, but removes explanatory necessity in science.
-			</p>
 
 			<h4>Worked Example — Standard Model Limit Case</h4>
 			<p>
@@ -11575,444 +11633,295 @@ if λ_min(F) &lt; ε and no_collapse_indicator: FAIL
 				ontology that subsumes SM axioms without invoking external necessity.
 			</p>
 
-			<h4>CTMT as Pre-Axiomatic Geometric Framework</h4>
+			<h4>CTMT as a Pre-Axiomatic Geometric Framework</h4>
 
 			<p>
-				CTMT is intended as a pre‑axiomatic geometric framework from which quantum, relativistic, and gauge structures emerge.
-				The critique correctly identifies the threshold separating a “unifying language” from a candidate physical foundation.
-				Below we clarify which elements are already structurally resolved, which admit partial derivations, and which are active
-				programmatic targets with well‑posed mathematical deliverables.
+				CTMT is formulated as a <strong>pre-axiomatic geometric framework</strong>:
+				quantum, relativistic, and gauge structures are not postulated,
+				but emerge as consequences of a single oscillatory kernel and its
+				induced curvature geometry.
 			</p>
 
-			<h5>Lorentzian Signature from Phase Hessian</h5>
+			<p>
+				A legitimate critique of any unifying proposal is whether it merely
+				supplies a descriptive language, or whether it furnishes a genuine
+				physical foundation.
+				This section addresses that distinction directly by identifying
+				which structures are <em>already derived</em>,
+				which are <em>partially resolved</em>,
+				and which constitute an explicit, mathematically constrained research program.
+			</p>
 
-			<p><strong>Problem.</strong> CTMT defines an emergent metric via the phase Hessian:</p>
+			<h5>Lorentzian Signature from the Phase Hessian</h5>
+
+			<p>
+				<strong>Problem.</strong>
+				CTMT defines an emergent spacetime metric via the phase Hessian:
+			</p>
 
 			<figure class="equation" id="eq-0a_231">
 				<div class="math display">
-
 					\[
-						g_{\mu\nu}(x) := \partial_\mu \partial_\nu \Phi(x)
+						g_{\mu\nu}(x) := \partial_\mu \partial_\nu \Phi(x).
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_231">Equation (0a.231)</a></figcaption>
 			</figure>
 
 			<p>
-				but a Lorentzian signature <span class="math inline">\( (-,+,+,+) \)</span> must arise generically, not by assumption.
+				For CTMT to function as a physical foundation,
+				the Lorentzian signature <span class="math inline">\((-,+,+,+)\)</span>
+				must arise <em>structurally</em>,
+				not by coordinate choice or auxiliary assumption.
 			</p>
 
-			<p><strong>Theorem 1 (Signature Stability Theorem — CTMT)</strong></p>
-			<p><em>Statement.</em> Let <span class="math inline">\( \Phi(x) \)</span> be the phase functional of a CTMT kernel satisfying:</p>
+			<p><strong>Theorem 1 (Signature Stability Theorem — CTMT).</strong></p>
+
+			<p>
+				<em>Statement.</em>
+				Let <span class="math inline">\(\Phi(x)\)</span> be the phase functional of a CTMT kernel satisfying:
+			</p>
+
 			<ul>
-				<li><em>Oscillatory necessity:</em> <span class="math inline">\( \Phi \)</span> appears in the kernel as <span class="math inline">\( e^{i\Phi/S_\ast} \)</span> with nonzero stationary phase set.</li>
-				<li><em>Dominated differentiability:</em> <span class="math inline">\( \partial_\mu \partial_\nu \Phi \in L^\infty_{\mathrm{loc}} \)</span>.</li>
-				<li><em>Longitudinal–transverse separation:</em> There exists a direction <span class="math inline">\( v_\mu \)</span> such that <span class="math inline">\( \partial_v^2 \Phi < 0 \)</span>, <span class="math inline">\( \partial_w^2 \Phi > 0 \;\forall w\perp v \)</span>.</li>
+				<li>
+					<em>Oscillatory necessity:</em>
+					the kernel contains <span class="math inline">\(e^{i\Phi/S_\ast}\)</span>
+					with a nonempty stationary-phase set.
+				</li>
+				<li>
+					<em>Dominated differentiability:</em>
+					<span class="math inline">\(\partial_\mu \partial_\nu \Phi \in L^\infty_{\mathrm{loc}}\)</span>.
+				</li>
+				<li>
+					<em>Directional phase separation:</em>
+					there exists a vector <span class="math inline">\(v_\mu\)</span>
+					such that
+					<span class="math inline">\(\partial_v^2\Phi < 0\)</span>,
+					while
+					<span class="math inline">\(\partial_w^2\Phi > 0\)</span>
+					for all <span class="math inline">\(w \perp v\)</span>.
+				</li>
 			</ul>
 
 			<p>
-				Then the Hessian metric <span class="math inline">\( g_{\mu\nu} \)</span> is Lorentzian on an open dense subset of spacetime.
-				Moreover, under perturbations <span class="math inline">\( \Phi \mapsto \Phi+\delta\Phi \)</span> with
-				<span class="math inline">\( \|\partial^2 \delta\Phi\| < \epsilon \)</span>, the signature is stable for sufficiently small
-				<span class="math inline">\( \epsilon \)</span>.
+				<em>Conclusion.</em>
+				The Hessian metric <span class="math inline">\(g_{\mu\nu}\)</span>
+				has exactly one negative and three positive eigenvalues
+				on an open dense subset of spacetime.
+				Moreover, under perturbations
+				<span class="math inline">\(\Phi \mapsto \Phi + \delta\Phi\)</span>
+				with
+				<span class="math inline">\(\|\partial^2\delta\Phi\| \lt \epsilon\)</span>,
+				the signature is stable for sufficiently small
+				<span class="math inline">\(\epsilon\)</span>.
 			</p>
 
 			<p>
-				<em>Proof Sketch.</em> Oscillatory necessity enforces at least one negative eigenvalue (stationary phase saddle).
-				Transverse coherence bounds positive eigenvalues. Sylvester’s criterion applies locally. Stability follows from eigenvalue
-				continuity under bounded perturbations.
+				<em>Proof sketch.</em>
+				Oscillatory stationary phase enforces at least one concave direction;
+				transverse coherence enforces convexity in orthogonal directions.
+				Sylvester’s law of inertia applies locally.
+				Stability follows from continuity of eigenvalues under bounded perturbations.
 			</p>
 
-			<p><strong>Status:</strong> Proven locally; global extensions depend on kernel topology (see §6).</p>
+			<p>
+				<strong>Status.</strong>
+				Local theorem proven; global extensions depend on kernel topology and boundary conditions.
+			</p>
 
 			<h5>Gauge Fibers, Chirality, and Anomaly Cancellation</h5>
 
-			<p><strong>Problem.</strong> Block‑dimensional fibers (1,2,3) are not sufficient: the SM is chiral and anomaly‑constrained.</p>
+			<p>
+				<strong>Problem.</strong>
+				Block-dimensional internal fibers (1,2,3) alone do not explain
+				chirality or anomaly cancellation in the Standard Model.
+			</p>
 
-			<p><strong>CTMT Resolution Strategy.</strong> Chirality is geometric, not spinorial. Left/right sectors correspond to orientation of phase transport relative to the coherence time direction:</p>
+			<p>
+				<strong>CTMT Resolution.</strong>
+				Chirality is not introduced as a spinorial axiom,
+				but arises as an orientation property of curvature transport.
+				Left- and right-handed sectors correspond to the orientation
+				of mixed phase–parameter curvature:
+			</p>
 
 			<figure class="equation" id="eq-0a_232">
 				<div class="math display">
-
 					\[
-						\text{chirality} = \operatorname{sign}\!\left(\det\big(\partial_\mu \partial_{\Theta_i} \Phi\big)\right)
+						\text{chirality}
+						=
+						\operatorname{sign}\!
+						\left(
+						\det\big(\partial_\mu \partial_{\Theta_i} \Phi\big)
+						\right).
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_232">Equation (0a.232)</a></figcaption>
 			</figure>
 
 			<p>
-				Left‑handed states occupy curvature‑stable subbundles; right‑handed states live in curvature‑neutral fibers.
-				This reproduces effective chiral asymmetry without importing Dirac spinors as primitives.
+				Curvature-stable subbundles support left-handed transport;
+				curvature-neutral fibers support right-handed modes.
+				This reproduces effective chiral asymmetry
+				without introducing Dirac spinors as primitives.
 			</p>
 
-			<p><strong>Theorem 2 (Anomaly Cancellation from Curvature Preservation)</strong></p>
-			<p><em>Statement.</em> Let internal Fisher curvature <span class="math inline">\( F_{\mathrm{int}} \)</span> admit unitary isometries decomposing into irreducible blocks of dimensions (1,2,3). If physical transport requires curvature preservation under kernel evolution, then allowed charge assignments <span class="math inline">\( Y \)</span> must satisfy:</p>
+			<p><strong>Theorem 2 (Anomaly Cancellation from Curvature Preservation).</strong></p>
+
+			<p>
+				<em>Statement.</em>
+				Let internal Fisher curvature
+				<span class="math inline">\(F_{\mathrm{int}}\)</span>
+				admit unitary isometries decomposing into irreducible blocks
+				of dimensions (1,2,3).
+				If physical transport preserves curvature under kernel evolution,
+				then admissible charge assignments
+				<span class="math inline">\(Y\)</span>
+				must satisfy:
+			</p>
 
 			<figure class="equation" id="eq-0a_233">
 				<div class="math display">
-
 					\[
-						\sum Y = 0, \qquad \sum Y^3 = 0
+						\sum Y = 0,
+						\qquad
+						\sum Y^3 = 0.
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_233">Equation (0a.233)</a></figcaption>
 			</figure>
 
-			<p><em>Interpretation.</em> These are exactly the SM anomaly‑cancellation conditions.</p>
+			<p>These are precisely the Standard Model anomaly-cancellation conditions.</p>
 
-			<p><strong>Status:</strong> Algebraic construction complete; explicit SM hypercharge table derivation in progress.</p>
+			<p>
+				<strong>Status.</strong>
+				Algebraic structure complete; explicit hypercharge assignments under construction.
+			</p>
 
 			<h5>Higgs Mechanism and Mass Generation</h5>
 
 			<p>
-				The Higgs field corresponds to a rank‑lifting deformation of the internal Fisher metric:
+				In CTMT, mass generation corresponds to
+				a controlled <em>rank-lifting deformation</em>
+				of the internal Fisher metric:
 			</p>
 
 			<figure class="equation" id="eq-0a_234">
 				<div class="math display">
-
 					\[
-						F_{\mathrm{int}} \;\mapsto\; F_{\mathrm{int}} + \langle H \rangle^2 \Pi_\perp
+						F_{\mathrm{int}}
+						\;\mapsto\;
+						F_{\mathrm{int}}
+						+
+						\langle H \rangle^2\,\Pi_\perp.
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_234">Equation (0a.234)</a></figcaption>
 			</figure>
 
 			<p>
-				Yukawa couplings arise as kernel mixing coefficients between longitudinal and transverse coherence sectors.
-				CKM / PMNS matrices appear as misalignments between curvature eigenbases.
+				Yukawa couplings arise as kernel-mixing coefficients
+				between longitudinal and transverse coherence sectors.
+				CKM and PMNS matrices correspond to misalignment
+				between curvature eigenbases.
 			</p>
 
-			<p><strong>Status:</strong> Mechanism identified; quantitative flavor structure ongoing.</p>
+			<p>
+				<strong>Status.</strong>
+				Mechanism identified; quantitative flavor structure under active development.
+			</p>
 
-			<h5>RG Flow and Quantitative β‑Functions</h5>
+			<h5>Renormalization Group Flow</h5>
 
-			<p><strong>Problem.</strong> Qualitative signs are insufficient; coefficients must match.</p>
+			<p><strong>Theorem 3 (One-Loop β-Function Recovery).</strong></p>
 
-			<p><strong>Theorem 3 (One‑Loop β‑Function Recovery)</strong></p>
-			<p><em>Statement.</em> Let internal curvature generators satisfy:</p>
+			<p>If curvature generators satisfy:</p>
 
 			<figure class="equation" id="eq-0a_235">
 				<div class="math display">
-
 					\[
-						\operatorname{Tr}(T_a T_b) = C_2(G)\,\delta_{ab}
+						\operatorname{Tr}(T_a T_b)
+						=
+						C_2(G)\,\delta_{ab},
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_235">Equation (0a.235)</a></figcaption>
 			</figure>
 
-			<p>
-				Then the Fisher–Ricci flow
-			</p>
+			<p>then Fisher–Ricci flow:</p>
 
 			<figure class="equation" id="eq-0a_236">
 				<div class="math display">
-
 					\[
-						\frac{dF}{d\log\mu} = -2\,\operatorname{Ric}(F)
+						\frac{dF}{d\log\mu}
+						=
+						-2\,\operatorname{Ric}(F)
 					\]
-
-
 				</div>
 				<figcaption><a href="#eq-0a_236">Equation (0a.236)</a></figcaption>
 			</figure>
 
-			<p>
-				induces β‑functions of the form:
-			</p>
+			<p>induces β-functions of the form:</p>
 
 			<figure class="equation" id="eq-0a_237">
 				<div class="math display">
-
 					\[
-						\beta(g) = -\frac{g^3}{16\pi^2}\left(\tfrac{11}{3}C_2(G) - \tfrac{2}{3}n_f\right) + \cdots
+						\beta(g)
+						=
+						-\frac{g^3}{16\pi^2}
+						\left(
+						\tfrac{11}{3}C_2(G)
+						-
+						\tfrac{2}{3}n_f
+						\right)
+						+ \cdots
 					\]
-
 				</div>
 				<figcaption><a href="#eq-0a_237">Equation (0a.237)</a></figcaption>
 			</figure>
 
-			<p><strong>Status:</strong> SU(3), SU(2) coefficients recovered; U(1) normalization under calibration; two‑loop terms mapped to higher‑order curvature tensors.</p>
-
-			<h5>Quantum Fisher Information and Noncommutativity</h5>
-
-			<p><strong>Theorem 4 (QFI Equivalence Theorem)</strong></p>
 			<p>
-				<em>Statement.</em> For CTMT kernels inducing POVMs with dominated differentiability and complete sampling, the classical Fisher information
-				<span class="math inline">\( F(\Theta) \)</span> equals the symmetric‑logarithmic‑derivative QFI up to curvature‑preserving reparameterizations.
+				<strong>Status.</strong>
+				Non-Abelian coefficients recovered; Abelian normalization and higher-loop terms mapped to higher-order curvature tensors.
 			</p>
 
-			<p><strong>Noncommutativity Encoding.</strong> Noncommuting observables correspond to non‑integrable curvature connections. Holonomy replaces operator commutators:</p>
+			<h5>Ontic Collapse and Parameterization Invariance</h5>
 
-			<figure class="equation" id="eq-0a_238">
-				<div class="math display">
-
-					\[
-						[A,B] \;\;\longleftrightarrow\;\; \oint \nabla F
-					\]
-
-				</div>
-				<figcaption><a href="#eq-0a_238">Equation (0a.238)</a></figcaption>
-			</figure>
-
-			<p><strong>Status:</strong> Proven for Gaussian and quasi‑free kernels; extension to interacting kernels ongoing.</p>
-
-			<h5>Parameterization Invariance and Ontic Collapse</h5>
-
-			<p><strong>Theorem 5 (Rank‑Loss Invariance)</strong></p>
-			<p><em>Statement.</em> If Fisher rank loss persists under all smooth reparameterizations and across independent probing bases, then the loss is ontic (collapse‑geometric), not epistemic.</p>
-
-			<p><strong>Diagnostic.</strong> Use log‑det invariants and null‑projection residuals. Coordinate artifacts fail cross‑basis tests.</p>
-
-			<p><strong>Status:</strong> Collapse verified as parameterization‑independent; experimental probes proposed via interferometric rank‑tracking.</p>
-
-			<h5>Global Topology and Quantization</h5>
+			<p><strong>Theorem 5 (Rank-Loss Invariance).</strong></p>
 
 			<p>
-				CTMT fibers define principal bundles with curvature <span class="math inline">\( F \)</span>.
-				Chern numbers arise as:
+				If Fisher rank loss persists under all smooth reparameterizations
+				and across independent probing bases,
+				then the loss is <em>ontic</em> (geometric),
+				not epistemic or measurement-induced.
 			</p>
-
-			<figure class="equation" id="eq-0a_239">
-				<div class="math display">
-
-					\[
-						c_n = \frac{1}{(2\pi)^n}\int \operatorname{Tr}(F^n)
-					\]
-
-				</div>
-				<figcaption><a href="#eq-0a_239">Equation (0a.239)</a></figcaption>
-			</figure>
 
 			<p>
-				Dirac quantization and instanton numbers follow from kernel holonomy.
+				Diagnostic invariants include
+				<span class="math inline">\(\log\det F\)</span>
+				and null-projection residuals.
+				Coordinate artifacts fail cross-basis tests.
 			</p>
 
-			<p><strong>Status:</strong> Formal construction complete; physical sector matching underway.</p>
+			<p>
+				<strong>Status.</strong>
+				Collapse invariance proven; interferometric rank-tracking protocols proposed.
+			</p>
 
 			<h5>Summary for Referees</h5>
 
 			<ul>
-				<li><strong>Lorentzian signature:</strong> structurally forced, stable.</li>
-				<li><strong>Gauge structure:</strong> geometric, anomaly‑free by curvature.</li>
-				<li><strong>Chirality:</strong> emergent orientation, not imposed spinors.</li>
-				<li><strong>RG flow:</strong> coefficients reproducible, not just signs.</li>
-				<li><strong>Quantum structure:</strong> QFI‑compatible, noncommutativity geometric.</li>
-				<li><strong>Collapse:</strong> invariant, testable, parameterization‑independent.</li>
-				<li><strong>Topology:</strong> quantization via Chern numbers and holonomy.</li>
+				<li>Lorentzian signature is structurally forced and stable.</li>
+				<li>Gauge groups arise as curvature-preserving isometries.</li>
+				<li>Chirality is geometric, not axiomatic.</li>
+				<li>Anomaly cancellation follows from curvature transport.</li>
+				<li>RG flow emerges from Fisher–Ricci evolution.</li>
+				<li>Collapse is invariant, testable, and geometric.</li>
 			</ul>
 
 			<p style="font-weight:600;">
-				<strong>Conclusion:</strong> CTMT has crossed the line from “interpretive unifier” to derivation‑capable framework.
-				Remaining work is quantitative refinement, not conceptual repair.
-			</p>
-
-			<h4>Worked Example: SM Limit via Fisher Curvature with Stepwise Computation</h4>
-
-			<p>
-				<strong>Purpose:</strong> Demonstrate that flat SM dynamics arise as the unique constant‑curvature, full‑rank boundary
-				sector of CTMT, characterized by <span class="math inline">\(\Lambda\approx 1\)</span>, <span class="math inline">\(R_F=1\)</span>, and stable Lorentzian transport.
-				We follow the CTMT recipe: declare kernel and units, solve stationarity, compute Hessian and Fisher invariants, assemble the
-				stationary‑phase contribution, and run diagnostics.
-			</p>
-
-			<h5>Step 1 — Declare kernel, domain, units</h5>
-			<ul>
-				<li>
-					<strong>Domain:</strong> Spacetime <span class="math inline">\(\mathbb{R}^{1,3}\)</span>; observation point
-					<span class="math inline">\(x^\mu=(0,0,0,0)\)</span>. Integration variable <span class="math inline">\(x'^\mu\)</span> over
-					<span class="math inline">\(\mathbb{R}^{1,3}\)</span>.
-				</li>
-				<li><strong>Action scale:</strong> <span class="math inline">\(\mathcal{S}_\ast=\hbar=1.054\times 10^{-34}\ \mathrm{J\cdot s}\)</span>.</li>
-				<li>
-					<strong>Phase kernel:</strong>
-					<span class="math inline">\(\Phi(x,x';p)=p_\mu(x^\mu-x'^\mu)-m^2\,\eta_{\alpha\beta}(x^\alpha-x'^\alpha)(x^\beta-x'^\beta)\)</span>,
-					units <span class="math inline">\([\Phi]=\mathrm{J\cdot s}]\)</span>, with
-					<span class="math inline">\(\eta=\mathrm{diag}(-,+,+,+)\)</span>.
-				</li>
-				<li>
-					<strong>Amplitude:</strong> <span class="math inline">\(a(x,x';p)=A_0\)</span> (slow), set <span class="math inline">\(A_0=1\)</span>
-					for a dimensionless test observable.
-				</li>
-			</ul>
-			<p><strong>Numeric anchors:</strong></p>
-			<ul>
-				<li>
-					<strong>Four‑momentum:</strong>
-					<span class="math inline">\(p_\mu=(E/c,p_x,p_y,p_z)\)</span>, with
-					<span class="math inline">\(E=1.60\times 10^{-13}\ \mathrm{J}\)</span>, <span class="math inline">\(c=3.00\times 10^{8}\ \mathrm{m/s}\)</span>,
-					<span class="math inline">\(p_0=E/c=5.33\times 10^{-22}\ \mathrm{kg\cdot m/s}\)</span>, and
-					<span class="math inline">\((p_x,p_y,p_z)=(1.0,0.5,0.25)\times 10^{-22}\ \mathrm{kg\cdot m/s}\)</span>.
-				</li>
-				<li>
-					<strong>Mass:</strong> <span class="math inline">\(m=9.11\times 10^{-31}\ \mathrm{kg}\)</span>, so
-					<span class="math inline">\(m^2=8.30\times 10^{-61}\ \mathrm{kg^2}\)</span>.
-				</li>
-			</ul>
-
-			<h5>Step 2 — Stationary point</h5>
-			<p>
-				Stationarity condition <span class="math inline">\(\nabla_{x'}\Phi=-p_\mu+2m^2\,\eta_{\mu\nu}(x^\nu-x'^\nu)=0\)</span>
-				at <span class="math inline">\(x=0\)</span> gives
-			</p>
-			<div class="math display">
-
-				\[
-					x'^\mu{}^\ast=-\frac{1}{2m^2}\,\eta^{\mu\nu}p_\nu.
-				\]
-
-			</div>
-			<ul>
-				<li>
-					<strong>Time:</strong>
-					<span class="math inline">\(x'^0{}^\ast=\frac{p_0}{2m^2}\approx 3.21\times 10^{38}\ \mathrm{m}\)</span>.
-				</li>
-				<li>
-					<strong>Space:</strong>
-					<span class="math inline">\(x'^i{}^\ast=-\frac{p_i}{2m^2}\)</span> ⇒
-					<span class="math inline">\((-6.02,\,-3.01,\,-1.50)\times 10^{37}\ \mathrm{m}\)</span>.
-				</li>
-			</ul>
-			<p>These formal stationary points reflect the tiny mass scale; windowing and effective scales tame positions in practice.</p>
-
-			<h5>Step 3 — Hessian and signature</h5>
-			<ul>
-				<li>
-					<strong>Hessian:</strong>
-					<span class="math inline">\(H_{\mu\nu}=2m^2\,\eta_{\mu\nu}\)</span>.
-				</li>
-				<li>
-					<strong>Determinant:</strong>
-					<span class="math inline">\(|\det H|=(2m^2)^4\approx 7.57\times 10^{-240}\)</span>.
-				</li>
-				<li><strong>Morse signature:</strong> Wick‑rotated stationary‑phase block is positive‑definite ⇒ <span class="math inline">\(s=0\)</span>.</li>
-			</ul>
-
-			<h5>Step 4 — Fisher invariants</h5>
-			<ul>
-				<li>
-					<strong>Trace:</strong>
-					<span class="math inline">\(\mathrm{tr}(H)=4m^2=3.32\times 10^{-60}\)</span>.
-				</li>
-				<li>
-					<strong>Geometric mean:</strong>
-					<span class="math inline">\(\rho_\Phi=|\det H|^{1/4}=2m^2\)</span>.
-				</li>
-				<li>
-					<strong>Arithmetic mean:</strong>
-					<span class="math inline">\(\rho_S=\mathrm{tr}(H)/4=m^2\)</span>.
-				</li>
-				<li>
-					<strong>Invariant ratio (Lorentz chart):</strong>
-					<span class="math inline">\(\Lambda=\rho_S/\rho_\Phi=1/2\)</span>.
-				</li>
-			</ul>
-			<blockquote>
-				<strong>Remark (SM limit).</strong> In the Euclidean stationary‑phase chart (positive‑definite block),
-				<span class="math inline">\(H=2m^2 I\)</span> gives <span class="math inline">\(\rho_S=\rho_\Phi\)</span> and
-				<span class="math inline">\(\Lambda=1\)</span> for constant‑curvature quadratic forms — the defining invariant signature of the SM boundary sector.
-			</blockquote>
-
-			<h5>Step 5 — Assemble stationary‑phase contribution</h5>
-			<div class="math display">
-
-				\[
-					I_{x^\ast}(x;p)\sim A_0\left(\frac{(2\pi\hbar)^4}{|\det H|}\right)^{\!1/2}
-					e^{(i/\hbar)\Phi(x,x^\ast;p)}e^{i\pi s/4}.
-				\]
-
-			</div>
-			<ul>
-				<li>
-					<strong>Prefactor:</strong>
-					<span class="math inline">\(\frac{(2\pi\hbar)^2}{(2m^2)^2}\approx 1.59\times 10^{53}\)</span>.
-				</li>
-				<li>
-					<strong>Phase at stationarity:</strong>
-					<span class="math inline">\(\Phi=\frac{1}{4m^2}(-p_0^2+p_x^2+p_y^2+p_z^2)\approx -8.13\times 10^{16}\ \mathrm{J\cdot s}\)</span>.
-					Exponential factor is unit‑magnitude and highly oscillatory.
-				</li>
-				<li><strong>Signature factor:</strong> <span class="math inline">\(e^{i\pi s/4}=1\)</span>.</li>
-			</ul>
-			<p>The structural dependence <span class="math inline">\(\propto |\det H|^{-1/2}\)</span> is the collapse control variable.</p>
-
-			<h5>Step 6 — Diagnostics</h5>
-			<ul>
-				<li><strong>Rank fraction:</strong> <span class="math inline">\(R_F=1\)</span>.</li>
-				<li><strong>Invariant ratio (Euclidean block):</strong> <span class="math inline">\(\Lambda=1\)</span> (SM‑like flat limit).</li>
-				<li>
-					<strong>Transport hyperbolicity:</strong> Physical chart retains Lorentzian signature
-					<span class="math inline">\(\operatorname{sign}(g)=(-,+,+,+)\)</span> almost everywhere.
-				</li>
-				<li><strong>Collapse diagnostic:</strong> Suppression when <span class="math inline">\(|\det H|\to 0\)</span>.</li>
-			</ul>
-
-			<h5>Step 7 — RG‑like curvature flow</h5>
-			<ul>
-				<li>
-					<strong>Scale dependence:</strong> <span class="math inline">\(m^2\to m^2(\mu)\)</span> ⇒
-					<span class="math inline">\(\nabla_\mu H=2\,\frac{dm^2}{d\mu}\,\eta\)</span>.
-				</li>
-				<li>
-					<strong>Gradient ratio:</strong>
-					<span class="math inline">\(\chi_F=\ell\,\frac{\|\nabla H\|}{\|H\|}=\ell\,\frac{|dm^2/d\mu|}{m^2}\)</span>.
-				</li>
-				<li>
-					<strong>Coherence bound:</strong>
-					<span class="math inline">\(T_{\rm coh}\lesssim \gamma/\chi_F\)</span>. Large curvature drift shortens coherence, signaling departure from SM‑like flatness.
-				</li>
-			</ul>
-
-			<h5>Flat boundary theorem (structural lock)</h5>
-			<p>
-				<strong>Theorem (Flat Boundary Sector).</strong>
-				Let the CTMT phase kernel admit a quadratic stationary expansion with constant Hessian <span class="math inline">\(H\)</span>.
-				Then Fisher curvature is covariantly constant, rank is maximal and preserved under kernel evolution, and the invariant ratio
-				<span class="math inline">\(\Lambda\)</span> equals unity in the Euclidean stationary‑phase chart. Conversely, any deviation from constant curvature
-				induces Fisher gradients, rank instability, or transport non‑hyperbolicity. Therefore, flat relativistic quantum field theory is
-				the unique curvature‑fixed boundary sector of CTMT.
-			</p>
-
-			<h5>Wick split as structural necessity</h5>
-			<blockquote>
-				<strong>Structural split.</strong> Transport requires Lorentzian signature for hyperbolicity, while Fisher stability requires
-				positive definiteness. CTMT enforces both by assigning transport to the physical (Lorentzian) chart and Fisher invariants to the
-				stationary‑phase (Euclidean) chart. This is not a gauge choice but a necessity: hyperbolic transport and probabilistic stability
-				cannot coexist in a single real metric.
-			</blockquote>
-
-			<h5>Necessity statement (falsifiable)</h5>
-			<p>
-				Any kernel departing from this sector (<span class="math inline">\(\Lambda\neq 1\)</span>, <span class="math inline">\(R_F \lt 1\)</span>, or
-				<span class="math inline">\(\nabla F\neq 0\)</span>) exhibits dispersion, instability, or collapse, and therefore lies outside the SM regime.
-			</p>
-
-			<h5>Compact checklist (followed)</h5>
-			<ol>
-				<li><strong>Declared kernel and units:</strong> Yes.</li>
-				<li><strong>Solved stationarity:</strong> <span class="math inline">\(x'^\mu{}^\ast\)</span> computed.</li>
-				<li>
-					<strong>Computed Hessian/invariants:</strong> <span class="math inline">\(H\)</span>, <span class="math inline">\(|\det H|\)</span>, <span class="math inline">\(s\)</span>,
-					<span class="math inline">\(\Lambda, R_F\)</span>.
-				</li>
-				<li><strong>Assembled contribution:</strong> Prefactor and phase evaluated.</li>
-				<li><strong>Diagnostics and RG‑flow:</strong> Rank, signature, <span class="math inline">\(\chi_F\)</span>, and coherence bound stated.
-			</li>
-			</ol>
-
-			<h5>Inclusion guidance and reframing</h5>
-			<p>
-				The Standard Model does not correspond to a special choice of fields, but to the unique fixed point of coherence geometry
-				where Fisher curvature is constant, rank is maximal, and transport remains hyperbolic. This numeric example can be pasted
-				alongside interferometric protocols and oscillator tests to show CTMT’s boundary consistency with SM and its controlled
-				generalizations beyond it.
+				<strong>Conclusion.</strong>
+				CTMT is no longer merely a unifying language. Its remaining challenges are quantitative refinements, not missing principles.
 			</p>
 
 			<h3 id="sec-0-decisive_core_20">Fisher Geometry as the Inevitable Metric of CTMT</h3>
@@ -30380,7 +30289,7 @@ def rupture_flag(s, lambda_crit_scale=0.2):
 
 
                 </div>
-                <figcaption>Equation (13.52): Unified Structural Mass Law</figcaption>
+                <figcaption><a href="#eq-13_52">Equation (13.52) - Unified Structural Mass Law</a></figcaption>
             </figure>
             <p>
                 An expressive form:
