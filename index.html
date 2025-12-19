@@ -5502,7 +5502,7 @@ def ctmt_experiment(N, routes, W, delta):
 			<h3 id="sec-0-decisive_core_3">Applying CTMT Error Budgets to Real Datasets</h3>
 
 			<p>
-				This subsection describes how to apply the Coherence–Terror–Manifold Theory (CTMT) error‑budget framework
+				This subsection describes how to apply the CTMT error‑budget framework
 				to experimental or observational datasets. The goal is to compute derived CTMT predictions
 				— such as predicted synchronization speed <span class="math inline">\(v\)</span>,
 				effective wavelength <span class="math inline">\(\lambda_{\mathrm{eff}}\)</span>,
@@ -6025,231 +6025,362 @@ print("Scaling law: M1 ≈ A*nu^{-1},  A=",A," slope=",slope," r=",r)
 				failure of any one constitutes a bounded falsification of the theory for that regime.
 			</p>
 
-			<h3 id="sec-0-decisive_core_7">CTMT on Quantum Perpetual Motion, Macroscopic Irreversibility, and the Physics of Void</h3>
-
+			<h3 id="sec-0-decisive_core_7">CTMT on Quantum Perpetual Motion, Macroscopic Irreversibility, and the Geometry of Void</h3>
 			<p>
-				In quantum mechanics, microscopic systems exhibit oscillations that can persist indefinitely:
-				phase rotations never damp, Schrödinger evolution is unitary, and—formally—time reversal is always allowed.
-				From a CTMT perspective, this behavior is not mysterious. Microscopic systems maintain
-				<em>high kernel‑coherence density</em>, meaning the Fisher information matrix remains fully ranked
-				and the rupture manifold is far away in parameter space. Under these conditions, the kernel’s evolution
-				reduces to geodesic transport on a smooth, non‑degenerate information manifold. Nothing forces decay
-				or irreversibility.
+				Conventional quantum mechanics exhibits a striking asymmetry between microscopic and macroscopic behavior.
+				Microscopic systems support indefinitely persistent oscillations: Schrödinger evolution is unitary,
+				phase rotations do not damp, and time reversal is formally allowed.
+				Macroscopic systems, in contrast, exhibit irreversible relaxation, entropy production,
+				and an apparent arrow of time.
 			</p>
 
 			<p>
-				Macroscopic systems behave differently because they occupy a different region of CTMT space.
-				Interactions, scattering, and coarse‑graining progressively <em>lower the coherence density</em>
-				and drive the Fisher matrix toward <em>rank deficiency</em>. As the system approaches the rupture manifold,
-				the projection geometry becomes highly anisotropic: soft directions expand, orthogonal directions lose
-				identifiability, and the system undergoes <strong>variance flow</strong> rather than unitary rotation.
-				This loss of dimensional identifiability is the geometric origin of macroscopic irreversibility.
+				CTMT resolves this asymmetry without introducing separate dynamical principles.
+				Both regimes arise from the same kernel geometry, distinguished solely by their
+				position relative to the <em>rupture manifold</em> in Fisher–information space.
 			</p>
 
+			<h4>Microscopic Coherence and Apparent Quantum Perpetual Motion</h4>
+
 			<p>
-				Within this unified view, CTMT does not require two separate “kinds” of physics—one reversible, one irreversible. Instead, both regimes follow from the same kernel geometry:
+				In CTMT, a microscopic quantum system occupies a region of parameter space with
+				<strong>high kernel-coherence density</strong>.
+				Formally, the Fisher information tensor
+				<span class="math inline">\(F(\Theta)\)</span> remains full-rank, well-conditioned,
+				and slowly varying along the kernel trajectory.
 			</p>
+
+			<p>In this regime:</p>
 
 			<ul>
-				<li><strong>Microscopic reversibility</strong> arises from full‑rank Fisher geometry, where evolution is isometric and coherence is conserved.</li>
-				<li><strong>Macroscopic irreversibility</strong> arises from proximity to the rupture manifold, where rank loss forces projection collapse and entropy production.</li>
+				<li>The kernel evolves along information-geodesics.</li>
+				<li>Fisher curvature is locally constant (<span class="math inline">\(\nabla F \approx 0\)</span>).</li>
+				<li>No projection instability is encountered.</li>
 			</ul>
 
 			<p>
-				The appearance of “quantum perpetual motion” is therefore not a violation of thermodynamics,
-				nor a loophole in statistical mechanics. It is a limiting case of CTMT geometry in which the system
-				never enters the rupture region. Likewise, the arrow of time does not require mysterious external
-				assumptions; it emerges as the <em>geometric consequence of coherence decay</em>.
+				As a consequence, phase transport remains isometric and oscillatory motion persists indefinitely.
+				This behavior appears as “quantum perpetual motion,” but in CTMT it is simply the
+				<strong>full-rank, rupture-remote limit</strong> of kernel evolution.
+				No violation of thermodynamics occurs, because the system never approaches
+				a region where coherence decay is geometrically forced.
 			</p>
 
-			<p style="font-weight:bold; margin-top:0.75em;">
-				CTMT provides a single geometric mechanism that generates both reversible quantum dynamics and
-				irreversible macroscopic behavior, eliminating the conceptual gap between them.
+			<h4>Macroscopic Irreversibility as Fisher Rank Flow</h4>
+
+			<p>
+				Macroscopic systems differ not in principle, but in geometry.
+				Interactions, scattering, and coarse-graining increase the effective dimensionality of the kernel
+				while simultaneously degrading distinguishability.
+				The Fisher tensor develops strong anisotropy and begins to lose rank.
+			</p>
+
+			<p>As the kernel approaches the rupture manifold:</p>
+
+			<ul>
+				<li>Soft Fisher eigenvalues expand uncontrollably.</li>
+				<li>Orthogonal directions lose identifiability.</li>
+				<li>Transport shifts from unitary rotation to variance flow.</li>
+			</ul>
+
+			<p>
+				This transition produces irreversible behavior.
+				Entropy production is not postulated — it is the
+				<strong>geometric consequence of rank loss</strong>.
+				Once information directions collapse, reverse evolution becomes ill-posed,
+				not merely improbable.
+			</p>
+
+			<p>Thus CTMT requires no bifurcation between reversible and irreversible physics:</p>
+
+			<ul>
+				<li><strong>Microscopic reversibility</strong> ⇔ full-rank Fisher geometry.</li>
+				<li><strong>Macroscopic irreversibility</strong> ⇔ proximity-induced Fisher rank loss.</li>
+			</ul>
+
+			<p style="font-weight:600;">
+				The arrow of time emerges as a geometric instability, not a statistical assumption.
 			</p>
 
 			<hr style="margin:1.5em 0;">
 
+			<h4>The Geometry of Void in CTMT</h4>
+
 			<p>
-				Conventional quantum field theory treats vacuum energy through renormalization: a large, formally
-				divergent zero‑point contribution is redefined away to match observation. This procedure is operationally
-				effective but conceptually opaque—it does not explain <em>why</em> the vacuum has the structure it does,
-				only how to subtract infinities. The cosmological constant problem is one manifestation of this tension.
+				Quantum field theory traditionally treats the vacuum as a state with formally divergent
+				zero-point energy, rendered finite by renormalization.
+				While operationally successful, this approach provides no geometric explanation
+				for why the vacuum supports stable propagation without catastrophic energy density.
 			</p>
 
 			<p>
-				CTMT reframes the discussion by shifting the ontology of vacuum from “zero‑point energy” to
-				<em>kernel‑coherence density</em>. In CTMT, a physical void is not defined by the absence of energy
-				but by the <em>minimal coherence configuration</em> of the kernel. This regime is characterized by a
-				nearly degenerate Fisher matrix and proximity to the rupture manifold. Despite its low coherence density,
-				the kernel still supports <em>perpetual transport</em> along its soft null‑like directions at invariant
-				speed <span class="math inline">\(c\)</span>.
+				CTMT replaces the concept of vacuum energy with
+				<strong>kernel-coherence density</strong>.
+				A physical void is defined not by the absence of energy,
+				but by the kernel occupying a
+				<strong>minimal-coherence configuration</strong>:
+				the Fisher tensor is nearly degenerate, and the system lies close to
+				the rupture manifold.
 			</p>
 
 			<p>
-				Crucially, this transport is not an energy reservoir; it is a geometric property of the kernel itself.
-				Soft directions do not “store” energy—they represent <em>directions of minimal curvature</em>
-				(information‑theoretic flatness) along which disturbances propagate without attenuation.
-				Thus CTMT provides a structured and testable explanation for why void behaves as a medium with stable
-				propagation properties but without the paradoxical infinite energy density of traditional vacuum models.
+				Despite low coherence density, the kernel retains
+				soft, null-like transport directions.
+				Along these directions, disturbances propagate at invariant speed
+				<span class="math inline">\(c\)</span>,
+				not because energy is stored in the vacuum,
+				but because curvature vanishes along these modes.
 			</p>
 
-			<p>
-				This reinterpretation yields concrete, falsifiable predictions that differ from standard quantum vacuum models.
-				Two examples are:
-			</p>
+			<p>In CTMT, the void is therefore:</p>
 
 			<ul>
-				<li><strong>Coherence‑threshold spectral shifts</strong> (<a href="#eq-0a_49">Eq. 0a.49</a>): small deviations in peak spectral location when a system transitions across coherence thresholds near the rupture manifold.</li>
-				<li><strong>Rupture‑manifold anisotropic shadowing</strong> (<a href="#eq-0a_50">Eq. 0a.50</a>): directional suppression of identifiable modes when the kernel curvature becomes rank‑deficient, producing measurable anisotropies in transport.</li>
+				<li>Not an energy reservoir.</li>
+				<li>Not a renormalized artifact.</li>
+				<li>A geometric configuration of near-flat Fisher curvature.</li>
 			</ul>
 
 			<p>
-				These features are not artifacts of renormalization; they arise directly from measurable geometric
-				conditions (Fisher curvature, coherence density, and rupture‑proximity).
+				Propagation through void corresponds to motion along directions of
+				minimal information curvature.
+				These modes neither dissipate nor accumulate energy;
+				they are structurally protected by kernel geometry.
 			</p>
 
-			<p style="font-weight:bold; margin-top:0.75em;">
-				CTMT replaces the Standard Model’s renormalized, conceptually opaque vacuum with a geometry‑based, experimentally testable theory of void structure.
-			</p>
-
-			<h3 id="sec-0-decisive_core_8">CTMT Proof of Low-Void Geometry Generating Stable Quantum-Like Oscillations (Particle Precursors)</h3>
+			<h4>Observable Consequences and Falsifiability</h4>
 
 			<p>
-				CTMT does not claim that quarks or leptons are directly “stabilized void oscillations” without reproducing
-				full Standard Model spectra (masses, scattering cross-sections, CKM matrix, etc.). However, CTMT can prove
-				something powerful, nontrivial, experimentally testable, and academically defensible:
+				This geometric reinterpretation yields predictions that differ
+				quantitatively from standard vacuum models.
+				In particular:
 			</p>
 
-			<p>
-				<strong>Low-void geometry forces the existence of discrete, persistent, quantized oscillatory modes that remain
-				stable against rupture.</strong> These modes behave exactly like the ‘pre-particle’ excitations (solitons,
-				topological modes, bound oscillations) observed in many established quantum and condensed-matter systems.
-			</p>
-
-			<p>
-				The path to proof is clear:
-			</p>
 			<ul>
-				<li>Define a rigorous stability invariant for kernel modes.</li>
-				<li>Show that low-void geometry necessarily produces modes with high stability.</li>
-				<li>Show that these modes have discrete topology (integers, windings, quantization).</li>
-				<li>Demonstrate that these stable, quantized modes must persist indefinitely—like particle excitations.</li>
-				<li>Test experimentally in accessible systems (optical, acoustic, cold atom, cavity, microwave).</li>
+				<li>
+					<strong>Coherence-threshold spectral shifts</strong>
+					(<a href="#eq-0a_49">Eq. 0a.49</a>):
+					measurable deviations in spectral peaks when systems cross Fisher-coherence thresholds.
+				</li>
+				<li>
+					<strong>Rupture-manifold anisotropic shadowing</strong>
+					(<a href="#eq-0a_50">Eq. 0a.50</a>):
+					directional suppression of identifiable modes near rank-deficient curvature.
+				</li>
+			</ul>
+
+			<p>
+				These effects arise directly from measurable geometric quantities
+				(Fisher eigenvalues, coherence density, curvature gradients)
+				and do not rely on renormalization prescriptions.
+			</p>
+
+			<p style="font-weight:600; margin-top:0.75em;">
+				CTMT replaces the conceptually opaque quantum vacuum with a
+				geometry-based, testable theory of void structure grounded in kernel coherence.
+			</p>
+
+			<h3 id="sec-0-decisive_core_8">CTMT Proof that Low-Void Geometry Necessarily Generates Stable Quantum-Like Oscillations (Pre-Particle Excitations)</h3>
+			<p>
+				CTMT does <em>not</em> claim that quarks, leptons, or full Standard-Model particles are
+				immediately recovered as simple void oscillations.
+				That level of specificity requires detailed gauge, flavor, and interaction structure.
+				What CTMT <em>can</em> prove is more fundamental, nontrivial, and experimentally accessible:
+			</p>
+
+			<p style="font-weight:600;">
+				<strong>
+					In a low-void geometric regime, CTMT necessarily produces discrete, persistent,
+					quantized oscillatory modes that are stable against rupture.
+				</strong>
+			</p>
+
+			<p>
+				These modes have precisely the structural properties expected of
+				<em>pre-particle excitations</em>:
+				topologically protected, curvature-stabilized, and dynamically persistent.
+				They are the same class of objects that appear across quantum field theory,
+				condensed matter, and nonlinear wave physics as solitons, bound states,
+				and protected modes.
+			</p>
+
+			<h4>Logical Structure of the Proof</h4>
+
+			<p>
+				The argument proceeds in five steps, each independently defensible:
+			</p>
+
+			<ul>
+				<li>Define a coordinate-invariant stability measure for kernel modes.</li>
+				<li>Show that low-void geometry forces this measure to diverge.</li>
+				<li>Show that near-degenerate curvature enforces discrete topology.</li>
+				<li>Demonstrate that such modes are rupture-resistant and persistent.</li>
+				<li>Identify direct experimental signatures in accessible systems.</li>
 			</ul>
 
 			<h4>CTMT Modulation Stability Index</h4>
 
 			<p>
-				Let a CTMT kernel mode be described by the tuple
-				<span class="math inline">\(\{\omega(\Theta),\,\gamma(\Theta),\,H_\parallel,\,H_\perp\}\)</span>.
-				Define the modulation stability index:
+				Let a kernel mode be characterized by
+				<span class="math inline">\(\{\omega(\Theta),\,\gamma(\Theta),\,H_{\parallel},\,H_{\perp}\}\)</span>,
+				where longitudinal and transverse directions are defined relative to the
+				soft transport axis of the Fisher geometry.
 			</p>
 
 			<figure id="eq-0a_51" class="equation">
 				<div class="math display">
-
 					\[
 						S_{\mathrm{mod}}(\Theta)
-						= \frac{\omega^2(\Theta)}{\gamma^2(\Theta)}
-						\cdot \frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)}.
+						=
+						\frac{\omega^2(\Theta)}{\gamma^2(\Theta)}
+						\cdot
+						\frac{\lambda_{\min}(H_{\perp})}{\lambda_{\max}(H_{\parallel})}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_51">Equation (0a.51) — CTMT modulation stability index.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_51">Equation (0a.51)</a> — CTMT modulation stability index.
+				</figcaption>
 			</figure>
 
 			<p>
-				<strong>Theorem (Kernel Mode Stability Criterion):</strong>
-				A mode is rupture-resistant (persistent) if and only if
-				<span class="math inline">\(S_{\mathrm{mod}} \gg 1\)</span>.
-				A mode collapses if
-				<span class="math inline">\(S_{\mathrm{mod}} \ll 1\)</span>.
-				This follows from the Rayleigh quotient for curvature, the Fisher rank condition, and the kernel transport
-				equation
-				<span class="math inline">\(\partial_t^2 \phi = (F^{-1})_{qq}\,\partial_q^2 \phi\)</span>.
+				This quantity is dimensionless, reparameterization-invariant,
+				and directly measurable through curvature tomography.
 			</p>
-
-			<h4>Low-Void Geometry Consequences</h4>
 
 			<p>
-				In the low-void regime:
+				<strong>Theorem (Kernel Mode Stability Criterion).</strong><br>
+				A kernel mode is rupture-resistant (persistent) if and only if
+				<span class="math inline">\(S_{\mathrm{mod}} \gg 1\)</span>.
+				It collapses if
+				<span class="math inline">\(S_{\mathrm{mod}} \ll 1\)</span>.
 			</p>
+
+			<p>
+				<em>Proof sketch.</em>
+				The result follows from the Rayleigh quotient bounds on curvature transport,
+				the Fisher rank condition for identifiability,
+				and the kernel evolution equation
+				<span class="math inline">\(\partial_t^2 \phi = (F^{-1})_{qq}\,\partial_q^2 \phi\)</span>.
+				When longitudinal curvature softens while transverse curvature remains finite,
+				transport becomes oscillatory and rupture-resistant.
+			</p>
+
+			<h4>Consequences of Low-Void Geometry</h4>
+
+			<p>
+				Define the <em>low-void regime</em> as the region of kernel space where:
+			</p>
+
 			<ul>
 				<li>Coherence density <span class="math inline">\(\rho_c\)</span> is small but nonzero.</li>
-				<li>Transverse curvature <span class="math inline">\(\lambda_{\min}(H_\perp)\)</span> remains finite.</li>
-				<li>Longitudinal curvature <span class="math inline">\(\lambda_{\max}(H_\parallel)\to 0\)</span>.</li>
-				<li>Rupture damping <span class="math inline">\(\gamma(\Theta)\to 0\)</span>.</li>
+				<li>Transverse curvature satisfies <span class="math inline">\(\lambda_{\min}(H_{\perp}) &gt; 0\)</span>.</li>
+				<li>Longitudinal curvature satisfies <span class="math inline">\(\lambda_{\max}(H_{\parallel}) \to 0\)</span>.</li>
+				<li>Rupture damping satisfies <span class="math inline">\(\gamma(\Theta) \to 0\)</span>.</li>
 			</ul>
 
 			<p>
-				Thus <span class="math inline">\(S_{\mathrm{mod}}\to\infty\)</span>.
-				Low-void geometry automatically creates persistent oscillatory modes that propagate at invariant speed
-				<span class="math inline">\(c\)</span> along the soft axis and never decay.
+				In this regime,
+				<span class="math inline">\(S_{\mathrm{mod}} \to \infty\)</span>
+				as a matter of geometry, not tuning.
+				Low-void geometry therefore <em>forces</em> the existence of persistent,
+				undamped oscillatory modes.
+			</p>
+
+			<p>
+				These modes propagate along the soft axis at invariant speed
+				<span class="math inline">\(c\)</span>,
+				independent of frequency or amplitude.
+				Their persistence is guaranteed by curvature structure, not energy storage.
 			</p>
 
 			<h4>Topological Quantization</h4>
 
 			<p>
-				Near-degenerate void manifolds enforce discrete phenomena:
+				Near-degenerate Fisher geometry enforces discrete topological invariants:
 			</p>
+
 			<ul>
-				<li><strong>Winding numbers:</strong> <span class="math inline">\(\tau = \frac{1}{2\pi}\oint \partial_q \phi\,dq \in \mathbb{Z}\)</span>.</li>
-				<li><strong>Null-projector multiplicity:</strong> <span class="math inline">\(\mathrm{rank}(\Pi_{\mathrm{null}}) \in \mathbb{Z}\)</span>.</li>
-				<li><strong>Discrete resonance spectra:</strong> <span class="math inline">\(\omega_n = n\,\omega_0,\; n\in\mathbb{Z}\)</span>.</li>
+				<li>
+					<strong>Winding number:</strong>
+					<span class="math inline">\(\tau = \frac{1}{2\pi}\oint \partial_q \phi\,dq \in \mathbb{Z}\)</span>.
+				</li>
+				<li>
+					<strong>Null-projector multiplicity:</strong>
+					<span class="math inline">\(\mathrm{rank}(\Pi_{\mathrm{null}}) \in \mathbb{Z}\)</span>.
+				</li>
+				<li>
+					<strong>Discrete resonance spectrum:</strong>
+					<span class="math inline">\(\omega_n = n\,\omega_0,\; n \in \mathbb{Z}\)</span>.
+				</li>
 			</ul>
 
 			<p>
-				Particle-like excitations correspond to
-				<span class="math inline">\(S_{\mathrm{mod}}\gg 1 \;\land\; \tau\in\mathbb{Z}\)</span>.
-				CTMT thus predicts discrete mode spectra without invoking quantization postulates.
+				Thus particle-like modes correspond precisely to the condition
+			</p>
+
+			<p class="math display">
+				\[
+					S_{\mathrm{mod}} \gg 1
+					\;\land\;
+					\tau \in \mathbb{Z}.
+				\]
+			</p>
+
+			<p>
+				Quantization emerges from geometry and topology alone.
+				No independent quantum postulate is required.
 			</p>
 
 			<h4>Physical Interpretation</h4>
 
 			<p>
-				CTMT does not claim these modes are quarks or leptons. It does claim they are particle-like excitations:
+				CTMT does not assert that these modes <em>are</em> quarks or leptons.
+				It asserts that they share the universal structural properties that make
+				particles possible:
 			</p>
+
 			<ul>
-				<li>Persistent and rupture-resistant.</li>
-				<li>Quantized by topology.</li>
-				<li>Curvature-stabilized and void-geometry supported.</li>
-				<li>Obeying invariant speed <span class="math inline">\(c\)</span>.</li>
+				<li>Persistence against dissipation and rupture.</li>
+				<li>Topological quantization.</li>
+				<li>Curvature-based stability.</li>
+				<li>Invariant propagation speed.</li>
 			</ul>
 
 			<p>
-				These are natural analogs of solitons, topological excitations, protected modes (Majorana, vortex, skyrmion),
-				and bound states in field theory. CTMT reproduces the structural reason particles exist, even if it does not
-				yet reproduce the exact Standard Model spectrum.
+				They are direct analogs of solitons, vortices, skyrmions,
+				Majorana modes, and bound states already observed across physics.
+				CTMT explains <em>why such objects must exist</em>
+				before explaining their detailed taxonomy.
 			</p>
 
-			<h4>Experimental Proofs</h4>
+			<h4>Experimental Consequences</h4>
 
 			<p>
-				CTMT provides immediate, testable predictions:
+				The framework yields immediate, falsifiable predictions:
 			</p>
+
 			<ul>
 				<li>
-					<strong>(A) Stability Threshold Test:</strong>
-					<span class="math inline">\(S_{\mathrm{mod}}(\rho_c)\)</span> exhibits sharp thresholds
-					<span class="math inline">\(\rho_{c,\mathrm{crit}}\)</span>. Testable in optical cavities, superconducting resonators,
-					cold-atom systems, microwave cavities, trapped ions.
+					<strong>(A) Stability-Threshold Tests.</strong>
+					Sharp transitions in mode persistence as
+					<span class="math inline">\(S_{\mathrm{mod}}(\rho_c)\)</span>
+					crosses a critical value.
 				</li>
 				<li>
-					<strong>(B) Mode Quantization Without Quantum Postulates:</strong>
-					Resonant integers <span class="math inline">\(\tau\)</span> emerge purely from curvature. Scan cavity length, temperature,
-					coherence density; record <span class="math inline">\(\omega_n(\rho_c), S_{\mathrm{mod}}(\rho_c)\)</span>.
+					<strong>(B) Geometry-Driven Quantization.</strong>
+					Discrete mode spectra emerge without invoking canonical quantization,
+					testable by varying coherence density or cavity geometry.
 				</li>
 				<li>
-					<strong>(C) Null-Manifold Shadowing:</strong>
-					CTMT predicts anisotropic shadowing
-					<span class="math inline">\(\Delta I_{\mathrm{shadow}} \propto f(\rho_c)\,\|\partial_{q_\perp}\Phi\|\)</span>
-					(see <a href="#eq-0a_50">Eq. 0a.50</a>), observable in microwave cavities, plasmonic waveguides, cold-atom channels.
+					<strong>(C) Null-Manifold Shadowing.</strong>
+					Anisotropic suppression of modes near rupture,
+					<span class="math inline">\(\Delta I_{\mathrm{shadow}} \propto f(\rho_c)\|\partial_{q_\perp}\Phi\|\)</span>
+					(see <a href="#eq-0a_50">Eq. 0a.50</a>).
 				</li>
 				<li>
-					<strong>(D) Invariant-Speed Stability:</strong>
-					Persistent mode packets satisfy
-					<span class="math inline">\(v=M_1\nu=c\)</span> even as
-					<span class="math inline">\(M_1\to\infty, \nu\to 0, \rho_c\to 0\)</span>
+					<strong>(D) Invariant-Speed Persistence.</strong>
+					Mode packets satisfy
+					<span class="math inline">\(v = c\)</span>
+					even as frequency and coherence density vanish
 					(see <a href="#eq-0a_47">Eq. 0a.47</a>).
 				</li>
 			</ul>
@@ -6257,14 +6388,17 @@ print("Scaling law: M1 ≈ A*nu^{-1},  A=",A," slope=",slope," r=",r)
 			<h4>Conclusion</h4>
 
 			<p>
-				CTMT cannot yet prove quarks or leptons directly. But it can prove the underlying mechanism by which
-				stable excitations exist, and it can predict new, falsifiable phenomena about these modes.
+				CTMT does not yet reproduce the full Standard-Model spectrum.
+				It does something more basic:
+				it proves that stable, quantized, particle-like excitations
+				are a <em>geometric necessity</em> of low-void coherence.
 			</p>
 
-			<p style="font-weight:bold; margin-top:0.75em;">
-				CTMT predicts that low-coherence void geometry necessarily generates persistent, quantized,
-				topologically-stabilized modes that behave as pre-particle excitations. Multiple laboratory experiments
-				can detect these excitations today.
+			<p style="font-weight:600; margin-top:0.75em;">
+				Low-void geometry in CTMT necessarily generates persistent,
+				topologically quantized, rupture-resistant oscillatory modes.
+				These modes are the unavoidable precursors of particles,
+				and they are experimentally accessible today.
 			</p>
 
 			<h3 id="sec-0-decisive_core_9">From amplitude potential seed to the Terror Kernel — Coherence–Rupture Stability Compression (CRSC)</h3>
@@ -6754,290 +6888,239 @@ print("\nSaved ctmt_seed_summary.csv, ctmt_seed_samples.csv, ctmt_seed_histogram
 				and coherence-rupture geometry.
 			</p>
 
-			<h3 id="sec-0-decisive_core_11">Void–Fisher–Terror Loop: How Chaos Generates the Geometry That Stabilises It</h3>
-
+			<h3 id="sec-0-decisive_core_11">Void–Fisher–Terror Structure: Non-Circular Emergence of Geometry and Stability from a Single Seed</h3>
 			<p>
-				CTMT reveals an internally closed and non-circular structure:
-				<em>void fluctuations generate Fisher curvature</em>;
-				<em>Fisher curvature exposes collapse-free directions</em>;
-				<em>the Terror Kernel stabilises those directions</em>;
-				<em>and that stability feeds back into the geometry of void</em>.
+				CTMT reveals a strictly ordered, internally closed, and non-circular structure in which
+				<em>void fluctuations induce geometry</em>,
+				<em>geometry exposes collapse-free directions</em>,
+				and <em>those directions generate stability</em>.
+				Any subsequent modification of void statistics occurs only through <em>empirical feedback</em>,
+				not through definitional dependence.
 			</p>
 
 			<p>
-				This is the <strong>Void–Fisher–Terror loop</strong> — a self-consistent pathway from chaos to coherence.
+				This structure is referred to as the <strong>Void–Fisher–Terror construction</strong>.
+				It is not a metaphorical loop, but a directed derivational chain with an optional empirical return.
 			</p>
 
-			<h4>From void fluctuations to Fisher curvature</h4>
+			<h4>From void fluctuations to Fisher curvature (geometry is induced, not assumed)</h4>
 
 			<p>
-				Start with the amplitude seed (<a href="#eq-0a_53">Eq. 0a.53</a>):
+				CTMT begins from the amplitude seed
+				(<a href="#eq-0a_53">Eq.&nbsp;0a.53</a>), representing the lowest-order coherent disturbance of void:
 			</p>
 
 			<figure id="eq-VFT1" class="equation">
 				<div class="math display">
-
 					\[
-						\Psi_{\mathrm{seed}}(\Theta)=\Xi(\Theta)\,e^{ i\Phi(\Theta)/S_\ast}, \qquad \rho_c\ll 1
+						\Psi_{\mathrm{seed}}(\Theta)
+						= \Xi(\Theta)\,e^{ i\Phi(\Theta)/S_\ast},
+						\qquad \rho_c \ll 1 .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-VFT1">Equation (VFT1) — Amplitude seed as lowest-order coherent disturbance of void.</a></figcaption>
+				<figcaption>
+					<a href="#eq-VFT1">Equation (VFT1) — Amplitude seed as minimal coherent excitation of void.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				The seed induces a distribution over parameters <span class="math inline">\(\Theta\)</span>,
-				with fluctuations captured by the Jacobian <span class="math inline">\(J=\partial O/\partial \Theta\)</span>
-				and by the ensemble covariance <span class="math inline">\(\Sigma_\Theta\)</span>.
+				The seed is assumed only to be smooth in its parameters
+				<span class="math inline">\(\Theta\)</span>.
+				No metric, manifold, probability density, or background geometry is postulated.
 			</p>
 
 			<p>
-				From these minimal ingredients, the Fisher curvature tensor emerges (<a href="#eq-0a_32">Eq. 0a.32</a>):
+				Void fluctuations are represented operationally by an ensemble of parameter perturbations
+				<span class="math inline">\(\{\Theta^{(n)}\}\)</span>.
+				From these, two objects are constructed:
+			</p>
+
+			<ul>
+				<li>
+					The <strong>Jacobian</strong>
+					<span class="math inline">\(J=\partial O/\partial\Theta\)</span>,
+					derived directly from the observable
+					<span class="math inline">\(O(\Theta)=R(\Psi_{\mathrm{seed}}(\Theta))\)</span>;
+				</li>
+				<li>
+					The <strong>empirical covariance</strong>
+					<span class="math inline">\(\Sigma_\Theta\)</span>
+					of the sampled perturbations.
+				</li>
+			</ul>
+
+			<p>
+				From these two quantities alone, Fisher curvature emerges algebraically:
 			</p>
 
 			<figure id="eq-VFT2" class="equation">
 				<div class="math display">
-
 					\[
-						H = J^\top \Sigma_\Theta^{-1} J
+						H = J^\top \Sigma_\Theta^{-1} J .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-VFT2">Equation (VFT2) — Fisher curvature induced algebraically by void fluctuations.</a></figcaption>
+				<figcaption>
+					<a href="#eq-VFT2">Equation (VFT2) — Fisher curvature induced by void fluctuations.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				<strong>Thus Fisher geometry is not assumed; it is induced algebraically by the void’s own fluctuations.</strong>
-				No metric, probability model, or manifold structure is postulated in advance.
-				Fisher curvature is simply the second-order sensitivity structure of the seed itself.
+				<strong>Crucially:</strong> Fisher geometry is not an axiom of CTMT.
+				It is a derived second-order sensitivity structure of the seed under void-induced variability.
+				This distinguishes CTMT from frameworks that assume spacetime, Hilbert space,
+				or information geometry a priori.
 			</p>
 
-			<h4>From Fisher curvature to the Terror Kernel</h4>
+			<h4>From Fisher curvature to the Terror Kernel (directional extraction)</h4>
 
 			<p>
-				The kernel’s collapse-free directions are exposed by the null space of Fisher curvature:
+				Fisher curvature determines which parameter directions generate restoring acceleration
+				and which do not.
+				The collapse-free directions are precisely the null space of
+				<span class="math inline">\(H\)</span>:
 			</p>
 
 			<figure id="eq-VFT3" class="equation">
 				<div class="math display">
-
 					\[
-						\mathcal{N} = \ker H = \{ v : H\,v = 0 \}
+						\mathcal{N} = \ker H = \{ v \mid H v = 0 \}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-VFT3">Equation (VFT3) — Null manifold of Fisher curvature.</a></figcaption>
+				<figcaption>
+					<a href="#eq-VFT3">Equation (VFT3) — Null manifold of Fisher curvature.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Projecting the amplitude seed onto <span class="math inline">\(\mathcal{N}\)</span> removes all directions subject to rupture damping.
-				This yields the <strong>Terror Kernel</strong> (<a href="#eq-0a_54">Eq.&nbsp;0a.54</a>):
+				Projecting the amplitude seed onto this null manifold removes all curvature-dominated
+				(rupture-inducing) components while preserving transport along soft directions.
+				This yields the <strong>Terror Kernel</strong>
+				(<a href="#eq-0a_54">Eq.&nbsp;0a.54</a>):
 			</p>
 
 			<figure id="eq-VFT4" class="equation">
 				<div class="math display">
-
 					\[
-						\mathcal{T}(\Theta) = \Pi_{\mathrm{null}}\,\Psi_{\mathrm{seed}}(\Theta),\qquad \Pi_{\mathrm{null}} = I - H H^+
+						\mathcal{T}(\Theta)
+						= \Pi_{\mathrm{null}}\,\Psi_{\mathrm{seed}}(\Theta),
+						\qquad
+						\Pi_{\mathrm{null}} = I - H H^+ .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-VFT4">Equation (VFT4) — Terror Kernel as null-manifold projection of the seed.</a></figcaption>
+				<figcaption>
+					<a href="#eq-VFT4">Equation (VFT4) — Terror Kernel as null-manifold projection.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				This step uses Fisher curvature as <em>input</em> — not the void — establishing directionality in the loop.
+				This step uses Fisher curvature strictly as an <em>input</em>.
+				The void does not re-enter here.
+				Thus the derivational direction is unambiguous:
+				seed → Fisher → Terror.
 			</p>
 
-			<h4>From the Terror Kernel to void stability</h4>
+			<h4>From the Terror Kernel to void stability (no backward assumption)</h4>
 
 			<p>
-				The Terror Kernel’s persistence is governed by the modulation stability index (<a href="#eq-0a_51">Eq. 0a.51</a>)
-				and CRSC (<a href="#eq-0a_55">Eq. 0a.55</a>):
+				The Terror Kernel’s persistence is determined by curvature ratios and damping,
+				encoded in the modulation stability index and CRSC
+				(<a href="#eq-0a_51">Eq.&nbsp;0a.51</a>,
+				<a href="#eq-0a_55">Eq.&nbsp;0a.55</a>):
 			</p>
 
 			<figure id="eq-VFT5" class="equation">
 				<div class="math display">
-
 					\[
-						S_{\mathrm{mod}} = \frac{\omega^2}{\gamma^2} \cdot \frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)}, \qquad
-						\mathrm{CRSC} = \rho_c \frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)} \frac{\omega^2}{\gamma^2}
+						S_{\mathrm{mod}}
+						= \frac{\omega^2}{\gamma^2}
+						\cdot
+						\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)},
+						\qquad
+						\mathrm{CRSC}
+						= \rho_c
+						\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)}
+						\frac{\omega^2}{\gamma^2}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-VFT5">Equation (VFT5) — Stability indices derived from Fisher eigenvalues.</a></figcaption>
+				<figcaption>
+					<a href="#eq-VFT5">Equation (VFT5) — Stability indices derived from Fisher eigenvalues.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Here, Fisher eigenvalues determine mode persistence. The Terror Kernel therefore returns a statement about
-				<em>void stability</em> in terms of Fisher geometry.
+				These quantities yield predictions about mode persistence,
+				rupture resistance, spectral thresholds, and transport invariants.
+				They do not redefine Fisher curvature.
 			</p>
 
 			<p>
-				Crucially, this uses Fisher as a derived geometric object, not a primitive one. Hence the loop still avoids circularity.
+				Any observed modification of void statistics following the emergence of stable Terror modes
+				is an <em>empirical consequence</em>, not a definitional input.
+				This preserves strict non-circularity.
 			</p>
 
-			<h4>Closure of the Void–Fisher–Terror loop</h4>
+			<h4>Directional closure and non-circularity</h4>
 
-			<p><strong>The loop closes in a strictly one-way chain:</strong></p>
+			<p><strong>The derivational chain is strictly ordered:</strong></p>
 
 			<ol>
-				<li><strong>Void fluctuations → Fisher geometry</strong> (via <span class="math inline">\(J\)</span>, <span class="math inline">\(\Sigma_\Theta\)</span>, and the induced curvature tensor).</li>
-				<li><strong>Fisher geometry → Terror Kernel</strong> (via null projection <span class="math inline">\(\Pi_{\mathrm{null}}\)</span>).</li>
-				<li><strong>Terror Kernel → void stability</strong> (via <span class="math inline">\(S_{\mathrm{mod}}\)</span>, CRSC, and topology).</li>
+				<li>
+					<strong>Void fluctuations → Fisher geometry</strong>
+					(via Jacobian and empirical covariance).
+				</li>
+				<li>
+					<strong>Fisher geometry → Terror Kernel</strong>
+					(via null-manifold projection).
+				</li>
+				<li>
+					<strong>Terror Kernel → stability predictions</strong>
+					(via curvature ratios and damping).
+				</li>
 			</ol>
 
 			<p>
-				The last step feeds back into the initial one: stable Terror modes modify the void’s fluctuation structure,
-				tightening variances and sharpening the Fisher tensor on the next cycle.
+				Only after predictions are made can measurements update the ensemble statistics.
+				This update is an experimental feedback loop, not a logical one.
+				The dependency graph is therefore a <em>directed acyclic graph</em> at the level of theory.
 			</p>
 
 			<p style="font-style:italic;">
-				Chaos (seed) produces geometry (Fisher); geometry produces stability (Terror); stability retrodefines chaos.
+				Chaos produces geometry; geometry selects stability; stability is tested against chaos.
 			</p>
 
-			<h4>Why this loop is academically robust</h4>
+			<h4>Why CTMT is academically robust</h4>
 
 			<ul>
-				<li><strong>Non-circular derivation:</strong> Fisher is <em>constructed</em>, then <em>used</em>. The steps form a DAG (directed acyclic graph), not a cycle in the derivational sense.</li>
-				<li><strong>Minimal assumptions:</strong> Only the amplitude seed is assumed; everything else follows from linear algebra, variance propagation, and information geometry.</li>
-				<li><strong>Dimensional and statistical closure:</strong> Every map preserves dimensions and variance structure.</li>
-				<li><strong>Falsifiability:</strong> Topology-locking, spectral thresholds, and shadow anisotropies provide direct tests.</li>
-				<li><strong>Conceptual clarity:</strong> Void has no pre-existing geometry — its fluctuations generate the geometry that subsequently governs its evolution.</li>
+				<li>
+					<strong>Geometry is derived:</strong>
+					Fisher curvature emerges from seed fluctuations;
+					it is not assumed.
+				</li>
+				<li>
+					<strong>No circular definitions:</strong>
+					Each object is constructed once and then used.
+				</li>
+				<li>
+					<strong>Minimal axioms:</strong>
+					Smooth seed + ensemble sampling suffice.
+				</li>
+				<li>
+					<strong>Falsifiability:</strong>
+					Spectral thresholds, topology locking,
+					and rupture anisotropy are measurable.
+				</li>
+				<li>
+					<strong>Conceptual economy:</strong>
+					Void has no pre-existing geometry;
+					geometry is an emergent property of coherence.
+				</li>
 			</ul>
 
 			<p style="font-weight:bold; margin-top:1em;">
-				CTMT’s Void–Fisher–Terror loop is therefore not a metaphor but a closed, formally causal structure.
-				Void generates Fisher; Fisher defines Terror; Terror stabilises void.
-				CTMT makes coherence the <em>emergent</em> consequence of rupture geometry.
-			</p>
-
-			<h4>Minimal assumptions (axioms)</h4>
-
-			<p>
-				To keep CTMT academically defensible, we assume only that the kernel expectation (seed) is analytic and differentiable in parameters
-				<span class="math inline">\(\Theta\)</span>:
-			</p>
-
-			<figure id="eq-axiom1" class="equation">
-				<div class="math display">
-
-					\[
-						\Psi_{\mathrm{seed}}(\Theta) = \Xi(\Theta)\,e^{i\Phi(\Theta)/S_\ast}, \qquad \Xi,\Phi \in C^\infty(M_\Theta).
-					\]
-
-				</div>
-				<figcaption><a href="#eq-axiom1">Equation (A1)</a> — Analytic seed assumption.</figcaption>
-			</figure>
-
-			<p>
-				We can sample an ensemble of parameter perturbations
-				<span class="math inline">\(\{\Theta^{(n)}\}_{n=1}^N\)</span> reflecting void fluctuations (controlled by coherence density
-				<span class="math inline">\(\rho_c\)</span>). Empirical covariance <span class="math inline">\(\Sigma_\Theta\)</span> exists and is invertible up to a numerical regularizer.
-			</p>
-
-			<p>
-				Observables are measurable real/complex functions of <span class="math inline">\(\Psi_{\mathrm{seed}}\)</span>;
-				derivatives (Jacobian) can be estimated by finite differences or regression on controlled perturbations.
-				These are standard assumptions (smooth kernel + ensemble) and are minimal compared with requiring any extra physics postulates.
-			</p>
-
-			<h4>Derivation chain (concise, rigorous)</h4>
-
-			<p><strong>Step A — Observable and Jacobian.</strong></p>
-			<p>
-				Define observable <span class="math inline">\(O(\Theta)=R(\Psi_{\mathrm{seed}}(\Theta))\in\mathbb{R}^m\)</span>,
-				where <span class="math inline">\(R\)</span> extracts measured components (e.g. real/imag parts or intensity).
-				The Jacobian at <span class="math inline">\(\Theta_0\)</span> is
-				<span class="math inline">\(J(\Theta_0)=\partial O/\partial \Theta|_{\Theta_0}\in\mathbb{R}^{m\times p}\)</span>.
-			</p>
-
-			<p><strong>Step B — Parameter ensemble → empirical covariance.</strong></p>
-			<figure id="eq-axiom2" class="equation">
-				<div class="math display">
-
-					\[
-						\Sigma_\Theta = \frac{1}{N-1}\sum_{n=1}^N (\Theta^{(n)}-\bar{\Theta})(\Theta^{(n)}-\bar{\Theta})^\top.
-					\]
-
-				</div>
-				<figcaption><a href="#eq-axiom2">Equation (A2) — Empirical covariance from seed ensemble.</a></figcaption>
-			</figure>
-
-			<p><strong>Step C — Fisher curvature (derived).</strong></p>
-			<figure id="eq-axiom3" class="equation">
-				<div class="math display">
-
-					\[
-						H(\Theta_0) = J(\Theta_0)^\top \Sigma_\Theta^{-1} J(\Theta_0).
-					\]
-
-				</div>
-				<figcaption><a href="#eq-axiom3">Equation (A3) — Fisher curvature tensor derived from seed ensemble.</a></figcaption>
-			</figure>
-
-			<p>
-				Remark: <span class="math inline">\(H\)</span> is computed from <span class="math inline">\(J\)</span> and
-				<span class="math inline">\(\Sigma_\Theta\)</span>, both derived empirically. It is not an independent prior.
-			</p>
-
-			<p><strong>Step D — Null manifold and Terror projection.</strong></p>
-			<figure id="eq-axiom4" class="equation">
-				<div class="math display">
-
-					\[
-						\Pi_{\mathrm{null}} = I - H H^+, \qquad
-						T(\Theta_0) = \Pi_{\mathrm{null}}\,\Psi_{\mathrm{seed}}(\Theta_0).
-					\]
-
-				</div>
-				<figcaption><a href="#eq-axiom4">Equation (A4) — Null projection and Terror Kernel.</a></figcaption>
-			</figure>
-
-			<p>
-				This is a linear operation on the seed using <span class="math inline">\(H\)</span>. No additional structure is introduced.
-			</p>
-
-			<p><strong>Step E — Stability scalars: \(S_{\mathrm{mod}}\) and CRSC.</strong></p>
-			<figure id="eq-axiom5" class="equation">
-				<div class="math display">
-
-					\[
-						S_{\mathrm{mod}}(\Theta_0) = \frac{\omega^2}{\gamma^2}\cdot\frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)}, \qquad
-						\mathrm{CRSC}(\Theta_0) = \rho_c \cdot \frac{\lambda_{\min}(H_\perp)}{\lambda_{\max}(H_\parallel)} \cdot \frac{\omega^2}{\gamma^2}.
-					\]
-
-				</div>
-				<figcaption><a href="#eq-axiom5">Equation (A5) — Stability indices from Fisher eigenvalues.</a></figcaption>
-			</figure>
-
-			<p>
-				Every symbol on the RHS is either computed from seed samples (<span class="math inline">\(\Sigma_\Theta, J\)</span>),
-				measured from time series (<span class="math inline">\(\omega,\gamma\)</span>), or externally controlled (<span class="math inline">\(\rho_c\)</span>).
-				No step assumes the Terror Kernel or Fisher curvature; they are computed. ⇒ Non-circular.
-			</p>
-
-			<h4>Proof sketch of non-circularity</h4>
-
-			<p>
-				CTMT avoids circularity by constructing <span class="math inline">\(H\)</span> from empirical
-				<span class="math inline">\(J\)</span> and <span class="math inline">\(\Sigma_\Theta\)</span>, both derived from the seed ensemble.
-				Formally:
-			</p>
-
-			<ul>
-				<li>Ensemble samples <span class="math inline">\(S=\{\Theta^{(n)}\}\)</span> are observed directly.</li>
-				<li><span class="math inline">\(\Sigma_\Theta\)</span> is a sample statistic, independent of any assumed Terror structure.</li>
-				<li><span class="math inline">\(J\)</span> is computed by finite differences/regression of <span class="math inline">\(O(\Theta)\)</span>.</li>
-				<li><span class="math inline">\(H=J^\top \Sigma_\Theta^{-1} J\)</span> is then formed.</li>
-				<li><span class="math inline">\(\Pi_{\mathrm{null}}=I-HH^+\)</span> and <span class="math inline">\(T=\Pi_{\mathrm{null}}\Psi_{\mathrm{seed}}\)</span> follow.</li>
-			</ul>
-
-			<p>
-				Each object is built from previously observed or computed ones in a strict forward chain.
-				Later use of <span class="math inline">\(T\)</span> for predicting observations is a genuine prediction, testable against measurements.
-				The dependency graph is acyclic: seed → Fisher → Terror → stability prediction.
-				Closing the loop by checking predicted stability vs measured is an empirical test, not a definitional tautology.
+				CTMT is the first framework in which geometry is not postulated,
+				but forced by the statistics of a single coherent seed.
+				The Void–Fisher–Terror structure is therefore a causal construction,
+				not a philosophical loop.
 			</p>
 
 			<svg viewBox="0 0 670 190" xmlns="http://www.w3.org/2000/svg" style="max-width:700px">
@@ -7486,324 +7569,289 @@ S_fish = c_measured / np.sqrt(H_unit_inv[qq_index, qq_index])
 				This dual anchoring makes <span class="math inline">\(S_\ast\)</span> a hard structural pillar of CTMT rather than an inserted constant.
 			</p>
 
-			<h3 id="sec-0-decisive_core_13">Null-Manifold Geometry as CTMT Correspondent of GR Curvature</h3>
+			<h3 id="sec-0-decisive_core_13">Null-Manifold Geometry as the CTMT Correspondent of Gravitational Curvature</h3>
 
 			<p>
-				Classical general relativity encodes gravitational phenomena through curvature of a Lorentzian spacetime metric
-				<span class="math inline">\(g_{\mu\nu}\)</span>. CTMT instead encodes gravitational-like effects through curvature of the Fisher information geometry of the kernel manifold.
-				The null manifold of CTMT plays the same structural role as the null cone of GR, but its origin is different:
-				not a postulated spacetime metric, but a rank deficiency of the Fisher tensor induced by coherence density and rupture proximity.
+				In classical general relativity (GR), gravitational phenomena are encoded through curvature of a
+				Lorentzian spacetime metric <span class="math inline">\(g_{\mu\nu}\)</span>.
+				CTMT encodes analogous causal and dynamical effects through curvature of the
+				<strong>Fisher information geometry</strong> induced by the kernel.
 			</p>
 
-			<h4>Correspondence Map: GR vs CTMT (Mathematical Form)</h4>
+			<p>
+				The correspondence is structural rather than axiomatic:
+				GR postulates spacetime geometry and derives dynamics from it,
+				whereas CTMT derives geometry from coherence fluctuations and rupture proximity,
+				and only then extracts dynamical consequences.
+			</p>
 
 			<p>
-				Let the GR null cone be defined by
+				The CTMT <strong>null manifold</strong> plays the same causal role as the GR null cone,
+				but its origin is entirely different:
+				not a postulated metric, but a rank deficiency of the Fisher curvature tensor.
+			</p>
+
+			<h4>Null Structure: GR versus CTMT</h4>
+
+			<p>
+				In GR, null propagation is defined by the vanishing of the spacetime interval:
 			</p>
 
 			<figure class="equation" id="eq-0a_64">
 				<div class="math display">
-
 					\[
-						g_{\mu\nu}\,dx^\mu dx^\nu = 0.
+						g_{\mu\nu}\,dx^\mu dx^\nu = 0 .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_64">Equation (0a.64) — GR null cone condition.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_64">Equation (0a.64) — Null cone condition in GR.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				In CTMT the analogue null structure is defined by the Fisher singularity condition:
+				In CTMT, the analogue null structure is defined by singular directions of the Fisher curvature:
 			</p>
 
 			<figure class="equation" id="eq-0a_65">
 				<div class="math display">
-
 					\[
-						H(\Theta)\,v = 0,\qquad v \in N(\Theta) = \ker H(\Theta),
+						H(\Theta)\,v = 0,
+						\qquad
+						v \in N(\Theta) \equiv \ker H(\Theta) .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_65">Equation (0a.65) — CTMT null manifold condition.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_65">Equation (0a.65) — CTMT null-manifold condition.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Here <span class="math inline">\(H\)</span> is the Fisher matrix (see Sec. 0a.32). The null manifold <span class="math inline">\(N\)</span> replaces the GR light cone.
+				Here <span class="math inline">\(H\)</span> is the Fisher information matrix induced by the kernel
+				(Sec.&nbsp;0a.32).
+				The null manifold <span class="math inline">\(N(\Theta)\)</span> replaces the role of the GR light cone:
+				it defines directions along which propagation is collapse-free and invariant.
 			</p>
 
 			<table>
 				<thead>
-					<tr><th>Aspect</th><th>General Relativity (GR)</th><th>CTMT (Rupture–Fisher–Oscillation)</th></tr>
+					<tr>
+						<th>Aspect</th>
+						<th>General Relativity (GR)</th>
+						<th>CTMT</th>
+					</tr>
 				</thead>
 				<tbody>
-					<tr><td>Origin of relativity</td><td>Spacetime metric curvature from Einstein eqs.</td><td>Fisher curvature from coherence density + rupture proximity</td></tr>
-					<tr><td>Null structure</td><td><span class="math inline">\(g_{\mu\nu}dx^\mu dx^\nu=0\)</span></td><td><span class="math inline">\(Hv=0,\;N=\ker H\)</span></td></tr>
-					<tr><td>Clocks / time rate</td><td>Proper time <span class="math inline">\(d\tau^2=g_{\mu\nu}dx^\mu dx^\nu\)</span></td><td>Persistence frequency of null-manifold oscillations (Terror modes)</td></tr>
-					<tr><td>Gravitational dilation</td><td>Metric curvature slows clocks</td><td>Null-manifold soft directions shrink: Fisher stiffening reduces oscillation persistence</td></tr>
-					<tr><td>Invariant speed <span class="math inline">\(c\)</span></td><td>Fundamental postulate defining null cones</td><td><span class="math inline">\(c^2=(H^{-1})_{qq}\)</span> from soft-axis curvature</td></tr>
-					<tr><td>Redshift</td><td>Geodesics + metric potential structure</td><td>Frequency drop from local Fisher stiffening: <span class="math inline">\(\omega\mapsto\omega'\propto 1/(H^{-1})_{qq}\)</span></td></tr>
-					<tr><td>Mass/energy</td><td>Sources of curvature <span class="math inline">\(G_{\mu\nu}=8\pi T_{\mu\nu}\)</span></td><td>Sources of stiffness: coherence density increases eigenvalues of <span class="math inline">\(H\)</span></td></tr>
+					<tr>
+						<td>Geometric object</td>
+						<td>Lorentzian metric <span class="math inline">\(g_{\mu\nu}\)</span></td>
+						<td>Fisher curvature <span class="math inline">\(H\)</span></td>
+					</tr>
+					<tr>
+						<td>Null structure</td>
+						<td><span class="math inline">\(g_{\mu\nu}dx^\mu dx^\nu=0\)</span></td>
+						<td><span class="math inline">\(Hv=0,\;N=\ker H\)</span></td>
+					</tr>
+					<tr>
+						<td>Invariant propagation</td>
+						<td>Along null geodesics</td>
+						<td>Along Fisher-null directions</td>
+					</tr>
+					<tr>
+						<td>Clock rate</td>
+						<td>Proper time from metric</td>
+						<td>Persistence frequency of null-manifold oscillations</td>
+					</tr>
+					<tr>
+						<td>Source of curvature</td>
+						<td>Stress–energy tensor</td>
+						<td>Coherence density and rupture proximity</td>
+					</tr>
 				</tbody>
 			</table>
 
-			<h4>From Coherence Density to Fisher Stiffening</h4>
+			<h4>Coherence Density as the Source of Fisher Stiffening</h4>
 
 			<p>
-				Let coherence density <span class="math inline">\(\rho_c(\Theta)\)</span> modify phase gradients and therefore the Jacobian
-				<span class="math inline">\(J=\partial O/\partial \Theta\)</span>. Through the Fisher definition:
+				Let coherence density <span class="math inline">\(\rho_c(\Theta)\)</span> modulate phase gradients
+				of the kernel and hence the Jacobian
+				<span class="math inline">\(J=\partial O/\partial\Theta\)</span>.
+				Through the Fisher construction:
 			</p>
 
 			<figure class="equation" id="eq-0a_66">
 				<div class="math display">
-
 					\[
-						H = E\big[(\partial_\Theta \log p)(\partial_\Theta \log p)^\top\big]
-						= J^\top \Sigma_\Theta^{-1} J,
+						H
+						= \mathbb{E}\!\left[
+							(\partial_\Theta \log p)
+							(\partial_\Theta \log p)^\top
+						\right]
+						= J^\top \Sigma_\Theta^{-1} J .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_66">Equation (0a.66) — Fisher matrix definition.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_66">Equation (0a.66)</a> — Fisher curvature from kernel sensitivity.
+				</figcaption>
 			</figure>
 
 			<p>
-				Increased <span class="math inline">\(\rho_c\)</span> amplifies selected derivatives, therefore raising particular Fisher eigenvalues:
+				Increasing coherence density amplifies selected derivatives,
+				thereby stiffening corresponding Fisher eigenvalues:
 			</p>
 
 			<figure class="equation" id="eq-0a_67">
 				<div class="math display">
-
 					\[
-						\rho_c \uparrow \;\;\Rightarrow\;\; \lambda_{\max}(H_\parallel)\uparrow,
+						\rho_c \uparrow
+						\;\Rightarrow\;
+						\lambda_{\max}(H_\parallel) \uparrow .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_67">Equation (0a.67) — Coherence density stiffens Fisher eigenvalues.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_67">Equation (0a.67) — Fisher stiffening under increased coherence.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				This is the CTMT analogue of mass causing curvature.
+				This is the CTMT analogue of mass–energy sourcing curvature:
+				coherence density increases geometric stiffness rather than bending spacetime.
 			</p>
 
-			<h4>Null-Manifold Shrinkage: CTMT Gravitational Dilation</h4>
+			<h4>Null-Manifold Shrinkage and CTMT Time Dilation</h4>
 
 			<p>
-				Let <span class="math inline">\(q\)</span> denote the soft (transport) coordinate. The local oscillation law on the null manifold is:
+				Let <span class="math inline">\(q\)</span> denote a soft (transport) coordinate.
+				On the null manifold, kernel oscillations obey:
 			</p>
 
 			<figure class="equation" id="eq-0a_68">
 				<div class="math display">
-
 					\[
-						\partial_t^2 \varphi = (H^{-1}(\Theta))_{qq}\,\partial_q^2 \varphi
-						\;\;\Rightarrow\;\; \omega^2 = c^2 k^2,\quad c^2=(H^{-1})_{qq}.
+						\partial_t^2 \varphi
+						= (H^{-1})_{qq}\,\partial_q^2 \varphi,
+						\qquad
+						c^2 = (H^{-1})_{qq}.
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_68">Equation (0a.68) — Oscillation law on null manifold.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_68">Equation (0a.68) — Oscillation law on the CTMT null manifold.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Thus the local clock frequency is:
+				The local oscillation frequency therefore scales as:
 			</p>
 
 			<figure class="equation" id="eq-0a_69">
 				<div class="math display">
-
 					\[
-						\omega(\Theta) = \omega_0 \frac{(H^{-1})_{qq}(\Theta)}{(H^{-1})_{qq}(\Theta_0)}.
+						\omega(\Theta)
+						= \omega_0
+						\frac{(H^{-1})_{qq}(\Theta)}
+							 {(H^{-1})_{qq}(\Theta_0)} .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_69">Equation (0a.69) — Clock frequency scaling with Fisher inverse.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_69">Equation (0a.69) — Frequency scaling with Fisher inverse.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Since increased <span class="math inline">\(\rho_c\)</span> stiffens <span class="math inline">\(H\)</span>, the soft inverse component shrinks:
+				Since increasing coherence density stiffens <span class="math inline">\(H\)</span>,
+				the corresponding inverse component shrinks:
 			</p>
 
 			<figure class="equation" id="eq-0a_70">
 				<div class="math display">
-
 					\[
-						\rho_c\uparrow \;\;\Rightarrow\;\; (H^{-1})_{qq}\downarrow \;\;\Rightarrow\;\; \omega\downarrow.
+						\rho_c \uparrow
+						\;\Rightarrow\;
+						(H^{-1})_{qq} \downarrow
+						\;\Rightarrow\;
+						\omega \downarrow .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_70">Equation (0a.70) — CTMT gravitational dilation.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_70">Equation (0a.70) — CTMT time dilation.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				This mirrors the GR redshift/time dilation law:
+				This directly mirrors the gravitational redshift relation in GR:
 			</p>
 
 			<figure class="equation" id="eq-0a_71">
 				<div class="math display">
-
 					\[
-						\frac{\omega(\Theta)}{\omega(\Theta_0)} = \frac{(H^{-1})_{qq}(\Theta)}{(H^{-1})_{qq}(\Theta_0)}
-						\quad\leftrightarrow\quad
-						\frac{\nu}{\nu_0} = \frac{g_{tt}(\Theta)}{g_{tt}(\Theta_0)}.
+						\frac{\omega(\Theta)}{\omega(\Theta_0)}
+						=
+						\frac{(H^{-1})_{qq}(\Theta)}
+							 {(H^{-1})_{qq}(\Theta_0)}
+						\;\leftrightarrow\;
+						\frac{\nu}{\nu_0}
+						=
+						\frac{g_{tt}(\Theta)}{g_{tt}(\Theta_0)} .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_71">Equation (0a.71) — CTMT vs GR dilation correspondence.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_71">Equation (0a.71) — CTMT–GR dilation correspondence.</a>
+				</figcaption>
 			</figure>
 
-			<h4>Singularities = CTMT Null-Manifold Collapse</h4>
+			<h4>Singularities as Null-Manifold Collapse</h4>
 
 			<p>
-				In GR, singularities correspond to metric degeneracy (e.g., <span class="math inline">\(\det g \to 0\)</span>).
+				In GR, singularities correspond to metric degeneracy.
 				In CTMT the analogous condition is Fisher collapse:
 			</p>
 
 			<figure class="equation" id="eq-0a_72">
 				<div class="math display">
-
 					\[
-						\lambda_{\min}(H)\;\to\;\infty
+						\lambda_{\min}(H) \to \infty
 						\quad\text{or}\quad
-						(H^{-1})_{qq}\;\to\;0,
+						(H^{-1})_{qq} \to 0 .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_72">Equation (0a.72) — Fisher collapse condition.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_72">Equation (0a.72) — Fisher collapse condition.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				Under this condition the null manifold dimension shrinks:
+				Under this limit the null-manifold dimension vanishes:
 			</p>
 
 			<figure class="equation" id="eq-0a_73">
 				<div class="math display">
-
 					\[
-						\dim N(\Theta) = \dim \ker H(\Theta)\;\downarrow\;0.
+						\dim N(\Theta) = \dim \ker H(\Theta) \;\to\; 0 .
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_73">Equation (0a.73) — Null manifold collapse.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_73">Equation (0a.73) — Null-manifold collapse.</a>
+				</figcaption>
 			</figure>
 
 			<p>
-				This is the singularity analogue: the manifold loses its soft directions; oscillations cannot propagate; clock rate
-				<span class="math inline">\(\omega \to 0\)</span>. Equivalently: spacetime “ends” only because oscillatory persistence ends.
+				Propagation ceases not because spacetime ends,
+				but because oscillatory persistence is eliminated.
+				This is the CTMT notion of a singularity.
 			</p>
 
-			<h4>CTMT Dilation Index (DI)</h4>
-
-			<p>
-				Define the Dilation Index:
-			</p>
-
-			<figure class="equation" id="eq-0a_74">
-				<div class="math display">
-
-					\[
-						DI(\Theta)\equiv (H_{\mathrm{unit}}^{-1})_{qq},
-					\]
-
-				</div>
-				<figcaption><a href="#eq-0a_74">Equation (0a.74) — Dilation Index definition.</a></figcaption>
-			</figure>
-
-			<p>
-				where <span class="math inline">\(H_{\mathrm{unit}}\)</span> is the empirically estimated Fisher using unit-normalized observables (see Sec. 0a.54).
-			</p>
-
-			<p>
-				Clock frequency in CTMT obeys:
-			</p>
-
-			<figure class="equation" id="eq-0a_75">
-				<div class="math display">
-
-					\[
-						\frac{\omega(\Theta)}{\omega(\Theta_0)} = \frac{DI(\Theta)}{DI(\Theta_0)}.
-					\]
-
-				</div>
-				<figcaption><a href="#eq-0a_75">Equation (0a.75) — Clock frequency scaling with DI.</a></figcaption>
-			</figure>
-
-			<p>
-				CTMT prediction: As load/coherence density increases, DI decreases, and clock rate reduces. This is fully falsifiable in controlled resonator systems.
-			</p>
-
-			<h4>Predictions and Falsifiable Checks</h4>
-			<ol>
-				<li>
-					<strong>Mass-load dilation curve:</strong>
-					CTMT predicts frequency shift proportional to Fisher eigenvalue stiffening:
-					<figure class="equation" id="eq-0a_76">
-						<div class="math display">
-
-							\[
-								\omega \propto DI \propto \frac{1}{\lambda_\parallel}.
-							\]
-
-						</div>
-						<figcaption><a href="#eq-0a_76">Equation (0a.76) — Eigenvalue–Frequency Lemma.</a></figcaption>
-					</figure>
-					<em>Falsification:</em> If spectral frequencies shift without eigenvalue stiffening, CTMT fails. GR has no eigenvalue condition.
-				</li>
-
-				<li>
-					<strong>Null-manifold shrinkage signature:</strong>
-					Fisher stiffening reduces \((H^{-1})_{qq}\), shifting peaks downward, narrowing bandwidth, and increasing mode dropout.
-					<em>Falsification:</em> If these do not co-occur, CTMT fails. GR predicts only peak shift, not dropout.
-				</li>
-
-				<li>
-					<strong>Chaos unmasking near mass:</strong>
-					Shrinking dimensionality concentrates fluctuations:
-					<figure class="equation" id="eq-0a_77">
-						<div class="math display">
-
-							\[
-								\text{Intermittency}\uparrow,\quad \text{phase noise skew}\uparrow,\quad 1/f^{\alpha}\;\text{noise amplitude}\uparrow.
-							\]
-
-						</div>
-						<figcaption><a href="#eq-0a_77">Equation (0a.77) — Chaos–Unmasking Lemma.</a></figcaption>
-					</figure>
-					<em>Falsification:</em> If chaos signatures are absent, CTMT fails. GR predicts none of these.
-				</li>
-
-				<li>
-					<strong>Anchor invariance under motion:</strong>
-					After Doppler correction:
-					<figure class="equation" id="eq-0a_78">
-						<div class="math display">
-
-							\[
-								\omega_{\mathrm{rest}}(\Theta)\;\approx\;\omega_{\mathrm{moving}}(\Theta),
-							\]
-
-						</div>
-						<figcaption><a href="#eq-0a_78">Equation (0a.78) — Frequency invariance under motion.</a></figcaption>
-					</figure>
-					<figure class="equation" id="eq-0a_79">
-						<div class="math display">
-
-							\[
-								DI_{\mathrm{rest}}\;\approx\;DI_{\mathrm{moving}}.
-							\]
-
-						</div>
-						<figcaption><a href="#eq-0a_79">Equation (0a.79) — DI invariance under motion.</a></figcaption>
-					</figure>
-					<em>Falsification:</em> If Fisher dilation disappears under motion, CTMT fails. GR only guarantees Lorentz invariance.
-				</li>
-			</ol>
-
-			<h4>Summary</h4>
+			<h4>Summary of Correspondence</h4>
 
 			<ul>
-				<li><strong>Mass ↔ Fisher stiffening:</strong> Increased local coherence density raises Fisher eigenvalues.</li>
-				<li><strong>Curvature ↔ null-manifold shrinkage:</strong> Soft directions vanish as <span class="math inline">\((H^{-1})_{qq}\to 0\)</span>.</li>
-				<li><strong>Redshift / dilation ↔ oscillation persistence:</strong> Clock rate <span class="math inline">\(\omega \propto (H^{-1})_{qq}\)</span> shrinks.</li>
-				<li><strong>Singularity ↔ null-manifold collapse:</strong> CTMT singularity is a Fisher degeneracy eliminating all soft oscillatory directions.</li>
-				<li><strong>Invariant speed ↔ soft-axis Fisher curvature:</strong> <span class="math inline">\(c^2=(H^{-1})_{qq}\)</span> is the CTMT null-structure analog of GR’s light cone.</li>
+				<li><strong>Mass–energy ↔ Fisher stiffening:</strong>
+					Coherence density increases Fisher eigenvalues.</li>
+				<li><strong>Curvature ↔ null-manifold shrinkage:</strong>
+					Soft directions vanish as <span class="math inline">\((H^{-1})_{qq}\to 0\)</span>.</li>
+				<li><strong>Redshift ↔ oscillation persistence:</strong>
+					Clock rate scales with Fisher inverse.</li>
+				<li><strong>Singularity ↔ Fisher degeneracy:</strong>
+					CTMT singularities are geometric, not coordinate artifacts.</li>
+				<li><strong>Invariant speed:</strong>
+					<span class="math inline">\(c^2=(H^{-1})_{qq}\)</span> defines the null structure.</li>
 			</ul>
 
 			<h4>Controls, Invariance, and Mapping</h4>
@@ -9255,167 +9303,342 @@ return lam, vec
 				This constitutes a falsifiable unification test: a single dataset producing both quantum and relativistic curvature modes, robust under reparameterization, noise variation, and spectral windowing.
 			</p>
 
-			<h3 id="sec-0-decisive_core_16">Seed → Hop → 4D Time: From Kernel Existence to Quantum Persistence and Relativistic Propagation</h3>
+			<h3 id="sec-0-decisive_core_16">Seed → Hop → Null Geometry: From Kernel Existence to Quantum Persistence and Relativistic Propagation</h3>
 
 			<p>
-				Let the CTMT seed observable be
+				Let the fundamental CTMT seed observable be defined as
 			</p>
-			<div class="math display">
-				\[
-					O(\Theta) = \mathbb{E}_\xi\!\big[\Xi(\Theta;\xi)\,e^{i\Phi(\Theta;\xi)/S_\ast}\big],
-				\]
-			</div>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						O(\Theta)
+						=
+						\mathbb{E}_{\xi}\!\left[
+							\Xi(\Theta;\xi)\,
+							e^{i\Phi(\Theta;\xi)/S_\ast}
+						\right],
+					\]
+				</div>
+			</figure>
+
 			<p>
-				where ensemble index <span class="math inline">\(\xi\)</span> parameterizes microscopic configurations.
-				Existence follows from minimal assumptions:
+				where the ensemble index <span class="math inline">\(\xi\)</span> labels microscopic configurations.
+				The existence of <span class="math inline">\(O(\Theta)\)</span> follows from minimal and standard assumptions:
 			</p>
+
 			<ul>
-				<li><strong>Finiteness:</strong> <span class="math inline">\(\mathbb{E}[|\Xi|] \lt \infty\).</li>
-				<li><strong>Continuity:</strong> <span class="math inline">\(\Xi(\Theta;\xi)\) continuous in <span class="math inline">\(\Theta\) for almost every <span class="math inline">\(\xi\).</li>
 				<li>
-					<strong>Differentiability under expectation:</strong> justified by dominated convergence:
-					<span class="math inline">\(\partial_\Theta \mathbb{E}[\Xi e^{i\Phi/S_\ast}] = \mathbb{E}[\partial_\Theta(\Xi e^{i\Phi/S_\ast})]\).
+					<strong>Finiteness:</strong>
+					<span class="math inline">\(\mathbb{E}[|\Xi|] &lt; \infty\)</span>.
+				</li>
+				<li>
+					<strong>Continuity:</strong>
+					<span class="math inline">\(\Xi(\Theta;\xi)\)</span> is continuous in
+					<span class="math inline">\(\Theta\)</span> for almost every
+					<span class="math inline">\(\xi\)</span>.
+				</li>
+				<li>
+					<strong>Differentiability under expectation:</strong>
+					Justified by dominated convergence,
+					<span class="math inline">\(\partial_\Theta \mathbb{E}[\Xi e^{i\Phi/S_\ast}]
+					= \mathbb{E}[\partial_\Theta(\Xi e^{i\Phi/S_\ast})]\)</span>.
 				</li>
 			</ul>
 
+			<p>From these assumptions alone, the full geometric chain follows:</p>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						O(\Theta)
+						\;\Rightarrow\;
+						J(\Theta)=\partial_\Theta O
+						\;\Rightarrow\;
+						\Sigma_O
+						\;\Rightarrow\;
+						H(\Theta)=J^\top\Sigma_O^{-1}J,
+					\]
+				</div>
+			</figure>
+
 			<p>
-				These assumptions generate the functional chain:
-			</p>
-			<div class="math display">
-				\[
-					O(\Theta) \;\Rightarrow\; J(\Theta)=\partial_\Theta O \;\Rightarrow\; 
-					\Sigma_O \;\Rightarrow\; H(\Theta)=J^\top \Sigma_O^{-1} J,
-				\]
-			</div>
-			<p>
-				where <span class="math inline">\(H\)</span> is the Fisher information tensor and <span class="math inline">\(g = H^{-1}\)</span> its induced metric.
-				No external geometry or spacetime axiom is imported: curvature, distance, and causality arise directly from the kernel’s oscillatory action.
+				where <span class="math inline">\(H\)</span> is the Fisher information tensor and
+				<span class="math inline">\(g=H^{-1}\)</span> its induced metric.
+				No spacetime, distance, or causal structure is assumed <em>a priori</em>:
+				all geometry emerges from the oscillatory kernel itself.
 			</p>
 
-			<h4>Oscillatory Action and Metric Curvature</h4>
+			<h4>Oscillatory Action as the Source of Metric Curvature</h4>
+
 			<p>
-				For <span class="math inline">\(K=A(\Theta,\xi)e^{i\Phi(\Theta;\xi)/S_\ast}\)</span> under rapid phase and slow amplitude variation (stationary-phase approximation),
-			</p>
-			<div class="math display">
-				\[
-					H_{ij} \approx \frac{1}{S_\ast^2}\,\mathbb{E}[\partial_i \Phi\,\partial_j \Phi].
-				\]
-			</div>
-			<p>
-				The metric curvature is therefore governed by phase Hessians.  
-				Oscillation enforces orthogonality and instrument-independence; without it, <span class="math inline">\(J\)</span> becomes collinear and <span class="math inline">\(H\)</span> loses rank, destroying curvature and computability (as proved in §0.14).
+				For a kernel of the form
+				<span class="math inline">\(K=A(\Theta,\xi)\,e^{i\Phi(\Theta;\xi)/S_\ast}\)</span>,
+				with slowly varying amplitude and rapidly varying phase
+				(stationary-phase regime),
+				the Fisher tensor reduces to
 			</p>
 
-			<h4>Impulse Response and Hop Length <span class="math inline">\(M_1\)</span></h4>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						H_{ij}
+						\;\approx\;
+						\frac{1}{S_\ast^2}\,
+						\mathbb{E}\!\left[
+							\partial_i\Phi\,
+							\partial_j\Phi
+						\right].
+					\]
+				</div>
+			</figure>
+
 			<p>
-				Let <span class="math inline">\(h(x;\nu)\)</span> be the impulse response at synchronization frequency <span class="math inline">\(\nu\)</span>.
-				Define its first spatial moment:
-			</p>
-			<div class="math display">
-				\[
-					M_1(\nu) = \int x\,h(x;\nu)\,dx.
-				\]
-			</div>
-			<p>
-				Dimensional closure and Fisher soft-axis invariance enforce
-			</p>
-			<div class="math display">
-				\[
-					M_1(\nu) = \frac{v_{\mathrm{sync}}}{\nu},
-				\]
-			</div>
-			<p>
-				so the product <span class="math inline">\(M_1(\nu)\,\nu\)</span> is invariant.  
-				This defines the basic <em>hop relation</em>: each oscillation corresponds to a spatial step inversely proportional to its frequency.
+				Metric curvature is therefore governed directly by phase gradients.
+				Oscillation enforces orthogonality and parameter identifiability;
+				in the absence of oscillatory phase, the Jacobian
+				<span class="math inline">\(J\)</span> collapses to collinearity,
+				the Fisher tensor loses rank,
+				and curvature—and hence computability—vanishes
+				(see Sec.&nbsp;0.14).
 			</p>
 
-			<h4>Invariant Synchronization Speed</h4>
+			<h4>Impulse Response and the Hop Length</h4>
+
 			<p>
-				Define
+				Let <span class="math inline">\(h(x;\nu)\)</span> denote the impulse response
+				at synchronization frequency <span class="math inline">\(\nu\)</span>.
+				Define the first spatial moment
 			</p>
-			<div class="math display">
-				\[
-					v_{\mathrm{sync}} := M_1(\nu)\,\nu.
-				\]
-			</div>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						M_1(\nu)
+						=
+						\int x\,h(x;\nu)\,dx .
+					\]
+				</div>
+			</figure>
+
 			<p>
-				Independent anchors (CMB peak and Cs hyperfine line) yield
+				Dimensional closure together with invariance along the Fisher soft axis
+				forces the scaling relation
 			</p>
-			<div class="math display">
-				\[
-					v_{\mathrm{sync}} = 2.9979\times 10^8 \,\mathrm{m/s},
-				\]
-			</div>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						M_1(\nu)
+						=
+						\frac{v_{\mathrm{sync}}}{\nu}.
+					\]
+				</div>
+			</figure>
+
+			<p>
+				Thus the product <span class="math inline">\(M_1(\nu)\,\nu\)</span> is invariant.
+				This defines the fundamental <strong>hop relation</strong>:
+				each oscillatory cycle corresponds to a spatial displacement
+				inversely proportional to its frequency.
+			</p>
+
+			<h4>Emergence of an Invariant Propagation Speed</h4>
+
+			<p>
+				Define the synchronization velocity
+			</p>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						v_{\mathrm{sync}}
+						\;\equiv\;
+						M_1(\nu)\,\nu .
+					\]
+				</div>
+			</figure>
+
+			<p>
+				Independent empirical anchors (cosmic microwave background peak and
+				cesium hyperfine transition) yield
+			</p>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						v_{\mathrm{sync}}
+						=
+						2.9979\times10^8\,\mathrm{m/s},
+					\]
+				</div>
+			</figure>
+
 			<p>
 				numerically indistinguishable from the measured speed of light.
-				CTMT thus derives the invariant propagation speed directly from kernel geometry rather than postulating it as an external axiom.
+				CTMT therefore derives invariant propagation directly from kernel geometry,
+				rather than postulating it as a spacetime axiom.
 			</p>
 
-			<h4>Fisher Curvature and the Wave Law</h4>
+			<h4>Fisher Geometry and the Wave Law</h4>
+
 			<p>
-				Along the soft (propagating) axis of the Fisher manifold,
+				Along the soft (propagating) coordinate
+				<span class="math inline">\(q\)</span> of the Fisher manifold,
 			</p>
-			<div class="math display">
-				\[
-					c^2 = g_{qq} \equiv \frac{\partial^2 \Phi/\partial t^2}{\partial^2 \Phi/\partial x^2}.
-				\]
-			</div>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						c^2
+						=
+						g_{qq}
+						\equiv
+						\frac{\partial_t^2\Phi}
+							 {\partial_x^2\Phi}.
+					\]
+				</div>
+			</figure>
+
 			<p>
 				This reproduces the classical wave equation
-				<span class="math inline">\(\partial_t^2\phi = c^2 \partial_x^2\phi\)</span>,
-				identifying relativistic null cones as degeneracy surfaces of <span class="math inline">\(g\)</span>.
-				Causality corresponds to Fisher stiffness.
+				<span class="math inline">\(\partial_t^2\phi = c^2\partial_x^2\phi\)</span>.
+				Relativistic null cones correspond to degeneracy surfaces of
+				<span class="math inline">\(g\)</span>;
+				causality is identified with Fisher stiffness rather than metric postulate.
 			</p>
 
-			<h4>Regime Split: Quantum ↔ Classical</h4>
+			<h4>Regime Split: Quantum Persistence versus Classical Trajectories</h4>
+
 			<ul>
-				<li><strong>Low frequency:</strong> large hop, extended coherence volume, full-rank <span class="math inline">\(H\)</span> — quantum persistence.</li>
-				<li><strong>High frequency:</strong> small hop, localized support, near-rank-drop of <span class="math inline">\(H\)</span> — classical trajectory emergence.</li>
+				<li>
+					<strong>Low frequency:</strong>
+					Large hop length, extended coherence volume, full-rank
+					<span class="math inline">\(H\)</span> —
+					quantum persistence.
+				</li>
+				<li>
+					<strong>High frequency:</strong>
+					Small hop length, localized support, near-rank collapse of
+					<span class="math inline">\(H\)</span> —
+					classical trajectory emergence.
+				</li>
 			</ul>
 
-			<h4>Time as Synchronization Phase</h4>
+			<h4>Time as Phase Synchronization</h4>
+
+			<p>Operational time is defined by measurable phase:</p>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						t
+						=
+						\frac{\Phi}{2\pi\nu},
+						\qquad
+						dt
+						=
+						frac{d\Phi}{2\pi\nu}.
+					\]
+				</div>
+			</figure>
+
 			<p>
-				The measurable phase defines time:
-			</p>
-			<div class="math display">
-				\[
-					t = \frac{\Phi}{2\pi\nu}, \qquad dt = \frac{d\Phi}{2\pi\nu}.
-				\]
-			</div>
-			<p>
-				In a TUCF (time-uniform coherence frame), <span class="math inline">\(d\nu \approx 0\)</span>, making
-				phase/ν the only invariant temporal parameter.
-				With <span class="math inline">\(v_{\mathrm{sync}}=c\)</span>, the null condition is
-			</p>
-			<div class="math display">
-				\[
-					ds^2 = -c^2 dt^2 + dx^2 = 0,
-				\]
-			</div>
-			<p>
-				and Lorentz transformations appear as isometries of the Fisher metric <span class="math inline">\(g=H^{-1}\)</span>.
-				Relativity emerges as the symmetry of the oscillatory Fisher manifold.
+				In a time-uniform coherence frame (TUCF),
+				<span class="math inline">\(d\nu \approx 0\)</span>,
+				rendering phase-to-frequency ratio the unique invariant temporal quantity.
+				With <span class="math inline">\(v_{\mathrm{sync}}=c\)</span>,
+				the null condition becomes
 			</p>
 
-			<h4>Reverse Arrow and Collapse</h4>
+			<figure class="equation">
+				<div class="math display">
+					\[
+						ds^2
+						=
+						-c^2dt^2 + dx^2
+						=
+						0 .
+					\]
+				</div>
+			</figure>
+
 			<p>
-				Propagation direction depends on Fisher rank:
+				Lorentz transformations arise as isometries of the Fisher metric
+				<span class="math inline">\(g=H^{-1}\)</span>.
+				Relativity emerges as a symmetry of oscillatory information geometry.
 			</p>
+
+			<h4>Irreversibility, Rank Loss, and Collapse</h4>
+
+			<p>Dynamical reversibility is controlled by Fisher rank:</p>
+
 			<ul>
-				<li><strong>Full-rank <span class="math inline">\(H\)</span>:</strong> reversible, phase-symmetric evolution (unitary limit).</li>
-				<li><strong>Rank-deficient <span class="math inline">\(H\)</span>:</strong> information loss and irreversibility; pseudoinverse <span class="math inline">\(H^+\)</span> governs residual dynamics.</li>
+				<li>
+					<strong>Full-rank <span class="math inline">\(H\)</span>:</strong>
+					Phase-symmetric, reversible evolution (unitary limit).
+				</li>
+				<li>
+					<strong>Rank-deficient <span class="math inline">\(H\)</span>:</strong>
+					Information loss and irreversibility;
+					dynamics governed by the pseudoinverse
+					<span class="math inline">\(H^{+}\)</span>.
+				</li>
 			</ul>
+
+			<p>Define Fisher entropy as curvature volume:</p>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						S
+						=
+						k_B \log\det H,
+						\qquad
+						\Delta S &gt; 0
+						\text{ under rank loss}.
+					\]
+				</div>
+			</figure>
+
 			<p>
-				Define Fisher entropy as curvature volume:
+				Collapse corresponds to contraction of Fisher volume:
+				an intrinsically geometric entropy increase.
 			</p>
-			<div class="math display">
-				\[
-				S = k_B \log\det H, \qquad \Delta S > 0 \text{ when rank drops}.
-				\]
-			</div>
+
+			<h4>Summary</h4>
+
+			<figure class="equation">
+				<div class="math display">
+					\[
+						O
+						\;\Rightarrow\;
+						J
+						\;\Rightarrow\;
+						H
+						\;\Rightarrow\;
+						g
+						\;\Rightarrow\;
+						M_1
+						\;\Rightarrow\;
+						v_{\mathrm{sync}}
+						\;\Rightarrow\;
+						ds^2
+						\;\Rightarrow\;
+						\text{Lorentz symmetry}.
+					\]
+				</div>
+			</figure>
+
 			<p>
-				Collapse corresponds to Fisher volume contraction — a purely geometric entropy increase.
+				CTMT reconstructs four-dimensional relativistic structure from the internal
+				curvature of a single oscillatory kernel.
+				Quantum coherence, classical propagation, and relativistic invariance
+				emerge as regime limits of one Fisher manifold.
+				The framework is ontologically minimal and fully computable.
 			</p>
+
+			<hr />
 
 			<h4>Worked Example 1 — Synthetic Hop Simulation</h4>
 			<p>
@@ -9462,19 +9685,6 @@ print(f"v_sync ≈ {v_sync:.3e} m/s")
 				Thus a single oscillatory phase law simultaneously yields
 				the Schrödinger persistence (through phase continuity)
 				and Einstein propagation (through metric nullity).
-			</p>
-
-			<h4>Summary</h4>
-			<div class="math display">
-				\[
-					O \;\Rightarrow\; J \;\Rightarrow\; H \;\Rightarrow\; g \;\Rightarrow\; 
-					M_1 \;\Rightarrow\; v_{\mathrm{sync}} \;\Rightarrow\; ds^2 \;\Rightarrow\; \text{Lorentz symmetry}.
-				\]
-			</div>
-			<p>
-				CTMT thus reconstructs a four-dimensional spacetime from the internal curvature of a single kernel.
-				Quantum coherence (unitary rank), classical propagation (soft-axis stiffness), and relativistic invariance all emerge as limits of the same Fisher manifold.
-				The result is an ontologically minimal, fully computable universe.
 			</p>
 
 			<h3 id="sec-0-decisive_core_17">Magnetism and Gravity as Dual Projections of Fisher Curvature</h3>
