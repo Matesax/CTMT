@@ -57173,6 +57173,125 @@ print("Uncertainty variance:", uncertainty_propagation(
                 <li>After cosmological critical density: link to Friedmann derivation and kernel → spherical projection mapping <span class="math inline">\(\Theta \to H_0\)</span>, <span class="math inline">\(C \to G\)</span></li>
             </ul>
 
+			<h4>Analytic Origin of <span class="math inline">\(\pi\)</span> from Stationary Phase and Kernel Volume</h4>
+
+			<p>
+				Beyond spectral and geometric projection, <span class="math inline">\(\pi\)</span>-factors arise unavoidably from
+				stationary-phase evaluation and Gaussian kernel normalization.
+				This origin is fundamental to CTMT, as collapse, coherence, and transport are all governed by Hessian geometry.
+			</p>
+
+			<p>The canonical result is:</p>
+
+			<div class="math display">
+				\[
+					\int_{\mathbb{R}^n} 
+					\exp\!\left(-\tfrac{1}{2} x^\top A x\right)\,dx
+					=
+					(2\pi)^{n/2} (\det A)^{-1/2},
+					\qquad A \succ 0.
+				\]
+			</div>
+
+			<p>This identity underlies:</p>
+
+			<ul>
+				<li>stationary-phase kernel amplitudes,</li>
+				<li>Fisher-volume normalization,</li>
+				<li>collapse scaling <span class="math inline">\(\sim |\det H|^{-1/2}\)</span>,</li>
+				<li>and coherence density measures.</li>
+			</ul>
+
+			<p>
+				Accordingly, every determinant-based quantity in CTMT
+				implicitly carries a <span class="math inline">\((2\pi)^{r/2}\)</span> factor,
+				where <span class="math inline">\(r = \mathrm{rank}(H)\)</span>.
+				This factor is structural and cannot be removed without breaking normalization.
+			</p>
+
+			<h4>Symplectic Phase-Space Measure and Action Quantization</h4>
+
+			<p>
+				CTMT kernels operate on phase and action variables.
+				The invariant phase-space volume element is
+			</p>
+
+			<div class="math display">
+				\[
+					d\mu
+					=
+					\prod_i \frac{dq_i\,dp_i}{2\pi S_\ast},
+					\qquad S_\ast = \hbar.
+				\]
+			</div>
+
+			<p>
+				This normalization is required by Liouville’s theorem
+				and ensures conservation of ensemble measure under canonical flow.
+				The appearance of <span class="math inline">\(\pi\)</span> here is not quantum-specific:
+				it reflects symplectic invariance of any action-based kernel.
+			</p>
+
+			<p>In CTMT, this justifies:</p>
+
+			<ul>
+				<li>the use of <span class="math inline">\(\hbar\)</span> as the kernel action quantum,</li>
+				<li>the normalization of phase integrals,</li>
+				<li>and the dimensional closure of coherence volume.</li>
+			</ul>
+
+			<h4>Heat Kernel and Propagation Normalization</h4>
+
+			<p>
+				Transport and diffusion-like propagation kernels universally inherit
+				<span class="math inline">\(\pi\)</span>-factors from the heat kernel:
+			</p>
+
+			<div class="math display">
+				\[
+					K(x,t)
+					=
+					\frac{1}{(4\pi t)^{n/2}}
+					\exp\!\left(-\frac{|x|^2}{4t}\right).
+				\]
+			</div>
+
+			<p>
+				This structure governs:
+			</p>
+
+			<ul>
+				<li>causal smoothing,</li>
+				<li>Green-function propagation,</li>
+				<li>and coherence decay under distortion.</li>
+			</ul>
+
+			<p>
+				In CTMT, rupture and rank loss deform the exponent
+				but preserve the <span class="math inline">\(\pi\)</span>-normalization of the kernel.
+				This explains why <span class="math inline">\(\pi\)</span>-factors remain invariant even when geometry thins.
+			</p>
+
+			<h4>Structural Interpretation</h4>
+
+			<p>
+				Across spectral, spatial, analytic, and symplectic domains,
+				<span class="math inline">\(\pi\)</span> arises as the measure of rotational closure,
+				phase completeness, and Gaussian normalization.
+				It is therefore a <em>kernel invariant</em>, not a numerical artifact.
+			</p>
+
+			<p>
+				Any theory employing:
+				action,
+				phase,
+				stationary phase,
+				or Hessian geometry
+				<strong>must</strong> inherit <span class="math inline">\(\pi\)</span>.
+				CTMT does not introduce <span class="math inline">\(\pi\)</span>;
+				it tracks it correctly across projections.
+			</p>
+
             <h4>Editorial Standards for <span class="math inline">\(\pi\)</span>-Factor Usage</h4>
             <ul>
                 <li>Formulas expressed in terms of frequency <span class="math inline">\(\nu\)</span> (Hz) and Planck constant <span class="math inline">\(h\)</span> should retain the form <span class="math inline">\(E = h\nu\)</span>. When converting to angular frequency <span class="math inline">\(\omega = 2\pi\nu\)</span>, the equivalent expression becomes <span class="math inline">\(E = \hbar\omega\)</span>, where <span class="math inline">\(\hbar = h / 2\pi\)</span>.</li>
@@ -57201,7 +57320,7 @@ print("Uncertainty variance:", uncertainty_propagation(
             <div class="math display">
 
                 \[
-                K(x, x') = \int_{\Omega_\omega} M[\omega, \dots]\, e^{i\Phi(x, x'; \omega)}\, d\omega
+					K(x, x') = \int_{\Omega_\omega} M[\omega, \dots]\, e^{i\Phi(x, x'; \omega)}\, d\omega
                 \]
 
             </div>
@@ -59946,6 +60065,40 @@ print "Medium-corrected distance D_corr (m):", D_corr
 				</li>
 			</ul>
 
+			<h5>Dimensional Consistency Test (correction)</h5>
+
+			<p>
+				When written in symbolic form
+				<span class="math inline">\([Q_k]\)</span>
+				denotes the corresponding logarithmic dimension vector
+				<span class="math inline">\(\vec d(Q_k)\)</span>;
+				all dimensional residua are evaluated in exponent space,
+				even when abbreviated notation is used.
+			</p>
+
+			<p>
+				To make the dimensional residuum mathematically well-defined,
+				we represent physical dimensions in logarithmic exponent space.
+				For any observable
+				<span class="math inline">\(Q = M^\alpha L^\beta T^\gamma\)</span>,
+				define the dimension vector
+				<span class="math inline">\(\vec{d}(Q) = (\alpha,\beta,\gamma)\)</span>.
+			</p>
+
+			<div class="math display">
+				\[
+					\epsilon_{\mathrm{dim}} =
+					\frac{\left\| \vec{d}(Q_k)_{\mathrm{pred}} - \vec{d}(Q_k)_{\mathrm{SI}} \right\|}
+					{\left\| \vec{d}(Q_k)_{\mathrm{SI}} \right\|}
+				\]
+			</div>
+
+			<p>
+				This definition is invariant under unit rescaling
+				(SI, CGS, or natural units) and measures true dimensional mismatch,
+				not numerical error.
+			</p>
+
 			<h5>Dimensional Consistency Test</h5>
 
 			<p>
@@ -59955,36 +60108,45 @@ print "Medium-corrected distance D_corr (m):", D_corr
 
 			<div class="math display">
 				\[
-				\epsilon_{\mathrm{dim}} =
-				\frac{\left\| [Q_k]_{\mathrm{pred}} - [Q_k]_{\mathrm{SI}} \right\|}
-					 {\left\| [Q_k]_{\mathrm{SI}} \right\|}
+					\epsilon_{\mathrm{dim}} =
+					\frac{\left\| [Q_k]_{\mathrm{pred}} - [Q_k]_{\mathrm{SI}} \right\|}
+						 {\left\| [Q_k]_{\mathrm{SI}} \right\|}
 				\]
 			</div>
 
 			<p>
-				The kernel passes dimensional closure if
-				<span class="math inline">\(\epsilon_{\mathrm{dim}} &lt; 10^{-12}\)</span>.
-				This bound corresponds to the threshold below which rupture becomes
-				computationally indistinguishable from perfect coherence.
+				In practice, kernel dimensional closure is satisfied when
+				<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>
+				falls below a reference scale
+				<span class="math inline">\(\epsilon_{\mathrm{ref}} \sim 10^{-12}\)</span>,
+				corresponding to the limit at which rupture effects become
+				computationally indistinguishable from perfect coherence
+				in high-precision metrology.
 			</p>
 
 			<h5>Relation to Rupture and Renormalization</h5>
 
 			<p>
-				Within the Terror Kernel, the dimensional residuum acts as a controlled anti-closure term:
-				<span class="math inline">\(\epsilon_{\mathrm{dim}}(x) \sim R(x)\)</span>,
-				where <span class="math inline">\(R(x)\)</span> is the local rupture ratio.
-				Thus, <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> quantifies how much
-				of the coherent kernel survives under rupture deformation.
+				Within the Terror Kernel, the dimensional residuum acts as a
+				monotone proxy for local rupture:
+			</p>
+
+			<div class="math display">
+				\[
+					\epsilon_{\mathrm{dim}}(x) \propto R(x) \quad \text{(to leading order)}.
+				\]
+			</div>
+
+			<p>
+				This relation need not be linear or universal; it asserts that
+				dimensional anti-closure increases monotonically with structural rupture.
 			</p>
 
 			<p>
 				The renormalization operator
-				<span class="math inline">\(\mathcal{R}_\epsilon[X] = X_{\mathcal{C}} \left( 1 + \epsilon_{\mathrm{dim}} \frac{\partial \ln X}{\partial \ln \rho} \right)\)</span>
-				explicitly uses <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>
-				as a <em>physical regulator</em>—not a fitting parameter.
-				It guarantees that even rupture-deformed constants (e.g. <span class="math inline">\(G_{\bar{\mathcal{C}}}, h_{\bar{\mathcal{C}}}\)</span>)
-				remain unit-consistent and falsifiable.
+				<span class="math inline">\(\mathcal{R}_\epsilon\)</span>
+				is defined as a first-order expansion in the rupture parameter
+				<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>:
 			</p>
 
 			<h5>Operational Extraction from Data</h5>
@@ -60005,8 +60167,8 @@ print "Medium-corrected distance D_corr (m):", D_corr
 			<p>
 				Here <span class="math inline">\(\rho_{\mathrm{coh}}\)</span> is the empirically estimated
 				coherence density from delay-modulated signals (EEG, seismic, FRB, SPDC).
-				A nonzero delay with <span class="math inline">\(\rho_{\mathrm{coh}} &gt; 0\)</span>
-				implies <span class="math inline">\(\epsilon_{\mathrm{dim}} &lt; 1\)</span>,
+				A nonzero delay with <span class="math inline">\(\rho_{\mathrm{coh}} \gt 0\)</span>
+				implies <span class="math inline">\(\epsilon_{\mathrm{dim}} \lt 1\)</span>,
 				proving finite rupture and falsifying singularity.
 			</p>
 
@@ -60116,6 +60278,15 @@ print "Medium-corrected distance D_corr (m):", D_corr
 				and rupture is declared when the residuum exceeds it.
 				This makes CTMT empirically testable across all scales — from quantum optics to
 				astrophysical transients — without appealing to fixed constants of nature.
+			</p>
+
+			<h5>Dimensional Closure of CTMT</h5>
+
+			<p>
+				All kernel laws in CTMT are formulated as dimensionless ratios.
+				Physical units enter only as post-hoc labels applied to closed,
+				ratio-invariant expressions. As a result, dimensional inconsistency
+				cannot arise from unit choice, but only from structural rupture.
 			</p>
 
             <!-- ENERGY LAW -->
