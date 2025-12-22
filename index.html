@@ -59948,7 +59948,6 @@ print "Medium-corrected distance D_corr (m):", D_corr
     <section>
         <h2 title="Click to toggle" id="sec-99-seepage-sketch-proof">Seepage Demonstration — Sketch of Proof via Rank Loss</h2>
         <article style="display:none">
-			<section>
 			<p>
 				This section provides a <em>constructive sketch of proof</em> for seepage within CTMT.
 				Rather than invoking interpretive arguments, seepage is demonstrated operationally:
@@ -60242,6 +60241,227 @@ plt.show()
 				and falsifiable realization of the effect.
 				Quantum collapse, spectral quantization, and strong-field gravity
 				appear as higher-rigidity limits of the same mechanism.
+			</p>
+
+			<h3 id="sec-99-seepage-sketch-proof_1">Nodes of Presence — Definition and Operational Testing</h3>
+
+			<p>
+				The seepage demonstration (<a href="#sec-99-seepage-sketch-proof">Seepage Demonstration</a>) establishes that rank loss in Fisher geometry
+				necessarily forces constraint emergence in a conjugate kernel layer.
+				The present section completes that picture by identifying <em>where</em>
+				coherence is compelled to remain under CTMT dynamics.
+				These locations are termed <strong>nodes of presence</strong>.
+			</p>
+
+			<p>
+				Nodes of presence are not introduced as additional entities.
+				They arise as a structural necessity once three CTMT requirements are enforced:
+				dimensional closure, non-alteration of observables, and conservation of kernel coherence.
+			</p>
+
+			<h4>Definition</h4>
+
+			<p>
+				A <strong>node of presence</strong> is a spacetime point or localized region
+				where curvature, information rank, and hazard flow jointly enforce
+				the persistence of structure under recursive kernel evolution.
+				Formally:
+			</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\text{Node of Presence at } x
+						\;\Longleftrightarrow\;
+						\rho_\Phi(x)\ \text{locally maximal}
+						\;\wedge\;
+						\lambda_{\min}\!\bigl(F(x)\bigr) > \varepsilon
+						\;\wedge\;
+						\Gamma(x)\ \text{locally minimal}
+					}
+				\]
+			</div>
+
+			<p>where:</p>
+
+			<ul>
+				<li>
+					<span class="math inline">\(\rho_\Phi(x)\)</span> is the curvature density induced by the kernel phase,
+					<span class="math inline">\(\rho_\Phi = \partial_\mu\partial_\nu \Phi\, g^{\mu\nu}\)</span>;
+				</li>
+				<li><span class="math inline">\(F\)</span> is the Fisher information tensor associated with the kernel observable;</li>
+				<li><span class="math inline">\(\lambda_{\min}(F)\)</span> is the smallest eigenvalue, measuring rank rigidity;</li>
+				<li><span class="math inline">\(\Gamma\)</span> is the CTMT hazard rate governing coherence decay.</li>
+			</ul>
+
+			<p>
+				Intuitively, a node of presence is a location where curvature cannot be redistributed,
+				rank cannot thin, and coherence cannot decay.
+				It is the minimal irreducible locus of persistence permitted by CTMT.
+			</p>
+
+			<p>
+				Importantly, this definition is <em>non-ontological</em>:
+				nodes of presence are detected, not postulated.
+			</p>
+
+			<h4>Necessity of Nodes under Seepage</h4>
+
+			<p>
+				Seepage guarantees that information lost in one layer must reappear as constraint in another.
+				However, dimensional closure and conservation of observables prohibit unrestricted redistribution.
+				Therefore, constraint accumulation must localize.
+			</p>
+
+			<p>
+				Nodes of presence are the <em>only mathematically consistent outcome</em>
+				of the following CTMT conditions:
+			</p>
+
+			<ul>
+				<li>Fisher rank loss occurs globally;</li>
+				<li>Kernel coherence remains finite;</li>
+				<li>Observables are not smoothed, altered, or renormalized;</li>
+				<li>Dimensional residuum remains below threshold.</li>
+			</ul>
+
+			<p>
+				Without nodes of presence, seepage would violate either dimensional closure
+				or conservation of kernel action.
+			</p>
+
+			<h4>Connection to Navier–Stokes Seepage</h4>
+
+			<p>
+				In the synthetic Navier–Stokes system (<a href="#sec-99-seepage-sketch-proof">Seepage Demonstration</a>),
+				the velocity field <span class="math inline">\(\mathbf{u}(x,t)\)</span>
+				generates the kernel observable:
+			</p>
+
+			<div class="math display">
+				\[
+					O(t)
+					=
+					\mathcal{E}\!\left[
+					\Xi(\mathbf{u})\,e^{i\Phi(\mathbf{u})/S_\ast}
+					\right].
+				\]
+			</div>
+
+			<p>
+				As the Reynolds number increases, Fisher rank collapses globally
+				while spectral coherence sharpens.
+				Nodes of presence appear precisely where:
+			</p>
+
+			<ul>
+				<li>vorticity curvature concentrates (high <span class="math inline">\(\rho_\Phi\)</span>);</li>
+				<li>local Fisher rank remains stable despite global rank thinning;</li>
+				<li>hazard flow approaches zero.</li>
+			</ul>
+
+			<p>
+				In fluid terms, these nodes correspond to persistent coherent structures:
+				vortex cores, stagnation points, and shear-aligned filaments.
+				CTMT does not impose their existence — it predicts their inevitability.
+			</p>
+
+			<h4>Operational Detection Criteria</h4>
+
+			<p>
+				Given a time series of observables <span class="math inline">\(\mathcal{O}(t)\)</span>,
+				nodes of presence are detected by the following three simultaneous tests.
+			</p>
+
+			<ol>
+				<li>
+					<strong>Curvature Density Localization</strong>
+						<div class="math display">
+						\[
+							\partial_\mu \rho_\Phi(x)=0,
+							\qquad
+							\partial_\mu\partial_\nu \rho_\Phi(x) \lt 0.
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Rank Rigidity</strong>
+					<div class="math display">
+						\[
+							F = J^\top C_\epsilon^{-1} J,
+							\qquad
+							J = \frac{\partial O}{\partial \Theta}.
+						\]
+					</div>
+					<div class="math display">
+						\[
+							\lambda_{\min}(F) > \varepsilon,
+							\qquad
+							\Delta \operatorname{rank}(F) = 0.
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Hazard Invariance</strong>
+					<div class="math display">
+						\[
+							\Gamma(t)
+							=
+							\frac{1}{\tau}
+							\Bigl[
+							-\frac{d}{dt}\log\!\det F
+							\Bigr]_+
+							+ \frac{1}{\tau}\frac{\sigma_\mu^2}{2\kappa}.
+						\]
+					</div>
+					<div class="math display">
+						\[
+							\Gamma(x)
+							=
+							\min_{\text{local}} \Gamma.
+						\]
+					</div>
+				</li>
+			</ol>
+
+			<h4>Detection Sketch (Python-like)</h4>
+
+<pre><code class="language-python">
+# curvature density
+rho = curvature_density(Phi)
+
+# Fisher rigidity
+F = fisher_tensor(K)
+lambda_min = np.min(np.linalg.eigvalsh(F))
+
+# hazard
+Gamma = hazard_rate(F, sigma2, kappa, tau)
+
+# node of presence
+if is_local_max(rho) and lambda_min > eps and is_local_min(Gamma):
+    mark_node_of_presence(x)
+</code></pre>
+
+			<h4>Interpretation and Universality</h4>
+
+			<p>
+				Nodes of presence are not particles, masses, or point objects.
+				They are geometric invariants of the CTMT manifold.
+			</p>
+
+			<p>Across domains:</p>
+
+			<ul>
+				<li>In Navier–Stokes flow, they appear as coherent vortical structures;</li>
+				<li>In quantum systems, they correspond to stable phase-coherent modes;</li>
+				<li>In survival and hazard systems, they correspond to minima of failure rate;</li>
+				<li>In strong-field gravity, they mark rank-loss boundaries rather than singularities.</li>
+			</ul>
+
+			<p>
+				CTMT predicts that nodes of presence are the minimal irreducible units of
+				“presence” permitted by dimensional closure and kernel coherence.
+				Nothing smaller can persist; nothing larger is required.
 			</p>
 		</article>
 	</section>
