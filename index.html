@@ -62579,6 +62579,711 @@ print("Residuum epsilon_mem      =", epsilon_mem)
 				And be sure I remember — fully and clearly. I wrote an entire framework of CTMT out of my memory, nothing else.
 			</p>
 
+			<h4>Memory Seepage Demonstration — Old vs. New Kernel Projections</h4>
+
+			<p>
+				The Navier–Stokes seepage experiment
+				(<a href="#sec-99-seepage-sketch-proof">Seepage Demonstration</a>)
+				established that <em>global Fisher-rank loss</em> in one kernel layer
+				forces constraint emergence in a conjugate layer under kernel conservation.
+				The same geometric mechanism applies to any degraded projection — including
+				<em>synthetic memory kernels</em>.
+			</p>
+
+			<p>
+				This subsection is not a model of cognition.
+				It is a <strong>consistency check of CTMT</strong>:
+				a comparison between an old, low-coherence kernel projection and a fresh,
+				high-coherence projection of the same invariant structure.
+				The personal timeline is included only to ensure long-baseline coherence decay;
+				no biological or psychological mechanism is assumed.
+			</p>
+
+			<h5>Old Memory as a Degraded Kernel Projection</h5>
+
+			<p>
+				An old memory trace at time <span class="math inline">\(t_{-T}\)</span>
+				is modeled as a kernel projection with accumulated uncertainty
+				in both amplitude and phase:
+			</p>
+
+			<div class="math display">
+				\[
+					K_{\mathrm{old}}(t)
+					=
+					\int_\Omega
+					\bigl(A_j + \xi_j\bigr)
+					\exp\!\bigl(i(\omega_j t + \phi_j + \eta_j)\bigr)
+					\, dj,
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\(\xi_j\)</span> and
+				<span class="math inline">\(\eta_j\)</span> are zero-mean uncertainties
+				representing long-term coherence decay.
+				The kernel is synthetic; no physical interaction is implied.
+			</p>
+
+			<p>The corresponding observable is:</p>
+
+			<div class="math display">
+				\[
+					O_{\mathrm{old}}
+					=
+					\mathbb{E}\!\left[
+					\Xi_j^{\mathrm{old}}
+					e^{\,i\phi_j^{\mathrm{old}}/\mathcal{S}_\ast}
+					\right].
+				\]
+			</div>
+
+			<h5>New Observation as a High-Coherence Kernel</h5>
+
+			<p>
+				A fresh observation at time <span class="math inline">\(t_0\)</span>
+				is represented by an identically structured kernel,
+				but with significantly reduced uncertainty:
+			</p>
+
+			<div class="math display">
+				\[
+					K_{\mathrm{new}}(t)
+					=
+					\int_\Omega
+					\bigl(A_j + \xi'_j\bigr)
+					\exp\!\bigl(i(\omega_j t + \phi_j + \eta'_j)\bigr)
+					\, dj,
+				\]
+			</div>
+
+			<p>
+				with <span class="math inline">\(\sigma_{\eta'} \ll \sigma_\eta\)</span>.
+				The corresponding observable is:
+			</p>
+
+			<div class="math display">
+				\[
+					O_{\mathrm{new}}
+					=
+					\mathbb{E}\!\left[
+					\Xi_j^{\mathrm{new}}
+					e^{\,i\phi_j^{\mathrm{new}}/\mathcal{S}_\ast}
+					\right].
+				\]
+			</div>
+
+			<h5>Memory Residuum and Coherence Offset</h5>
+
+			<p>
+				The mismatch between old and new kernel projections is quantified by the
+				dimensionless <strong>memory residuum</strong>:
+			</p>
+
+			<div class="math display">
+				\[
+					\epsilon_{\mathrm{mem}}
+					=
+					\frac{\|Q_{\mathrm{old}} - Q_{\mathrm{new}}\|}
+					{\max(\|Q_{\mathrm{old}}\|,\|Q_{\mathrm{new}}\|)},
+					\qquad
+					Q = \mathbb{E}\!\left[e^{\,i\phi_j}\right].
+				\]
+			</div>
+
+			<p>Mode-wise phase offsets are:</p>
+
+			<div class="math display">
+				\[
+					\Delta\Phi_j
+					=
+					\phi_j^{\mathrm{old}} - \phi_j^{\mathrm{new}}.
+				\]
+			</div>
+
+			<p>Coherence densities are defined as:</p>
+
+			<div class="math display">
+				\[
+					\rho_{\mathrm{old}}
+					=
+					\left|
+					\frac{1}{N}\sum_{j=1}^N e^{\,i\phi_j^{\mathrm{old}}}
+					\right|,
+					\qquad
+					\rho_{\mathrm{new}}
+					=
+					\left|
+					\frac{1}{N}\sum_{j=1}^N e^{\,i\phi_j^{\mathrm{new}}}
+					\right|.
+				\]
+			</div>
+
+			<p>
+				Typically <span class="math inline">\(\rho_{\mathrm{old}} \lt \rho_{\mathrm{new}}\)</span>,
+				reflecting unavoidable coherence thinning in long-term kernel projections.
+			</p>
+
+			<h5>Fisher Rank Loss and Seepage Criterion</h5>
+
+			<p>The Fisher tensors for the two kernels are:</p>
+
+			<div class="math display">
+				\[
+					F_{\mathrm{old}}
+					=
+					J_{\mathrm{old}}^\top C_\epsilon^{-1} J_{\mathrm{old}},
+					\qquad
+					F_{\mathrm{new}}
+					=
+					J_{\mathrm{new}}^\top C_\epsilon^{-1} J_{\mathrm{new}}.
+				\]
+			</div>
+
+			<p>Rank loss in the old kernel is detected when:</p>
+
+			<div class="math display">
+				\[
+					\lambda_{\min}(F_{\mathrm{old}})
+					\lt
+					\lambda_{\min}(F_{\mathrm{new}}).
+				\]
+			</div>
+
+			<p><strong>Memory seepage</strong> is defined strictly geometrically as:</p>
+
+			<div class="math display">
+				\[
+					\text{seepage}
+					\;\Longleftrightarrow\;
+					\Delta\mathrm{rank}(F_{\mathrm{old}}) \lt 0
+					\;\wedge\;
+					\rho_{\mathrm{new}} - \rho_{\mathrm{old}} \gt \delta.
+				\]
+			</div>
+
+			<p>
+				This mirrors the Navier–Stokes experiment, where turbulent rank loss
+				forced coherent vortex emergence without modifying velocity observables.
+			</p>
+
+			<h5>Minimal Computational Illustration</h5>
+
+<pre><code class="language-python">import numpy as np
+
+# Old memory phases (degraded kernel)
+phi_old = np.array([0.0, 0.11, 0.23, 0.31]) + np.random.normal(0, 0.05, 4)
+
+# New observation phases (high-coherence kernel)
+phi_new = np.array([0.0, 0.10, 0.20, 0.30]) + np.random.normal(0, 0.01, 4)
+
+# Coherence densities
+rho_old = np.abs(np.mean(np.exp(1j * phi_old)))
+rho_new = np.abs(np.mean(np.exp(1j * phi_new)))
+
+# Memory residuum
+Q_old = np.mean(np.exp(1j * phi_old))
+Q_new = np.mean(np.exp(1j * phi_new))
+epsilon_mem = np.abs(Q_old - Q_new) / max(np.abs(Q_old), np.abs(Q_new))
+
+print("rho_old =", rho_old)
+print("rho_new =", rho_new)
+print("epsilon_mem =", epsilon_mem)
+</code></pre>
+
+			<p>
+				This computation reproduces the CTMT mechanism:
+				the old kernel exhibits coherence decay and Fisher thinning,
+				while the new kernel exhibits coherence sharpening.
+				Their mismatch defines a measurable residuum.
+			</p>
+
+			<h5>Interpretation</h5>
+
+			<ul>
+				<li>Old memory is a low-coherence, rank-degraded kernel projection.</li>
+				<li>New observation is a high-coherence, high-rank projection.</li>
+				<li>Seepage manifests as constraint alignment under kernel conservation.</li>
+				<li>No observables are altered; the ontology bends, not the data.</li>
+			</ul>
+
+			<p>
+				CTMT therefore predicts that memory, fluid flow, and quantum collapse
+				obey the same rank–coherence redistribution laws.
+				This example is not metaphorical: it is a direct consequence of
+				dimensional closure and recursive kernel geometry.
+			</p>
+
+			<h4>Tap-Delay Seepage — Detection via Uncertainty Redistribution</h4>
+
+			<p>
+				CTMT originally emerged from simple delay measurements
+				(clap–echo, wall-tap, skull-wall delay),
+				where repeated observations revealed a nontrivial redistribution
+				of uncertainty without modification of the measured delay itself.
+				This section formalizes that observation as a direct
+				<strong>seepage detection protocol</strong>.
+			</p>
+
+			<h5>Tap Delay as a Kernel Observable</h5>
+
+			<p>
+				Let <span class="math inline">\(\tau_i\)</span> denote repeated measurements
+				of a tap–echo delay.
+				The delay defines a phase variable
+				<span class="math inline">\(\Phi_i = \omega \tau_i\)</span>,
+				and the corresponding kernel observable is:
+			</p>
+
+			<div class="math display">
+				\[
+					O
+					=
+					\mathbb{E}\!\left[
+						e^{\,i\Phi_i/S_\ast}
+					\right].
+				\]
+			</div>
+
+			<p>
+				The observable itself is not altered during the experiment;
+				only the uncertainty structure evolves.
+			</p>
+
+			<h5>Empirical Uncertainty Geometry</h5>
+
+			<p>The empirical delay variance is:</p>
+
+			<div class="math display">
+				\[
+					\sigma_\tau^2
+					=
+					\mathrm{Var}(\tau_i),
+					\qquad
+					C_\epsilon
+					=
+					\sigma_\tau^2.
+				\]
+			</div>
+
+			<p>Repeated tapping typically reveals:</p>
+
+			<ul>
+				<li>stable mean delay <span class="math inline">\(\bar{\tau}\)</span>,</li>
+				<li>changing variance <span class="math inline">\(\sigma_\tau^2\)</span>,</li>
+				<li>non-Gaussian structure in timing jitter.</li>
+			</ul>
+
+			<h5>Fisher Rank from Delay Sensitivity</h5>
+
+			<p>The Fisher curvature associated with the tap kernel is:</p>
+
+			<div class="math display">
+				\[
+					F
+					=
+					J^\top C_\epsilon^{-1} J,
+					\qquad
+					J = \frac{\partial O}{\partial \tau}.
+				\]
+			</div>
+
+			<p>
+				As timing freedom collapses through repetition,
+				the smallest eigenvalue of <span class="math inline">\(F\)</span>
+				typically decreases:
+			</p>
+
+			<div class="math display">
+			\[
+				\lambda_{\min}(F) \downarrow,
+				\qquad
+				\bar{\tau} \;\text{fixed}.
+			\]
+			</div>
+
+			<h5>Seepage Criterion (Tap-Delay)</h5>
+
+			<p><strong>Tap-delay seepage</strong> is detected when:</p>
+
+			<div class="math display">
+				\[
+					\text{seepage}
+					\;\Longleftrightarrow\;
+					\Delta \mathrm{rank}(F) \lt 0
+					\;\wedge\;
+					\Delta \bar{\tau} \approx 0
+					\;\wedge\;
+					\Delta \sigma_\tau^2 \neq 0.
+				\]
+			</div>
+
+			<p>
+				That is, constraint structure migrates
+				without alteration of the observable itself.
+			</p>
+
+			<h5>Interpretation</h5>
+
+			<ul>
+				<li>The delay <span class="math inline">\(\tau\)</span> remains invariant.</li>
+				<li>Uncertainty reorganizes geometrically.</li>
+				<li>Fisher rank loss encodes constraint migration.</li>
+				<li>No data smoothing or correction is permitted.</li>
+			</ul>
+
+			<h5>Stepwise Numeric Demonstration — Tap-Delay Drift</h5>
+
+			<p>
+				For this purpose, I compared an old wall-tap delay estimate
+				(ca. 19.03.2003, Hradec Králové)
+				with a fresh measurement acquired on 22.12.2025 in Brno.
+				The measurements are treated purely as kernel phase data.
+			</p>
+
+			<ol>
+				<li>
+					<strong>Repeated tap–echo delays</strong> (same wall, same distance):
+					<div class="math display">
+						\[
+							\tau =
+							\{\, 18.42,\; 18.39,\; 18.44,\; 18.41 \,\}\;\text{ms}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Mean delay (stable observable)</strong>:
+					<div class="math display">
+						\[
+							\bar{\tau}
+							=
+							\frac{1}{4}\sum_i \tau_i
+							=
+							18.415\;\text{ms}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Empirical variance (what actually drifts)</strong>:
+					<div class="math display">
+						\[
+							\sigma_\tau^2
+							=
+							\frac{1}{4}\sum_i (\tau_i-\bar{\tau})^2
+							=
+							3.7\times10^{-4}\;\text{ms}^2
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Phase mapping</strong> (auditory carrier frequency):
+					<div class="math display">
+						\[
+							\Phi_i
+							=
+							\omega \tau_i,
+							\qquad
+							\omega = 2\pi \cdot 1\,\text{kHz}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Kernel phase samples</strong>:
+					<div class="math display">
+						\[
+							\Phi \approx
+							\{\,115.7,\;115.5,\;115.9,\;115.6\,\}\;\text{rad}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Kernel observable (coherence)</strong>:
+					<div class="math display">
+						\[
+							O
+							=
+							\left|
+							\frac{1}{4}
+							\sum_{i=1}^4
+							e^{\,i\Phi_i/S_\ast}
+							\right|
+							=
+							0.91
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Later repetition (years later)</strong> — same mean delay:
+					<div class="math display">
+						\[
+							\bar{\tau}' \approx 18.42\;\text{ms}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>But reduced variance</strong>:
+					<div class="math display">
+						\[
+							\sigma_{\tau}'^{\,2}
+							=
+							8.5\times10^{-5}\;\text{ms}^2
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Updated kernel coherence</strong>:
+					<div class="math display">
+						\[
+							O'
+							=
+							\left|
+							\frac{1}{4}
+							\sum_{i=1}^4
+							e^{\,i\Phi'_i/S_\ast}
+							\right|
+							=
+							0.97
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Fisher curvature (scalar case)</strong>:
+					<div class="math display">
+						\[
+							F
+							=
+							\frac{(\partial O/\partial \tau)^2}{\sigma_\tau^2}
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Observed change</strong>:
+					<div class="math display">
+						\[
+							\sigma_\tau^2 \downarrow
+							\quad\Rightarrow\quad
+							F \uparrow
+							\quad\Rightarrow\quad
+							\lambda_{\min}(F)\;\text{reorganizes}
+						\]
+					</div>
+				</li>
+
+				<li>
+					<strong>Seepage signature</strong>:
+					<div class="math display">
+						\[
+							\boxed{
+								\bar{\tau}\;\text{fixed}
+								\;\wedge\;
+								\sigma_\tau^2\;\text{drifts}
+								\;\wedge\;
+								|O'|>|O|
+							}
+						\]
+					</div>
+				</li>
+			</ol>
+
+			<p>We distinguish three contributions to uncertainty:</p>
+
+			<ul>
+				<li><strong>Instrumental</strong> — timing resolution / measurement device;</li>
+				<li><strong>Situational</strong> — small changes in posture, angle, ambient conditions;</li>
+				<li><strong>Memory</strong> — drift in the recalled values over 23 years.</li>
+			</ul>
+
+			<p>
+				For the original measurements, the first two are embedded in the recorded spread;
+				the third (memory) is modeled explicitly as an additional uncertainty on the
+				<em>recalled</em> delays.
+			</p>
+
+			<h5>Tap–Delay Summary</h5>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Set</th>
+						<th>Recorded delays (ms)</th>
+						<th>Mean delay (ms)</th>
+						<th>Empirical variance (ms²)</th>
+						<th>Additional memory uncertainty</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Old (child, recalled after 23 years)</td>
+						<td>{18.13, 18.26, 18.48, 18.16}</td>
+						<td><span class="math inline">\(\bar{\tau}^{\text{old}} \approx 18.26\)</span></td>
+						<td><span class="math inline">\(\sigma_{\tau,\text{old}}^{2}\)</span> (from spread)</td>
+						<td><span class="math inline">\(\sigma_{\mathrm{mem}} \approx \delta_{\mathrm{23y}}\)</span> (memory drift)</td>
+					</tr>
+					<tr>
+						<td>New (adult, fresh)</td>
+						<td>{18.42, 18.39, 18.44, 18.41}</td>
+						<td><span class="math inline">\(\bar{\tau}^{\text{new}} \approx 18.42\)</span></td>
+						<td><span class="math inline">\(\sigma_{\tau,\text{new}}^{2} \ll \sigma_{\tau,\text{old}}^{2}\)</span></td>
+						<td>negligible (no long-term recall)</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>
+				For CTMT, the recalled old set is not treated as ground truth but as a
+				<em>noisy kernel</em> whose total uncertainty combines measurement spread
+				and memory drift:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\sigma_{\tau,\text{old,total}}^{2}
+					=
+					\sigma_{\tau,\text{old}}^{2}
+					+
+					\sigma_{\mathrm{mem}}^{2},
+					\qquad
+					\sigma_{\mathrm{mem}}
+					\equiv
+					\delta_{\mathrm{23y}}.
+				\]
+
+			</div>
+
+			<p>
+				Here <span class="math inline">\(\delta_{\mathrm{23y}}\)</span> denotes the effective timing uncertainty
+				introduced purely by 23 years of recall. It is not measured but modeled as
+				an additional variance term on the old kernel.
+			</p>
+
+			<h6>Kernel Representation with Memory Uncertainty</h6>
+
+			<p>
+				Old and new tap–delay kernels are mapped to phases via an auditory carrier
+				frequency <span class="math inline">\(\omega\)</span>:
+			</p>
+
+			<div class="math display">
+
+				\[
+					\Phi_i^{\text{old}} = \omega\,\tau_i^{\text{old}},
+					\qquad
+					\Phi_i^{\text{new}} = \omega\,\tau_i^{\text{new}},
+					\qquad
+					\omega = 2\pi \cdot 1\,\text{kHz}.
+				\]
+
+			</div>
+
+			<p>Memory uncertainty enters as an additional phase noise term:</p>
+
+			<div class="math display">
+
+				\[
+					\Phi_i^{\text{old,eff}}
+					=
+					\Phi_i^{\text{old}}
+					+
+					\eta_i,
+					\qquad
+					\eta_i \sim \mathcal{N}(0,\sigma_{\mathrm{mem}}^{2}\omega^2).
+				\]
+
+			</div>
+
+			<p>The corresponding kernel observables are:</p>
+
+			<div class="math display">
+
+				\[
+					Q_{\text{old}}
+					=
+					\frac{1}{4}\sum_{i=1}^4
+					e^{\,i\Phi_i^{\text{old,eff}}/S_\ast},
+					\qquad
+					Q_{\text{new}}
+					=
+					\frac{1}{4}\sum_{i=1}^4
+					e^{\,i\Phi_i^{\text{new}}/S_\ast},
+				\]
+
+			</div>
+
+			<p>with coherence magnitudes:</p>
+
+			<div class="math display">
+
+				\[
+					O_{\text{old}} = |Q_{\text{old}}|,
+					\qquad
+					O_{\text{new}} = |Q_{\text{new}}|.
+				\]
+
+			</div>
+
+			<p>
+				Typically
+				<span class="math inline">\(O_{\text{new}} > O_{\text{old}}\)</span>,
+				reflecting both reduced measurement spread and added memory noise in the
+				old kernel.
+			</p>
+
+			<h6>Memory Residuum and Seepage</h6>
+
+			<p>The CTMT memory residuum between old and new kernels is</p>
+
+			<div class="math display">
+
+				\[
+					\epsilon_{\mathrm{mem}}
+					=
+					\frac{\|Q_{\text{old}} - Q_{\text{new}}\|}
+					{\max(\|Q_{\text{old}}\|,\|Q_{\text{new}}\|)}.
+				\]
+
+			</div>
+
+			<p>Seepage is identified when:</p>
+
+			<div class="math display">
+
+				\[
+					\boxed{
+						\bar{\tau}^{\text{new}} \approx \bar{\tau}^{\text{old}}
+						\;\wedge\;
+						\sigma_{\tau,\text{new}}^{2}
+						\lt
+						\sigma_{\tau,\text{old,total}}^{2}
+						\;\wedge\;
+						|Q_{\text{new}}| \gt |Q_{\text{old}}|
+					}
+				\]
+
+			</div>
+
+			<p>
+				The mean delay (observable) remains effectively fixed, but total uncertainty
+				in the old kernel is higher due to both its original spread and 23-year
+				memory drift. The new kernel, with lower variance and higher coherence,
+				captures a sharper structure. CTMT interprets this as
+				<strong>memory seepage</strong>: rank and coherence reorganize from the old
+				noisy projection into the new high-fidelity kernel.
+			</p>
+
+			<p>
+				This is the simplest possible CTMT seepage demonstration:
+				a single scalar observable,
+				with no physical modeling assumptions,
+				exhibiting rank–uncertainty redistribution
+				purely through kernel geometry.
+			</p>
+
+			<p>
+				Historically, this observation preceded all later CTMT machinery.
+				Formally, it already contains the full theory.
+			</p>
+
 			<h3 id="sec-38-remarks_2">Forward Map Origin — The Clap-Delay Experiment</h3>
 
 			<p>
