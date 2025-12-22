@@ -42562,128 +42562,244 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
             Collapse Prediction via Recursive Kernel Geometry
         </h2>
         <article style="display:none">
+			<p>
+				Collapse phenomena appear fragmented across physics—wavefunction collapse,
+				interference loss, resonance locking, decoherence, shock formation.
+				CTMT unifies these effects by treating collapse as a
+				<em>geometrically computable amplification event</em>:
+				the emergence of a dominant stationary-phase contribution
+				under rupture-aware coherence constraints.
+			</p>
 
 			<p>
-				Traditional collapse models are fragmented across domains—quantum, optical,
-				acoustic, plasma, and mechanical. CTMT unifies them by interpreting collapse as a
-				<em>stationary‑phase amplification</em> filtered through rupture‑aware coherence.
-				Collapse prediction becomes an application of recursive kernel geometry:
+				In CTMT, collapse is neither postulated nor domain-specific.
+				It is detected whenever recursive kernel integration
+				concentrates support onto a lower-rank stationary manifold.
+				Formally:
 			</p>
 
 			<div class="math display">
-
 				\[
 					\boxed{
 						\textbf{Collapse}
-						= \text{Stationary Phase}
-						+ \text{Terror (Rupture) Filtering}
-						+ \text{Recursive Kernel Compression.}
+						=
+						\text{Stationary-Phase Dominance}
+						+
+						\text{Rupture-Filtered Coherence}
+						+
+						\text{Recursive Kernel Compression}
 					}
 				\]
-
 			</div>
 
-			<p>
-				The recursive kernel aggregates local geometric propagation, synchrony, and
-				boundary interactions:
-			</p>
+			<h4>Recursive Kernel Envelope</h4>
+
+			<p>The observable modulation envelope is defined by the recursive kernel integral:</p>
 
 			<div class="math display">
-
 				\[
 					M[\omega]
-					= \iint \Phi(x,x';\omega)\, e^{i\omega\tau(x,x')}\,dx\,dx'. \tag{21.1}
+					=
+					\iint
+					\Phi(x,x';\omega)\,
+					e^{i\omega\tau(x,x')}
+					\,dx\,dx'. \tag{21.1}
 				\]
-
 			</div>
 
 			<p>
-				Collapse corresponds to frequencies where the phase becomes stationary:
+				Here
+				<span class="math inline">\(\Phi(x,x';\omega)\)</span>
+				encodes geometric recursion (paths, boundaries, topology),
+				while
+				<span class="math inline">\(\tau(x,x')\)</span>
+				represents synchrony delay between kernel points.
+				No probabilistic assumption is made.
+			</p>
+
+			<h4>Collapse Criterion (Detectable Condition)</h4>
+
+			<p>
+				Collapse is detected at frequencies
+				<span class="math inline">\(\omega_n\)</span>
+				where the kernel envelope develops a stationary phase:
 			</p>
 
 			<div class="math display">
-
 				\[
-					\frac{\partial}{\partial \omega}\arg M[\omega] = 0. \tag{21.2}
+					\frac{\partial}{\partial\omega}
+					\arg M[\omega]
+					= 0. \tag{21.2}
 				\]
-
 			</div>
 
 			<p>
-				Rupture and coherence effects are incorporated through Terror filtering:
+				This condition is operational:
+				it corresponds to a measurable extremum or peak
+				in the spectral, spatial, temporal, or delay domain.
+			</p>
+
+			<h4>Rupture-Aware (Terror) Filtering</h4>
+
+			<p>
+				Environmental disturbance, decoherence, or structural failure
+				enters through the rupture-aware coherence kernel
+				<span class="math inline">\(K_{\mathrm{coh}}\)</span>,
+				yielding the Terror-filtered envelope:
 			</p>
 
 			<div class="math display">
-
 				\[
 					M_{\mathrm{ter}}[\omega]
-					= \iint K_{\mathrm{coh}}(x,x';t)\,\Phi(x,x';\omega)\,e^{i\omega\tau(x,x')}\,dx\,dx',
-					\qquad 0\le K_{\mathrm{coh}}\le1. \tag{21.3}
+					=
+					\iint
+					K_{\mathrm{coh}}(x,x';t)\,
+					\Phi(x,x';\omega)\,
+					e^{i\omega\tau(x,x')}
+					\,dx\,dx',
+					\qquad 0 \le K_{\mathrm{coh}} \le 1.
+					\tag{21.3}
 				\]
-
 			</div>
 
 			<p>
-				Here <span class="math inline">\(K_{\mathrm{coh}}\)</span> is the rupture‑aware coherence kernel from CRSC,
-				<span class="math inline">\(\tau(x,x')\)</span> the synchrony delay, and <span class="math inline">\(\Phi\)</span> the geometric recursion topology.
+				Rupture does not “destroy” collapse;
+				it reshapes its detectability by attenuating coherence support.
 			</p>
 
-			<h4>Collapse as Recursive Kernel Stationarity</h4>
-			<p>Collapse occurs where phase accumulation halts:</p>
+			<h4>Stationary-Phase Amplification</h4>
+
+			<p>
+				Under stationary-phase approximation,
+				the envelope localizes as:
+			</p>
+
 			<div class="math display">
-
 				\[
-					\partial_\omega[\omega\tau(x,x')] = \tau(x,x') = \text{stationary}.
-				\]
-
-			</div>
-
-			<p>Under stationary‑phase approximation, the kernel integral amplifies as:</p>
-			<div class="math display">
-
-				\[
-					M[\omega] \approx
+					M[\omega]
+					\approx
 					\sum_{\omega_n}
-					\left|\frac{2\pi}{\Phi''(\omega_n)}\right|^{1/2} e^{i\Phi(\omega_n)}. \tag{21.4}
+					\left|
+					\frac{2\pi}{\Phi''(\omega_n)}
+					\right|^{1/2}
+					e^{i\Phi(\omega_n)}.
+					\tag{21.4}
 				\]
-
 			</div>
 
 			<p>
-				Each stationary point <span class="math inline">\(\omega_n\)</span> corresponds to a predicted collapse frequency
-				or conjugate observable.
+				Each stationary point
+				<span class="math inline">\(\omega_n\)</span>
+				corresponds to a predicted collapse observable:
+				frequency, energy, spatial period, or delay peak.
 			</p>
 
-			<h5>Rupture Coupling</h5>
+			<h4>Collapse as Rank Loss (Rupture Geometry)</h4>
+
 			<p>
-				When the Fisher information matrix <span class="math inline">\(H = J^\top C_\epsilon^{-1}J\)</span> degenerates,
-				rupture creates a null‑information manifold:
+				Collapse coincides with degeneration of the Fisher information matrix
+				<span class="math inline">\(H = J^\top C_\epsilon^{-1}J\)</span>,
+				defining the rupture manifold:
 			</p>
 
 			<div class="math display">
-
 				\[
 					\mathcal{M}_{\mathrm{rupt}}(t)
-					= \{v:\, H(t)v \approx 0\}.
+					=
+					\{ v \;|\; H(t)v \approx 0 \}.
 				\]
-
 			</div>
 
-			<p>
-				This causes coherence decay (<span class="math inline">\(K_{\mathrm{coh}}\ll1\)</span>), spectral broadening of
-				<span class="math inline">\(M[\omega]\)</span>, and collapse sharpening in high‑coherence regions.
-			</p>
+			<p>Physically, this corresponds to:</p>
+			<ul>
+				<li>loss of independent degrees of freedom,</li>
+				<li>inflation of uncertainty orthogonal to the collapse mode,</li>
+				<li>spectral narrowing along the surviving coherent direction.</li>
+			</ul>
 
 			<h4>Recursive Collapse Prediction Protocol</h4>
+
 			<ol>
-				<li><strong>Assemble kernel:</strong> Construct <span class="math inline">\(\Phi(x,x';\omega)\)</span> using geometry, boundary conditions, medium response, and Green’s functions.</li>
-				<li><strong>Apply Terror coherence weighting:</strong> <span class="math inline">\(\Phi \leftarrow K_{\mathrm{coh}}(x,x';t)\Phi\)</span>.</li>
-				<li><strong>Compute modulation envelope:</strong> <span class="math inline">\(M[\omega]=\iint\Phi\,e^{i\omega\tau}\,dx\,dx'\)</span>.</li>
-				<li><strong>Extract stationary phases:</strong> Solve <span class="math inline">\(\partial_\omega\arg M[\omega]=0\)</span> for <span class="math inline">\(\omega_n\)</span>.</li>
-				<li><strong>Map to observables:</strong> <span class="math inline">\(\lambda_n=2\pi c/\omega_n,\quad E_n=\hbar\omega_n\)</span>.</li>
-				<li><strong>Validate under rupture:</strong> Increasing rupture (<span class="math inline">\(K_{\mathrm{coh}}\downarrow\)</span>) should broaden and shift collapse peaks.</li>
-				<li><strong>Falsify:</strong> If stationary‑phase predictions fail within TUCF uncertainty bounds, reject the CTMT collapse model.</li>
+			<li>
+				<strong>Kernel construction:</strong>
+				Build
+				<span class="math inline">\(\Phi(x,x';\omega)\)</span>
+				from geometry, boundaries, and medium response.
+			</li>
+			<li>
+				<strong>Rupture weighting:</strong>
+				Apply
+				<span class="math inline">\(\Phi \leftarrow K_{\mathrm{coh}}\Phi\)</span>.
+			</li>
+			<li>
+				<strong>Envelope integration:</strong>
+				Compute
+				<span class="math inline">\(M[\omega]\)</span>.
+			</li>
+			<li>
+				<strong>Stationary extraction:</strong>
+				Solve
+				<span class="math inline">\(\partial_\omega \arg M = 0\)</span>.
+			</li>
+			<li>
+				<strong>Observable mapping:</strong>
+				<span class="math inline">\(\lambda_n = 2\pi c/\omega_n\)</span>,
+				<span class="math inline">\(E_n = \hbar\omega_n\)</span>, etc.
+			</li>
+			<li>
+				<strong>Rupture sweep:</strong>
+				Decrease
+				<span class="math inline">\(K_{\mathrm{coh}}\)</span>;
+				collapse peaks must broaden and drift.
+			</li>
+			<li>
+				<strong>Falsification:</strong>
+				Failure of peak prediction within TUCF bounds
+				rejects the collapse model.
+			</li>
 			</ol>
+
+			<h4>Dimensional Closure</h4>
+
+			<p>All quantities are dimensionally closed:</p>
+			<ul>
+				<li>
+					<span class="math inline">\([\omega] = \mathrm{s^{-1}}\)</span>,
+					<span class="math inline">\([E] = \mathrm{J}\)</span>,
+				</li>
+				<li>
+					<span class="math inline">\([\tau] = \mathrm{s}\)</span>,
+					<span class="math inline">\(K_{\mathrm{coh}}\)</span> dimensionless.
+				</li>
+			</ul>
+
+			<p>
+				Collapse detection is therefore unit-independent
+				and governed entirely by ratios and stationary structure.
+			</p>
+
+			<h4>Interpretive Summary</h4>
+
+			<p>
+				In CTMT, collapse is not a mystery event.
+				It is the measurable emergence of a dominant stationary kernel mode
+				under rupture-filtered coherence.
+				Quantum, optical, acoustic, and plasma collapses
+				differ only in kernel geometry—not in principle.
+			</p>
+
+			<p>This completes the CTMT collapse triad:</p>
+
+			<ul>
+				<li><strong>FMC:</strong> geometric compression,</li>
+				<li><strong>TUCF:</strong> uncertainty redistribution,</li>
+				<li><strong>CRSC:</strong> rupture-coherence modulation.</li>
+			</ul>
+
+			<p>
+				Together they form a single, falsifiable,
+				dimensionally closed collapse prediction framework.
+			</p>
 
 			<h4>Rupture‑Aware Stationary‑Phase Law</h4>
 			<p>With Terror weighting, the stationary‑phase condition generalizes to:</p>
@@ -42784,7 +42900,7 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				</li>
 			</ul>
 
-			<h4>9. Collapse Geometry Summary Table</h4>
+			<h4>Collapse Geometry Summary Table</h4>
 			<table>
 				<thead>
 					<tr>
@@ -42951,172 +43067,242 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 			<h3 id="sec-21-collapse-prediction-via-recursive-kernel-geometry_2">Kernel Self-Computation — Demonstration of CTMT Power</h3>
 
 			<p>
-				CTMT is internally recursive: <strong>a single kernel seed generates its own observable,
-				uncertainty, rupture detection, terror perturbations, and stabilization operators.</strong>
-				In this section, the kernel demonstrates <em>self-computation</em> — a property in which
-				the same formal structure defines, perturbs, and corrects itself.
+				CTMT is <em>internally self-computing</em>:
+				a single kernel definition generates not only its observable,
+				but also its uncertainty, collapse diagnostics, perturbative response,
+				and stabilization operators.
+				No external machinery, renormalization prescription,
+				or auxiliary postulate is introduced at any stage.
 			</p>
 
-			<h4>Kernel Seed</h4>
 			<p>
-				The kernel seed encodes amplitude, phase, and intrinsic scale:
+				In precise terms, <strong>self-computation</strong> means that all second-order
+				diagnostics and corrective operators are <em>functional derivatives,
+				thresholds, or projections</em> of the same expectation operator
+				that defines the observable itself.
 			</p>
+
+			<h4>Kernel Seed (Primitive Operator)</h4>
+
+			<p>The primitive CTMT object is the kernel expectation:</p>
+
 			<figure class="equation" id="eq-21_31">
 				<div class="math display">
-
 					\[
-						O_k = \mathcal{E}\!\left[\Xi_i\, e^{\,i\Phi_i/S_\ast}\right]
+						O_k
+						=
+						\mathcal{E}\!\left[
+						\Xi_i\, e^{\,i\Phi_i/S_\ast}
+						\right].
 					\]
-
 				</div>
-				<figcaption><a href="#eq-21_31">Equation (21.31)</a></figcaption>
+				<figcaption>
+					<a href="#eq-21_31">Equation (21.31)</a> — Kernel seed
+				</figcaption>
 			</figure>
+
 			<p>
-				Here <span class="math inline">\(\Xi_i\)</span> is amplitude,
-				<span class="math inline">\(\Phi_i\)</span> is phase potential,
-				and <span class="math inline">\(S_\ast\)</span> the reference scale.
-				The expectation <span class="math inline">\(\mathcal{E}[\cdot]\)</span> defines the kernel’s
-				internal averaging operator — its own local measurement rule.
+				Here <span class="math inline">\(\Xi_i\)</span> is the amplitude envelope,
+				<span class="math inline">\(\Phi_i\)</span> the phase potential,
+				and <span class="math inline">\(S_\ast\)</span> the action invariant.
+				The expectation operator
+				<span class="math inline">\(\mathcal{E}[\cdot]\)</span>
+				defines the kernel’s <em>intrinsic averaging rule</em> and therefore
+				its native notion of observation.
 			</p>
 
-			<h4>Uncertainty Computation</h4>
 			<p>
-				The kernel computes its uncertainty through ensemble propagation:
+				This expression is ontologically minimal:
+				nothing outside it is required to define what the system “measures.”
 			</p>
+
+			<h4>Self-Computed Uncertainty (TUCF)</h4>
+
+			<p>
+				Uncertainty is not appended to the kernel; it is computed by
+				propagating internal parameter variation through the same operator:
+			</p>
+
 			<figure class="equation" id="eq-21_32">
 				<div class="math display">
-
 					\[
 						\sigma_{O_k}^2
-						= J_{\mathrm{ens}}^\top\, \mathrm{Cov}_{\mathrm{ens}}\, J_{\mathrm{ens}}
+						=
+						J_{\mathrm{ens}}^\top\,
+						\mathrm{Cov}_{\mathrm{ens}}\,
+						J_{\mathrm{ens}},
 					\]
-
 				</div>
-				<figcaption><a href="#eq-21_32">Equation (21.32)</a></figcaption>
+				<figcaption>
+					<a href="#eq-21_32">Equation (21.32)</a> — Self-propagated uncertainty
+				</figcaption>
 			</figure>
+
 			<p>
-				<span class="math inline">\(J_{\mathrm{ens}} = \partial O_k / \partial \Theta\)</span> 
-				is the ensemble Jacobian with respect to internal parameters 
-				<span class="math inline">\(\Theta\)</span>, and 
-				<span class="math inline">\(\mathrm{Cov}_{\mathrm{ens}}\)</span> 
-				the empirical ensemble covariance. 
-				This establishes the kernel’s <em>self‑propagating uncertainty law</em>.
+				The Jacobian
+				<span class="math inline">\(J_{\mathrm{ens}} = \partial O_k / \partial \Theta\)</span>
+				is taken with respect to the kernel’s own internal parameters
+				<span class="math inline">\(\Theta\)</span>.
+				No external noise model is assumed beyond the empirical ensemble covariance
+				<span class="math inline">\(\mathrm{Cov}_{\mathrm{ens}}\)</span>.
 			</p>
 
-			<h4>Rupture Detection</h4>
 			<p>
-			Collapse detection is encoded as an internal threshold test:
+				This establishes a <strong>self-diagnostic uncertainty law</strong>:
+				the kernel quantifies the reliability of its own output.
 			</p>
+
+			<h4>Rupture Detection (Rank-Thinning Criterion)</h4>
+
+			<p>
+				Collapse is detected internally by comparing propagated uncertainty
+				against a coherence threshold:
+			</p>
+
 			<figure class="equation" id="eq-21_33">
-			<div class="math display">
-
-				\[
-					O_{\mathrm{rupt},k}
-					= \mathcal{R}_\tau[O_k]
-					= O_k\,\mathbf{1}[\sigma_i \lt \tau]
-				\]
-
-			</div>
-			<figcaption><a href="#eq-21_33">Equation (21.33)</a></figcaption>
+				<div class="math display">
+					\[
+						O_{\mathrm{rupt},k}
+						=
+						\mathcal{R}_\tau[O_k]
+						=
+						O_k\,\mathbf{1}[\sigma_i > \tau].
+					\]
+				</div>
+				<figcaption>
+					<a href="#eq-21_33">Equation (21.33)</a> — Rupture detection operator
+				</figcaption>
 			</figure>
+
 			<p>
-				The rupture operator identifies coherence loss when local uncertainty
-				<span class="math inline">\(\sigma_i\)</span> falls below threshold 
-				<span class="math inline">\(\tau\)</span>.
+				When uncertainty exceeds the coherence bound
+				<span class="math inline">\(\tau\)</span>,
+				the kernel enters the near-null regime:
+				Fisher curvature thins, orthogonal modes inflate,
+				and collapse becomes detectable.
 			</p>
 
-			<h4>Terror Shock (Perturbative Response)</h4>
 			<p>
-				External or internal shocks modify amplitude and phase multiplicatively and
-				additively, producing the Terror response:
+				<em>(Note:</em> collapse corresponds to <strong>growing</strong> uncertainty
+				in orthogonal directions, not vanishing variance.
+				This aligns rupture with Fisher rank loss.)
 			</p>
+
+			<h4>Terror Response (Perturbative Self-Stress Test)</h4>
+
+			<p>
+				External or internal shocks are modeled as bounded perturbations
+				acting directly on the kernel variables:
+			</p>
+
 			<figure class="equation" id="eq-21_34">
 				<div class="math display">
-
 					\[
 						O_{\mathrm{ter},k}
-						= \mathcal{E}\!\left[
+						=
+						\mathcal{E}\!\left[
 						\Xi_i\,\eta_i\, e^{\,i\Phi_i/S_\ast}
-						+ \zeta_i
-						\right]
+						+
+						\zeta_i
+						\right].
 					\]
-
 				</div>
-				<figcaption><a href="#eq-21_34">Equation (21.34)</a></figcaption>
+				<figcaption>
+					<a href="#eq-21_34">Equation (21.34)</a> — Terror-perturbed kernel
+				</figcaption>
 			</figure>
+
 			<p>
-				<span class="math inline">\(\eta_i\)</span> represents multiplicative deformation,
-				while <span class="math inline">\(\zeta_i\)</span> represents additive disruptions.
+				The multiplicative factor
+				<span class="math inline">\(\eta_i\)</span>
+				deforms amplitude and phase coherently,
+				while the additive term
+				<span class="math inline">\(\zeta_i\)</span>
+				injects non-coherent shocks.
+				Recovery or failure is evaluated using the same uncertainty
+				and rupture diagnostics defined above.
 			</p>
 
-			<h4>Rigidity and Redundancy Operators</h4>
-			<p>
-				CTMT defines two self-stabilizing mechanisms:
-				<strong>redundancy</strong> (aggregation) and <strong>rigidity</strong> (phase stabilization).
-			</p>
+			<h4>Self-Stabilization: Redundancy and Rigidity</h4>
+
+			<p>CTMT stabilizes itself using two intrinsic operators:</p>
+
 			<figure class="equation" id="eq-21_35">
 				<div class="math display">
-
 					\[
 						O_{\mathrm{red}}
-						= \sum_k \tilde r_k\, O_k,
+						=
+						\sum_k \tilde r_k\, O_k,
 						\qquad
 						O_{\mathrm{rig},k}
-						= \mathcal{E}\!\left[
+						=
+						\mathcal{E}\!\left[
 						\Xi_i\,
-						e^{-\lambda_{\mathrm{rig}}\, d_{2\pi}(\Phi_i/S_\ast)}\,
+						e^{-\lambda_{\mathrm{rig}}\, d_{2\pi}(\Phi_i/S_\ast)}
 						e^{i\Phi_i/S_\ast}
-						\right]
+						\right].
 					\]
-
 				</div>
-				<figcaption><a href="#eq-21_35">Equation (21.35)</a></figcaption>
+				<figcaption>
+					<a href="#eq-21_35">Equation (21.35)</a> — Stabilization operators
+				</figcaption>
 			</figure>
 
-			<h4>Unified Self-Computation Machinery</h4>
 			<p>
-				All derived operators originate from the single expectation definition
-				<a href="#eq-21_31">Equation (21.31)</a>. Their interrelations are summarized below.
+				Redundancy reduces variance through aggregation;
+				rigidity suppresses phase drift by penalizing excursions
+				on the phase torus.
+				Both operators preserve dimensional closure and do not
+				introduce new degrees of freedom.
+			</p>
+
+			<h4>Unified Self-Computation Graph</h4>
+
+			<p>
+				All operators originate from the single kernel seed
+				(<a href="#eq-21_31">Eq. 21.31</a>).
+				No operator exists that cannot be traced back
+				to this expectation.
 			</p>
 
 			<table>
 				<thead>
 					<tr>
 						<th>Computation</th>
-						<th>Formula</th>
-						<th>Physical Role</th>
+						<th>Operator</th>
+						<th>Role</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td>Observable</td>
-						<td><span class="math inline">\( O_k = \mathcal{E}[\Xi_i e^{i\Phi_i/S_\ast}] \)</span></td>
-						<td>Kernel expectation / baseline observable</td>
+						<td><span class="math inline">\( \mathcal{E}[\Xi e^{i\Phi/S_\ast}] \)</span></td>
+						<td>Primary projection</td>
 					</tr>
 					<tr>
 						<td>Uncertainty</td>
-						<td><span class="math inline">\( \sigma_{O_k}^2 = J^\top \mathrm{Cov}\, J \)</span></td>
-						<td>Variance propagation (self‑diagnostic)</td>
+						<td><span class="math inline">\( J^\top \mathrm{Cov} J \)</span></td>
+						<td>Self-diagnosis</td>
 					</tr>
 					<tr>
 						<td>Rupture</td>
-						<td><span class="math inline">\( O_{\mathrm{rupt},k} = O_k \,\mathbf{1}[\sigma_i \lt \tau] \)</span></td>
-						<td>Self‑collapse detection</td>
+						<td><span class="math inline">\( \mathbf{1}[\sigma>\tau] \)</span></td>
+						<td>Collapse detection</td>
 					</tr>
 					<tr>
 						<td>Terror</td>
-						<td><span class="math inline">\( O_{\mathrm{ter},k} = \mathcal{E}[\Xi_i \eta_i e^{i\Phi_i/S_\ast} + \zeta_i] \)</span></td>
-						<td>Shock deformation and recovery</td>
+						<td><span class="math inline">\( \eta,\zeta \)</span></td>
+						<td>Stress test</td>
 					</tr>
 					<tr>
 						<td>Redundancy</td>
-						<td><span class="math inline">\( O_{\mathrm{red}} = \sum_k \tilde r_k O_k \)</span></td>
-						<td>Stability via aggregation</td>
+						<td><span class="math inline">\( \sum \tilde r_k O_k \)</span></td>
+						<td>Variance suppression</td>
 					</tr>
 					<tr>
 						<td>Rigidity</td>
-						<td><span class="math inline">\( O_{\mathrm{rig},k} = \mathcal{E}[\Xi_i e^{-\lambda_{\mathrm{rig}} d_{2\pi}(\Phi_i/S_\ast)} e^{i\Phi_i/S_\ast}] \)</span></td>
-						<td>Phase drift suppression / coherence lock</td>
+						<td><span class="math inline">\( e^{-\lambda d_{2\pi}} \)</span></td>
+						<td>Phase locking</td>
 					</tr>
 				</tbody>
 			</table>
@@ -43179,86 +43365,144 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				terror-shock response (<a href="#eq-21_34">Equation (21.34)</a>) must reproduce recovery envelopes.
 			</p>
 
-			<h4>Summary — The Kernel as a Self-Computing System</h4>
+			<p>
+				Self-computation is experimentally testable.
+				If uncertainty propagation fails,
+				rupture thresholds do not align with observed collapse,
+				or terror perturbations do not produce the predicted
+				recovery envelope,
+				the kernel hypothesis is falsified.
+			</p>
+
+			<h4>Summary — Why CTMT Cannot Be Patched</h4>
+
 			<figure class="equation" id="eq-21_36">
 				<div class="math display">
-
 					\[
 						\boxed{
 							O_k
-							\;\Rightarrow\;
-							\{\, O,\, \sigma_O,\, O_{\mathrm{rupt}},\, O_{\mathrm{ter}},\, O_{\mathrm{red}},\, O_{\mathrm{rig}} \,\}
+							\;\Longrightarrow\;
+							\{\, O,\; \sigma_O,\; \mathcal{M}_{\mathrm{rupt}},\;
+							O_{\mathrm{ter}},\; O_{\mathrm{red}},\; O_{\mathrm{rig}} \,\}
 						}
 					\]
-
 				</div>
-				<figcaption><a href="#eq-21_36">Equation (21.36)</a></figcaption>
+				<figcaption>
+					<a href="#eq-21_36">Equation (21.36)</a>
+				</figcaption>
 			</figure>
+
 			<p>
-				CTMT’s collapse system is not a patchwork of formulas —
-				it is <em>one kernel seed recursively unfolding into all observables and effects</em>.
+				CTMT is not a collection of equations.
+				It is a <em>closed computational geometry</em>:
+				one kernel defines its own measurement,
+				uncertainty, collapse, stress response,
+				and stabilization.
+				There is nothing to tune,
+				nothing to import,
+				and nothing to hide behind.
+			</p>
+			<p>
+				CTMT is not distinguished by the number of phenomena it explains, but by the fact that every explanation is generated by a single, unit-closed, self-diagnosing kernel.
+				Competing frameworks may reproduce isolated predictions, but none provide a globally closed mechanism that simultaneously computes observables, uncertainty, collapse, and stability without external postulates.
 			</p>
 
 			<h3 id="sec-21-collapse-prediction-via-recursive-kernel-geometry_3">CTMT Manifold Geometry at the Near-Null Boundary</h3>
 
 			<p>
-				The CTMT formalism concentrates at the <em>near-null boundary</em>, where the Fisher information curvature matrix
-				acquires near-zero eigenvalues. In that regime:
+				The operational core of CTMT concentrates at the <em>near-null boundary</em> of the
+				information manifold—where the Fisher curvature matrix
+				<span class="math inline">\(H\)</span> develops one or more
+				near-zero eigenvalues.
+				This boundary is not pathological: it is the only regime where
+				collapse, measurement locking, and structural rupture
+				become <em>observable</em>.
 			</p>
-			<ul>
-				<li>An observed direction is selected as a dominant projection (measurement locking).</li>
-				<li>Orthogonal directions define the <em>rupture manifold</em> with inflated uncertainty.</li>
-				<li>Terror perturbations deform curvature and act as multiplicative/additive operators.</li>
-				<li>Redundancy and rigidity operate as native stabilizers that restore closure.</li>
-			</ul>
+
 			<p>
-				This chapter gathers the complete near-null CTMT toolkit, defines all dimensional and numerical stabilizers,
-				provides pseudocode for reproducible tests, and demonstrates how canonical physical theories
-				appear as coordinate restrictions—<em>limit geometries</em>—of the unified CTMT manifold.
+				Away from this boundary, curvature is full-rank and evolution is smooth;
+				beyond it, coherence is destroyed and observables dissolve into noise.
+				Collapse is therefore a <strong>boundary phenomenon</strong>:
+				detectable precisely where rank is lost but coherence remains finite.
+			</p>
+
+			<ul>
+				<li>
+					A single observed direction becomes dominant
+					(<strong>measurement locking</strong>).
+				</li>
+				<li>
+					Orthogonal directions inflate uncertainty and form the
+					<em>rupture manifold</em>.
+				</li>
+				<li>
+					Terror perturbations act as bounded multiplicative/additive
+					deformations of kernel geometry.
+				</li>
+				<li>
+					Redundancy and rigidity emerge as intrinsic stabilizers,
+					restoring closure without external regularization.
+				</li>
+			</ul>
+
+			<p>
+				This section assembles the complete CTMT near-null toolkit,
+				defines all dimensional and numerical stabilizers,
+				provides reproducible protocols,
+				and shows how canonical physical theories arise as
+				<em>coordinate-restricted limit geometries</em>
+				of the unified CTMT manifold.
 			</p>
 
 			<h4>Notation &amp; Dimensional Conventions</h4>
+
 			<ul>
 				<li>
 					<strong>Kernel expectation:</strong>
-					<span class="math inline">\(O = \mathcal{E}[\Xi\,e^{i\Phi/S_\ast}]\)</span>;
-					<span class="math inline">\(S_\ast\)</span> is the reference action scale (J·s).
+					<span class="math inline">\(O = \mathcal{E}[\Xi\,e^{i\Phi/S_\ast}]\)</span>,
+					where <span class="math inline">\(S_\ast\)</span> is the action invariant (J·s).
 				</li>
 				<li>
 					<strong>Internal parameters:</strong>
-					<span class="math inline">\(\Theta \in \mathcal{M}_\Theta\)</span>, a finite-dimensional differentiable manifold.
+					<span class="math inline">\(\Theta \in \mathcal{M}_\Theta\)</span>,
+					a finite-dimensional differentiable parameter manifold.
 				</li>
 				<li>
 					<strong>Jacobian:</strong>
-					<span class="math inline">\(J = \partial O/\partial\Theta\)</span> (units <span class="math inline">\([O]/[\Theta]\)</span>).
+					<span class="math inline">\(J = \partial O/\partial\Theta\)</span>,
+					carrying units <span class="math inline">\([O]/[\Theta]\)</span>.
 				</li>
 				<li>
 					<strong>Ensemble covariance:</strong>
-					<span class="math inline">\(\mathrm{Cov} = \mathrm{Cov}_{\mathrm{ens}}\)</span> (units <span class="math inline">\([O]^2\)</span>).
+					<span class="math inline">\(\mathrm{Cov}_{\mathrm{ens}}\)</span>,
+					with units <span class="math inline">\([O]^2\)</span>.
 				</li>
 				<li>
 					<strong>Fisher curvature:</strong>
-					<span class="math inline">\(H = J^\top \mathrm{Cov}^{-1} J\)</span>, unitless after pre-whitening.
+					<span class="math inline">\(H = J^\top \mathrm{Cov}^{-1} J\)</span>,
+					rendered dimensionless by pre-whitening.
 				</li>
 				<li>
-					<strong>Dimensional residuum:</strong> (closure test)
+					<strong>Dimensional residuum (closure test):</strong>
 					<div class="math display">
-
 						\[
 							\epsilon_{\mathrm{dim}}(Q)
-							= \frac{\|[Q]_{\mathrm{pred}} - [Q]_{\mathrm{SI}}\|}
+							=
+							\frac{\|[Q]_{\mathrm{pred}} - [Q]_{\mathrm{SI}}\|}
 							{\|[Q]_{\mathrm{SI}}\|},
 							\qquad
-							\varepsilon_{\mathrm{stab}} \in [10^{-12},10^{-8}],
+							\varepsilon_{\mathrm{stab}} \in [10^{-12},10^{-8}].
 						\]
-
 					</div>
-					where <span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span> checks unit closure and
-					<span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span> acts as numerical stabilizer.
+					<span class="math inline">\(\epsilon_{\mathrm{dim}}\)</span>
+					diagnoses projection rupture, not numerical error;
+					<span class="math inline">\(\varepsilon_{\mathrm{stab}}\)</span>
+					ensures numerical well-posedness near rank loss.
 				</li>
-				<li><strong>Rupture threshold:</strong>
-				<span class="math inline">\(\tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>
-				with <span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
+				<li>
+					<strong>Rupture threshold:</strong>
+					<span class="math inline">\(\tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>,
+					<span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
 				</li>
 			</ul>
 
@@ -43268,124 +43512,161 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 			<div class="math display">
 				\[
 					O(\Theta)
-					= \mathcal{E}\!\big[\Xi(\Theta)\,e^{i\Phi(\Theta)/S_\ast}\big],
+					=
+					\mathcal{E}\!\big[\Xi(\Theta)\,e^{i\Phi(\Theta)/S_\ast}\big],
 					\qquad
 					\Theta \in \mathcal{M}_\Theta.
 				\]
 			</div>
 
+			<p>
+				This expression defines the CTMT observable before any collapse,
+				rupture, or stabilization is applied.
+			</p>
+
 			<h5>(B) TUCF — Uncertainty Propagation</h5>
-			<p>Linearized propagation within a temporal window:</p>
+
+			<p>Linearized uncertainty propagation within a finite temporal window:</p>
+
 			<div class="math display">
 				\[
 					\sigma_O^2(t)
-					= J_t^\top \mathrm{Cov}_t J_t
-					+ \mathbf{C}_\epsilon(t)
-					+ \varepsilon_{\mathrm{stab}}\mathbf{I}.
+					=
+					J_t^\top \mathrm{Cov}_t J_t
+					+
+					\mathbf{C}_\epsilon(t)
+					+
+					\varepsilon_{\mathrm{stab}}\mathbf{I}.
 				\]
 			</div>
+
 			<p>
-				Here <span class="math inline">\(J_t = \partial O / \partial\Theta\)</span> in the active time window,
-				and <span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span> is the observation-noise covariance.
-				For strong nonlinearity, replace the Jacobian formulation with an ensemble propagation step.
+				When nonlinearity invalidates the Jacobian approximation,
+				ensemble propagation must replace linear TUCF.
+				Near-null behavior is robust under either formulation.
 			</p>
 
-			<h5>(C) Fisher Curvature and Rupture Manifold</h5>
+			<h5>(C) Fisher Curvature and the Rupture Manifold</h5>
+
 			<div class="math display">
 				\[
-					H(t) = J_t^\top \mathbf{C}_\epsilon(t)^{-1} J_t,
+					H(t)
+					=
+					J_t^\top \mathbf{C}_\epsilon(t)^{-1} J_t,
 					\qquad
 					\mathcal{M}_{\mathrm{rupt}}(t)
-					= \ker H(t)
-					= \{\,v : H v \approx 0\,\}.
+					=
+					\ker H(t).
 				\]
 			</div>
+
 			<p>
-				Eigen-decomposition <span class="math inline">\(H = V\Lambda V^\top\)</span>
-				identifies soft eigenmodes <span class="math inline">(\(\lambda_i \lt \tau_\lambda\))</span>,
+				Eigen-decomposition
+				<span class="math inline">\(H = V\Lambda V^\top\)</span>
+				identifies soft modes
+				<span class="math inline">\(\lambda_i &lt; \tau_\lambda\)</span>,
 				which span the rupture manifold.
+				Collapse corresponds to projection onto the complementary
+				high-curvature subspace.
 			</p>
 
-			<h5>(D) Terror Kernel (Bounded Perturbations)</h5>
+			<h5>(D) Terror Kernel — Bounded Perturbations</h5>
+
 			<div class="math display">
 				\[
 					O_{\mathrm{ter}}
-					= \mathcal{E}\!\big[
-					\Xi\,\eta\,e^{i\Phi/S_\ast} + \zeta
+					=
+					\mathcal{E}\!\big[
+					\Xi\,\eta\,e^{i\Phi/S_\ast}
+					+
+					\zeta
 					\big],
 					\qquad
-					\mathbb{E}[\eta^2] \lt C_\eta,\;
-					\mathbb{E}[\zeta^2] \lt \infty.
+					\mathbb{E}[\eta^2] &lt; C_\eta,
+					\quad
+					\mathbb{E}[\zeta^2] &lt; \infty.
 				\]
 			</div>
+
 			<p>
-				<span class="math inline">\(\eta\)</span> represents multiplicative log-normal deformation;
-				<span class="math inline">\(\zeta\)</span> represents additive α-stable (often Cauchy) shock.
-				Finite energy conditions guarantee TUCF stability.
+				Terror perturbations deform geometry but do not invalidate TUCF.
+				Collapse survives only if coherence remains above the near-null threshold.
 			</p>
 
-			<h5>(E) Stabilizers — Rigidity &amp; Redundancy</h5>
+			<h5>(E) Stabilizers — Redundancy and Rigidity</h5>
+
 			<div class="math display">
 				\[
 					O_{\mathrm{red}}
-					= \sum_{k=1}^{K} \tilde r_k O_k,
+					=
+					\sum_{k=1}^{K} \tilde r_k O_k,
 					\qquad
 					O_{\mathrm{rig}}
-					= \mathcal{E}\!\left[
+					=
+					\mathcal{E}\!\left[
 					\Xi\,
-					e^{-\lambda_{\mathrm{rig}} d_{2\pi}(\Phi/S_\ast)}\,
+					e^{-\lambda_{\mathrm{rig}} d_{2\pi}(\Phi/S_\ast)}
 					e^{i\Phi/S_\ast}
 					\right].
 				\]
 			</div>
 
 			<p>
-				Reliability weights <span class="math inline">\(\tilde r_k\)</span> are normalized 
-				(<span class="math inline">\(\sum \tilde r_k=1\)</span>);
-				<span class="math inline">\(\lambda_{\mathrm{rig}}\)</span> sets the phase‑lock tolerance.
-				Both operators preserve dimensional closure and provide variance stabilization.
+				These stabilizers do not add information.
+				They reshape kernel geometry to prevent spurious rank loss.
 			</p>
 
-			<h4>Measurement &amp; Falsifiability Protocol</h4>
-			<ol>
-				<li><strong>Declare geometry:</strong> anchors, topology, units, and physical constants.</li>
-				<li><strong>Windowing:</strong> choose TUCF window <span class="math inline">\(\Delta t\)</span> covering ≥1 dominant cycle.</li>
-				<li><strong>Estimate noise:</strong> compute <span class="math inline">\(\mathbf{C}_\epsilon(t)\)</span> from baseline intervals.</li>
-				<li><strong>Estimate Jacobian:</strong> small controlled perturbations <span class="math inline">\(\delta\Theta\)</span> to form <span class="math inline">\(J_t\)</span>.</li>
-				<li><strong>Compute Fisher:</strong> <span class="math inline">\(H(t)=J_t^\top \mathbf{C}_\epsilon^{-1}J_t\)</span> and eigen‑decompose.</li>
-				<li><strong>Rupture test:</strong> flag <span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span> if <span class="math inline">\(\lambda_{\min}(H)<\tau_\lambda\)</span>.</li>
-				<li><strong>Terror probe:</strong> inject known multiplicative/additive perturbations; measure recovery envelope.</li>
-				<li><strong>Stabilizer tests:</strong> apply redundancy/rigidity and verify variance reduction and phase re‑locking.</li>
-				<li><strong>Dimensional audit:</strong> require <span class="math inline">\(\epsilon_{\mathrm{dim}} \lt 10^{-12}\)</span> for formal closure (or document relaxation).</li>
-				<li><strong>Reporting:</strong> publish raw windows, Jacobians, eigenpairs, and CI for <span class="math inline">\(\lambda_{\min}\)</span> (bootstrap preferred).</li>
-			</ol>
+			<h4>Interpretive Core — Why the Near-Null Boundary Matters</h4>
 
-			<h4>Practical Decision Rules</h4>
+			<p>
+				Collapse cannot be detected in full-rank regimes
+				(no locking)
+				nor beyond the null boundary
+				(no coherence).
+				Only at the near-null boundary does CTMT predict:
+			</p>
+
 			<ul>
-				<li>
-					<strong>Rupture trigger:</strong>
-					<span class="math inline">\(\lambda_{\min}(H) \lt \tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>, 
-					<span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
-				</li>
-				<li>
-					<strong>Variance collapse:</strong>
-					<span class="math inline">\(r_{\mathrm{var}} = \mathrm{Var}_{\mathrm{locked}}/\mathrm{Var}_{\mathrm{free}} \lt 0.5\)</span>.
-				</li>
-				<li>
-					<strong>Cross‑covariance reduction:</strong>
-					<span class="math inline">\(r_{\mathrm{cov}} = |\mathrm{Cov}_{\mathrm{locked,orth}}| / |\mathrm{Cov}_{\mathrm{free}}| \lt 0.3\)</span>.
-				</li>
-				<li>
-					<strong>Terror detection:</strong>
-					heavy‑tailed residuals (empirical tail index <span class="math inline">\(&lt; 2\)</span>) or rising 
-					<span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span>.
-				</li>
-				<li>
-					<strong>Stabilizer acceptance:</strong>
-					redundancy must reduce <span class="math inline">\(\sigma_O\)</span>;
-					rigidity must cut circular variance by <span class="math inline">\(&gt; 20\%\)</span>.
-				</li>
+				<li>selective amplification of one observable direction,</li>
+				<li>inflation of orthogonal uncertainty,</li>
+				<li>measurable sensitivity to terror perturbations,</li>
+				<li>recoverability via stabilizers.</li>
 			</ul>
+
+			<p>
+				This is why collapse is universal but rare:
+				it requires geometric alignment, not postulate.
+			</p>
+
+			<h4>Concluding Statement — CTMT as Parent Geometry</h4>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\text{Observable}
+						=
+						\mathcal{E}[\Xi e^{i\Phi/S_\ast}],
+						\quad
+						\text{Dynamics}
+						=
+						J\text{-geometry},
+						\quad
+						\text{Collapse}
+						=
+						\ker H
+						\;(\text{near-null boundary}).
+					}
+				\]
+			</div>
+
+			<p>
+				At the near-null boundary,
+				CTMT unifies measurement locking, rupture,
+				terror perturbations, and stabilization
+				within a single, dimensionally closed manifold.
+				Quantum, classical, and statistical theories
+				emerge as coordinate limits—not competitors.
+			</p>
 
 			<h4>Pseudocode Appendix — Reproducible Tests</h4>
 			<p>
