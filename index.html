@@ -42835,7 +42835,7 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				Bound‑state recursion kernel <span class="math inline">\(\Phi(x,x';\omega)=2\pi n\)</span>
 				yields discrete stationary frequencies <span class="math inline">\(\omega_n\)</span> and energy levels <span class="math inline">\(E_n=\hbar\omega_n\)</span>.
 				Decoherence (low <span class="math inline">\(K_{\mathrm{coh}}\)</span>) causes line broadening,
-			predicting experimental linewidths within 1–5%.
+				predicting experimental linewidths within 1–5%.
 			</p>
 
 			<h5>Plasma: Langmuir Resonance (Spectral Collapse)</h5>
@@ -43564,7 +43564,7 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				Eigen-decomposition
 				<span class="math inline">\(H = V\Lambda V^\top\)</span>
 				identifies soft modes
-				<span class="math inline">\(\lambda_i &lt; \tau_\lambda\)</span>,
+				<span class="math inline">\(\lambda_i \lt \tau_\lambda\)</span>,
 				which span the rupture manifold.
 				Collapse corresponds to projection onto the complementary
 				high-curvature subspace.
@@ -43582,9 +43582,9 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 					\zeta
 					\big],
 					\qquad
-					\mathbb{E}[\eta^2] &lt; C_\eta,
+					\mathbb{E}[\eta^2] \lt C_\eta,
 					\quad
-					\mathbb{E}[\zeta^2] &lt; \infty.
+					\mathbb{E}[\zeta^2] \lt \infty.
 				\]
 			</div>
 
@@ -43637,6 +43637,33 @@ print("ϵ_dim (phase-derived) =", epsilon_dim_est)
 				This is why collapse is universal but rare:
 				it requires geometric alignment, not postulate.
 			</p>
+
+			<h4>Practical Decision Rules</h4>
+			<ul>
+				<li>
+					<strong>Rupture trigger:</strong>
+					<span class="math inline">\(\lambda_{\min}(H) \lt \tau_\lambda = \alpha\,\mathrm{median}(\lambda_i)\)</span>, 
+					<span class="math inline">\(\alpha \in [0.1,0.3]\)</span>.
+				</li>
+				<li>
+					<strong>Variance collapse:</strong>
+					<span class="math inline">\(r_{\mathrm{var}} = \mathrm{Var}_{\mathrm{locked}}/\mathrm{Var}_{\mathrm{free}} \lt 0.5\)</span>.
+				</li>
+				<li>
+					<strong>Cross‑covariance reduction:</strong>
+					<span class="math inline">\(r_{\mathrm{cov}} = |\mathrm{Cov}_{\mathrm{locked,orth}}| / |\mathrm{Cov}_{\mathrm{free}}| \lt 0.3\)</span>.
+				</li>
+				<li>
+					<strong>Terror detection:</strong>
+					heavy‑tailed residuals (empirical tail index <span class="math inline">\(\lt 2\)</span>) or rising 
+					<span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span>.
+				</li>
+				<li>
+					<strong>Stabilizer acceptance:</strong>
+					redundancy must reduce <span class="math inline">\(\sigma_O\)</span>;
+					rigidity must cut circular variance by <span class="math inline">\(\gt 20\%\)</span>.
+				</li>
+			</ul>
 
 			<h4>Concluding Statement — CTMT as Parent Geometry</h4>
 
