@@ -59519,7 +59519,475 @@ curl_F = np.gradient(Fy)[0] - np.gradient(Fx)[0]
 				Together, these features make CTMT-native calculus not just a computational tool, but a learning engine — one that enables rupture-aware modeling, symbolic clarity, and scalable uncertainty propagation across physics, engineering, and applied mathematics.
 			</p>
 
-			<h3 id="sec-888-native-calculus_1">CTMT Native Language — Full Computation Demo</h3>
+			<h3 id="sec-888-native-calculus_1">CTMT Standard Machinery — Canonical Computational Core</h3>
+
+			<p>
+				This chapter defines the <strong>canonical CTMT machinery</strong>.
+				It is the minimal, closed, and executable core from which all other CTMT
+				constructions follow. Symbolic integration, tensor calculus, and ad&nbsp;hoc
+				uncertainty propagation are replaced by a rupture-aware ensemble grammar
+				grounded in Fisher geometry.
+			</p>
+
+			<p>
+				All CTMT calculations — classical, quantum, geometric, or informational —
+				reduce to this core. No auxiliary calculus is required.
+			</p>
+
+			<h4>Kernel Ensemble (Primitive Object)</h4>
+
+			<p>The fundamental CTMT object is a <em>kernel ensemble</em>:</p>
+
+			<div class="math display">
+				\[
+					K_i \;=\; \Xi_i \, e^{\,i\Phi_i / S_\ast},
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\( \Xi_i \)</span> is the rupture amplitude,
+				<span class="math inline">\( \Phi_i \)</span> is the phase field, and
+				<span class="math inline">\( S_\ast \)</span> is the dimensionless action
+				invariant reconstructed from kernel recursion.
+			</p>
+
+			<p>The physical observable is defined by ensemble expectation:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						O \;=\; C_{\mathrm{phys}} \, \mathcal{E}\!\left[ K_i \right]
+					}
+				\]
+			</div>
+
+			<p>
+				This replaces symbolic integrals of the form
+				<span class="math inline">\( \int A(\omega)e^{i\Phi(\omega)}\,d\omega \)</span>.
+			</p>
+
+			<h4>Rupture Filter and Coherence Classes</h4>
+
+			<p>Decoherence and collapse are enforced through the rupture filter:</p>
+
+			<div class="math display">
+				\[
+					\mathcal{R}_\tau[K_i]
+					\;=\;
+					K_i \cdot \mathbf{1}[\sigma_{\Phi_i} \lt \tau].
+				\]
+			</div>
+
+			<p>
+			The surviving ensemble defines the coherence class:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{C}^{(r)} \;=\; \{\, i \mid \sigma_{\Phi_i} \lt \tau \,\}.
+				\]
+			</div>
+
+			<p>
+			All observables are typed by coherence:
+			</p>
+
+			<div class="math display">
+				\[
+					O \in \mathcal{C}^{(r)}.
+				\]
+			</div>
+
+			<p>There is no collapse postulate; collapse is ensemble pruning.</p>
+
+			<h4>Fisher Geometry (Native Metric)</h4>
+
+			<p>
+				Let the internal kernel parameters be
+				<span class="math inline">\( \Theta = (\Xi,\Phi) \)</span>.
+				The ensemble Jacobian is defined natively as:
+			</p>
+
+			<div class="math display">
+				\[
+					J_{\mathrm{ens}}
+					\;=\;
+					\mathcal{E}\!\left[
+					\frac{\partial K_i}{\partial \Theta}
+					\right].
+				\]
+			</div>
+
+			<p>The CTMT Fisher tensor is:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						F
+						\;=\;
+						J_{\mathrm{ens}}^\top
+						\;\mathrm{Cov}_{\mathrm{ens}}^{-1}\;
+						J_{\mathrm{ens}}
+					}
+				\]
+			</div>
+
+			<p>
+				Fisher rank encodes geometric degrees of freedom; rank loss signals collapse.
+				Eigenstructure defines nodes of presence, and curvature drift encodes seepage.
+			</p>
+
+			<h4>Uncertainty Propagation</h4>
+
+			<p>All uncertainty propagation is Fisher-based:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\sigma_O^2
+						\;=\;
+						J_{\mathrm{ens}}^\top
+						\;\mathrm{Cov}_{\mathrm{ens}}\;
+						J_{\mathrm{ens}}
+					}
+				\]
+			</div>
+
+			<p>No symbolic error calculus or linearization assumptions are required.</p>
+
+			<h4>Derived Functions (Representation Layer)</h4>
+
+			<p>
+				Classical functions are not primitive. They arise as projections of the
+				phase-modulated kernel:
+			</p>
+
+			<div class="math display">
+				\[
+					\sin(\theta)
+					\;\equiv\;
+					\mathrm{Im}\!\left[
+					\mathcal{R}_\tau\!\left(e^{i\Phi/S_\ast}\right)
+					\right],
+					\qquad
+					\cos(\theta)
+					\;\equiv\;
+					\mathrm{Re}\!\left[
+					\mathcal{R}_\tau\!\left(e^{i\Phi/S_\ast}\right)
+					\right].
+				\]
+			</div>
+
+			<p>
+				Hyperbolic, logarithmic, exponential, and entropy measures are evaluated as
+				ensemble expectations of modulated kernels. Symbolic calculus is recovered
+				only in the coherence limit
+				<span class="math inline">\( \tau \to \infty \)</span>.
+			</p>
+
+			<h4>Collapse Criterion</h4>
+
+			<p>Collapse is defined geometrically:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\Delta \mathrm{rank}(F) \lt 0
+						\;\;\Longrightarrow\;\;
+						\text{collapse}
+					}
+				\]
+			</div>
+
+			<p>
+				Observable degradation (e.g. fringe visibility loss) is secondary and
+				follows Fisher rank degradation.
+			</p>
+
+			<h4>Canonical Python Implementation (Unified Diagnostic)</h4>
+
+			<p>
+				This reference snippet implements the full CTMT machinery: ensemble
+				construction, rupture filtering, observable evaluation, Fisher geometry,
+				and uncertainty propagation.
+			</p>
+
+<pre><code class="language-python">import numpy as np
+
+# Parameters
+N = 3000
+S_star = 1.0
+tau = 0.2
+C_phys = 1.0
+
+# Ensemble generation
+x = np.random.normal(0, 1, N)
+xp = np.random.normal(0, 1, N)
+
+Xi = np.exp(-(x**2 + xp**2))
+Phi = np.sin(x) - np.cos(xp)
+
+K = Xi * np.exp(1j * Phi / S_star)
+
+# Rupture filter
+mask = np.abs(Phi) &lt; tau
+Kf = K[mask]
+Xf = Xi[mask]
+Pf = Phi[mask]
+
+# Observable
+O = C_phys * np.mean(Kf)
+
+# Ensemble Jacobian
+dXi = np.gradient(Xf)
+dPhi = np.gradient(Pf)
+J = np.vstack([
+    np.mean(dXi),
+    np.mean(1j * Kf / S_star * dPhi)
+])
+
+# Covariance and Fisher tensor
+Cov = np.cov(np.vstack([Xf, Pf]))
+F = J.T @ np.linalg.pinv(Cov) @ J
+
+# Uncertainty
+sigma_O2 = J.T @ Cov @ J
+</code></pre>
+
+			<h4>Subsumption Statement</h4>
+
+			<p>All CTMT constructions reduce to this machinery:</p>
+
+			<ul>
+				<li>Trigonometry → phase projection</li>
+				<li>Hyperbolic functions → rupture envelopes</li>
+				<li>Probability → ensemble sampling</li>
+				<li>Entropy and divergence → log-modulated kernels</li>
+				<li>Vector calculus → ensemble gradients</li>
+				<li>PDEs → sliding-window ensembles</li>
+				<li>Quantum interference → phase coherence</li>
+				<li>General relativity → Fisher geometry</li>
+				<li>Collapse → Fisher rank loss</li>
+			</ul>
+
+			<h4>Final Compression Statement</h4>
+
+			<p>
+				<strong>
+					CTMT is not a collection of tools.
+					It is a single rupture-aware ensemble grammar.
+				</strong>
+			</p>
+
+			<p>
+				Once <span class="math inline">\( S_\ast \)</span> exists, the remainder of
+				the theory is forced by consistency.
+			</p>
+
+			<h4>Terror–Fisher Stability Loop</h4>
+
+			<p>
+				This appendix formalizes the <strong>Terror–Fisher stability loop</strong>:
+				the minimal closed calculus explaining why CTMT remains computable under
+				rupture. The loop consists of four operators — <em>Terror</em>,
+				<em>Rupture Filtering</em>, <em>Fisher Geometry</em>, and
+				<em>Redundancy–Rigidity Stabilization</em>. Together they form the
+				<strong>stability spine</strong> of CTMT.
+			</p>
+
+			<p>
+				Conceptually: terror injects non-Gaussian deformation, Fisher geometry
+				measures loss of information rank, rigidity suppresses phase drift, and
+				redundancy buffers observables across independent collapse channels.
+				The loop closes because Fisher rank controls the effectiveness of
+				redundancy and rigidity.
+			</p>
+
+			<h5>Terror Operator (Rupture Injection)</h5>
+
+			<p>
+				Terror models catastrophic coherence disruption as multiplicative and
+				additive shocks applied to the kernel ensemble:
+			</p>
+
+			<div class="math display">
+				\[
+					K_i^{\mathrm{ter}}
+					:=
+					\Xi_i \,\eta_i\, e^{i\Phi_i/S_\ast}
+					+ \zeta_i,
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\( \eta_i \)</span> is a lognormal
+				multiplicative deformation and <span class="math inline">\( \zeta_i \)</span>
+				is an additive Cauchy shock. Terror introduces heavy tails and destroys
+				Gaussian closure.
+			</p>
+
+			<h5>Rupture Filter (Survival Geometry)</h5>
+
+			<p>Incoherent paths are pruned by volatility thresholds:</p>
+
+			<div class="math display">
+				\[
+					\mathcal{R}_\tau[K_i]
+					=
+					K_i \,\mathbf{1}[\sigma_i \lt \tau],
+				\]
+			</div>
+
+			<p>
+				defining coherence classes
+				<span class="math inline">\( \mathcal{C}^{(r)} \)</span>.
+				Collapse is not a postulate; it is ensemble survival.
+			</p>
+
+			<h5>Fisher Geometry (Information Metric)</h5>
+
+			<p>
+				Let <span class="math inline">\( \Theta = (\Xi,\Phi) \)</span>.
+				The ensemble Jacobian is:
+			</p>
+
+			<div class="math display">
+				\[
+					J_{\mathrm{ens}}
+					:=
+					\mathcal{E}\!\left[
+					\frac{\partial K_i}{\partial \Theta}
+					\right].
+				\]
+			</div>
+
+			<p>The CTMT Fisher tensor:</p>
+
+			<div class="math display">
+				\[
+					F
+					=
+					J_{\mathrm{ens}}^\top
+					\mathrm{Cov}_{\mathrm{ens}}^{-1}
+					J_{\mathrm{ens}}.
+				\]
+			</div>
+
+			<p>
+				Fisher rank encodes geometric degrees of freedom. Rank loss precedes all
+				observable collapse and defines <em>nodes of presence</em>.
+			</p>
+
+			<h5>Rigidity Operator (Phase Constraint)</h5>
+
+			<p>Rigidity suppresses phase drift by penalizing wrapped phase deviation:</p>
+
+			<div class="math display">
+				\[
+					\mathfrak{R}_{\mathrm{rig}}[f_i]
+					:=
+					f_i\,
+					e^{-\lambda_{\mathrm{rig}} d_{2\pi}(\Phi_i/S_\ast)},
+				\]
+			</div>
+
+			<div class="math display">
+				\[
+					d_{2\pi}(\phi)
+					:=
+					\left|((\phi+\pi)\bmod 2\pi)-\pi\right|.
+				\]
+			</div>
+
+			<p>
+				Rigidity restores periodic structure without reintroducing coherence
+				artificially.
+			</p>
+
+			<h5>Redundancy Operator (Stability Aggregation)</h5>
+
+			<p>Redundancy aggregates independent kernel observables:</p>
+
+			<div class="math display">
+				\[
+					O_{\mathrm{red}}
+					:=
+					\sum_{k=1}^K \tilde r_k O_k,
+					\qquad
+					\tilde r_k
+					=
+					\frac{\text{surv}_k}{\mathrm{Var}(O_k)+\varepsilon}
+					\Big/
+					\sum_j
+					\frac{\text{surv}_j}{\mathrm{Var}(O_j)+\varepsilon}.
+				\]
+			</div>
+
+			<p>
+				Redundancy guarantees variance reduction whenever at least one kernel
+				remains coherent.
+			</p>
+
+			<h5>The Terror–Fisher Stability Loop</h5>
+
+			<p>The loop closes as follows:</p>
+
+			<ol>
+				<li>Terror injects non-Gaussian rupture.</li>
+				<li>Rupture filtering prunes incoherent paths.</li>
+				<li>Fisher rank measures information loss.</li>
+				<li>Rigidity suppresses phase drift.</li>
+				<li>Redundancy aggregates surviving observables.</li>
+				<li>Improved coherence feeds back into Fisher geometry.</li>
+			</ol>
+
+			<div class="math display">
+				\[
+					\Delta \operatorname{rank}(F)
+					\;\Rightarrow\;
+					\Delta \mathcal{R}_{\mathrm{rig}}
+					\;\Rightarrow\;
+					\Delta O_{\mathrm{red}}.
+				\]
+			</div>
+
+			<p>
+				Collapse occurs only when Fisher rank loss overwhelms both rigidity and
+				redundancy buffers.
+			</p>
+
+			<h5>Why CTMT Is Rigid and Redundant</h5>
+
+			<p>CTMT survives because it is <em>overconstrained</em>:</p>
+
+			<ul>
+				<li><strong>Rigidity</strong> enforces phase geometry.</li>
+				<li><strong>Redundancy</strong> absorbs symbolic drift.</li>
+				<li><strong>Fisher geometry</strong> detects failure early.</li>
+				<li><strong>Rupture filtering</strong> localizes collapse.</li>
+			</ul>
+
+			<p>
+				Remove any leg and the loop fails. Together, they form the minimal
+				self-stabilizing calculus on which CTMT stands.
+			</p>
+
+			<h5>Final Statement</h5>
+
+			<p>
+				<strong>
+					CTMT does not avoid terror.
+					It measures it, constrains it, and survives it.
+				</strong>
+			</p>
+
+			<p>
+				Rigidity prevents phase dissolution.
+				Redundancy prevents catastrophic loss.
+				Fisher geometry tells you when both are about to fail.
+			</p>
+
+			<h3 id="sec-888-native-calculus_2">CTMT Native Language — Full Computation Demo</h3>
 			<p>Enter CTMT-native code below. Click “Run CTMT Code” to parse, compute, and propagate uncertainty.</p>
 
 <textarea id="ctmt-code" rows="20" style="width:100%; font-family:monospace;">
