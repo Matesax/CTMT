@@ -60463,6 +60463,621 @@ if is_local_max(rho) and lambda_min > eps and is_local_min(Gamma):
 				“presence” permitted by dimensional closure and kernel coherence.
 				Nothing smaller can persist; nothing larger is required.
 			</p>
+
+			<h3 id="sec-99-seepage-sketch-proof_2">Double-Slit Experiment Revisited — CTMT Seepage, Nodes of Presence, and Falsifiable Geometry</h3>
+
+			<p>
+				The double-slit experiment is historically complete: its observables, statistics,
+				and limits are settled. CTMT does not reinterpret the data, alter the apparatus,
+				or introduce new measurement postulates. Instead, it provides a <em>geometric
+				explanation</em> of interference loss, localization, and persistence using
+				Fisher rank, coherence density, and hazard flow.
+			</p>
+
+			<p>
+				This section demonstrates that the double-slit experiment already contains
+				<strong>seepage</strong> and <strong>nodes of presence</strong>, and that CTMT
+				makes a novel, falsifiable prediction about their spatial structure under
+				partial which-path coupling.
+			</p>
+
+			<h4>Standard Setup (Unmodified)</h4>
+
+			<p>
+				A monochromatic source emits quanta of wavelength
+				<span class="math inline">\( \lambda \)</span> toward two slits separated by
+				distance <span class="math inline">\( s \)</span>, with a detection screen at
+				distance <span class="math inline">\( D \)</span>. The measured observable is
+				the intensity distribution
+				<span class="math inline">\( I(x) \)</span> on the screen.
+			</p>
+
+			<p>With full coherence, the intensity is:</p>
+
+			<div class="math display">
+				\[
+					I(x)
+					= I_0
+					\Bigl|
+					e^{i\phi_1(x)} + e^{i\phi_2(x)}
+					\Bigr|^2
+					= 2I_0 \bigl[1 + \cos(\Delta\phi(x))\bigr].
+				\]
+			</div>
+
+			<p>
+				Introducing partial which-path information reduces fringe visibility continuously,
+				even when no explicit detection event occurs.
+			</p>
+
+			<h4>CTMT Kernel Representation</h4>
+
+			<p>CTMT represents the experiment as a phase kernel over propagation paths:</p>
+
+			<div class="math display">
+				\[
+					O(x)
+					=
+					\mathcal{E}\!\left[
+					\Xi_j
+					e^{\,i\Phi_j(x)/S_\ast}
+					\right],
+					\qquad
+					\Phi_j(x) = \omega\,\tau_j(x).
+				\]
+			</div>
+
+			<ul>
+				<li><span class="math inline">\( \Xi_j \)</span> — path amplitude,</li>
+				<li><span class="math inline">\( \tau_j(x) \)</span> — geometric delay,</li>
+				<li><span class="math inline">\( S_\ast \)</span> — reference action scale.</li>
+			</ul>
+
+			<p>The observable intensity is <span class="math inline">\( I(x) = |O(x)|^2 \)</span>.</p>
+
+			<h4>Fisher Rank and Seepage</h4>
+
+			<p>
+				Define the kernel Jacobian with respect to internal phase parameters
+				<span class="math inline">\( \Theta = (\phi_1,\phi_2) \)</span>:
+			</p>
+
+			<div class="math display">
+				\[
+					J(x) = \frac{\partial O(x)}{\partial \Theta},
+					\qquad
+					F(x) = J^\top C_\epsilon^{-1} J.
+				\]
+			</div>
+
+			<p>
+				As which-path coupling increases, phase uncertainty grows and the smallest
+				Fisher eigenvalue decreases:
+			</p>
+
+			<div class="math display">
+				\[
+					\lambda_{\min}(F(x)) \;\downarrow\quad\text{globally}.
+				\]
+			</div>
+
+			<p>
+				However, in CTMT, Fisher rank cannot vanish everywhere without annihilating the observable.
+				Instead, rank loss in the phase domain <em>forces constraint emergence</em>
+				in the spatial domain:
+			</p>
+
+			<div class="math display">
+				\[
+					\textbf{Seepage:}\qquad
+					\Delta\mathrm{rank}_{\Phi} \lt 0
+					\;\Longrightarrow\;
+					\nabla_x \lambda_{\min}(F) \neq 0.
+				\]
+			</div>
+
+			<p>This is the CTMT seepage law: lost coherence must reappear as geometric localization.</p>
+
+			<h4>Nodes of Presence in the Interference Pattern</h4>
+
+			<p>
+				A <strong>node of presence</strong> is a spatial point
+				<span class="math inline">\( x^\ast \)</span> where:
+			</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\rho_\Phi(x^\ast)\ \text{maximal}
+						\;\wedge\;
+						\lambda_{\min}(F(x^\ast)) > \varepsilon
+						\;\wedge\;
+						\Gamma(x^\ast)\ \text{minimal}
+					}
+				\]
+			</div>
+
+			<p>In the double-slit experiment, nodes of presence coincide with:</p>
+
+			<ul>
+				<li>fringe maxima,</li>
+				<li>persistent bright regions under partial decoherence,</li>
+				<li>locations where localization survives even as interference fades.</li>
+			</ul>
+
+			<p>
+				Importantly, as which-path information increases, fringes do not vanish uniformly.
+				Bright regions collapse <em>onto nodes</em> rather than diffusing away.
+			</p>
+
+			<h4>Hazard Flow and Collapse Geometry</h4>
+
+			<p>Define the CTMT hazard rate:</p>
+
+			<div class="math display">
+				\[
+					\Gamma(x)
+					=
+					\frac{1}{\tau}
+					\Bigl[-\partial_t \log\det F(x)\Bigr]_+
+					+ \frac{\sigma_\Phi^2}{2\kappa}.
+				\]
+			</div>
+
+			<p>Under partial which-path coupling:</p>
+
+			<ul>
+				<li>hazard increases in low-coherence regions,</li>
+				<li>hazard minima remain pinned at nodes of presence,</li>
+				<li>collapse geometry contracts toward those nodes.</li>
+			</ul>
+
+			<p>In CTMT, collapse is not treated as fundamental randomness, but as the geometric outcome of Fisher rank dynamics and hazard flow.</p>
+
+			<h4>Novel Falsifiable Prediction</h4>
+
+			<p>CTMT predicts the following structural behavior, formulated in a way that is not standard in textbook QM:</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\text{Under gradual which-path coupling,}
+						\;
+						\partial_x \lambda_{\min}(F)
+						\;\text{develops stable local maxima aligned with intensity peaks.}
+					}
+				\]
+			</div>
+
+			<p>Operationally:</p>
+
+			<ul>
+				<li>Measure fringe visibility and local phase variance.</li>
+				<li>Estimate Fisher curvature across the screen.</li>
+				<li>Verify that rank loss is <em>non-uniform</em> and concentrates at bright fringes.</li>
+			</ul>
+
+			<p>
+				If coherence loss were purely destructive, Fisher rank would decay uniformly.
+				Observation of rank concentration falsifies that hypothesis and confirms seepage.
+			</p>
+
+			<h4>Relation to Other CTMT Demonstrations</h4>
+
+			<ul>
+				<li>
+					<strong>Navier–Stokes:</strong>
+					vortex cores are nodes of presence under turbulent rank loss.
+				</li>
+				<li>
+					<strong>Quantum Zeno:</strong>
+					repeated observation freezes evolution by suppressing rank redistribution.
+				</li>
+				<li>
+					<strong>Memory kernels:</strong>
+					old memory rank loss sharpens new observations via seepage.
+				</li>
+			</ul>
+
+			<p>
+				The double-slit experiment is therefore not an exception — it is the simplest
+				visible instance of a general CTMT law.
+			</p>
+
+			<h4>Conclusion</h4>
+
+			<p>
+				CTMT explains the double-slit experiment without altering its observables,
+				assumptions, or measurement protocol. Interference loss, localization, and
+				persistence arise from a single mechanism:
+			</p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\text{Collapse}
+						=
+						\text{Fisher rank loss}
+						+
+						\text{geometric seepage}
+						\rightarrow
+						\text{nodes of presence}.
+					}
+				\]
+			</div>
+
+			<p>
+				The experiment thus already demonstrates CTMT’s central claim:
+				<em>coherence cannot disappear — it can only move</em>.
+			</p>
+
+			<h4>CTMT Planck Reconstruction — Enabling the Information–Geometric Machinery</h4>
+
+			<p>
+				The core machinery of CTMT requires a dimensionless action scale
+				<span class="math inline">\(S_\ast\)</span> that renders kernel phases
+				dimensionless and comparable across recursion levels. This scale is not
+				postulated. Instead, it is reconstructed from empirical spectral data via
+				kernel recursion applied to blackbody radiation (see
+				<a href="#sec-23-planck-kernel-from-blackbody-data">
+				Planck Kernel and Wien Displacement from Kernel Recursion
+				</a>).
+				The reconstruction proceeds through a constrained sequence of steps that
+				jointly enforce dimensional closure and recursion stability.
+			</p>
+
+			<ol>
+				<li>
+					<strong>Kernel recursion on empirical spectra.</strong><br/>
+					CTMT applies its recursive kernel map to measured blackbody spectra.
+					The recursion propagates phase information across spectral modes.
+					Consistency of this propagation requires a normalization scale that
+					renders accumulated phase dimensionless. This requirement introduces
+					a candidate action scale <span class="math inline">\(S_\ast\)</span>.
+				</li>
+				<li>
+					<strong>Selection of a Planck-type invariant by closure.</strong><br/>
+					Among admissible normalizations, only a specific value of
+					<span class="math inline">\(S_\ast\)</span> preserves dimensional closure
+					while preventing exponential amplification or collapse of the kernel
+					recursion. This value reproduces the Planck spectral form and the Wien
+					displacement law. The action scale therefore emerges as a consistency
+					condition of the kernel dynamics, rather than as an external constant.
+				</li>
+				<li>
+					<strong>Stabilization of the CRSC loop.</strong><br/>
+					Fixing <span class="math inline">\(S_\ast\)</span> stabilizes the
+					Seed → Terror → Coherence–Rupture Stability Compression (CRSC) loop.
+					Curvature accumulation, rupture events, and coherence compression are
+					confined to a finite, self-consistent regime. Without this scale, the
+					loop exhibits either divergence or trivial collapse.
+				</li>
+				<li>
+					<strong>Well-defined Fisher information geometry.</strong><br/>
+					Once kernel phases are dimensionless, the Jacobian
+					<span class="math inline">\(J = \partial O / \partial \Theta\)</span>
+					and the Fisher information tensor
+					<span class="math inline">\(F = J^\top C_\epsilon^{-1} J\)</span>
+					acquire invariant meaning. Only under this condition do Fisher rank,
+					hazard flow, and seepage become well-defined geometric quantities.
+				</li>
+			</ol>
+
+			<p>
+				These steps are jointly necessary. Without the Planck reconstruction,
+				CTMT lacks a stable kernel phase structure and cannot support a consistent
+				information geometry. With it, the framework admits a closed hierarchy of
+				kernels, curvature measures, and coherence diagnostics.
+			</p>
+
+			<h5>Consequences for Quantum Interference</h5>
+
+			<ul>
+				<li>
+					<strong>Quantum interference as a constrained regime.</strong><br/>
+					The same action scale <span class="math inline">\(S_\ast\)</span> that
+					stabilizes kernel recursion sets the phase normalization governing
+					interference. Standard quantum interference experiments, such as the
+					double-slit, correspond to a low-rank, high-coherence regime of the
+					CTMT kernel.
+				</li>
+
+				<li>
+					<strong>Nodes of presence from rank redistribution.</strong><br/>
+					With Fisher geometry defined, loss of Fisher rank forces geometric
+					localization in the kernel. These localized regions correspond to
+					nodes of presence that structure the observed interference pattern.
+				</li>
+
+				<li>
+					<strong>Ordering of degradation.</strong><br/>
+					Because Fisher curvature is defined at the kernel level through
+					<span class="math inline">\(S_\ast\)</span>, its degradation precedes
+					changes in coarse observables such as fringe visibility. This ordering
+					underlies the falsifiable prediction formulated in
+					<a href="#sec-99-seepage-sketch-proof_3">Fisher Rank Degradation Precedes Observable Fringe Collapse</a>.
+				</li>
+			</ul>
+
+			<p>
+				In summary, the Planck reconstruction is not an isolated result but the
+				enabling step for CTMT’s information–geometric structure. Stable kernel
+				recursion, Fisher curvature, hazard flow, seepage, and nodes of presence
+				are all well-defined only after <span class="math inline">\(S_\ast\)</span>
+				is fixed by consistency. The subsequent machinery does not introduce
+				additional assumptions; it unfolds from this normalization.
+			</p>
+
+			<h3 id="sec-99-seepage-sketch-proof_3">Falsifiable Prediction — Fisher Rank Degradation Precedes Observable Fringe Collapse</h3>
+
+			<p>
+				CTMT treats collapse not as a primitive stochastic postulate, but as the
+				geometric consequence of information–curvature dynamics. In this framework,
+				loss of coherence is first expressed as degeneration of Fisher information
+				structure, and only subsequently as degradation of coarse observables.
+				This section formulates a concrete, falsifiable prediction:
+				<strong>under controlled decoherence, Fisher rank degradation must be detectable
+				before statistically significant loss of fringe visibility</strong>.
+			</p>
+
+			<p>
+				The prediction is evaluated within a standard optical double-slit experiment
+				with tunable decoherence. No modification of quantum postulates, detection
+				schemes, or measurement statistics is introduced. CTMT is applied purely as an
+				overlay on the recorded data through information-geometric diagnostics.
+			</p>
+
+			<h4>Formal Statement of the Prediction</h4>
+
+			<p>
+				Let <span class="math inline">\( I(x;\theta) \)</span> denote the measured intensity
+				distribution on the detection screen at transverse position
+				<span class="math inline">\( x \)</span>, parameterized by a decoherence control
+				variable <span class="math inline">\( \theta \)</span>
+				(e.g. which-path coupling strength or injected phase noise).
+			</p>
+
+			<p>
+				Let <span class="math inline">\( O(x;\theta) \)</span> be the corresponding CTMT
+				kernel observable, and let
+				<span class="math inline">\( F(\theta) \)</span> denote the Fisher information
+				matrix of the kernel with respect to internal phase parameters
+				<span class="math inline">\( \Theta \)</span>.
+			</p>
+
+			<p><strong>CTMT Prediction (Ordering of Degradation):</strong></p>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\exists\;\theta_\lambda \lt \theta_V \;:\;
+						\begin{aligned}
+						&\Delta \lambda_{\min}\!\bigl(F(\theta)\bigr)\big|_{\theta=\theta_\lambda} \lt 0,\\
+						&\Delta V(\theta)\big|_{\theta=\theta_\lambda} \approx 0,\\
+						&\Delta V(\theta)\big|_{\theta=\theta_V} \lt 0
+						\end{aligned}
+					}
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\( \lambda_{\min}(F) \)</span> is the smallest
+				eigenvalue of the Fisher matrix, and
+				<span class="math inline">\( V(\theta) \)</span> is the standard fringe visibility
+				extracted from <span class="math inline">\( I(x;\theta) \)</span>.
+			</p>
+
+			<p>
+				In words: the information-geometric sensitivity of the interference pattern to
+				internal phase parameters degrades at a lower decoherence strength than that
+				required to produce a statistically significant reduction in fringe visibility.
+			</p>
+
+			<h4>Experimental Context (Unmodified)</h4>
+
+			<p>The experiment uses a conventional optical double-slit arrangement:</p>
+
+			<ul>
+				<li>
+					<strong>Source:</strong> stable monochromatic laser (wavelength
+					<span class="math inline">\( \lambda \)</span>).
+				</li>
+				<li>
+					<strong>Slits:</strong> separation <span class="math inline">\( s \)</span>,
+					width <span class="math inline">\( w \)</span>, screen distance
+					<span class="math inline">\( D \)</span>.
+				</li>
+				<li><strong>Detector:</strong> spatially resolved camera or scanned photodetector.</li>
+				<li>
+					<strong>Decoherence control:</strong> tunable phase-randomizing or
+					which-path-coupling element parameterized by
+					<span class="math inline">\( \theta \)</span>.
+				</li>
+			</ul>
+
+			<p>
+				Measurements are performed for an ordered sequence
+				<span class="math inline">\( \{\theta_k\} \)</span> spanning the regime from
+				near-ideal coherence to near-complete fringe suppression.
+			</p>
+
+			<h4>Observable-Level Processing</h4>
+
+			<ol>
+				<li>
+					<strong>Intensity acquisition:</strong>
+					For each <span class="math inline">\( \theta_k \)</span>, record
+					<span class="math inline">\( I(x;\theta_k) \)</span> with sufficient integration
+					time to ensure shot-noise-limited statistics.
+				</li>
+				<li>
+					<strong>Normalization:</strong>
+					<div class="math display">
+						\[
+							I_{\mathrm{norm}}(x;\theta_k)
+							=
+							\frac{I(x;\theta_k)}{\int I(x;\theta_k)\,dx}.
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Visibility extraction:</strong>
+					<div class="math display">
+						\[
+							V(\theta_k)
+							=
+							\frac{I_{\max}(\theta_k) - I_{\min}(\theta_k)}
+							{I_{\max}(\theta_k) + I_{\min}(\theta_k)}.
+						\]
+					</div>
+				</li>
+			</ol>
+
+			<h4>CTMT Kernel and Fisher Matrix Estimation</h4>
+
+			<p>The interference pattern is represented as a CTMT kernel observable:</p>
+
+			<div class="math display">
+				\[
+					O(x;\theta)
+					=
+					\mathcal{E}\!\left[
+					\Xi_j(\theta)\,
+					e^{\,i\Phi_j(x;\theta)/S_\ast}
+					\right],
+					\qquad
+					I(x;\theta)=|O(x;\theta)|^2.
+				\]
+			</div>
+
+			<p>
+				For a two-path geometry, the internal parameter space is
+				<span class="math inline">\( \Theta=(\phi_1,\phi_2) \)</span>.
+				The Fisher matrix is defined by
+			</p>
+
+			<div class="math display">
+				\[
+					J(\theta)
+					=
+					\frac{\partial O}{\partial \Theta},
+					\qquad
+					F(\theta)
+					=
+					J^\top C_\epsilon^{-1} J,
+				\]
+			</div>
+
+			<p>
+				where <span class="math inline">\( C_\epsilon \)</span> is the empirical noise
+				covariance of the measured intensity.
+				When direct access to phase parameters is unavailable, an effective Fisher
+				matrix is estimated from pattern sensitivity.
+			</p>
+
+			<h5>Effective Fisher Rank via Pattern Sensitivity</h5>
+
+			<ol>
+				<li>
+					<strong>Linear response:</strong>
+					<div class="math display">
+						\[
+							\delta I(x;\theta)
+							\approx
+							\sum_{i=1}^{2}
+							\frac{\partial I}{\partial \phi_i}(x;\theta)\,\delta\phi_i.
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Finite-difference estimation:</strong>
+					Small, controlled phase perturbations are applied via calibrated path-length
+					or phase-plate adjustments.
+				</li>
+				<li>
+					<strong>Empirical Fisher construction:</strong>
+					<div class="math display">
+						\[
+							F(\theta_k)
+							=
+							\sum_x
+							\nabla_\phi I(x;\theta_k)^\top
+							C_\epsilon^{-1}
+							\nabla_\phi I(x;\theta_k).
+						\]
+					</div>
+				</li>
+				<li>
+					<strong>Rank indicator:</strong>
+					The smallest eigenvalue
+					<span class="math inline">\( \lambda_{\min}(\theta_k) \)</span>
+					is tracked as the effective Fisher rank proxy.
+				</li>
+			</ol>
+
+			<h4>Decision Criteria and Falsification</h4>
+
+			<p>
+				Define statistically significant change thresholds
+				<span class="math inline">\( \delta_V \)</span> and
+				<span class="math inline">\( \delta_\lambda \)</span>.
+			</p>
+
+			<div class="math display">
+				\[
+					|\Delta V|>\delta_V,
+					\qquad
+					|\Delta\lambda_{\min}|>\delta_\lambda.
+				\]
+			</div>
+
+			<p>
+				Let <span class="math inline">\( k_V \)</span> and
+				<span class="math inline">\( k_\lambda \)</span> be the first indices at which
+				these thresholds are exceeded.
+			</p>
+
+			<p><strong>CTMT-consistent outcome:</strong></p>
+
+			<div class="math display">
+				\[
+					k_\lambda \lt k_V.
+				\]
+			</div>
+
+			<p>
+				<strong>Falsification condition:</strong>
+				repeated observation of
+				<span class="math inline">\( k_\lambda \ge k_V \)</span>
+				across independent runs falsifies the CTMT prediction in this regime.
+			</p>
+
+			<h4>Interpretive Scope</h4>
+
+			<p>
+				Under CTMT, Fisher rank encodes the geometric capacity of the kernel to sustain
+				phase-resolved structure, while visibility is a coarse, integrated observable.
+				The predicted ordering
+			</p>
+
+			<div class="math display">
+				\[
+					\text{Fisher degradation} \;\prec\; \text{visibility loss}
+				\]
+			</div>
+
+			<p>
+				expresses a structural hierarchy rather than a reinterpretation of quantum
+				mechanics. If verified, the result supports the CTMT claim that observable
+				collapse is preceded by information-geometric degeneration. If not verified,
+				CTMT is empirically refuted in this setting.
+			</p>
+
+			<p>
+				The protocol is intentionally conservative: all observables are standard,
+				all thresholds are declared a priori, and no post-hoc tuning is permitted.
+				CTMT cannot absorb a negative outcome without internal inconsistency.
+			</p>
 		</article>
 	</section>
     <section>
