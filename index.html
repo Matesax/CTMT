@@ -25852,7 +25852,7 @@ print("Basis vectors:\n", M_rupt)
 				and <span class="math inline">\(\chi_{\mathrm{vol}}\)</span> the coherence volume from FMC.
 			</p>
 
-			<h4>4. Rupture flux and complementarity</h4>
+			<h4>Rupture flux and complementarity</h4>
 			<p>
 				Define a rupture flux that measures the effective rupture throughput:
 			</p>
@@ -26134,6 +26134,253 @@ print("recoverable?", recoverable)
 				In combination with TUCF and FMC, CRSC establishes a triad of CTMT compressions:
 				<em>geometry</em>, <em>time–uncertainty</em>, and <em>rupture–coherence</em> — 
 				all dimensionally closed, testable, and computationally operational.
+			</p>
+
+			<h3 id="sec-terror-kernel-as-a-rupture-operator_CRSC">Coherence–Rupture Stability Compression (CRSC) - Academic</h3>
+
+			<p>
+				<strong>Purpose.</strong>
+				Coherence–Rupture Stability Compression (CRSC) extends CTMT into regimes where
+				forward models undergo structural degradation.
+				Rupture is treated not as exogenous noise or heuristic masking, but as an
+				<em>intrinsic geometric deformation of the forward operator</em>.
+				CRSC provides a closed operator calculus for coherence loss, instability
+				propagation, and conditional recoverability.
+			</p>
+
+			<p>
+				CRSC completes the CTMT triad:
+				<a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2c"><em>FMC</em></a>
+				(spatial kernel geometry),
+				<a href="#sec-8-recursive-modulation-impulse-as-a-generative-kernel-principl_2d"><em>TUCF</em></a>
+				(temporal uncertainty flow),
+				and <em>CRSC</em> (rupture–coherence dynamics).
+			</p>
+
+			<h4>Motivation and scope</h4>
+
+			<p>
+				Classical instability models treat rupture as either additive noise,
+				thresholded attenuation, or post-hoc regularization.
+				CRSC instead promotes rupture to a <em>measurable geometric field</em>:
+				a loss of local identifiability encoded directly in Fisher curvature.
+			</p>
+
+			<p>The goals of CRSC are:</p>
+
+			<ul>
+				<li>To encode coherence as a dimensionless multiplicative kernel.</li>
+				<li>To define rupture geometry via Fisher rank degeneration.</li>
+				<li>To propagate rupture uncertainty in a dimensionally closed manner.</li>
+				<li>To provide falsifiable diagnostics for recoverability and collapse.</li>
+			</ul>
+
+			<h4>Core operators and definitions</h4>
+
+			<h5>Rupture manifold</h5>
+
+			<p>
+				Let the local forward map be
+				<span class="math inline">\(\mathbf{O}(x,t)=\mathcal{F}[\mathbf{\kappa}](x,t)\)</span>
+				with Jacobian
+				<span class="math inline">\(\mathbf{J}(x,t)=\partial\mathbf{O}/\partial\mathbf{\kappa}\)</span>.
+				Define the Fisher–information curvature:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathbf{H}(x,t)
+					=
+					\mathbf{J}(x,t)^{\top}
+					\mathbf{C}_{\epsilon}^{-1}
+					\mathbf{J}(x,t).
+				\]
+			</div>
+
+			<p>
+				Rupture corresponds to loss of local identifiability: directions in parameter
+				space along which perturbations produce indistinguishable observables under
+				the declared noise model.
+				The <strong>rupture manifold</strong> is therefore defined as the nullspace
+				bundle of the Fisher curvature:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{M}_{\mathrm{rupt}}(x,t)
+					=
+					\ker \mathbf{H}(x,t)
+					=
+					\{\,v \mid \mathbf{H}(x,t)v=0\,\}.
+				\]
+			</div>
+
+			<p>
+				Because exact nullspaces are rare in empirical systems, an
+				<em>approximate rupture manifold</em> is defined via an eigenvalue threshold
+				<span class="math inline">\(\lambda_{\mathrm{crit}}\)</span>:
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{M}_{\mathrm{rupt}}(x,t;\lambda_{\mathrm{crit}})
+					=
+					\mathrm{span}\{\,v_i \mid \lambda_i \lt \lambda_{\mathrm{crit}}\,\},
+				\]
+			</div>
+
+			<p>
+				where
+				<span class="math inline">\(\mathbf{H}=V\Lambda V^\top\)</span>.
+				Growth of
+				<span class="math inline">\(\dim\mathcal{M}_{\mathrm{rupt}}\)</span>
+				signals expansion of irrecoverable directions.
+			</p>
+
+			<h5>Interpretation</h5>
+
+			<ul>
+				<li>
+					<strong>Identifiability boundary.</strong>
+					Recovery is impossible along
+					<span class="math inline">\(\mathcal{M}_{\mathrm{rupt}}\)</span>;
+					inversion is restricted to its orthogonal complement.
+				</li>
+				<li>
+					<strong>Coherence coupling.</strong>
+					Rupture directions correspond to phase and amplitude configurations
+					whose coherence contribution vanishes.
+				</li>
+				<li>
+					<strong>Early warning.</strong>
+					Fisher rank loss precedes observable degradation and provides advance
+					rupture diagnostics.
+				</li>
+			</ul>
+
+			<h5>Rupture indicator and volatility</h5>
+
+			<p>Define a scalar rupture indicator and volatility field:</p>
+
+			<div class="math display">
+				\[
+					r(x,t)
+					=
+					\frac{\lambda_{\mathrm{crit}}}{\lambda_{\min}(x,t)},
+					\qquad
+					\sigma_{\mathrm{rupt}}(x,t)
+					=
+					g\!\bigl(r(x,t)\bigr),
+					\qquad
+					[\sigma_{\mathrm{rupt}}]=1.
+				\]
+			</div>
+
+			<p>
+				A practical choice
+				<span class="math inline">\(g(r)=\log(1+r)\)</span>
+				ensures bounded growth and smooth scaling.
+			</p>
+
+			<h5>Coherence kernel</h5>
+
+			<p>Coherence attenuation is encoded by a dimensionless kernel:</p>
+
+			<div class="math display">
+				\[
+					K_{\mathrm{coh}}(x,t)
+					=
+					\exp\!\left(-\frac{\sigma_{\mathrm{rupt}}(x,t)}{\sigma_0}\right),
+					\qquad
+					[K_{\mathrm{coh}}]=1.
+				\]
+			</div>
+
+			<p>
+				All forward operators are coherence-weighted:
+				<span class="math inline">\(\mathcal{F}\mapsto K_{\mathrm{coh}}\circ\mathcal{F}\)</span>.
+			</p>
+
+			<h5>Stability compression operator</h5>
+
+			<div class="math display">
+				\[
+					\mathcal{S}_{\mathrm{comp}}[\mathcal{F}]
+					=
+					K_{\mathrm{coh}}\,
+					\mathcal{F}\,
+					K_{\mathrm{coh}}.
+				\]
+			</div>
+
+			<p>
+				Compression acts symmetrically on input and output spaces, enforcing
+				non-expansive energy behavior.
+			</p>
+
+			<h5>Rupture uncertainty propagation</h5>
+
+			<p>Rupture inflates kernel uncertainty via:</p>
+
+			<div class="math display">
+				\[
+					C_{\mathbf{\kappa}}^{\mathrm{rupt}}
+					=
+					K_{\mathrm{coh}}\,C_{\mathbf{\kappa}}\,K_{\mathrm{coh}}^{\top}
+					+
+					Q_{\mathrm{rupt}},
+					\qquad
+					Q_{\mathrm{rupt}}
+					=
+					\gamma_{\mathrm{rupt}}
+					\operatorname{diag}(\sigma_{\mathrm{rupt}}^2).
+				\]
+			</div>
+
+			<p>This yields closed posterior covariance:</p>
+
+			<div class="math display">
+				\[
+					C_{\mathbf{\kappa},\mathrm{post}}^{\mathrm{rupt}}
+					=
+					\bigl(
+					\mathbf{J}^\top C_\epsilon^{-1}\mathbf{J}
+					+
+					Q_{\mathrm{rupt}}^{-1}
+					\bigr)^{-1}.
+				\]
+			</div>
+
+			<h4>Falsifiability and recovery</h4>
+
+			<p>
+				CRSC is falsifiable through controlled coherence disruption.
+				Phase randomization or injected shocks must induce:
+			</p>
+
+			<ul>
+				<li>Decrease of <span class="math inline">\(K_{\mathrm{coh}}\)</span></li>
+				<li>Increase of <span class="math inline">\(\sigma_{\mathrm{rupt}}\)</span></li>
+				<li>Growth of <span class="math inline">\(\dim\mathcal{M}_{\mathrm{rupt}}\)</span></li>
+				<li>Breakdown of stable inversion beyond declared bounds</li>
+			</ul>
+
+			<p>Failure of these correlations falsifies CRSC.</p>
+
+			<h4>Interpretive summary</h4>
+
+			<p>
+				CRSC converts rupture from an informal notion into a measurable,
+				information–geometric operator.
+				Coherence loss, Fisher rank collapse, uncertainty inflation, and
+				recoverability are unified within a single closed calculus.
+			</p>
+
+			<p>
+				Together with FMC and TUCF, CRSC completes CTMT’s compression triad:
+				<em>space</em>, <em>time–uncertainty</em>, and <em>rupture–coherence</em>,
+				all dimensionally closed, computationally operational, and experimentally
+				testable.
 			</p>
 
 			<h3 id="sec-terror-kernel-as-a-rupture-operator_6">Collapse as Projection–Rupture under CTMT</h3>
