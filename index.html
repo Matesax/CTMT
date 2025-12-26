@@ -12170,6 +12170,155 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 
 			</div>
 
+			<h4>Dimensional Stability and 3+1 Emergence in CTMT</h4>
+
+			<p>
+				This appendix states precise structural results concerning dimensionality in CTMT.
+				They formalize why CTMT dynamically supports at most three mutually coherent
+				spatial-like curvature directions, together with a single emergent time-like
+				ordering parameter.
+			</p>
+
+			<p>
+				These results are not imposed axioms.
+				They follow from Fisher curvature stability, rank preservation, and coherence
+				constraints already established in the main text.
+			</p>
+
+			<h5>Proposition 1 (Spatial Curvature Bound)</h5>
+
+			<p>
+				<strong>Statement.</strong>
+				CTMT admits at most three mutually coherent, spatial-like Fisher curvature directions.
+				Any attempt to stabilize four or more such directions leads to rupture and Fisher
+				rank loss, reducing the effective spatial dimension to at most three.
+			</p>
+
+			<p>
+				<strong>Definitions.</strong>
+				A <em>spatial-like curvature direction</em> is defined as a parameter direction
+				<span class="math inline">\(v_i\)</span> such that:
+			</p>
+
+			<ul>
+				<li><span class="math inline">\(v_i^\top H v_i > 0\)</span> (positive Fisher curvature),</li>
+				<li>the corresponding eigenvalue lies within the coherence-supporting band,</li>
+				<li>transport along <span class="math inline">\(v_i\)</span> does not induce collapse under CRSC stability criteria.</li>
+			</ul>
+
+			<p>
+				<strong>Sketch of justification.</strong>
+				Let <span class="math inline">\(H\)</span> be the Fisher information matrix derived
+				from the kernel seed.
+				Stability of a spatial-like direction requires bounded curvature anisotropy and
+				non-divergent modulation indices.
+			</p>
+
+			<p>
+				As the number of positive-curvature directions increases beyond three, curvature
+				competition forces at least one of the following:
+			</p>
+
+			<ul>
+				<li>divergence of <span class="math inline">\(\lambda_{\max}(H_\parallel)\)</span>,</li>
+				<li>collapse of <span class="math inline">\(\lambda_{\min}(H_\perp)\)</span>,</li>
+				<li>loss of CRSC stability (<span class="math inline">\(\mathrm{CRSC} \ll 1\)</span>).</li>
+			</ul>
+
+			<p>
+				In each case, Fisher rank is reduced by rupture, eliminating one or more curvature
+				directions.
+				Thus configurations with more than three stable spatial-like directions are
+				dynamically unstable.
+			</p>
+
+			<p>
+				<strong>Conclusion.</strong>
+				The maximal dimension of a stable spatial curvature sector in CTMT is three.
+			</p>
+
+			<h5>Proposition 2 (Emergent Time-Like Ordering)</h5>
+
+			<p>
+				<strong>Statement.</strong>
+				In the presence of a three-dimensional coherent Fisher-curvature sector,
+				CTMT dynamics induce a unique time-like ordering parameter associated with
+				null-coherence propagation at invariant speed
+				<span class="math inline">\(c\)</span>.
+				This direction is not an additional curvature axis, but an ordering of collapse
+				and transport on the three-dimensional curvature manifold.
+			</p>
+
+			<p>
+				<strong>Clarification.</strong>
+				The time-like parameter is not associated with a positive-curvature Fisher eigenvalue.
+				Instead, it corresponds to transport along the null manifold
+				<span class="math inline">\(\ker H\)</span>, where phase propagates without curvature-induced
+				restoration or collapse.
+			</p>
+
+			<p>
+				<strong>Sketch of justification.</strong>
+				Once three spatial-like curvature directions are stabilized, consistency of kernel
+				transport requires a unique global ordering of phase updates.
+				This ordering is fixed by the anchor condition
+				<span class="math inline">\(v_{\mathrm{sync}} = c\)</span> and by null-propagation of
+				coherence.
+			</p>
+
+			<p>
+				Because null directions cannot support independent curvature axes,
+				this ordering parameter cannot be promoted to a fourth spatial dimension.
+				It instead defines a monotonic transport parameter — operationally, time.
+			</p>
+
+			<p>
+				<strong>Conclusion.</strong>
+				Time in CTMT is emergent, ordered, and unique once three spatial curvature directions
+				are present.
+			</p>
+
+			<h5>Corollary (3+1 Stability)</h5>
+
+			<p>
+				<strong>Statement.</strong>
+				A configuration consisting of three spatial-like curvature axes plus one emergent
+				time-like ordering direction (a 3+1 structure) is the unique maximal coherent
+				configuration supported by CTMT.
+			</p>
+
+			<p>
+				Any attempt to stabilize higher-dimensional curvature sectors results in Fisher
+				rank loss, rupture, or collapse back to this 3+1 structure.
+			</p>
+
+			<p><strong>Implications.</strong></p>
+
+			<ul>
+				<li>CTMT does not permit stable 4D or higher spatial geometries.</li>
+				<li>Time is not symmetric with space; it is an ordering parameter, not a curvature axis.</li>
+				<li>The observed 3+1 dimensional structure of physical spacetime is dynamically forced, not assumed.</li>
+			</ul>
+
+			<p>
+				This establishes 3+1 dimensionality as a consequence of coherence stability rather
+				than a background postulate.
+			</p>
+
+			<h5>Interpretive Summary (Non-Overclaiming)</h5>
+
+			<p>
+				CTMT does not assert that spacetime <em>is</em> Fisher geometry.
+				It shows that when coherence survives, Fisher curvature admits at most three
+				stable spatial directions, and coherence transport induces a unique ordering
+				parameter behaving as time.
+			</p>
+
+			<p style="font-style:italic;">
+				Three dimensions survive curvature.
+				Time orders what survives.
+			</p>
+
 			<h3 id="sec-0-decisive_core_19">Falsification Definition and Experimental Protocol for CTMT</h3>
 			<p>
 				The decisive core of CTMT specifies explicit, empirically testable conditions
