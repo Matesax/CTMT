@@ -5723,11 +5723,19 @@ def run_ctmt_pipeline(Y, controls, Sigma_theta, L0, phi_grad_vec, q_index=0):
 			<h3 id="sec-0-decisive_core_4">CTMT → Legacy Theory Dictionary (Concise)</h3>
 
 			<p>
-				To ensure accessibility to researchers trained in traditional frameworks, this table summarizes
-				the direct correspondences between CTMT quantities and their classical or quantum counterparts.
-				The mapping is not interpretive but formal: each limit is a coordinate or rigidity restriction
-				of the kernel equation
+				This dictionary provides a <em>formal orientation map</em> between CTMT constructs
+				and quantities familiar from classical physics, quantum mechanics, information
+				geometry, and statistical field theory. The intent is not metaphorical translation,
+				but limit identification: each legacy object arises as a rigidity, symmetry,
+				or coordinate restriction of the CTMT kernel equation
 				<span class="math inline">\( O = \mathbb{E}[\Xi\, e^{i\Phi/S_\ast}] \)</span>.
+			</p>
+
+			<p>
+				Readers should interpret the mappings as follows: CTMT objects are primary.
+				Legacy quantities appear when kernel degrees of freedom are frozen, projected,
+				or rank-reduced. In this sense, CTMT does not reinterpret existing theory;
+				it <em>contains</em> it.
 			</p>
 
 			<table>
@@ -5735,68 +5743,183 @@ def run_ctmt_pipeline(Y, controls, Sigma_theta, L0, phi_grad_vec, q_index=0):
 					<tr>
 						<th>CTMT Object</th>
 						<th>Legacy Counterpart</th>
-						<th>Mapping / Limit Description</th>
+						<th>Formal Mapping / Limit</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td><span class="math inline">\(O=\mathbb{E}[\Xi e^{i\Phi/S_\ast}]\)</span></td>
-						<td>Wavefunction / ensemble average</td>
-						<td>Rigid phase → Schrödinger; zero phase → classical expectation.</td>
+						<td>
+							<span class="math inline">\(O=\mathbb{E}[\Xi\, e^{i\Phi/S_\ast}]\)</span>
+						</td>
+						<td>
+							Wavefunction / ensemble expectation
+						</td>
+						<td>
+							Fixed phase geometry yields Schrödinger amplitudes;
+							vanishing phase variance yields classical expectation values.
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(J=\partial_\Theta O\)</span></td>
-						<td>Linear response operator</td>
-						<td>Sensitivity of observable to control parameters.</td>
+						<td>
+							<span class="math inline">\(S_\ast\)</span>
+						</td>
+						<td>
+							Planck’s reduced constant <span class="math inline">\(\hbar\)</span>
+						</td>
+						<td>
+							Emerges from kernel phase-closure and recursion stability
+							(not postulated).
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(H=J^{\!\top}\mathrm{Cov}^{-1}J\)</span></td>
-						<td>Fisher information / curvature matrix</td>
-						<td>Estimation geometry; rank drop → collapse event.</td>
+						<td>
+							<span class="math inline">\(J=\partial_\Theta O\)</span>
+						</td>
+						<td>
+							Linear response / susceptibility operator
+						</td>
+						<td>
+							First-order sensitivity of observables to internal phase
+							or control parameters.
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(M_{\mathrm{null}}=\ker H\)</span></td>
-						<td>Pointer basis / measurement manifold</td>
-						<td>Defines collapse subspace and decoherence directions.</td>
+						<td>
+							<span class="math inline">\(F=J^{\!\top}C_\epsilon^{-1}J\)</span>
+						</td>
+						<td>
+							Fisher information / curvature matrix
+						</td>
+						<td>
+							Information geometry of the kernel;
+							eigenvalue loss corresponds to identifiability collapse.
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(L_0=(S_\ast/\rho_c)^{1/3}\)</span></td>
-						<td>Coherence length</td>
-						<td>Links kernel action scale to observable wavelength.</td>
+						<td>
+							<span class="math inline">\(\mathrm{rank}(F)\)</span>
+						</td>
+						<td>
+							Degrees of freedom / effective dimension
+						</td>
+						<td>
+							Rank loss precedes observable collapse;
+							governs decoherence and localization.
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(O_\mathrm{ter}=\mathbb{E}[\Xi\eta e^{i\Phi/S_\ast}+\zeta]\)</span></td>
-						<td>Perturbed response / noisy channel</td>
-						<td>Equivalent to scattering plus additive noise model.</td>
+						<td>
+							<span class="math inline">\(M_{\mathrm{null}}=\ker F\)</span>
+						</td>
+						<td>
+							Pointer basis / decoherence manifold
+						</td>
+						<td>
+							Null directions define collapse-stable observables and
+							measurement outcomes.
+						</td>
 					</tr>
 					<tr>
-						<td><span class="math inline">\(\Phi_{\mathrm{inv}} = v_{\mathrm{sync}}\,\mathbb{E}[\Delta t]\,\rho_{\mathrm{coh}}\)</span></td>
-						<td>Flux / transport observable</td>
-						<td>Generalization of energy or information flux.</td>
+						<td>
+							<span class="math inline">\(L_0=(S_\ast/\rho_c)^{1/3}\)</span>
+						</td>
+						<td>
+							Coherence length / characteristic wavelength
+						</td>
+						<td>
+							Connects kernel action density to spatial interference scale.
+						</td>
 					</tr>
 					<tr>
-						<td>Rigidity term <span class="math inline">\(e^{-\lambda_{\mathrm{rig}} d^2/2\pi}\)</span></td>
-						<td>Phase‑locking factor</td>
-						<td>Suppresses decoherence; analog to synchronization kernels.</td>
+						<td>
+							<span class="math inline">
+								\(O_{\mathrm{ter}}=\mathbb{E}[\Xi\,\eta\,e^{i\Phi/S_\ast}+\zeta]\)
+							</span>
+						</td>
+						<td>
+							Noisy channel / perturbed propagator
+						</td>
+						<td>
+							Unifies scattering, decoherence, and additive noise
+							within a single kernel expression.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="math inline">\(\Phi_{\mathrm{inv}}=v_{\mathrm{sync}}\,
+							\mathbb{E}[\Delta t]\rho_{\mathrm{coh}}\)</span>
+						</td>
+						<td>
+							Energy, probability, or information flux
+						</td>
+						<td>
+							Generalized transport invariant; reduces to classical flux
+							under rigid synchronization.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Rigidity factor
+							<span class="math inline">\(e^{-\lambda_{\mathrm{rig}} d^2/2\pi}\)</span>
+						</td>
+						<td>
+							Phase-locking / synchronization kernel
+						</td>
+						<td>
+							Emerges from Fisher rank stabilization under terror-induced rupture.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Redundancy (implicit kernel multiplicity)
+						</td>
+						<td>
+							Ensemble averaging / path multiplicity
+						</td>
+						<td>
+							Forced by recursive identifiability; ensures survival under rupture.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							CRSC (Coherence–Rupture Stability Compression)
+						</td>
+						<td>
+							Renormalization / attractor stabilization
+						</td>
+						<td>
+							Compresses rigidity and redundancy into a single
+							kernel-stable closure mechanism.
+						</td>
 					</tr>
 				</tbody>
 			</table>
 
-			<p>
-				<strong><a href="#eq-0a_39">Equation (0a.39)</a></strong> summarizes the CTMT kernel projection used throughout the dictionary:
-			</p>
+			<p>All entries above descend from the same parent relation:</p>
 
 			<figure id="eq-0a_39" class="equation">
 				<div class="math display">
-
 					\[
-						O(\Theta) = \mathbb{E}\!\left[\Xi(\Theta)\,
-						e^{i\Phi(\Theta)/S_\ast}\right].
+						O(\Theta)
+						=
+						\mathbb{E}\!\left[
+							\Xi(\Theta)\,
+							e^{i\Phi(\Theta)/S_\ast}
+						\right].
 					\]
-
 				</div>
-				<figcaption><a href="#eq-0a_39">Equation (0a.39) — CTMT kernel expectation serving as the parent equation for all legacy reductions.</a></figcaption>
+				<figcaption>
+					<a href="#eq-0a_39">Equation (0a.39)</a> — CTMT kernel expectation.
+					Classical mechanics, quantum amplitudes, transport equations,
+					and decoherence models arise as constrained limits of this expression.
+				</figcaption>
 			</figure>
+
+			<p>
+				This dictionary is intended as a navigation aid for peer review.
+				It does not exhaust CTMT structure, but it makes explicit where
+				familiar objects appear — and where CTMT goes beyond them.
+			</p>
 
 			<h3 id="sec-0-decisive_core_5">CTMT Anchor Error Budgets, Doppler Check, and Kernel Scaling Law</h3>
 
@@ -7169,6 +7292,176 @@ print("\nSaved ctmt_seed_summary.csv, ctmt_seed_samples.csv, ctmt_seed_histogram
 				<line x1="370" y1="80" x2="250" y2="110" stroke="#000" marker-end="url(#seed-arrow)"/>
 				<line x1="370" y1="110" x2="420" y2="140" stroke="#000" marker-end="url(#seed-arrow)"/>
 			</svg>
+
+			<h4>No Hilbert-space postulate</h4>
+
+			<p>
+				CTMT does not assume a Hilbert space, inner product, or normed linear state space.
+				The complex representation <span class="math inline">\(\Xi e^{i\Phi/S_\ast}\)</span> is a
+				convenient encoding of two real fields (amplitude and phase), not a state vector.
+			</p>
+
+			<p>
+				No superposition principle, completeness axiom, or linear operator algebra is assumed.
+				Expectation <span class="math inline">\(\mathbb{E}[\cdot]\)</span> denotes ensemble averaging
+				over empirical perturbations, not projection onto a basis.
+			</p>
+
+			<p>
+				Hilbert structure may <em>emerge</em> in the rigid-phase limit where
+				coherence is global and the Fisher metric becomes constant,
+				but it is not an input to the framework. CTMT’s kernel algebra closes without requiring linearity, orthogonality, or completeness; these structures appear only in the rigid‑phase limit as emergent symmetries.
+			</p>
+
+			<h4>Why Fisher curvature does not assume geometry</h4>
+
+			<p>
+				In CTMT, Fisher curvature <span class="math inline">\(H = J^\top \Sigma^{-1} J\)</span>
+				is not postulated as a metric.
+				It is an algebraic consequence of second-order sensitivity under ensemble variability.
+			</p>
+
+			<p>
+				Only after construction can <span class="math inline">\(H\)</span> be interpreted geometrically.
+				Thus geometry is a <em>derived interpretation</em>, not a foundational axiom.
+			</p>
+
+			<p>
+				If the ensemble covariance is altered or non-Gaussian,
+				the induced curvature changes accordingly, confirming that geometry is contingent,
+				not assumed. Thus, CTMT’s geometry is not a background structure but a response surface shaped by variability.
+			</p>
+
+			<h4>Kernel Algebra Closure Without Linearity, Orthogonality, or Completeness</h4>
+
+			<p>
+				A key structural result of CTMT is that its kernel algebra closes
+				<strong>without assuming linearity, orthogonality, or completeness</strong>.
+				These properties are not axioms of the framework.
+				They emerge only in the rigid-phase limit as accidental symmetries
+				of high coherence.
+			</p>
+
+			<p>The fundamental CTMT object is the kernel expectation</p>
+
+			<div class="math display">
+				\[
+					O(\Theta)
+					= \mathbb{E}\!\left[\Xi(\Theta,\xi)\,
+					e^{\,i\Phi(\Theta,\xi)/S_\ast}\right],
+				\]
+			</div>
+
+			<p>Closure of the algebra follows from three operations only:</p>
+
+			<ul>
+				<li>ensemble averaging <span class="math inline">\(\mathbb{E}[\cdot]\)</span>,</li>
+				<li>parameter differentiation <span class="math inline">\(\partial_\Theta\)</span>,</li>
+				<li>finite covariance inversion on observed fluctuations.</li>
+			</ul>
+
+			<p>
+				None of these operations require:
+				a vector space structure,
+				an inner product,
+				basis orthogonality,
+				or completeness of states.
+				They are well-defined for nonlinear, non-additive, and non-orthogonal kernels.
+			</p>
+
+			<h5>Nonlinearity</h5>
+
+			<p>
+				CTMT observables are generally <em>nonlinear</em> functionals of the seed.
+				For two kernels <span class="math inline">\(\Psi_1,\Psi_2\)</span>,
+				there is no requirement that
+			</p>
+
+			<div class="math display">
+				\[
+					O[\Psi_1+\Psi_2] = O[\Psi_1] + O[\Psi_2].
+				\]
+			</div>
+
+			<p>
+				Linearity appears only when phase fluctuations are globally suppressed
+				and amplitude variations are small,
+				so that first-order response dominates.
+				This is precisely the rigid-phase limit.
+			</p>
+
+			<h5>Absence of orthogonality</h5>
+
+			<p>
+				CTMT does not assume an inner product on the space of kernels.
+				Modes are not required to be orthogonal.
+				Instead, distinguishability is determined empirically by Fisher curvature:
+			</p>
+
+			<div class="math display">
+				\[
+					v_i \perp_{\mathrm{CTMT}} v_j
+					\quad\Longleftrightarrow\quad
+					v_i^\top H\,v_j \approx 0 .
+				\]
+			</div>
+
+			<p>
+				Orthogonality is therefore <em>contextual</em>,
+				noise-dependent,
+				and local in parameter space.
+				Global orthonormal bases arise only if
+				<span class="math inline">\(H\)</span> becomes constant and diagonalizable everywhere,
+				which again corresponds to a rigid-phase regime.
+			</p>
+
+			<h5>No completeness axiom</h5>
+
+			<p>
+				CTMT does not postulate that kernels span a complete space.
+				Only those directions excited by the seed and probed by fluctuations
+				enter the construction.
+				The effective dimensionality is given by
+			</p>
+
+			<div class="math display">
+				\[
+					\mathrm{rank}(H),
+				\]
+			</div>
+
+			<p>
+				which may change dynamically through rupture or coherence loss.
+				Completeness is thus neither required nor generally meaningful.
+				It appears only when the Fisher spectrum stabilizes
+				and no null directions remain.
+			</p>
+
+			<h5>Emergent rigid-phase symmetries</h5>
+
+			<p>In the special limit where:</p>
+
+			<ul>
+				<li>phase fluctuations vanish,</li>
+				<li>coherence density is high,</li>
+				<li>the Fisher metric is constant,</li>
+			</ul>
+
+			<p>
+				the kernel algebra reduces to a linear,
+				inner-product-compatible structure.
+				In this regime,
+				standard Hilbert-space quantum mechanics
+				and orthogonal mode decompositions
+				emerge as effective descriptions.
+			</p>
+
+			<p>
+				Outside this limit,
+				CTMT remains well-defined while linear quantum structures fail.
+				Thus linearity, orthogonality, and completeness are not fundamental —
+				they are <em>emergent symmetries of coherent geometry</em>.
+			</p>
 
 			<h4>Simulation / numerical recipe (ready-to-run Python script)</h4>
 
