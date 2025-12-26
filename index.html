@@ -11131,6 +11131,316 @@ def bootstrap_G(samples, nboot=5000, trim=0.1, seed=123):
 				<figcaption><a href="#eq-0a_207">Equation (0a.207) — SM as CTMT flat-curvature limit</a></figcaption>
 			</figure>
 
+			<h4>Dual Emergence of Gauge Structure in CTMT</h4>
+
+			<p>
+				CTMT supports gauge structure through two independent and convergent emergence paths.
+				In neither case is gauge symmetry postulated.
+				Instead, it arises as a necessary consequence of kernel coherence and Fisher-induced geometry.
+			</p>
+
+			<h5>1. Gauge structure from local phase redundancy</h5>
+
+			<p>
+				The kernel phase <span class="math inline">\(\Phi(\Theta)\)</span> is defined only up to
+				local reparameterizations:
+			</p>
+
+			<div class="math display">
+				\[
+					\Phi(\Theta) \;\mapsto\; \Phi(\Theta) + \chi(\Theta).
+				\]
+			</div>
+
+			<p>Observable expectations remain invariant under such transformations provided</p>
+
+			<div class="math display">
+				\[
+					\mathbb{E}\!\left[\Xi\,e^{i\Phi/S_\ast}\right]
+					=
+					\mathbb{E}\!\left[\Xi\,e^{i(\Phi+\chi)/S_\ast}\right].
+				\]
+			</div>
+
+			<p>
+				When coherence is high and the kernel-induced Fisher metric is stable,
+				this phase redundancy becomes dynamically exact rather than approximate.
+				Preserving expectation invariance under local phase shifts then forces the
+				introduction of a compensating connection:
+			</p>
+
+			<div class="math display">
+				\[
+					\partial_\mu \Phi \;\rightarrow\;
+					D_\mu \Phi = \partial_\mu \Phi - A_\mu .
+				\]
+			</div>
+
+			<p>
+				The field <span class="math inline">\(A_\mu\)</span> is not fundamental.
+				It arises as the minimal structure required to preserve kernel expectation
+				under local phase reparameterization.
+				Gauge fields therefore appear as emergent bookkeeping devices for kernel-level
+				redundancy, not as axioms.
+			</p>
+
+			<h5>2. Gauge structure from rigid-phase transport</h5>
+
+			<p>
+				Independently of phase redundancy, CTMT enforces consistent phase transport
+				in the rigid-phase limit.
+				When coherence becomes global and Fisher curvature varies smoothly,
+				kernel phases must be transported consistently across parameter space and
+				along the null manifold.
+			</p>
+
+			<div class="math display">
+				\[
+					\Phi(\Theta) \;\leadsto\; \Phi(\Theta + \mathrm{d}\Theta),
+					\qquad
+					\mathrm{d}\Phi = D_\mu \Phi\,\mathrm{d}\Theta^\mu .
+				\]
+			</div>
+
+			<p>
+				The requirement of coherent parallel transport again induces a connection.
+				This connection encodes the minimal correction needed to maintain phase
+				consistency along transported paths.
+				Gauge structure therefore emerges here as a constraint of rigid-phase
+				transport in a stabilized metric background, not from symmetry postulates.
+			</p>
+
+			<h5>Convergence and overdetermination</h5>
+
+			<p>
+				Both constructions — local phase redundancy and rigid-phase transport —
+				independently generate the same mathematical structures:
+				a connection <span class="math inline">\(A_\mu\)</span>,
+				a covariant derivative <span class="math inline">\(D_\mu\)</span>,
+				and local gauge invariance.
+			</p>
+
+			<p>
+				Their convergence overdetermines gauge structure within CTMT.
+				Gauge symmetry is therefore not an artifact of a chosen formalism,
+				but a generic and unavoidable consequence of coherent kernel geometry.
+			</p>
+
+			<p>
+				A third, complementary realization of gauge structure arises when
+				kernel reparameterizations are treated as affine gauge transformations
+				on Fisher geometry, as detailed in <a href="#sec-0-decisive_core_18">Decisive Core</a>.
+				In the flat, full-rank, affine-gauge limit, this reproduces the
+				Standard Model gauge sector as a gauge-fixed subregime of CTMT.
+			</p>
+
+			<h4>Dual Emergence of U(1), SU(2), and SU(3) from Redundancy and Rigidity</h4>
+
+			<p>
+				This appendix completes the gauge reconstruction program by showing that
+				the Standard Model gauge groups
+				<span class="math inline">\(U(1)\)</span>, <span class="math inline">\(SU(2)\)</span>, and <span class="math inline">\(SU(3)\)</span>
+				emerge independently along two distinct CTMT paths:
+				(i) kernel phase redundancy and
+				(ii) rigid-phase transport under coherence stabilization.
+			</p>
+
+			<p>
+				These derivations are logically independent of the Fisher-flat limit construction
+				presented in the main text.
+				Their convergence therefore overdetermines gauge structure and rules out
+				interpretive coincidence.
+			</p>
+
+			<h5>Gauge Groups from Kernel Phase Redundancy</h5>
+
+			<p>Consider the CTMT kernel expectation</p>
+
+			<div class="math display">
+				\[
+					K(\Theta) = \mathbb{E}_\xi\!\left[\Xi(\Theta;\xi)\,e^{i\Phi(\Theta;\xi)/S_\ast}\right].
+				\]
+			</div>
+
+			<p>
+				Observable invariance requires that local phase redefinitions
+				<span class="math inline">\(\Phi \mapsto \Phi + \chi\)</span>
+				leave <span class="math inline">\(K\)</span> unchanged.
+				The structure of admissible phase functions <span class="math inline">\(\chi\)</span>
+				determines the emergent gauge group.
+			</p>
+
+			<h6>U(1) from single-phase redundancy</h6>
+
+			<p>
+				If the kernel contains a single coherent phase mode
+				<span class="math inline">\(\Phi \in \mathbb{R}\)</span>,
+				the invariance group is
+			</p>
+
+			<div class="math display">
+				\[
+					\Phi \;\mapsto\; \Phi + \chi(\Theta),
+					\qquad
+					\chi \in \mathbb{R}.
+				\]
+			</div>
+
+			<p>
+				The corresponding redundancy group is the Abelian group
+				<span class="math inline">\(U(1)\)</span>.
+				Requiring local invariance forces the introduction of a compensating connection
+				<span class="math inline">\(A_\mu\)</span>, yielding the usual Abelian covariant derivative.
+			</p>
+
+			<h6>SU(2) from two-component phase doublets</h6>
+
+			<p>If the kernel admits a pair of degenerate coherent phase components</p>
+
+			<div class="math display">
+				\[
+					\Psi =
+					\begin{pmatrix}
+					\Xi_1 e^{i\Phi_1/S_\ast} \\
+					\Xi_2 e^{i\Phi_2/S_\ast}
+					\end{pmatrix},
+				\]
+			</div>
+
+			<p>
+				observable invariance holds under local unitary rotations
+				that preserve total kernel intensity:
+			</p>
+
+			<div class="math display">
+				\[
+					\Psi \;\mapsto\; U(\Theta)\,\Psi,
+					\qquad
+					U \in SU(2).
+				\]
+			</div>
+
+			<p>
+				Thus <span class="math inline">\(SU(2)\)</span> arises as the minimal non-Abelian redundancy
+				group preserving kernel expectation under local phase mixing.
+			</p>
+
+			<h6>SU(3) from triply degenerate phase sectors</h6>
+
+			<p>
+				Analogously, if three coherent phase channels coexist with equal kernel weight,
+				the invariance group enlarges to
+			</p>
+
+			<div class="math display">
+				\[
+					\Psi \;\mapsto\; U(\Theta)\,\Psi,
+					\qquad
+					U \in SU(3).
+				\]
+			</div>
+
+			<p>
+				The group structure is fixed by preservation of kernel expectation
+				and unit determinant normalization.
+				No additional symmetry assumption is required.
+			</p>
+
+			<h5>Gauge Groups from Rigid-Phase Transport</h5>
+
+			<p>
+				We now derive the same gauge groups from an independent requirement:
+				consistent transport of rigid phases across kernel parameter space.
+			</p>
+
+			<p>
+				In the high-coherence regime,
+				kernel phases must be transported along infinitesimal displacements
+				<span class="math inline">\(\Theta \to \Theta + d\Theta\)</span>
+				without inducing observable discontinuities.
+			</p>
+
+			<div class="math display">
+				\[
+					\Phi(\Theta + d\Theta)
+					=
+					\Phi(\Theta)
+					+
+					D_\mu \Phi\, d\Theta^\mu.
+				\]
+			</div>
+
+			<p>
+				The structure of admissible parallel transport operators again determines
+				the gauge group.
+			</p>
+
+			<h6>U(1) from single-mode phase transport</h6>
+
+			<p>
+				For a single coherent phase,
+				parallel transport is defined up to a local phase factor,
+				and the holonomy group is Abelian.
+				The unique compact group compatible with continuous transport is
+				<span class="math inline">\(U(1)\)</span>.
+			</p>
+
+			<h6>SU(2) from degenerate transport subspaces</h6>
+
+			<p>
+				If two phase modes remain degenerate under transport,
+				parallel transport operators act on a two-dimensional complex space.
+				Requiring norm preservation and path consistency restricts the holonomy group to
+				<span class="math inline">\(SU(2)\)</span>.
+			</p>
+
+			<h6>SU(3) from triply degenerate transport sectors</h6>
+
+			<p>
+				With three degenerate rigid-phase modes,
+				the transport connection acts on a three-dimensional complex space.
+				Norm preservation and unimodularity force the holonomy group to be
+				<span class="math inline">\(SU(3)\)</span>.
+			</p>
+
+			<p>
+				Thus the same gauge groups arise as transport holonomies of rigid-phase bundles,
+				independent of phase redundancy arguments.
+			</p>
+
+			<h5>Structural Inevitability and Overdetermination</h5>
+
+			<p>The two constructions are mathematically independent:</p>
+
+			<ul>
+				<li>
+					<strong>Redundancy-based derivation</strong> uses invariance of kernel expectation
+					under local phase redefinitions.
+				</li>
+				<li>
+					<strong>Rigidity-based derivation</strong> uses consistency of parallel phase transport
+					in stabilized Fisher geometry.
+				</li>
+			</ul>
+
+			<p>
+				Yet both lead uniquely to
+				<span class="math inline">\(U(1)\)</span>, <span class="math inline">\(SU(2)\)</span>, and <span class="math inline">\(SU(3)\)</span>,
+				with identical algebraic roles for connections and covariant derivatives.
+			</p>
+
+			<p>
+				This overdetermination implies that Standard Model gauge structure is not an
+				arbitrary choice within CTMT.
+				It is the minimal group structure compatible with coherent kernel dynamics
+				in both redundancy and rigidity limits.
+			</p>
+
+			<p style="font-style:italic;">
+				Gauge symmetry is therefore not imposed on CTMT;
+				it is the unavoidable residue of coherence.
+			</p>
+
 			<h4>Formal Reconstruction: Why the SM Appears</h4>
 			<p>CTMT dynamics depend on the curvature covariant derivative:</p>
 			<figure class="equation" id="eq-0a_206">
