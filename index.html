@@ -1545,9 +1545,380 @@ def ctmt_experiment(N, routes, W, delta):
                 The kernel operates under the assumption of synchronous phase alignment, making it suitable for static or equilibrium-based systems.
             </p>
 
+			<h3 id="sec-39-practical_demonst_of_coh_law_7">CHI: Coherence Volume as a Fisher–Stabilised Kernel Invariant</h3>
+
+			<p>
+				This section formalises the coherence volume
+				<span class="math inline">\( \chi \)</span>
+				as a kernel invariant admissible within the Chronotopic Metric Theory (CTMT).
+				The aim is to specify precise geometric, informational, and operational
+				conditions under which
+				<span class="math inline">\( \chi \)</span>
+				may be used as a transportable scalar across operating points,
+				together with explicit falsification criteria.
+			</p>
+
+			<h4>Definition (Coherence Volume)</h4>
+
+			<div class="math display">
+				\[
+					\boxed{
+						\chi
+						=
+						\frac{M\,v^{2}}{\Phi\, g\, h\, \rho}
+					}
+				\]
+			</div>
+
+			<p>where:</p>
+
+			<ul>
+				<li><span class="math inline">\( M \)</span> is either mass (kg) or mass flow rate (kg·s<sup>−1</sup>), chosen consistently for the domain;</li>
+				<li><span class="math inline">\( v \)</span> is a characteristic transport velocity;</li>
+				<li><span class="math inline">\( h \)</span> is a fixed characteristic geometric length within a coherence class;</li>
+				<li><span class="math inline">\( \rho \)</span> is ambient medium density;</li>
+				<li><span class="math inline">\( g \)</span> is a reference acceleration (typically gravitational);</li>
+				<li><span class="math inline">\( \Phi \)</span> is a bounded, dimensionless geometry factor encoding device-level losses.</li>
+			</ul>
+
+			<p>
+				<strong>Interpretation.</strong>
+				<span class="math inline">\( \chi \)</span>
+				measures the maximum coherent transport capacity of a system before
+				geometric or environmental constraints dominate.
+				Large
+				<span class="math inline">\( \chi \)</span>
+				corresponds to high throughput and stability;
+				small
+				<span class="math inline">\( \chi \)</span>
+				indicates geometric throttling, loading, or imminent coherence loss.
+			</p>
+
+			<p>
+				The factor
+				<span class="math inline">\( \Phi \)</span>
+				absorbs geometry-dependent losses such as friction coefficients,
+				blade shape effects, turbulence penalties, constriction ratios,
+				or conversion inefficiencies.
+				Crucially,
+				<span class="math inline">\( \Phi \)</span>
+				must be fixed at the device or configuration level and may not vary freely with operating regime.
+			</p>
+
+			<h4>Admissibility Conditions</h4>
+
+			<p>
+				The coherence volume
+				<span class="math inline">\( \chi \)</span>
+				is admissible within CTMT if and only if the following conditions hold.
+			</p>
+
+			<ol>
+				<li>
+					<strong>Dimensional closure.</strong>
+					The expression for
+					<span class="math inline">\( \chi \)</span>
+					must be dimensionally consistent under the chosen interpretation of
+					<span class="math inline">\( M \)</span>.
+				</li>
+				<li>
+					<strong>Fixed geometry.</strong>
+					Parameters
+					<span class="math inline">\( \Phi \)</span>
+					and
+					<span class="math inline">\( h \)</span>
+					remain constant within a coherence class and do not encode regime-specific control actions.
+				</li>
+				<li>
+					<strong>Observable mapping.</strong>
+					The target observable
+					<span class="math inline">\( Y \)</span>
+					(power, flow, fuel rate, etc.)
+					admits a mapping
+					<span class="math inline">\( Y = k\,\chi \)</span>
+					for some calibration constant
+					<span class="math inline">\( k \)</span>.
+				</li>
+				<li>
+					<strong>Fisher rank stability.</strong>
+					The Fisher information matrix associated with the mapping
+					<span class="math inline">\( Y(\theta) \)</span>,
+					where
+					<span class="math inline">\( \theta \)</span>
+					denotes the parameters entering
+					<span class="math inline">\( \chi \)</span>,
+					retains constant rank across all operating points in the coherence class.
+				</li>
+			</ol>
+
+			<h4>Fisher–Geometric Constraint</h4>
+
+			<p>
+				Let
+				<span class="math inline">\( \theta = (\theta_1,\dots,\theta_n) \)</span>
+				denote the physical parameters entering
+				<span class="math inline">\( \chi \)</span>,
+				and let
+				<span class="math inline">\( Y \)</span>
+				be the measured observable.
+				The Fisher information matrix is defined as
+			</p>
+
+			<div class="math display">
+				\[
+					\mathcal{I}_{ij}(\theta)
+					=
+					\mathbb{E}
+					\left[
+					\frac{\partial \log Y}{\partial \theta_i}
+					\frac{\partial \log Y}{\partial \theta_j}
+					\right].
+				\]
+			</div>
+
+			<p>
+				CTMT requires that
+				<span class="math inline">\( \mathrm{rank}(\mathcal{I}) \)</span>
+				remain invariant across operating points belonging to the same coherence class.
+				A change in rank indicates that additional, previously latent degrees of freedom
+				have entered the dynamics and that the kernel representation has become invalid.
+			</p>
+
+			<h4>Calibration and Transport Protocol</h4>
+
+			<ol>
+				<li>
+					Select a reference operating point and measure
+					<span class="math inline">\( Y_0 \)</span>.
+				</li>
+				<li>
+					Compute
+					<span class="math inline">\( \chi_0 \)</span>
+					using fixed
+					<span class="math inline">\( \Phi \)</span>
+					and
+					<span class="math inline">\( h \)</span>.
+				</li>
+				<li>Define <span class="math inline">\( k = Y_0 / \chi_0 \)</span>.</li>
+				<li>
+					Apply the same
+					<span class="math inline">\( k \)</span>
+					to predict
+					<span class="math inline">\( Y \)</span>
+					at other operating points.</li>
+				<li>Monitor Fisher rank; invalidate predictions if rank changes.</li>
+			</ol>
+
+			<h4>Falsification Criteria</h4>
+
+			<p>The CHI kernel is falsified within a coherence class if any of the following occur:</p>
+
+			<ul>
+				<li>
+					Calibration constant
+					<span class="math inline">\( k \)</span>
+					fails to transport across operating points while Fisher rank remains stable
+					(kernel mis-specification).
+				</li>
+				<li>
+					Fisher rank changes while geometry parameters are held fixed
+					(coherence-class boundary crossed).
+				</li>
+				<li>
+					Accurate predictions require regime-dependent variation of
+					<span class="math inline">\( \Phi \)</span>
+					or
+					<span class="math inline">\( h \)</span>
+					(geometry seepage).
+				</li>
+			</ul>
+
+			<h4>Relation to Classical Dimensionless Numbers</h4>
+
+			<p>
+				Unlike Reynolds, Mach, or Froude numbers,
+				<span class="math inline">\( \chi \)</span>
+				is not a regime classifier.
+				It is a cross-domain transport invariant incorporating inertial,
+				geometric, and environmental constraints in a single scalar.
+				Its role is predictive rather than classificatory.
+			</p>
+
+			<h4>Limitations</h4>
+
+			<p>
+				The coherence volume
+				<span class="math inline">\( \chi \)</span>
+				is a coarse-grained invariant.
+				It does not replace detailed CFD, FEM, or multiphysics simulation
+				when fine-scale geometry, turbulence structure, or control dynamics
+				are essential.
+				Its purpose is to provide a minimal, transportable summary of coherent
+				system capacity within a defined coherence class.
+			</p>
+
+			<h3 id="sec-39-practical_demonst_of_coh_law_8">Kernel Stacking and Non-Static Operation</h3>
+
+			<p>
+				Real systems rarely operate in a single static regime.
+				Operating conditions, control actions, and environmental loading
+				typically evolve in time, sometimes abruptly.
+				CTMT addresses this through <em>kernel stacking</em>:
+				the composition of multiple coherence kernels across successive
+				time windows or operating segments.
+			</p>
+
+			<h4>Definition (Kernel Stack)</h4>
+
+			<p>
+				Let
+				<span class="math inline">\( \{K^{(n)}\}_{n=1}^N \)</span>
+				be a sequence of kernels, each admissible within its own coherence class
+				over a time interval
+				<span class="math inline">\( \Delta t_n \)</span>.
+				The stacked kernel is defined as the ordered composition
+			</p>
+
+			<div class="math display">
+				\[
+					K_{\mathrm{stack}}
+					=
+					K^{(N)} \circ K^{(N-1)} \circ \cdots \circ K^{(1)}.
+				\]
+			</div>
+
+			<p>
+				Each kernel
+				<span class="math inline">\( K^{(n)} \)</span>
+				carries its own coherence volume
+				<span class="math inline">\( \chi^{(n)} \)</span>,
+				calibration constant
+				<span class="math inline">\( k^{(n)} \)</span>,
+				and Fisher information matrix
+				<span class="math inline">\( \mathcal{I}^{(n)} \)</span>.
+			</p>
+
+			<h4>Stacking Admissibility Conditions</h4>
+
+			<p>Kernel stacking is admissible if and only if the following conditions hold:</p>
+
+			<ol>
+				<li>
+					<strong>Local Fisher rank stability.</strong>
+					Each kernel
+					<span class="math inline">\( K^{(n)} \)</span>
+					has a Fisher matrix
+					<span class="math inline">\( \mathcal{I}^{(n)} \)</span>
+					of constant rank within its interval
+					<span class="math inline">\( \Delta t_n \)</span>.
+				</li>
+				<li>
+					<strong>Monotonic coherence time.</strong>
+					The coherence proper time
+					<span class="math inline">\( \tau \)</span>
+					satisfies
+					<span class="math inline">\( \tau_{n+1} \ge \tau_n \)</span>
+					at kernel boundaries.
+					No stacked composition may reverse coherence ordering.
+				</li>
+				<li>
+					<strong>Boundary consistency.</strong>
+					The terminal state of
+					<span class="math inline">\( K^{(n)} \)</span>
+					lies within the admissible domain of
+					<span class="math inline">\( K^{(n+1)} \)</span>.
+					If not, the stack is terminated and the system is declared incoherent.
+				</li>
+				<li>
+					<strong>No hidden parameter injection.</strong>
+					Geometry factors
+					<span class="math inline">\( \Phi \)</span>,
+					characteristic scales
+					<span class="math inline">\( h \)</span>,
+					and calibration constants
+					<span class="math inline">\( k^{(n)} \)</span>
+					may change only at coherence-class boundaries
+					and must be explicitly re-identified.
+				</li>
+			</ol>
+
+			<h4>Interpretation for Non-Static Systems</h4>
+
+			<p>
+				Kernel stacking does not assume smoothness, linearity, or stationarity.
+				Each kernel describes the system over the largest interval for which
+				Fisher rank stability holds.
+				Regime transitions appear as:
+			</p>
+
+			<ul>
+				<li>rank changes in the Fisher matrix,</li>
+				<li>loss of transportability of the calibration constant,</li>
+				<li>or violation of boundary admissibility.</li>
+			</ul>
+
+			<p>
+				In this sense, kernel stacking is not an approximation scheme,
+				but a <em>geometric segmentation</em> of system evolution.
+				The segmentation is dictated by information geometry,
+				not by arbitrary windowing.
+			</p>
+
+			<h4>Why Stacking Is Not Double Counting</h4>
+
+			<p>
+				Each kernel in the stack encodes transport over a disjoint
+				coherence interval.
+				No kernel reuses information already compressed by a previous kernel.
+				This is ensured by:
+			</p>
+
+			<ul>
+				<li>monotonic coherence time,</li>
+				<li>rank-stable Fisher geometry within each segment,</li>
+				<li>explicit termination when admissibility fails.</li>
+			</ul>
+
+			<p>
+				Consequently, stacking preserves causal ordering and avoids
+				the accumulation of spurious degrees of freedom.
+			</p>
+
+			<h4>Engineering Consequences</h4>
+
+			<p>For engineers, kernel stacking provides a practical workflow:</p>
+
+			<ol>
+				<li>Operate with a single calibrated kernel while Fisher rank is stable.</li>
+				<li>Monitor rank or prediction error as indicators of coherence loss.</li>
+				<li>When rank changes, terminate the kernel and re-identify parameters.</li>
+				<li>Stack the new kernel onto the previous one, preserving coherence time.</li>
+			</ol>
+
+			<p>
+				This enables non-static operation, volatility handling,
+				and regime transitions without abandoning single-tuning transport
+				within each coherence class.
+			</p>
+
+			<h4>Failure Modes and Falsification</h4>
+
+			<p>Kernel stacking is falsified if:</p>
+
+			<ul>
+				<li>stacked kernels require hidden variation of
+				<span class="math inline">\( \Phi \)</span>
+				to maintain accuracy,</li>
+				<li>coherence time decreases across a kernel boundary,</li>
+				<li>Fisher rank fluctuates within a declared coherence interval.</li>
+			</ul>
+
+			<p>
+				Any of these indicate that the system is being over-compressed
+				and that the kernel description is no longer valid.
+			</p>
         </article>
     </section>
-
     <section>
         <h2 title="Click to toggle" id="sec-40-modulation-compatibility-index">Modulation Compatibility Index</h2>
         <article style="display:none">
