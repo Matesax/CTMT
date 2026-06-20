@@ -165,5 +165,5 @@ If you're a physicist, engineer, biologist, or systems thinker — this kernel m
 
 Welcome to the chronotopic frontier.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17255377.svg)](https://doi.org/10.5281/zenodo.17255377)
-[OSF](https://doi.org/10.17605/OSF.IO/RFE8N)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18229539.svg)](https://doi.org/10.5281/zenodo.18229539)
+[OSF](https://.org/10.17605/OSF.IO/RFE8N)
