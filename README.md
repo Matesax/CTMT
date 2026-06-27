@@ -154,16 +154,25 @@ This reframes $\pi$ as a **structural limit** — a coherence metric that emerge
 
 ---
 
-## Why This Matters
+## Current status
 
-This is not speculative philosophy.  
-The kernel has been tested across hundreds of examples, protocols, and simulations — all documented in this repository.
+The Jacobian–Fisher route was the correct place to investigate morphisms, because it is the only setting where CTMT currently has a fully operational recognition object  
 
-It reproduces known physics, predicts new coherence behaviors, and offers a unified language for energy, motion, time, and symbolic drift.
+$$
+F(\theta)=J(\theta)^\top C^{-1}J(\theta)
+$$
 
-If you're a physicist, engineer, biologist, or systems thinker — this kernel may be the missing rhythm in your model.
+and a complete admissibility layer (rank, conditioning, null‑sector, stability).  
+This route does **not** require Fisher uniqueness to be proved in advance; instead, it provides the environment in which the missing CTMT invariant and the admissible morphism class can be discovered and tested.
 
-Welcome to the chronotopic frontier.
+Once the admissible morphism class is established—i.e., once CTMT has a well‑defined notion of transport‑preserving transformations—the phase‑Hessian route becomes **forced**: any second‑order recognition geometry derived from  
+
+$$
+H_\Phi=\nabla^2\Phi
+$$
+
+must collapse to the same morphism class in the linear/Jacobian limit.  
+Thus the remaining obstacle to making CTMT fully physical has always been the **transfer → monotonicity bridge**: showing that CTMT’s transport composability implies the monotone morphisms required for Fisher uniqueness.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18229539.svg)](https://doi.org/10.5281/zenodo.18229539)
 [OSF](https://.org/10.17605/OSF.IO/RFE8N)
