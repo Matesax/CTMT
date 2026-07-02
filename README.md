@@ -154,7 +154,7 @@ This reframes $\pi$ as a **structural limit** — a coherence metric that emerge
 
 ---
 
-## Current status
+# Current status
 
 The Jacobian–Fisher route was the correct place to investigate morphisms, because it is the only setting where CTMT currently has a fully operational recognition object  
 
@@ -173,6 +173,265 @@ $$
 
 must collapse to the same morphism class in the linear/Jacobian limit.  
 Thus the remaining obstacle to making CTMT fully physical has always been the **transfer → monotonicity bridge**: showing that CTMT’s transport composability implies the monotone morphisms required for Fisher uniqueness.
+
+## Open Problems and Remaining Structural Questions
+
+The local resolution‑geometry formulation
+
+$$
+\mathcal G = (O; R, N, \Sigma)
+$$
+
+provides a stable operational object for local morphism classification. The remaining questions concern the scope, uniqueness, and globalization of this geometry.
+
+The purpose of this section is not to propose solutions. Its purpose is to make explicit which problems remain unresolved.
+
+### Open Problem I: Covariance‑scale geometry
+
+The covariance‑scale question remains the most immediate unresolved issue.
+
+Three natural candidates exist.
+
+#### Strict geometry
+
+Require exact covariance preservation:
+
+$$
+\phi^\ast \Sigma = \Sigma.
+$$
+
+This interpretation is appropriate when instrument calibration and absolute covariance scale are operationally meaningful.
+
+#### Conformal geometry
+
+Identify covariance only up to one global positive scale:
+
+$$
+\phi^\ast \Sigma = \lambda \Sigma,
+\qquad
+\lambda > 0.
+$$
+
+This interpretation is appropriate when only relative covariance
+structure is observable.
+
+#### Sector‑relative geometry
+
+Preserve covariance only relative to the resolved/null decomposition:
+
+$$
+\phi(R) = R,
+\qquad
+\phi(N) = N,
+$$
+
+while covariance is identified under a weaker equivalence relation within or between the sectors.
+
+Theoretical and synthetic evidence currently supports a clean distinction between strict and conformal geometry. The status of sector‑relative geometry remains unresolved.
+
+> **Open question:**  
+> Which covariance protocol corresponds to the most natural notion of
+> transport identity?
+
+### Open Problem II: Uniqueness of Covariance Geometry
+
+The present theory treats
+
+$$
+(R, N, \Sigma_R, \Sigma_N, C_{RN})
+$$
+
+as the covariance geometry associated with a chart.
+
+However, it remains open whether this is the unique minimal invariant.
+
+> **Open question:**  
+> Is covariance geometry the smallest transport‑complete invariant, or do
+> strictly weaker invariants exist that generate the same morphism
+> classification?
+
+### Open Problem III: Similarity Group Completeness
+
+Current synthetic batteries suggest that
+
+$$
+(R, N, \Sigma)
+$$
+
+successfully distinguishes:
+
+- global scale changes,
+- null‑sector changes,
+- resolved‑sector changes,
+- covariance‑coupling changes,
+- fitted impostors,
+- physical deformations.
+
+However:
+
+> **Open question:**  
+> Has the complete local similarity group already been identified, or can
+> additional transport invariants further refine the classification?
+
+### Open Problem IV: Covariance‑Coupling Physics
+
+The resolved–null covariance coupling
+
+$$
+C_{RN}
+$$
+
+plays a central role in the automorphism classification.
+
+When
+
+$$
+C_{RN} = 0,
+$$
+
+the automorphism group decomposes.
+
+When
+
+$$
+C_{RN} \neq 0,
+$$
+
+the group shrinks to a stabilizer.
+
+What remains unclear is the physical interpretation of this coupling.
+
+> **Open question:**  
+> Does resolved–null covariance coupling correspond to a genuine transport
+> phenomenon, or is it merely protocol‑dependent observational structure?
+
+### Open Problem V: Transport Groupoid Structure
+
+Local transport appears naturally groupoid‑like.
+
+Charts form objects,
+
+$$
+\mathcal G_i,
+$$
+
+and admissible transports form arrows
+
+$$
+\phi_{ij}.
+$$
+
+Current work suggests compatibility with groupoid composition.
+
+However:
+
+> **Open question:**  
+> Under what conditions do admissible transports form a complete transport
+> groupoid?
+
+### Open Problem VI: Holonomy
+
+Local charts may be connected by transport loops
+
+$$
+\gamma :
+\mathcal G_0
+\rightarrow
+\mathcal G_1
+\rightarrow
+\cdots
+\rightarrow
+\mathcal G_0.
+$$
+
+The associated holonomy operator is
+
+$$
+H_\gamma.
+$$
+
+Synthetic coil–Navier tests demonstrate numerically stable loop closure for compatible chart families and detect explicit covariance‑coupling obstructions.
+
+However:
+
+> **Open question:**  
+> What are the admissible holonomy groups of CTMT resolution geometry?
+
+A complete holonomy classification is presently unknown.
+
+### Open Problem VII: Globalization
+
+The strongest unresolved mathematical problem is globalization.
+
+Current results are local.
+
+Each chart possesses its own geometry
+
+$$
+\mathcal G = (O; R, N, \Sigma).
+$$
+
+What remains unresolved is whether local geometries can always be assembled into a coherent global object.
+
+> **Open question:**  
+> When does a family of compatible local charts admit a globally
+> consistent transport geometry?
+
+This is presently the principal frontier of the theory.
+
+### Open Problem VIII: Phase‑Hessian and Higher‑Order Lifts
+
+The current formulation is fundamentally first‑order.
+
+The resolved/null decomposition is derived from
+
+$$
+J = D_\theta F.
+$$
+
+Higher‑order structure remains only partially explored.
+
+> **Open question:**  
+> How much of the local classification survives under Hessian,
+> phase‑Hessian, or higher‑order transport lifts?
+
+### Open Problem IX: Universality
+
+Current evidence arises from synthetic and tested‑class systems.
+
+These include:
+
+- magnetostatic coil systems,
+- Navier‑like systems,
+- diffusion systems,
+- reaction–diffusion systems,
+- seismic‑style observation charts.
+
+The theory does not presently establish universality.
+
+> **Open question:**  
+> How broad is the domain of validity of resolution geometry as a
+> transport‑identification framework?
+
+### Non‑claim
+
+None of the unresolved questions invalidate the local automorphism classification.
+
+The current status is instead:
+
+$$
+\text{local geometry}
+\;\longrightarrow\;
+\text{stabilized},
+$$
+
+$$
+\text{global transport geometry}
+\;\longrightarrow\;
+\text{open}.
+$$
+
+The principal remaining risk is therefore no longer local morphism classification but globalization, holonomy, and transport completeness.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18229539.svg)](https://doi.org/10.5281/zenodo.18229539)
 [OSF](https://.org/10.17605/OSF.IO/RFE8N)
