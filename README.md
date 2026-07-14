@@ -35,6 +35,8 @@ Two points that prevent common first-glance misreadings:
 
 ## What is proved (the defensible core)
 
+CTMT has been reduced to a mathematically standard structure: observable data `(J, Σ)` reconstruct a resolution geometry `G = (O; R, N, Σ)` admissible transformations form a stabilizer/Lie-group structure; compatible charts form a path groupoid/principal-bundle-like atlas; holonomy classifies nontrivial global transport; and flatness failure inside the structure group defines resolution curvature.
+
 The results below are established with standard mathematics (Cramér–Rao, Gauss–Markov, Schur complements, compact-group actions, Čencov, Mori–Zwanzig, Lyapunov theory) and are numerically checked. Each lives in a short paper.
 
 | Result | Statement | Paper |
