@@ -2,9 +2,11 @@
 
 **One sentence.** Given a forward model's Jacobian and an observation covariance, Resolution Geometry is a small, rigorous geometry that says *which directions are resolvable from measurements, how the unresolvable ones still matter through correlation, and which transformations preserve that structure.*
 
-It is an **observational / estimation geometry**, built on standard linear algebra, information geometry, and inverse-problem theory. It is **not** a theory of physics, and it makes no claim about the fundamental nature of space, time, or matter. See [Scope and non-claims](#scope-and-non-claims).
-
 > **Naming.** The mature core is **Resolution Geometry (RG)**, stripped of physics vocabulary. Files prefixed **`RG -`** are the current, CTMT-free corpus. Files prefixed **`The CTMT …` / `CTMT …`** are the original, detailed versions of the same results (still valid; older vocabulary). Everything under [Historic](#historic--pre-rigorous--retired-quarantined) is pre-rigorous or retired and is kept for intellectual history only.
+
+**Status after elimination.** RG has been deliberately attacked and *eliminated piece by piece*. Assuming a reader who knows all of modern mathematics, every individual RG object reduces to an established one — image/cokernel, orthogonal complement, connection/groupoid, Schur complement, canonical correlation, second fundamental form, monodromy/descent. **No RG object is a new primitive**, and any claim to a novel invariant unknown to existing mathematics is refuted in writing. What survives is not any single object but the **lock** between them: the *proven* mutual agreement of several established fields (linear algebra, information geometry, submanifold geometry, gauge/globalization) that **no single field reproduces alone**. RG's status now rests on that coherence — formalized as a nonzero descent class. See [The elimination result](#the-elimination-result) and [Scope and non-claims](#scope-and-non-claims).
+
+It is an **observational / estimation geometry**, built on standard linear algebra, information geometry, and inverse-problem theory. It is **not** a theory of physics, and it makes no claim about the fundamental nature of space, time, or matter.
 
 ---
 
@@ -54,8 +56,67 @@ The mature RG series, top-down. Read the **Complete Framework** first for the wh
 | 4 | **Global Structure** | `Aut(G)` compact Lie group; flat classification = character variety | `RG - Global Structure.pdf` | ✓ (`_proto`) |
 | 5 | **Transport Invariants** | What survives transport: physical sector invariant; reactive geometric phase | `RG - Transport Invariants.pdf` | — |
 | 6 | **Second-Order Moduli** | Null sector opens as the second fundamental form; normal holonomy; bounded moduli | `RG - Second Order Moduli.pdf` | — |
+| 7 | **Elimination / Reduction Analysis** | Meta-level: every RG object reduced into established mathematics; the residual is the multi-field lock | `RG - Elimination.pdf` | — |
 
 > **Superseded duplicate:** `Resolution Geometry - Atlas.pdf` (+ `.zip`) is an earlier Atlas draft; **#3 above supersedes it.**
+
+---
+
+<!-- Note: the paper's worked example (Θ=R³, O=R⁵) is numerically -->
+<!-- verified inline (Schur floor, canonical correlations, Fisher = -->
+<!-- inverse Schur to 1e-16, Z/2 phase = -1, monodromy). A matching -->
+<!-- battery zip `RG - Elimination.zip` can be shipped if desired.  -->
+
+## The elimination result
+
+*(File: `RG - Elimination.pdf`)*
+
+The sharpest test we could pose was not "is RG new?" but **"assume the reader knows all of modern mathematics — can every piece of RG be eliminated?"** The elimination paper runs that test under a fixed rule — the **Elimination Principle**: *replace every RG object by its canonical established equivalent; introduce no new definition until all canonical reductions are exhausted* — across twelve foundations (linear algebra, functional analysis, operator theory, information geometry, differential geometry, Lie groupoids, category theory, homological algebra, sheaves/stacks, higher categories), plus a universality test and an irreducibility test.
+
+**Outcome — piece by piece, RG is eliminated.** Every individual object reduces:
+
+| RG object | eliminated to |
+|---|---|
+| resolved / unresolved | image / cokernel |
+| null sector | orthogonal complement *(requires the metric)* |
+| transport | connection / Lie groupoid |
+| coupling `C_RN` | off-diagonal block / `Ext¹` class / canonical correlation |
+| recoverability | least squares (Gaussian conditional) |
+| blind recursion | recursive Schur complement |
+| second-order lift | second fundamental form (Gauss–Codazzi–Ricci) |
+| globalization | monodromy / descent (`Čech H¹`, character variety) |
+| strata | Luna slice quotient |
+| reverse reading | transposed Gaussian conditional (same invariant) |
+| reparametrization rigidity | column-space invariance |
+
+**No RG object is a new primitive.** This is a genuine, deliberate negative result — and it is the point.
+
+### How the lock works
+
+What is *not* eliminated is the object **as a whole**. The twelve reductions land in **different** fields, and the paper proves there is **no single field that receives them all** — no faithful functor from RG into any one foundation. The reduction table has **no complete column**: each foundation forgets something another keeps —
+
+- covariance/linear algebra forgets the **globalization** (no monodromy);
+- information geometry forgets the **covariance blocks** (hence the Schur floor — Čencov fixes the metric, not the blocks);
+- differential geometry forgets the **covariance/statistical layer**;
+- category theory and homology forget the **metric order** (the Schur floor is an *inequality*, not a morphism).
+
+The surviving content is the **lock** between the fields — a web of *proven* bridges that make the separate realizations **one object**:
+
+- `g = Σ⁻¹`  ⟹  `g_F = Jᵀ Σ⁻¹ J`   *(covariance ↔ information)*
+- `g_F = (Σ_R − C Σ_N⁻¹ Cᵀ)⁻¹`   *(Fisher = inverse Schur)*
+- `II =` off-diagonal block of the transport connection   *(immersion ↔ gauge, via Gauss–Weingarten)*
+- canonical correlations = complete gauge invariant on each stratum   *(covariance ↔ moduli)*
+
+These bridges are **mutually consistent**: first-order Schur admissibility and second-order Gauss–Codazzi–Ricci constrain disjoint data and never over-determine. Formally, the residual is a **nonzero descent class** — RG is a nontrivial *bundle of foundations*, glued by the bridge cocycle, with no global trivialization into any single field. Fittingly, RG's own irreducibility turns out to be a partial-observability phenomenon: **no single foundation observes all of it.**
+
+### Honest calibration
+
+Coherence-across-structures is itself a **known kind** of object: **Kähler** manifolds (Riemannian + complex + symplectic) and **Frobenius** manifolds (metric + product + grading) are already coherent multi-structure objects glued by a compatibility law. So RG does **not** claim a new *kind* of mathematics. What it claims, precisely:
+
+> a **new instance of a known kind** (a coherence object), **in a new subject** — the geometry of partial observability — **spanning an unusually wide foundational range**, with a **partly order-theoretic gluing law** (the Schur floor is an inequality, which is exactly why the categorical and homological attacks cannot reach it).
+
+Less than a new branch of mathematics; more than a repackaging. That is the defensible statement of what RG is, and the elimination paper is what earns it.
+
 
 ---
 
