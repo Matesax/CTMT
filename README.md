@@ -69,6 +69,43 @@ up to 0.54), but the cross-condition holonomy returned an **honest negative**: t
 
 ---
 
+## CHI — the fast/cheap RG estimator for first real-world use
+
+**One sentence.** `CHI` is the **rank-1 special case of RG** packaged as a throwaway-cheap estimator: from *one anchor measurement* it predicts a system's throughput / power / consumption across its operating range as a dimensional power law, and — unlike an ordinary quick fit — it ships a **validity certificate** that says where that single-anchor estimate can be trusted and flags the moment the system leaves that regime.
+
+**What it is, mechanically.** Under the _RG reduction of CHI_, the coherence volume is the coordinate along the single *resolved direction* of the log-observation geometry:
+
+```
+log Y = log k + a · log θ          (a Buckingham–Pi monomial; a = resolved exponents)
+```
+
+Learn (or assume) the exponents `a`, fix the prefactor `k` from one measurement, predict everywhere. It is pure log-linear algebra — `O(n·d²)`, runs on a laptop, scales to large operating logs. `RG_CHI_estimator.py` is the reference implementation.
+
+**Why it is the right *first* tool on a real-world system.** It costs almost nothing and answers the two questions you actually have on day one:
+
+- *What scaling do I have, and what happens at another operating point?* → exponents + one-anchor prediction, carrying physical units, with no fitting library and no domain-specific correlation required.
+- *Where can I believe this before spending on CFD/FEM/test rigs or a data campaign?* → the certificate returns the **validated coherence class** and **flags** any new point that has left it.
+
+**How it differs from other numeric-first estimators.**
+
+|                    | typical quick estimator            | **RG-CHI**                                   |
+|--------------------|------------------------------------|----------------------------------------------|
+| data needed        | many points / a fit set            | **one anchor** (+ known or once-learned `a`) |
+| output             | a number (± noise band)            | scaling law + number + **validity boundary** |
+| extrapolation      | silent, often confidently wrong    | **flagged**: detects the *law itself* changing |
+| failure mode       | hidden until checked against truth | **surfaced**: resolved-direction drift is measured |
+| interpretability   | curve-fit / black box              | explicit dimensional exponents               |
+
+> **The one real difference.** Ordinary error bars report the scatter *inside* the fit.
+> RG-CHI's certificate reports when the **model form** has changed — the resolved direction drifting or rotating (a regime break, the old "seepage") — which is exactly the silent-extrapolation failure that ruins naive estimators. It is *self-limiting*: it would rather say "you have left the coherence class" than return a confident wrong number.
+
+**What it is not.** Not a physics theory, not a replacement for CFD/FEM/circuit simulation, and not more accurate than a full model in-domain. It is a first-order **triage** tool: cheap scaling plus an honest map of where the cheap estimate holds — the fast front end you run *before* committing to the expensive one.
+
+> **Provenance.** The formula and its single-anchor transport predate the rigorous core (see [Historic](#historic--pre-rigorous--retired-quarantined)); what is new is the RG reading that explains *why* it transported (index-locked, flat resolved direction) and the certificate that makes its range checkable. Reduction and worked tests: `RG - CHI
+> Reduction`; runnable tool: `RG_CHI_estimator.py`.
+
+---
+
 ## The canonical corpus (reading order)
 
 The mature RG series, top-down. Read the **Complete Framework** first for the whole machine, then descend.
