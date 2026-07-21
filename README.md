@@ -45,27 +45,50 @@ Two guards against first-glance misreadings:
 
 ## Real-world necessity — tested on world data, not toys
 
-**One sentence.** Beyond the synthetic constructions, RG's *necessity* — the claim that some questions cannot be answered by independent probes and require the coherent geometry — was tested on two large, public, real-world datasets, using permutation nulls, out-of-sample validation, and cross-year replication.
+**One sentence.** Beyond the synthetic constructions, RG's two operational claims — that the coherent geometry is *necessary* (some questions cannot be answered by independent probes), and that its hole geometry is *safe* (it refuses fits the data cannot support) — were tested on large, public, real-world datasets, using permutation nulls, out-of-sample validation, cross-year replication, and an independent second model generation.
 
-**Why "necessity" is the right test.** RG does not replace independent measurements; it is a **certificate** that sits on top of them. It is needed exactly when a field *(i)* infers an **unobserved** sector from an observed one (through the coupling `C`), *(ii)* **combines** measurements across changing conditions (through transport of the resolved frame), or *(iii)* **compares** results across setups (through the gauge invariants). When none of these applies — one sector, one condition, one setup — RG returns ≈ 0 and certifies that independent probes are already sufficient. This self-limiting property is what makes it a diagnostic rather than an ornament. See [Scope and non-claims](#scope-and-non-claims).
+**Why these are the right tests.** RG does not replace independent measurements; it is a **certificate** on top of them. It matters when a field *(i)* infers an **unobserved** sector from an observed one (coupling `C`), *(ii)* **combines** measurements across changing conditions (frame transport), *(iii)* **compares** across setups (gauge invariants), or *(iv)* must know **when not to trust a fit** (the resolved/null "hole"). When none of these applies, RG returns ≈ 0 and certifies that plain probes suffice — the self-limiting property that makes it a diagnostic, not an ornament. See [Scope and non-claims](#scope-and-non-claims).
 
 **What real data showed.**
 
 *Space weather — NASA **OMNI** solar-wind → magnetosphere, 5-minute cadence, 2022–2024
 (~282,000 complete samples).*
-- **The coupling is real and predictive.** Reading the magnetosphere response from the solar-wind drivers, *out of sample*, gives R² ≈ 0.53 (AE), 0.47 (AL), 0.42 (SYM-H), and the coupling **strengthens** as the true ~30–60 min physical lag is applied — the signature of a genuine coupling, not a fit.
-- **The coupling geometry genuinely depends on external condition.** Binned by season and by the 27-day solar rotation, the geometry differs from a permutation null far beyond chance (*p* = 0.002), while its leading mode varies smoothly around the cycle (adjacent-bin overlap 0.987).
-- **Pre-registered Russell–McPherron test (positive, replicated).** Restricted to the (Bᵧ, B_z)_GSM plane — where the physics predicts a seasonal rotation of the geoeffective direction — the coupling frame rotates **47° peak-to-peak** through the year and **replicates across all three independent years** (*r* = 0.56; permutation *p* = 0.001), cleanest for the reconnection-driven AL index.
+- **The coupling is real and predictive.** Out of sample, the drivers nowcast the response at
+  R² ≈ 0.53 (AE), 0.47 (AL), 0.42 (SYM-H), and the coupling **strengthens** at the true
+  ~30–60 min physical lag — the signature of a genuine coupling, not a fit.
+- **The coupling geometry depends on external condition.** Binned by season and by the 27-day
+  solar rotation, it differs from a permutation null far beyond chance (*p* = 0.002), varying
+  smoothly around the cycle (adjacent-bin overlap 0.987).
+- **Pre-registered Russell–McPherron test (positive, replicated).** In the (Bᵧ, B_z)_GSM plane,
+  the geoeffective coupling frame rotates **47° peak-to-peak** through the year and **replicates
+  across all three independent years** (*r* = 0.56; permutation *p* = 0.001), cleanest for the
+  reconnection-driven AL index.
 
-> **The honest ceiling.** The *net winding* of that seasonal loop is ≈ 0: the frame rotates and returns. What real data establishes is therefore a **reproducible, condition-locked rotation of the coupling frame**, not a nonzero topological monodromy. That is still decisive for necessity — the geoeffective frame is up to 47° apart between seasons, reproducibly, so any fixed-frame coupling analysis is wrong by tens of degrees — but the stronger claim (a loop that fails to close) was **not** found on real data and is not asserted.
+> **The honest ceiling.** The net winding of that seasonal loop is ≈ 0: the frame rotates and returns. What real data establishes is a **reproducible, condition-locked rotation of the coupling frame**, not a nonzero topological monodromy. Still decisive for necessity — the geoeffective frame is up to 47° apart between seasons, so any fixed-frame coupling analysis is wrong by tens of degrees — but the stronger (loop-fails-to-close) claim was **not** found and is not asserted.
 
-*Seismology — USGS significant-earthquake catalogue (included on purpose as a hard case).* The coupling was present (felt-impact recoverable from physical source parameters, out-of-sample R²
-up to 0.54), but the cross-condition holonomy returned an **honest negative**: the catalogue is too sparse and its regional structure too abrupt to form a smooth loop, and RG's permutation null **correctly declined to report a holonomy**. A framework that only ever confirms itself is not credible; this negative is kept precisely because it shows RG does not manufacture structure.
+*Seismology — USGS significant-earthquake catalogue (a hard case, kept on purpose).* The coupling was present (felt-impact recoverable from physical source, out-of-sample R² up to
+0.54), but the cross-condition holonomy returned an **honest negative**: too sparse, regional structure too abrupt to form a smooth loop, and RG's permutation null **correctly declined to report a holonomy**. A framework that only ever confirms itself is not credible; the negative is kept because it shows RG does not manufacture structure.
 
-**What this proves, and what it does not.** On real, public, physically independent data, the RG necessity *phenomena are real — not artifacts of synthetic construction*: the coupling exists and predicts the unobserved sector out of sample, and the coupling geometry is a real, reproducible function of external conditions that a fixed-frame analysis cannot capture. It does **not** prove a nonzero topological holonomy in nature (bounded to ≈ 0 net winding here), and it makes **no** physical claim — no earthquake prediction, no space-weather forecast beyond a nowcasting baseline, no new physics. These datasets are neutral test objects for an estimation geometry.
+*Geomagnetic field — **IGRF** reference-field coefficients (estimation-safety test).* This tests
+the *hole*, not the pillars, on the problem where resolution analysis was born (Backus–Gilbert,
+1968). Two successive model generations (IGRF-13 vs IGRF-14) act as independent estimates; their
+disagreement is an empirical measure of the hole.
+- **The hole is real and grows with degree.** Relative model-revision error rises ~**250×** from
+  the dipole (6×10⁻⁵) to spherical-harmonic degree 13 (5×10⁻²): low degrees pinned, high degrees
+  in the hole.
+- **The health-bar flags a genuinely dangerous real operation.** Downward-continuing the field to
+  the core–mantle boundary amplifies exactly the least-resolved degrees; the health-bar drops
+  from **1.00 (surface)** to **0.84 (CMB)**, with **16% of the field power pushed into the
+  unresolved hole** — reproducing, from a domain-agnostic resolved/hole power budget, the fact
+  geomagnetists know independently (core-surface maps degrade toward the truncation degree).
 
-> **Reproducibility.** Full analyses, permutation nulls, and runnable code:
-> `RG - OMNI Necessity`, `RG - Seismic Necessity`, `RG - Necessity` (synthetic argument), and the adversarial battery `RG - Undermine Attacks`. Each paper states its own non-claims and ships the `numpy`/`scipy` script that reproduces its numbers.
+> **Honest scope.** IGRF is a slow, non-cyclic, ~26-epoch series; it does **not** rescue the transport-holonomy pillar — there is no loop to close. Its role is different and real: a physical, historically apt confirmation that the hole-rejection health-bar recovers known resolution structure on real data.
+
+**What this proves, and what it does not.** On real, public, physically independent data the RG phenomena are real, not artifacts of synthetic construction: the coupling exists and predicts the unobserved sector out of sample; the coupling geometry is a reproducible function of external conditions that a fixed-frame analysis cannot capture; and the covariance/hole geometry **rejects dangerous fits**, reproducing the known resolution structure of the geomagnetic field and flagging its classic dangerous operation. It does **not** prove a nonzero topological holonomy in nature (bounded to ≈ 0 net winding), and it makes **no** physical claim — no earthquake prediction, no space-weather forecast beyond a nowcasting baseline, no new geomagnetic result. These datasets are neutral test objects for an estimation geometry.
+
+> **Reproducibility.** Full analyses, permutation nulls, bootstraps, and runnable code:
+> `RG - OMNI Necessity`, `RG - Seismic Necessity`, `RG - Necessity` (synthetic argument),
+> `RG - Undermine Attacks` (adversarial battery), and `RG - Hole Rejection` (with the IGRF real-data anchor). Each ships the `numpy`/`scipy` script that reproduces its numbers and states its own non-claims.
 
 ---
 
