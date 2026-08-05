@@ -1,55 +1,96 @@
 ## Resolution Geometry (RG) — *formerly CTMT*
 
-**Resolution Geometry is the protocol-relative geometry of what a declared experiment can distinguish.** Starting from a complete statistical experiment and an explicit admissibility protocol, it forms the universal observational quotient, equips its regular finite classical part with Fisher–Rao distinguishability, selects resolved directions by a characterized spectral projector, and glues admissible local sectors by natural transport.
+**Resolution Geometry is the canonical observable geometry associated with a declared admissible experiment.** Starting from a complete statistical experiment together with an explicit admissibility protocol, RG forms the universal observational quotient, equips its regular finite classical sector with Fisher–Rao distinguishability, selects resolved directions by a characterized spectral projector, identifies the maximal admissible observable sector, and glues local observable charts by natural transport.
 
-The mature framework is **Resolution Geometry (RG)**. Files prefixed **`RG -`** are the current corpus. CTMT-prefixed papers preserve earlier derivations and applications, but use older vocabulary. Material listed under [Historic / retired](#historic--pre-rigorous--retired-quarantined) is not part of the current claim.
+The mature framework is **Resolution Geometry (RG)**. Files prefixed **`RG -`** constitute the current corpus. CTMT-prefixed papers preserve earlier derivations, applications, and historical developments in older vocabulary. Material listed under #historic--pre-rigorous--retired-quarantined is retained for reproducibility and historical completeness and is not part of the current theorem package.
 
 ### What is now characterized
 
-For a declared admissible experiment
+The primitive object of RG is not an experiment alone but a declared admissible experiment
+
+$$
+(\mathcal E,\Gamma),
+$$
+
+with
 
 $$
 \mathcal E=(\Theta,\mathcal O,\{P_\theta\}_{\theta\in\Theta}),
 \qquad
-\Gamma=(G,\tau,N,S,C,T),
+\Gamma=(G,\tau,N,S,C,T).
 $$
 
-RG has the logical order
+Within the regular finite classical setting, RG has the logical order
 
 $$
-\text{declared experiment}
-\longrightarrow Q_{\mathcal E}
-\longrightarrow g_F
-\longrightarrow P_\tau
-\longrightarrow W_{\mathrm{obs}\mid\mathrm{adm}}
-\longrightarrow \{T_{ij}\}.
+(\mathcal E,\Gamma)
+\longrightarrow
+Q_{\mathcal E}
+\longrightarrow
+g_F
+\longrightarrow
+P_\tau
+\longrightarrow
+W_{\rm obs|adm}
+\longrightarrow
+\{T_{ij}\}.
 $$
 
 Here:
 
 - $Q_{\mathcal E}=\Theta/{\sim_{\mathcal E}}$, where $\theta\sim_{\mathcal E}\theta'$ iff $P_\theta=P_{\theta'}$, is the **universal observational quotient**;
-- $g_F$ is the **Fisher–Rao metric**, selected—up to normalization—by the classical sufficient-Markov information-geometric module on regular finite statistical models;
+- $g_F$ is the **Fisher–Rao metric**, selected (up to normalization) by the classical sufficient-Markov information-geometric characterization on regular finite statistical models;
 - $P_\tau=\mathbf 1_{(\tau,\infty)}(G^{-1}F)$ is the unique hard resolved projector satisfying metric self-adjointness, idempotence, information compatibility, and threshold consistency;
-- $W_{\rm obs|adm}\subseteq {\rm Im}(P_\tau)$ is the final sector after nuisance, stability, conditioning, coarse-graining, and transport gates;
+- $W_{\rm obs|adm}$ is the **maximal resolved subobject** satisfying the declared nuisance, stability, conditioning, coarse-graining, and transport rules;
 - $T_{ij}$ are natural local transports satisfying identity and cocycle laws.
 
-The result is a **modular characterization relative to the declared experiment and protocol**, not a protocol-free derivation of physics. The experiment determines what can be observed; the protocol states what counts as admissible.
+The result is a **fibrewise characterization theorem**. RG does not derive the admissibility protocol from the experiment. Rather, once a protocol is declared, the resulting observable geometry is uniquely characterized (up to natural isomorphism and metric normalization) within that protocol fibre.
+
+Equivalently,
+
+$$
+(\mathcal E,\Gamma)
+\Longrightarrow
+\mathrm{RG}(\mathcal E,\Gamma)
+$$
+
+canonically,
+
+while
+
+$$
+\mathcal E
+\not\Longrightarrow
+\Gamma.
+$$
+
+The experiment determines what can be distinguished; the protocol determines what counts as admissible.
 
 ### What the final geometry looks like
 
-RG is not globally one smooth manifold. Its natural home is a **Whitney-stratified orbit-space bundle**:
+RG is not globally a single smooth manifold. Its natural home is a **Whitney-stratified observable bundle** assembled from quotient, metric, spectral, and admissibility structure.
 
-- the smooth resolved/base directions carry Fisher–Rao path geometry, transport, holonomy, and monodromy;
-- resolved–null coupling is angular, described by principal angles/canonical correlations and frame-alignment invariants;
-- the null fibre is conical: residual covariance and related quadratic forms live in positive-semidefinite cones stratified by rank;
-- eigenvalue collisions, threshold crossings, nuisance-rank changes, and conditioning failures form the discriminant walls;
-- the Schur admissibility condition cuts out the allowed part of the fibre.
+- the smooth observable base carries Fisher–Rao path geometry, transport, holonomy, and monodromy;
+- resolved–null coupling is angular and is described by principal angles, canonical correlations, and frame-alignment invariants;
+- unresolved covariance structure naturally occupies positive-semidefinite cones stratified by rank;
+- eigenvalue collisions, threshold crossings, nuisance-rank changes, conditioning failures, and transport singularities form discriminant strata;
+- admissibility gates determine the maximal observable sector carried across charts by compatible transports.
 
-So Fisher–Rao geometry does not disappear, and it is not the whole object. It becomes the smooth horizontal/base geometry of distinguishability, while the full fibre contains closed eigenvalue chambers, angular data, and PSD cones. At degeneracy walls the fibre is singular by construction. This is the geometry made explicit in **`RG - Made Visible.pdf`**.
+Thus Fisher–Rao geometry remains central but is no longer the entire object. It supplies the smooth distinguishability geometry on regular strata, while the full observable bundle also contains angular orbit-space structure, eigenvalue chambers, and PSD-cone fibres. This geometry is developed explicitly in **`RG - Made Visible.pdf`**.
 
 ### Scope in one paragraph
 
-RG is an observational and estimation geometry assembled from established mathematics: statistical experiments and quotients, Fisher information, generalized spectral projectors, Schur complements, canonical correlations, PSD cones, naturality, cocycle gluing, and stratified orbit spaces. No individual ingredient is claimed as a new primitive. The contribution is the explicit, protocol-aware characterization and compatible assembly of these ingredients into one geometry of partial observability. RG does **not** identify the observational quotient with latent reality, derive the admissibility protocol from nothing, or reduce physics to information.
+RG is an observational geometry assembled from established mathematics: statistical experiments, observational quotients, Fisher information, spectral projectors, Schur complements, canonical correlations, positive-semidefinite cones, information monotonicity, naturality, cocycle gluing, and stratified orbit spaces. No individual ingredient is introduced as a new primitive. The contribution is their explicit characterization, protocol-aware assembly, and compatibility into a single geometry of partial observability. RG does **not** identify observational quotients with latent reality, derive admissibility protocols from first principles, claim protocol-free uniqueness, or reduce physics to information.
+
+### What is unique
+
+The strongest current uniqueness statement is:
+
+> For every declared admissible experiment $(\mathcal E,\Gamma)$, there exists a unique observable geometry satisfying the RG axioms, up to natural isomorphism and the declared metric normalization.
+
+This is analogous to the role of the Levi–Civita connection in Riemannian geometry: the protocol is declared input; the geometry that follows from it is characterized.
+
+RG is therefore best viewed as a family of canonical observable geometries parameterized by admissibility protocols rather than a single protocol-free geometry of observation.
 
 ---
 
@@ -76,6 +117,7 @@ A same-stem ZIP, where present, contains the associated runnable battery or repr
 
 | # | Paper | Status | Role | File | Battery |
 |---:|---|---|---|---|:---:|
+| 0 | **Fibrewise Characterization** | **`[foundation]`** | Identifies RG as the canonical observable geometry of a declared admissible experiment. Proves fibrewise uniqueness up to natural isomorphism, introduces admissibility completeness/maximality, and establishes that RG is characterized relative to a fixed protocol rather than protocol-free. | `RG - Fibrewise Characterization.pdf` | ✓ |
 | 0 | **Axioms / Characterization** | **`[foundation]`** | Universal observational quotient; Fisher module; unique spectral resolved projector; natural transport, gluing, stability, and entropy decomposition | `RG - Axioms.pdf` | ✓ |
 | 1 | **Made Visible** | **`[foundation]`** | Final geometric home: Fisher base with stratified angular/conical orbit-space fibres | `RG - Made Visible.pdf` | — |
 | 2 | **Foundations** | **`[historic]`** | Earlier local object, sectors, covariance structure, and automorphism rigidity; retained as supporting groundwork | `Foundation.pdf` | — |
@@ -341,7 +383,7 @@ Preserved for intellectual history; not part of the current theorem claims.
 
 - **Chronotopic Theory of Matter and Time:** `- I`, `- II`, `- III`, `- IV`, `- CHI`, `- Causality`, `- Seepage`.
 - **Chronotopic Metric Theory:** original overview, physics, and trigonometry papers.
-- **Retired physics attempts:** universal causal energy transport, Newton-$G$ boundary, radiative constants, emergent time/signature interpretations, nodes of presence, and early geomagnetic physical claims.
+- **Retired physics attempts:** universal causal energy transport, Newton-G boundary, radiative constants, emergent time/signature interpretations, nodes of presence, and early geomagnetic physical claims.
 - **Pre-rigorous notes:** axial geometry, Hessian boundary constants, visible-band null transport, elemental computation, early gauge uniqueness, stationary phase, calculus, and minimal falsification attempts.
 - **Assets and utilities:** site files, fonts, images, scripts, JSON outputs, and standalone battery archives.
 
