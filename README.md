@@ -293,17 +293,27 @@ These are demonstrations of observational geometry and automation. They do not e
 
 The axioms and GR bridges close several older questions: the observational domain is now fixed by a universal quotient; the regular local metric module is explicitly separated; the hard resolved projector is characterized; natural transport and cocycle gluing are stated; gauge-aware sector construction has restricted real-data demonstrations; and the final stratified geometry is visible. The remaining frontier is sharper:
 
-### 1. Characterize more of the admissibility protocol
+### 1. Complete the conditional characterization of admissibility protocols
 
-The largest foundational gap is no longer the quotient or hard selector, but the declared protocol $\Gamma$. Seek decision-theoretic, resource-theoretic, or physical characterizations of:
+The admissibility protocol is no longer an undifferentiated foundational gap. Its structural components are now conditionally canonical once their irreducible operational generators are declared:
 
-- the comparison metric $G$;
-- threshold or soft-resolution rule $\tau$;
-- nuisance/gauge closure;
-- stability margin and conditioning bounds;
-- admissible coarse-graining and transport class.
+- the comparison metric is fixed by a declared local decision or resource functional as $G=\nabla^2\mathcal R$;
+- continuous compositional coherence gives $C_t=e^{-tK}$, while additive coherence time is $-a\log c$ up to scale;
+- spectral naturality gives $K=\psi(G^{-1}F)$, and an additional information–coherence reciprocity axiom selects $K=\kappa(G^{-1}F)^{-1}$;
+- a declared coherence normalization, observation horizon, and survival budget then determine the hard threshold $\tau$ and its maximal surviving sector;
+- declared nuisance or gauge generators determine a unique smallest saturated equivalence relation;
+- stability is measured canonically by distance to the complete declared discriminant, relative to a declared perturbation norm and uncertainty radius;
+- available garbling generators determine a unique composition-closed, product-compatible information-order ideal.
 
-A successful result must derive these from explicit operational assumptions, not hide them in a preferred coordinate system or regularizer.
+The principal remaining structural freedom is the **transport representative**. Naturality, metric and projector compatibility, identity, cocycle closure, and sector preservation characterize the admissible transport class, but do not uniquely select a connection or holonomy class.
+
+The remaining problem is therefore:
+
+> Characterize an additional variational, geometric, or physical principle that selects a unique connection within the compatible transport class.
+
+Possible candidates include torsion elimination where defined, least action, minimum curvature, minimum transport cost, or transport induced by independently specified physical dynamics.
+
+This is a conditional characterization, not a protocol-free derivation. The resource functional, coherence calibration and budget, nuisance generators, perturbation model, available channels, and any connection-selection principle remain explicit operational input rather than hidden coordinate choices or regularizers.
 
 ### 2. Extend the characterization beyond regular finite classical experiments
 
@@ -397,9 +407,13 @@ Preserved for intellectual history; not part of the current theorem claims.
 - **GR placement:** explicit and gauge-aware, with bounded automation and real-data demonstrations.
 - **Protocol selection, singular/global extension, and general physical automation:** open.
 
-DOI: [10.5281/zenodo.18229539](https://doi.org/10.5281/zenodo.18229539)  
-OSF: [10.17605/OSF.IO/RFE8N](https://osf.io/RFE8N/)  
+DOI: [10.5281/zenodo.21786485](https://doi.org/10.5281/zenodo.21786485)  
 Author: **Matěj Rada**  
 License: **CC BY-NC-ND 4.0**
 
 Serious questions, counterexamples, and attempts to break the theorems are welcome. A clean failure under the stated hypotheses is a contribution.
+
+Historic CTMT
+
+DOI: [10.5281/zenodo.18229539](https://doi.org/10.5281/zenodo.18229539)  
+OSF: [10.17605/OSF.IO/RFE8N](https://osf.io/RFE8N/)  
