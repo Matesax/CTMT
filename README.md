@@ -94,6 +94,12 @@ RG is therefore best viewed as a family of canonical observable geometries param
 
 ---
 
+## Origins
+
+Resolution Geometry did not begin as a physics project or an observational project. It began as a coherence project — an attempt to force structure on whatever holds the universe together. CTMT was the first forced model; CTMT‑Metric was the second, built by falsifying CTMT with Fisher geometry. RG is the third generation: the cleaned, distilled, falsification‑surviving geometry of coherence. This lineage is unusual, and it explains why RG appears fully formed: it is the endpoint of three layers of forcing and falsification, not the beginning of a research program.
+
+---
+
 ## Repository status and preservation policy
 
 This repository preserves the full RG/CTMT development record: current foundations, supporting derivations, numerical attacks, corrections, superseded formulations, failed physical interpretations, and retired claims. Older files are not deleted or silently rewritten. Their presence documents how the mature framework was reached and makes its corrections auditable; it does **not** make every historical statement a current RG claim.
