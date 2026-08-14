@@ -295,86 +295,382 @@ These are demonstrations of observational geometry and automation. They do not e
 
 ---
 
-## Open problems — current frontier
+# Open Issues After the Fibrewise Characterization Theorem
 
-The axioms and GR bridges close several older questions: the observational domain is now fixed by a universal quotient; the regular local metric module is explicitly separated; the hard resolved projector is characterized; natural transport and cocycle gluing are stated; gauge-aware sector construction has restricted real-data demonstrations; and the final stratified geometry is visible. The remaining frontier is sharper:
+## Closed Issues
 
-### 1. Complete the conditional characterization of admissibility protocols
+### Observable domain ambiguity
 
-The admissibility protocol is no longer an undifferentiated foundational gap. Its structural components are now conditionally canonical once their irreducible operational generators are declared:
+**Status:** CLOSED
 
-- the comparison metric is fixed by a declared local decision or resource functional as $G=\nabla^2\mathcal R$;
-- continuous compositional coherence gives $C_t=e^{-tK}$, while additive coherence time is $-a\log c$ up to scale;
-- spectral naturality gives $K=\psi(G^{-1}F)$, and an additional information–coherence reciprocity axiom selects $K=\kappa(G^{-1}F)^{-1}$;
-- a declared coherence normalization, observation horizon, and survival budget then determine the hard threshold $\tau$ and its maximal surviving sector;
-- declared nuisance or gauge generators determine a unique smallest saturated equivalence relation;
-- stability is measured canonically by distance to the complete declared discriminant, relative to a declared perturbation norm and uncertainty radius;
-- available garbling generators determine a unique composition-closed, product-compatible information-order ideal.
+The observable domain is fixed by the equality-of-law quotient
 
-The principal remaining structural freedom is the **transport representative**. Naturality, metric and projector compatibility, identity, cocycle closure, and sector preservation characterize the admissible transport class, but do not uniquely select a connection or holonomy class.
+$$
+Q\_{\mathcal E}=
+\Theta/\!\sim\_{\mathcal E}.
+$$
 
-The remaining problem is therefore:
+Every experiment-internal construction factors uniquely through the quotient.
 
-> Characterize an additional variational, geometric, or physical principle that selects a unique connection within the compatible transport class.
+Representative dependence is excluded.
 
-Possible candidates include torsion elimination where defined, least action, minimum curvature, minimum transport cost, or transport induced by independently specified physical dynamics.
+**Resolved by:**
 
-This is a conditional characterization, not a protocol-free derivation. The resource functional, coherence calibration and budget, nuisance generators, perturbation model, available channels, and any connection-selection principle remain explicit operational input rather than hidden coordinate choices or regularizers.
+- Quotient Representation Theorem
+- Universal factorization property
+- Observable-domain characterization theorem
 
-### 2. Extend the characterization beyond regular finite classical experiments
+---
 
-Develop precise analogues for:
+### Hard resolved-sector ambiguity
 
-- singular and rank-changing statistical models;
-- infinite-dimensional inverse problems and field-valued observations;
-- non-dominated and path-space experiments;
-- quantum statistical experiments;
-- nonlinear sectors where a single local Fisher operator is insufficient.
+**Status:** CLOSED
 
-The goal is not to assume Fisher–Rao survives unchanged, but to state the correct module and its domain.
+For fixed
 
-### 3. Global stratified atlas and discriminant control
+$$
+(F,G,\tau)
+$$
 
-Local cocycle closure is characterized; full constructive globalization across rank changes is not. Open tasks include:
+the unique hard resolved selector is
 
-- existence and uniqueness of atlases across changing strata;
-- transport through or around threshold/eigenvalue collisions;
-- computable admissible holonomy/monodromy sets;
-- slice-compatible numerical continuation;
-- intersection/cohomological invariants that add operational content rather than terminology.
+$$
+P\_\tau=
+\mathbf 1\_{(\tau,\infty)}
+\!\left(G^{-1}F\right).
+$$
 
-### 4. Completeness and reconstruction on non-generic strata
+The spectral selector is now characterized rather than chosen.
 
-Generic-stratum invariants are substantially understood, and canonical correlations alone are known to be incomplete in higher rank. A full classification is still needed when eigenvalues repeat, ranks jump, stabilizers enlarge, or frame-alignment data become non-unique.
+**Resolved by:**
 
-### 5. Full automation from observation to admissible physical tensor content
+- resolved-projector characterization theorem
+- naturality theorem
+- finite uniqueness battery
 
-The GR papers establish restricted bridges for scalar sectors, Fisher holes, gauge-aware physical directions, and source-side action. The next hard step is a theorem-level pipeline
+---
+
+### Final-sector non-arbitrariness
+
+**Status:** CLOSED
+
+The final admissible sector is no longer an arbitrary subset of the resolved sector.
+
+It is characterized as the maximal gate-admissible resolved subobject
+
+$$
+W\_{\mathrm{obs}\mid\mathrm{adm}}=
+\max
+\mathrm{Adm}\_{\Gamma}(R\_\tau).
+$$
+
+Soundness without completeness admitted strict-subspace competitors.
+
+Completeness removes them.
+
+**Resolved by:**
+
+- admissibility completeness axiom
+- maximal-subobject theorem
+- exhaustive uniqueness attack
+
+---
+
+### Logical source of RG uniqueness
+
+**Status:** CLOSED
+
+The final theorem now identifies the precise source of uniqueness.
+
+RG uniqueness does **not** come from admissibility alone.
+
+RG uniqueness comes from:
+
+1. quotient universality;
+2. Fisher characterization module;
+3. spectral characterization;
+4. maximal admissible-sector characterization;
+5. natural transport and gluing.
+
+The uniqueness statement is therefore
 
 $$
 (\mathcal E,\Gamma)
-\longrightarrow W_{\mathrm{obs}\mid\mathrm{adm}}
-\longrightarrow \text{sector map}
-\longrightarrow T^{\mathrm{obs}}_{\mu\nu}
+\Longrightarrow
+RG(\mathcal E,\Gamma)
 $$
 
-with explicit hypotheses for uniqueness, conservation compatibility, gauge independence, boundary data, and failure. This must distinguish “not identifiable” from “identified as zero.”
+up to protocol-preserving natural isomorphism.
 
-### 6. Intervention-level separation of physical coupling from protocol coupling
+This replaces earlier protocol-free interpretations.
 
-Observational covariance alone cannot decide whether coupling is dynamical. Needed are controlled perturbations, independent sensor protocols, or causal/interventional data that can separate system transport from preparation and instrument effects.
+---
+
+## Active Open Problems
+
+### 1. Conditional characterization of admissibility protocols
+
+**Priority:** HIGH
+
+Most protocol components are now conditionally characterized.
+
+**Current status**
+
+- quotient → characterized
+- Fisher module → characterized
+- hard projector → characterized
+- nuisance closure → conditionally characterized
+- information-order ideal → conditionally characterized
+- threshold selection → conditionally characterized
+- stability margin → conditionally characterized
+- final sector → characterized
+- transport representative → OPEN
+
+The principal remaining freedom is:
+
+> Selection of a unique connection within the admissible transport class.
+
+Naturality, cocycles, metric compatibility, and sector preservation do not yet determine a unique transport representative.
+
+**Open problem**
+
+$$
+\text{Compatible transport class}
+\Longrightarrow ?
+\Longrightarrow
+\text{unique connection}.
+$$
+
+Potential routes:
+
+- minimum curvature;
+- minimum transport cost;
+- torsion-free selection where defined;
+- variational principle;
+- physically induced transport.
+
+---
+
+### 2. Beyond regular finite classical experiments
+
+**Priority:** HIGH
+
+Extend characterization to:
+
+- singular models;
+- rank-changing models;
+- infinite-dimensional inverse problems;
+- field-valued observations;
+- non-dominated experiments;
+- path-space experiments;
+- quantum statistical experiments.
+
+The metric module may need replacement rather than extension.
+
+---
+
+### 3. Global stratified atlas theorem
+
+**Priority:** HIGH
+
+Local transport is characterized.
+
+Global stratified geometry is not.
+
+Needed:
+
+- constructive globalization;
+- atlas existence theorem;
+- atlas uniqueness theorem;
+- transport through rank transitions;
+- admissible holonomy classes;
+- continuation across discriminants.
+
+---
+
+### 4. Reconstruction on non-generic strata
+
+**Priority:** MEDIUM
+
+Generic strata are largely understood.
+
+Incomplete cases remain:
+
+- repeated eigenvalues;
+- enlarged stabilizers;
+- rank jumps;
+- non-unique frame alignments;
+- singular canonical-correlation structures.
+
+Need a complete invariant classification.
+
+---
+
+### 5. Observation → Physical tensor automation
+
+**Priority:** HIGH
+
+Current bridge
+
+$$
+(\mathcal E,\Gamma)
+\longrightarrow
+W\_{\mathrm{obs}\mid\mathrm{adm}}
+$$
+
+is characterized.
+
+Current GR-placement papers support restricted physical sectors.
+
+Missing theorem:
+
+$$
+(\mathcal E,\Gamma)
+\longrightarrow
+W\_{\mathrm{obs}\mid\mathrm{adm}}
+\longrightarrow
+\text{sector map}
+\longrightarrow
+T^{\mathrm{obs}}\_{\mu\nu}
+$$
+
+with:
+
+- uniqueness conditions;
+- conservation conditions;
+- gauge independence;
+- boundary dependence;
+- failure modes.
+
+A key requirement is to distinguish
+
+$$
+\text{not identifiable}
+\neq
+\text{identified as zero}.
+$$
+
+---
+
+### 6. Physical coupling vs protocol coupling
+
+**Priority:** HIGH
+
+Observable covariance alone is insufficient.
+
+Need:
+
+- interventions;
+- independent instrumentation;
+- protocol variation;
+- causal perturbation data.
+
+Goal:
+
+> Separate genuine dynamics from protocol-induced correlation.
+
+---
 
 ### 7. Higher-order observable geometry
 
-Second-order moduli and the second fundamental form are opened but not fully characterized operationally. Open questions include observable estimators, uncertainty bounds, higher-order nuisance closure, normal-holonomy reconstruction, and compatibility with the stratified fibre at rank changes.
+**Priority:** MEDIUM
 
-### 8. Real-data universality and benchmark suite
+Open objects:
 
-Cross-domain demonstrations now exist, so “use any real dataset” is no longer the right frontier. What is needed is a preregistered benchmark suite with fixed gates, held-out protocols, failure cases, and cross-instrument replications. Universality should mean transportable axioms and diagnostics—not one universal threshold, metric, or physical interpretation.
+- second fundamental form;
+- observable curvature;
+- normal holonomy;
+- higher-order nuisance closure;
+- uncertainty bounds for second-order quantities.
 
-### 9. Entropy beyond the deterministic discrete quotient
+---
 
-The discrete quotient identity is closed. Extensions should address continuous variables, sufficient sigma-algebras, coarse-grained relative entropy, non-equilibrium path measures, and singular fibres without dropping conditional/fibre terms.
+### 8. Benchmark universality framework
+
+**Priority:** MEDIUM
+
+The question is no longer:
+
+> Can RG work on real data?
+
+The question is:
+
+> Can RG fail reproducibly?
+
+Needed:
+
+- preregistered benchmark suite;
+- fixed-gate protocols;
+- held-out datasets;
+- failure datasets;
+- cross-instrument replication.
+
+Universality should mean:
+
+> transportable axioms and diagnostics,
+
+not
+
+> one universal threshold, metric, or physical interpretation.
+
+---
+
+### 9. Quotient entropy beyond discrete deterministic fibres
+
+**Priority:** MEDIUM
+
+Closed result:
+
+$$
+H(X)=
+H(Q)
++
+H(X\mid Q).
+$$
+
+Open directions:
+
+- continuous quotients;
+- sigma-algebra formulations;
+- relative-entropy versions;
+- path-space entropy;
+- singular fibres;
+- non-equilibrium measures.
+
+---
+
+## Long-Term Frontier
+
+The strongest remaining foundational question is no longer:
+
+> What is the observable domain?
+
+and no longer:
+
+> Is the final admissible sector arbitrary?
+
+Those are effectively settled inside the current framework.
+
+The deepest remaining structural problem is:
+
+$$
+\text{transport class}
+\Longrightarrow ?
+\Longrightarrow
+\text{canonical connection}.
+$$
+
+This is currently the largest remaining source of non-uniqueness in the characterized RG object.
+
+A close second is the extension of the characterization theorem beyond the regular finite classical category into:
+
+- singular models;
+- infinite-dimensional observation systems;
+- path-space experiments;
+- quantum statistical experiments;
+- stratified rank-changing geometries.
+
+These are now genuine mathematical frontier problems rather than missing foundational definitions.
 
 ---
 
