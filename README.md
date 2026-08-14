@@ -66,6 +66,12 @@ $$
 
 The experiment determines what can be distinguished; the protocol determines what counts as admissible.
 
+### QM Fibrewise Characterization
+
+In finite‑dimensional quantum experiments, the same quotient, spectral projector, maximal admissible sector, and natural transport structure apply. The only declared module is the quantum monotone metric (Petz family). Once declared, the quantum RG object is fibrewise‑unique up to protocol‑preserving natural isomorphism.
+
+**Quantum module:** Petz monotone metric family or declared member; all other layers (quotient, projector, sector, transport) remain canonical.
+
 ### What the final geometry looks like
 
 RG is not globally a single smooth manifold. Its natural home is a **Whitney-stratified observable bundle** assembled from quotient, metric, spectral, and admissibility structure.
@@ -80,7 +86,7 @@ Thus Fisher–Rao geometry remains central but is no longer the entire object. I
 
 ### Scope in one paragraph
 
-RG is an observational geometry assembled from established mathematics: statistical experiments, observational quotients, Fisher information, spectral projectors, Schur complements, canonical correlations, positive-semidefinite cones, information monotonicity, naturality, cocycle gluing, and stratified orbit spaces. No individual ingredient is introduced as a new primitive. The contribution is their explicit characterization, protocol-aware assembly, and compatibility into a single geometry of partial observability. RG does **not** identify observational quotients with latent reality, derive admissibility protocols from first principles, claim protocol-free uniqueness, or reduce physics to information.
+RG is an observational geometry assembled from established mathematics: statistical experiments, observational quotients, Fisher information, spectral projectors, Schur complements, canonical correlations, positive-semidefinite cones, information monotonicity, naturality, cocycle gluing, and stratified orbit spaces. No individual ingredient is introduced as a new primitive. The contribution is their explicit characterization, protocol-aware assembly, and compatibility into a single geometry of partial observability. RG does **not** identify observational quotients with latent reality, derive admissibility protocols from first principles, claim protocol-free uniqueness, or reduce physics to information. Quantum monotone metrics (Petz classification) enter as a declared module; RG does not select a unique quantum Fisher metric. All other layers of the geometry remain canonical.
 
 ### What is unique
 
@@ -91,6 +97,8 @@ The strongest current uniqueness statement is:
 This is analogous to the role of the Levi–Civita connection in Riemannian geometry: the protocol is declared input; the geometry that follows from it is characterized.
 
 RG is therefore best viewed as a family of canonical observable geometries parameterized by admissibility protocols rather than a single protocol-free geometry of observation.
+
+> This uniqueness holds equally in finite‑dimensional quantum experiments once the quantum metric module is declared.
 
 ---
 
@@ -123,7 +131,7 @@ A same-stem ZIP, where present, contains the associated runnable battery or repr
 
 | # | Paper | Status | Role | File | Battery |
 |---:|---|---|---|---|:---:|
-| 0 | **Fibrewise Characterization** | **`[foundation]`** | Identifies RG as the canonical observable geometry of a declared admissible experiment. Proves fibrewise uniqueness up to natural isomorphism, introduces admissibility completeness/maximality, and establishes that RG is characterized relative to a fixed protocol rather than protocol-free. | `RG - Fibrewise Characterization.pdf` | ✓ |
+| 0 | **Fibrewise Characterization** | **`[foundation]`** | Identifies RG as the canonical observable geometry of a declared admissible experiment. Proves fibrewise uniqueness up to natural isomorphism, introduces admissibility completeness/maximality, and establishes that RG is characterized relative to a fixed protocol rather than protocol-free. Includes quantum fibrewise uniqueness and conditional metric module. | `RG - Fibrewise Characterization (- Improved/QM).pdf` | ✓ |
 | 0 | **Axioms / Characterization** | **`[foundation]`** | Universal observational quotient; Fisher module; unique spectral resolved projector; natural transport, gluing, stability, and entropy decomposition | `RG - Axioms.pdf` | ✓ |
 | 1 | **Made Visible** | **`[foundation]`** | Final geometric home: Fisher base with stratified angular/conical orbit-space fibres | `RG - Made Visible.pdf` | — |
 | 2 | **Foundations** | **`[historic]`** | Earlier local object, sectors, covariance structure, and automorphism rigidity; retained as supporting groundwork | `Foundation.pdf` | — |
@@ -162,9 +170,9 @@ The paper **`RG - Axioms.pdf`** replaces the former synthesis as pillar #0 becau
 - **Transport:** naturality gives covariant sector transport; identity and cocycle closure characterize a consistent observable atlas.
 - **Entropy:** for a deterministic quotient $Q=\pi(X)$,
 
-  $$
+$$
   H(X)=H(Q)+H(X\mid Q).
-  $$
+$$
 
   Under conditional equiprobability, the fibre term is the expected Boltzmann multiplicity entropy. Increased resolution redistributes entropy from unresolved fibres to observable classes; it does not create total entropy.
 
