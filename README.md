@@ -432,30 +432,87 @@ Most protocol components are now conditionally characterized.
 - threshold selection → conditionally characterized
 - stability margin → conditionally characterized
 - final sector → characterized
-- transport representative → OPEN
+- regular tangent connection → conditionally characterized
+- admissible tangent-sector connection → conditionally characterized
 
-The principal remaining freedom is:
+The original transport problem has split into two distinct cases.
 
-> Selection of a unique connection within the admissible transport class.
+#### Closed on regular observable strata
 
-Naturality, cocycles, metric compatibility, and sector preservation do not yet determine a unique transport representative.
-
-**Open problem**
+For a regular observable stratum $S$ with characterized metric $g$:
 
 $$
-\text{Compatible transport class}
-\Longrightarrow ?
+(S,g)
 \Longrightarrow
-\text{unique connection}.
+\nabla^{\mathrm{LC}}
 $$
 
-Potential routes:
+via metric compatibility and torsion freedom.
 
-- minimum curvature;
-- minimum transport cost;
-- torsion-free selection where defined;
-- variational principle;
-- physically induced transport.
+If the maximal admissible sector is a smooth constant-rank orthogonal tangent subbundle
+
+$$
+W_{\mathrm{obs}\mid\mathrm{adm}}
+\subset TS
+$$
+
+with characterized projector $P$, then the induced admissible-sector connection is
+
+$$
+\nabla^{W}=
+P\,\nabla^{\mathrm{LC}}.
+$$
+
+Hence
+
+$$
+(\mathcal E,\Gamma)
+\longrightarrow
+(S,g,P)
+\longrightarrow
+\nabla^{\mathrm{LC}}
+\longrightarrow
+\nabla^{W}.
+$$
+
+No further local transport representative remains.
+
+#### Closed negatively
+
+Entropy cannot select a unique connection.
+
+For every quotient-fibre automorphism preserving the observational quotient,
+
+$$
+H(X),
+\qquad
+H(Q),
+\qquad
+H(X\mid Q)
+$$
+
+remain invariant.
+
+Therefore entropy compatibility can restrict transport classes but cannot choose a representative inside an entropy-preserving stabilizer orbit.
+
+#### Remaining frontier
+
+The principal remaining freedom is no longer:
+
+> Select a unique connection.
+
+The remaining problem is:
+
+> Extend the induced-connection construction beyond regular smooth tangent sectors.
+
+Open subproblems:
+
+- rank-changing discriminants;
+- stratified connections;
+- partial/groupoid-valued transports;
+- non-tangent vector bundles;
+- quantum metric selection before connection induction;
+- physical interpretation of the induced connection.
 
 ---
 
@@ -463,7 +520,9 @@ Potential routes:
 
 **Priority:** HIGH
 
-Extend characterization to:
+The regular finite classical module is now substantially characterized.
+
+The main extension targets are:
 
 - singular models;
 - rank-changing models;
@@ -473,7 +532,15 @@ Extend characterization to:
 - path-space experiments;
 - quantum statistical experiments.
 
-The metric module may need replacement rather than extension.
+Current understanding:
+
+- quotient universality extends broadly;
+- Blackwell/Le Cam comparison extends broadly;
+- Fisher geometry does not extend automatically;
+- connection closure currently requires a regular observable metric stratum;
+- quantum geometry requires an explicit monotone metric module.
+
+The metric and transport modules may need replacement rather than extension.
 
 ---
 
@@ -481,9 +548,9 @@ The metric module may need replacement rather than extension.
 
 **Priority:** HIGH
 
-Local transport is characterized.
+Local transport on regular strata is characterized.
 
-Global stratified geometry is not.
+Global stratified geometry remains open.
 
 Needed:
 
@@ -492,7 +559,27 @@ Needed:
 - atlas uniqueness theorem;
 - transport through rank transitions;
 - admissible holonomy classes;
-- continuation across discriminants.
+- continuation across discriminants;
+- stratified induced-connection theory.
+
+Current status:
+
+$$
+(S,g,P)
+\Longrightarrow
+\nabla^{W}
+$$
+
+is understood on a single regular stratum.
+
+Extension across
+
+$$
+\mathrm{rank}(P)
+\text{ jumps}
+$$
+
+is not.
 
 ---
 
@@ -510,6 +597,10 @@ Incomplete cases remain:
 - non-unique frame alignments;
 - singular canonical-correlation structures.
 
+An important remaining issue is stabilizer classification.
+
+The recent entropy no-go result shows that invariant observables generally determine a connection only up to stabilizer orbit on symmetric strata.
+
 Need a complete invariant classification.
 
 ---
@@ -523,7 +614,7 @@ Current bridge
 $$
 (\mathcal E,\Gamma)
 \longrightarrow
-W\_{\mathrm{obs}\mid\mathrm{adm}}
+W_{\mathrm{obs}\mid\mathrm{adm}}
 $$
 
 is characterized.
@@ -535,11 +626,11 @@ Missing theorem:
 $$
 (\mathcal E,\Gamma)
 \longrightarrow
-W\_{\mathrm{obs}\mid\mathrm{adm}}
+W_{\mathrm{obs}\mid\mathrm{adm}}
 \longrightarrow
 \text{sector map}
 \longrightarrow
-T^{\mathrm{obs}}\_{\mu\nu}
+T^{\mathrm{obs}}_{\mu\nu}
 $$
 
 with:
@@ -550,7 +641,7 @@ with:
 - boundary dependence;
 - failure modes.
 
-A key requirement is to distinguish
+A key requirement remains:
 
 $$
 \text{not identifiable}
@@ -577,19 +668,34 @@ Goal:
 
 > Separate genuine dynamics from protocol-induced correlation.
 
+The induced connection supplies observational transport.
+
+It does not by itself identify physical coupling.
+
 ---
 
 ### 7. Higher-order observable geometry
 
 **Priority:** MEDIUM
 
+Progress:
+
+The first extrinsic datum is now characterized:
+
+$$
+\mathrm{II}=
+(I-P)\nabla^{\mathrm{LC}}.
+$$
+
 Open objects:
 
-- second fundamental form;
 - observable curvature;
 - normal holonomy;
 - higher-order nuisance closure;
-- uncertainty bounds for second-order quantities.
+- uncertainty bounds for second-order quantities;
+- stratified behavior of $\mathrm{II}$ near discriminants.
+
+The focus is no longer definition, but classification and reconstruction.
 
 ---
 
@@ -611,7 +717,8 @@ Needed:
 - fixed-gate protocols;
 - held-out datasets;
 - failure datasets;
-- cross-instrument replication.
+- cross-instrument replication;
+- regular-stratum vs discriminant-stratum benchmarks.
 
 Universality should mean:
 
@@ -619,7 +726,7 @@ Universality should mean:
 
 not
 
-> one universal threshold, metric, or physical interpretation.
+> one universal threshold, metric, connection, or physical interpretation.
 
 ---
 
@@ -627,7 +734,7 @@ not
 
 **Priority:** MEDIUM
 
-Closed result:
+Closed results:
 
 $$
 H(X)=
@@ -636,6 +743,16 @@ H(Q)
 H(X\mid Q).
 $$
 
+and
+
+$$
+\text{quotient-fibre automorphisms}
+\Longrightarrow
+\text{entropy invariance}.
+$$
+
+Therefore entropy is now understood as a transport compatibility invariant rather than a connection-selection principle.
+
 Open directions:
 
 - continuous quotients;
@@ -643,7 +760,8 @@ Open directions:
 - relative-entropy versions;
 - path-space entropy;
 - singular fibres;
-- non-equilibrium measures.
+- non-equilibrium measures;
+- entropy behavior across stratified rank transitions.
 
 ---
 
