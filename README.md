@@ -835,7 +835,7 @@ Preserved for intellectual history; not part of the current theorem claims.
 - **GR placement:** explicit and gauge-aware, with bounded automation and real-data demonstrations.
 - **Protocol selection, singular/global extension, and general physical automation:** open.
 
-DOI: [10.5281/zenodo.23021199](https://doi.org/10.5281/zenodo.23021199)  
+DOI: [10.5281/zenodo.21297385](https://doi.org/10.5281/zenodo.21297385)  
 Author: **Matěj Rada**  
 License: **CC BY-NC-ND 4.0**
 
