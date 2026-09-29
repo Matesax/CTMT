@@ -1,847 +1,380 @@
-## Resolution Geometry (RG) — *formerly CTMT*
+# Resolution Geometry (RG)
 
-**Resolution Geometry is the canonical observable geometry associated with a declared admissible experiment.** Starting from a complete statistical experiment together with an explicit admissibility protocol, RG forms the universal observational quotient, equips its regular finite classical sector with Fisher–Rao distinguishability, selects resolved directions by a characterized spectral projector, identifies the maximal admissible observable sector, and glues local observable charts by natural transport.
+*formerly CTMT*
 
-The mature framework is **Resolution Geometry (RG)**. Files prefixed **`RG -`** constitute the current corpus. CTMT-prefixed papers preserve earlier derivations, applications, and historical developments in older vocabulary. Material listed under #historic--pre-rigorous--retired-quarantined is retained for reproducibility and historical completeness and is not part of the current theorem package.
+**Resolution Geometry is the geometry of what a declared family of observation protocols can distinguish.**
 
-### What is now characterized
+Its primitive is the equality-of-law relation of a joint observation law. That relation defines a kernel groupoid and an observational quotient. The stabilizer of the law, taken modulo its gauge part, defines an effective symmetry group that acts on the quotient.
 
-The primitive object of RG is not an experiment alone but a declared admissible experiment
+On regular strata, every structure computed from laws descends to the quotient and is invariant under that group. Differential, statistical, causal, temporal and metric structure are then added in a fixed order. Each addition is either forced by the preceding objects, imported from established mathematics, or conditioned on a named hypothesis. The singular loci are joined by orbit-type strata, slices and tangent cones.
 
-$$
-(\mathcal E,\Gamma),
-$$
-
-with
-
-$$
-\mathcal E=(\Theta,\mathcal O,\{P_\theta\}_{\theta\in\Theta}),
-\qquad
-\Gamma=(G,\tau,N,S,C,T).
-$$
-
-Within the regular finite classical setting, RG has the logical order
-
-$$
-(\mathcal E,\Gamma)
-\longrightarrow
-Q_{\mathcal E}
-\longrightarrow
-g_F
-\longrightarrow
-P_\tau
-\longrightarrow
-W_{\rm obs|adm}
-\longrightarrow
-\{T_{ij}\}.
-$$
-
-Here:
-
-- $Q_{\mathcal E}=\Theta/{\sim_{\mathcal E}}$, where $\theta\sim_{\mathcal E}\theta'$ iff $P_\theta=P_{\theta'}$, is the **universal observational quotient**;
-- $g_F$ is the **Fisher–Rao metric**, selected (up to normalization) by the classical sufficient-Markov information-geometric characterization on regular finite statistical models;
-- $P_\tau=\mathbf 1_{(\tau,\infty)}(G^{-1}F)$ is the unique hard resolved projector satisfying metric self-adjointness, idempotence, information compatibility, and threshold consistency;
-- $W_{\rm obs|adm}$ is the **maximal resolved subobject** satisfying the declared nuisance, stability, conditioning, coarse-graining, and transport rules;
-- $T_{ij}$ are natural local transports satisfying identity and cocycle laws.
-
-The result is a **fibrewise characterization theorem**. RG does not derive the admissibility protocol from the experiment. Rather, once a protocol is declared, the resulting observable geometry is uniquely characterized (up to natural isomorphism and metric normalization) within that protocol fibre.
-
-Equivalently,
-
-$$
-(\mathcal E,\Gamma)
-\Longrightarrow
-\mathrm{RG}(\mathcal E,\Gamma)
-$$
-
-canonically,
-
-while
-
-$$
-\mathcal E
-\not\Longrightarrow
-\Gamma.
-$$
-
-The experiment determines what can be distinguished; the protocol determines what counts as admissible.
-
-### QM Fibrewise Characterization
-
-In finite‑dimensional quantum experiments, the same quotient, spectral projector, maximal admissible sector, and natural transport structure apply. The only declared module is the quantum monotone metric (Petz family). Once declared, the quantum RG object is fibrewise‑unique up to protocol‑preserving natural isomorphism.
-
-**Quantum module:** Petz monotone metric family or declared member; all other layers (quotient, projector, sector, transport) remain canonical.
-
-### What the final geometry looks like
-
-RG is not globally a single smooth manifold. Its natural home is a **Whitney-stratified observable bundle** assembled from quotient, metric, spectral, and admissibility structure.
-
-- the smooth observable base carries Fisher–Rao path geometry, transport, holonomy, and monodromy;
-- resolved–null coupling is angular and is described by principal angles, canonical correlations, and frame-alignment invariants;
-- unresolved covariance structure naturally occupies positive-semidefinite cones stratified by rank;
-- eigenvalue collisions, threshold crossings, nuisance-rank changes, conditioning failures, and transport singularities form discriminant strata;
-- admissibility gates determine the maximal observable sector carried across charts by compatible transports.
-
-Thus Fisher–Rao geometry remains central but is no longer the entire object. It supplies the smooth distinguishability geometry on regular strata, while the full observable bundle also contains angular orbit-space structure, eigenvalue chambers, and PSD-cone fibres. This geometry is developed explicitly in **`RG - Made Visible.pdf`**.
-
-### Scope in one paragraph
-
-RG is an observational geometry assembled from established mathematics: statistical experiments, observational quotients, Fisher information, spectral projectors, Schur complements, canonical correlations, positive-semidefinite cones, information monotonicity, naturality, cocycle gluing, and stratified orbit spaces. No individual ingredient is introduced as a new primitive. The contribution is their explicit characterization, protocol-aware assembly, and compatibility into a single geometry of partial observability. RG does **not** identify observational quotients with latent reality, derive admissibility protocols from first principles, claim protocol-free uniqueness, or reduce physics to information. Quantum monotone metrics (Petz classification) enter as a declared module; RG does not select a unique quantum Fisher metric. All other layers of the geometry remain canonical.
-
-### What is unique
-
-The strongest current uniqueness statement is:
-
-> For every declared admissible experiment $(\mathcal E,\Gamma)$, there exists a unique observable geometry satisfying the RG axioms, up to natural isomorphism and the declared metric normalization.
-
-This is analogous to the role of the Levi–Civita connection in Riemannian geometry: the protocol is declared input; the geometry that follows from it is characterized.
-
-RG is therefore best viewed as a family of canonical observable geometries parameterized by admissibility protocols rather than a single protocol-free geometry of observation.
-
-> This uniqueness holds equally in finite‑dimensional quantum experiments once the quantum metric module is declared.
+The statement of record is **`Resolution Geometry.pdf`**, the Theorem Ladder. It gives the complete dependency-ordered route, rungs L0–L60, from equality of laws to calibrated physical distance, with proofs, explicit boundaries and open problems.
 
 ---
 
-## Origins
+## The object
 
-Resolution Geometry did not begin as a physics project or an observational project. It began as a coherence project — an attempt to force structure on whatever holds the universe together. CTMT was the first forced model; CTMT‑Metric was the second, built by falsifying CTMT with Fisher geometry. RG is the third generation: the cleaned, distilled, falsification‑surviving geometry of coherence. This lineage is unusual, and it explains why RG appears fully formed: it is the endpoint of three layers of forcing and falsification, not the beginning of a research program.
-
----
-
-## Repository status and preservation policy
-
-This repository preserves the full RG/CTMT development record: current foundations, supporting derivations, numerical attacks, corrections, superseded formulations, failed physical interpretations, and retired claims. Older files are not deleted or silently rewritten. Their presence documents how the mature framework was reached and makes its corrections auditable; it does **not** make every historical statement a current RG claim.
-
-The mature RG corpus now carries the load-bearing work. New readers should begin with **`RG - Axioms.pdf`**, then **`RG - Made Visible.pdf`**, and only then follow the specialized reconstruction, atlas, transport, GR-placement, and automation papers. CTMT-era papers remain useful when a detailed derivation or historical application has not been restated in the newer vocabulary.
-
-Status labels used below mean:
-
-- **`[foundation]`** — current axiomatic or structural entry point.
-- **`[proved]`** — mathematical result established within its stated hypotheses.
-- **`[supported]`** — constructive bridge, implementation, or numerical/real-data demonstration; not a proof of a broader universal claim.
-- **`[proved/open]`** — a proved core with an explicitly unfinished extension or classification problem.
-- **`[historic]`** — superseded presentation retained as a supporting synthesis or development record.
-- **`[retired]`** — withdrawn claim retained so that the correction is visible.
-
-A same-stem ZIP, where present, contains the associated runnable battery or reproducibility bundle. Batteries test implementations, assumptions, and stronger conjectures; they do not replace proofs.
-
----
-
-## Canonical reading order
-
-| # | Paper | Status | Role | File | Battery |
-|---:|---|---|---|---|:---:|
-| 0 | **Fibrewise Characterization** | **`[foundation]`** | Identifies RG as the canonical observable geometry of a declared admissible experiment. Proves fibrewise uniqueness up to natural isomorphism, introduces admissibility completeness/maximality, and establishes that RG is characterized relative to a fixed protocol rather than protocol-free. Includes quantum fibrewise uniqueness and conditional metric module. | `RG - Fibrewise Characterization (- Improved/QM).pdf` | ✓ |
-| 0 | **Axioms / Characterization** | **`[foundation]`** | Universal observational quotient; Fisher module; unique spectral resolved projector; natural transport, gluing, stability, and entropy decomposition | `RG - Axioms.pdf` | ✓ |
-| 1 | **Made Visible** | **`[foundation]`** | Final geometric home: Fisher base with stratified angular/conical orbit-space fibres | `RG - Made Visible.pdf` | — |
-| 2 | **Foundations** | **`[historic]`** | Earlier local object, sectors, covariance structure, and automorphism rigidity; retained as supporting groundwork | `Foundation.pdf` | — |
-| 3 | **Reconstruction / Identifiability** | **`[proved]`** | Reconstruction from observational data up to gauge; Fisher alone is generally insufficient | `RG - Reconstruction Identifiability.pdf` | ✓ |
-| 4 | **Atlas / Globalization** | **`[proved]`** | Observable charts, principal automorphism bundle, Čech cocycle, and holonomy | `RG - Atlas Globalization.pdf` | ✓ |
-| 5 | **Global Structure** | **`[proved/open]`** | Compact automorphism structure and flat classification by character data; explicit enumeration remains open | `RG - Global Structure.pdf` | proto |
-| 6 | **Transport Invariants** | **`[proved]`** | Gauge-invariant content surviving admissible transport | `RG - Transport Invariants.pdf` | — |
-| 7 | **Second-Order Moduli** | **`[proved/open]`** | Second fundamental form, normal directions, and bounded higher-order moduli; full observable classification remains open | `RG - Second Order Moduli.pdf` | — |
-| 8 | **Elimination / Reduction** | **`[proved]`** | Reduction of individual RG components to established mathematics and calibration of the residual assembly claim | `RG - Elimination.pdf` | — |
-
-### Supporting syntheses and legacy entry points
-
-- **`RG - Complete Framework.pdf`** — **`[historic]`** the previous grand synthesis. It remains useful as a broad map of the pre-axiomatic corpus, curvature spine, and historical integration, but it is no longer the foundation or preferred first paper.
-- **`RG - Synthesis.pdf`**, **`RG - What Holds the Machine.pdf`**, and **`The CTMT - Testament of 22 years.pdf`** — **`[historic]`** supporting syntheses in progressively older vocabulary.
-- **`Resolution Geometry - Atlas.pdf`** — **`[historic]`** earlier atlas draft; superseded by **`RG - Atlas Globalization.pdf`**.
-
----
-
-## Axiomatic core
-
-The paper **`RG - Axioms.pdf`** replaces the former synthesis as pillar #0 because it states what is primitive, what is forced, what remains protocol-relative, and what would falsify the construction.
-
-### Operational axioms
-
-1. **Observational extensionality:** experiment-internal conclusions are constant on equality-of-law classes.
-2. **Naturality:** observable constructions commute with isomorphisms of complete experiments and covariant protocol transport.
-3. **Information order:** parameter-independent garbling cannot increase distinguishability.
-4. **Regularity off the discriminant:** continuous structures vary continuously and discrete invariants remain locally constant away from declared transition sets.
-5. **Composition and gluing:** local comparison maps preserve identities and satisfy cocycle closure.
-
-### Characterized modules
-
-- **Quotient:** extensionality forces unique factorization through $Q_{\mathcal E}$.
-- **Metric:** a separate classical information-geometric module selects Fisher–Rao in its stated regular finite domain. Quotient logic alone does not select a metric.
-- **Resolved selector:** the four hard-selector axioms uniquely give the threshold spectral projector.
-- **Transport:** naturality gives covariant sector transport; identity and cocycle closure characterize a consistent observable atlas.
-- **Entropy:** for a deterministic quotient $Q=\pi(X)$,
+An observation system consists of a latent space $X$, protocols $F_i : X \to Y_i$ valued in spaces of observable laws, and a declared relabeling group $\Psi$. The joint law is
 
 $$
-  H(X)=H(Q)+H(X\mid Q).
+F = (F_i)_{i \in I} : X \longrightarrow Y = \prod_i Y_i .
 $$
 
-  Under conditional equiprobability, the fibre term is the expected Boltzmann multiplicity entropy. Increased resolution redistributes entropy from unresolved fibres to observable classes; it does not create total entropy.
+Its kernel groupoid and quotient are
 
-### Exact limitations of the characterization
+$$
+\mathcal K = X \times_Y X, \qquad \pi : X \longrightarrow Q = X / \mathcal K \cong \mathrm{im}\, F .
+$$
 
-The axioms do not derive $G$, $\tau$, nuisance conventions, stability classes, a preferred loss, or a physical interpretation without further assumptions. They characterize RG **once the complete experiment and protocol are declared**. A latent point is not an experiment-internal observable object unless the experiment separates it; this does not deny that latent representatives exist.
+The stabilizer of the law, its gauge part, and the effective symmetry group fit into one exact sequence:
+
+$$
+1 \longrightarrow \mathrm{Gau} \longrightarrow \mathrm{Stab} \longrightarrow \Gamma \longrightarrow 1 .
+$$
+
+A **natural module** is a pullback of a relabeling-invariant structure $\mu$ on law space:
+
+$$
+M = F^{*} \mu .
+$$
+
+Observable invariants, clock readings, record counts, the Fisher tensor and law-defined cones are all natural. On a regular stratum every natural module descends and is $\Gamma$-invariant:
+
+$$
+M = \pi^{*} \bar M
+$$
+
+$$
+\gamma^{*} \bar M = \bar M \quad \text{for all } \gamma \in \Gamma .
+$$
+
+Consequently the following are theorems about natural modules, not separate hypotheses:
+
+- representative independence;
+- basicness with respect to the kernel;
+- projectability of law-defined transports and cones.
+
+What remains empirical is:
+
+- the content of $\Gamma$, tested by equality of laws;
+- regularity and saturation of the chosen stratum;
+- latent (non-natural) transport;
+- anchors and held-out validation.
+
+The logical order of the construction is
+
+$$
+F \longrightarrow \mathcal K \longrightarrow Q \longrightarrow \Gamma \longrightarrow g_F \longrightarrow \text{cone} \longrightarrow \text{scale} \longrightarrow \text{duration} \longrightarrow \text{physical distance} .
+$$
 
 ---
 
-## General-relativity placement and automation
+## The ladder at a glance
 
-The recent GR sequence materially changes the frontier. The question is no longer whether RG can be placed next to differential geometry in principle; explicit gauge-aware placement and restricted automation bridges now exist.
-
-### Placement ladder
-
-| Layer | Result | File |
+| Layer | Rungs | Main results |
 |---|---|---|
-| Placement | Observable sectors placed against GR-style field/geometric data without identifying RG with spacetime | `RG - GR Placement Bridge.pdf` |
-| Fisher layer | Local information/Fisher structure isolated from the physical field geometry | `RG - GR Placement Bridge - F-layer.pdf` |
-| Gauge-aware observation | Quotient and nuisance handling incorporated into $W_{\mathrm{obs}}$ | `RG - GR Placement Bridge - Gauge-Aware Wobs.pdf` |
-| Real-data demonstrations | Gauge-aware construction exercised on H1–L1 gravitational-wave data and ECG data | `RG - GR Placement Bridge - Gauge-Aware Wobs H1-L1.pdf`; `RG - GR Placement Bridge - Gauge-Aware Wobs ECG.pdf` |
-| Physical-direction bridge | Separates identifiable physical directions from gauge and observational degeneracies | `RG - GR Placement Bridge - Physics Direction.pdf` |
-| Automation | End-to-end restricted placement/sector automation | `RG - GR Placement Bridge - Automation.pdf` |
-| Signature | Conditions under which a Lorentzian-type signature emerges in the derived construction | `RG - GR Signature Emergence.pdf`; `A Derived Lorentzian-Type Signature.pdf` |
+| Exact | L0–L5 | kernel groupoid; universal factorization; joint kernel is the intersection of protocol kernels; garbling enlarges the kernel; the exact layer fixes no metric, order, cone, scale or unit |
+| Symmetry | L6–L11 | exact sequence with faithful action of Gamma on Q; non-splitting; count rigidity; orbit–quotient comparison; saturation hierarchy; coherent completeness |
+| Differential | L12–L16 | tangent sequence on regular strata; natural descent; automatic basicness and projectability; slices and tangent cones at walls |
+| Second order | L17–L24 | Fisher is natural and its radical is the observational vertical space; regular reconstruction; Fisher does not determine covariance; second-order quotient dimension p+q+pq; nuisance conventions and nuisance-rank walls; data processing; kernel order is not Blackwell order |
+| Ignorance | L25–L27 | persistent null and finite attainment; sensor, precision and representation nulls; finite-sample boundary reconstruction |
+| Statistical distance | L28–L32 | RG distance is representative-free, chart-free and dimensionless; monotone under garbling; no angle in rank one; finite divergences are not rulers; RG distance is experiment-relative |
+| Order and cone | L33–L37 | reachability descends; projective typing; realization branches; quadratic cone gives a conformal ray; Lorentz isotropy in Gamma forces the light cone |
+| Scale and transport | L38–L42 | metric representative exists iff the scale cocycle is exact; strict transport fixes the conformal factor; induced connection on regular strata; entropy cannot select a connection |
+| Duration | L43–L46 | clocks with equal kernels form a transition groupoid; a stabilizer time flow makes them affine; path independence is a kernel inclusion; coherence duration and BCH memory |
+| Physical distance | L47–L56 | no internal unit; counted channels remove dilation; two-point invariant; metric proportionality; SI radar anchor; radar versus rod distance; media; identification theorem |
+| Assembly | L57 | kernel–stabilizer theorem and compatibility equations |
+| Open | L58–L60 | canonical connection for latent transport; residual characteristic branch; non-static, quantum, non-dominated and infinite-dimensional extensions |
 
-### Constructive automation packages
-
-| Package | What is automated | File | Battery |
-|---|---|---|:---:|
-| **Blind scalar sector** | Restricted scalar-sector selection and admissibility | `Automation of General Relativity - Blind Scalar Sector.pdf` | ✓ |
-| **Fisher holes** | Detection and handling of rank loss / non-identifiable directions | `Automation of General Relativity - Fisher Holes.pdf` | ✓ |
-| **Source-side action** | Source/action-side path toward observable stress-energy content under declared assumptions | `Automation of General Relativity - Source-Side Action.pdf` | ✓ |
-
-These papers establish **constructive bridges and bounded automation**, not a theorem that arbitrary GR models can be generated or solved from observations. They also do not turn Fisher information into the spacetime metric. Gauge closure, admissibility, model class, and physical interpretation remain explicit inputs or gates.
+Each rung has exactly one status: forced, imported, hypothesis-conditioned (the hypothesis is named), $\Gamma$-conditional, no-go, or open. Every dependency points to an earlier rung.
 
 ---
 
-## Elimination result and novelty calibration
+## How to read the corpus
 
-The elimination programme asks whether any RG component survives reduction to established mathematics. Individually, none does:
+1. **`Resolution Geometry.pdf`** — the Theorem Ladder. It is self-contained and is the statement of record.
+2. **`RG - Made Visible.pdf`** — the geometric picture: a Fisher base with stratified angular and conical fibres.
+3. **Module papers**, listed by ladder layer below. They contain extended proofs, worked examples and hostile batteries for individual layers.
+4. **Applications and real-data studies.**
+5. **Historic syntheses**, only when a derivation has not been restated in current vocabulary.
 
-| RG component | Established reduction |
+**Statement-of-record rule.** Where a module paper and `Resolution Geometry.pdf` differ in scope, hypotheses or status, the ladder governs. Module papers are kept unchanged so that every correction remains auditable.
+
+**Notation.** In the ladder, $\Gamma$ denotes the effective symmetry group $\mathrm{Stab}/\mathrm{Gau}$. The earlier characterization papers use $\Gamma$ for the admissibility protocol $(G,\tau,N,S,C,T)$. In this README that protocol is written $\Pi$.
+
+**Citing results.** Cite the ladder rung, for example "RG, L51", rather than the module paper in which the result first appeared.
+
+---
+
+## Module papers by ladder layer
+
+A same-stem ZIP next to a paper (for example `RG - Physical Distance.pdf` and `RG - Physical Distance.zip`) contains its runnable hostile battery. Each battery registers naive claims and sharpened claims, uses fixed seeds, fails on non-finite evidence, and includes a mutation (canary) mode where available. Batteries are falsification witnesses, not premises of any proof.
+
+| Layer | Rungs | Papers |
+|---|---|---|
+| Foundation | all | `Resolution Geometry.pdf` |
+| Exact root | L1–L5 | `RG - Kernel pair root and limits.pdf`; `RG - Quotients.pdf`; `RG - Observation Laws.pdf`; `RG - Observation Laws - Influence.pdf` |
+| Symmetry and assembly | L6–L11, L57 | `Assembly of Resolution Geometry.pdf`; `RG - Assembly at the Kernel.pdf`; `RG - Functorial Resolution Geometry.pdf`; `RG - Saturation.pdf` |
+| Differential and strata | L12–L16 | `RG - Made Visible.pdf`; `RG - Atlas Globalization.pdf`; `RG - Gluing Test.pdf` |
+| Second order and characterization | L17–L24 | `RG - Axioms.pdf`; `RG - Fibrewise Characterization.pdf`; `RG - Fibrewise Characterization - QM.pdf`; `RG - Admissibility Protocol Characterization.pdf`; `RG - Reconstruction Identifiability.pdf`; `RG - Covariance Geometry.pdf`; `RG - Blind Sector.pdf` |
+| Ignorance and observation limit | L25–L27 | `RG - Ignorance.pdf`; `RG - Observation Limit.pdf`; `RG - Null Resolution Depth.pdf`; `RG - Entropy.pdf` |
+| Statistical distance | L28–L32 | `RG - Distance and Angles.pdf` |
+| Order and cone | L33–L37 | `RG - Cone.pdf`; `RG - Cone - Closure.pdf`; `RG - GR Signature Emergence.pdf` |
+| Scale and transport | L38–L42 | `RG - Atlas Globalization.pdf`; `RG - Transport Invariants.pdf`; `RG - Canonical Connection.pdf` |
+| Duration | L43–L46 | `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
+| Physical distance | L47–L56 | `RG - Physical Distance.pdf`; `RG - Wall-Tap Delay.pdf` |
+
+---
+
+## Characterization modules
+
+Once an admissibility protocol $\Pi$ is declared, the regular finite classical RG object is unique up to protocol-preserving natural isomorphism and metric normalization. This is the fibrewise characterization of `RG - Fibrewise Characterization.pdf` and `RG - Axioms.pdf`. Its modules are:
+
+**Quotient.** Extensionality forces unique factorization through $Q$.
+
+**Metric.** Fisher–Rao is selected by Markov invariance on regular finite models, up to a positive constant. Quotient logic alone does not select a metric.
+
+**Resolved selector.** The unique hard projector satisfying metric self-adjointness, idempotence, information compatibility and threshold consistency is
+
+$$
+P_\tau = \mathbf{1}_{(\tau,\infty)}\left(G^{-1} F\right).
+$$
+
+**Admissible sector.** It is the maximal gate-admissible resolved subobject:
+
+$$
+W_{\mathrm{obs}|\mathrm{adm}} = \max \mathrm{Adm}_{\Pi}(R_\tau).
+$$
+
+**Transport.** On a regular stratum with constant-rank admissible tangent sector and projector $P$:
+
+$$
+\nabla^{W} = P \, \nabla^{\mathrm{LC}} .
+$$
+
+**Entropy.** For a deterministic quotient,
+
+$$
+H(X) = H(Q) + H(X \mid Q) .
+$$
+
+The equality is invariant under fibre automorphisms, so entropy cannot select a connection.
+
+**Quantum.** In finite-dimensional quantum experiments, the quotient, projector, sector and transport layers carry over unchanged once a Petz monotone metric is declared as the metric module. The kernel–stabilizer assembly and the physical-distance identification are not yet extended to quantum protocols (L60).
+
+The experiment determines what can be distinguished. The protocol determines what counts as admissible. RG does not derive $\Pi$ from the experiment.
+
+---
+
+## Physics interface
+
+**Physical distance.** RG distance is dimensionless and experiment-relative; no function of it alone is a physical distance. Suppose the following are established on a regular static slice:
+
+- Euclidean motions are in $\Gamma$, with irreducible isotropy;
+- a counted two-way timing channel with exact SI constants $c$ and $\Delta\nu_{\mathrm{Cs}}$ is part of the joint law;
+- the medium is resolved;
+- a held-out anchor is predicted.
+
+Then every natural metric satisfies
+
+$$
+\bar g_{\mathcal E} = \lambda_{\mathcal E}^{2}\, h, \qquad d_{\mathrm{phys}} = \frac{d_{RG}^{\mathcal E}}{\lambda_{\mathcal E}}, \qquad d_{\mathrm{rad}} = \frac{c}{2\,\Delta\nu_{\mathrm{Cs}}}\, n_{\mathrm{Cs}} ,
+$$
+
+with $\lambda_{\mathcal E}$ constant, and $h$ the unique invariant metric whose distance equals the radar distance. The unit enters only through the counted channel and the SI definition; it is a declared anchor, not a derived quantity. (L47–L56)
+
+**Duration.** Clock readouts with equal kernels are charts of one duration object with forced cocycle closure. A time flow in the stabilizer makes the transitions affine. Path-independent accumulation holds exactly when the kernel of the declared increment is contained in the kernel of the clock. (L43–L46)
+
+**Cone.** A regular quadratic cone determines a conformal ray, not a metric. If $\Gamma$ contains the standard Lorentz group in dimension at least 2+1, the quadratic branch is forced. Otherwise the Lorentz–Finsler, multicone, stratified and residual branches remain. (L33–L37)
+
+**GR placement and automation.** Observable sectors are placed against GR-style data without identifying RG with spacetime. The bounded automation packages are listed below. They are constructive bridges, not a general solver.
+
+| Layer | File |
 |---|---|
-| observational equivalence | equality-of-law quotient of a statistical experiment |
-| resolved / unresolved sectors | image, kernel/cokernel, metric orthogonal complement, or spectral subspaces according to protocol |
-| local distinguishability | Fisher–Rao geometry in the characterized classical domain |
-| resolved selector | generalized spectral projector |
-| coupling | off-diagonal covariance block, canonical correlation, and frame-alignment data |
-| recoverability | Gaussian conditioning / least squares where those assumptions apply |
-| blind recursion | Schur complement |
-| second-order lift | second fundamental form and Gauss–Codazzi–Ricci structure |
-| globalization | connection, groupoid, Čech descent, monodromy, and character data |
-| singular sectors | stratified orbit spaces, Weyl chambers, PSD cones, and slice models |
-
-Accordingly, RG claims neither a new primitive nor a new branch of mathematics. Its defensible contribution is a **new protocol-explicit assembly and characterization for partial observability**, together with theorem/battery separation, gauge-aware automation, and explicit failure conditions.
-
-The older claim that the residual must be described as a uniquely nonzero “descent class” should be read as supporting synthesis language, not as the axiomatic foundation. The current foundation is the modular characterization theorem in **`RG - Axioms.pdf`**.
+| Placement | `RG - GR Placement Bridge.pdf` |
+| Fisher layer | `RG - GR Placement Bridge - F-layer.pdf` |
+| Gauge-aware geometry | `RG - GR Placement Bridge - Gauge-Aware Fisher Geometry.pdf` |
+| Gauge-aware observation | `RG - GR Placement Bridge - Gauge-Aware Wobs.pdf` |
+| Real data | `RG - GR Placement Bridge - Gauge-Aware Wobs H1-L1.pdf`; `RG - GR Placement Bridge - Gauge-Aware Wobs ECG.pdf` |
+| Physical direction | `RG - GR Placement Bridge - Physics Direction.pdf` |
+| Automation | `RG - GR Placement Bridge - Automation.pdf` |
+| Signature | `RG - GR Signature Emergence.pdf` |
+| Blind scalar sector | `Automation of General Relativity - Blind Scalar Sector.pdf` |
+| Fisher holes | `Automation of General Relativity - Fisher Holes.pdf` |
+| Source-side action | `Automation of General Relativity - Source-Side Action.pdf` |
 
 ---
 
-## Real-data and application anchors
+## Real-data anchors
 
-The framework has been exercised beyond synthetic examples. These studies test different layers and should not be conflated with proof of universality.
+These studies test individual layers. They are not proofs of universality.
 
-- **OMNI space-weather data:** predictive resolved–null coupling, lag dependence, and condition-dependent frame rotation; no claimed nonzero net topological winding.
-- **USGS seismic catalogue:** coupling signal but an honest negative for smooth-loop holonomy under the tested protocol.
-- **IGRF geomagnetic models:** resolution-hole diagnostics recover the expected growth of instability toward poorly resolved harmonic degrees.
-- **H1–L1 gravitational-wave data:** gauge-aware observable-sector and degeneracy placement demonstrations.
-- **ECG data:** gauge-aware $W_{\mathrm{obs}}$ construction in a distinct signal domain.
-- **Optical measurement systems:** admissible observable-sector analysis in `RG - Admissible Observable Sectors in Optical Measurement Systems.pdf`.
-
-These are demonstrations of observational geometry and automation. They do not establish new domain physics or prove that one fixed protocol is universal across instruments.
+- **OMNI space weather:** predictive resolved–null coupling, lag dependence, condition-dependent frame rotation; no nonzero net winding claimed.
+- **USGS seismic catalogue:** coupling signal; honest negative for smooth-loop holonomy under the tested protocol.
+- **IGRF geomagnetic models:** resolution-hole diagnostics recover the expected instability toward poorly resolved harmonic degrees.
+- **H1–L1 gravitational-wave data:** gauge-aware observable-sector and degeneracy placement.
+- **ECG data:** gauge-aware sector construction in a distinct signal domain.
+- **Optical measurement systems:** admissible observable sectors; see `RG - Admissible Observable Sectors in Optical Measurement Systems.pdf`.
 
 ---
 
-## Selected supporting corpus
+## Novelty calibration
 
-### Structure, necessity, and falsification
+Every RG component reduces to established mathematics:
 
-- `RG - Necessity.pdf` (+ ZIP)
-- `RG - OMNI Necessity.pdf` (+ `RG - OMNI battery.zip`)
-- `RG - Seismic Necessity.pdf` (+ ZIP)
-- `RG - Hole Rejection.pdf` (+ ZIP)
-- `RG - Undermine Attacks.pdf` / `RG - Undermine Attacks Improved.pdf` (+ ZIP)
-- `RG - Final Chaotic Test.pdf`
-- `RG - Elimination - Lock Conclusion.pdf` (+ ZIP)
-- `RG - Saturation.pdf`
-- `RG - Stratified Null.pdf`
-- `RG - Blind Sector.pdf`
-- `RG - Canonical Connection.pdf`
-- `RG - Functorial Resolution Geometry.pdf` (+ ZIP)
-- `RG - Fundamental Theorem.pdf`
+- equality-of-law quotients and kernel groupoids;
+- Fisher–Rao geometry and Čencov uniqueness;
+- spectral projectors and Schur complements;
+- canonical correlations and PSD cones;
+- Blackwell and Le Cam comparison;
+- stratified orbit spaces of proper groupoids;
+- Cauchy–Hölder ratio scales and Schur's lemma;
+- Beckman–Quarles rigidity;
+- Malament–Hawking conformal reconstruction;
+- the SI definitions.
 
-### Applications and reductions
+RG claims no new primitive and no new branch of mathematics. Its contribution is threefold:
 
-- `RG - CHI Reduction.pdf` (+ ZIP)
-- `RG - Admissible Observable Sectors in Optical Measurement Systems.pdf` (+ ZIP)
-- `RG - Physics Path Draft.pdf`
-- `RG - Origins.pdf`
-- `RG - Manifest.pdf`
+- a protocol-explicit, dependency-typed assembly of these components into one geometry of partial observability;
+- the kernel–stabilizer mechanism, which makes the modules share one symmetry group;
+- explicit failure conditions for every step, backed by hostile batteries.
 
-### Detailed CTMT-era results still used as support
-
-- `Complete Invariants of CTMT Covariance Resolution Geometry.pdf`
-- `Coupling-Aware Estimation in CTMT.pdf`
-- `Independent-Protocol Recovery of Resolved–Null Coupling.pdf`
-- `Čencov–Inversion Compatibility for CTMT Transport.pdf`
-- `The CTMT Compatibility Lock and Holonomy Obstruction.pdf`
-- `The CTMT Resolved–Null Covariance Coupling.pdf`
-- `The CTMT Dynamics Skeleton.pdf`
-- `The CTMT Dynamics II.pdf`
-- `The CTMT Transport-Class Rigidity .pdf` (+ ZIP)
-- `The CTMT Trajectory-Gated Persistence.pdf` (+ ZIP)
-- `Trajectory-Resolved CTMT Batteries.pdf` (+ ZIP)
+See `RG - Elimination.pdf` and `RG - Elimination - Lock Conclusion.pdf`.
 
 ---
 
 ## Scope and non-claims
 
-1. **No geometry of latent reality.** RG describes distinctions supported by a declared experiment; it does not prove that latent reality is exhausted by observational equivalence classes.
-2. **No protocol-free uniqueness.** The quotient is universal, but $G$, $\tau$, nuisance equivalence, stability rules, and physical semantics require declaration or an additional characterization theorem.
-3. **No unrestricted Fisher claim.** Fisher–Rao is selected within the regular finite classical module and up to normalization. Singular, quantum, infinite-dimensional, non-dominated, and strongly nonregular experiments need separate treatment.
-4. **No Fisher = spacetime metric claim.** The Fisher geometry is the geometry of local distinguishability. GR placement preserves that distinction.
-5. **No universal information–physics identity.** The entropy decomposition is Shannon’s chain rule on the observational quotient. Energy, temperature, equilibrium, and $k_B$ are not selected by quotient logic.
-6. **No automatic full GR solver.** Current automation is sector- and assumption-bounded. It does not derive arbitrary field equations, sources, gauges, or boundary conditions from raw data.
-7. **No physical interpretation of coupling by default.** Resolved–null correlation may arise from dynamics, preparation, nuisance structure, or instrumentation. Physical attribution requires an independent intervention or model test.
-8. **No theorem from batteries alone.** Numerical attacks test implementations and stronger conjectures; theorem status comes from stated hypotheses and proofs.
+1. **No geometry of latent reality.** RG describes distinctions supported by declared protocols. Latent representatives exist; observation does not select them.
+2. **No protocol-free uniqueness.** The quotient is universal. The admissibility protocol, relabeling group and nuisance conventions are declared.
+3. **No unrestricted Fisher claim.** Fisher–Rao is selected in the regular finite classical domain, up to normalization. Singular, infinite-dimensional, non-dominated and quantum experiments need separate modules.
+4. **No Fisher = spacetime identity.** On a certified static slice the Fisher metric is *proportional* to the physical spatial metric, with an experiment-dependent constant. This is an identification theorem under named hypotheses, not an identity.
+5. **No internal unit.** Statistics, flatness and thermodynamic length supply no metre. The unit is the SI anchor entering through a counted channel.
+6. **No automatic Lorentzian structure.** A cone is Lorentzian only under the quadratic gate or sufficient isotropy in $\Gamma$.
+7. **No field equations.** No Einstein equation, matter dynamics or quantum measurement law is derived.
+8. **No physical coupling by default.** Resolved–null correlation may come from dynamics, preparation, nuisance or instrumentation. Attribution requires intervention.
+9. **No theorem from batteries.** Theorem status comes from stated hypotheses and proofs.
 
 ---
 
-# Open Issues After the Fibrewise Characterization Theorem
+## Problem status
 
-## Closed Issues
+### Closed
 
-### Observable domain ambiguity
+| Problem | Resolution | Rungs |
+|---|---|---|
+| Observable domain | equality-of-law quotient with universal factorization | L1–L3 |
+| Coupling of protocols | joint kernel is the intersection of protocol kernels | L3 |
+| Source of shared symmetry | exact sequence Gau → Stab → Gamma; faithful action on Q | L6–L7 |
+| Basicness and projectability of law-defined modules | automatic by natural descent | L13–L14 |
+| Exact versus infinitesimal ignorance | kernel groupoid versus radical of Fisher | L17, L25–L26 |
+| Processing and ignorance | garbling enlarges the kernel and contracts Fisher | L4, L23, L29 |
+| Completeness of second-order coordinates | quotient dimension p+q+pq; spectra and canonical correlations insufficient | L20 |
+| Hard resolved projector | unique threshold spectral projector for fixed (F, G, tau) | fibrewise characterization |
+| Final admissible sector | maximal gate-admissible resolved subobject | fibrewise characterization |
+| Regular induced connection | induced from Levi-Civita by the sector projector | L40 |
+| Entropy as connection selector | negative: entropy is invariant under fibre automorphisms | L41 |
+| Quadratic cone | forced by Lorentz isotropy in Gamma (dimension at least 2+1) | L37 |
+| Metric representative | exists iff the scale cocycle is exact | L38–L39 |
+| Operational duration | clock transition groupoid; affine under a stabilizer time flow | L43–L45 |
+| Unit | no internal unit; counted channel plus SI anchor | L47–L48, L53 |
+| Physical distance | identification theorem under named hypotheses | L56 |
+| Cooperation of modules | kernel–stabilizer theorem and compatibility equations | L57 |
 
-**Status:** CLOSED
+### Open
 
-The observable domain is fixed by the equality-of-law quotient
-
-$$
-Q\_{\mathcal E}=
-\Theta/\!\sim\_{\mathcal E}.
-$$
-
-Every experiment-internal construction factors uniquely through the quotient.
-
-Representative dependence is excluded.
-
-**Resolved by:**
-
-- Quotient Representation Theorem
-- Universal factorization property
-- Observable-domain characterization theorem
-
----
-
-### Hard resolved-sector ambiguity
-
-**Status:** CLOSED
-
-For fixed
-
-$$
-(F,G,\tau)
-$$
-
-the unique hard resolved selector is
-
-$$
-P\_\tau=
-\mathbf 1\_{(\tau,\infty)}
-\!\left(G^{-1}F\right).
-$$
-
-The spectral selector is now characterized rather than chosen.
-
-**Resolved by:**
-
-- resolved-projector characterization theorem
-- naturality theorem
-- finite uniqueness battery
+1. **Canonical connection for latent transport** (L58). Construct a canonical connection for transport generated by latent dynamics, from the response Jacobian, covariance and memory kernel. This is the largest remaining source of non-uniqueness.
+2. **Residual characteristic branch** (L59). Classify cones that are neither quadratic, Lorentz–Finsler, multicone nor stratified.
+3. **Extensions** (L60):
+   - non-static slices, where radar and rod distance differ;
+   - quantum kernel–stabilizer assembly;
+   - non-dominated, infinite-dimensional, field-valued and path-space experiments.
+4. **Global stratified atlas.** Continuation, transport and holonomy across rank, threshold and isotropy discriminants; stratified connections.
+5. **Non-generic strata.** Reconstruction at repeated eigenvalues, enlarged stabilizers and rank jumps; complete stabilizer classification.
+6. **Protocol characterization.** Nuisance closure, threshold selection and stability margins are conditionally characterized; selection of the protocol is not derived.
+7. **Observation to physical tensor.** A sector map to an observable stress tensor with uniqueness, conservation, gauge-independence and boundary conditions, keeping *not identifiable* distinct from *identified as zero*.
+8. **Physical versus protocol coupling.** Separation by intervention, independent instrumentation and protocol variation.
+9. **Higher-order geometry.** Observable curvature, normal holonomy, and second-fundamental-form behaviour near discriminants.
+10. **Flat classification.** Explicit enumeration of flat classes by character data.
+11. **Entropy beyond discrete fibres.** Continuous, relative, path-space and non-equilibrium versions.
+12. **Benchmarks.** Preregistered, fixed-gate benchmark suite with held-out and deliberately failing datasets, and cross-instrument replication.
 
 ---
 
-### Final-sector non-arbitrariness
+## Honesty ledger
 
-**Status:** CLOSED
+The surviving framework depends on keeping negative results visible.
 
-The final admissible sector is no longer an arbitrary subset of the resolved sector.
+- **Kolmogorov turbulence from Fisher-rank loss:** retired. The conservation step and exponent closure failed.
+- **Constants or π-factors from flexible kernels:** retired as reparametrization.
+- **Emergent spacetime, gravity from Fisher geometry, nodes of presence, quantum or biological identifications:** not supported; not part of RG.
+- **Circular Omori validation:** retained only as a bounded negative result.
+- **Universal nonzero holonomy:** not established; several real-data tests correctly reject loop structure.
+- **RG distance as physical distance:** refuted (L31–L32). Physical distance requires the identification theorem (L56).
+- **Independent module gates:** superseded. Basicness and projectability of law-defined modules are theorems (L13–L14).
+- **Earlier synthesis papers as foundation:** superseded by `Resolution Geometry.pdf`.
 
-It is characterized as the maximal gate-admissible resolved subobject
-
-$$
-W\_{\mathrm{obs}\mid\mathrm{adm}}=
-\max
-\mathrm{Adm}\_{\Gamma}(R\_\tau).
-$$
-
-Soundness without completeness admitted strict-subspace competitors.
-
-Completeness removes them.
-
-**Resolved by:**
-
-- admissibility completeness axiom
-- maximal-subobject theorem
-- exhaustive uniqueness attack
+Correction records remain in the repository, including `Correction and Maturation of the CTMT Redshift Claim.pdf` (+ ZIP).
 
 ---
 
-### Logical source of RG uniqueness
+## Repository policy
 
-**Status:** CLOSED
+The repository preserves the full development record: foundations, module papers, numerical attacks, corrections, superseded formulations and retired claims. Older files are not deleted or silently rewritten. Their presence makes corrections auditable; it does not make historical statements current claims.
 
-The final theorem now identifies the precise source of uniqueness.
+| Label | Meaning |
+|---|---|
+| `[foundation]` | statement of record: `Resolution Geometry.pdf` |
+| `[module]` | extended proofs and batteries for one ladder layer; governed by the foundation |
+| `[supported]` | constructive bridge, implementation, or real-data demonstration |
+| `[historic]` | superseded presentation retained as development record |
+| `[retired]` | withdrawn claim retained so the correction is visible |
 
-RG uniqueness does **not** come from admissibility alone.
+**Historic syntheses** `[historic]`:
 
-RG uniqueness comes from:
+- `RG - Theorem Ladder.pdf` (the first ladder);
+- `RG - Complete Framework.pdf`, `RG - Synthesis.pdf`, `RG - Fundamental Theorem.pdf`, `RG - Locked Foundation.pdf`, `RG - Atlas.pdf`, `Resolution Geometry of Observation Systems.pdf`;
+- `The CTMT - Testament of 22 years.pdf`.
 
-1. quotient universality;
-2. Fisher characterization module;
-3. spectral characterization;
-4. maximal admissible-sector characterization;
-5. natural transport and gluing.
+**Falsification and necessity studies** `[supported]`:
 
-The uniqueness statement is therefore
+- `RG - Necessity.pdf`, `RG - OMNI Necessity.pdf`, `RG - Seismic Necessity.pdf`;
+- `RG - Hole Rejection.pdf`, `RG - Undermine Attacks.pdf`, `RG - Undermine Attacks Improved.pdf`, `RG - Final Chaotic Test.pdf`;
+- `RG - CHI Reduction.pdf`, `RG - Elemental Characterization.pdf`.
 
-$$
-(\mathcal E,\Gamma)
-\Longrightarrow
-RG(\mathcal E,\Gamma)
-$$
+**CTMT-era results still used as support**:
 
-up to protocol-preserving natural isomorphism.
+- `Independent-Protocol Recovery of Resolved Null Coupling.pdf`;
+- `The CTMT Compatibility Lock and Holonomy Obstruction.pdf`;
+- `The CTMT Resolved Null Covariance Coupling.pdf`;
+- `CTMT Full Elemental Computation.pdf`.
 
-This replaces earlier protocol-free interpretations.
+**Origins and manifest:** `RG - Origins.pdf`, `RG - Manifest.pdf`.
 
----
+### Historic / pre-rigorous / retired (quarantined)
 
-## Active Open Problems
+Preserved for intellectual history; not part of current claims.
 
-### 1. Conditional characterization of admissibility protocols
-
-**Priority:** HIGH
-
-Most protocol components are now conditionally characterized.
-
-**Current status**
-
-- quotient → characterized
-- Fisher module → characterized
-- hard projector → characterized
-- nuisance closure → conditionally characterized
-- information-order ideal → conditionally characterized
-- threshold selection → conditionally characterized
-- stability margin → conditionally characterized
-- final sector → characterized
-- regular tangent connection → conditionally characterized
-- admissible tangent-sector connection → conditionally characterized
-
-The original transport problem has split into two distinct cases.
-
-#### Closed on regular observable strata
-
-For a regular observable stratum $S$ with characterized metric $g$:
-
-$$
-(S,g)
-\Longrightarrow
-\nabla^{\mathrm{LC}}
-$$
-
-via metric compatibility and torsion freedom.
-
-If the maximal admissible sector is a smooth constant-rank orthogonal tangent subbundle
-
-$$
-W_{\mathrm{obs}\mid\mathrm{adm}}
-\subset TS
-$$
-
-with characterized projector $P$, then the induced admissible-sector connection is
-
-$$
-\nabla^{W}=
-P\,\nabla^{\mathrm{LC}}.
-$$
-
-Hence
-
-$$
-(\mathcal E,\Gamma)
-\longrightarrow
-(S,g,P)
-\longrightarrow
-\nabla^{\mathrm{LC}}
-\longrightarrow
-\nabla^{W}.
-$$
-
-No further local transport representative remains.
-
-#### Closed negatively
-
-Entropy cannot select a unique connection.
-
-For every quotient-fibre automorphism preserving the observational quotient,
-
-$$
-H(X),
-\qquad
-H(Q),
-\qquad
-H(X\mid Q)
-$$
-
-remain invariant.
-
-Therefore entropy compatibility can restrict transport classes but cannot choose a representative inside an entropy-preserving stabilizer orbit.
-
-#### Remaining frontier
-
-The principal remaining freedom is no longer:
-
-> Select a unique connection.
-
-The remaining problem is:
-
-> Extend the induced-connection construction beyond regular smooth tangent sectors.
-
-Open subproblems:
-
-- rank-changing discriminants;
-- stratified connections;
-- partial/groupoid-valued transports;
-- non-tangent vector bundles;
-- quantum metric selection before connection induction;
-- physical interpretation of the induced connection.
+- **Chronotopic Theory of Matter and Time:** I, II, III, IV, CHI, Causality, Seepage.
+- **Chronotopic Metric Theory:** original overview, physics and trigonometry papers.
+- **Retired physics attempts:** universal causal energy transport, Newton-G boundary, radiative constants, emergent time and signature interpretations, nodes of presence, early geomagnetic physical claims.
+- **Pre-rigorous notes:** axial geometry, Hessian boundary constants, visible-band null transport, elemental computation, early gauge uniqueness, stationary phase, calculus, minimal falsification attempts.
+- **Assets and utilities:** site files, fonts, images, scripts, JSON outputs, standalone battery archives.
 
 ---
 
-### 2. Beyond regular finite classical experiments
+## Origins
 
-**Priority:** HIGH
-
-The regular finite classical module is now substantially characterized.
-
-The main extension targets are:
-
-- singular models;
-- rank-changing models;
-- infinite-dimensional inverse problems;
-- field-valued observations;
-- non-dominated experiments;
-- path-space experiments;
-- quantum statistical experiments.
-
-Current understanding:
-
-- quotient universality extends broadly;
-- Blackwell/Le Cam comparison extends broadly;
-- Fisher geometry does not extend automatically;
-- connection closure currently requires a regular observable metric stratum;
-- quantum geometry requires an explicit monotone metric module.
-
-The metric and transport modules may need replacement rather than extension.
+RG began as a coherence project: an attempt to force structure on whatever holds physical description together. CTMT was the first forced model. CTMT-Metric was the second, obtained by falsifying CTMT with Fisher geometry. RG is the third: the part that survived.
 
 ---
 
-### 3. Global stratified atlas theorem
+## Citation and license
 
-**Priority:** HIGH
-
-Local transport on regular strata is characterized.
-
-Global stratified geometry remains open.
-
-Needed:
-
-- constructive globalization;
-- atlas existence theorem;
-- atlas uniqueness theorem;
-- transport through rank transitions;
-- admissible holonomy classes;
-- continuation across discriminants;
-- stratified induced-connection theory.
-
-Current status:
-
-$$
-(S,g,P)
-\Longrightarrow
-\nabla^{W}
-$$
-
-is understood on a single regular stratum.
-
-Extension across
-
-$$
-\mathrm{rank}(P)
-\text{ jumps}
-$$
-
-is not.
-
----
-
-### 4. Reconstruction on non-generic strata
-
-**Priority:** MEDIUM
-
-Generic strata are largely understood.
-
-Incomplete cases remain:
-
-- repeated eigenvalues;
-- enlarged stabilizers;
-- rank jumps;
-- non-unique frame alignments;
-- singular canonical-correlation structures.
-
-An important remaining issue is stabilizer classification.
-
-The recent entropy no-go result shows that invariant observables generally determine a connection only up to stabilizer orbit on symmetric strata.
-
-Need a complete invariant classification.
-
----
-
-### 5. Observation → Physical tensor automation
-
-**Priority:** HIGH
-
-Current bridge
-
-$$
-(\mathcal E,\Gamma)
-\longrightarrow
-W_{\mathrm{obs}\mid\mathrm{adm}}
-$$
-
-is characterized.
-
-Current GR-placement papers support restricted physical sectors.
-
-Missing theorem:
-
-$$
-(\mathcal E,\Gamma)
-\longrightarrow
-W_{\mathrm{obs}\mid\mathrm{adm}}
-\longrightarrow
-\text{sector map}
-\longrightarrow
-T^{\mathrm{obs}}_{\mu\nu}
-$$
-
-with:
-
-- uniqueness conditions;
-- conservation conditions;
-- gauge independence;
-- boundary dependence;
-- failure modes.
-
-A key requirement remains:
-
-$$
-\text{not identifiable}
-\neq
-\text{identified as zero}.
-$$
-
----
-
-### 6. Physical coupling vs protocol coupling
-
-**Priority:** HIGH
-
-Observable covariance alone is insufficient.
-
-Need:
-
-- interventions;
-- independent instrumentation;
-- protocol variation;
-- causal perturbation data.
-
-Goal:
-
-> Separate genuine dynamics from protocol-induced correlation.
-
-The induced connection supplies observational transport.
-
-It does not by itself identify physical coupling.
-
----
-
-### 7. Higher-order observable geometry
-
-**Priority:** MEDIUM
-
-Progress:
-
-The first extrinsic datum is now characterized:
-
-$$
-\mathrm{II}=
-(I-P)\nabla^{\mathrm{LC}}.
-$$
-
-Open objects:
-
-- observable curvature;
-- normal holonomy;
-- higher-order nuisance closure;
-- uncertainty bounds for second-order quantities;
-- stratified behavior of $\mathrm{II}$ near discriminants.
-
-The focus is no longer definition, but classification and reconstruction.
-
----
-
-### 8. Benchmark universality framework
-
-**Priority:** MEDIUM
-
-The question is no longer:
-
-> Can RG work on real data?
-
-The question is:
-
-> Can RG fail reproducibly?
-
-Needed:
-
-- preregistered benchmark suite;
-- fixed-gate protocols;
-- held-out datasets;
-- failure datasets;
-- cross-instrument replication;
-- regular-stratum vs discriminant-stratum benchmarks.
-
-Universality should mean:
-
-> transportable axioms and diagnostics,
-
-not
-
-> one universal threshold, metric, connection, or physical interpretation.
-
----
-
-### 9. Quotient entropy beyond discrete deterministic fibres
-
-**Priority:** MEDIUM
-
-Closed results:
-
-$$
-H(X)=
-H(Q)
-+
-H(X\mid Q).
-$$
-
-and
-
-$$
-\text{quotient-fibre automorphisms}
-\Longrightarrow
-\text{entropy invariance}.
-$$
-
-Therefore entropy is now understood as a transport compatibility invariant rather than a connection-selection principle.
-
-Open directions:
-
-- continuous quotients;
-- sigma-algebra formulations;
-- relative-entropy versions;
-- path-space entropy;
-- singular fibres;
-- non-equilibrium measures;
-- entropy behavior across stratified rank transitions.
-
----
-
-## Long-Term Frontier
-
-The strongest remaining foundational question is no longer:
-
-> What is the observable domain?
-
-and no longer:
-
-> Is the final admissible sector arbitrary?
-
-Those are effectively settled inside the current framework.
-
-The deepest remaining structural problem is:
-
-$$
-\text{transport class}
-\Longrightarrow ?
-\Longrightarrow
-\text{canonical connection}.
-$$
-
-This is currently the largest remaining source of non-uniqueness in the characterized RG object.
-
-A close second is the extension of the characterization theorem beyond the regular finite classical category into:
-
-- singular models;
-- infinite-dimensional observation systems;
-- path-space experiments;
-- quantum statistical experiments;
-- stratified rank-changing geometries.
-
-These are now genuine mathematical frontier problems rather than missing foundational definitions.
-
----
-
-## Honesty ledger — retired or bounded claims
-
-The surviving framework depends on preserving negative results.
-
-- **Kolmogorov turbulence from Fisher-rank loss:** retired; the proposed conservation step and exponent closure failed.
-- **Recovery of constants or $\pi$-factors from flexible kernels:** retired as reparametrization rather than confirmation.
-- **Emergent spacetime, gravity from Fisher geometry, nodes of presence, and quantum/biological identifications:** not supported by the observational geometry and not part of RG.
-- **Circular Omori validation:** retained only as a bounded consistency/negative result.
-- **Universal or nonzero natural holonomy:** not established; some real-data tests return rotation with approximately zero net winding, and others correctly reject loop structure.
-- **Complete-Framework primacy:** superseded. `RG - Complete Framework.pdf` remains a useful legacy synthesis, but `RG - Axioms.pdf` is now the foundation.
-
-Correction and retirement records remain in the repository, including `Correction and Maturation of the CTMT Redshift Claim.pdf` (+ ZIP).
-
----
-
-## Historic / pre-rigorous / retired (quarantined)
-
-Preserved for intellectual history; not part of the current theorem claims.
-
-- **Chronotopic Theory of Matter and Time:** `- I`, `- II`, `- III`, `- IV`, `- CHI`, `- Causality`, `- Seepage`.
-- **Chronotopic Metric Theory:** original overview, physics, and trigonometry papers.
-- **Retired physics attempts:** universal causal energy transport, Newton-G boundary, radiative constants, emergent time/signature interpretations, nodes of presence, and early geomagnetic physical claims.
-- **Pre-rigorous notes:** axial geometry, Hessian boundary constants, visible-band null transport, elemental computation, early gauge uniqueness, stationary phase, calculus, and minimal falsification attempts.
-- **Assets and utilities:** site files, fonts, images, scripts, JSON outputs, and standalone battery archives.
-
----
-
-## Status, citation, and license
-
-- **Axiomatic observational core:** characterized in the stated regular finite classical domain.
-- **Hard resolved projector:** characterized relative to $(F,G,\tau)$ away from the discriminant.
-- **Final geometric home:** stratified orbit-space bundle with Fisher/base and angular/conical fibre structure.
-- **GR placement:** explicit and gauge-aware, with bounded automation and real-data demonstrations.
-- **Protocol selection, singular/global extension, and general physical automation:** open.
-
-DOI: [10.5281/zenodo.21297385](https://doi.org/10.5281/zenodo.21297385)  
-Author: **Matěj Rada**  
+DOI: [10.5281/zenodo.21297385](https://doi.org/10.5281/zenodo.21297385)
+Author: **Matěj Rada**
 License: **CC BY-NC-ND 4.0**
 
-Serious questions, counterexamples, and attempts to break the theorems are welcome. A clean failure under the stated hypotheses is a contribution.
+Historic CTMT — DOI: [10.5281/zenodo.18229539](https://doi.org/10.5281/zenodo.18229539) · OSF: [10.17605/OSF.IO/RFE8N](https://osf.io/RFE8N/)
 
-Historic CTMT
-
-DOI: [10.5281/zenodo.18229539](https://doi.org/10.5281/zenodo.18229539)  
-OSF: [10.17605/OSF.IO/RFE8N](https://osf.io/RFE8N/)  
+Counterexamples and attempts to break the theorems are welcome. A clean failure under the stated hypotheses is a contribution.
