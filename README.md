@@ -296,32 +296,39 @@ See `RG - Elimination.pdf` and `RG - Elimination - Lock Conclusion.pdf`.
 | Residual ill-posedness | failure of hyperbolicity forces complex characteristic roots and unbounded high-frequency amplification | L59.8 |
 | Quantum metric family gate | CPTP monotonicity does not select a unique quantum metric; monotonicity is a family gate, not a selector | Q1 |
 | Quantum task-relative metric selection | declared operational tasks select SLD, BKM, WY, etc.; metric selection is protocol-relative | Q2–Q5 |
+| Quantum metric identification | Petz function is identifiable from suitable noncommuting tasks; finite candidate panels are not locks | Q3–Q4 |
 | Quantum wall re-discrimination | wall geometry is reconstructed by re-discrimination with outcomes LOCKED, DIVERGENT, VACUOUS, UNDERDETERMINED or INCONSISTENT | Q5 |
 | No law-natural connection | laws, Fisher geometry, entropy, specialization and metric selection do not determine a connection | T1 |
 | Canonical latent transport under declared covariance | with declared covariance/memory kernel, canonical transport is uniquely determined and coherent across walls | T2–T5 |
 | Observable global atlas closure | transport within strata is the transition groupoid; across walls, maps under kernel inclusion and correspondences otherwise | L16.5, T6 |
 | Metric continuation versus state transport | wall continuation is obtained by specialization and re-discrimination of the observation law, not by transporting metric components | Q5, T6 |
 | Canonical wall object | fibre-product correspondence / specialization relation, not a globally defined wall transport map | T6 |
+| Observable transport characterization | observation determines observable transport iff predictive separation holds; otherwise the wall correspondence is maximal | T6 |
+| Maximal observable transport | if predictive separation fails and no declared observable distinguishes the branches, correspondence-valued transport is the maximal observable object | T6 |
+| Closure dispatcher | every admitted request terminates as LOCKED, ESCALATE, CORRESPONDENCE, VACUOUS, INCONSISTENT, STRUCTURAL WALL or OUTSIDE DOMAIN | CL01 |
+| Composite closure soundness | false closure probability is bounded by the weakest certified gate; silent selection is excluded | CL02–CL03 |
+| Window-indexed walls | finite-resolution walls are reported as STRUCTURAL WALL[t]; exact walls require exact-model certification | CL04 |
+| Maximal closure over a declared domain | no admitted request is required to choose between observationally indistinguishable alternatives | CL05 |
 
 ### Open
 
-1. **Transport from observation alone.** The observable atlas is closed, but determine when a declared observation protocol is sufficient to reduce the wall correspondence to a unique transport law. Without additional transport data, latent transport remains observationally underdetermined.
+1. **Protocol characterization.** Nuisance closure, threshold selection, escalation rules, stability margins, admissibility policies and quantum task declarations are conditionally characterized but are not internally derived from the raw observational situation. This is the principal remaining foundational closure problem.
 2. **Enumeration of tame characteristic types.** Enumerate the tame types of degree-\(d\) characteristic cones in dimension \(1+n\). The residual branch already supplies the correct finite type, but complete enumeration remains an external problem in real algebraic geometry.
 3. **Extensions** (L60):
    - non-static slices where radar and rod distance differ;
    - contextual quantum protocols beyond a fixed metric module;
    - non-dominated, infinite-dimensional, field-valued and path-space experiments.
 4. **Non-generic strata.** Reconstruction at repeated eigenvalues, enlarged stabilizers and rank jumps; complete stabilizer classification and compatibility with specialization.
-5. **Protocol characterization.** Nuisance closure, threshold selection, escalation rules, stability margins and quantum task declarations are conditionally characterized, but not derived internally.
-6. **Observation to physical tensor.** Construct a sector map to an observable stress tensor with uniqueness, conservation, gauge-independence and boundary conditions while preserving the distinction between *not identifiable* and *identified as zero*.
-7. **Physical versus protocol coupling.** Separate physical coupling from coupling introduced by preprocessing, nuisance structure, protocol design or task selection.
-8. **Higher-order geometry.** Observable curvature, normal holonomy and second-fundamental-form behaviour near rank, threshold, isotropy and characteristic discriminants.
-9. **Flat classification.** Explicit enumeration of flat observable classes by character data and specialization behaviour.
-10. **Entropy beyond discrete fibres.** Continuous, relative, path-space and non-equilibrium versions of kernel-count and coherence entropy.
-11. **Nonuniform dynamical transport.** Replace window-typed characteristic certificates by a global object, or prove that no such object exists, for nonuniformly hyperbolic and chaotic systems.
-12. **Wild-class asymptotics.** Determine which resolution invariants beyond count exponent, box dimension and Cantor–Bendixson rank are operationally stable and composable.
-13. **Benchmarks.** Maintain a preregistered fixed-gate benchmark suite with held-out datasets, deliberate failures, escalation canaries and cross-instrument replication.
-14. **Operational transport characterization.** Find necessary and sufficient observational conditions under which the wall correspondence collapses to a unique transport, or prove that correspondence-valued transport is the maximal observable object.
+5. **Observation to physical tensor.** Construct a sector map to an observable stress tensor with uniqueness, conservation, gauge-independence and boundary conditions while preserving the distinction between *not identifiable* and *identified as zero*.
+6. **Physical versus protocol coupling.** Separate physical coupling from coupling introduced by preprocessing, nuisance structure, protocol design or task selection.
+7. **Higher-order geometry.** Observable curvature, normal holonomy and second-fundamental-form behaviour near rank, threshold, isotropy and characteristic discriminants.
+8. **Flat classification.** Explicit enumeration of flat observable classes by character data and specialization behaviour.
+9. **Entropy beyond discrete fibres.** Continuous, relative, path-space and non-equilibrium versions of kernel-count and coherence entropy.
+10. **Nonuniform dynamical transport.** Replace window-typed characteristic certificates by a global object, or prove that no such object exists, for nonuniformly hyperbolic and chaotic systems.
+11. **Wild-class asymptotics.** Determine which resolution invariants beyond count exponent, box dimension and Cantor–Bendixson rank are operationally stable and composable.
+12. **Benchmarks.** Maintain a preregistered fixed-gate benchmark suite with held-out datasets, deliberate failures, escalation canaries and cross-instrument replication.
+13. **Protocol completeness / admissibility theorem.** Determine whether admissibility can be derived from the observational situation itself, rather than supplied as part of the declared protocol contract.
+14. **Domain extensions.** Extend the closure dispatcher and maximal-closure theorem to additional declared domains without weakening the no-false-closure guarantee.
 
 ---
 
