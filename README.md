@@ -402,7 +402,7 @@ RG began as a coherence project: an attempt to force structure on whatever holds
 
 ## Citation and license
 
-DOI: [10.5281/zenodo.21297385](https://doi.org/10.5281/zenodo.21297385)
+DOI: [10.5281/zenodo.23152797](https://doi.org/10.5281/zenodo.23152797)
 Author: **Matěj Rada**
 License: **CC BY-NC-ND 4.0**
 
