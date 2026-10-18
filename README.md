@@ -48,7 +48,7 @@ $$
 A **natural module** is a pullback $M = F^{*}\mu$ of a relabeling-invariant structure on law space. Examples are observable invariants, clock readings, record counts, the Fisher tensor and law-defined cones. On a regular stratum every natural module descends and is $\Gamma$-invariant:
 
 $$
-M = \pi^{*} \bar M, \qquad \gamma^{*} \bar M = \bar M \quad \text{for all } \gamma \in \Gamma .
+M = \pi^{\ast} \bar M, \qquad \gamma^{\ast} \bar M = \bar M \quad \text{for all } \gamma \in \Gamma .
 $$
 
 Representative independence, basicness and projectability of law-defined modules are therefore theorems, not hypotheses. What remains is either declared or empirical:
@@ -178,7 +178,7 @@ Under memory loss, a remembered distance calibration degrades like $\sqrt T$ (me
 **Uncertainty is not a primitive (L47–L56).** Two priors merge on the quotient as $1/n$ and stay apart along the kernel (0.312 at every sample size). On a declared class of bounded variation, mixing locks with a sharp constant:
 
 $$
-\mathrm{TV}(T^n_\#\mu_f, T^n_\#\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
+\mathrm{TV}(T^n_{\#}\mu_f, T^n_{\#}\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
 $$
 
 attained exactly at every $n$. Over a finite list of declarations nothing is certified. See `RG - Uncertainty Geometry.pdf` and `RG - Uncertainty Geometry - Forgetting Ladder.pdf`.
