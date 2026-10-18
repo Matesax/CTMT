@@ -89,7 +89,7 @@ $$
 $$
 \text{forecast frontier:}\quad n^\ast(\sigma_0) = \frac{\log(\varepsilon/\sigma_0)}{\lambda} + c_P
 \qquad\qquad
-\text{non-circularity:}\quad \sup_{\mu,\nu \in \mathcal A} d\big(\Phi_{t\#}\mu,\Phi_{t\#}\nu\big) \le \tau
+\text{non-circularity:}\quad \sup_{\mu,\nu \in \mathcal A} d\big(\Phi_{t\sharp}\mu,\Phi_{t\sharp}\nu\big) \le \tau
 $$
 
 $$
@@ -178,7 +178,7 @@ Under memory loss, a remembered distance calibration degrades like $\sqrt T$ (me
 **Uncertainty is not a primitive (L47–L56).** Two priors merge on the quotient as $1/n$ and stay apart along the kernel (0.312 at every sample size). On a declared class of bounded variation, mixing locks with a sharp constant:
 
 $$
-\mathrm{TV}(T^n_{\#}\mu_f, T^n_{\#}\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
+\mathrm{TV}(T^n_\sharp\mu_f, T^n_\sharp\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
 $$
 
 attained exactly at every $n$. Over a finite list of declarations nothing is certified. See `RG - Uncertainty Geometry.pdf` and `RG - Uncertainty Geometry - Forgetting Ladder.pdf`.
