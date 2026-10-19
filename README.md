@@ -15,7 +15,7 @@ Every further structure is added in a fixed order. Each addition is either force
 - duration and dynamics;
 - calibrated physical distance.
 
-The statement of record is **`Resolution Geometry.pdf`**, the print edition of October 2026 (31 pages). It is a ladder of **116 rungs, L0–L115**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **two** remaining open problems.
+The statement of record is **`Resolution Geometry.pdf`**, the print edition of October 2026 (33 pages). It is a ladder of **118 rungs, L0–L117**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **two** remaining open problems.
 
 ---
 
@@ -72,11 +72,11 @@ RG is used as a short sequence of operations. Each operation has a precise crite
 | 3 | **Combine** protocols | $\mathcal K_{(F_i)} = \bigcap_i \mathcal K_{F_i}$; under model uncertainty, take the equivalence closure of the union | L3, L14 |
 | 4 | **Select** panels | the complete antichain of inclusion-minimal sufficient panels; ties retained | L12 |
 | 5 | **Descend** natural modules | basic and $\Gamma$-invariant automatically; Fisher radical $= \ker DF$ | L19–L20, L28 |
-| 6 | **Reduce** nuisance | efficient metric by Schur complement | L33 |
+| 6 | **Reduce** nuisance | efficient metric by Schur complement | L34 |
 | 7 | **Stratify and specialize** at walls | specialization map iff $\mathcal K_\varepsilon \subseteq \mathcal K_0$; correspondence otherwise | L21–L27 |
-| 8 | **Certify** in declared precision units | rank (double escalation), Hellinger, forgetting (operator bound over a class), frontier | L46, L36, L55, L88 |
-| 9 | **Anchor** | a counted channel removes the dilation fibre; SI radar anchor; held-out validation | L92–L107 |
-| 10 | **Dispatch** | exactly one status: LOCKED, ESCALATE, CORRESPONDENCE, VACUOUS, INCONSISTENT, STRUCTURAL WALL[ε] or OUTSIDE DOMAIN | L110–L113 |
+| 8 | **Certify** in declared precision units | rank (double escalation), Hellinger, forgetting (operator bound over a class), frontier | L47, L37, L57, L90 |
+| 9 | **Anchor** | a counted channel removes the dilation fibre; SI radar anchor; held-out validation | L94–L109 |
+| 10 | **Dispatch** | exactly one status: LOCKED, ESCALATE, CORRESPONDENCE, VACUOUS, INCONSISTENT, STRUCTURAL WALL[ε] or OUTSIDE DOMAIN | L112–L115 |
 
 Five formulas carry most of the weight:
 
@@ -108,18 +108,18 @@ A result is **LOCKED** only when every gate of the requested module is certified
 | Symmetry | L6–L11 | exact sequence with faithful $\Gamma$; non-splitting; count rigidity; orbit–quotient comparison; saturation hierarchy; coherent completeness |
 | Observable sector | L12–L17 | complete minimal-panel selector; no task-free isotropic selector; more protocols intersect, more models close; common model-blind decoder; a coupled law refines its marginals; confidence-set bridge; tolerance is not a groupoid |
 | Differential and strata | L18–L27 | tangent sequence; natural descent; slices and tangent cones; kernel upper semicontinuity; specialization iff kernel inclusion; symmetry descent through the normalizer; stratified quotient category |
-| Second order and quantum | L28–L42 | Fisher is natural; covariance is not determined by Fisher; quotient dimension $p+q+pq$; efficient metric; data processing; Hellinger specialization; Petz family gate; task lock (SLD, BKM, WY); nonparametric Petz identification; quantum walls; trace rule; contextual protocols (Fine) |
-| Ignorance | L43–L46 | persistent null; sensor, precision and representation nulls; finite-sample reconstruction; rank walls are never certified from finite data |
-| Uncertainty and forgetting | L47–L56 | uncertainty splits along the quotient; de Finetti; LAN and branch selection; TV rigidity; no uniform forgetting without a class; sharp BV mixing lock; Navier–Stokes contraction gate; Dobrushin blocks; samples refute and operators lock; non-circularity certificate; non-dominated and infinite-dimensional strata |
-| Statistical distance | L57–L61 | RG distance is representative-free, chart-free and dimensionless; monotone under garbling; no angle in rank one; finite divergences are not rulers; experiment-relative |
-| Order, cone and residual | L62–L71 | reachability; projective typing; realization branches; conformal ray; Lorentz forcing; tame reduction; no finite linear classification; duality; hyperbolic lock; wild class |
-| Scale and transport | L72–L78 | scale cocycle; strict transport; induced connection; entropy selects no connection; no law-natural connection; canonical connection under declared covariance |
-| Duration and dynamics | L79–L87 | clock transition groupoid; affine clocks; path independence; coherence duration; noiseless finite histories; kernel-count entropy; Ruelle and Pesin locks; typed dynamical certificates; cone-field criterion |
-| Chaos frontier | L88–L91 | frontier slope $1/\lambda$; duality $2\lambda$; quotient growth $h$; information cost of $\lambda/\ln 2$ bits per certified step; clock distortion classes |
-| Physical distance | L92–L107 | no internal unit; counted channels; count loss; ratio scale; two-point invariant; metric proportionality; anchor budget; unit-distance rigidity; radar and rod distance; stationary slices and Sagnac holonomy; non-stationary no-go; media; ergodic transfer; identification theorem |
-| Assembly | L108 | kernel–stabilizer theorem and compatibility equations |
-| Global transport and closure | L109–L113 | global transport; dispatcher totality; composite soundness; window-indexed walls; maximal closure |
-| Open | L114–L115 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence |
+| Second order and quantum | L28–L43 | Fisher is natural; descent does not select, Fisher selected under H-mono (Čencov); covariance is not determined by Fisher; quotient dimension $p+q+pq$; efficient metric; data processing; Hellinger specialization; Petz family gate; task lock (SLD, BKM, WY); nonparametric Petz identification; quantum walls; trace rule; contextual protocols (Fine) |
+| Ignorance | L44–L48 | persistent null; sensor, precision and representation nulls; finite-sample reconstruction; rank walls are never certified from finite data; exact law equality is not uniformly certifiable from finite samples |
+| Uncertainty and forgetting | L49–L58 | uncertainty splits along the quotient; de Finetti; LAN and branch selection; TV rigidity; no uniform forgetting without a class; sharp BV mixing lock; Navier–Stokes contraction gate; Dobrushin blocks; samples refute and operators lock; non-circularity certificate; non-dominated and infinite-dimensional strata |
+| Statistical distance | L59–L63 | RG distance is representative-free, chart-free and dimensionless; monotone under garbling; no angle in rank one; finite divergences are not rulers; experiment-relative |
+| Order, cone and residual | L64–L73 | reachability; projective typing; realization branches; conformal ray; Lorentz forcing; tame reduction; no finite linear classification; duality; hyperbolic lock; wild class |
+| Scale and transport | L74–L80 | scale cocycle; strict transport; induced connection; entropy selects no connection; no law-natural connection; canonical connection under declared covariance |
+| Duration and dynamics | L81–L89 | clock transition groupoid; affine clocks; path independence; coherence duration; noiseless finite histories; kernel-count entropy; Ruelle and Pesin locks; typed dynamical certificates; cone-field criterion |
+| Chaos frontier | L90–L93 | frontier slope $1/\lambda$; duality $2\lambda$; quotient growth $h$; information cost of $\lambda/\ln 2$ bits per certified step; clock distortion classes |
+| Physical distance | L94–L109 | no internal unit; counted channels; count loss; ratio scale; two-point invariant; metric proportionality; anchor budget; unit-distance rigidity; radar and rod distance; stationary slices and Sagnac holonomy; non-stationary no-go; media; ergodic transfer; identification theorem |
+| Assembly | L110 | kernel–stabilizer theorem and compatibility equations |
+| Global transport and closure | L111–L115 | global transport; dispatcher totality; composite soundness; window-indexed walls; maximal closure |
+| Open | L116–L117 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence |
 
 Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis-conditioned (the hypothesis is named), **Γ** conditional on the effective symmetry group, **N** no-go, or **O** open.
 
@@ -130,6 +130,7 @@ Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis
 - walls: `H-unif`, `H-hell`;
 - task and latent data: `H-task`, `H-cov`;
 - probability and uncertainty: `H-stat`, `H-exch`, `H-adm`;
+- selection principle: `H-mono` (metrics may not increase under Markov morphisms; selects Fisher by Čencov);
 - symmetry: `H-Γ`.
 
 Each is stated in the paper together with the test that falsifies it.
@@ -140,7 +141,7 @@ Each is stated in the paper together with the test that falsifies it.
 
 These are worked results from the module batteries. Each is reproducible from its ZIP with fixed seeds and mutation canaries.
 
-**Chaos is not hidden (L88–L91).** The boundary between LOCKED and ESCALATE forecasts is a straight line of slope $1/\lambda$ in the log of the declared precision. A protocol moves only its intercept. Recovered across five seeds:
+**Chaos is not hidden (L90–L93).** The boundary between LOCKED and ESCALATE forecasts is a straight line of slope $1/\lambda$ in the log of the declared precision. A protocol moves only its intercept. Recovered across five seeds:
 
 | System | true λ | λ recovered from RG's own frontier |
 |---|---|---|
@@ -157,7 +158,7 @@ Other measured quantities:
 
 See `RG - Chaos Is Not Hidden.pdf` and `RG - Chaos Frontier Status Map.png`.
 
-**The wall–tap experiment (origin, L0–L113 on one system).** The experiment is declared as five cumulative acoustic protocols.
+**The wall–tap experiment (origin, L0–L115 on one system).** The experiment is declared as five cumulative acoustic protocols.
 - **Saturation:** unresolved directions fall 5, 4, 3, 2, 2 by kernel intersection, and close only with length and gain anchors.
 - **Hidden fold:** the rhythm channel hides an exact $\mathbb Z_2$ fold, $b \leftrightarrow 2d(x)-b$, on 56% of the domain. It is a wall inside the regular stratum, removed only by a new signed channel.
 - **Matched wall:** specialization holds under Hellinger continuity, with Fisher rank 3 → 1 and Cramér–Rao bound $O(\varepsilon^{-2})$.
@@ -166,24 +167,24 @@ See `RG - Chaos Is Not Hidden.pdf` and `RG - Chaos Frontier Status Map.png`.
 
 See `RG - Wall-Tap Experiment.pdf`.
 
-**Distance versus angle (L91).** Perceived time can be distorted in three ways, and each preserves a different amount:
+**Distance versus angle (L93).** Perceived time can be distorted in three ways, and each preserves a different amount:
 - **offset:** preserves differences;
 - **rate:** preserves ratios and angles, not distances;
 - **warp** (total rupture): preserves only order and counts.
 
 Under memory loss, a remembered distance calibration degrades like $\sqrt T$ (measured exponent 0.494–0.510), while angles from delays measured together stay exact. See `RG - From the Wall to the Kernel.pdf`.
 
-**Quantum task changes holonomy (L37–L42).** On the same qubit slice the SLD metric (estimation) has curvature +1, while the BKM metric (Stein testing) is negatively curved. Metric selection is task-relative, and so is observable transport. No noncontextual hidden values exist: 0 of 512 assignments satisfy the Peres–Mermin square, and Fine's criterion agrees with linear programming on 60/60 random boxes.
+**Quantum task changes holonomy (L38–L43).** On the same qubit slice the SLD metric (estimation) has curvature +1, while the BKM metric (Stein testing) is negatively curved. Metric selection is task-relative, and so is observable transport. No noncontextual hidden values exist: 0 of 512 assignments satisfy the Peres–Mermin square, and Fine's criterion agrees with linear programming on 60/60 random boxes.
 
-**Uncertainty is not a primitive (L47–L56).** Two priors merge on the quotient as $1/n$ and stay apart along the kernel (0.312 at every sample size). On a declared class of bounded variation, mixing locks with a sharp constant:
+**Uncertainty is not a primitive (L49–L58).** Two priors merge on the quotient as $1/n$ and stay apart along the kernel (0.312 at every sample size). On a declared class of bounded variation, mixing locks with a sharp constant:
 
 $$
-\mathrm{TV}(T^n_\sharp\mu_f, T^n_\sharp\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
+\mathrm{TV}(T^n_\#\mu_f, T^n_\#\mu_g) \le 2^{-(n+2)}\,\mathrm{Var}(f-g),
 $$
 
 attained exactly at every $n$. Over a finite list of declarations nothing is certified. See `RG - Uncertainty Geometry.pdf` and `RG - Uncertainty Geometry - Forgetting Ladder.pdf`.
 
-**Latent transport is declared (L77–L78).** Vertical shears preserve the law and map any connection to any other. Under a declared covariance, the Kalman/RTS connection is canonical. Its latent holonomy around a closed observed loop scales as the loop's area, and it depends on the declared covariance.
+**Latent transport is declared (L79–L80).** Vertical shears preserve the law and map any connection to any other. Under a declared covariance, the Kalman/RTS connection is canonical. Its latent holonomy around a closed observed loop scales as the loop's area, and it depends on the declared covariance.
 
 ---
 
@@ -214,7 +215,7 @@ Exactness is cheap at the exact layer. It is expensive in exactly three places, 
 4. **Module papers**, listed below, each with a same-stem ZIP containing its hostile battery.
 5. **Historic syntheses**: development record only.
 
-**Statement-of-record rule.** Where a module paper and `Resolution Geometry.pdf` differ in scope, hypotheses or status, the ladder governs. **Citing:** cite the rung (for example "RG, L88"), not the module paper.
+**Statement-of-record rule.** Where a module paper and `Resolution Geometry.pdf` differ in scope, hypotheses or status, the ladder governs. **Citing:** cite the rung (for example "RG, L90"), not the module paper.
 
 **Notation.** In the ladder, $\Gamma$ is the effective symmetry group $\mathrm{Stab}/\mathrm{Gau}$. The early characterization papers use $\Gamma$ for the admissibility protocol, which this README writes $\Pi$.
 
@@ -227,25 +228,25 @@ Every battery registers naive and sharpened claims, uses fixed seeds, fails on n
 | Stratum | Rungs | Papers (same-stem ZIP = battery) |
 |---|---|---|
 | Foundation | all | `Resolution Geometry.pdf`; `RG - Final Locks.zip` |
-| Groupoid and assembly | L0–L11, L108 | `RG - The Groupoid of Resolution.pdf`; `RG - Assembly at the Kernel.pdf`; `Assembly of Resolution Geometry.pdf`; `RG - Functorial Resolution Geometry.pdf`; `RG - Saturation.pdf`; `RG - Kernel pair root and limits.pdf`; `RG - Quotients.pdf`; `RG - Observation Laws.pdf` |
+| Groupoid and assembly | L0–L11, L110 | `RG - The Groupoid of Resolution.pdf`; `RG - Assembly at the Kernel.pdf`; `Assembly of Resolution Geometry.pdf`; `RG - Functorial Resolution Geometry.pdf`; `RG - Saturation.pdf`; `RG - Kernel pair root and limits.pdf`; `RG - Quotients.pdf`; `RG - Observation Laws.pdf` |
 | Observable sector | L12–L17 | `RG - Observable Sector.pdf`; `RG - Source Automation.pdf` |
 | Differential, strata, walls | L18–L27 | `RG - Stratified Specialization.pdf`; `RG - Made Visible.pdf`; `RG - Atlas Globalization.pdf`; `RG - Gluing Test.pdf` |
-| Second order and quantum | L28–L42 | `RG - Quantum Metric Selection.pdf`; `RG - Fibrewise Characterization.pdf`; `RG - Fibrewise Characterization - QM.pdf`; `RG - Axioms.pdf`; `RG - Covariance Geometry.pdf`; `RG - Reconstruction Identifiability.pdf`; `RG - Blind Sector.pdf` |
-| Ignorance | L43–L46 | `RG - Ignorance.pdf`; `RG - Observation Limit.pdf`; `RG - Null Resolution Depth.pdf`; `RG - Entropy.pdf` |
-| Uncertainty and forgetting | L47–L56 | `RG - Uncertainty Geometry.pdf`; `RG - Uncertainty Geometry - Forgetting Ladder.pdf` |
-| Statistical distance | L57–L61 | `RG - Distance and Angles.pdf` |
-| Order, cone, residual | L62–L71 | `RG - Residual Characteristic Geometry.pdf`; `RG - Cone.pdf`; `RG - Cone - Closure.pdf`; `RG - GR Signature Emergence.pdf` |
-| Scale and transport | L72–L78 | `RG - Canonical Transport.pdf`; `RG - Atlas Globalization.pdf` |
-| Duration, dynamics, chaos | L79–L91 | `RG - Chaos Is Not Hidden.pdf`; `RG - Chaotic Experiments.pdf`; `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
-| Physical distance | L92–L107 | `RG - Physical Distance.pdf` (battery: `RG_Physical_Distance_Attack_Bundle.zip`); `RG - Wall-Tap Delay.pdf` |
-| Global transport and closure | L109–L113 | `RG - Maximal Closure.pdf`; `RG - Canonical Transport.pdf` |
+| Second order and quantum | L28–L43 | `RG - Quantum Metric Selection.pdf`; `RG - Fibrewise Characterization.pdf`; `RG - Fibrewise Characterization - QM.pdf`; `RG - Axioms.pdf`; `RG - Covariance Geometry.pdf`; `RG - Reconstruction Identifiability.pdf`; `RG - Blind Sector.pdf` |
+| Ignorance | L44–L47 | `RG - Ignorance.pdf`; `RG - Observation Limit.pdf`; `RG - Null Resolution Depth.pdf`; `RG - Entropy.pdf` |
+| Uncertainty and forgetting | L49–L58 | `RG - Uncertainty Geometry.pdf`; `RG - Uncertainty Geometry - Forgetting Ladder.pdf` |
+| Statistical distance | L59–L63 | `RG - Distance and Angles.pdf` |
+| Order, cone, residual | L64–L73 | `RG - Residual Characteristic Geometry.pdf`; `RG - Cone.pdf`; `RG - Cone - Closure.pdf`; `RG - GR Signature Emergence.pdf` |
+| Scale and transport | L74–L80 | `RG - Canonical Transport.pdf`; `RG - Atlas Globalization.pdf` |
+| Duration, dynamics, chaos | L81–L93 | `RG - Chaos Is Not Hidden.pdf`; `RG - Chaotic Experiments.pdf`; `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
+| Physical distance | L94–L109 | `RG - Physical Distance.pdf` (battery: `RG_Physical_Distance_Attack_Bundle.zip`); `RG - Wall-Tap Delay.pdf` |
+| Global transport and closure | L111–L115 | `RG - Maximal Closure.pdf`; `RG - Canonical Transport.pdf` |
 | Origin experiment | all | `RG - Wall-Tap Experiment.pdf`; `RG - From the Wall to the Kernel.pdf` |
 
 ---
 
 ## Physics interface
 
-**Physical distance (L92–L107).** RG distance is dimensionless and experiment-relative, and no function of it alone is a physical distance. Suppose the following hold on a regular static slice:
+**Physical distance (L94–L109).** RG distance is dimensionless and experiment-relative, and no function of it alone is a physical distance. Suppose the following hold on a regular static slice:
 - Euclidean motions are in $\Gamma$, with irreducible isotropy;
 - a counted two-way timing channel with exact SI constants is part of the joint law;
 - the medium is resolved;
@@ -259,9 +260,9 @@ $$
 
 Stationary slices carry the Landau–Lifshitz radar metric, and loop synchronization there has Sagnac holonomy. Non-stationary slices carry no time-independent radar metric (no-go). The unit enters only through the counted channel.
 
-**Duration (L79–L82).** Clock readouts with equal kernels form one transition groupoid. A stabilizer time flow makes the transitions affine. Path independence holds iff the kernel of the increment is contained in the kernel of the clock.
+**Duration (L81–L84).** Clock readouts with equal kernels form one transition groupoid. A stabilizer time flow makes the transitions affine. Path independence holds iff the kernel of the increment is contained in the kernel of the clock.
 
-**Cone (L62–L71).** A regular quadratic cone gives a conformal ray. Lorentz isotropy in $\Gamma$ (dimension at least 2+1) forces the light cone. Otherwise the characteristic set falls into one of three classes:
+**Cone (L64–L73).** A regular quadratic cone gives a conformal ray. Lorentz isotropy in $\Gamma$ (dimension at least 2+1) forces the light cone. Otherwise the characteristic set falls into one of three classes:
 - **tame-typed**, with finite stratified data;
 - **hyperbolically locked**, which is what well-posed propagation forces;
 - **wild**, with window certificates only.
@@ -283,41 +284,43 @@ Stationary slices carry the Landau–Lifshitz radar metric, and loop synchroniza
 | Robust observability | protocols intersect, models close their union; common decoder via cross-model collisions | L14 |
 | Coupled versus marginal detector laws | coupled law refines marginals; pairing is not coupling | L15 |
 | Set-valued inference | confidence-set bridge; point answers need a certified radius | L16 |
-| Basicness and projectability | automatic by natural descent | L19–L20 |
+| Basicness and projectability | automatic by natural descent of a fixed law-space structure | L19–L20 |
+| Metric selection | descent does not select; Fisher selected under H-mono (Čencov) | L29 |
+| Establishment of exact laws | exact law equality is not uniformly certifiable from finite samples; data enter through confidence correspondences | L48 |
 | Walls | kernel upper semicontinuity; specialization iff kernel inclusion; normalizer descent; stratified category | L21–L27 |
-| Distinguishability across walls | Hellinger (Le Cam) specialization; weak convergence insufficient | L36 |
-| Fisher layer | natural; radical = observational vertical; does not determine covariance; quotient dimension p+q+pq | L28–L31 |
-| Quantum metric | Petz family gate; task lock; nonparametric identification; wall specialization iff f(0) > 0 | L37–L40 |
-| Contextual quantum protocols | trace rule; no noncontextual hidden values; product law over contexts (Fine) | L41–L42 |
-| Finite-data rank walls | never certified; full-rank or upper-bound certificates only | L46 |
-| Primitive of uncertainty | indistinguishability; uncertainty splits along the quotient; kernel prior never forgotten | L47 |
-| Probability, LAN, Monte Carlo | de Finetti; Gaussian propagation = LAN limit (fails across folds); Monte Carlo objective only on FORCED outputs | L48–L49, L55 |
-| Forgetting of declarations | TV rigidity under bijections; no uniform forgetting without a class; sharp BV lock; NS contraction gate; Dobrushin; samples refute, operators lock | L50–L54 |
-| Non-circularity | certificate over a declared admissible class | L55 |
-| Non-dominated, infinite-dimensional, path-space | pairwise domination; Feldman–Hájek / Cameron–Martin geometry | L56 |
-| Residual characteristic branch | tame reduction; no finite linear classification; duality; hyperbolic lock; wild class | L67–L71 |
-| Latent connection | not law-natural; canonical under declared covariance (Kalman/RTS); curvature = latent holonomy; wall coherence | L77–L78 |
-| Operational duration | clock groupoid; affine under time flow; path independence | L79–L81 |
-| Noiseless chaos | stratified-regular finite histories; entropy from kernel counts; Ruelle and Pesin locks; typed certificates | L83–L86 |
-| Nonuniform dynamical transport | global cone field iff uniform hyperbolicity (no-go otherwise); window-typed certificates | L87 |
-| Chaos versus declarations | frontier law; duality; quotient growth; information cost | L88–L90 |
-| Delay, distance, angle | offset, rate and warp classes; angles survive rate change, counts survive warp | L91 |
-| Unit and physical distance | no internal unit; counted channel; anchors; identification theorem | L92–L107 |
-| Non-static slices | stationary: Landau–Lifshitz plus Sagnac; non-stationary: no-go | L102–L104 |
-| Assembly | kernel–stabilizer theorem | L108 |
-| Global transport | observable atlas closed; latent transport canonical under declared data | L109 |
-| Closure | dispatcher totality; composite soundness ≤ Σαg; window-indexed walls; maximal closure | L110–L113 |
+| Distinguishability across walls | Hellinger (Le Cam) specialization; weak convergence insufficient | L37 |
+| Fisher layer | natural; radical = observational vertical; does not determine covariance; quotient dimension p+q+pq | L28–L32 |
+| Quantum metric | Petz family gate; task lock; nonparametric identification; wall specialization iff f(0) > 0 | L38–L41 |
+| Contextual quantum protocols | trace rule; no noncontextual hidden values; product law over contexts (Fine) | L42–L43 |
+| Finite-data rank walls | never certified; full-rank or upper-bound certificates only | L47 |
+| Primitive of uncertainty | indistinguishability; uncertainty splits along the quotient; kernel prior never forgotten | L49 |
+| Probability, LAN, Monte Carlo | de Finetti; Gaussian propagation = LAN limit (fails across folds); Monte Carlo objective only on FORCED outputs | L50–L51, L57 |
+| Forgetting of declarations | TV rigidity under bijections; no uniform forgetting without a class; sharp BV lock; NS contraction gate; Dobrushin; samples refute, operators lock | L52–L56 |
+| Non-circularity | certificate over a declared admissible class | L57 |
+| Non-dominated, infinite-dimensional, path-space | pairwise domination; Feldman–Hájek / Cameron–Martin geometry | L58 |
+| Residual characteristic branch | tame reduction; no finite linear classification; duality; hyperbolic lock; wild class | L69–L73 |
+| Latent connection | not law-natural; canonical under declared covariance (Kalman/RTS); curvature = latent holonomy; wall coherence | L79–L80 |
+| Operational duration | clock groupoid; affine under time flow; path independence | L81–L83 |
+| Noiseless chaos | stratified-regular finite histories; entropy from kernel counts; Ruelle and Pesin locks; typed certificates | L85–L88 |
+| Nonuniform dynamical transport | global cone field iff uniform hyperbolicity (no-go otherwise); window-typed certificates | L89 |
+| Chaos versus declarations | frontier law; duality; quotient growth; information cost | L90–L92 |
+| Delay, distance, angle | offset, rate and warp classes; angles survive rate change, counts survive warp | L93 |
+| Unit and physical distance | no internal unit; counted channel; anchors; identification theorem | L94–L109 |
+| Non-static slices | stationary: Landau–Lifshitz plus Sagnac; non-stationary: no-go | L104–L106 |
+| Assembly | kernel–stabilizer theorem | L110 |
+| Global transport | observable atlas closed; latent transport canonical under declared data | L111 |
+| Closure | dispatcher totality; composite soundness ≤ Σαg; window-indexed walls; maximal closure | L112–L115 |
 
 ### Open problems of the ladder
 
-1. **Tame type enumeration (L114, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
-2. **Forced deterministic turbulence (L115).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
+1. **Tame type enumeration (L116, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
+2. **Forced deterministic turbulence (L117).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
 
 ### Declarations by design (not open problems)
 
-- **Protocol, task and admissible class.** RG does not derive which question an observer must ask. This is a theorem, not a gap: there is no task-free equivariant selector (L13). Given a task, selection is exact (L12). Given a declared class, non-circularity is certified (L55).
-- **Latent data.** A connection, prior or covariance is declared or reported as undetermined (L77–L78).
-- **Anchors.** The unit enters only through counted channels and SI definitions (L92–L100).
+- **Protocol, task and admissible class.** RG does not derive which question an observer must ask. This is a theorem, not a gap: there is no task-free equivariant selector (L13). Given a task, selection is exact (L12). Given a declared class, non-circularity is certified (L57).
+- **Latent data.** A connection, prior or covariance is declared or reported as undetermined (L79–L80).
+- **Anchors.** The unit enters only through counted channels and SI definitions (L94–L102).
 
 ### Research directions beyond the ladder
 
@@ -378,8 +381,16 @@ The surviving framework depends on keeping negative results visible.
 - **Kolmogorov turbulence from Fisher-rank loss:** retired.
 - **Constants or π-factors from flexible kernels:** retired as reparametrization.
 - **Emergent spacetime, gravity from Fisher geometry, nodes of presence, quantum or biological identifications:** not part of RG.
-- **RG distance as physical distance:** refuted. Physical distance needs the identification theorem (L107).
+- **RG distance as physical distance:** refuted. Physical distance needs the identification theorem (L109).
 - **Independent module gates:** superseded by natural descent (L19–L20).
+- **"Natural, hence forced" (first rigidity paper):** withdrawn after an external critique. Descent fixes a structure once its law-space definition is fixed; selection needs a characterization (H-mono for Fisher) or a declaration. Also repaired:
+  - the radical theorem now requires nondegeneracy on the image tangent (indefinite counterexample);
+  - minimal panels need a finite index set;
+  - Γ is the liftable, presentation-relative symmetry;
+  - countermodels show non-omissibility, not necessity;
+  - H-unif is split into a theorem part and a certification part.
+  
+  See `RG - Rigidity.pdf` (Conditional Rigidity).
 - **Resolved–null coupling as the primary law invariant:** cut. It vanishes identically under the whitening (Čencov) metric. It is the relative position of a declared protocol metric, and its efficiency theorem is data processing.
 - **Principal Aut(G)-bundle over a varying operating point:** cut. It exists only on level sets of varying invariants; the law-natural structure group is O(r)×O(q).
 - **Local automorphisms as symmetries:** cut. Jet isotropy need not integrate to a law symmetry.
@@ -390,7 +401,7 @@ The surviving framework depends on keeping negative results visible.
   - Density cancels in the wind example.
   - The condition-number hazard is retained as a rank-wall indicator.
 - **Monte Carlo as the source of uncertainty:** superseded. Monte Carlo is the integration engine for FORCED outputs, not the lock.
-- **Forgetting over finite lists of declarations:** corrected. Locks are suprema over declared classes (L51–L55).
+- **Forgetting over finite lists of declarations:** corrected. Locks are suprema over declared classes (L53–L57).
 - **Earlier wall–tap regular quotient (x, r, b):** corrected to (x, r, |b − d|), because of the Z₂ fold.
 - **Earlier batteries:** several checks could not fail and are replaced by computed, canaried checks.
   - Literal `True` checks; class indices used as features; hand-set dispatcher booleans; vacuous invertible-law inclusion tests.
@@ -414,7 +425,7 @@ The repository preserves the full development record: foundations, module papers
 | `[retired]` | withdrawn claim retained so the correction is visible |
 
 **Historic syntheses** `[historic]`:
-- `RG - Theorem Ladder.pdf`, `RG_-_Theorem_Ladder_Final.pdf` (the earlier ladders, L0–L60 and L0–L92);
+- `RG - Theorem Ladder.pdf`, `RG_-_Theorem_Ladder_Final.pdf` (the earlier ladders, L0–L62 and L0–L94);
 - `RG - Complete Framework.pdf`, `RG - Synthesis.pdf`, `RG - Fundamental Theorem.pdf`, `RG - Locked Foundation.pdf`, `RG - Atlas.pdf`;
 - `Resolution Geometry of Observation Systems.pdf`, `The CTMT - Automorphisms of Resolution.pdf`;
 - `The CTMT - Testament of 22 years.pdf`.
