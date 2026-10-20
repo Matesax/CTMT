@@ -202,6 +202,19 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
   - **Result:** 3335.3913 ± 0.0034 m, LOCKED conditional on five listed assumptions.
   - **Curvature:** physical-curvature effects are typed by resolution. Sagnac and the relativistic clock term are detected; the Shapiro double difference is a STRUCTURAL WALL at 3.5 mm.
 
+- **`RG - Stress Tensor.pdf`:** the stress tensor as an RG target.
+  - **Two routes:** a geometric route (the Einstein tensor of a metric resolved to second order) and a source route (field stresses, or the kinetic moments ∫ pᵃpᵇ f dΠ). Their agreement is the field equation, read as a consilience test.
+  - **Exact results:**
+    - the Schwarzschild exterior has curvature but T = 0;
+    - Reissner–Nordström geometry equals the Maxwell stress, and a wrong charge is INCONSISTENT;
+    - on FLRW, the radiation and dust routes agree with the geometric route;
+    - a massless scalar and a stiff fluid give the same background (a source CORRESPONDENCE);
+    - the radiation stress given only its energy is the set {S ⪰ 0, tr S = ε};
+    - ℓ ≤ 2 angular harmonics are the minimal sufficient panel;
+    - metric agreement does not control stress, so a C² certificate is required;
+    - stress anisotropy is forgotten exactly as (1−s)ⁿ.
+  - **Not claimed:** that GR does not need spacetime. The metric can be an RG output, but the field equation is imported (Lovelock).
+
 ## Computational complexity
 
 | Task | Cost |
