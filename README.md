@@ -188,6 +188,20 @@ attained exactly at every $n$. Over a finite list of declarations nothing is cer
 
 ---
 
+## Crossing into physics (real data)
+
+RG does not claim assumption-free physical values; no framework can (Duhem–Quine; Le Cam, L56). It certifies a
+**physical value conditional on a computed residual assumption set**, by agreement of independent routes.
+
+- **`RG - Real Measurements.pdf`:** real GEONET dual-frequency GPS data.
+  - One calibration is made on station A and frozen. It then serves station B, the baseline, uncertainty coverage and the swap.
+  - Every RG layer is ablated: removing the Sagnac term gives 27.6 m, the relativistic clock term 8.7 m, frequency diversity 5.9 m, and the clock nuisance more than 10⁵ m.
+- **`RG - Crossing into Physics.pdf`:** the consilience engine.
+  - **Routes:** four routes to one baseline split into two contradicting clusters, so the status is CORRESPONDENCE.
+  - **Tie-break:** it is resolved only by pre-registered tests of each cluster's distinctive assumption. The phase cluster's integer ambiguities pass (chance about 10⁻⁴); the code cluster's whiteness is falsified by constant per-satellite biases (z up to 9).
+  - **Result:** 3335.3913 ± 0.0034 m, LOCKED conditional on five listed assumptions.
+  - **Curvature:** physical-curvature effects are typed by resolution. Sagnac and the relativistic clock term are detected; the Shapiro double difference is a STRUCTURAL WALL at 3.5 mm.
+
 ## Computational complexity
 
 | Task | Cost |
@@ -391,6 +405,16 @@ The surviving framework depends on keeping negative results visible.
   - H-unif is split into a theorem part and a certification part.
   
   See `RG - Rigidity.pdf` (Conditional Rigidity).
+- **"Presentation or thresholds control the output":** answered in `RG - Presentation and Thresholds.pdf`.
+  - Observable results and the observable symmetry Γ_obs are presentation-invariant, while the liftable Γ is presentation-relative.
+  - Thresholds are unavoidable (Le Cam) and act as a monotone filtration, reported as critical margins.
+- **Real-data registrations:** several expectations failed on contact with real data, and all are kept on record in `RG - Real Measurements.pdf` and `RG - Crossing into Physics.pdf`.
+  - a coverage gate was mis-specified;
+  - calibration was expected to age within the hour, and did not;
+  - a medium sign was expected positive, and came out negative (instrument biases);
+  - all four routes were claimed to agree, and do not;
+  - the "right" cluster was hard-coded, which is smuggling, and the engine caught it;
+  - a tie-break test was used that had no power against a constant bias.
 - **Resolved–null coupling as the primary law invariant:** cut. It vanishes identically under the whitening (Čencov) metric. It is the relative position of a declared protocol metric, and its efficiency theorem is data processing.
 - **Principal Aut(G)-bundle over a varying operating point:** cut. It exists only on level sets of varying invariants; the law-natural structure group is O(r)×O(q).
 - **Local automorphisms as symmetries:** cut. Jet isotropy need not integrate to a law symmetry.
