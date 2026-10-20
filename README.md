@@ -214,6 +214,19 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
     - metric agreement does not control stress, so a C² certificate is required;
     - stress anisotropy is forgotten exactly as (1−s)ⁿ.
   - **Not claimed:** that GR does not need spacetime. The metric can be an RG output, but the field equation is imported (Lovelock).
+ 
+- **`RG - Quantum Bridge.pdf`:** the passage from quantum observations to geometry, built and certified link by link.
+  - **Composition theorem:** the whole has the status of its weakest link. A coupling declared only up to a class makes it a CORRESPONDENCE, even when both endpoints are certified.
+  - **Links:**
+    - the source is identified from second moments (three homodyne variances suffice);
+    - squeezed vacuum has negative energy density, so energy conditions belong to the coupling layer;
+    - one measured Casimir component plus declared symmetries locks the full Casimir tensor;
+    - local quantum stress needs a declared operator ordering (a CORRESPONDENCE), while global stress is LOCKED;
+    - the forward walk is exact (density, potential, linearized Einstein tensor, density);
+    - the quantum width is a STRUCTURAL WALL from outside;
+    - semiclassical and outcome-conditioned couplings agree for first moments (FORCED) and differ in fluctuations (CONDITIONAL).
+  - **Open plank:** quantum versus classical coupling, with the entanglement test computed (concurrence 0.156, against 0 for any classical channel).
+  - **Status:** not "fully connected"; conditional, and mapped plank by plank.
 
 ## Computational complexity
 
