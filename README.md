@@ -248,6 +248,17 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
     - 18/18 checks pass, canaries 10/10, and the independent audit passes 10/10.
   - **Not claimed:** spacetime curvature, laboratory validation, or priority over the gauge theory of deformable bodies.
 
+- **`RG - Gravitation.pdf`:** gravity computed on RG's terms, with Einstein's equation selected rather than postulated.
+  - **The stack:**
+    - null data give the conformal class (cone stratum), and anchored clocks give its scale;
+    - conservation gives the motion of matter (Geroch–Jang);
+    - consilience under locality, metric-only, second order, identical divergence-freedom and D = 4 gives G + Λg = κT (Lovelock);
+    - spherical vacuum is Schwarzschild (Birkhoff), and the rr equation excludes the clock-invisible γ-family.
+  - **Countermodels:** the Ricci-only law is inconsistent; f(R) is fourth order; Gauss–Bonnet survives only in D ≥ 5; a pressure-blind source law is refuted by clocks.
+  - **Calibrations:** κ = 8πG is provably only a unit anchor (TOV homology; exterior tasks need just m = GM/c²), and Λ is a window.
+  - **Predictions:** calibrated from Kepler orbits alone, the stack predicts Mercury's perihelion advance (42.98″/cy), the solar deflection (1.751″), the GPS clock frequency (10.22999999543 MHz) and the Pound–Rebka shift (2.46×10⁻¹⁵).
+  - **Checks:** the retained backend passes 25/25 (byte-identical rerun), and the stack battery passes 16/16 with canaries 4/4.
+
 ## Computational complexity
 
 | Task | Cost |
