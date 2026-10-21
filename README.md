@@ -129,6 +129,7 @@ Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis
 - cone, scale and anchors: `H-top`, `H-int`, `H-SI`, `H-med`, `H-val`;
 - walls: `H-unif`, `H-hell`;
 - task and latent data: `H-task`, `H-cov`;
+- physical response: `H-resp` (the system moves by the minimum-P⁻¹ lift: overdamped bodies with P = mobility, free bodies with zero conserved momentum with P = inverse inertia);
 - probability and uncertainty: `H-stat`, `H-exch`, `H-adm`;
 - selection principle: `H-mono` (metrics may not increase under Markov morphisms; selects Fisher by Čencov);
 - symmetry: `H-Γ`.
@@ -214,7 +215,7 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
     - metric agreement does not control stress, so a C² certificate is required;
     - stress anisotropy is forgotten exactly as (1−s)ⁿ.
   - **Not claimed:** that GR does not need spacetime. The metric can be an RG output, but the field equation is imported (Lovelock).
- 
+
 - **`RG - Quantum Bridge.pdf` (print edition, supersedes the first edition):** the passage from quantum observations to geometry as a conditional, task-level construction.
   - **Exact certificate:** the final task is constant on the complete admissible fibre. Identifying every intermediate link is sufficient, not necessary; the first edition's weakest-link rule is demoted to a conservative sufficient rule.
   - **Repairs:**
@@ -229,6 +230,16 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
     - a finite-shot, dephasing-aware entanglement witness with a negative certified bound (synthetic).
   - **Checks:** 24/24 checks, 8/8 mutations, a replay verifier, and an independent 10/10 audit.
   - **Open:** coupling selection, and full curved-background semiclassical closure.
+
+- **`RG - Physical Curvature.pdf`:** RG doing physics with its own geometry, with no GR or QM imported.
+  - **The object:** the canonical connection B = PJᵀ(JPJᵀ)⁻¹ (L80). Under H-resp it is a law of motion, and its curvature times loop area predicts physical displacement.
+  - **Results:**
+    - an exact feedback apparatus: ΔZ = AB/√(L²+A²), which is 9.9995 µm for L = 100 mm and A = B = 1 mm;
+    - the three-sphere microswimmer: curvature (a/3)[L₁⁻² + L₂⁻² − (L₁+L₂)⁻²], converging to an independent simulation;
+    - a falling-cat body: the RG lift equals the angular-momentum law, and a joint loop reorients the body by −0.275 rad;
+    - Purcell's scallop theorem, as flatness;
+    - geometry fitted to passive Brownian fluctuations predicts active swimming to within 1–1.5% (Einstein relation; temperature drops out).
+  - **Not claimed:** spacetime curvature, or priority over the gauge theory of deformable bodies. The inputs (the cost P and the response rule) are local and testable.
 
 ## Computational complexity
 
