@@ -231,15 +231,22 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
   - **Checks:** 24/24 checks, 8/8 mutations, a replay verifier, and an independent 10/10 audit.
   - **Open:** coupling selection, and full curved-background semiclassical closure.
 
-- **`RG - Physical Curvature.pdf`:** RG doing physics with its own geometry, with no GR or QM imported.
-  - **The object:** the canonical connection B = PJᵀ(JPJᵀ)⁻¹ (L80). Under H-resp it is a law of motion, and its curvature times loop area predicts physical displacement.
-  - **Results:**
-    - an exact feedback apparatus: ΔZ = AB/√(L²+A²), which is 9.9995 µm for L = 100 mm and A = B = 1 mm;
-    - the three-sphere microswimmer: curvature (a/3)[L₁⁻² + L₂⁻² − (L₁+L₂)⁻²], converging to an independent simulation;
-    - a falling-cat body: the RG lift equals the angular-momentum law, and a joint loop reorients the body by −0.275 rad;
-    - Purcell's scallop theorem, as flatness;
-    - geometry fitted to passive Brownian fluctuations predicts active swimming to within 1–1.5% (Einstein relation; temperature drops out).
-  - **Not claimed:** spacetime curvature, or priority over the gauge theory of deformable bodies. The inputs (the cost P and the response rule) are local and testable.
+- **`RG - Physical Curvature.pdf` (final edition):** RG doing physics with its own geometry, with no GR or QM imported.
+  - **The object:** the canonical connection B = PJᵀ(JPJᵀ)⁻¹ (L80). It is a law of motion under H-resp, which holds exactly for overdamped bodies (P = mobility) and for free bodies with zero conserved momentum (P = inverse inertia).
+  - **Geometry:**
+    - holonomy is area times curvature, to leading order;
+    - an exact apparatus gives 9.9995 µm;
+    - three-sphere swimmer curvature (a/3)[L₁⁻² + L₂⁻² − (L₁+L₂)⁻²];
+    - a falling-cat body reorients by −0.2748 rad;
+    - reciprocal strokes cancel exactly (Purcell), while zero signed area does not imply zero holonomy.
+  - **Duration:** T_min = ℓ/√W and E_min = ℓ²/T. Unloaded displacement is rate-independent, and the connection alone supplies no absolute clock.
+  - **Load:** the response is affine, v = Bq̇ + (I−BJ)Pf_ext, giving a linear load law with a stall force. Nonzero momentum adds a drift.
+  - **Evidence:**
+    - original battery: 10 physical checks plus 1 status check;
+    - passive-fluctuation calibration predicts active swimming within 0.15–6.4% over ten runs;
+    - frozen holdout on 24 strokes: displacement 0.47%, duration 0.066%, stall residual 2.3×10⁻⁶;
+    - 18/18 checks pass, canaries 10/10, and the independent audit passes 10/10.
+  - **Not claimed:** spacetime curvature, laboratory validation, or priority over the gauge theory of deformable bodies.
 
 ## Computational complexity
 
