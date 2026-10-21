@@ -215,18 +215,20 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
     - stress anisotropy is forgotten exactly as (1−s)ⁿ.
   - **Not claimed:** that GR does not need spacetime. The metric can be an RG output, but the field equation is imported (Lovelock).
  
-- **`RG - Quantum Bridge.pdf`:** the passage from quantum observations to geometry, built and certified link by link.
-  - **Composition theorem:** the whole has the status of its weakest link. A coupling declared only up to a class makes it a CORRESPONDENCE, even when both endpoints are certified.
-  - **Links:**
-    - the source is identified from second moments (three homodyne variances suffice);
-    - squeezed vacuum has negative energy density, so energy conditions belong to the coupling layer;
-    - one measured Casimir component plus declared symmetries locks the full Casimir tensor;
-    - local quantum stress needs a declared operator ordering (a CORRESPONDENCE), while global stress is LOCKED;
-    - the forward walk is exact (density, potential, linearized Einstein tensor, density);
-    - the quantum width is a STRUCTURAL WALL from outside;
-    - semiclassical and outcome-conditioned couplings agree for first moments (FORCED) and differ in fluctuations (CONDITIONAL).
-  - **Open plank:** quantum versus classical coupling, with the entanglement test computed (concurrence 0.156, against 0 for any classical channel).
-  - **Status:** not "fully connected"; conditional, and mapped plank by plank.
+- **`RG - Quantum Bridge.pdf` (print edition, supersedes the first edition):** the passage from quantum observations to geometry as a conditional, task-level construction.
+  - **Exact certificate:** the final task is constant on the complete admissible fibre. Identifying every intermediate link is sufficient, not necessary; the first edition's weakest-link rule is demoted to a conservative sufficient rule.
+  - **Repairs:**
+    - raw second moments replace centred variances;
+    - the quadrature proxy is separated from physical stress, with an explicit conserved cavity-mode stress;
+    - the Gaussian width is ill-conditioned, not a structural wall;
+    - the micrometre superposition is CONDITIONAL, not FORCED.
+  - **Walks:**
+    - Gaussian, forward and back;
+    - backreaction (contraction theorem; Schrödinger–Poisson fixed point);
+    - a fourth-moment source task;
+    - a finite-shot, dephasing-aware entanglement witness with a negative certified bound (synthetic).
+  - **Checks:** 24/24 checks, 8/8 mutations, a replay verifier, and an independent 10/10 audit.
+  - **Open:** coupling selection, and full curved-background semiclassical closure.
 
 ## Computational complexity
 
