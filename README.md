@@ -1,5 +1,4 @@
 # Resolution Geometry (RG)
-
 *formerly CTMT*
 
 **Resolution Geometry is the geometry of what a declared family of observation protocols can distinguish, and of every structure that this distinguishability forces.**
@@ -15,7 +14,9 @@ Every further structure is added in a fixed order. Each addition is either force
 - duration and dynamics;
 - calibrated physical distance.
 
-The statement of record is **`Resolution Geometry.pdf`**, the print edition of October 2026 (33 pages). It is a ladder of **118 rungs, L0–L117**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **two** remaining open problems.
+What remains after every gate is certified is **not a new primitive**. On second-order strata of constant canonical-correlation multiplicity, the final remainder is global structure of a classical kind. It consists of local canonical-correlation moduli together with a tuple of Euclidean block bundles. This pair is the initial complete natural invariant, and it is classified by $\prod_j B\mathrm O(m_j)\times B\mathrm O(p-r)\times B\mathrm O(q-r)$.
+
+The statement of record is **`Resolution Geometry.pdf`**, the print edition of October 2026 (39 pages). It is a ladder of **127 rungs, L0–L126**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **three** remaining open problems.
 
 ---
 
@@ -77,6 +78,7 @@ RG is used as a short sequence of operations. Each operation has a precise crite
 | 8 | **Certify** in declared precision units | rank (double escalation), Hellinger, forgetting (operator bound over a class), frontier | L47, L37, L57, L90 |
 | 9 | **Anchor** | a counted channel removes the dilation fibre; SI radar anchor; held-out validation | L94–L109 |
 | 10 | **Dispatch** | exactly one status: LOCKED, ESCALATE, CORRESPONDENCE, VACUOUS, INCONSISTENT, STRUCTURAL WALL[ε] or OUTSIDE DOMAIN | L112–L115 |
+| 11 | **Report the remainder** | multiplicity type, local moduli and block-bundle classes (e.g. $w_1$ on loops), not local invariants alone; linking monodromy near walls | L116–L123 |
 
 Five formulas carry most of the weight:
 
@@ -96,7 +98,7 @@ $$
 \text{soundness:}\quad \Pr(\text{false LOCKED}) \le \sum_{g} \alpha_g .
 $$
 
-A result is **LOCKED** only when every gate of the requested module is certified. Otherwise RG returns the maximal observable correspondence or a typed abstention. **No admitted request ever requires choosing between alternatives the protocol cannot tell apart.**
+A result is **LOCKED** only when every gate of the requested module is certified. Otherwise RG returns either the exact observable correspondence or a typed abstention. The exact correspondence is the least sound set of jointly attainable outputs, with joint witnesses retained; "maximal" means maximally informative, not largest. **No admitted request ever requires choosing between alternatives the protocol cannot tell apart.**
 
 ---
 
@@ -108,7 +110,7 @@ A result is **LOCKED** only when every gate of the requested module is certified
 | Symmetry | L6–L11 | exact sequence with faithful $\Gamma$; non-splitting; count rigidity; orbit–quotient comparison; saturation hierarchy; coherent completeness |
 | Observable sector | L12–L17 | complete minimal-panel selector; no task-free isotropic selector; more protocols intersect, more models close; common model-blind decoder; a coupled law refines its marginals; confidence-set bridge; tolerance is not a groupoid |
 | Differential and strata | L18–L27 | tangent sequence; natural descent; slices and tangent cones; kernel upper semicontinuity; specialization iff kernel inclusion; symmetry descent through the normalizer; stratified quotient category |
-| Second order and quantum | L28–L43 | Fisher is natural; descent does not select, Fisher selected under H-mono (Čencov); covariance is not determined by Fisher; quotient dimension $p+q+pq$; efficient metric; data processing; Hellinger specialization; Petz family gate; task lock (SLD, BKM, WY); nonparametric Petz identification; quantum walls; trace rule; contextual protocols (Fine) |
+| Second order and quantum | L28–L43 | Fisher is natural; descent does not select, Fisher selected under H-mono (Čencov); covariance is not determined by Fisher; quotient dimension $p+q+pq$ under the declared-metric contract; efficient metric; data processing; Hellinger specialization; Petz family gate; task lock (SLD, BKM, WY); nonparametric Petz identification; quantum walls; trace rule; contextual protocols (Fine) |
 | Ignorance | L44–L48 | persistent null; sensor, precision and representation nulls; finite-sample reconstruction; rank walls are never certified from finite data; exact law equality is not uniformly certifiable from finite samples |
 | Uncertainty and forgetting | L49–L58 | uncertainty splits along the quotient; de Finetti; LAN and branch selection; TV rigidity; no uniform forgetting without a class; sharp BV mixing lock; Navier–Stokes contraction gate; Dobrushin blocks; samples refute and operators lock; non-circularity certificate; non-dominated and infinite-dimensional strata |
 | Statistical distance | L59–L63 | RG distance is representative-free, chart-free and dimensionless; monotone under garbling; no angle in rank one; finite divergences are not rulers; experiment-relative |
@@ -119,7 +121,8 @@ A result is **LOCKED** only when every gate of the requested module is certified
 | Physical distance | L94–L109 | no internal unit; counted channels; count loss; ratio scale; two-point invariant; metric proportionality; anchor budget; unit-distance rigidity; radar and rod distance; stationary slices and Sagnac holonomy; non-stationary no-go; media; ergodic transfer; identification theorem |
 | Assembly | L110 | kernel–stabilizer theorem and compatibility equations |
 | Global transport and closure | L111–L115 | global transport; dispatcher totality; composite soundness; window-indexed walls; maximal closure |
-| Open | L116–L117 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence |
+| Final remainder | L116–L123 | task residual and terminal sufficient refinement; the coupling is complement-relative; coupling stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ (multiplicities, not rank, control symmetry); Global Structure Theorem (stack, twisted forms $\check H^1$, block-bundle equivalence, initial invariant, classifying space); consequences ($2^\kappa$ classes over $S^1$, Fisher remainder $[K_N]$); gluing class in $\check H^2$; forced wall monodromy; no new primitive |
+| Open | L124–L126 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence; classification of the second-order remainder across walls |
 
 Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis-conditioned (the hypothesis is named), **Γ** conditional on the effective symmetry group, **N** no-go, or **O** open.
 
@@ -132,7 +135,11 @@ Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis
 - physical response: `H-resp` (the system moves by the minimum-P⁻¹ lift: overdamped bodies with P = mobility, free bodies with zero conserved momentum with P = inverse inertia);
 - probability and uncertainty: `H-stat`, `H-exch`, `H-adm`;
 - selection principle: `H-mono` (metrics may not increase under Markov morphisms; selects Fisher by Čencov);
-- symmetry: `H-Γ`.
+- symmetry: `H-Γ`;
+- final remainder:
+  - `H-split`: the resolved/null splitting is declared, as $N=\ker J^{*}$;
+  - `H-type`: the coupling rank and the canonical-correlation multiplicities are locally constant;
+  - the $\check H^2$ gluing class additionally assumes an abelian automorphism band.
 
 Each is stated in the paper together with the test that falsifies it.
 
@@ -158,6 +165,19 @@ Other measured quantities:
 - **Hiding chaos:** the only way is to change the task, for example by re-observing the state, which is a declaration and is caught.
 
 See `RG - Chaos Is Not Hidden.pdf` and `RG - Chaos Frontier Status Map.png`.
+
+**The final remainder (L116–L126).** The question was whether what survives all local repairs is a new primitive or global structure. On constant-type strata it is global structure. The battery runs 18 attacks and 4 canaries with master seed 20261022; every canary is rejected, and fresh-process reruns give identical results.
+- **Rigidity refuted:** $C=\tfrac12 I_3$ has rank 3 and $\dim\mathrm{Aut}=3$, more than $\dim\mathrm{Aut}=2$ at rank 1.
+- **Dimension zero is not trivial:** distinct full-rank correlations give $\mathrm{Aut}\cong\mathbb Z_2^3$, which has dimension 0 but 8 elements.
+- **Random sweeps miss strata:** 5000 Gaussian couplings find no counterexample, because the bad stratum has measure zero.
+- **Local invariants are incomplete:** a Möbius RG family over $S^1$ has constant spectrum, constant canonical correlation and constant Aut, yet is globally nontrivial.
+- **Contractible bases are trivial:** brute-force gauge orbits for $S_3$ give 1, 3 and 11 classes on a tree, a circle and a figure eight, as predicted.
+- **A $-I$ triple defect is not by itself a gluing failure:**
+  - on a filled triangle it can always be removed by re-choosing a transition;
+  - on $\mathbb RP^2$ it cannot: the $\mathbb Z_4\to\mathbb Z_2$ lifting defect survives all $2^{15}$ lifts.
+- **Forced wall monodromy:** around a codimension-2 collision of canonical correlations, the singular line bundle returns with sign $-1$; around a loop that does not enclose the wall it returns with $+1$.
+
+See `RG - Final Remainder.pdf` and `RG_final_remainder_bundle.zip`.
 
 **The wall–tap experiment (origin, L0–L115 on one system).** The experiment is declared as five cumulative acoustic protocols.
 - **Saturation:** unresolved directions fall 5, 4, 3, 2, 2 by kernel intersection, and close only with length and gain anchors.
@@ -267,6 +287,8 @@ RG does not claim assumption-free physical values; no framework can (Duhem–Qui
 | minimal sufficient panels | output can be $\binom{m}{\lfloor m/2\rfloor}$ (Shamir threshold system); a panel of size ≤ k is NP-complete (Minimum Test Collection) |
 | stratification of a semialgebraic law | doubly exponential in dimension (cylindrical decomposition) |
 | rank certificate | $O(d^3)$ per escalation level |
+| coupling stabilizer and multiplicity type | $O((p+q)^3)$ (SVD) |
+| Čech gluing on a finite atlas | $O(\sharp\text{triples}\cdot d^3)$; the obstruction is the cohomology class, not the raw defect |
 | certified chaotic forecast to horizon $n$ | at least $n\lambda/\ln 2$ bits of initial data |
 | TV certificate without a declared class | impossible from finite samples (Le Cam) |
 | Monte Carlo on a FORCED output | $O(\tau^{-2})$ draws |
@@ -282,9 +304,10 @@ Exactness is cheap at the exact layer. It is expensive in exactly three places, 
 
 1. **`Resolution Geometry.pdf`**: the statement of record (print edition).
 2. **`RG - The Groupoid of Resolution.pdf`**: the theory as one groupoid climbing the ladder, bottom-up and top-down, showing what each hypothesis does to it.
-3. **`RG - From the Wall to the Kernel.pdf`**: the origin and progress account, including the Terror experiment made exact.
-4. **Module papers**, listed below, each with a same-stem ZIP containing its hostile battery.
-5. **Historic syntheses**: development record only.
+3. **`RG - Final Remainder.pdf`**: what is left after every local repair, why it is global structure and not a primitive, and where that answer stops.
+4. **`RG - From the Wall to the Kernel.pdf`**: the origin and progress account, including the Terror experiment made exact.
+5. **Module papers**, listed below, each with a same-stem ZIP containing its hostile battery.
+6. **Historic syntheses**: development record only.
 
 **Statement-of-record rule.** Where a module paper and `Resolution Geometry.pdf` differ in scope, hypotheses or status, the ladder governs. **Citing:** cite the rung (for example "RG, L90"), not the module paper.
 
@@ -309,8 +332,9 @@ Every battery registers naive and sharpened claims, uses fixed seeds, fails on n
 | Order, cone, residual | L64–L73 | `RG - Residual Characteristic Geometry.pdf`; `RG - Cone.pdf`; `RG - Cone - Closure.pdf`; `RG - GR Signature Emergence.pdf` |
 | Scale and transport | L74–L80 | `RG - Canonical Transport.pdf`; `RG - Atlas Globalization.pdf` |
 | Duration, dynamics, chaos | L81–L93 | `RG - Chaos Is Not Hidden.pdf`; `RG - Chaotic Experiments.pdf`; `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
-| Physical distance | L94–L109 | `RG - Physical Distance.pdf` (battery: `RG_Physical_Distance_Attack_Bundle.zip`); `RG - Wall-Tap Delay.pdf` |
+| Physical distance | L94–L109 | `RG - Physical Distance.pdf`; `RG - Wall-Tap Delay.pdf` |
 | Global transport and closure | L111–L115 | `RG - Maximal Closure.pdf`; `RG - Canonical Transport.pdf` |
+| Final remainder | L116–L126 | `RG - Final Remainder.pdf` |
 | Origin experiment | all | `RG - Wall-Tap Experiment.pdf`; `RG - From the Wall to the Kernel.pdf` |
 
 ---
@@ -360,7 +384,7 @@ Stationary slices carry the Landau–Lifshitz radar metric, and loop synchroniza
 | Establishment of exact laws | exact law equality is not uniformly certifiable from finite samples; data enter through confidence correspondences | L48 |
 | Walls | kernel upper semicontinuity; specialization iff kernel inclusion; normalizer descent; stratified category | L21–L27 |
 | Distinguishability across walls | Hellinger (Le Cam) specialization; weak convergence insufficient | L37 |
-| Fisher layer | natural; radical = observational vertical; does not determine covariance; quotient dimension p+q+pq | L28–L32 |
+| Fisher layer | natural; radical = observational vertical; does not determine covariance (relative to the declared complement); quotient dimension p+q+pq under the declared-metric contract; globally, the Fisher-relative remainder is the null-kernel bundle class $[K_N]$ | L28–L32, L120 |
 | Quantum metric | Petz family gate; task lock; nonparametric identification; wall specialization iff f(0) > 0 | L38–L41 |
 | Contextual quantum protocols | trace rule; no noncontextual hidden values; product law over contexts (Fine) | L42–L43 |
 | Finite-data rank walls | never certified; full-rank or upper-bound certificates only | L47 |
@@ -379,19 +403,24 @@ Stationary slices carry the Landau–Lifshitz radar metric, and loop synchroniza
 | Unit and physical distance | no internal unit; counted channel; anchors; identification theorem | L94–L109 |
 | Non-static slices | stationary: Landau–Lifshitz plus Sagnac; non-stationary: no-go | L104–L106 |
 | Assembly | kernel–stabilizer theorem | L110 |
-| Global transport | observable atlas closed; latent transport canonical under declared data | L111 |
-| Closure | dispatcher totality; composite soundness ≤ Σαg; window-indexed walls; maximal closure | L112–L115 |
+| Global transport | observable atlas closed; latent transport canonical under declared data; closed is not trivial, since the atlas still has an isomorphism class (L119) | L111 |
+| Closure | dispatcher totality; composite soundness ≤ Σαg; window-indexed walls; maximal closure with the exact correspondence | L112–L115 |
+| Task residual | descent iff every fibre's output set is a singleton; terminal sufficient refinement, unique and natural; joint witnesses required | L116 |
+| Coupling symmetry | stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ under the covariance-only contract; multiplicities, not rank, control it | L117–L118 |
+| Final remainder on constant-type strata | local moduli plus Euclidean block bundles; initial complete natural invariant; classifying space; $\check H^2$ gluing class; no new primitive | L119–L123 |
 
 ### Open problems of the ladder
 
-1. **Tame type enumeration (L116, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
-2. **Forced deterministic turbulence (L117).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
+1. **Tame type enumeration (L124, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
+2. **Forced deterministic turbulence (L125).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
+3. **Second-order remainder across walls (L126).** Classify second-order families whose multiplicity type varies. This means per-stratum block-bundle data together with specialization along exit paths: merging and splitting of blocks, and rank change. The conjecture is a constructible stack over the exit-path category. Any classification must carry the monodromy that the walls force (L122). Open is not the same as primitive.
 
 ### Declarations by design (not open problems)
 
 - **Protocol, task and admissible class.** RG does not derive which question an observer must ask. This is a theorem, not a gap: there is no task-free equivariant selector (L13). Given a task, selection is exact (L12). Given a declared class, non-circularity is certified (L57).
 - **Latent data.** A connection, prior or covariance is declared or reported as undetermined (L79–L80).
 - **Anchors.** The unit enters only through counted channels and SI definitions (L94–L102).
+- **Second-order contract.** Declaring only the covariance tensors and declaring the observation metric as well are different contracts, with different remainders. The resolved/null complement is declared (`H-split`).
 
 ### Research directions beyond the ladder
 
@@ -400,7 +429,7 @@ These are extensions with new content. They are not gaps in the ladder's proofs.
 - **Observable stress tensor:** a sector map with uniqueness, conservation and gauge independence, keeping *not identifiable* distinct from *identified as zero*.
 - **Physical versus protocol coupling:** attribution by intervention and independent instrumentation.
 - **Higher-order geometry near discriminants:** curvature, normal holonomy, second fundamental form.
-- **Classifications:** complete stabilizer classification on non-generic strata, and enumeration of flat observable classes by character data.
+- **Classifications:** an explicit bundle form of the remainder under the declared-metric contract, $O(p)\times O(q)$. The covariance-only contract is closed (L118–L119). Also open is the enumeration of flat observable classes by character data.
 - **Continuous entropy:** continuous differential-entropy decompositions beyond kernel counts and finite-resolution quotient growth.
 - **Wild-class invariants:** operationally stable invariants beyond count exponent, box dimension and Cantor–Bendixson rank.
 - **Benchmarks:** a preregistered fixed-gate benchmark suite with held-out and deliberately failing datasets.
@@ -422,6 +451,7 @@ These are extensions with new content. They are not gaps in the ladder's proofs.
 8. **No physical coupling by default.** Resolved–null correlation is a protocol-metric property; attribution needs intervention.
 9. **No theorem from batteries.** Theorem status comes from proofs and cited theorems; batteries are falsification witnesses.
 10. **No prediction beyond the frontier.** RG does not forecast chaos beyond its horizon. It certifies where the horizon lies and what extending it costs.
+11. **No intrinsic global class.** A nonzero global class belongs to a family over a topologically nontrivial base, not to RG. Over a contractible base it vanishes (L120).
 
 ---
 
@@ -430,14 +460,20 @@ These are extensions with new content. They are not gaps in the ladder's proofs.
 Every RG component reduces to established mathematics:
 
 - **Quotients and symmetry:** equality-of-law quotients and Lie groupoids; Schur's lemma.
-- **Statistics:** Fisher–Rao geometry and Čencov uniqueness; Le Cam, Blackwell and LAN; Bernstein–von Mises; de Finetti.
+- **Statistics:** Fisher–Rao geometry and Čencov uniqueness; Le Cam, Blackwell and LAN; Bernstein–von Mises; de Finetti; Lehmann–Scheffé minimal sufficiency.
 - **Quantum:** Petz, Gleason, Busch and Fine.
 - **Ergodic theory and dynamics:** Oseledets, Pesin, Ruelle and Brudno; Lasota–Yorke and Dobrushin; Feldman–Hájek.
 - **Geometry and characteristics:** o-minimal and semialgebraic stratification (Hardt, Collins); Gårding hyperbolicity.
+- **Descent and global structure:**
+  - stacks and nonabelian cohomology (Giraud), and twisted forms (Serre);
+  - classifying spaces (Steenrod, Milnor);
+  - canonical correlations (Hotelling);
+  - Riesz spectral projections (Kato);
+  - the von Neumann–Wigner crossing rule.
 - **Physics and measurement:** Malament–Hawking reconstruction; Beckman–Quarles; Cauchy–Hölder ratio scales; Landau–Lifshitz radar metric; the SI definitions.
 - **Complexity:** Garey–Johnson; Shamir.
 
-RG claims no new primitive and no new branch of mathematics. Its contribution has three parts:
+RG claims no new primitive and no new branch of mathematics. On constant-type strata this is now a theorem (L123, under `H-split` and `H-type`), not only a remark. Its content is identification: every component of the remainder is a named classical object with a universal property. Across walls the question is open (L126). RG's contribution has three parts:
 
 - a protocol-explicit, dependency-typed assembly of these components into one geometry of partial observability;
 - the kernel–stabilizer mechanism, which makes all modules share one symmetry group;
@@ -472,9 +508,21 @@ The surviving framework depends on keeping negative results visible.
   - all four routes were claimed to agree, and do not;
   - the "right" cluster was hard-coded, which is smuggling, and the engine caught it;
   - a tie-break test was used that had no power against a constant bias.
-- **Resolved–null coupling as the primary law invariant:** cut. It vanishes identically under the whitening (Čencov) metric. It is the relative position of a declared protocol metric, and its efficiency theorem is data processing.
-- **Principal Aut(G)-bundle over a varying operating point:** cut. It exists only on level sets of varying invariants; the law-natural structure group is O(r)×O(q).
+- **Resolved–null coupling as the primary law invariant:** cut. It vanishes identically under the whitening (Čencov) metric. It is the relative position of a declared protocol metric, and its efficiency theorem is data processing. The coupling coordinate also moves affinely under a change of complement, $L\mapsto L+K$ (L117).
+- **Principal Aut(G)-bundle over a varying operating point:** cut. It exists only on level sets of varying invariants; the law-natural structure group is O(r)×O(q). Across a type change no single-model description exists on any neighbourhood (L122).
 - **Local automorphisms as symmetries:** cut. Jet isotropy need not integrate to a law symmetry.
+- **"Coupling rank controls symmetry dimension; full-rank coupling rigidifies to the trivial automorphism" (Lock Conclusion):** refuted.
+  - Witness: $C=\tfrac12 I_3$ has rank 3 and $\dim\mathrm{Aut}=3$.
+  - Distinct full-rank correlations give $\mathrm{Aut}\cong\mathbb Z_2^3$, not the trivial group.
+  - The supporting 5000-sample sweep could not see the measure-zero stratum.
+  - Replaced by the multiplicity formula (L118).
+- **"RG admits no faithful functor into any single foundation":** withdrawn. Forgetful functors are faithful.
+- **"The residual is a nonzero descent class; RG is a nontrivial bundle of foundations":** withdrawn. Over a contractible base the class vanishes. The remainder is classified instead by local moduli plus block bundles (L119–L120).
+- **"Admissible edges with Čech defect −I signal a gluing failure":** sharpened.
+  - When transitions are choices, the defect is an obstruction only through its $\check H^2$ class.
+  - The class is removable on a filled triangle and not removable on $\mathbb RP^2$ (L121).
+- **Holonomy norms as certificates:** sharpened. Matrix norms depend on the frame; the invariants are conjugacy classes and Σ-orthonormal norms (L121).
+- **Naive nerves as gluing models:** sharpened. Čech computations need Leray covers; a non-Leray cover of $S^1$ gives the wrong $H^1$ (L121).
 - **"Delay is the invariant":** corrected. Delays scale under rate change; ratios, angles and counts are the invariants.
 - **CHI coherence volume:** audited.
   - Its bottleneck inequality is reversed: the harmonic mean is at least the minimum.
@@ -483,6 +531,7 @@ The surviving framework depends on keeping negative results visible.
   - The condition-number hazard is retained as a rank-wall indicator.
 - **Monte Carlo as the source of uncertainty:** superseded. Monte Carlo is the integration engine for FORCED outputs, not the lock.
 - **Forgetting over finite lists of declarations:** corrected. Locks are suprema over declared classes (L53–L57).
+- **"Maximal correspondence":** corrected to the exact correspondence. It is the least sound set of jointly attainable outputs, with joint witnesses retained, because separate marginals lose correlation (L116).
 - **Earlier wall–tap regular quotient (x, r, b):** corrected to (x, r, |b − d|), because of the Z₂ fold.
 - **Earlier batteries:** several checks could not fail and are replaced by computed, canaried checks.
   - Literal `True` checks; class indices used as features; hand-set dispatcher booleans; vacuous invertible-law inclusion tests.
@@ -507,6 +556,7 @@ The repository preserves the full development record: foundations, module papers
 
 **Historic syntheses** `[historic]`:
 - `RG - Theorem Ladder.pdf`, `RG_-_Theorem_Ladder_Final.pdf` (the earlier ladders, L0–L62 and L0–L94);
+- `RG - Theorem Ladder v2.pdf` (working ladder; its Stratum 7, R30–R44, is L116–L126 of the print edition);
 - `RG - Complete Framework.pdf`, `RG - Synthesis.pdf`, `RG - Fundamental Theorem.pdf`, `RG - Locked Foundation.pdf`, `RG - Atlas.pdf`;
 - `Resolution Geometry of Observation Systems.pdf`, `The CTMT - Automorphisms of Resolution.pdf`;
 - `The CTMT - Testament of 22 years.pdf`.
