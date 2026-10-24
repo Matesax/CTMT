@@ -16,7 +16,13 @@ Every further structure is added in a fixed order. Each addition is either force
 
 What remains after every gate is certified is **not a new primitive**. On second-order strata of constant canonical-correlation multiplicity, the final remainder is global structure of a classical kind. It consists of local canonical-correlation moduli together with a tuple of Euclidean block bundles. This pair is the initial complete natural invariant, and it is classified by $\prod_j B\mathrm O(m_j)\times B\mathrm O(p-r)\times B\mathrm O(q-r)$.
 
-The statement of record is **`Resolution Geometry.pdf`**, the print edition of October 2026 (39 pages). It is a ladder of **127 rungs, L0–L126**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **three** remaining open problems.
+The statement of record is **`Resolution Geometry.pdf`**, the closed print edition of October 2026 (42 pages). It is a ladder of **132 rungs, L0–L131**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **three** remaining open problems. The ladder is closed: later results are companion papers that attach to rungs and add none.
+
+Pointwise, the second-order data are classified completely (L124–L128):
+- Two triples (R, N, C) are equivalent under the declared-metric gauge O(p)×O(q) iff all ordered word traces of an associated symmetric tuple agree. This holds on every stratum.
+- On simple-spectrum strata, the classification reduces to spectra, coupling magnitudes and cycle signs in H¹(G; F₂). These loop values are real hidden values, not gauge.
+- In Lorentzian geometry, scalar invariants do not separate curvature, so a declared observer is required.
+- No classification selects a dynamics.
 
 ---
 
@@ -122,7 +128,8 @@ A result is **LOCKED** only when every gate of the requested module is certified
 | Assembly | L110 | kernel–stabilizer theorem and compatibility equations |
 | Global transport and closure | L111–L115 | global transport; dispatcher totality; composite soundness; window-indexed walls; maximal closure |
 | Final remainder | L116–L123 | task residual and terminal sufficient refinement; the coupling is complement-relative; coupling stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ (multiplicities, not rank, control symmetry); Global Structure Theorem (stack, twisted forms $\check H^1$, block-bundle equivalence, initial invariant, classifying space); consequences ($2^\kappa$ classes over $S^1$, Fisher remainder $[K_N]$); gluing class in $\check H^2$; forced wall monodromy; no new primitive |
-| Open | L124–L126 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence; classification of the second-order remainder across walls |
+| Local classification | L124–L128 | complete word-trace classifier of (R,N,C) modulo O(p)×O(q) on every stratum; simple-spectrum sign chart $H^1(G;\mathbb F_2)$; shorter descriptors and joint tasks; Lorentzian scalar invariants fail (vacuum plane wave), so curvature classification is observer-relative; classification selects no dynamics |
+| Open | L129–L131 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence; classification of the second-order remainder across walls |
 
 Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis-conditioned (the hypothesis is named), **Γ** conditional on the effective symmetry group, **N** no-go, or **O** open.
 
@@ -166,7 +173,7 @@ Other measured quantities:
 
 See `RG - Chaos Is Not Hidden.pdf` and `RG - Chaos Frontier Status Map.png`.
 
-**The final remainder (L116–L126).** The question was whether what survives all local repairs is a new primitive or global structure. On constant-type strata it is global structure. The battery runs 18 attacks and 4 canaries with master seed 20261022; every canary is rejected, and fresh-process reruns give identical results.
+**The final remainder (L116–L123) and its local classifier (L124–L128).** The question was whether what survives all local repairs is a new primitive or global structure. On constant-type strata it is global structure. The battery runs 18 attacks and 4 canaries with master seed 20261022; every canary is rejected, and fresh-process reruns give identical results.
 - **Rigidity refuted:** $C=\tfrac12 I_3$ has rank 3 and $\dim\mathrm{Aut}=3$, more than $\dim\mathrm{Aut}=2$ at rank 1.
 - **Dimension zero is not trivial:** distinct full-rank correlations give $\mathrm{Aut}\cong\mathbb Z_2^3$, which has dimension 0 but 8 elements.
 - **Random sweeps miss strata:** 5000 Gaussian couplings find no counterexample, because the bad stratum has measure zero.
@@ -315,6 +322,21 @@ Exactness is cheap at the exact layer. It is expensive in exactly three places, 
 
 ---
 
+## Companion papers (attached to the closed ladder)
+
+| Companion | Attaches at | Content and status |
+|---|---|---|
+| `RG - Physical Path.pdf` | L28–L32, L119 | stress symbol, kinetic cone, energy conditions forced, defect charge conservation; source-remainder no-go for gravity |
+| `RG - Gravity Duality.pdf` | L80, L102–L104 | Jacobi pencil (h, N); Newton fails exactly when structure is resolved |
+| `RG - Light as Emission.pdf` | L102–L105 | projection formula; the mirror image as a quotient point |
+| `RG - Cornering.pdf` | L13, L43, L49–L57, L94 | floating box as a resolution window; luck typed: relative, gated physical, ontological |
+| `RG - Undermining Spacetime.pdf` | L2, L27, L119 | spacetime as a selected representative; permanent fibres |
+| `RG - GR - Both Sides.pdf` | L19, L117–L119 | hidden versus null; Einstein operator selected; second order by H-min plus data |
+| `RG - GR - Full Computation.pdf` | L12, L16, L47, L124 | tensors from probe histories; coupling tested on held-out data; first nonlinear term |
+| `RG - Ladder Organization.pdf` | all | dependency maps, walls, gates, anti-ladders; audits A1–A3 proposed, not applied |
+
+Full GR is **not** derived from RG. The field equation is selected (Lovelock, H-min) or measured, and its nonlinear completion is open beyond its first term.
+
 ## Module papers by stratum
 
 Every battery registers naive and sharpened claims, uses fixed seeds, fails on non-finite evidence, and carries **mutation canaries**: a check that cannot fail is not counted. Batteries are falsification witnesses, not premises of proofs.
@@ -334,7 +356,7 @@ Every battery registers naive and sharpened claims, uses fixed seeds, fails on n
 | Duration, dynamics, chaos | L81–L93 | `RG - Chaos Is Not Hidden.pdf`; `RG - Chaotic Experiments.pdf`; `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
 | Physical distance | L94–L109 | `RG - Physical Distance.pdf`; `RG - Wall-Tap Delay.pdf` |
 | Global transport and closure | L111–L115 | `RG - Maximal Closure.pdf`; `RG - Canonical Transport.pdf` |
-| Final remainder | L116–L126 | `RG - Final Remainder.pdf` |
+| Final remainder and local classification | L116–L131 | `RG - Final Remainder.pdf` |
 | Origin experiment | all | `RG - Wall-Tap Experiment.pdf`; `RG - From the Wall to the Kernel.pdf` |
 
 ---
@@ -429,7 +451,11 @@ These are extensions with new content. They are not gaps in the ladder's proofs.
 - **Observable stress tensor:** a sector map with uniqueness, conservation and gauge independence, keeping *not identifiable* distinct from *identified as zero*.
 - **Physical versus protocol coupling:** attribution by intervention and independent instrumentation.
 - **Higher-order geometry near discriminants:** curvature, normal holonomy, second fundamental form.
-- **Classifications:** an explicit bundle form of the remainder under the declared-metric contract, $O(p)\times O(q)$. The covariance-only contract is closed (L118–L119). Also open is the enumeration of flat observable classes by character data.
+- **Classifications:** the pointwise orbit space under the declared-metric contract, $O(p)\times O(q)$, is now closed (L124). Still open:
+  - its global bundle form;
+  - minimal coordinates on every degenerate stratum;
+  - the enumeration of flat observable classes by character data.
+- **Nonlinear gravity:** the cubic bootstrap. Complete invariants give the ansatz basis, and conservation plus descent constrain it order by order.
 - **Continuous entropy:** continuous differential-entropy decompositions beyond kernel counts and finite-resolution quotient growth.
 - **Wild-class invariants:** operationally stable invariants beyond count exponent, box dimension and Cantor–Bendixson rank.
 - **Benchmarks:** a preregistered fixed-gate benchmark suite with held-out and deliberately failing datasets.
@@ -473,7 +499,7 @@ Every RG component reduces to established mathematics:
 - **Physics and measurement:** Malament–Hawking reconstruction; Beckman–Quarles; Cauchy–Hölder ratio scales; Landau–Lifshitz radar metric; the SI definitions.
 - **Complexity:** Garey–Johnson; Shamir.
 
-RG claims no new primitive and no new branch of mathematics. On constant-type strata this is now a theorem (L123, under `H-split` and `H-type`), not only a remark. Its content is identification: every component of the remainder is a named classical object with a universal property. Across walls the question is open (L126). RG's contribution has three parts:
+RG claims no new primitive and no new branch of mathematics. On constant-type strata this is now a theorem (L123, under `H-split` and `H-type`), not only a remark. Its content is identification: every component of the remainder is a named classical object with a universal property. Across walls the question is open (L131). RG's contribution has three parts:
 
 - a protocol-explicit, dependency-typed assembly of these components into one geometry of partial observability;
 - the kernel–stabilizer mechanism, which makes all modules share one symmetry group;
@@ -536,6 +562,11 @@ The surviving framework depends on keeping negative results visible.
 - **Earlier batteries:** several checks could not fail and are replaced by computed, canaried checks.
   - Literal `True` checks; class indices used as features; hand-set dispatcher booleans; vacuous invertible-law inclusion tests.
   - The chaos/coil attack, which passes on a non-chaotic surrogate.
+- **"Certified luck expansion 3.5×" (luck v2):** retracted. It was an i.i.d. projection with an entropy-coded seed estimate. The final luck battery issues **no** physical certificate: 0 bits, with 8 named gates open.
+- **Hidden-dynamics observer:** a sign error on sine modes, plus a Hankel matrix that flattened the output channels. Both were found by audit and corrected in `RG - Both Sides.pdf`. "Null" was reworded to "operationally null for the protocol".
+- **Single joint learner in the full computation loop:** it would pass the coupling test trivially, because linear invariants of the training data propagate. It was replaced by separate curvature-only and stress-only learners.
+- **Entrywise loop products at degenerate eigenvalues:** not gauge-invariant. Replaced by word traces (L124).
+- **Minimal hidden-state recovery (blind leap):** not established. Validation-selected ranks were 8–10 for a 6-dimensional generator.
 - **Earlier synthesis papers as foundation:** superseded by `Resolution Geometry.pdf`.
 
 Correction records remain in the repository.
@@ -556,7 +587,7 @@ The repository preserves the full development record: foundations, module papers
 
 **Historic syntheses** `[historic]`:
 - `RG - Theorem Ladder.pdf`, `RG_-_Theorem_Ladder_Final.pdf` (the earlier ladders, L0–L62 and L0–L94);
-- `RG - Theorem Ladder v2.pdf` (working ladder; its Stratum 7, R30–R44, is L116–L126 of the print edition);
+- `RG - Theorem Ladder v2.pdf` (working ladder; its Stratum 7, R30–R44, is L116–L123 and L131 of the print edition);
 - `RG - Complete Framework.pdf`, `RG - Synthesis.pdf`, `RG - Fundamental Theorem.pdf`, `RG - Locked Foundation.pdf`, `RG - Atlas.pdf`;
 - `Resolution Geometry of Observation Systems.pdf`, `The CTMT - Automorphisms of Resolution.pdf`;
 - `The CTMT - Testament of 22 years.pdf`.
