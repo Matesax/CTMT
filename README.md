@@ -17,6 +17,15 @@ Every further structure is added in a fixed order. Each addition is either force
 What remains after every gate is certified is **not a new primitive**. On second-order strata of constant canonical-correlation multiplicity, the final remainder is global structure of a classical kind. It consists of local canonical-correlation moduli together with a tuple of Euclidean block bundles. This pair is the initial complete natural invariant, and it is classified by $\prod_j B\mathrm O(m_j)\times B\mathrm O(p-r)\times B\mathrm O(q-r)$.
 
 The statement of record is **`Resolution Geometry.pdf`**, the closed print edition of October 2026 (42 pages). It is a ladder of **132 rungs, L0–L131**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **three** remaining open problems. The ladder is closed: later results are companion papers that attach to rungs and add none.
+- A1: exact gluing;
+- A2: structured descent;
+- A3: metric charts;
+- A4: walls;
+- A5: equivariant charts;
+- A6: global classes;
+- A7: stability;
+- A8: physical anchors;
+- A9: a registry of certified realizations.
 
 Pointwise, the second-order data are classified completely (L124–L128):
 - Two triples (R, N, C) are equivalent under the declared-metric gauge O(p)×O(q) iff all ordered word traces of an associated symmetric tuple agree. This holds on every stratum.
@@ -322,6 +331,29 @@ Exactness is cheap at the exact layer. It is expensive in exactly three places, 
 
 ---
 
+## The atlas (after the ladder)
+
+The ladder states what RG proves. The atlas states how a concrete system is **charted**.
+
+A layer fixes three things:
+- the structure carried by charts;
+- the compatibility condition on overlaps;
+- the query it answers.
+
+A certificate is the layer's answer for one realization. It is one of: CERTIFIED, OBSTRUCTED, SINGULAR, TWISTED, CONDITIONED, CORRESPONDENCE, or NOT TESTED. Certificates answer different queries and are never merged into one verdict.
+
+| Layer | Structure | Content | Rungs |
+|---|---|---|---|
+| A1 | sets, equality of laws | effective gluing; descent iff every fibre graph is connected; conversion iff kernel inclusion (5,651 contracts) | L0–L5, L9, L12–L15 |
+| A2 | submersion, tensors | tensors descend iff basic (horizontal and invariant) | L18–L20 |
+| A3 | Fisher metric | radical = ker DF; tensorial chart change; chart-free distance | L28–L35, L59–L63 |
+| A4 | strata, walls | specialization iff kernel inclusion; Cramér–Rao ∝ ε⁻²; forced monodromy | L21–L27, L37, L122 |
+| A5 | symmetry | gauge trivial on Q; Γ-equivariant charts; slices at cone points | L6–L11, L25 |
+| A6 | global classes | twisted forms H¹; Leray covers; H² gluing class | L111, L119–L122 |
+| A7 | error budgets | chain drift ≤ kδ; certified holonomy; Lipschitz constant 1/ε near walls; finite-sample charts as confidence sets | L16, L44–L48, L114 |
+| A8 | anchors | dilation fibre; counted channel fixes the metre | L94–L109 |
+| A9 | registry | ten realizations, from a finite law map to the full computation loop | all |
+
 ## Companion papers (attached to the closed ladder)
 
 | Companion | Attaches at | Content and status |
@@ -334,6 +366,7 @@ Exactness is cheap at the exact layer. It is expensive in exactly three places, 
 | `RG - GR - Both Sides.pdf` | L19, L117–L119 | hidden versus null; Einstein operator selected; second order by H-min plus data |
 | `RG - GR - Full Computation.pdf` | L12, L16, L47, L124 | tensors from probe histories; coupling tested on held-out data; first nonlinear term |
 | `RG - Ladder Organization.pdf` | all | dependency maps, walls, gates, anti-ladders; audits A1–A3 proposed, not applied |
+| `RG - Realization Atlas.pdf` | all (Section 21 of the print) | layers A1–A9: contract, theorem, witness and boundary per layer; registry of ten realizations with per-layer certificates; battery `rg_atlas_full.py`, which reruns layer 1 |
 
 Full GR is **not** derived from RG. The field equation is selected (Lovelock, H-min) or measured, and its nonlinear completion is open beyond its first term.
 
@@ -430,12 +463,13 @@ Stationary slices carry the Landau–Lifshitz radar metric, and loop synchroniza
 | Task residual | descent iff every fibre's output set is a singleton; terminal sufficient refinement, unique and natural; joint witnesses required | L116 |
 | Coupling symmetry | stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ under the covariance-only contract; multiplicities, not rank, control it | L117–L118 |
 | Final remainder on constant-type strata | local moduli plus Euclidean block bundles; initial complete natural invariant; classifying space; $\check H^2$ gluing class; no new primitive | L119–L123 |
+| Local classification of second-order data | word traces complete under O(p)×O(q) on every stratum; sign chart $H^1(G;\mathbb F_2)$ on simple strata; observer-relative classification for Lorentzian curvature | L124–L128 |
 
 ### Open problems of the ladder
 
-1. **Tame type enumeration (L124, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
-2. **Forced deterministic turbulence (L125).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
-3. **Second-order remainder across walls (L126).** Classify second-order families whose multiplicity type varies. This means per-stratum block-bundle data together with specialization along exit paths: merging and splitting of blocks, and rank change. The conjecture is a constructible stack over the exit-path category. Any classification must carry the monodromy that the walls force (L122). Open is not the same as primitive.
+1. **Tame type enumeration (L129, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
+2. **Forced deterministic turbulence (L130).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
+3. **Second-order remainder across walls (L131).** Classify second-order families whose multiplicity type varies. This means per-stratum block-bundle data together with specialization along exit paths: merging and splitting of blocks, and rank change. The conjecture is a constructible stack over the exit-path category. Any classification must carry the monodromy that the walls force (L122). Pointwise, the word traces stay complete across walls, but their inverse is ill-conditioned there, and the gluing data are not pointwise. Open is not the same as primitive.
 
 ### Declarations by design (not open problems)
 
