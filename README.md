@@ -665,7 +665,7 @@ See `RG - From the Wall to the Kernel.pdf` and `RG - Wall-Tap Experiment.pdf`.
 
 ## Citation and license
 
-DOI: [10.5281/zenodo.23152797](https://doi.org/10.5281/zenodo.23152797)
+DOI: [10.5281/zenodo.23623363](https://doi.org/10.5281/zenodo.23623363)
 Author: **Matěj Rada**
 License: **CC BY-NC-ND 4.0**
 
