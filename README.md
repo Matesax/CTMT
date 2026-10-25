@@ -16,7 +16,7 @@ Every further structure is added in a fixed order. Each addition is either force
 
 What remains after every gate is certified is **not a new primitive**. On second-order strata of constant canonical-correlation multiplicity, the final remainder is global structure of a classical kind. It consists of local canonical-correlation moduli together with a tuple of Euclidean block bundles. This pair is the initial complete natural invariant, and it is classified by $\prod_j B\mathrm O(m_j)\times B\mathrm O(p-r)\times B\mathrm O(q-r)$.
 
-The statement of record is **`Resolution Geometry.pdf`**, the closed print edition of October 2026 (42 pages). It is a ladder of **132 rungs, L0–L131**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **three** remaining open problems. The ladder is closed: later results are companion papers that attach to rungs and add none.
+The statement of record is **`Resolution Geometry.pdf`**, the closed print edition of October 2026 (45 pages). It is a ladder of **134 rungs, L0–L133**, with backward-only dependencies, proofs or precise citations for every step, a computational-complexity section, and **two** remaining open problems, both outside RG proper. The second-order remainder across walls is closed (L129–L131): hidden-room descent where chamber stabilizers are discrete, an obstruction tower in general, and a no-go for any constructible exit-path classification. The ladder is closed: later results are companion papers that attach to rungs and add none. Directly after the ladder, **the atlas** (Section 22, with the companion `RG - Realization Atlas.pdf`) charts concrete systems through nine layers:
 - A1: exact gluing;
 - A2: structured descent;
 - A3: metric charts;
@@ -138,7 +138,8 @@ A result is **LOCKED** only when every gate of the requested module is certified
 | Global transport and closure | L111–L115 | global transport; dispatcher totality; composite soundness; window-indexed walls; maximal closure |
 | Final remainder | L116–L123 | task residual and terminal sufficient refinement; the coupling is complement-relative; coupling stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ (multiplicities, not rank, control symmetry); Global Structure Theorem (stack, twisted forms $\check H^1$, block-bundle equivalence, initial invariant, classifying space); consequences ($2^\kappa$ classes over $S^1$, Fisher remainder $[K_N]$); gluing class in $\check H^2$; forced wall monodromy; no new primitive |
 | Local classification | L124–L128 | complete word-trace classifier of (R,N,C) modulo O(p)×O(q) on every stratum; simple-spectrum sign chart $H^1(G;\mathbb F_2)$; shorter descriptors and joint tasks; Lorentzian scalar invariants fail (vacuum plane wave), so curvature classification is observer-relative; classification selects no dynamics |
-| Open | L129–L131 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence; classification of the second-order remainder across walls |
+| Remainder across walls | L129–L131 | hidden-room descent (discrete chamber stabilizers: lifted wall rooms, link functions modulo a constant, holonomies); no constructible exit-path classification (continuous crossing moduli, functional link moduli, pointwise rooms insufficient); obstruction tower (transporter section; germ steps plus cell classes in $[S^{r-1},H_\tau]$; 3-cells unobstructed; base dimension ≤ 3 needs only π₀ and π₁) |
+| Open | L132–L133 | enumeration of tame characteristic types (external); uniform forgetting for forced deterministic turbulence |
 
 Each rung has exactly one status: **F** forced, **I** imported, **H** hypothesis-conditioned (the hypothesis is named), **Γ** conditional on the effective symmetry group, **N** no-go, or **O** open.
 
@@ -366,7 +367,7 @@ A certificate is the layer's answer for one realization. It is one of: CERTIFIED
 | `RG - GR - Both Sides.pdf` | L19, L117–L119 | hidden versus null; Einstein operator selected; second order by H-min plus data |
 | `RG - GR - Full Computation.pdf` | L12, L16, L47, L124 | tensors from probe histories; coupling tested on held-out data; first nonlinear term |
 | `RG - Ladder Organization.pdf` | all | dependency maps, walls, gates, anti-ladders; audits A1–A3 proposed, not applied |
-| `RG - Realization Atlas.pdf` | all (Section 21 of the print) | layers A1–A9: contract, theorem, witness and boundary per layer; registry of ten realizations with per-layer certificates; battery `rg_atlas_full.py`, which reruns layer 1 |
+| `RG - Realization Atlas.pdf` | all (Section 22 of the print) | layers A1–A9: contract, theorem, witness and boundary per layer; registry of ten realizations with per-layer certificates; battery `rg_atlas_full.py`, which reruns layer 1 |
 
 Full GR is **not** derived from RG. The field equation is selected (Lovelock, H-min) or measured, and its nonlinear completion is open beyond its first term.
 
@@ -389,7 +390,7 @@ Every battery registers naive and sharpened claims, uses fixed seeds, fails on n
 | Duration, dynamics, chaos | L81–L93 | `RG - Chaos Is Not Hidden.pdf`; `RG - Chaotic Experiments.pdf`; `RG - Time.pdf`; `RG - Operational Duration.pdf`; `RG - Operational Duration Boundary.pdf`; `RG - GR Time.pdf` |
 | Physical distance | L94–L109 | `RG - Physical Distance.pdf`; `RG - Wall-Tap Delay.pdf` |
 | Global transport and closure | L111–L115 | `RG - Maximal Closure.pdf`; `RG - Canonical Transport.pdf` |
-| Final remainder and local classification | L116–L131 | `RG - Final Remainder.pdf` |
+| Final remainder, local classification, walls | L116–L131 | `RG - Final Remainder.pdf` (walls: `RG - Obstruction Tower.zip`) |
 | Origin experiment | all | `RG - Wall-Tap Experiment.pdf`; `RG - From the Wall to the Kernel.pdf` |
 
 ---
@@ -464,12 +465,18 @@ Stationary slices carry the Landau–Lifshitz radar metric, and loop synchroniza
 | Coupling symmetry | stabilizer $\prod\mathrm O(m_j)\times\mathrm O(p-r)\times\mathrm O(q-r)$ under the covariance-only contract; multiplicities, not rank, control it | L117–L118 |
 | Final remainder on constant-type strata | local moduli plus Euclidean block bundles; initial complete natural invariant; classifying space; $\check H^2$ gluing class; no new primitive | L119–L123 |
 | Local classification of second-order data | word traces complete under O(p)×O(q) on every stratum; sign chart $H^1(G;\mathbb F_2)$ on simple strata; observer-relative classification for Lorentzian curvature | L124–L128 |
+| Second-order remainder across walls | hidden-room descent (discrete stabilizers); no constructible classification; obstruction tower in general | L129–L131 |
 
 ### Open problems of the ladder
 
-1. **Tame type enumeration (L129, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
-2. **Forced deterministic turbulence (L130).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
-3. **Second-order remainder across walls (L131).** Classify second-order families whose multiplicity type varies. This means per-stratum block-bundle data together with specialization along exit paths: merging and splitting of blocks, and rank change. The conjecture is a constructible stack over the exit-path category. Any classification must carry the monodromy that the walls force (L122). Pointwise, the word traces stay complete across walls, but their inverse is ill-conditioned there, and the gluing data are not pointwise. Open is not the same as primitive.
+1. **Tame type enumeration (L132, external).** Enumerate the tame types of degree-d characteristic cones. For plane curves this is the first part of Hilbert's sixteenth problem (known for d ≤ 7). It is a problem of real algebraic geometry, not of RG.
+2. **Forced deterministic turbulence (L133).** Above the Galerkin gate $G_N \ge 1$, no rung certifies uniform forgetting. TV is rigid, the contraction gate fails, and there is no noise and no expanding non-invertible transfer operator. With stochastic forcing, ergodicity is known only qualitatively (Hairer–Mattingly). An explicit uniform constant over a declared class is open.
+
+The former third problem, the **second-order remainder across walls**, is closed by L129–L131. The conjectured constructible stack over exit paths does not exist: walls carry continuous crossing moduli and functional link moduli. The classification is an obstruction tower:
+- **Germ steps:** lifted wall rooms and link functions.
+- **Cell steps:** classes in homotopy groups of the block stabilizers.
+
+What remains is classical homotopy computation, not RG.
 
 ### Declarations by design (not open problems)
 
@@ -533,7 +540,7 @@ Every RG component reduces to established mathematics:
 - **Physics and measurement:** Malament–Hawking reconstruction; Beckman–Quarles; Cauchy–Hölder ratio scales; Landau–Lifshitz radar metric; the SI definitions.
 - **Complexity:** Garey–Johnson; Shamir.
 
-RG claims no new primitive and no new branch of mathematics. On constant-type strata this is now a theorem (L123, under `H-split` and `H-type`), not only a remark. Its content is identification: every component of the remainder is a named classical object with a universal property. Across walls the question is open (L131). RG's contribution has three parts:
+RG claims no new primitive and no new branch of mathematics. On constant-type strata this is now a theorem (L123, under `H-split` and `H-type`), not only a remark. Its content is identification: every component of the remainder is a named classical object with a universal property. Across walls it is answered by an obstruction tower (L129–L131). Every ingredient is classical: one-sided limits of subspace configurations, and homotopy groups of orthogonal groups. RG's contribution has three parts:
 
 - a protocol-explicit, dependency-typed assembly of these components into one geometry of partial observability;
 - the kernel–stabilizer mechanism, which makes all modules share one symmetry group;
