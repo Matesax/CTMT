@@ -368,8 +368,12 @@ A certificate is the layer's answer for one realization. It is one of: CERTIFIED
 | `RG - GR - Full Computation.pdf` | L12, L16, L47, L124 | tensors from probe histories; coupling tested on held-out data; first nonlinear term |
 | `RG - Ladder Organization.pdf` | all | dependency maps, walls, gates, anti-ladders; audits A1–A3 proposed, not applied |
 | `RG - Realization Atlas.pdf` | all (Section 22 of the print) | layers A1–A9: contract, theorem, witness and boundary per layer; registry of ten realizations with per-layer certificates; battery `rg_atlas_full.py`, which reruns layer 1 |
+| `RG - Information Loss.pdf` | L0–L16, L129–L131 | contract-relative classification of information loss; star rooms K_v\∏K_v/S_i^∞ for compact gauges; uniform-limit criterion at isolated points |
+| `RG - Physical Shortcut.pdf` | L64–L68, L102–L109 | anchored arrival advantage; transit sign law v_c = 1/√(2+γ); gravity train; no advance of light under NEC |
+| `RG - Mesh Spacetime.pdf` | L111, L119, L131 | curvature as gluing defect of local systems; mesh closure under coverage, obstruction tower as completion |
+| `RG - GR Without Spacetime.pdf` | L2, L19, L117–L119 | every GR prediction descends to local data, a selected law and relational readouts; spacetime is a representative |
 
-Full GR is **not** derived from RG. The field equation is selected (Lovelock, H-min) or measured, and its nonlinear completion is open beyond its first term.
+GR does **not need spacetime** as an independent object: every prediction descends to local data, a selected law and relational readouts, and spacetime is a representative unique up to isometry (`RG - GR Without Spacetime.pdf`). Full GR is still **not** derived from RG. The field equation is selected (Lovelock, H-min) or measured, and its nonlinear completion is open beyond its first term.
 
 ## Module papers by stratum
 
